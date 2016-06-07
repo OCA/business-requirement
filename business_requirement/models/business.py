@@ -227,13 +227,13 @@ class BusinessRequirement(models.Model):
                      type='notification', subtype=None, parent_id=False,
                      attachments=None, context=None,
                      content_subtype='html', **kwargs):
-        # ---------------------------- changes start here 2016/03/08
         """
-        Overwrite method message_post from mail.thread to modify the default
-        behavior of subject with mail messages.
-        """
-        # ---------------------------- changes ends here 2016/03/08
-        """ Post a new message in an existing thread, returning the new
+            ---- changes start here 2016/03/08
+            Overwrite method message_post from mail.thread to modify the
+            default behavior of subject with mail messages.
+            ---- changes ends here 2016/03/08
+
+            Post a new message in an existing thread, returning the new
             mail.message ID.
 
             :param int thread_id: thread ID to post into, or list with one ID;
