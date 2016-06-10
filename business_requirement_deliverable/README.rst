@@ -10,9 +10,15 @@ Introduction
 ^^^^^^^^^^^^
 
 This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be used as standalone.
-Additional modules integrate them with other business areas, such as Sales, Procurement, Project or Analytic Accounting.
-So a Quotation can have an estimation supported by a BR analysis, and Project Tasks can be related to the BRs they implement or support.
+The Business Requirements features start as independent entities, and can be 
+used as standalone.
+
+Additional modules integrate them with other business areas, such as Sales, 
+Procurement, Project or Analytic Accounting. For example:
+
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
 
 |image7|
@@ -28,7 +34,6 @@ The following diagram gives a simplified view of the universe:
 .. |image11| image:: static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
-
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,8 +198,7 @@ Usage
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/
-project/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
