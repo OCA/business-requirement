@@ -11,6 +11,7 @@ Introduction
 ^^^^^^^^^^^^
 
 This module is part of a set ("Business Requirement").
+
 The Business Requirements features start as independent entities, and can be 
 used as standalone.
 
