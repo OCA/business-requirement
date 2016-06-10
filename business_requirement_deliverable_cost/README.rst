@@ -12,10 +12,9 @@ Introduction
 This module is part of a set ("Business Requirement").
 The Business Requirements features start as independent entities, and can be used as standalone.
 Additional modules integrate them with other business areas, such as Sales, Procurement, Project or Analytic Accounting. For example:
-* a Sales Quotation can have an estimation supported by a BR analysis, 
-* Project Tasks can be related to the BRs they implement or support.
-* Procurement and purchase can be generated our of the BR.
-
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
 |image7|
 
@@ -30,7 +29,6 @@ The following diagram gives a simplified view of the universe:
 .. |image11| image:: static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
-
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,13 +124,16 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-#. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage
+the Estimation pricelist will be used to help the calculation of the expected 
+revenue of a Deliverable based on the sum of related RL.
+
+#. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
 
 #. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. 
 
-#. in RL, the estimation sales price will be display per resource
+#. in RL, the estimation sales price will be display per resource.
 
-#. The total Revenue from the resource can be copied back to the deliverable line.
+#. The total Revenue from the resources (sum of the sales estimation for all RL) can be manually added back to the deliverable line.
 
 #. you can review the cost control tab of your BR as followed (only available for ACL Cost Control)
 
@@ -155,8 +156,7 @@ Known issues / Roadmap
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/
-project/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
