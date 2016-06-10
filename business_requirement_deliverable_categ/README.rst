@@ -9,38 +9,19 @@ Business Requirement Deliverable Task Category
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic 
-models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be used as standalone.
+Additional modules integrate them with other business areas, such as Sales, Procurement, Project or Analytic Accounting. For example:
+* a Sales Quotation can have an estimation supported by a BR analysis, 
+* Project Tasks can be related to the BRs they implement or support.
+* Procurement and purchase can be generated our of the BR.
+
 
 |image7|
 
 .. |image7| image:: static/img/bus_req_tree.png
    :width: 800 px
-   :alt: Business Requirement List view 
-
-
-The set comprises of multiple modules that can be used independently or not:
-
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
-
-Many other modules (business_requirement_*) completes this basic list.
+   :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
@@ -48,8 +29,7 @@ The following diagram gives a simplified view of the universe:
 
 .. |image11| image:: static/img/bus_req_module_diag.png
    :width: 800 px
-   :alt: Business Requirement modules diagram 
-
+   :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
