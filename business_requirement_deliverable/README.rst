@@ -9,44 +9,32 @@ Business Requirement Deliverable
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic 
-models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be used as standalone.
+Additional modules integrate them with other business areas, such as Sales, Procurement, Project or Analytic Accounting.
+So a Quotation can have an estimation supported by a BR analysis, and Project Tasks can be related to the BRs they implement or support.
+
 
 |image7|
 
 .. |image7| image:: static/img/bus_req_tree.png
    :width: 800 px
-   :alt: Business Requirement List view 
+   :alt: Business Requirement List view
 
+The following diagram gives a simplified view of the universe:
 
-The set comprises of multiple modules that can be used independently or not:
+|image11|
 
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
+.. |image11| image:: static/img/bus_req_module_diag.png
+   :width: 800 px
+   :alt: Business Requirement modules diagram
 
-Many other modules (business_requirement_*) completes this basic list.
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user. 
+or internal project user.
 A BR can contain multiple different parts depending on the company needs:
 
 * Customer Story: this is the requirement as expressed by the customer
@@ -115,7 +103,7 @@ RL directly depends on the DL.
 .. |image1| image:: static/img/bus_req_resource.png
    :width: 800 px
    :alt: Business Requirement Resources lines
-   
+
 What is the difference between Deliverable and Resources?
 
 Deliverables are:
@@ -134,14 +122,14 @@ Example
 ^^^^^^^
 * BR1
 
-  * DL1 
+  * DL1
 
     * RL1
     * RL2
     * RL3
 
   * DL2
- 
+
     * RL4
     * RL5
     * RL6
@@ -208,11 +196,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/
 project/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/
-project/issues/new?body=module:%20
-business_requirement_deliverable%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
-
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
