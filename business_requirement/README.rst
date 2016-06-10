@@ -10,37 +10,22 @@ Business Requirement
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be 
+used as standalone.
+
+Additional modules integrate them with other business areas, such as Sales, 
+Procurement, Project or Analytic Accounting. For example:
+
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
 |image7|
 
 .. |image7| image:: static/img/bus_req_tree.png
    :width: 800 px
-   :alt: Business Requirement List view 
-
-
-The set comprises of multiple modules that can be used independently or not:
-
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
-
-Many other modules (business_requirement_*) completes this basic list.
+   :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
@@ -48,8 +33,7 @@ The following diagram gives a simplified view of the universe:
 
 .. |image11| image:: static/img/bus_req_module_diag.png
    :width: 800 px
-   :alt: Business Requirement modules diagram 
-
+   :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,7 +79,7 @@ This module only contains the standard models for business requirement:
 
 .. |image0| image:: static/img/bus_req.png
    :width: 800 px
-   :alt: Business Requirement Form 
+   :alt: Business Requirement Form
 
 Installation
 ============
@@ -121,7 +105,7 @@ business requirements directly from email received at a specific address.
 .. |image1| image:: static/img/bus_req_alias.png
    :width: 800 px
    :alt: Email Alias setup
-   
+
 You can start conversation with the followers in the chatter area of the 
 BR like in tasks, issue or CRM leads.
 
@@ -162,8 +146,8 @@ Simple BR
 1. Define the header information
 
 * Master Project (Partner is the one related to the master project)
-* Priority (low, Middle, High)
-* Change request: Is it a change request (currently only informational)
+* Priority (low, Medium, High)
+* Change request: Is it a change request? (currently only informational with n model or action)
 * Tags: any relevant tag for the business.
 * Owner and approver by default
 
@@ -173,7 +157,7 @@ Simple BR
    :width: 800 px
    :alt: Input header information
 
-2. Input the customer story, scenario and gap (simple html editor with image and text )
+2. Input the customer story, scenario and gap (simple html editor with image and text)
 
 |image4|
 
@@ -182,8 +166,8 @@ Simple BR
    :alt: Input customer story, scenario, gap
 
 3. Confirm the Business requirement (for BR User and Manager)
-   At that stage the customer story/scenario/Gap is not modifiable anymore
-   
+   At that stage the Customer story/Scenario/Gap is not modifiable anymore
+
 |image5|
 
 .. |image5| image:: static/img/bus_req_confirmed.png
@@ -197,7 +181,7 @@ Simple BR
 .. |image6| image:: static/img/bus_req_approved.png
    :width: 800 px
    :alt: Confirm your business requirement
-   
+
 5. Once your requirement is finished and delivered you can set it as Done
 
 |image8|
@@ -244,9 +228,9 @@ Known issues / Roadmap
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requiremen/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/business-requiremen/issues/new?body=module:%20business_requirement%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
 
 Credits
