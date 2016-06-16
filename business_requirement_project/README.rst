@@ -23,7 +23,7 @@ Procurement, Project or Analytic Accounting. For example:
 
 |image7|
 
-.. |image7| image:: static/img/bus_req_tree.png
+.. |image7| image:: business_requirement_project/static/img/bus_req_tree.png
    :width: 800 px
    :alt: Business Requirement List view
 
@@ -31,7 +31,7 @@ The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: static/img/bus_req_module_diag.png
+.. |image11| image:: business_requirement_project/static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
 
@@ -88,7 +88,7 @@ wizard will create:
 
 |image0|
 
-.. |image0| image:: static/img/bus_req_project.png
+.. |image0| image:: business_requirement_project/static/img/bus_req_project.png
    :width: 800 px
    :alt: Business Requirement Project Wizard
 
