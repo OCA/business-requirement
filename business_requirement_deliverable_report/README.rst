@@ -22,7 +22,7 @@ Procurement, Project or Analytic Accounting. For example:
 
 |image7|
 
-.. |image7| image:: static/img/bus_req_tree.png
+.. |image7| image:: business_requirement_deliverable_report/static/img/bus_req_tree.png
    :width: 800 px
    :alt: Business Requirement List view
 
@@ -30,7 +30,7 @@ The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: static/img/bus_req_module_diag.png
+.. |image11| image:: business_requirement_deliverable_report/static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
 
@@ -75,7 +75,7 @@ This module adds multiple printouts to the deliverable modules:
 
 |image3|
 
-.. |image3| image:: static/img/bus_req_report1.png
+.. |image3| image:: business_requirement_deliverable_report/static/img/bus_req_report1.png
    :width: 800 px
    :alt: Basic Business requirement printout 
 
@@ -84,7 +84,7 @@ This module adds multiple printouts to the deliverable modules:
 
 |image4|
 
-.. |image4| image:: static/img/bus_req_report2.png
+.. |image4| image:: business_requirement_deliverable_report/static/img/bus_req_report2.png
    :width: 800 px
    :alt: Deliverable printout (details)
 
@@ -93,7 +93,7 @@ This module adds multiple printouts to the deliverable modules:
 
 |image5|
 
-.. |image5| image:: static/img/bus_req_report3.png
+.. |image5| image:: business_requirement_deliverable_report/static/img/bus_req_report3.png
    :width: 800 px
    :alt: Resource Printout (details)
 
