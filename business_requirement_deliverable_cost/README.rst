@@ -23,7 +23,7 @@ Procurement, Project or Analytic Accounting. For example:
 
 |image7|
 
-.. |image7| image:: static/img/bus_req_tree.png
+.. |image7| image:: business_requirement_deliverable_cost/static/img/bus_req_tree.png
    :width: 800 px
    :alt: Business Requirement List view
 
@@ -31,7 +31,7 @@ The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: static/img/bus_req_module_diag.png
+.. |image11| image:: business_requirement_deliverable_cost/static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
 
@@ -97,7 +97,7 @@ Without Sales Estimate nor Cost Control rights:
 
 |image3|
 
-.. |image3| image:: static/img/bus_req_acl1.png
+.. |image3| image:: business_requirement_deliverable_cost/static/img/bus_req_acl1.png
    :width: 800 px
    :alt: No access to sales or cost control information (Simple user)
 
@@ -105,7 +105,7 @@ Without Cost Control rights:
 
 |image4|
 
-.. |image4| image:: static/img/bus_req_acl2.png
+.. |image4| image:: business_requirement_deliverable_cost/static/img/bus_req_acl2.png
    :width: 800 px
    :alt: Access to sales price with no cost control (Salesmen)
 
@@ -114,7 +114,7 @@ With both Sales Estimate and Cost Control rights:
 
 |image5|
 
-.. |image5| image:: static/img/bus_req_acl3.png
+.. |image5| image:: business_requirement_deliverable_cost/static/img/bus_req_acl3.png
    :width: 800 px
    :alt: Full access to sales price and cost control (Financial dept)
 
@@ -144,7 +144,7 @@ revenue of a Deliverable based on the sum of related RL.
 
 |image2|
 
-.. |image2| image:: static/img/bus_req_control.png
+.. |image2| image:: business_requirement_deliverable_cost/static/img/bus_req_control.png
    :width: 800 px
    :alt: Control your cost for the BR
 
