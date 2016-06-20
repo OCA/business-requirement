@@ -4,8 +4,6 @@
 
 from openerp import api, fields, models, _
 from openerp.exceptions import except_orm
-# from openerp import tools
-# from openerp import SUPERUSER_ID
 
 
 class BusinessRequirement(models.Model):
@@ -41,24 +39,24 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    business_requirement = fields.Text(
+    business_requirement = fields.Html(
         'Customer Story',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    scenario = fields.Text(
+    scenario = fields.Html(
         'Scenario',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    gap = fields.Text(
+    gap = fields.Html(
         'Gap',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    business_requirement_categ_id = fields.Many2many(
+    category_ids = fields.Many2many(
         'business.requirement.category',
-        string='Business Requirement Categ',
+        string='Categories',
         relation='business_requirement_category_rel',
         readonly=True,
         states={'draft': [('readonly', False)]}
@@ -85,7 +83,9 @@ class BusinessRequirement(models.Model):
         ondelete='set null',
         domain="[('id', '!=', id)]",
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]}
     )
     level = fields.Integer(
         compute='_get_level',
@@ -109,10 +109,12 @@ class BusinessRequirement(models.Model):
         comodel_name='res.partner',
         string='Customer',
         store=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]}
     )
     sub_br_count = fields.Integer(
         string='Count',
-        compute='_sub_br_count'
+        compute='_compute_sub_br_count'
     )
     priority = fields.Selection(
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
@@ -122,9 +124,13 @@ class BusinessRequirement(models.Model):
     )
     requested_id = fields.Many2one(
         'res.users',
-        required=True,
-        default=lambda self: self.env.user,
         string='Requested by',
+        required=True,
+        readonly=True,
+        default=lambda self: self.env.user,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]}
     )
     confirmation_date = fields.Datetime(
         string='Confirmation Date',
@@ -172,17 +178,15 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.depends('parent_id')
     def _get_level(self):
-        def _compute_level(br):
-            return br.parent_id and br.parent_id.level + 1 or 1
-
         for br in self:
-            level = _compute_level(br)
+            level = br.parent_id and br.parent_id.level + 1 or 1
             br.level = level
 
     @api.multi
     @api.depends('business_requirement_ids')
-    def _sub_br_count(self):
-        self.sub_br_count = len(self.business_requirement_ids)
+    def _compute_sub_br_count(self):
+        for br in self:
+            br.sub_br_count = len(br.business_requirement_ids)
 
     @api.model
     def _get_states(self):
@@ -260,7 +264,7 @@ class BusinessRequirement(models.Model):
 
 class BusinessRequirementCategory(models.Model):
     _name = "business.requirement.category"
-    _description = "Business Requirement Category"
+    _description = "Categories"
 
     name = fields.Char(string='Name', required=True)
     parent_id = fields.Many2one(
