@@ -54,9 +54,9 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    business_requirement_categ_id = fields.Many2many(
+    category_ids = fields.Many2many(
         'business.requirement.category',
-        string='Business Requirement Categ',
+        string='Categories',
         relation='business_requirement_category_rel',
         readonly=True,
         states={'draft': [('readonly', False)]}
@@ -267,7 +267,7 @@ class BusinessRequirement(models.Model):
 
 class BusinessRequirementCategory(models.Model):
     _name = "business.requirement.category"
-    _description = "Business Requirement Category"
+    _description = "Categories"
 
     name = fields.Char(string='Name', required=True)
     parent_id = fields.Many2one(
