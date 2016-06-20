@@ -38,12 +38,12 @@
                         </div>
                         <h1>
                             <field name="name" class="oe_inline" readonly="1"/>-
-                            <field name="description" class="oe_inline"/>
+                            <field name="description"/>
                         </h1>
                         <group col="4">
                             <field name="project_id"/>
                             <field name="partner_id"/>
-                            <field name="business_requirement_categ_id" widget="many2many_tags"/>
+                            <field name="category_ids" widget="many2many_tags"/>
                             <field name="change_request"/>
                             <field name="priority" groups="base.group_user" widget="priority"/>
                             <field name="company_id" groups="base.group_multi_company"/>
@@ -103,7 +103,7 @@
                      <field name="name"/>
                      <field name="description"/>
                      <field name="project_id"/>
-                     <field name="business_requirement_categ_id"/>
+                     <field name="category_ids"/>
                      <field name="change_request"/>
                      <field name="priority"/>
                      <field name="state"/>
@@ -200,7 +200,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_business_requirement_category_tree">
-            <field name="name">Bus. Req. Category</field>
+            <field name="name">Categories</field>
             <field name="res_model">business.requirement.category</field>
             <field name="view_mode">tree,form,graph</field>
             <field name="view_type">form</field>
