@@ -39,17 +39,17 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    business_requirement = fields.Text(
+    business_requirement = fields.Html(
         'Customer Story',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    scenario = fields.Text(
+    scenario = fields.Html(
         'Scenario',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    gap = fields.Text(
+    gap = fields.Html(
         'Gap',
         readonly=True,
         states={'draft': [('readonly', False)]}
