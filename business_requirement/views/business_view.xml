@@ -52,13 +52,13 @@
                         <notebook>
                             <page string="Business Requirement">
                                 <group string="Customer Story">
-                                     <field name="business_requirement" widget="html" nolabel="1"/>
+                                     <field name="business_requirement" nolabel="1"/>
                                 </group>
                                 <group string="Scenario">
-                                    <field name="scenario" widget="html" nolabel="1"/>
+                                    <field name="scenario" nolabel="1"/>
                                 </group>
                                 <group string="Gap">
-                                     <field name="gap" widget="html" nolabel="1"/>
+                                     <field name="gap" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="Other Information">
@@ -99,7 +99,6 @@
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
                 <tree string="Business Requirement">
-                    <field name="sequence" widget="handle"/>
                      <field name="name"/>
                      <field name="description"/>
                      <field name="project_id"/>
