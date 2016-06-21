@@ -2,6 +2,7 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
+
 =============================================
 Business Requirement Deliverable Cost Control
 =============================================
@@ -9,53 +10,36 @@ Business Requirement Deliverable Cost Control
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic 
-models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be 
+used as standalone.
+
+Additional modules integrate them with other business areas, such as Sales, 
+Procurement, Project or Analytic Accounting. For example:
+
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
 |image7|
 
-.. |image7| image:: static/img/bus_req_tree.png
+.. |image7| image:: business_requirement_deliverable_cost/static/img/bus_req_tree.png
    :width: 800 px
-   :alt: Business Requirement List view 
-
-
-The set comprises of multiple modules that can be used independently or not:
-
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
-
-Many other modules (business_requirement_*) completes this basic list.
+   :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: static/img/bus_req_module_diag.png
+.. |image11| image:: business_requirement_deliverable_cost/static/img/bus_req_module_diag.png
    :width: 800 px
-   :alt: Business Requirement modules diagram 
-
+   :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user. 
+or internal project user.
 A BR can contain multiple different parts depending on the company needs:
 
 * Customer Story: this is the requirement as expressed by the customer
@@ -113,7 +97,7 @@ Without Sales Estimate nor Cost Control rights:
 
 |image3|
 
-.. |image3| image:: static/img/bus_req_acl1.png
+.. |image3| image:: business_requirement_deliverable_cost/static/img/bus_req_acl1.png
    :width: 800 px
    :alt: No access to sales or cost control information (Simple user)
 
@@ -121,7 +105,7 @@ Without Cost Control rights:
 
 |image4|
 
-.. |image4| image:: static/img/bus_req_acl2.png
+.. |image4| image:: business_requirement_deliverable_cost/static/img/bus_req_acl2.png
    :width: 800 px
    :alt: Access to sales price with no cost control (Salesmen)
 
@@ -130,7 +114,7 @@ With both Sales Estimate and Cost Control rights:
 
 |image5|
 
-.. |image5| image:: static/img/bus_req_acl3.png
+.. |image5| image:: business_requirement_deliverable_cost/static/img/bus_req_acl3.png
    :width: 800 px
    :alt: Full access to sales price and cost control (Financial dept)
 
@@ -145,19 +129,22 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-#. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage
+the Estimation pricelist will be used to help the calculation of the expected 
+revenue of a Deliverable based on the sum of related RL.
+
+#. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
 
 #. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. 
 
-#. in RL, the estimation sales price will be display per resource
+#. in RL, the estimation sales price will be display per resource.
 
-#. The total Revenue from the resource can be copied back to the deliverable line.
+#. The total Revenue from the resources (sum of the sales estimation for all RL) can be manually added back to the deliverable line.
 
 #. you can review the cost control tab of your BR as followed (only available for ACL Cost Control)
 
 |image2|
 
-.. |image2| image:: static/img/bus_req_control.png
+.. |image2| image:: business_requirement_deliverable_cost/static/img/bus_req_control.png
    :width: 800 px
    :alt: Control your cost for the BR
 
@@ -174,14 +161,9 @@ Known issues / Roadmap
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/
-project/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/
-project/issues/new?body=module:%20
-business_requirement_deliverable_cost%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
-
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
