@@ -114,7 +114,7 @@ class BusinessRequirement(models.Model):
     )
     sub_br_count = fields.Integer(
         string='Count',
-        compute='_sub_br_count'
+        compute='_compute_sub_br_count'
     )
     priority = fields.Selection(
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
@@ -178,16 +178,13 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.depends('parent_id')
     def _get_level(self):
-        def _compute_level(br):
-            return br.parent_id and br.parent_id.level + 1 or 1
-
         for br in self:
-            level = _compute_level(br)
+            level = br.parent_id and br.parent_id.level + 1 or 1
             br.level = level
 
     @api.multi
     @api.depends('business_requirement_ids')
-    def _sub_br_count(self):
+    def _compute_sub_br_count(self):
         for br in self:
             br.sub_br_count = len(br.business_requirement_ids)
 
