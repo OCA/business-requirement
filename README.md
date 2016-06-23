@@ -12,6 +12,12 @@ So a Quotation can have an estimation supported by a BR analysis, and Project Ta
 
 
 [//]: # (addons)
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[business_requirement](business_requirement/) | 8.0.5.0.0 | Business Requirement
+
 [//]: # (end addons)
 
 Translation Status
