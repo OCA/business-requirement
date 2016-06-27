@@ -33,7 +33,7 @@
                 <tree string="Business Requirement Deliverable" default_order="sequence">
                     <field name="currency_id" invisible="1"/>
                     <field name="sequence" widget="handle"/>
-                    <field name="description"/>
+                    <field name="name"/>
                     <field name="product_id"/>
                     <field name="uom_id"/>
                     <field name="qty"/>
@@ -51,7 +51,7 @@
                     <field name="sequence" widget="handle"/>
                     <field name="resource_type"/>
                     <field name="product_id"/>
-                    <field name="description"/>
+                    <field name="name"/>
                     <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                     <field name="qty"/>
                     <field name="uom_id"/>
@@ -78,12 +78,12 @@
                             <field name="unit_price"/>
                             <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                         </group>
-                        <group>
+<!--                         <group>
                             <field name="tax_ids" widget="many2many_tags"/>
                         </group>
-                    </group>
-                    <label for="description"/>
-                    <field name="description"/>
+ -->                    </group>
+                    <label for="name"/>
+                    <field name="name"/>
                     <group string="Resource Lines">
                         <field name="resource_ids" context="{'tree_view_ref':'view_business_requirement_resource_tree'}" nolabel="1"/>
                     </group>

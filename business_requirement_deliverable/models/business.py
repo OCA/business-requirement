@@ -11,7 +11,7 @@ class BusinessRequirementResource(models.Model):
     _description = "Business Requirement Resource"
 
     sequence = fields.Integer('Sequence')
-    description = fields.Char('Description', required=True)
+    name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
         string='Product',
@@ -54,7 +54,7 @@ class BusinessRequirementResource(models.Model):
             uom_id = product.uom_id.id
         if product.description_sale:
             description += '\n' + product.description_sale
-        self.description = description
+        self.name = description
         self.uom_id = uom_id
 
     @api.onchange('resource_type')
@@ -65,10 +65,13 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     @api.constrains('resource_type', 'uom_id')
     def _check_description(self):
-        if self.resource_type == 'task'\
-                and self.uom_id.category_id.name != 'Working Time':
-            raise ValidationError(_(
-                "When resource type is task, the uom category should be time"))
+        for resource in self:
+            if resource.resource_type == 'task' and (
+                    resource.uom_id.category_id != (
+                        self.env.ref('product.uom_categ_wtime'))):
+                raise ValidationError(_(
+                    "When resource type is task, "
+                    "the uom category should be time"))
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -76,7 +79,7 @@ class BusinessRequirementDeliverable(models.Model):
     _description = "Business Requirement Deliverable"
 
     sequence = fields.Integer('Sequence')
-    description = fields.Text('Description', required=True)
+    name = fields.Text('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
         string='Product',
@@ -111,9 +114,6 @@ class BusinessRequirementDeliverable(models.Model):
         compute='_get_price_total',
         string='Total revenue',
     )
-    tax_ids = fields.Many2many(
-        'account.tax',
-        string='Taxes')
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
@@ -124,11 +124,10 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     @api.depends('business_requirement_id.partner_id')
     def _get_currency(self):
-        if self.business_requirement_id.partner_id and \
-                self.business_requirement_id.partner_id.\
-                property_product_pricelist.currency_id:
-            self.currency_id = self.business_requirement_id.partner_id.\
-                property_product_pricelist.currency_id
+        partner_id = self.business_requirement_id.partner_id
+        currency_id = partner_id.property_product_pricelist.currency_id
+        if currency_id:
+            self.currency_id = currency_id
 
     @api.multi
     def _get_pricelist(self):
@@ -144,7 +143,8 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     @api.depends('unit_price', 'qty')
     def _get_price_total(self):
-        self.price_total = self.unit_price * self.qty
+        for brd in self:
+            brd.price_total = brd.unit_price * brd.qty
 
     @api.multi
     @api.onchange('product_id')
@@ -153,13 +153,11 @@ class BusinessRequirementDeliverable(models.Model):
         uom_id = False
         unit_price = 0
         product = self.product_id
-        tax_ids = False
 
         if product:
             description = product.name_get()[0][1]
             uom_id = product.uom_id.id
             unit_price = product.list_price
-            tax_ids = product.taxes_id
 
         if product.description_sale:
             description += '\n' + product.description_sale
@@ -177,10 +175,9 @@ class BusinessRequirementDeliverable(models.Model):
             )
             unit_price = product.price
 
-        self.description = description
+        self.name = description
         self.uom_id = uom_id
         self.unit_price = unit_price
-        self.tax_ids = tax_ids
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):

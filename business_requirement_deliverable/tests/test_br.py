@@ -9,7 +9,6 @@ from openerp.tests import common
 class BusinessRequirementTestCase(common.TransactionCase):
     def setUp(self):
         super(BusinessRequirementTestCase, self).setUp()
-        # self.br = self.registry['business.requirement']
         self.ModelDataObj = self.env['ir.model.data']
 
         # Configure unit of measure.
@@ -52,14 +51,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 'uom_po_id': self.uom_kg.id})
 
         vals = {
-            'name': ' test',
-            'description': 'test',
+            'description': ' test',
             'deliverable_lines': [
-                (0, 0, {'description': 'deliverable line1', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
                         'resource_ids': [
                             (0, 0, {
-                                'description': 'Resource Line1',
+                                'name': 'Resource Line1',
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
@@ -67,7 +65,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'resource_type': 'task',
                             }),
                             (0, 0, {
-                                'description': 'Resource Line1',
+                                'name': 'Resource Line1',
                                 'product_id': self.productC.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
@@ -76,11 +74,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
                             })
                         ]
                         }),
-                (0, 0, {'description': 'deliverable line2', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
                         'unit_price': 1100, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line3', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
                         'unit_price': 1300, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line4', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ],
@@ -94,20 +92,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_get_price_total(self):
         for line in self.br.deliverable_lines:
-            if line.description == 'deliverable line1':
+            if line.name == 'deliverable line1':
                 self.assertEqual(line.price_total, 900.0 * 1)
-            elif line.description == 'deliverable line2':
+            elif line.name == 'deliverable line2':
                 self.assertEqual(line.price_total, 1100.0 * 1)
-            elif line.description == 'deliverable line3':
+            elif line.name == 'deliverable line3':
                 self.assertEqual(line.price_total, 1300.0 * 1)
-            elif line.description == 'deliverable line4':
+            elif line.name == 'deliverable line4':
                 self.assertEqual(line.price_total, 1500.0 * 1)
-
-    def test_resource_get_price_total(self):
-        for line in self.br.deliverable_lines:
-            for resource in line.resource_ids:
-                if resource and resource.description == 'Resource Line1':
-                    self.assertEqual(resource.price_total, 100 * 500)
 
     def test_resource_uom_change(self):
         for line in self.br.deliverable_lines:
@@ -122,13 +114,42 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_resource_product_id_change(self):
         resource = self.env['business.requirement.resource'].search([
-            ('product_id', '=', self.productB.id)])[0]
+            ('product_id', '=', self.productA.id)])[0]
+
+        resource.write({'product_id': self.productB.id})
         resource.product_id_change()
+
         self.assertEqual(
-            resource.description, self.productB.name)
+            resource.name, self.productB.name)
         self.assertEqual(
             resource.product_id.id, self.productB.id)
         self.assertEqual(
             resource.uom_id.id, self.productB.uom_id.id)
+
+    def test_get_currency(self):
+        self.partner = self.env['res.partner'].create({
+            'name': 'Your company test',
+            'email': 'your.company@your-company.com',
+            'customer': True,
+            'company_type': 'company',
+        })
+        self.br.write({'partner_id': self.partner.id})
+        self.br._get_currency()
+        partner_id = self.br.partner_id
+        currency_id = partner_id.property_product_pricelist.currency_id
         self.assertEqual(
-            resource.unit_price, self.productB.standard_price)
+            self.br.currency_id, currency_id)
+
+    def test_deliverable_get_currency(self):
+        self.partner = self.env['res.partner'].create({
+            'name': 'Your company test',
+            'email': 'your.company@your-company.com',
+            'customer': True,
+            'company_type': 'company',
+        })
+        self.br.write({'partner_id': self.partner.id})
+        partner_id = self.br.partner_id
+        currency_id = partner_id.property_product_pricelist.currency_id
+        for line in self.br.deliverable_lines:
+            line._get_currency()
+            self.assertEqual(line.currency_id, currency_id)
