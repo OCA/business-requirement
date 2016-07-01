@@ -2,7 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
-from openerp.exceptions import ValidationError, Warning
+from openerp.exceptions import UserError, ValidationError
 from openerp.tools.translate import _
 
 
@@ -111,19 +111,19 @@ class BusinessRequirementDeliverable(models.Model):
         string='Sales Price'
     )
     price_total = fields.Float(
-        compute='_get_price_total',
+        compute='_compute_get_price_total',
         string='Total revenue',
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_get_currency',
+        compute='_compute_get_currency',
     )
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
-    def _get_currency(self):
+    def _compute_get_currency(self):
         partner_id = self.business_requirement_id.partner_id
         currency_id = partner_id.property_product_pricelist.currency_id
         if currency_id:
@@ -142,7 +142,7 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.multi
     @api.depends('unit_price', 'qty')
-    def _get_price_total(self):
+    def _compute_get_price_total(self):
         for brd in self:
             brd.price_total = brd.unit_price * brd.qty
 
@@ -226,12 +226,12 @@ class BusinessRequirement(models.Model):
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_get_currency',
+        compute='_compute_get_currency',
     )
 
     @api.multi
     @api.depends('partner_id')
-    def _get_currency(self):
+    def _compute_get_currency(self):
         if self.partner_id and (
             self.partner_id.property_product_pricelist.currency_id
         ):
@@ -243,7 +243,7 @@ class BusinessRequirement(models.Model):
     def partner_id_change(self):
         for record in self:
             if record.deliverable_lines:
-                raise Warning(_(
+                raise UserError(_(
                     'You are changing customer, on a business requirement'
                     'which already contains deliverable lines.'
                     'Pricelist could be different.'))
