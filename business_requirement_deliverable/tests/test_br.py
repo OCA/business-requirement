@@ -90,7 +90,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             cost_total, 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1)
 
-    def test_get_price_total(self):
+    def test_compute_get_price_total(self):
         for line in self.br.deliverable_lines:
             if line.name == 'deliverable line1':
                 self.assertEqual(line.price_total, 900.0 * 1)
@@ -126,7 +126,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.uom_id.id, self.productB.uom_id.id)
 
-    def test_get_currency(self):
+    def test_compute_get_currency(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
@@ -134,13 +134,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'company_type': 'company',
         })
         self.br.write({'partner_id': self.partner.id})
-        self.br._get_currency()
+        self.br._compute_get_currency()
         partner_id = self.br.partner_id
         currency_id = partner_id.property_product_pricelist.currency_id
         self.assertEqual(
             self.br.currency_id, currency_id)
 
-    def test_deliverable_get_currency(self):
+    def test_deliverable_compute_get_currency(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
@@ -151,5 +151,5 @@ class BusinessRequirementTestCase(common.TransactionCase):
         partner_id = self.br.partner_id
         currency_id = partner_id.property_product_pricelist.currency_id
         for line in self.br.deliverable_lines:
-            line._get_currency()
+            line._compute_get_currency()
             self.assertEqual(line.currency_id, currency_id)
