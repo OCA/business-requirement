@@ -2,6 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
+from openerp.exceptions import Warning as UserError
 
 
 @common.at_install(False)
@@ -50,6 +51,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
             {'name': 'Product D', 'uom_id': self.uom_kg.id,
                 'uom_po_id': self.uom_kg.id})
 
+        self.user = self.env['res.users'].sudo().create({
+            'name': 'Your user test',
+            'login': 'your.user@your-user.com'
+        })
+
         vals = {
             'description': ' test',
             'deliverable_lines': [
@@ -63,6 +69,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'uom_id': self.uom_hours.id,
                                 'unit_price': 500,
                                 'resource_type': 'task',
+                                'user_id': self.user.id,
                             }),
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -71,6 +78,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'uom_id': self.uom_hours.id,
                                 'unit_price': 500,
                                 'resource_type': 'task',
+                                'user_id': self.user.id,
                             })
                         ]
                         }),
@@ -153,3 +161,90 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line._compute_get_currency()
             self.assertEqual(line.currency_id, currency_id)
+
+    def test_resource_type_change(self):
+        for line in self.br.deliverable_lines:
+            for resource in line.resource_ids:
+                if resource and resource.resource_type == 'task':
+                    resource.write({'resource_type': 'procurement'})
+                    resource.resource_type_change()
+                    self.assertEqual(resource.user_id.id, False)
+
+    def test_get_pricelist(self):
+        self.partner = self.env['res.partner'].create({
+            'name': 'Your company test',
+            'email': 'your.company@your-company.com',
+            'customer': True,
+            'company_type': 'company',
+        })
+        self.br.write({'partner_id': self.partner.id})
+        for line in self.br.deliverable_lines:
+            price_list = line._get_pricelist()
+            self.assertEqual(
+                price_list.id,
+                self.partner.property_product_pricelist.id)
+
+    def test_product_id_change(self):
+        for line in self.br.deliverable_lines:
+            line.write({'product_id': self.productA.id})
+            description = ''
+            unit_price = 0
+            product = self.productA
+
+            if product:
+                description = product.name_get()[0][1]
+                unit_price = product.list_price
+
+            if product.description_sale:
+                description += '\n' + product.description_sale
+
+            unit_price = line.product_id.list_price
+            pricelist = line._get_pricelist()
+
+            if pricelist:
+                product = line.product_id.with_context(
+                    lang=line.business_requirement_id.partner_id.lang,
+                    partner=line.business_requirement_id.partner_id.id,
+                    quantity=line.qty,
+                    pricelist=pricelist.id,
+                    uom=line.uom_id.id,
+                )
+                unit_price = product.price
+
+            if pricelist:
+                product = line.product_id.with_context(
+                    lang=line.business_requirement_id.partner_id.lang,
+                    partner=line.business_requirement_id.partner_id.id,
+                    quantity=line.qty,
+                    pricelist=pricelist.id,
+                    uom=line.uom_id.id,
+                )
+                unit_price = product.price
+
+            line.product_id_change()
+            self.assertEqual(line.name, description)
+            self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
+            self.assertEqual(line.unit_price, unit_price)
+
+    def test_product_uom_change(self):
+        self.uom_id = self.env['product.uom'].search([('id', '=', 2)])
+        for line in self.br.deliverable_lines:
+            line.write({'product_id': self.productA.id})
+            line.product_id_change()
+            line.write({'product_id': self.uom_id.id})
+            self.unit_price = line.unit_price
+            line.product_uom_change()
+            self.assertTrue(line.unit_price > self.unit_price)
+
+    def test_partner_id_change(self):
+        self.partner = self.env['res.partner'].create({
+            'name': 'Your company test',
+            'email': 'your.company@your-company.com',
+            'customer': True,
+            'company_type': 'company',
+        })
+        self.br.write({'partner_id': self.partner.id})
+        try:
+            self.br.partner_id_change()
+        except UserError, e:
+            self.assertEqual(type(e), UserError)
