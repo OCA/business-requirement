@@ -78,10 +78,7 @@
                             <field name="unit_price"/>
                             <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                         </group>
-<!--                         <group>
-                            <field name="tax_ids" widget="many2many_tags"/>
-                        </group>
- -->                    </group>
+                    </group>
                     <label for="name"/>
                     <field name="name"/>
                     <group string="Resource Lines">
