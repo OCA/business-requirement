@@ -17,6 +17,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [business_requirement](business_requirement/) | 8.0.5.0.0 | Business Requirement
+[business_requirement_deliverable](business_requirement_deliverable/) | 8.0.4.0.0 | Business Requirement Deliverable
 
 [//]: # (end addons)
 
