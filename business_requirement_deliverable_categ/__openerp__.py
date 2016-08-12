@@ -12,8 +12,8 @@
     "application": False,
     "installable": True,
     "depends": [
-        "business_requirement_deliverable",
-        "project_task_category",
+        "project_categ",
+        "business_requirement_deliverable"
     ],
     'image': [
 		'static/img/bus_req_tree.png',

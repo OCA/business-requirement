@@ -9,8 +9,8 @@ class BusinessRequirementDeliverableCateg(models.Model):
     _inherit = "business.requirement.resource"
 
     task_categ_id = fields.Many2one(
-        'task.category',
-        string="Task Category"
+        'project.category',
+        string="Root Category for Tasks"
     )
 
     @api.onchange('resource_type')
