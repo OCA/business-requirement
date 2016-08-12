@@ -7,7 +7,7 @@
     'summary': 'Business Requirement Deliverable Task Categories',
     "version": "8.0.3.0.2",
     "website": "www.elico-corp.com",
-    "author": "Elico corp",
+    "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
@@ -16,10 +16,9 @@
         "business_requirement_deliverable"
     ],
     'image': [
-		'static/img/bus_req_tree.png',
-		'static/img/bus_req_category.png'
-	],
-
+        'static/img/bus_req_tree.png',
+        'static/img/bus_req_category.png'
+    ],
     "data": [
         "views/business_requirement_deliverable_categ.xml",
     ],
