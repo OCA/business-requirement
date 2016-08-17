@@ -21,18 +21,15 @@ Procurement, Project or Analytic Accounting. For example:
 * Procurement and purchase can be generated out of the BR
 
 
-|image7|
-
-.. |image7| figure:: business_requirement_deliverable/static/img/bus_req_tree.png
-   :width: 800 px
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
    :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
-|image11|
 
-.. |image11| figure:: business_requirement_deliverable/static/img/bus_req_module_diag.png
-   :width: 800 px
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
    :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
@@ -85,10 +82,8 @@ customer. They are **customer oriented** and can be either physical or service p
 
 DL directly depends on the BR.
 
-|image0|
-
-.. |image0| figure:: business_requirement_deliverable/static/img/bus_req_deliverable.png
-   :width: 800 px
+.. figure:: static/img/bus_req_deliverable.png
+   :width: 600 px
    :alt: Business Requirement Deliverable lines
 
 
@@ -103,10 +98,8 @@ Resources Lines (RL) are the different tasks or procurements needed to achieve o
 RL directly depends on the DL.
 
 
-|image1|
-
-.. |image1| figure:: business_requirement_deliverable/static/img/bus_req_resource.png
-   :width: 800 px
+..  figure:: static/img/bus_req_resource.png
+   :width: 600 px
    :alt: Business Requirement Resources lines
 
 What is the difference between Deliverable and Resources?
@@ -183,10 +176,8 @@ Usage
 
 #. in RL you can already assign the responsible of the task if necessary
 
-|image2|
-
-.. |image2| figure:: business_requirement_deliverable/static/img/bus_req_deliverable2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_deliverable2.png
+   :width: 600 px
    :alt: Inputing the deliverables and resources lines
 
 
