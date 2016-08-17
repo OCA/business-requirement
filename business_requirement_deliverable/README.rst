@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+.. figure:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
@@ -23,7 +23,7 @@ Procurement, Project or Analytic Accounting. For example:
 
 |image7|
 
-.. |image7| image:: business_requirement_deliverable/static/img/bus_req_tree.png
+.. |image7| figure:: business_requirement_deliverable/static/img/bus_req_tree.png
    :width: 800 px
    :alt: Business Requirement List view
 
@@ -31,7 +31,7 @@ The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: business_requirement_deliverable/static/img/bus_req_module_diag.png
+.. |image11| figure:: business_requirement_deliverable/static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
 
@@ -87,7 +87,7 @@ DL directly depends on the BR.
 
 |image0|
 
-.. |image0| image:: business_requirement_deliverable/static/img/bus_req_deliverable.png
+.. |image0| figure:: business_requirement_deliverable/static/img/bus_req_deliverable.png
    :width: 800 px
    :alt: Business Requirement Deliverable lines
 
@@ -105,7 +105,7 @@ RL directly depends on the DL.
 
 |image1|
 
-.. |image1| image:: business_requirement_deliverable/static/img/bus_req_resource.png
+.. |image1| figure:: business_requirement_deliverable/static/img/bus_req_resource.png
    :width: 800 px
    :alt: Business Requirement Resources lines
 
@@ -185,14 +185,14 @@ Usage
 
 |image2|
 
-.. |image2| image:: business_requirement_deliverable/static/img/bus_req_deliverable2.png
+.. |image2| figure:: business_requirement_deliverable/static/img/bus_req_deliverable2.png
    :width: 800 px
    :alt: Inputing the deliverables and resources lines
 
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 
 Bug Tracker
@@ -216,7 +216,7 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://odoo-community.org/logo.png
+.. figure:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
    :target: https://odoo-community.org
 
