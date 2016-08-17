@@ -23,7 +23,7 @@ Procurement, Project or Analytic Accounting. For example:
 
 |image7|
 
-.. |image7| image:: business_requirement/static/img/bus_req_tree.png
+.. |image7| figure:: business_requirement/static/img/bus_req_tree.png
    :width: 800 px
    :alt: Business Requirement List view
 
@@ -31,7 +31,7 @@ The following diagram gives a simplified view of the universe:
 
 |image11|
 
-.. |image11| image:: business_requirement/static/img/bus_req_module_diag.png
+.. |image11| figure:: business_requirement/static/img/bus_req_module_diag.png
    :width: 800 px
    :alt: Business Requirement modules diagram
 
@@ -77,7 +77,7 @@ This module only contains the standard models for business requirement:
 
 |image0|
 
-.. |image0| image:: business_requirement/static/img/bus_req.png
+.. |image0| figure:: business_requirement/static/img/bus_req.png
    :width: 800 px
    :alt: Business Requirement Form
 
@@ -102,7 +102,7 @@ business requirements directly from email received at a specific address.
 
 |image1|
 
-.. |image1| image:: business_requirement/static/img/bus_req_alias.png
+.. |image1| figure:: business_requirement/static/img/bus_req_alias.png
    :width: 800 px
    :alt: Email Alias setup
 
@@ -125,7 +125,7 @@ You can create and assign tags for your business requirements in Business Requir
 
 |image2|
 
-.. |image2| image:: business_requirement/static/img/bus_req_tags.png
+.. |image2| figure:: business_requirement/static/img/bus_req_tags.png
    :width: 600 px
    :alt: Define Tags
 
@@ -153,7 +153,7 @@ Simple BR
 
 |image3|
 
-.. |image3| image:: business_requirement/static/img/bus_req_tags2.png
+.. |image3| figure:: business_requirement/static/img/bus_req_tags2.png
    :width: 800 px
    :alt: Input header information
 
@@ -161,7 +161,7 @@ Simple BR
 
 |image4|
 
-.. |image4| image:: business_requirement/static/img/bus_req_cust_story.png
+.. |image4| figure:: business_requirement/static/img/bus_req_cust_story.png
    :width: 600 px
    :alt: Input customer story, scenario, gap
 
@@ -170,7 +170,7 @@ Simple BR
 
 |image5|
 
-.. |image5| image:: business_requirement/static/img/bus_req_confirmed.png
+.. |image5| figure:: business_requirement/static/img/bus_req_confirmed.png
    :width: 800 px
    :alt: Confirm your business requirement
 
@@ -178,7 +178,7 @@ Simple BR
 
 |image6|
 
-.. |image6| image:: business_requirement/static/img/bus_req_approved.png
+.. |image6| figure:: business_requirement/static/img/bus_req_approved.png
    :width: 800 px
    :alt: Confirm your business requirement
 
@@ -186,7 +186,7 @@ Simple BR
 
 |image8|
 
-.. |image8| image:: business_requirement/static/img/bus_req_done.png
+.. |image8| figure:: business_requirement/static/img/bus_req_done.png
    :width: 800 px
    :alt: Confirm your business requirement
 
@@ -194,13 +194,13 @@ Simple BR
 
 |image9|
 
-.. |image9| image:: business_requirement/static/img/bus_req_cancel.png
+.. |image9| figure:: business_requirement/static/img/bus_req_cancel.png
    :width: 800 px
    :alt: Cancel your business requirement
 
 |image10|
 
-.. |image10| image:: business_requirement/static/img/bus_req_drop.png
+.. |image10| figure:: business_requirement/static/img/bus_req_drop.png
    :width: 800 px
    :alt: Drop your business requirement
 
@@ -213,7 +213,7 @@ This is a simple parent/child relation (see roadmap).
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 Known issues / Roadmap
 ======================
