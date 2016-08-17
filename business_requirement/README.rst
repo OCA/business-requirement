@@ -21,18 +21,14 @@ Procurement, Project or Analytic Accounting. For example:
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
-|image7|
-
-.. |image7| figure:: business_requirement/static/img/bus_req_tree.png
-   :width: 800 px
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
    :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
-|image11|
-
-.. |image11| figure:: business_requirement/static/img/bus_req_module_diag.png
-   :width: 800 px
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
    :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
@@ -74,10 +70,7 @@ This module only contains the standard models for business requirement:
 * Standard setup and views
 * Standard Workflow
 
-
-|image0|
-
-.. |image0| figure:: business_requirement/static/img/bus_req.png
+.. figure:: static/img/bus_req.png
    :width: 800 px
    :alt: Business Requirement Form
 
@@ -100,10 +93,8 @@ Alias and emails
 You can setup an alias in Settings/Technical/Email/Alias in order to create 
 business requirements directly from email received at a specific address.
 
-|image1|
-
-.. |image1| figure:: business_requirement/static/img/bus_req_alias.png
-   :width: 800 px
+.. figure:: static/img/bus_req_alias.png
+   :width: 600 px
    :alt: Email Alias setup
 
 You can start conversation with the followers in the chatter area of the 
@@ -123,9 +114,7 @@ Tags
 
 You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
 
-|image2|
-
-.. |image2| figure:: business_requirement/static/img/bus_req_tags.png
+.. figure:: static/img/bus_req_tags.png
    :width: 600 px
    :alt: Define Tags
 
@@ -151,57 +140,45 @@ Simple BR
 * Tags: any relevant tag for the business.
 * Owner and approver by default
 
-|image3|
-
-.. |image3| figure:: business_requirement/static/img/bus_req_tags2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_tags2.png
+   :width: 600 px
    :alt: Input header information
 
 2. Input the customer story, scenario and gap (simple html editor with image and text)
 
-|image4|
-
-.. |image4| figure:: business_requirement/static/img/bus_req_cust_story.png
+.. figure:: static/img/bus_req_cust_story.png
    :width: 600 px
    :alt: Input customer story, scenario, gap
 
 3. Confirm the Business requirement (for BR User and Manager)
    At that stage the Customer story/Scenario/Gap is not modifiable anymore
 
-|image5|
-
-.. |image5| figure:: business_requirement/static/img/bus_req_confirmed.png
-   :width: 800 px
+.. figure:: static/img/bus_req_confirmed.png
+   :width: 600 px
    :alt: Confirm your business requirement
 
 4. Approve the Business requirement (for BR Manager)
 
-|image6|
-
-.. |image6| figure:: business_requirement/static/img/bus_req_approved.png
-   :width: 800 px
+.. figure:: static/img/bus_req_approved.png
+   :width: 600 px
    :alt: Confirm your business requirement
 
 5. Once your requirement is finished and delivered you can set it as Done
 
-|image8|
-
-.. |image8| figure:: business_requirement/static/img/bus_req_done.png
-   :width: 800 px
+.. figure:: static/img/bus_req_done.png
+   :width: 600 px
    :alt: Confirm your business requirement
 
 6. Alternatively, you can cancel the BR (in case it is not relevant or mistake) or drop it (when customer makes the decision to discontinue it)
 
-|image9|
 
-.. |image9| figure:: business_requirement/static/img/bus_req_cancel.png
-   :width: 800 px
+.. figure:: static/img/bus_req_cancel.png
+   :width: 600 px
    :alt: Cancel your business requirement
 
-|image10|
 
-.. |image10| figure:: business_requirement/static/img/bus_req_drop.png
-   :width: 800 px
+.. figure:: static/img/bus_req_drop.png
+   :width: 600 px
    :alt: Drop your business requirement
 
 
@@ -211,7 +188,7 @@ User can create sub business requirements for a given BR for complex cases.
 
 This is a simple parent/child relation (see roadmap).
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/222/8.0
 
