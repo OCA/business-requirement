@@ -125,21 +125,23 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     @api.depends('business_requirement_id.partner_id')
     def _compute_get_currency(self):
-        partner_id = self.business_requirement_id.partner_id
-        currency_id = partner_id.property_product_pricelist.currency_id
-        if currency_id:
-            self.currency_id = currency_id
+        for brd in self:
+            partner_id = brd.business_requirement_id.partner_id
+            currency_id = partner_id.property_product_pricelist.currency_id
+            if currency_id:
+                brd.currency_id = currency_id
 
     @api.multi
     def _get_pricelist(self):
-        if self.business_requirement_id and (
-            self.business_requirement_id.partner_id
-        ) and (
-            self.business_requirement_id.partner_id.property_product_pricelist
-        ):
-            return self.business_requirement_id.partner_id.\
-                property_product_pricelist
-        return False
+        for brd in self:
+            partner_id = False
+            if brd.business_requirement_id and (
+                brd.business_requirement_id.partner_id
+            ):
+                partner_id = brd.business_requirement_id.partner_id
+            if partner_id and partner_id.property_product_pricelist:
+                return partner_id.property_product_pricelist
+            return partner_id
 
     @api.multi
     @api.depends('unit_price', 'qty')
