@@ -9,21 +9,21 @@ class BRDeliverableSourceReport(models.AbstractModel):
     _name = 'business.requirement.deliverable.resource.report'
 
     @api.multi
-    def render_html(self, cr, uid, ids, data=None, context=None):
-        report_obj = self.pool['report']
+    def render_html(self, data=None):
+        report_obj = self.env['report']
         br_deliverable_resource_report = report_obj._get_report_from_name(
-            cr, uid,
-            'business_requirement_deliverable_report.br_deliverable_resource_report')
-        selected_records = self.pool['business.requirement'].browse(
-            cr, uid, ids, context=context)
+            '%s.%s' % (
+                'business_requirement_deliverable_report',
+                'br_deliverable_resource_report'))
 
         docargs = {
-            'doc_ids': ids,
-            'doc_model': br_deliverable_resource_report,
-            'docs': selected_records,
+            'doc_ids': self._ids,
+            'doc_model': br_deliverable_resource_report.model,
+            'docs': self,
         }
 
         return report_obj.render(
-            cr, uid, ids,
-            'business_requirement_deliverable_report.br_deliverable_resource_report',
-            docargs, context=context)
+            '%s.%s' % (
+                'business_requirement_deliverable_report',
+                'br_deliverable_resource_report'),
+            docargs)
