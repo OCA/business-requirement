@@ -66,35 +66,32 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'partner_id': 3,
         })
         vals = {
-            'name': ' test',
             'description': 'test',
             'project_id': self.project.id,
             'partner_id': 3,
             'deliverable_lines': [
-                (0, 0, {'description': 'deliverable line1', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
                         'resource_ids': [
                             (0, 0, {
-                                'description': 'Resource Line2',
+                                'name': 'Resource Line2',
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
                                 'unit_price': 500,
                                 'resource_type': 'task',
-                                'task_name': 'task 1'
                             }),
                             (0, 0, {
-                                'description': 'Resource Line1',
+                                'name': 'Resource Line1',
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
                                 'unit_price': 500,
                                 'resource_type': 'task',
-                                'task_name': 'task 2',
                                 'sale_price_unit': 400,
                             }),
                             (0, 0, {
-                                'description': 'Resource Line3',
+                                'name': 'Resource Line3',
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
@@ -104,11 +101,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
                             }),
                         ]
                         }),
-                (0, 0, {'description': 'deliverable line2', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
                         'unit_price': 1100, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line3', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
                         'unit_price': 1300, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line4', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ],
@@ -119,7 +116,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         """ Checks if the _compute_sale_price_total works properly
         """
         resource = self.env['business.requirement.resource'].search([
-            ('description', '=', 'Resource Line1')])
+            ('name', '=', 'Resource Line1')])
         self.assertEqual(
             resource.sale_price_total, 40000)
 
@@ -127,10 +124,30 @@ class BusinessRequirementTestCase(common.TransactionCase):
         """ Checks if the product_id_change works properly
         """
         resource = self.env['business.requirement.resource'].search([
-            ('description', '=', 'Resource Line1')])
+            ('name', '=', 'Resource Line1')])
         resource.product_id_change()
+        # should be ammend
+
+        unit_price = 0
+        unit_price = resource.product_id.standard_price
+        pricelist_id = resource._get_pricelist()
+        partner_id = resource._get_partner()
+        sale_price_unit = resource.product_id.list_price
+        if pricelist_id and partner_id and resource.uom_id:
+            product = resource.product_id.with_context(
+                lang=partner_id.lang,
+                partner=partner_id.id,
+                quantity=resource.qty,
+                pricelist=pricelist_id.id,
+                uom=resource.uom_id.id,
+            )
+            sale_price_unit = product.list_price
+            unit_price = product.standard_price
+
         self.assertEqual(
-            resource.sale_price_unit, 0)
+            resource.unit_price, unit_price)
+        self.assertEqual(
+            resource.sale_price_unit, sale_price_unit)
 
     def test_compute_resource_tasks_total(self):
         """ Checks if the _compute_resource_tasks_total works properly
