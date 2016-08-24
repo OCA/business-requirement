@@ -25,7 +25,7 @@ class BusinessRequirementResource(models.Model):
     )
     price_total = fields.Float(
         store=False,
-        compute='_get_price_total',
+        compute='_compute_get_price_total',
         string='Total Cost',
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
@@ -33,7 +33,7 @@ class BusinessRequirementResource(models.Model):
 
     @api.multi
     @api.depends('unit_price', 'qty')
-    def _get_price_total(self):
+    def _compute_get_price_total(self):
         for resource in self:
             if resource.unit_price and resource.qty:
                 resource.price_total = resource.unit_price * resource.qty
