@@ -9,23 +9,36 @@ class BusinessRequirementResource(models.Model):
 
     sale_price_unit = fields.Float(
         string='Sales Price',
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_estimation',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_estimation',
     )
     sale_price_total = fields.Float(
         compute='_compute_sale_price_total',
         string='Total Revenue',
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_estimation',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_estimation',
     )
     unit_price = fields.Float(
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_cost_control',
+        string='Cost Price',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
     price_total = fields.Float(
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_cost_control',
+        store=False,
+        compute='_get_price_total',
+        string='Total Cost',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
+
+    @api.multi
+    @api.depends('unit_price', 'qty')
+    def _get_price_total(self):
+        for resource in self:
+            if resource.unit_price and resource.qty:
+                resource.price_total = resource.unit_price * resource.qty
+            else:
+                resource.price_total = 0
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
@@ -34,56 +47,112 @@ group_business_requirement_cost_control',
             resource.sale_price_total = resource.sale_price_unit * resource.qty
 
     @api.multi
+    def _get_partner(self):
+        for resource in self:
+            br_id = False
+            if resource.business_requirement_deliverable_id:
+                br_deliverable = resource.business_requirement_deliverable_id
+            if br_deliverable and br_deliverable.business_requirement_id:
+                br_id = br_deliverable.business_requirement_id
+            if br_id and br_id.partner_id:
+                return br_id.partner_id
+            else:
+                return False
+
+    @api.multi
+    def _get_pricelist(self):
+        for resource in self:
+            partner_id = resource._get_partner()
+            if partner_id:
+                if partner_id.property_product_pricelist:
+                    return partner_id.property_product_pricelist
+            else:
+                return False
+
+    @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
         super(BusinessRequirementResource, self).product_id_change()
-        for resource in self:
-            deliverable_project = \
-                resource.business_requirement_deliverable_id.project_id
-            if deliverable_project.pricelist_id and \
-                    deliverable_project.partner_id and resource.uom_id:
-                product = resource.product_id.with_context(
-                    lang=deliverable_project.partner_id.lang,
-                    partner=deliverable_project.partner_id.id,
-                    quantity=resource.qty,
-                    pricelist=deliverable_project.pricelist_id.id,
-                    uom=resource.uom_id.id,
-                )
-                resource.sale_price_unit = product.price
+        unit_price = 0
+        unit_price = self.product_id.standard_price
+        pricelist_id = self._get_pricelist()
+        partner_id = self._get_partner()
+        sale_price_unit = self.product_id.list_price
+        if pricelist_id and partner_id and self.uom_id:
+            product = self.product_id.with_context(
+                lang=partner_id.lang,
+                partner=partner_id.id,
+                quantity=self.qty,
+                pricelist=pricelist_id.id,
+                uom=self.uom_id.id,
+            )
+            sale_price_unit = product.list_price
+            unit_price = product.standard_price
+
+        self.unit_price = unit_price
+        self.sale_price_unit = sale_price_unit
 
     @api.multi
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        super(BusinessRequirementResource, self).product_uom_change()
-        for resource in self:
-            if not resource.uom_id:
-                resource.sale_price_unit = 0.0
-                return
-            deliverable_project = \
-                resource.business_requirement_deliverable_id.project_id
-            if deliverable_project.pricelist_id and \
-                    deliverable_project.partner_id:
-                product = resource.product_id.with_context(
-                    lang=deliverable_project.partner_id.lang,
-                    partner=deliverable_project.partner_id.id,
-                    quantity=resource.qty,
-                    pricelist=deliverable_project.pricelist_id.id,
-                    uom=resource.uom_id.id,
-                )
-                resource.sale_price_unit = product.price
+        qty_uom = 0
+        unit_price = self.unit_price
+        sale_price_unit = self.product_id.list_price
+        pricelist = self._get_pricelist()
+        partner_id = self._get_partner()
+        product_uom = self.env['product.uom']
+
+        if self.qty != 0:
+            qty_uom = product_uom._compute_qty(
+                self.uom_id.id,
+                self.qty,
+                self.product_id.uom_id.id
+            ) / self.qty
+
+        if pricelist:
+            product = self.product_id.with_context(
+                lang=partner_id.lang,
+                partner=partner_id.id,
+                quantity=self.qty,
+                pricelist=pricelist.id,
+                uom=self.uom_id.id,
+            )
+            unit_price = product.standard_price
+            sale_price_unit = product.list_price
+
+        self.unit_price = unit_price * qty_uom
+        self.sale_price_unit = sale_price_unit * qty_uom
 
 
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
     unit_price = fields.Float(
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_estimation',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_estimation',
     )
     price_total = fields.Float(
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_estimation',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_estimation',
     )
+
+    @api.multi
+    def action_button_update_estimation(self):
+        for deliverable in self:
+            if deliverable.resource_ids:
+                for resource in deliverable.resource_ids:
+                    pricelist_id = resource._get_pricelist()
+                    partner_id = resource._get_partner()
+                    resource.sale_price_unit = resource.product_id.lst_price
+                    if pricelist_id and partner_id and resource.uom_id:
+                        product = resource.product_id.with_context(
+                            lang=partner_id.lang,
+                            partner=partner_id.id,
+                            quantity=resource.qty,
+                            pricelist=pricelist_id.id,
+                            uom=resource.uom_id.id,
+                        )
+                        resource.sale_price_unit = product.price
 
 
 class BusinessRequirement(models.Model):
@@ -91,28 +160,28 @@ class BusinessRequirement(models.Model):
 
     total_revenue = fields.Float(
         store=False,
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_estimation',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_estimation',
     )
     resource_tasks_total = fields.Float(
         compute='_compute_resource_tasks_total',
         string='Total tasks',
         store=False,
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_cost_control',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
         string='Total procurement',
         store=False,
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_cost_control',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
     gross_profit = fields.Float(
         string='Estimated Gross Profit',
         compute='_compute_gross_profit',
-        groups='business_requirement_deliverable_cost.\
-group_business_requirement_cost_control',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
 
     @api.multi
