@@ -3,101 +3,13 @@
     <data>
         <template id="br_deliverable_report">
             <t t-call="report.html_container">
-                <t t-call="report.internal_layout">
+                <t t-call="business_requirement_deliverable_report.internal_layout_br_header">
                     <div class="page" name="page">
                         <t t-foreach="docs" t-as="o">
-                            <div style="page-break-after: always;">
-                                <h3><span t-field="res_company.name"/></h3>
-                                <table class="table table-bordered" style="table-collapse:collapse; table-layout:fixed">
-                                    <tbody>
-                                        <tr>
-                                            <th colspan="3">Business Requirement</th>
-                                            <th colspan="3">Customer</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><span t-field="o.name"/>-<span t-field="o.description"/></td>
-                                            <td colspan="3"><span t-field="o.partner_id.name"/></td>
-                                        </tr>
+                            <div style="page-break-after: always;">            
 
-                                        <tr>
-                                            <th colspan="2">Project</th>
-                                            <th colspan="2">Change Request</th>
-                                            <th colspan="2">Category</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2"><span t-field="o.project_id.name"/></td>
-                                            <td colspan="2">
-                                                <t t-if="o.change_request">Yes</t>
-                                                <t t-if="not o.change_request">No</t>
-                                            </td>
-                                            <td colspan="2">
-                                                <t t-foreach="o.category_ids" t-as="cate">
-                                                    <span t-field="cate.name"/>&#9;
-                                                </t>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="2">Creation</th>
-                                            <th colspan="2">Confirmation</th>
-                                            <th colspan="2">Approval</th>
-                                        </tr>
-                                        <tr>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                        </tr>
-                                        <tr>
-                                            <td >
-                                                <span t-field="o.create_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.create_uid.name"/>
-                                            </td>
-                                            <td >
-                                                <span t-field="o.confirmation_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.confirmed_id.name"/>
-                                            </td>
-                                            <td >
-                                                <span t-field="o.approval_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.approved_id.name"/>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <h3>Customer Story:</h3>
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td><span t-field="o.business_requirement"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <h3>Scenario:</h3>
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td><span t-field="o.scenario"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <h3>Gap:</h3>
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td><span t-field="o.gap"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <t t-call="business_requirement_deliverable_report.layout_br_base">
+                                </t>
 
                                 <t t-if="o.deliverable_lines">
                                     <h3>Deliverable lines:</h3>

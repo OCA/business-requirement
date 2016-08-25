@@ -1,108 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
         <template id="br_deliverable_resource_report">
             <t t-call="report.html_container">
-                <t t-call="report.internal_layout">
+                <t t-call="business_requirement_deliverable_report.internal_layout_br_header">
                     <div class="page" name="page">
                         <t t-foreach="docs" t-as="o">
-                            <div style="page-break-after: always;">
-                                <h3><span t-field="res_company.name"/></h3>
-                                <table class="table table-bordered" style="table-collapse:collapse; table-layout:fixed">
-                                    <tbody>
-                                        <tr>
-                                            <th colspan="3">Business Requirement</th>
-                                            <th colspan="3">Customer</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><span t-field="o.name"/>-<span t-field="o.description"/></td>
-                                            <td colspan="3"><span t-field="o.partner_id.name"/></td>
-                                        </tr>
 
-                                        <tr>
-                                            <th colspan="2">Project</th>
-                                            <th colspan="2">Change Request</th>
-                                            <th colspan="2">Category</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2"><span t-field="o.project_id.name"/></td>
-                                            <td colspan="2">
-                                                <t t-if="o.change_request">Yes</t>
-                                                <t t-if="not o.change_request">No</t>
-                                            </td>
-                                            <td colspan="2">
-                                                <t t-foreach="o.category_ids" t-as="cate">
-                                                    <span t-field="cate.name"/>&#9;
-                                                </t>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="2">Creation</th>
-                                            <th colspan="2">Confirmation</th>
-                                            <th colspan="2">Approval</th>
-                                        </tr>
-                                        <tr>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                            <th >Date</th>
-                                            <th >User</th>
-                                        </tr>
-                                        <tr>
-                                            <td >
-                                                <span t-field="o.create_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.create_uid.name"/>
-                                            </td>
-                                            <td >
-                                                <span t-field="o.confirmation_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.confirmed_id.name"/>
-                                            </td>
-                                            <td >
-                                                <span t-field="o.approval_date"/>
-                                            </td>
-                                            <td>
-                                                <span t-field="o.approved_id.name"/>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <t t-if="o.business_requirement">
-                                    <h3>Customer Story:</h3>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td><span t-field="o.business_requirement"/></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </t>
-                                <t t-if="o.scenario">
-                                    <h3>Scenario:</h3>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td><span t-field="o.scenario"/></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </t>
-                                <t t-if="o.gap">
-                                    <h3>Gap:</h3>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td><span t-field="o.gap"/></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div style="page-break-after: always;">            
+                                <t t-call="business_requirement_deliverable_report.layout_br_base">
                                 </t>
                             </div>
 
+                            <h3>Amount in <span t-field="o.currency_id.name"/> (without tax)</h3>
                             <t t-foreach="o.deliverable_lines" t-as='deliverable'>
                                 <div  style="page-break-after: always;">
                                     <h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3>
@@ -111,10 +22,10 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Product</th>
-                                                <th>UoM</th>
-                                                <th>Quantity</th>
-                                                <th>Price</th>
-                                                <th>Total</th>
+                                                <th class="text-center">Qty</th>
+                                                <th class="text-right">UoM</th>
+                                                <th class="text-right">Price</th>
+                                                <th class="text-right">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,10 +35,10 @@
                                                     [<span t-field="deliverable.product_id.default_code"/>]
                                                     <span t-field="deliverable.product_id.name_template"/>
                                                 </td>
-                                                <td><span t-field="deliverable.uom_id.name"/></td>
-                                                <td><span t-field="deliverable.qty"/></td>
-                                                <td><span t-field="deliverable.unit_price"/></td>
-                                                <td><span t-field="deliverable.price_total"/></td>
+                                                <td class="text-center"><span t-field="deliverable.qty"/></td>
+                                                <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
+                                                <td class="text-right"><span t-field="deliverable.currency_id.symbol"/><span t-field="deliverable.unit_price"/></td>
+                                                <td class="text-right"><span t-field="deliverable.currency_id.symbol"/><span t-field="deliverable.price_total"/></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -140,13 +51,13 @@
                                                     <th>Name</th>
                                                     <th>Product</th>
                                                     <th>Qty</th>
-                                                    <th>UoM</th>
+                                                    <th class="text-center">UoM</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <t t-foreach="deliverable.resource_ids" t-as="resource">
                                                     <tr>
-                                                        <td><span t-field="resource.resource_type"/></td>
+                                                        <td  class="resource_type"><span t-field="resource.resource_type"/></td>
                                                         <td><span t-field="resource.name"/></td>
                                                         <td>
                                                             [<span t-field="resource.product_id.default_code"/>]
