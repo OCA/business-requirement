@@ -175,42 +175,42 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.price_total, price_total)
 
-        def test_product_uom_change(self):
-            resource = self.env['business.requirement.resource'].search([
-                ('name', '=', 'Resource Line1')])
+    def test_product_uom_change(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('name', '=', 'Resource Line1')])
+        resource.product_uom_change()
+        qty_uom = 0
+        unit_price = resource.unit_price
+        sale_price_unit = resource.product_id.list_price
+        pricelist = resource._get_pricelist()
+        partner_id = resource._get_partner()
+        product_uom = resource.env['product.uom']
 
-            qty_uom = 0
-            unit_price = resource.unit_price
-            sale_price_unit = resource.product_id.list_price
-            pricelist = resource._get_pricelist()
-            partner_id = resource._get_partner()
-            product_uom = resource.env['product.uom']
+        if resource.qty != 0:
+            qty_uom = product_uom._compute_qty(
+                resource.uom_id.id,
+                resource.qty,
+                resource.product_id.uom_id.id
+            ) / resource.qty
 
-            if resource.qty != 0:
-                qty_uom = product_uom._compute_qty(
-                    resource.uom_id.id,
-                    resource.qty,
-                    resource.product_id.uom_id.id
-                ) / resource.qty
+        if pricelist:
+            product = resource.product_id.with_context(
+                lang=partner_id.lang,
+                partner=partner_id.id,
+                quantity=resource.qty,
+                pricelist=pricelist.id,
+                uom=resource.uom_id.id,
+            )
+            unit_price = product.standard_price
+            sale_price_unit = product.list_price
 
-            if pricelist:
-                product = resource.product_id.with_context(
-                    lang=partner_id.lang,
-                    partner=partner_id.id,
-                    quantity=resource.qty,
-                    pricelist=pricelist.id,
-                    uom=resource.uom_id.id,
-                )
-                unit_price = product.standard_price
-                sale_price_unit = product.list_price
+        self.unit_price = unit_price * qty_uom
+        self.sale_price_unit = sale_price_unit * qty_uom
 
-            self.unit_price = unit_price * qty_uom
-            self.sale_price_unit = sale_price_unit * qty_uom
-
-            self.assertEqual(
-                resource.unit_price, self.unit_price)
-            self.assertEqual(
-                resource.sale_price_unit, self.sale_price_unit)
+        self.assertEqual(
+            resource.unit_price, self.unit_price)
+        self.assertEqual(
+            resource.sale_price_unit, self.sale_price_unit)
 
     def test_action_button_update_estimation(self):
         deliverable = self.br.deliverable_lines[0]
