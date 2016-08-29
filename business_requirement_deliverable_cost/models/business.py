@@ -35,10 +35,7 @@ class BusinessRequirementResource(models.Model):
     @api.depends('unit_price', 'qty')
     def _compute_get_price_total(self):
         for resource in self:
-            if resource.unit_price and resource.qty:
-                resource.price_total = resource.unit_price * resource.qty
-            else:
-                resource.price_total = 0
+            resource.price_total = resource.unit_price * resource.qty
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
@@ -73,7 +70,6 @@ class BusinessRequirementResource(models.Model):
     @api.onchange('product_id')
     def product_id_change(self):
         super(BusinessRequirementResource, self).product_id_change()
-        unit_price = 0
         unit_price = self.product_id.standard_price
         pricelist_id = self._get_pricelist()
         partner_id = self._get_partner()
