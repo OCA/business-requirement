@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+.. figure:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
@@ -20,18 +20,14 @@ Procurement, Project or Analytic Accounting. For example:
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
-|image7|
-
-.. |image7| image:: business_requirement_deliverable_report/static/img/bus_req_tree.png
-   :width: 800 px
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
    :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
-|image11|
-
-.. |image11| image:: business_requirement_deliverable_report/static/img/bus_req_module_diag.png
-   :width: 800 px
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
    :alt: Business Requirement modules diagram
 
 
@@ -73,28 +69,22 @@ This module adds multiple printouts to the deliverable modules:
 * Basic Business requirement printout: including header, Customer story, 
   scenario and gap analysis
 
-|image3|
-
-.. |image3| image:: business_requirement_deliverable_report/static/img/bus_req_report1.png
-   :width: 800 px
+.. figure:: static/img/bus_req_report1.png
+   :width: 600 px
    :alt: Basic Business requirement printout 
 
 * Deliverable printout: above printout including the deliverable lines at 
   sales price
 
-|image4|
-
-.. |image4| image:: business_requirement_deliverable_report/static/img/bus_req_report2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_report2.png
+   :width: 600 px
    :alt: Deliverable printout (details)
 
 * Resource Printout: above printout including the resource lines with 
   expected quantity
 
-|image5|
-
-.. |image5| image:: business_requirement_deliverable_report/static/img/bus_req_report3.png
-   :width: 800 px
+.. figure:: static/img/bus_req_report3.png
+   :width: 600 px
    :alt: Resource Printout (details)
 
 
@@ -113,9 +103,9 @@ Usage
 
 Select the BR and print desired report
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 
 Known issues / Roadmap
@@ -136,13 +126,13 @@ Credits
 Contributors
 ------------
 
-* Evan Li li.aiwen@elico-corp.com
-
+* Eric Caudal <eric.caudal@elico-corp.com>
+* Evan Li <li.aiwen@elico-corp.com>
 
 Maintainer
 ----------
 
-.. image:: https://odoo-community.org/logo.png
+.. figure:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
    :target: https://odoo-community.org
 
