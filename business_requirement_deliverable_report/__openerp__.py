@@ -20,4 +20,11 @@
         'views/report_business_requirement_deliverable_resource.xml',
         'report/report.xml'
     ],
+    'image': [
+        'static/img/bus_req_tree.png'
+        'static/img/bus_req_module_diag.png',
+        'static/img/bus_req_report1.png',
+        'static/img/bus_req_report2.png',
+        'static/img/bus_req_report3.png',
+    ],
 }
