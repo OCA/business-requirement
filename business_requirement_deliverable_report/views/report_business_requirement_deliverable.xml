@@ -18,10 +18,10 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Product</th>
-                                                <th>UoM</th>
-                                                <th>Quantity</th>
-                                                <th>Price</th>
-                                                <th>Total</th>
+                                                <th class="text-right">Qty</th>
+                                                <th class="text-right">UoM</th>
+                                                <th class="text-right">Price</th>
+                                                <th class="text-right">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -32,15 +32,16 @@
                                                         [<span t-field="deliverable.product_id.default_code"/>]
                                                         <span t-field="deliverable.product_id.name_template"/>
                                                     </td>
-                                                    <td><span t-field="deliverable.uom_id.name"/></td>
-                                                    <td><span t-field="deliverable.qty"/></td>
-                                                    <td><span t-field="deliverable.unit_price"/></td>
-                                                    <td><span t-field="deliverable.price_total"/></td>
+                                                    <td class="text-right"><span t-field="deliverable.qty"/></td>
+                                                    <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
+                                                    <td class="text-right"><span t-field="deliverable.unit_price" t-field-options='{"widget": "monetary","display_currency": "deliverable.currency_id"}'/></td>
+                                                    <td class="text-right"><span t-field="deliverable.price_total" t-field-options='{"widget": "monetary","display_currency": "deliverable.currency_id"}'/></td>
                                                 </tr>
                                             </t>
                                             <tr>
                                                 <td colspan="5"></td>
-                                                <td><span t-field="o.total_revenue"/></td>
+                                                <td class="text-right"><span t-field="o.total_revenue" t-field-options='{
+                                                "widget": "monetary","display_currency": "o.currency_id"}'/></td>
                                             </tr>
                                         </tbody>
                                     </table>

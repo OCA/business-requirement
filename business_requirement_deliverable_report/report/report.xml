@@ -2,6 +2,22 @@
 <openerp>
 <data>
 
+    <record id="paperformat_euro_br" model="report.paperformat">
+        <field name="name">European A4</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">25</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
    <report
         id="business_requirement_report" 
         model="business.requirement" 
@@ -10,6 +26,9 @@
         name="business_requirement_deliverable_report.br_report"
         file="business_requirement_deliverable_report.br_report"
     />
+    <record id="business_requirement_report" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="paperformat_euro_br"/>
+    </record>
 
    <report
         id="business_requirement_deliverable_report" 
@@ -19,6 +38,10 @@
         name="business_requirement_deliverable_report.br_deliverable_report"
         file="business_requirement_deliverable_report.br_deliverable_report"
     />
+    <record id="business_requirement_deliverable_report" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="paperformat_euro_br"/>
+    </record>
+
 
     <report
         id="business_requirement_deliverable_resource_report" 
@@ -28,6 +51,10 @@
         name="business_requirement_deliverable_report.br_deliverable_resource_report" 
         file="business_requirement_deliverable_report.br_deliverable_resource_report"
     />
+    <record id="business_requirement_deliverable_resource_report" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="paperformat_euro_br"/>
+    </record>
+
 
 </data>
 </openerp>
