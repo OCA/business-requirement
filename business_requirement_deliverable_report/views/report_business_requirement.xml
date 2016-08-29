@@ -54,9 +54,7 @@
                             <t t-if="not o.change_request">No</t>
                         </td>
                         <td colspan="4">
-                            <t t-foreach="o.category_ids" t-as="cate">
-                                <span t-field="cate.name"/>&#9;
-                            </t>
+                            <span t-esc="', '.join([cate.name for cate in o.category_ids])"/>
                         </td>
                     </tr>
                     <tr>
