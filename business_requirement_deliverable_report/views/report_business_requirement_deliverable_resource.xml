@@ -6,6 +6,7 @@
             <t t-call="report.html_container">
                 <t t-call="business_requirement_deliverable_report.internal_layout_br_header">
                     <div class="page" name="page">
+                        <h2 class="text-center">Business Requirement Document</h2><br/>
                         <t t-foreach="docs" t-as="o">
 
                             <div style="page-break-after: always;">            
