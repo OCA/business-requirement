@@ -42,7 +42,7 @@
                                             <tr>
                                                 <td colspan="5"></td>
                                                 <td class="text-right"><span t-field="o.total_revenue" t-field-options='{
-                                                "widget": "monetary","display_currency": "o.currency_id"}'/></td>
+                                                "widget": "monetary","display_currency": "o.partner_id.property_product_pricelist.currency_id"}'/></td>
                                             </tr>
                                         </tbody>
                                     </table>
