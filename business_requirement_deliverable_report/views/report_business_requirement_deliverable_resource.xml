@@ -14,9 +14,8 @@
                             </div>
 
                             <t t-if="o.deliverable_lines">
-                                <h3>Amount in <span t-field="o.currency_id.name"/> (without tax)</h3>
                                 <t t-foreach="o.deliverable_lines" t-as='deliverable'>
-                                    <div  style="page-break-after: always;">
+                                    <div style="page-break-after: always;">
                                         <h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3>
                                         <table class="table table-bordered">
                                             <thead>

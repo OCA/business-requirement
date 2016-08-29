@@ -3,7 +3,7 @@
 <data>
 
     <record id="paperformat_euro_br" model="report.paperformat">
-        <field name="name">European A4</field>
+        <field name="name">European A4 For BR</field>
         <field name="default" eval="True" />
         <field name="format">A4</field>
         <field name="page_height">0</field>
