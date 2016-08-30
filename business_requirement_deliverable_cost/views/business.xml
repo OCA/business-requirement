@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<openerp>
+    <data>
         <record id="view_business_requirement_resource_tree" model="ir.ui.view">
             <field name="name">business.requirement.resource.tree</field>
             <field name="model">business.requirement.resource</field>
@@ -53,4 +54,5 @@
                 </xpath>
             </field>
         </record>
-</odoo>
+    </data>
+</openerp>
