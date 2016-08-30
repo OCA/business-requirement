@@ -21,18 +21,14 @@ Procurement, Project or Analytic Accounting. For example:
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
-|image7|
-
-.. |image7| image:: business_requirement_deliverable_cost/static/img/bus_req_tree.png
-   :width: 800 px
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
    :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
-|image11|
-
-.. |image11| image:: business_requirement_deliverable_cost/static/img/bus_req_module_diag.png
-   :width: 800 px
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
    :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
@@ -95,27 +91,21 @@ Users
 
 Without Sales Estimate nor Cost Control rights:
 
-|image3|
-
-.. |image3| image:: business_requirement_deliverable_cost/static/img/bus_req_acl1.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl1.png
+   :width: 600 px
    :alt: No access to sales or cost control information (Simple user)
 
 Without Cost Control rights:
 
-|image4|
-
-.. |image4| image:: business_requirement_deliverable_cost/static/img/bus_req_acl2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl2.png
+   :width: 600 px
    :alt: Access to sales price with no cost control (Salesmen)
 
 
 With both Sales Estimate and Cost Control rights:
 
-|image5|
-
-.. |image5| image:: business_requirement_deliverable_cost/static/img/bus_req_acl3.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl3.png
+   :width: 600 px
    :alt: Full access to sales price and cost control (Financial dept)
 
 
@@ -142,16 +132,16 @@ revenue of a Deliverable based on the sum of related RL.
 
 #. you can review the cost control tab of your BR as followed (only available for ACL Cost Control)
 
-|image2|
+#. Eventually you can manually update the price of all resource clicking on the Update button.
 
-.. |image2| image:: business_requirement_deliverable_cost/static/img/bus_req_control.png
-   :width: 800 px
+.. figure:: static/img/bus_req_control.png
+   :width: 600 px
    :alt: Control your cost for the BR
 
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 Known issues / Roadmap
 ======================
@@ -171,10 +161,11 @@ Credits
 Contributors
 ------------
 
-Eric Caudal<eric.caudal@elico-corp.com>
-Alex Duan<alex.duan@elico-corp.com>
-Xie XiaoPeng<xie.xiaopeng@elico-corp.com>
-Luke Zheng<luke.zheng@elico-corp.com>
+Eric Caudal <eric.caudal@elico-corp.com>
+Alex Duan <alex.duan@elico-corp.com>
+Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
+Luke Zheng <luke.zheng@elico-corp.com>
+Victor Martin <victor.martin@elico-corp.com>
 
 Maintainer
 ----------
