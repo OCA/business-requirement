@@ -12,10 +12,10 @@
         'business_requirement_deliverable',
     ],
     'image': [
-		'static/img/bus_req_tree.png',
-		'static/img/bus_req_default.png',
-		'static/img/bus_req_default2.png'
-	],
+        'static/img/bus_req_tree.png',
+        'static/img/bus_req_default.png',
+        'static/img/bus_req_default2.png'
+    ],
     'data': [
         "views/business_requirement_deliverable_default.xml",
     ],
