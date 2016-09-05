@@ -40,7 +40,8 @@ class BrGenerateProjects(models.TransientModel):
     @api.multi
     def wizard_view(self):
         view = self.env['ir.model.data'].get_object_reference(
-            'business_requirement_project', 'view_br_generate_projects_form')
+            'business_requirement_deliverable_project',
+            'view_br_generate_projects_form')
 
         action = {
             'name': _('Generate Projects'),

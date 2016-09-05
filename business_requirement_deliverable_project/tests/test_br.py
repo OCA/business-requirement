@@ -70,40 +70,38 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 'standard_price': 750})
 
         vals = {
-            'name': ' test',
             'description': 'test',
             'project_id': self.projectA.id,
             'deliverable_lines': [
-                (0, 0, {'description': 'deliverable line1', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
                         'resource_ids': [
                             (0, 0, {
-                                'description': 'Resource Line1',
+                                'name': 'Resource Line1',
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
-                                'unit_price': 500,
                                 'resource_type': 'task',
                             }),
                             (0, 0, {
-                                'description': 'Resource Line1',
+                                'name': 'Resource Line1',
                                 'product_id': self.productB.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
-                                'unit_price': 500,
                                 'resource_type': 'task',
                             })
                         ]
                         }),
-                (0, 0, {'description': 'deliverable line2', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
                         'unit_price': 1100, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line3', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
                         'unit_price': 1300, 'uom_id': 1}),
-                (0, 0, {'description': 'deliverable line4', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ],
         }
+
         self.brA = self.env['business.requirement'].create(vals)
         self.brB = self.env['business.requirement'].create(vals)
         self.brC = self.env['business.requirement'].create(vals)
