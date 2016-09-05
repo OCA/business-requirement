@@ -12,13 +12,13 @@ class TestDefaultResourcesFromProduct(common.TransactionCase):
         self.brd_a = \
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
-                 'description': 'Test A',
+                 'name': 'Test A',
                  })
 
         self.brd_b = \
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
-                 'description': 'Test B',
+                 'name': 'Test B',
                  })
 
         # Common resource_lines
@@ -26,22 +26,17 @@ class TestDefaultResourcesFromProduct(common.TransactionCase):
             (0, 0, {'resource_type': 'task',
                     'product_id': 26,
                     'uom_id': 5,
-                    'task_categ_id': 1,
-                    'task_name': 'Task A',
-                    'description': 'Test B',
+                    'name': 'Test A',
                     }),
             (0, 0, {'resource_type': 'task',
                     'product_id': 27,
                     'uom_id': 5,
-                    'task_categ_id': 2,
-                    'task_name': 'Task B',
-                    'description': 'Test B',
+                    'name': 'Test B',
                     }),
             (0, 0, {'resource_type': 'procurement',
                     'product_id': 26,
                     'uom_id': 5,
-                    'task_categ_id': 1,
-                    'description': 'Test B',
+                    'name': 'Test C',
                     })]
 
         # Search product and set up product_template with resource_lines
@@ -54,5 +49,16 @@ class TestDefaultResourcesFromProduct(common.TransactionCase):
 
     def test_prepare_resouce_lines(self):
         self.brd_b.product_id = self.product.id
-        self.brd_b.resource_ids = self.brd_b._prepare_resouce_lines()
-        self.assertEqual(self.brd_a.resource_ids, self.brd_b.resource_ids)
+        self.brd_b.resource_ids = self.brd_b._prepare_resource_lines()
+        self.assertEqual(
+            self.brd_a.resource_ids[0].name,
+            self.brd_b.resource_ids[0].name
+        )
+        self.assertEqual(
+            self.brd_a.resource_ids[1].name,
+            self.brd_b.resource_ids[1].name
+        )
+        self.assertEqual(
+            self.brd_a.resource_ids[2].name,
+            self.brd_b.resource_ids[2].name
+        )
