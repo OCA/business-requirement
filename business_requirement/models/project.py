@@ -11,12 +11,12 @@ class Project(models.Model):
     br_ids = fields.One2many(
         comodel_name='business.requirement',
         inverse_name='project_id',
-        string='Business Requirement',
+        string='Business Requirements',
         copy=False,
     )
     br_count = fields.Integer(
         compute='_compute_br_count',
-        string="Business Requirement Number"
+        string="Number of Business Requirements"
     )
 
     @api.one
