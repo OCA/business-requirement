@@ -196,7 +196,9 @@ class BrGenerateProjects(models.TransientModel):
         return vals
 
     @api.multi
-    def create_project_task(self, resource_lines, project_id, task_ids=[]):
+    def create_project_task(self, resource_lines, project_id, task_ids=None):
+        if task_ids is None:
+            task_ids = []
         task_obj = self.env['project.task']
         for lines in resource_lines:
             for line in lines:
