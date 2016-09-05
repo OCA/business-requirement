@@ -25,9 +25,9 @@ The set comprises of multiple modules that can be used independently or not:
 Module                                      Description
 =========================================== ====================================
 business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
+business_requirement_deliverable_project    Wizard to create project/tasks 
                                             from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
+business_requirement_deliverable_crm        Wizard to create/update Sales 
                                             Quotation based on deliverables
 business_requirement_deliverable            Adds deliverables and resources lines
 business_requirement_deliverable_report     Adds printout to send BR and 
@@ -220,7 +220,7 @@ project/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/
 project/issues/new?body=module:%20
-business_requirement_project%0Aversion:%20
+business_requirement_deliverable_project%0Aversion:%20
 8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
