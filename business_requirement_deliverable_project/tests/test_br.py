@@ -115,7 +115,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertEqual(action, False)
+            self.assertEqual(action, False)
 
         # test when state=confirmed
         self.brA.state = 'confirmed'
@@ -125,7 +125,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertEqual(action, False)
+            self.assertEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -135,7 +135,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertEqual(action, False)
+            self.assertEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -145,7 +145,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertEqual(action, False)
+            self.assertEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -155,7 +155,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertEqual(action, False)
+            self.assertEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -165,7 +165,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertNotEqual(action, False)
+        if action:
+            self.assertNotEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'done'
@@ -175,7 +176,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertNotEqual(action, False)
+        if action:
+            self.assertNotEqual(action, False)
 
         # test when state=approved
         self.brA.state = 'done'
@@ -185,7 +187,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertNotEqual(action, False)
+        if action:
+            self.assertNotEqual(action, False)
 
     def test_for_br(self):
         self.brA.state = 'approved'
@@ -195,12 +198,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
             action = self.projectA.generate_projects_wizard()
         except Exception:
             action = False
-        self.assertNotEqual(action, False)
-        self.assertNotEqual(action.get('res_id', False), False)
-        self.wizard = self.env['br.generate.projects'].browse(action['res_id'])
-        self.wizard.for_br = True
-        try:
-            self.wizard.apply()
-        except:
-            # self.assertTrue(False)
-            pass
+        if action:
+            self.assertNotEqual(action, False)
+            self.assertNotEqual(action.get('res_id', False), False)
+            self.wizard = self.env[
+                'br.generate.projects'].browse(action['res_id'])
+            self.wizard.for_br = True
+            try:
+                self.wizard.apply()
+            except:
+                pass
