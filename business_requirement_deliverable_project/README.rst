@@ -2,45 +2,34 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========================================
-Business Requirement Deliverable - Project
-==========================================
+
+====================
+Business Requirement
+====================
 
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic 
-models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be 
+used as standalone.
 
-|image7|
+Additional modules integrate them with other business areas, such as Sales, 
+Procurement, Project or Analytic Accounting. For example:
 
-.. |image7| image:: static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view 
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
+   :alt: Business Requirement List view
 
-The set comprises of multiple modules that can be used independently or not:
+The following diagram gives a simplified view of the universe:
 
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_deliverable_project    Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_deliverable_crm        Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
-
-Many other modules (business_requirement_*) complete this basic list.
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
+   :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,11 +81,8 @@ wizard will create:
 * Projects and sub project based on BR and deliverable (optional)
 * Tasks based on the resources lines set as tasks
 
-
-|image0|
-
-.. |image0| image:: static/img/bus_req_project.png
-   :width: 800 px
+.. figure:: static/img/bus_req_project.png
+   :width: 600 px
    :alt: Business Requirement Project Wizard
 
 Installation
@@ -149,6 +135,7 @@ Example
 ^^^^^^^
 
 eg: if a master project contains the following BR:
+
 * BR1 with Deliverable Line 1 (DL) containing 2 Resource Lines (RL): RL1 and RL2
 * BR2 with DL2 and DL3 containing each 2 RL: RL3 and RL4, RL5 and RL6
 * BR3 with DL4 and one RL: RL7 (Sub BR of BR2)
@@ -162,6 +149,7 @@ If option 1 is selected:
 
 * 3 sub projects (parent is Master project), one per BR 
 * 7 tasks are created for 
+
   * BR1 (2 tasks for RL1 and RL2), 
   * BR2 (4 tasks for RL3~6), 
   * BR3 (1 task for RL7)
@@ -170,6 +158,7 @@ If option 2 is selected:
 
 * 4 sub projects (parent is Master project), one per DL
 * 7 tasks are created for
+
   * DL1 (2 tasks for RL1 and RL2),
   * DL2 (2 tasks for RL3~4),
   * DL3 (2 tasks for RL5~6) and 
@@ -182,6 +171,7 @@ If option 1+2 are selected:
 * BR2 sub-project contains DL2 and DL3 sub-projects, 
 * BR3 sub-project contains DL4 sub-project 
 * 7 tasks are created for 
+
   * DL1 (2 tasks for RL1 and RL2), 
   * DL2 (2 tasks for RL3~4), 
   * DL3 (2 tasks for RL5~6) and 
@@ -193,15 +183,18 @@ If option 1+3 are selected:
 * BR1 sub-project 
 * BR2 sub-project contains BR3 sub-projects, 
 * 7 tasks are created for 
+
   * BR1 (2 tasks for RL1 and RL2), 
   * BR2 (4 tasks for RL3~6), 
   * BR3 (1 task for RL7)
 
 If option 1+2+3 are selected: 
+
 * BR1 sub-project contains DL1 sub-project, 
 * BR2 sub-project contains BR2, DL2 and DL3 sub-projects, 
 * BR3 sub-project contains DL4 sub-project 
 * 7 tasks are created for 
+
   * DL1 (2 tasks for RL1 and RL2),
   * DL2 (2 tasks for RL3~4),
   * DL3 (2 tasks for RL5~6) and 
@@ -209,7 +202,7 @@ If option 1+2+3 are selected:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 Bug Tracker
 ===========
