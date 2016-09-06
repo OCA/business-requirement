@@ -12,7 +12,7 @@ class Project(models.Model):
     origin = fields.Char('Source Document')
 
     @api.multi
-    def generate_projects_wizard(self):
+    def generate_project_wizard(self):
         br_ids = self.env.context.get('br_ids', False)
         from_project = False
         if not br_ids:
@@ -23,15 +23,15 @@ class Project(models.Model):
         default_uom = default_uom.get('time_unit', False)
         if not default_uom:
             raise osv.except_osv(
-                _('Error!'),
-                _("""Please set working time default unit in project config settings!
+                _('Error'),
+                _("""Please set working time default unit in project config settings
                 """))
         lines = []
         for br in br_ids:
             if br.state not in ['approved', 'cancel', 'done']:
                 raise osv.except_osv(
-                    _('Error!'),
-                    _("""All business requirement of the project should be approved/canceled/done!
+                    _('Error'),
+                    _("""All business requirements of the project should be approved/canceled/done
                     """))
             if br.state != 'approved':
                 continue
@@ -47,9 +47,9 @@ class Project(models.Model):
 
         if not lines:
             raise osv.except_osv(
-                _('Error!'),
+                _('Error'),
                 _("""There is no available business requirement resource line to
-                    generate task!"""))
+                    generate task"""))
         if from_project:
             br_ids = [x for x in br_ids if x.parent_id.id is False]
         vals = {

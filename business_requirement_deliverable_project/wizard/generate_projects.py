@@ -20,7 +20,10 @@ class BrGenerateProjects(models.TransientModel):
         ondelete='set null',
         domain="[('partner_id', '=', partner_id)]",
     )
-    for_br = fields.Boolean('Create sub-projects for Business requirements')
+    for_br = fields.Boolean(
+        'Create sub-projects for Business requirements',
+        default=True
+    )
     for_deliverable = fields.Boolean('Create sub-projects for Deliverables')
     for_childs = fields.Boolean(
         'Create sub-projects for Child Business requirements')
@@ -92,7 +95,7 @@ class BrGenerateProjects(models.TransientModel):
         }
         return action
 
-    def has_generated(self, br):
+    def get_generated_project(self, br):
         origin = '%s.%s' % (br._name, br.id)
         project_obj = self.env['project.project']
         project = project_obj.search([('origin', '=', origin)])
@@ -103,7 +106,7 @@ class BrGenerateProjects(models.TransientModel):
         project_obj = self.env['project.project']
         br_project = False
         if self.for_br:
-            br_project = self.has_generated(br)
+            br_project = self.get_generated_project(br)
             if br_project:
                 br_project = br_project[0]
             elif not br.linked_project:
@@ -141,7 +144,7 @@ class BrGenerateProjects(models.TransientModel):
             self, parent_project, deliverable_lines, project_ids, task_ids):
         project_obj = self.env['project.project']
         for line in deliverable_lines:
-            line_project = self.has_generated(line)
+            line_project = self.get_generated_project(line)
             if line_project:
                 line_project = line_project[0]
             else:
