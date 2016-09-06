@@ -2,6 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
+from openerp.osv import osv
 
 
 @common.at_install(False)
@@ -112,57 +113,62 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'draft'
         self.brC.state = 'draft'
         try:
-            action = self.projectA.generate_projects_wizard()
-        except Exception:
+            action = self.projectA.generate_project_wizard()
+        except Exception, e:
             action = False
             self.assertEqual(action, False)
+            self.assertEqual(type(e), osv.except_osv)
 
         # test when state=confirmed
         self.brA.state = 'confirmed'
         self.brB.state = 'confirmed'
         self.brC.state = 'confirmed'
         try:
-            action = self.projectA.generate_projects_wizard()
-        except Exception:
+            action = self.projectA.generate_project_wizard()
+        except Exception, e:
             action = False
             self.assertEqual(action, False)
+            self.assertEqual(type(e), osv.except_osv)
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
         try:
-            action = self.projectA.generate_projects_wizard()
-        except Exception:
+            action = self.projectA.generate_project_wizard()
+        except Exception, e:
             action = False
             self.assertEqual(action, False)
+            self.assertEqual(type(e), osv.except_osv)
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'draft'
         try:
-            action = self.projectA.generate_projects_wizard()
-        except Exception:
+            action = self.projectA.generate_project_wizard()
+        except Exception, e:
             action = False
             self.assertEqual(action, False)
+            self.assertEqual(type(e), osv.except_osv)
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'confirmed'
         try:
-            action = self.projectA.generate_projects_wizard()
-        except Exception:
+            action = self.projectA.generate_project_wizard()
+        except Exception, e:
             action = False
             self.assertEqual(action, False)
+            self.assertEqual(type(e), osv.except_osv)
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         try:
-            action = self.projectA.generate_projects_wizard()
+            action = self.projectA.generate_project_wizard()
         except Exception:
             action = False
         if action:
@@ -173,7 +179,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         try:
-            action = self.projectA.generate_projects_wizard()
+            action = self.projectA.generate_project_wizard()
         except Exception:
             action = False
         if action:
@@ -184,7 +190,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         try:
-            action = self.projectA.generate_projects_wizard()
+            action = self.projectA.generate_project_wizard()
         except Exception:
             action = False
         if action:
@@ -195,7 +201,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         try:
-            action = self.projectA.generate_projects_wizard()
+            action = self.projectA.generate_project_wizard()
         except Exception:
             action = False
         if action:
@@ -222,7 +228,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 'ir.actions.act_window',
                 action['type'])
 
-    def test_project_generate_projects_wizard(self):
+    def test_project_generate_project_wizard(self):
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
@@ -231,7 +237,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         ].get_default_time_unit('time_unit').get('time_unit', False)
 
         try:
-            action = self.projectA.generate_projects_wizard()
+            action = self.projectA.generate_project_wizard()
         except Exception:
             action = False
         if action:
@@ -250,3 +256,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 generated = self.env['project.task'].search(
                     [('br_resource_id', '=', br.id)])
                 self.assertFalse(generated)
+
+            from_project = self.env[
+                'br.generate.projects'].browse(action['res_id']).br_ids
+            self.assertTrue(from_project)
+            br_ids_a = [
+                x for x in self.projectA.br_ids if x.parent_id.id is False]
+            br_ids_b = [x for x in from_project if x.parent_id.id is False]
+            self.assertEqual(br_ids_a, br_ids_b)

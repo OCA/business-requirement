@@ -10,7 +10,7 @@ class BusinessRequirement(models.Model):
     @api.multi
     def generate_projects_wizard(self):
         res = self.project_id.with_context(
-            br_ids=self).generate_projects_wizard()
+            br_ids=self).generate_project_wizard()
         return res
 
     linked_project = fields.Many2one(
@@ -27,7 +27,7 @@ class BusinessRequirement(models.Model):
         string='Tasks'
     )
     task_count = fields.Integer(
-        string='Total number of task related to a business requirement',
+        string='Total number of tasks related to a business requirement',
         store=True,
         readonly=True,
         compute='_compute_task_count'
