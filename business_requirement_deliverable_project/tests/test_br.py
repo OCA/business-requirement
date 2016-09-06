@@ -208,3 +208,45 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 self.wizard.apply()
             except:
                 pass
+
+    def test_br_generate_projects_wizard(self):
+        self.brA.state = 'approved'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        try:
+            action = self.brA.generate_projects_wizard()
+        except Exception:
+            action = False
+        if action:
+            self.assertEqual(
+                'ir.actions.act_window',
+                action['type'])
+
+    def test_project_generate_projects_wizard(self):
+        self.brA.state = 'approved'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        default_uom = self.env[
+            'project.config.settings'
+        ].get_default_time_unit('time_unit').get('time_unit', False)
+
+        try:
+            action = self.projectA.generate_projects_wizard()
+        except Exception:
+            action = False
+        if action:
+            self.assertEqual(
+                action.get('context', False).get('default_uom', False),
+                default_uom
+            )
+            self.assertEqual(
+                self.projectA.br_ids,
+                self.env[
+                    'br.generate.projects'].browse(action['res_id']).br_ids
+            )
+            for br in self.projectA.br_ids:
+                self.assertEqual('approved', br.state)
+
+                generated = self.env['project.task'].search(
+                    [('br_resource_id', '=', br.id)])
+                self.assertFalse(generated)
