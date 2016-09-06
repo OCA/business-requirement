@@ -67,6 +67,13 @@ class Project(models.Model):
 class ProjectTask(models.Model):
     _inherit = "project.task"
 
+    """ Link the task and the business requirement """
+    business_requirement_id = fields.Many2one(
+        'business.requirement',
+        string='Business Requirement',
+        readonly=True,
+    )
+
     br_resource_id = fields.Many2one(
         comodel_name='business.requirement.resource',
         string='Business Requirement Resource',

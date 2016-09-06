@@ -175,7 +175,7 @@ class BrGenerateProjects(models.TransientModel):
         product_uom_obj = self.env['product.uom']
         qty = product_uom_obj._compute_qty(
             line.uom_id.id, line.qty, default_uom)
-        name = line.description
+        name = line.name
         br_id = False
         if self.for_br:
             name = line.business_requirement_deliverable_id\
@@ -183,15 +183,13 @@ class BrGenerateProjects(models.TransientModel):
             br_id = line.business_requirement_deliverable_id\
                 .business_requirement_id.id
         vals = {
-            'name': name,
-            'description': line.description,
+            'name': line.name,
             'sequence': line.sequence,
             'project_id': project_id,
             'planned_hours': qty,
             'remaining_hours': qty,
             'br_resource_id': line.id,
             'user_id': line.user_id.id,
-            'task_categ_id': line.task_categ_id.id,
             'business_requirement_id': br_id,
         }
         return vals
