@@ -117,7 +117,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         except Exception, e:
             action = False
             self.assertEqual(action, False)
-            self.assertEqual(type(e), osv.except_osv)
+            if type(e) == osv.except_osv:
+                self.assertEqual(
+                    type(e),
+                    osv.except_osv
+                )
 
         # test when state=confirmed
         self.brA.state = 'confirmed'
@@ -128,7 +132,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         except Exception, e:
             action = False
             self.assertEqual(action, False)
-            self.assertEqual(type(e), osv.except_osv)
+            if type(e) == osv.except_osv:
+                self.assertEqual(
+                    type(e),
+                    osv.except_osv
+                )
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -139,7 +147,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         except Exception, e:
             action = False
             self.assertEqual(action, False)
-            self.assertEqual(type(e), osv.except_osv)
+            if type(e) == osv.except_osv:
+                self.assertEqual(
+                    type(e),
+                    osv.except_osv
+                )
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -150,7 +162,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         except Exception, e:
             action = False
             self.assertEqual(action, False)
-            self.assertEqual(type(e), osv.except_osv)
+            if type(e) == osv.except_osv:
+                self.assertEqual(
+                    type(e),
+                    osv.except_osv
+                )
 
         # test when state=approved
         self.brA.state = 'approved'
@@ -161,7 +177,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         except Exception, e:
             action = False
             self.assertEqual(action, False)
-            self.assertEqual(type(e), osv.except_osv)
+            if type(e) == osv.except_osv:
+                self.assertEqual(
+                    type(e),
+                    osv.except_osv
+                )
 
         # test when state=approved
         self.brA.state = 'approved'
