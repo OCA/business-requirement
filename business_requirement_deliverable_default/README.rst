@@ -1,55 +1,35 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+.. figure:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================================
-Business Requirement Deliverable Default
-========================================
+
+====================
+Business Requirement
+====================
 
 Introduction
 ^^^^^^^^^^^^
 
-This module is part of a set ("Business Requirement") and provides the basic 
-models for business requirement management and project time/cost estimation.
+This module is part of a set ("Business Requirement").
+The Business Requirements features start as independent entities, and can be 
+used as standalone.
 
-|image7|
+Additional modules integrate them with other business areas, such as Sales, 
+Procurement, Project or Analytic Accounting. For example:
 
-.. |image7| image:: static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view 
+* Sales Quotation can have an estimation supported by a BR analysis
+* Project Tasks can be related to the BRs they implement or support
+* Procurement and purchase can be generated out of the BR
 
-
-The set comprises of multiple modules that can be used independently or not:
-
-=========================================== ====================================
-Module                                      Description
-=========================================== ====================================
-business_requirement                        Basic models and functions
-business_requirement_project                Wizard to create project/tasks 
-                                            from BR/resource lines
-business_requirement_crm                    Wizard to create/update Sales 
-                                            Quotation based on deliverables
-business_requirement_deliverable            Adds deliverables and resources lines
-business_requirement_deliverable_report     Adds printout to send BR and 
-                                            deliverables to the customer
-business_requirement_deliverable_default    Adds default resource lines for 
-                                            deliverable products
-business_requirement_deliverable_cost       Add sales and cost price for 
-                                            estimation and profit control
-business_requirement_deliverable_categ      Adds the possibility to have 
-                                            tasks category in resources
-=========================================== ====================================
-
-Many other modules (business_requirement_*) completes this basic list.
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
+   :alt: Business Requirement List view
 
 The following diagram gives a simplified view of the universe:
 
-|image11|
-
-.. |image11| image:: static/img/bus_req_module_diag.png
-   :width: 800 px
-   :alt: Business Requirement modules diagram 
-
+.. figure:: static/img/bus_req_module_diag.png
+   :width: 600 px
+   :alt: Business Requirement modules diagram
 
 What is a Business Requirement?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,7 +47,7 @@ A BR can contain multiple different parts depending on the company needs:
 * Resources necessary to achieve the deliverables
 * Additional information (approval, cost control etc.)
 
-These modules were originally designed for the service/IT industry but the 
+These modules were originally design for the service/IT industry but the 
 requirement management is generic and can apply to many cases/industries (customer 
 or internal projects):
 
@@ -112,10 +92,8 @@ Depending on the modules you are using for the business requirements, the
 content of the resources lines will reflect the expected resources lines in the 
 BR.
 
-|image2|
-
-.. |image2| image:: static/img/bus_req_default.png
-   :width: 800 px
+.. figure:: static/img/bus_req_default.png
+   :width: 600 px
    :alt: Set up your default resources lines.
 
 
@@ -128,16 +106,14 @@ Usage
 
 #. Adapt the resources lines if necessary
 
-|image3|
-
-.. |image3| image:: static/img/bus_req_default2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_default2.png
+   :width: 600 px
    :alt: The default resource lines are automatically added to your BR
 
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 On product_template view add a new tab "Resources" with the resource lines management (You could add, delete or create new resources).
 
@@ -155,11 +131,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/
 project/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/
-project/issues/new?body=module:%20
-business_requirement_deliverable_default%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
-
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
