@@ -54,6 +54,7 @@ What is the difference between Deliverable and Resources?
 ---------------------------------------------------------
 
 Business Requirement contains Deliverable lines and Deliverable line contains Resource lines:
+
 ::
 
     BR1
