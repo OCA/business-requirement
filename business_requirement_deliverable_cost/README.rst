@@ -8,61 +8,9 @@ Business Requirement Deliverable Cost Control
 =============================================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
-
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-.. figure:: static/img/bus_req_tree.png
-   :width: 600 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-.. figure:: static/img/bus_req_module_diag.png
-   :width: 600 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user.
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally designed for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module improves the cost control of the original module with the following:
 
@@ -75,16 +23,11 @@ This module improves the cost control of the original module with the following:
 * Multi-currency compatible: sales price is valued at currency Pricelist and 
   converted back to the reporting company currency for the cost control.
 
-Installation
-============
-
-No specific steps required
-
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 * **Business Requirement Sales Estimates**: Can See the sales prices in DL and RL (ideal for sales/presales)
 * **Business Requirement Cost Control**: Can See the cost prices for project profit control (Manager/Finance dept)
@@ -110,7 +53,7 @@ With both Sales Estimate and Cost Control rights:
 
 
 Estimation Pricelist
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 You can define the Estimation price list in the Master Project which will be 
 used in deliverable lines and sales price for the resource lines.
@@ -119,8 +62,8 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-the Estimation pricelist will be used to help the calculation of the expected 
-revenue of a Deliverable based on the sum of related RL.
+The pricelist stored in the Project/Estimation pricelist field will be used to help the calculation 
+of the expected revenue of a Deliverable based on the sum of related RL.
 
 #. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
 
