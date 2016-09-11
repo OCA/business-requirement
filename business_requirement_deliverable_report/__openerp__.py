@@ -2,8 +2,8 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Business Requirement Document Report Module',
-    'summary': 'Print the Business Requirement Document Report',
+    'name': 'Business Requirement Document Printout',
+    'summary': 'Print the Business Requirement Document for your customers',
     'version': '8.0.5.0.1',
     'category': 'Business Requirements Management',
     'website': 'https://www.elico-corp.com',
