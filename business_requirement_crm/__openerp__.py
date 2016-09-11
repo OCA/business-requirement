@@ -4,7 +4,8 @@
 {
     'name': 'Business Requirement - CRM',
     'category': 'Business Requirements Management',
-    'summary': 'Business Requirement - CRM',
+    'summary': """Create your sales quotations directly from the 
+		       Business Requirements deliverables""",
     'version': '8.0.3.0.2',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -18,7 +19,7 @@
         'views/crm_view.xml',
     ],
 	'image': [
-		'static/img/bus_req_tree.png'
+		'static/description/icon.png'
 		],
 	'license': 'AGPL-3',
     'installable': True,
