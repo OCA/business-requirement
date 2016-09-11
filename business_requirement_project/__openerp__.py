@@ -18,6 +18,7 @@
         'wizard/generate_projects_view.xml',
     ],
 	'image': [
+		'static/description/icon.png',
 		'static/img/bus_req_project.png'
 	],
     'license': 'AGPL-3',
