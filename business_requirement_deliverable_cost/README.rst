@@ -88,8 +88,7 @@ What is the difference between a BR and CRM lead?
 * CRM leads are sales oriented
 * BR are project and workload estimation oriented
 
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module improves the cost control of the original module with the following:
 
@@ -102,16 +101,11 @@ This module improves the cost control of the original module with the following:
 * Multi-currency compatible: sales price is valued at currency Pricelist and 
   converted back to the reporting company currency for the cost control.
 
-Installation
-============
-
-No specific steps required
-
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 * **Business Requirement Sales Estimates**: Can See the sales prices in DL and RL (ideal for sales/presales)
 * **Business Requirement Cost Control**: Can See the cost prices for project profit control (Manager/Finance dept)
@@ -143,7 +137,7 @@ With both Sales Estimate and Cost Control rights:
 
 
 Estimation Pricelist
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 You can define the Estimation price list in the Master Project which will be 
 used in deliverable lines and sales price for the resource lines.
@@ -152,8 +146,8 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-the Estimation pricelist will be used to help the calculation of the expected 
-revenue of a Deliverable based on the sum of related RL.
+The pricelist stored in the Project/Estimation pricelist field will be used to help the calculation 
+of the expected revenue of a Deliverable based on the sum of related RL.
 
 #. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
 
