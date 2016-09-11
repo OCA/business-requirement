@@ -7,80 +7,26 @@ Business Requirement Deliverable
 ================================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
-
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-
-.. figure:: static/img/bus_req_tree.png
-   :width: 600 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-
-.. figure:: static/img/bus_req_module_diag.png
-   :width: 600 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user.
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally designed for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
-
-This module introduces 2 main concepts in the business requirements model:
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) and introduces 
+2 new concepts complementary to the main business requirements model:
 
 * Deliverable lines
 * Resource lines
 
 What is a Deliverable Line?
+---------------------------
 
-Deliverable Lines (DL) contains products and services that we will deliver to the 
-customer. They are **customer oriented** and can be either physical or service products
+Deliverable Lines (DL) contains products and services that will be delivered to the 
+customer. They are **customer oriented** and can be either physical or service products:
 
 * Servers and procured goods
 * Gap analysis services
 * Module development services
 * Training etc.
 
-DL directly depends on the BR.
+These are the products that will appear in the SO and that the customer/stakeholder will receive.
 
 .. figure:: static/img/bus_req_deliverable.png
    :width: 600 px
@@ -88,6 +34,7 @@ DL directly depends on the BR.
 
 
 What are Resources Lines?
+-------------------------
 
 Resources Lines (RL) are the different tasks or procurements needed to achieve one deliverable:
 
@@ -103,45 +50,42 @@ RL directly depends on the DL.
    :alt: Business Requirement Resources lines
 
 What is the difference between Deliverable and Resources?
+---------------------------------------------------------
 
-Deliverables are:
+Business Requirement contains Deliverable lines and Deliverable line contains Resource lines:
+::
 
-* provided to the customer (“Functioning Website”)
-* Valued at Customer Sales Price
-* Used in Sales Quotations
+    BR1
+    |
+    |- DL1
+    |  |
+    |  |- RL1
+    |  |- RL2
+    |  `- RL3
+    |
+    |- DL2
+    |  |
+    |  |- RL4
+    |  |- RL5
+    |  `- RL6
+    |
+    BR2
+    |
+    |- DL3
+    |  |
+    |  |- RL7
+    |  `- RL8
+    |
+    |- DL4
+    |  `- RL9
 
-Resources are:
-
-* executed internally (“Server+CSS modifications”)
-* Valued at Cost Price
-* Used in Project management or procurement management
-
-Example
-^^^^^^^
-* BR1
-
-  * DL1
-
-    * RL1
-    * RL2
-    * RL3
-
-  * DL2
-
-    * RL4
-    * RL5
-    * RL6
-
-* BR2
-
-  * DL3
-
-    * RL7
-    * RL8
-
-  * DL4
-
-    * RL9
+=========== ======================================================== ========================================================
+Concept     Deliverables are:                                        Resources are:
+=========== ======================================================== ========================================================
+Target      Provided to the customer (“Functioning Website”)         Executed internally (“Server+CSS modifications”)
+Valuation   Valued at Customer Sales Price                           Valued at Cost Price
+Usage       Used in Sales Quotations                                 Used in Project management or procurement management
+=========== ======================================================== ========================================================
 
 
 Installation
@@ -153,12 +97,12 @@ Configuration
 =============
 
 Users
-^^^^^
+-----
 
 No specific ACL are required for the module.
 
 Master project
-^^^^^^^^^^^^^^
+--------------
 
 You can define a master project linked to the business requirement.
 

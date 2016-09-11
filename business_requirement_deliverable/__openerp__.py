@@ -4,7 +4,7 @@
 {
     'name': 'Business Requirement Deliverable',
     'category': 'Business Requirements Management',
-    'summary': 'Business Requirement Deliverable',
+    'summary': 'Manage your Business Requirement Deliverable and Resource for your customers',
     'version': '8.0.4.0.0',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -17,11 +17,9 @@
         'views/business_view.xml',
     ],
     'image': [
-        'static/img/bus_req.png',
         'static/img/bus_req_deliverable.png',
         'static/img/bus_req_deliverable2.png',
-        'static/img/bus_req_resource.png',
-        'static/img/bus_req_tree.png'
+        'static/img/bus_req_resource.png'
     ],
     'license': 'AGPL-3',
     'installable': True,
