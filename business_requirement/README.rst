@@ -143,12 +143,12 @@ Simple BR
 
 1. Define the header information
 
-* Master Project (Partner is the one related to the master project)
-* Priority (low, Medium, High)
-* Change request: Is it a change request? (currently only informational with n model or action)
-* Tags: any relevant tag for the business.
-* Owner and approver by default
-
+    * Master Project (Partner is the one related to the master project)
+    * Priority (low, Medium, High)
+    * Change request: Is it a change request? (currently only informational with n model or action)
+    * Tags: any relevant tag for the business.
+    * Owner and approver by default
+    
 .. figure:: static/img/bus_req_tags2.png
    :width: 600 px
    :alt: Input header information
