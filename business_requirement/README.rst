@@ -47,7 +47,7 @@ More information about business requirements management:
 Business Requirement set of modules
 -----------------------------------
 
-This module is part of a set (`Business Requirement <https://github.com/OCA/business-requirement/tree/8.0>`_).
+This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/8.0>`_).
 
 The base Business Requirements module creates the basic objects and 
 can be used as a standalone module.
