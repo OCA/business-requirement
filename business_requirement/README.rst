@@ -8,88 +8,97 @@ Business Requirement
 ====================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
+What is a Business Requirement?
+-------------------------------
 
-Additional modules integrate them with other business areas, such as Sales, 
+A **Business requirement** (BR) is the expression of a business need by a customer 
+or internal project user.
+
+A BR contains multiple different parts to explain the stakeholder need and how to 
+meet his/her requirements:
+
+* **Customer Story**: this is the requirement as expressed by the customer
+* **Scenario**: How/where the current solution can provide a suitable scenario to 
+  answer the customer story
+* **Gap**: For the uncovered part of the scenario, elaborate the gap/need for specific 
+  developments/setup
+* **Deliverables** to be provided to the customer/user
+* **Resources** necessary to achieve the deliverables
+* **Additional** information (approval, cost control etc.)
+
+This set of modules was originally designed for the service/IT industry but the 
+requirement management design has been kept as generic as possible so that it can 
+apply to many other cases/industries (customer or internal projects):
+
+* Construction
+* Trading (New product development)
+* Business Consultancy
+* Web or IT development
+* R&D projects
+* etc.
+
+More information about business requirements management:
+
+* `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`_
+* `Six Sigma <(https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
+
+Business Requirement set of modules
+-----------------------------------
+
+This module is part of a set (`Business Requirement <https://github.com/OCA/business-requirement/tree/8.0>`_).
+
+The base Business Requirements module creates the basic objects and 
+can be used as a standalone module.
+
+.. figure:: static/img/bus_req_tree.png
+   :width: 600 px
+   :alt: Business Requirement List view
+
+Multiple modules integrate the BR with other business areas, such as Sales, 
 Procurement, Project or Analytic Accounting. For example:
 
 * Sales Quotation can have an estimation supported by a BR analysis
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
-.. figure:: static/img/bus_req_tree.png
-   :width: 600 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
 .. figure:: static/img/bus_req_module_diag.png
    :width: 600 px
    :alt: Business Requirement modules diagram
 
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The following workflow explains the business workflow between the BR modules and other applications in Odoo:
 
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user. 
-A BR can contain multiple different parts depending on the company needs:
+.. figure:: static/img/bus_req_workflow.png
+   :width: 600 px
+   :alt: Business Requirement integration in Odoo
 
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally design for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
 
 How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
-This module only contains the standard models for business requirement:
+This module only contains the standard base models for business requirement:
 
 * BR model definition
 * Standard setup and views
 * Standard Workflow
 
 .. figure:: static/img/bus_req.png
-   :width: 800 px
+   :width: 600 px
    :alt: Business Requirement Form
 
-Installation
-============
-
-No specific steps required
 
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 * **Business Requirement User**: can create and confirm a BR
 * **Business Requirement Manager**: can create, confirm and approve a BR
 
 Alias and emails
-^^^^^^^^^^^^^^^^
+----------------
 You can setup an alias in Settings/Technical/Email/Alias in order to create 
 business requirements directly from email received at a specific address.
 
@@ -101,7 +110,7 @@ You can start conversation with the followers in the chatter area of the
 BR like in tasks, issue or CRM leads.
 
 Sequences
-^^^^^^^^^
+---------
 
 Default numbering format: BR123456.
 
@@ -110,7 +119,7 @@ You can modify the default numbering sequence in Settings/Technical/Sequences&Id
 Search for Business Requirement sequence and alter it if necessary.
 
 Tags
-^^^^
+----
 
 You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
 
@@ -120,7 +129,7 @@ You can create and assign tags for your business requirements in Business Requir
 
 
 Master project
-^^^^^^^^^^^^^^
+--------------
 
 You can define a master project linked to the business requirement.
 
@@ -129,9 +138,9 @@ Followers from the project will automatically be added to the business requireme
 
 Usage
 =====
-
 Simple BR
-^^^^^^^^^
+---------
+
 1. Define the header information
 
 * Master Project (Partner is the one related to the master project)
@@ -183,7 +192,7 @@ Simple BR
 
 
 Sub-business requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 User can create sub business requirements for a given BR for complex cases.
 
 This is a simple parent/child relation (see roadmap).
