@@ -4,7 +4,8 @@
 {
     'name': 'Business Requirement Deliverable Default',
     'category': 'Business Requirements Management',
-    'summary': 'Business Requirement Deliverable Default',
+    'summary': """Manage default resource lines in your 
+               deliverable sales package""",
     'version': '8.0.2.0.2',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -12,7 +13,6 @@
         'business_requirement_deliverable',
     ],
     'image': [
-        'static/img/bus_req_tree.png',
         'static/img/bus_req_default.png',
         'static/img/bus_req_default2.png'
     ],
