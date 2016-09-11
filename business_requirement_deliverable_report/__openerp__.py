@@ -2,10 +2,10 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Business Requirement Deliverable Report Module',
-    'sumarry': 'Business Requirement Deliverable Report Module',
+    'name': 'Business Requirement Document Report Module',
+    'summary': 'Print the Business Requirement Document Report',
     'version': '8.0.5.0.1',
-    'category': 'report',
+    'category': 'Business Requirements Management',
     'website': 'https://www.elico-corp.com',
     'author': 'Elico Corp',
     'license': 'AGPL-3',
@@ -21,8 +21,6 @@
         'report/report.xml'
     ],
     'image': [
-        'static/img/bus_req_tree.png'
-        'static/img/bus_req_module_diag.png',
         'static/img/bus_req_report1.png',
         'static/img/bus_req_report2.png',
         'static/img/bus_req_report3.png',
