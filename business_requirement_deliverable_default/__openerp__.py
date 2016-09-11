@@ -13,6 +13,7 @@
         'business_requirement_deliverable',
     ],
     'image': [
+		'static/description/icon.png',
         'static/img/bus_req_default.png',
         'static/img/bus_req_default2.png'
     ],
