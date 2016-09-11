@@ -7,71 +7,14 @@ Business Requirement - Project
 ==============================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
-
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-
-|image7|
-
-.. |image7| image:: business_requirement_project/static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-|image11|
-
-.. |image11| image:: business_requirement_project/static/img/bus_req_module_diag.png
-   :width: 800 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user. 
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally design for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module contains 2 main wizards to create projects/tasks:
 
 * Generate Project in the master project view
-* Generate Project in the Business requirement view
+* Generate Project in the business requirement view
 
 This module depends on:
 
@@ -86,28 +29,17 @@ wizard will create:
 * Tasks based on the resources lines set as tasks
 
 
-|image0|
-
-.. |image0| image:: business_requirement_project/static/img/bus_req_project.png
-   :width: 800 px
-   :alt: Business Requirement Project Wizard
-
-Installation
-============
-
-No specific steps required
-
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
-Only Project Manager can have access to the wizard button.
+Only Project Managers have access to the wizard button.
 
 
 Master project
-^^^^^^^^^^^^^^
+--------------
 
 You can define a master project linked to the business requirement.
 
@@ -118,7 +50,7 @@ Usage
 =====
 
 Procedure
-^^^^^^^^^
+---------
 
 #. Create multiple BR linked to one or several master projects
 #. fill in the deliverables lines and corresponding resources lines (RL)
@@ -139,36 +71,42 @@ Procedure
   #. Create sub-projects for Child Business requirements
 
 Example
-^^^^^^^
+-------
 
 eg: if a master project contains the following BR:
 
-* BR1 with
+::
 
-  * Deliverable Line 1 (DL) containing 2 Resource Lines (RL):
+    BR1
+    |
+    |- Deliverable Line 1 (DL) containing 2 Resource Lines (RL):
+    |  |
+    |  |- RL1
+    |  `- RL2
+    |
+    
+    BR2
+    |
+    |- DL2
+    |  |
+    |  |- RL3
+    |  `- RL4
+    |
+    |- DL3
+    |  |
+    |  |- RL5
+    |  `- RL6
+    |
+    |- BR3 (Sub BR of BR2)
+       |
+       `- DL4
+          `- RL7
+    
+.. figure:: static/img/bus_req_project.png
+   :width: 600 px
+   :alt: Business Requirement Project Wizard
 
-    * RL1
-    * RL2
-
-* BR2 with
-
-  * DL2
-
-    * RL3
-    * RL4
-
-  * DL3
-
-    * RL5
-    * RL6
-
-* BR3 (Sub BR of BR2) with
-
-  * DL4
-
-    * RL7
-
-If no option is selected:
+In the Project creation wizard (above image), if no option is selected:
 
 * No sub project created
 * 7 tasks are created in the master project (for RL1~RL7)
@@ -192,7 +130,7 @@ If option 2 is selected:
   * in project linked to DL3 (2 tasks for RL5~6) and
   * in project linked to DL4 (1 task for RL7)
 
-If option 1+2 are selected:
+If options 1+2 are selected:
 
 * 7 sub projects (parent is Master project), one per BR and one per DL
 
@@ -207,7 +145,7 @@ If option 1+2 are selected:
   * in project linked to DL3 (2 tasks for RL5~6) and
   * in project linked to DL4 (1 task for RL7)
 
-If option 1+3 are selected:
+If options 1+3 are selected:
 
 * 7 sub projects (parent is Master project), one per BR and sub-BR
 
@@ -220,7 +158,7 @@ If option 1+3 are selected:
   * in project linked to BR2 (4 tasks for RL3~6),
   * in project linked to BR3 (1 task for RL7)
 
-If option 1+2+3 are selected:
+If options 1+2+3 are selected:
 
 * 7 sub projects (parent is Master project), one per BR, sub-BR and DL
 
