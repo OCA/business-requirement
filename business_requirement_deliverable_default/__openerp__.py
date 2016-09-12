@@ -4,7 +4,7 @@
 {
     'name': 'Business Requirement Deliverable Default',
     'category': 'Business Requirements Management',
-    'summary': """Manage default resource lines in your 
+    'summary': """Manage default resource lines in your
                deliverable sales package""",
     'version': '8.0.2.0.2',
     'website': 'www.elico-corp.com',
