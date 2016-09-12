@@ -149,10 +149,10 @@ Simple BR
     * Tags: any relevant tag for the business.
     * Owner and approver by default
     
-.. figure:: static/img/bus_req_tags2.png
-   :width: 600 px
-   :alt: Input header information
-
+    .. figure:: static/img/bus_req_tags2.png
+       :width: 600 px
+       :alt: Input header information
+    
 2. Input the customer story, scenario and gap (simple html editor with image and text)
 
 .. figure:: static/img/bus_req_cust_story.png
