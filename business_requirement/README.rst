@@ -8,92 +8,101 @@ Business Requirement
 ====================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
+What is a Business Requirement?
+-------------------------------
 
-Additional modules integrate them with other business areas, such as Sales, 
+A **Business requirement** (BR) is the expression of a business need by a customer 
+or internal project user.
+
+A BR contains multiple different parts to explain the stakeholder need and how to 
+meet his/her requirements:
+
+* **Customer Story**: this is the requirement as expressed by the customer
+* **Scenario**: How/where the current solution can provide a suitable scenario to 
+  answer the customer story
+* **Gap**: For the uncovered part of the scenario, elaborate the gap/need for specific 
+  developments/setup
+* **Deliverables** to be provided to the customer/user
+* **Resources** necessary to achieve the deliverables
+* **Additional** information (approval, cost control etc.)
+
+This set of modules was originally designed for the service/IT industry but the 
+requirement management design has been kept as generic as possible so that it can 
+apply to many other cases/industries (customer or internal projects):
+
+* Construction
+* Trading (New product development)
+* Business Consultancy
+* Web or IT development
+* R&D projects
+* etc.
+
+More information about business requirements management:
+
+* `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`_
+* `Six Sigma <(https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
+
+Business Requirement set of modules
+-----------------------------------
+
+This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/8.0>`_).
+
+The base Business Requirements module creates the basic objects and 
+can be used as a standalone module.
+
+.. figure:: ../business_requirement/static/img/bus_req_tree.png
+   :width: 600 px
+   :alt: Business Requirement List view
+
+Multiple modules integrate the BR with other business areas, such as Sales, 
 Procurement, Project or Analytic Accounting. For example:
 
 * Sales Quotation can have an estimation supported by a BR analysis
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
-.. figure:: static/img/bus_req_tree.png
-   :width: 600 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-.. figure:: static/img/bus_req_module_diag.png
+.. figure:: ../business_requirement/static/img/bus_req_module_diag.png
    :width: 600 px
    :alt: Business Requirement modules diagram
 
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The following workflow explains the business workflow between the BR modules and other applications in Odoo:
 
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user. 
-A BR can contain multiple different parts depending on the company needs:
+.. figure:: ../business_requirement/static/img/bus_req_workflow.png
+   :width: 600 px
+   :alt: Business Requirement integration in Odoo
 
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally design for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
 
 How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
-This module only contains the standard models for business requirement:
+This module only contains the standard base models for business requirement:
 
 * BR model definition
 * Standard setup and views
 * Standard Workflow
 
-.. figure:: static/img/bus_req.png
-   :width: 800 px
+.. figure:: ../business_requirement/static/img/bus_req.png
+   :width: 600 px
    :alt: Business Requirement Form
 
-Installation
-============
-
-No specific steps required
 
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 * **Business Requirement User**: can create and confirm a BR
 * **Business Requirement Manager**: can create, confirm and approve a BR
 
 Alias and emails
-^^^^^^^^^^^^^^^^
+----------------
 You can setup an alias in Settings/Technical/Email/Alias in order to create 
 business requirements directly from email received at a specific address.
 
-.. figure:: static/img/bus_req_alias.png
+.. figure:: ../business_requirement/static/img/bus_req_alias.png
    :width: 600 px
    :alt: Email Alias setup
 
@@ -101,7 +110,7 @@ You can start conversation with the followers in the chatter area of the
 BR like in tasks, issue or CRM leads.
 
 Sequences
-^^^^^^^^^
+---------
 
 Default numbering format: BR123456.
 
@@ -110,17 +119,17 @@ You can modify the default numbering sequence in Settings/Technical/Sequences&Id
 Search for Business Requirement sequence and alter it if necessary.
 
 Tags
-^^^^
+----
 
 You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
 
-.. figure:: static/img/bus_req_tags.png
+.. figure:: ../business_requirement/static/img/bus_req_tags.png
    :width: 600 px
    :alt: Define Tags
 
 
 Master project
-^^^^^^^^^^^^^^
+--------------
 
 You can define a master project linked to the business requirement.
 
@@ -129,61 +138,60 @@ Followers from the project will automatically be added to the business requireme
 
 Usage
 =====
-
 Simple BR
-^^^^^^^^^
+---------
+
 1. Define the header information
 
-* Master Project (Partner is the one related to the master project)
-* Priority (low, Medium, High)
-* Change request: Is it a change request? (currently only informational with n model or action)
-* Tags: any relevant tag for the business.
-* Owner and approver by default
-
-.. figure:: static/img/bus_req_tags2.png
-   :width: 600 px
-   :alt: Input header information
-
+   * Master Project (Partner is the one related to the master project)
+   * Priority (low, Medium, High)
+   * Change request: Is it a change request? (currently only informational with n model or action)
+   * Tags: any relevant tag for the business.
+   * Owner and approver by default
+   
+   .. figure:: ../business_requirement/static/img/bus_req_tags2.png
+      :width: 600 px
+      :alt: Input header information
+   
 2. Input the customer story, scenario and gap (simple html editor with image and text)
 
-.. figure:: static/img/bus_req_cust_story.png
-   :width: 600 px
-   :alt: Input customer story, scenario, gap
-
+   .. figure:: ../business_requirement/static/img/bus_req_cust_story.png
+      :width: 600 px
+      :alt: Input customer story, scenario, gap
+   
 3. Confirm the Business requirement (for BR User and Manager)
    At that stage the Customer story/Scenario/Gap is not modifiable anymore
 
-.. figure:: static/img/bus_req_confirmed.png
-   :width: 600 px
-   :alt: Confirm your business requirement
-
+   .. figure:: ../business_requirement/static/img/bus_req_confirmed.png
+      :width: 600 px
+      :alt: Confirm your business requirement
+    
 4. Approve the Business requirement (for BR Manager)
 
-.. figure:: static/img/bus_req_approved.png
-   :width: 600 px
-   :alt: Confirm your business requirement
-
+   .. figure:: ../business_requirement/static/img/bus_req_approved.png
+      :width: 600 px
+      :alt: Confirm your business requirement
+    
 5. Once your requirement is finished and delivered you can set it as Done
 
-.. figure:: static/img/bus_req_done.png
-   :width: 600 px
-   :alt: Confirm your business requirement
-
+   .. figure:: ../business_requirement/static/img/bus_req_done.png
+      :width: 600 px
+      :alt: Confirm your business requirement
+    
 6. Alternatively, you can cancel the BR (in case it is not relevant or mistake) or drop it (when customer makes the decision to discontinue it)
 
-
-.. figure:: static/img/bus_req_cancel.png
-   :width: 600 px
-   :alt: Cancel your business requirement
-
-
-.. figure:: static/img/bus_req_drop.png
-   :width: 600 px
-   :alt: Drop your business requirement
-
+   .. figure:: ../business_requirement/static/img/bus_req_cancel.png
+      :width: 600 px
+      :alt: Cancel your business requirement
+    
+    
+   .. figure:: ../business_requirement/static/img/bus_req_drop.png
+      :width: 600 px
+      :alt: Drop your business requirement
+    
 
 Sub-business requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 User can create sub business requirements for a given BR for complex cases.
 
 This is a simple parent/child relation (see roadmap).
@@ -212,11 +220,6 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 
 Credits
 =======
-
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
