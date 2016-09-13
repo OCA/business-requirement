@@ -13,12 +13,12 @@ class CrmLead(models.Model):
         ondelete='set null',
     )
     resource_cost_total = fields.Float(
-        compute='_get_resource_cost_total',
+        compute='_compute_get_resource_cost_total',
         string='Total Revenue from BR'
     )
 
     @api.one
-    def _get_resource_cost_total(self):
+    def _compute_get_resource_cost_total(self):
         linked_brs = self.project_id and self.project_id.br_ids
         self.resource_cost_total = sum(
             [br.total_revenue for br in linked_brs
