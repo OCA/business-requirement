@@ -4,7 +4,8 @@
 {
     'name': 'Business Requirement',
     'category': 'Business Requirements Management',
-    'summary': 'Business Requirement',
+    'summary': 'Manage the Business Requirements (stories, scenarii and gaps) \
+                for your customers',
     'version': '8.0.5.1.0',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -31,7 +32,8 @@
         'static/img/bus_req_drop.png',
         'static/img/bus_req_tags.png',
         'static/img/bus_req_tags2.png',
-        'static/img/bus_req_tree.png'
+        'static/img/bus_req_tree.png',
+        'static/img/bus_req_workflow.png'
     ],
     'license': 'AGPL-3',
     'installable': True,
