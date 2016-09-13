@@ -29,7 +29,7 @@ customer. They are **customer oriented** and can be either physical or service p
 
 These are the products that will appear in the SO and that the customer/stakeholder will receive.
 
-.. figure:: business_requirement_deliverable/static/img/bus_req_deliverable.png
+.. figure:: static/img/bus_req_deliverable.png
    :width: 600 px
    :alt: Business Requirement Deliverable lines
 
@@ -46,7 +46,7 @@ Resources Lines (RL) are the different tasks or procurements needed to achieve o
 RL directly depends on the DL.
 
 
-..  figure:: business_requirement_deliverable/static/img/bus_req_resource.png
+..  figure:: static/img/bus_req_resource.png
    :width: 600 px
    :alt: Business Requirement Resources lines
 
@@ -123,7 +123,7 @@ Usage
 
 #. in RL you can already assign the responsible of the task if necessary
 
-.. figure:: business_requirement_deliverable/static/img/bus_req_deliverable2.png
+.. figure:: static/img/bus_req_deliverable2.png
    :width: 600 px
    :alt: Inputing the deliverables and resources lines
 
