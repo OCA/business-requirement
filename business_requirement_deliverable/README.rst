@@ -29,7 +29,7 @@ customer. They are **customer oriented** and can be either physical or service p
 
 These are the products that will appear in the SO and that the customer/stakeholder will receive.
 
-.. figure:: static/img/bus_req_deliverable.png
+.. figure:: business_requirement_deliverable/static/img/bus_req_deliverable.png
    :width: 600 px
    :alt: Business Requirement Deliverable lines
 
@@ -46,14 +46,22 @@ Resources Lines (RL) are the different tasks or procurements needed to achieve o
 RL directly depends on the DL.
 
 
-..  figure:: static/img/bus_req_resource.png
+..  figure:: business_requirement_deliverable/static/img/bus_req_resource.png
    :width: 600 px
    :alt: Business Requirement Resources lines
 
 What is the difference between Deliverable and Resources?
 ---------------------------------------------------------
 
-Business Requirement contains Deliverable lines and Deliverable line contains Resource lines:
+=========== ======================================================== ========================================================
+Concept     Deliverables are:                                        Resources are:
+=========== ======================================================== ========================================================
+Target      Provided to the customer (“Functioning Website”)         Executed internally (“Server+CSS modifications”)
+Valuation   Valued at Customer Sales Price                           Valued at Cost Price
+Usage       Used in Sales Quotations                                 Used in Project management or procurement management
+=========== ======================================================== ========================================================
+
+Business Requirement contains Deliverable lines and Deliverable line contains Resource lines. Example of a structure:
 
 ::
 
@@ -81,13 +89,6 @@ Business Requirement contains Deliverable lines and Deliverable line contains Re
     |- DL4
     |  `- RL9
 
-=========== ======================================================== ========================================================
-Concept     Deliverables are:                                        Resources are:
-=========== ======================================================== ========================================================
-Target      Provided to the customer (“Functioning Website”)         Executed internally (“Server+CSS modifications”)
-Valuation   Valued at Customer Sales Price                           Valued at Cost Price
-Usage       Used in Sales Quotations                                 Used in Project management or procurement management
-=========== ======================================================== ========================================================
 
 
 Installation
@@ -122,7 +123,7 @@ Usage
 
 #. in RL you can already assign the responsible of the task if necessary
 
-.. figure:: static/img/bus_req_deliverable2.png
+.. figure:: business_requirement_deliverable/static/img/bus_req_deliverable2.png
    :width: 600 px
    :alt: Inputing the deliverables and resources lines
 
