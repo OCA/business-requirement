@@ -4,7 +4,7 @@
 {
     'name': 'Business Requirement - CRM',
     'category': 'Business Requirements Management',
-    'summary': """Create your sales quotations directly from the 
+    'summary': """Create your sales quotations directly from the
 		       Business Requirements deliverables""",
     'version': '8.0.3.0.2',
     'website': 'www.elico-corp.com',
@@ -20,7 +20,7 @@
     ],
 	'image': [
 		'static/description/icon.png'
-		],
+	],
 	'license': 'AGPL-3',
     'installable': True,
 }
