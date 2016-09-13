@@ -52,7 +52,7 @@ This module is part of a set (`Business Requirements repo <https://github.com/OC
 The base Business Requirements module creates the basic objects and 
 can be used as a standalone module.
 
-.. figure:: static/img/bus_req_tree.png
+.. figure:: ../business_requirement/static/img/bus_req_tree.png
    :width: 600 px
    :alt: Business Requirement List view
 
@@ -63,6 +63,8 @@ Procurement, Project or Analytic Accounting. For example:
 * Project Tasks can be related to the BRs they implement or support
 * Procurement and purchase can be generated out of the BR
 
+.. figure:: business_requirement/static/img/bus_req_module_diag.png
+   :width: 600 px
 .. figure:: static/img/bus_req_module_diag.png
    :width: 600 px
    :alt: Business Requirement modules diagram
