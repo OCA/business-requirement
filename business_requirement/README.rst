@@ -65,8 +65,6 @@ Procurement, Project or Analytic Accounting. For example:
 
 .. figure:: business_requirement/static/img/bus_req_module_diag.png
    :width: 600 px
-.. figure:: static/img/bus_req_module_diag.png
-   :width: 600 px
    :alt: Business Requirement modules diagram
 
 The following workflow explains the business workflow between the BR modules and other applications in Odoo:
