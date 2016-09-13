@@ -18,7 +18,7 @@
         'views/business_view.xml',
     ],
     'image': [
-		'static/description/icon.png',
+        'static/description/icon.png',
         'static/img/bus_req_deliverable.png',
         'static/img/bus_req_deliverable2.png',
         'static/img/bus_req_resource.png'
