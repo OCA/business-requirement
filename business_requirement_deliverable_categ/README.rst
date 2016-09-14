@@ -7,65 +7,10 @@ Business Requirement Deliverable Task Category
 ==============================================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_).
 
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-|image7|
-
-.. |image7| image:: business_requirement_deliverable_categ/static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-|image11|
-
-.. |image11| image:: business_requirement_deliverable_categ/static/img/bus_req_module_diag.png
-   :width: 800 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user.
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally designed for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
 
 This module introduces 1 new concept in the business requirements resource line:
 
@@ -73,23 +18,19 @@ This module introduces 1 new concept in the business requirements resource line:
 * If module business_requirement_project is installed the category will be 
   propagated to the task at project/task creation.
 
-Installation
-============
-
-No specific steps required
 
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 No specific ACL are required for the module.
 
 Task category
-^^^^^^^^^^^^^
+-------------
 
-You can define the task category in the Project/Configuration/Task category menu
+You can define the task category in the Project/Configuration/Task category menu.
 
 
 Usage
@@ -101,16 +42,14 @@ Usage
 
 #. in RL you can already assign task category on top of the assignee if necessary
 
-|image2|
-
-.. |image2| image:: business_requirement_deliverable_categ/static/img/bus_req_category.png
-   :width: 800 px
+.. figure:: static/img/bus_req_category.png
+   :width: 600 px
    :alt: Inputing the deliverables and resources lines
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 
 Bug Tracker
@@ -122,11 +61,6 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 
 Credits
 =======
-
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
