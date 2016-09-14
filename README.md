@@ -16,8 +16,8 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[business_requirement](business_requirement/) | 8.0.5.1.0 | Business Requirement
-[business_requirement_deliverable](business_requirement_deliverable/) | 8.0.4.0.0 | Business Requirement Deliverable
+[business_requirement](business_requirement/) | 8.0.5.1.0 | Manage the Business Requirements (stories, scenarii and gaps) for your customers
+[business_requirement_deliverable](business_requirement_deliverable/) | 8.0.4.0.0 | Manage the Business Requirement Deliverables and Resources for your customers
 
 [//]: # (end addons)
 
