@@ -54,7 +54,9 @@ can be used as a standalone module.
 
 .. figure:: ../business_requirement/static/img/bus_req_tree.png
    :width: 600 px
-   :alt: Business Requirement List view
+
+.. figure:: business_requirement/static/img/bus_req_tree.png
+   :width: 600 px
 
 Multiple modules integrate the BR with other business areas, such as Sales, 
 Procurement, Project or Analytic Accounting. For example:
@@ -65,13 +67,17 @@ Procurement, Project or Analytic Accounting. For example:
 
 .. figure:: ../business_requirement/static/img/bus_req_module_diag.png
    :width: 600 px
-   :alt: Business Requirement modules diagram
+
+.. figure:: business_requirement/static/img/bus_req_module_diag.png
+   :width: 600 px
 
 The following workflow explains the business workflow between the BR modules and other applications in Odoo:
 
 .. figure:: ../business_requirement/static/img/bus_req_workflow.png
    :width: 600 px
-   :alt: Business Requirement integration in Odoo
+
+.. figure:: business_requirement/static/img/bus_req_workflow.png
+   :width: 600 px
 
 
 How to use this module?
@@ -85,7 +91,9 @@ This module only contains the standard base models for business requirement:
 
 .. figure:: ../business_requirement/static/img/bus_req.png
    :width: 600 px
-   :alt: Business Requirement Form
+
+.. figure:: business_requirement/static/img/bus_req.png
+   :width: 600 px
 
 
 Configuration
@@ -104,7 +112,9 @@ business requirements directly from email received at a specific address.
 
 .. figure:: ../business_requirement/static/img/bus_req_alias.png
    :width: 600 px
-   :alt: Email Alias setup
+
+.. figure::business_requirement/static/img/bus_req_alias.png
+   :width: 600 px
 
 You can start conversation with the followers in the chatter area of the 
 BR like in tasks, issue or CRM leads.
@@ -121,12 +131,13 @@ Search for Business Requirement sequence and alter it if necessary.
 Tags
 ----
 
-You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
+You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category.
 
 .. figure:: ../business_requirement/static/img/bus_req_tags.png
    :width: 600 px
-   :alt: Define Tags
 
+.. figure::business_requirement/static/img/bus_req_tags.png
+   :width: 600 px
 
 Master project
 --------------
@@ -151,43 +162,57 @@ Simple BR
    
    .. figure:: ../business_requirement/static/img/bus_req_tags2.png
       :width: 600 px
-      :alt: Input header information
-   
+
+   .. figure::business_requirement/static/img/bus_req_tags2.png
+      :width: 600 px
+
 2. Input the customer story, scenario and gap (simple html editor with image and text)
 
    .. figure:: ../business_requirement/static/img/bus_req_cust_story.png
       :width: 600 px
-      :alt: Input customer story, scenario, gap
-   
+
+   .. figure::business_requirement/static/img/bus_req_cust_story.png
+      :width: 600 px
+
 3. Confirm the Business requirement (for BR User and Manager)
    At that stage the Customer story/Scenario/Gap is not modifiable anymore
 
    .. figure:: ../business_requirement/static/img/bus_req_confirmed.png
       :width: 600 px
-      :alt: Confirm your business requirement
+
+   .. figure::business_requirement/static/img/bus_req_confirmed.png
+      :width: 600 px
     
 4. Approve the Business requirement (for BR Manager)
 
    .. figure:: ../business_requirement/static/img/bus_req_approved.png
       :width: 600 px
-      :alt: Confirm your business requirement
+
+   .. figure::business_requirement/static/img/bus_req_approved.png
+      :width: 600 px
     
 5. Once your requirement is finished and delivered you can set it as Done
 
    .. figure:: ../business_requirement/static/img/bus_req_done.png
       :width: 600 px
-      :alt: Confirm your business requirement
+
+   .. figure::business_requirement/static/img/bus_req_done.png
+      :width: 600 px
     
 6. Alternatively, you can cancel the BR (in case it is not relevant or mistake) or drop it (when customer makes the decision to discontinue it)
 
    .. figure:: ../business_requirement/static/img/bus_req_cancel.png
       :width: 600 px
-      :alt: Cancel your business requirement
+
+   .. figure::business_requirement/static/img/bus_req_cancel.png
+      :width: 600 px
     
     
    .. figure:: ../business_requirement/static/img/bus_req_drop.png
       :width: 600 px
-      :alt: Drop your business requirement
+
+   .. figure::business_requirement/static/img/bus_req_drop.png
+      :width: 600 px
     
 
 Sub-business requirements
