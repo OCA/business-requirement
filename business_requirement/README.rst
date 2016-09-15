@@ -55,7 +55,7 @@ can be used as a standalone module.
 .. figure:: ../business_requirement/static/img/bus_req_tree.png
    :width: 600 px
 
-.. figure:: static/img/bus_req_tree.png
+.. figure:: business_requirement/static/img/bus_req_tree.png
    :width: 600 px
 
 Multiple modules integrate the BR with other business areas, such as Sales, 
@@ -68,7 +68,7 @@ Procurement, Project or Analytic Accounting. For example:
 .. figure:: ../business_requirement/static/img/bus_req_module_diag.png
    :width: 600 px
 
-.. figure:: static/img/bus_req_module_diag.png
+.. figure:: business_requirement/static/img/bus_req_module_diag.png
    :width: 600 px
 
 The following workflow explains the business workflow between the BR modules and other applications in Odoo:
@@ -76,7 +76,7 @@ The following workflow explains the business workflow between the BR modules and
 .. figure:: ../business_requirement/static/img/bus_req_workflow.png
    :width: 600 px
 
-.. figure:: static/img/bus_req_workflow.png
+.. figure:: business_requirement/static/img/bus_req_workflow.png
    :width: 600 px
 
 
@@ -92,7 +92,7 @@ This module only contains the standard base models for business requirement:
 .. figure:: ../business_requirement/static/img/bus_req.png
    :width: 600 px
 
-.. figure:: static/img/bus_req.png
+.. figure:: business_requirement/static/img/bus_req.png
    :width: 600 px
 
 
@@ -113,7 +113,7 @@ business requirements directly from email received at a specific address.
 .. figure:: ../business_requirement/static/img/bus_req_alias.png
    :width: 600 px
 
-.. figure:: static/img/bus_req_alias.png
+.. figure::business_requirement/static/img/bus_req_alias.png
    :width: 600 px
 
 You can start conversation with the followers in the chatter area of the 
@@ -136,7 +136,7 @@ You can create and assign tags for your business requirements in Business Requir
 .. figure:: ../business_requirement/static/img/bus_req_tags.png
    :width: 600 px
 
-.. figure:: static/img/bus_req_tags.png
+.. figure::business_requirement/static/img/bus_req_tags.png
    :width: 600 px
 
 Master project
@@ -163,7 +163,7 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_tags2.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_tags2.png
+   .. figure::business_requirement/static/img/bus_req_tags2.png
       :width: 600 px
 
 2. Input the customer story, scenario and gap (simple html editor with image and text)
@@ -171,7 +171,7 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_cust_story.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_cust_story.png
+   .. figure::business_requirement/static/img/bus_req_cust_story.png
       :width: 600 px
 
 3. Confirm the Business requirement (for BR User and Manager)
@@ -180,7 +180,7 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_confirmed.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_confirmed.png
+   .. figure::business_requirement/static/img/bus_req_confirmed.png
       :width: 600 px
     
 4. Approve the Business requirement (for BR Manager)
@@ -188,7 +188,7 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_approved.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_approved.png
+   .. figure::business_requirement/static/img/bus_req_approved.png
       :width: 600 px
     
 5. Once your requirement is finished and delivered you can set it as Done
@@ -196,7 +196,7 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_done.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_done.png
+   .. figure::business_requirement/static/img/bus_req_done.png
       :width: 600 px
     
 6. Alternatively, you can cancel the BR (in case it is not relevant or mistake) or drop it (when customer makes the decision to discontinue it)
@@ -204,14 +204,14 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_cancel.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_cancel.png
+   .. figure::business_requirement/static/img/bus_req_cancel.png
       :width: 600 px
     
     
    .. figure:: ../business_requirement/static/img/bus_req_drop.png
       :width: 600 px
 
-   .. figure:: static/img/bus_req_drop.png
+   .. figure::business_requirement/static/img/bus_req_drop.png
       :width: 600 px
     
 
