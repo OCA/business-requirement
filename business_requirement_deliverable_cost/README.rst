@@ -8,65 +8,9 @@ Business Requirement Deliverable Cost Control
 =============================================
 
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
-
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-|image7|
-
-.. |image7| image:: business_requirement_deliverable_cost/static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-|image11|
-
-.. |image11| image:: business_requirement_deliverable_cost/static/img/bus_req_module_diag.png
-   :width: 800 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user.
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally designed for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module improves the cost control of the original module with the following:
 
@@ -79,48 +23,37 @@ This module improves the cost control of the original module with the following:
 * Multi-currency compatible: sales price is valued at currency Pricelist and 
   converted back to the reporting company currency for the cost control.
 
-Installation
-============
-
-No specific steps required
-
 Configuration
 =============
 
 Users
-^^^^^
+-----
 
 * **Business Requirement Sales Estimates**: Can See the sales prices in DL and RL (ideal for sales/presales)
 * **Business Requirement Cost Control**: Can See the cost prices for project profit control (Manager/Finance dept)
 
 Without Sales Estimate nor Cost Control rights:
 
-|image3|
-
-.. |image3| image:: business_requirement_deliverable_cost/static/img/bus_req_acl1.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl1.png
+   :width: 600 px
    :alt: No access to sales or cost control information (Simple user)
 
 Without Cost Control rights:
 
-|image4|
-
-.. |image4| image:: business_requirement_deliverable_cost/static/img/bus_req_acl2.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl2.png
+   :width: 600 px
    :alt: Access to sales price with no cost control (Salesmen)
 
 
 With both Sales Estimate and Cost Control rights:
 
-|image5|
-
-.. |image5| image:: business_requirement_deliverable_cost/static/img/bus_req_acl3.png
-   :width: 800 px
+.. figure:: static/img/bus_req_acl3.png
+   :width: 600 px
    :alt: Full access to sales price and cost control (Financial dept)
 
 
 Estimation Pricelist
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 You can define the Estimation price list in the Master Project which will be 
 used in deliverable lines and sales price for the resource lines.
@@ -129,8 +62,8 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-the Estimation pricelist will be used to help the calculation of the expected 
-revenue of a Deliverable based on the sum of related RL.
+The pricelist stored in the Project/Estimation pricelist field will be used to help the calculation 
+of the expected revenue of a Deliverable based on the sum of related RL.
 
 #. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
 
@@ -142,16 +75,16 @@ revenue of a Deliverable based on the sum of related RL.
 
 #. you can review the cost control tab of your BR as followed (only available for ACL Cost Control)
 
-|image2|
+#. Eventually you can manually update the price of all resource clicking on the Update button.
 
-.. |image2| image:: business_requirement_deliverable_cost/static/img/bus_req_control.png
-   :width: 800 px
+.. figure:: static/img/bus_req_control.png
+   :width: 600 px
    :alt: Control your cost for the BR
 
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 Known issues / Roadmap
 ======================
@@ -171,10 +104,11 @@ Credits
 Contributors
 ------------
 
-Eric Caudal<eric.caudal@elico-corp.com>
-Alex Duan<alex.duan@elico-corp.com>
-Xie XiaoPeng<xie.xiaopeng@elico-corp.com>
-Luke Zheng<luke.zheng@elico-corp.com>
+Eric Caudal <eric.caudal@elico-corp.com>
+Alex Duan <alex.duan@elico-corp.com>
+Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
+Luke Zheng <luke.zheng@elico-corp.com>
+Victor Martin <victor.martin@elico-corp.com>
 
 Maintainer
 ----------
