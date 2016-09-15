@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Business Requirement Deliverable Cost Control",
-    "summary": "Business Requirement Deliverable Cost Control Module Project",
+    "summary": "Control the cost of your Business Requirements",
     "version": "8.0.1.0.1",
-    'category': 'Business Requirements Management',
+    'category': 'Business Requirement Management',
     "website": "www.elico-corp.com",
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -15,7 +15,7 @@
         "business_requirement_deliverable",
     ],
     'image': [
-        'static/img/bus_req_tree.png',
+        'static/description/icon.png',
         'static/img/bus_req_acl1.png',
         'static/img/bus_req_acl2.png',
         'static/img/bus_req_acl3.png',
