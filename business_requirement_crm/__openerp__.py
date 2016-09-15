@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Business Requirement - CRM',
-    'category': 'Business Requirements Management',
-    'summary': """Create your sales quotations directly from the
-		       Business Requirements deliverables""",
+    'category': 'Business Requirement Management',
+    'summary': 'Create your sales quotations directly from the \
+		       Business Requirements deliverables',
     'version': '8.0.3.0.2',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
