@@ -181,9 +181,7 @@ class BusinessRequirement(models.Model):
     )
 
     @api.multi
-    @api.depends(
-        'deliverable_lines'
-    )
+    @api.depends('deliverable_lines')
     def _compute_resource_task_total(self):
         for br in self:
             if br.deliverable_lines:
@@ -194,9 +192,7 @@ class BusinessRequirement(models.Model):
                             'price_total'))
 
     @api.multi
-    @api.depends(
-        'deliverable_lines'
-    )
+    @api.depends('deliverable_lines')
     def _compute_resource_procurement_total(self):
         for br in self:
             if br.deliverable_lines:
