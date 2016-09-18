@@ -47,8 +47,7 @@ class CrmMakeSale(models.TransientModel):
                 vals = {
                     'order_id': order_id,
                     'product_id': br_line.product_id.id,
-                    'tax_id': [(6, 0, br_line.tax_ids.mapped('id'))],
-                    'name': br_line.description,
+                    'name': br_line.name,
                     'product_uom_qty': br_line.qty,
                     'product_uos_qty': br_line.qty,
                     'product_uom': br_line.uom_id.id,

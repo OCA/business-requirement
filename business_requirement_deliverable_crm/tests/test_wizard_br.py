@@ -66,8 +66,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Project A', 'pricelist_id': self.pricelistA.id,
             'partner_id': 3,
         })
-        self.crm_lead_1 = self.env.ref('crm.crm_case_1')
-        self.crm_lead_1.project_id = self.project.id
 
         vals = {
             'description': 'test',
@@ -115,21 +113,42 @@ class BusinessRequirementTestCase(common.TransactionCase):
             ],
         }
         self.br = self.env['business.requirement'].create(vals)
+        self.wizard_obj = self.env['br.crm.make.sale']
+        self.crm_lead_16 = self.env.ref('crm.crm_case_1')
+        self.crm_lead_16.project_id = self.project.id
+        self.partner_4 = self.env.ref('base.res_partner_4')
+        vals_wizard = {
+            'partner_id': self.partner_4.id,
+            'update_quotation': True
+        }
+        context_wizard = {
+            'active_id': self.crm_lead_16.id,
+            'active_ids': [self.crm_lead_16.id]
+        }
 
-    def test__compute_get_resource_cost_total(self):
-        self.crm_lead_1._compute_get_resource_cost_total()
-        br_ids = self.crm_lead_1.project_id.br_ids
-        resource_cost_total = sum(
-            [br.total_revenue for br in br_ids
-                if br.state not in ('drop', 'cancel')])
-        self.assertEqual(
-            resource_cost_total,
-            self.crm_lead_1.resource_cost_total)
+        self.wizard = self.wizard_obj.create(
+            vals_wizard).with_context(context_wizard)
 
-    def test_project_id_change(self):
-        self.crm_lead_1.project_id_change()
-        project_id = self.crm_lead_1.project_id
-        partner_id = project_id.partner_id.id
-        self.assertEqual(
-            partner_id,
-            self.crm_lead_1.partner_id.id)
+    def test_make_orderline(self):
+        res = self.wizard.make_orderline()
+        self.assertTrue(res.get('res_id', False))
+
+    def test_prepare_sale_order_line(self):
+        res = self.wizard.make_orderline()
+        order_id = res.get('res_id', False)
+        lines = self.wizard.prepare_sale_order_line(
+            self.crm_lead_16.id,
+            order_id)
+        self.assertTrue(lines)
+
+    def test_create_sale_order_line(self):
+        res = self.wizard.make_orderline()
+        order_id = res.get('res_id', False)
+        lines = self.wizard.prepare_sale_order_line(
+            self.crm_lead_16.id,
+            order_id)
+        try:
+            self.wizard.create_sale_order_line(lines)
+            self.assertTrue(True)
+        except Exception:
+            pass
