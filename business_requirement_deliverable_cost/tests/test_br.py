@@ -149,11 +149,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.sale_price_unit, sale_price_unit)
 
-    def test_compute_resource_tasks_total(self):
-        """ Checks if the _compute_resource_tasks_total works properly
+    def test_compute_resource_task_total(self):
+        """ Checks if the _compute_resource_task_total works properly
         """
         self.assertEqual(
-            self.br.resource_tasks_total, 100000.0)
+            self.br.resource_task_total, 100000.0)
 
     def test_compute_resource_procurement_total(self):
         """ Checks if the _compute_resource_procurement_total works properly
