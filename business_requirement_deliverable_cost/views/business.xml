@@ -46,7 +46,7 @@
                             <group>
                                 <field name="total_revenue"/>
                                 <field name="resource_procurement_total"/>
-                                <field name="resource_tasks_total"/>
+                                <field name="resource_task_total"/>
                                 <field name="gross_profit"/>
                             </group>
                         </group>

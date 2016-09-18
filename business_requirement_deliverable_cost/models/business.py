@@ -45,26 +45,26 @@ class BusinessRequirementResource(models.Model):
 
     @api.multi
     def _get_partner(self):
-        for resource in self:
-            br_id = False
-            if resource.business_requirement_deliverable_id:
-                br_deliverable = resource.business_requirement_deliverable_id
-            if br_deliverable and br_deliverable.business_requirement_id:
-                br_id = br_deliverable.business_requirement_id
-            if br_id and br_id.partner_id:
-                return br_id.partner_id
-            else:
-                return False
+        self.ensure_one()
+        br_id = False
+        if self.business_requirement_deliverable_id:
+            br_deliverable = self.business_requirement_deliverable_id
+        if br_deliverable and br_deliverable.business_requirement_id:
+            br_id = br_deliverable.business_requirement_id
+        if br_id and br_id.partner_id:
+            return br_id.partner_id
+        else:
+            return False
 
     @api.multi
     def _get_pricelist(self):
-        for resource in self:
-            partner_id = resource._get_partner()
-            if partner_id:
-                if partner_id.property_product_pricelist:
-                    return partner_id.property_product_pricelist
-            else:
-                return False
+        self.ensure_one()
+        partner_id = self._get_partner()
+        if partner_id:
+            if partner_id.property_product_pricelist:
+                return partner_id.property_product_pricelist
+        else:
+            return False
 
     @api.multi
     @api.onchange('product_id')
@@ -159,8 +159,8 @@ class BusinessRequirement(models.Model):
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_estimation',
     )
-    resource_tasks_total = fields.Float(
-        compute='_compute_resource_tasks_total',
+    resource_task_total = fields.Float(
+        compute='_compute_resource_task_total',
         string='Total tasks',
         store=False,
         groups='business_requirement_deliverable_cost.'
@@ -184,10 +184,10 @@ class BusinessRequirement(models.Model):
     @api.depends(
         'deliverable_lines'
     )
-    def _compute_resource_tasks_total(self):
+    def _compute_resource_task_total(self):
         for br in self:
             if br.deliverable_lines:
-                br.resource_tasks_total = sum(
+                br.resource_task_total = sum(
                     br.mapped('deliverable_lines').mapped(
                         'resource_ids').filtered(
                         lambda r: r.resource_type == 'task').mapped(
@@ -209,9 +209,9 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.depends(
         'total_revenue',
-        'resource_tasks_total',
+        'resource_task_total',
         'resource_procurement_total')
     def _compute_gross_profit(self):
         for br in self:
             br.gross_profit = br.total_revenue - \
-                br.resource_tasks_total - br.resource_procurement_total
+                br.resource_task_total - br.resource_procurement_total
