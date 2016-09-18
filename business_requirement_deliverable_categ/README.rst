@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 ==============================================
-Business Requirement Deliverable Task Category
+Business Requirement Resources Task Categories
 ==============================================
 
 Introduction
@@ -12,35 +12,27 @@ Introduction
 This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_).
 
 
-This module introduces 1 new concept in the business requirements resource line:
+This module introduces **Task Category** in the business requirements resource lines.
 
-* Task Category
-* If module business_requirement_project is installed the category will be 
-  propagated to the task at project/task creation.
-
+If module business_requirement_project is installed the category will be propagated 
+to the task at project/task creation.
 
 Configuration
 =============
 
-Users
------
-
-No specific ACL are required for the module.
-
-Task category
--------------
-
-You can define the task category in the Project/Configuration/Task category menu.
+You can maintain the task categories in the Project/Configuration/Task category menu.
 
 
 Usage
 =====
 
-#. In the BR, you can add as many deliverable lines as necessary. Price of the deliverable lines will depend on the pricelist in master project or customer.
+#. In the Business requirement, you can add as many Deliverable Lines as necessary. Price of the Deliverable Lines will depend on the pricelist defined in master project or customer.
 
-#. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. 
+#. Once the Deliverable Lines are created, you can create as many Resource Lines as necessary in each Deliverable Lines.
 
-#. in RL you can already assign task category on top of the assignee if necessary
+#. in Resource Lines, you can then already assign task category on top of the assignee if necessary.
+
+NB: Task category cannot be assigned to a procurement line.
 
 .. figure:: static/img/bus_req_category.png
    :width: 600 px

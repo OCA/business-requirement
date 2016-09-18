@@ -2,9 +2,9 @@
 # © 2016 Elico Corp (www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    "name": "Business Requirement Deliverable Category",
-    'category': 'Business Requirements Management',
-    'summary': 'Business Requirement Deliverable Task Categories',
+    "name": "Business Requirement Resources Task Categories",
+    'category': 'Business Requirement Management',
+    'summary': 'Adds Task Categories to your Business Requirement Resources',
     "version": "8.0.3.0.2",
     "website": "www.elico-corp.com",
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -16,7 +16,7 @@
         "business_requirement_deliverable"
     ],
     'image': [
-        'static/img/bus_req_tree.png',
+        'static/description/icon.png',
         'static/img/bus_req_category.png'
     ],
     "data": [
