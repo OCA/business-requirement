@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import api, fields, models
 from openerp.tools.translate import _
-from openerp.osv import osv
+from openerp.exceptions import ValidationError
 
 
 class CrmMakeSale(models.TransientModel):
@@ -36,7 +36,7 @@ class CrmMakeSale(models.TransientModel):
         case = self.env['crm.lead'].browse(case_id)
         linked_brs = case.project_id and case.project_id.br_ids or []
         if not linked_brs:
-            raise osv.except_osv(
+            raise ValidationError(
                 _('Error!'),
                 _("""There is no available business requirement to
                     make sale order!"""))
