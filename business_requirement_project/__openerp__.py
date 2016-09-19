@@ -4,8 +4,8 @@
 {
     'name': 'Business Requirement - Project',
     'category': 'Business Requirements Management',
-    'summary': """Create projects and tasks directly from 
-				the Business Requirement and Resources lines""",
+    'summary': 'Create projects and tasks directly from \
+				the Business Requirement and Resources lines',
     'version': '8.0.4.0.4',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
