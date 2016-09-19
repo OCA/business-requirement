@@ -5,98 +5,36 @@
 ====================================
 Business Requirement Deliverable CRM
 ====================================
-
 Introduction
-^^^^^^^^^^^^
+============
 
-This module is part of a set ("Business Requirement").
-The Business Requirements features start as independent entities, and can be 
-used as standalone.
-
-Additional modules integrate them with other business areas, such as Sales, 
-Procurement, Project or Analytic Accounting. For example:
-
-* Sales Quotation can have an estimation supported by a BR analysis
-* Project Tasks can be related to the BRs they implement or support
-* Procurement and purchase can be generated out of the BR
-
-|image7|
-
-.. |image7| image:: business_requirement_deliverable_crm/static/img/bus_req_tree.png
-   :width: 800 px
-   :alt: Business Requirement List view
-
-The following diagram gives a simplified view of the universe:
-
-|image11|
-
-.. |image11| image:: business_requirement_deliverable_crm/static/img/bus_req_module_diag.png
-   :width: 800 px
-   :alt: Business Requirement modules diagram
-
-What is a Business Requirement?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Business requirement (BR) is the expression of a business need by a customer 
-or internal project user.
-A BR can contain multiple different parts depending on the company needs:
-
-* Customer Story: this is the requirement as expressed by the customer
-* Scenario: How/where the current solution can provide a suitable scenario to 
-  answer the customer story
-* Gap: For the uncovered part of the scenario, elaborate the gap/need for specific 
-  developments/setup
-* Deliverables to be provided to the customer/user
-* Resources necessary to achieve the deliverables
-* Additional information (approval, cost control etc.)
-
-These modules were originally designed for the service/IT industry but the 
-requirement management is generic and can apply to many cases/industries (customer 
-or internal projects):
-
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* IT development
-
-What is the difference between a BR and CRM lead?
-
-* CRM leads are sales oriented
-* BR are project and workload estimation oriented
-
-How to use this module?
-^^^^^^^^^^^^^^^^^^^^^^^
+This module is part of a set of modules 
+(`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module adds integration between the CRM and Business Requirement model:
 
 * Possibility to link a CRM opportunity to a Master project
 * Possibility to create a Sales Quotation based on the BR from a Master Project
 
-
-Installation
-============
-
-No specific Installation step required
-
-
 Configuration
 =============
 
-Button is available for sales user or manager
+Button to create the SQ in the opportunity is available for sales user or manager
 
 Usage
 =====
 
 #. Link your master project in the CRM lead
-#. Generate a BR with deliverable lines in the master project.
-#. Click on the button "GEnerate Quotation from Business Requirement"
-#. Select update existing or create new
-#. A quotation is created/updated based on the BR and deliverable information
-
+#. Create one or several BR with deliverable lines in the master project.
+#. Click on the button "Generate Quotation from Business Requirement" in the
+   Opportunity
+#. Select update existing or create new one
+#. A quotation is created/updated based on the deliverable lines from all the 
+   BR related to the master project
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/140/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 
 Known issues / Roadmap
