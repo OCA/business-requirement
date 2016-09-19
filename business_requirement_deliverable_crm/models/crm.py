@@ -13,19 +13,20 @@ class CrmLead(models.Model):
         ondelete='set null',
     )
     resource_cost_total = fields.Float(
-        compute='_compute_get_resource_cost_total',
+        compute='_compute_resource_cost_total',
         string='Total Revenue from BR'
     )
 
     @api.one
-    def _compute_get_resource_cost_total(self):
-        linked_brs = self.project_id and self.project_id.br_ids
+    def _compute_resource_cost_total(self):
         self.resource_cost_total = sum(
-            [br.total_revenue for br in linked_brs
+            [br.total_revenue for br in
+                self.project_id and self.project_id.br_ids
                 if br.state not in ('drop', 'cancel')])
 
-    @api.one
+    @api.multi
     @api.onchange('project_id')
     def project_id_change(self):
+        self.ensure_one()
         if self.project_id:
             self.partner_id = self.project_id.partner_id.id

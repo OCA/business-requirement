@@ -116,8 +116,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         }
         self.br = self.env['business.requirement'].create(vals)
 
-    def test__compute_get_resource_cost_total(self):
-        self.crm_lead_1._compute_get_resource_cost_total()
+    def test__compute_resource_cost_total(self):
+        self.crm_lead_1._compute_resource_cost_total()
         br_ids = self.crm_lead_1.project_id.br_ids
         resource_cost_total = sum(
             [br.total_revenue for br in br_ids
