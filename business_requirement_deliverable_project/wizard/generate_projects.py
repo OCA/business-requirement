@@ -77,15 +77,15 @@ class BrGenerateProjects(models.TransientModel):
                 self.generate_br_projects(
                     parent_project, br, project_ids, task_ids)
         if project_ids:
-            ids = ['%s' % x for x in project_ids]
+            ids = map(str, project_ids)
             res_model = 'project.project'
             name = 'Project'
         else:
-            ids = ['%s' % x for x in task_ids]
+            ids = map(str, task_ids)
             res_model = 'project.task'
             name = 'Task'
         action = {
-            'domain': "[('id','in',[%s])]" % ','.join(ids),
+            'domain': "[('id', 'in', [%s])]" % ', '.join(ids),
             'name': _(name),
             'view_type': 'form',
             'view_mode': 'tree,form',
@@ -103,6 +103,7 @@ class BrGenerateProjects(models.TransientModel):
 
     @api.multi
     def generate_br_projects(self, parent_project, br, project_ids, task_ids):
+        self.ensure_one()
         project_obj = self.env['project.project']
         br_project = False
         if self.for_br:
@@ -162,9 +163,8 @@ class BrGenerateProjects(models.TransientModel):
             'name': br.description,
             'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
-            'members': [(6, 0, [x.id for x in parent.members])],
-            'message_follower_ids': [
-                x.id for x in parent.message_follower_ids],
+            'members': [(6, 0, parent.members.ids)],
+            'message_follower_ids': parent.message_follower_ids.ids,
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
             'privacy_visibility': '%s' % (br.project_id.privacy_visibility)

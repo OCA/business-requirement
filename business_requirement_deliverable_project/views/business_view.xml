@@ -41,7 +41,7 @@
                             type="object"
                             class="oe_highlight"
                             groups="business_requirement.group_business_requirement_manager"
-                            attrs="{'invisible': ['|',('project_id','=',False),('state','!=','approved')]}"/>
+                            attrs="{'invisible': ['|', ('project_id', '=', False), ('state', '!=', 'approved')]}"/>
                 </xpath>
 
                 <xpath expr="//div[@name='buttons']"
@@ -50,7 +50,7 @@
                             type="action"
                             name="%(action_view_tasks_business_requirement)d"
                             icon="fa-tasks"
-                            context="{'business_requirement_id': id }">
+                            context="{'business_requirement_id': id}">
                         <field string="Tasks"
                                name="task_count"
                                widget="statinfo"/>
@@ -70,8 +70,8 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr='//header/field[@name="state"]' position='before'>
-                    <button name="generate_projects_wizard"
+                <xpath expr="//header/field[@name='state']" position="before">
+                    <button name="generate_project_wizard"
                             string="Projects From Business Requirement"
                             type="object"
                             class="oe_highlight"
@@ -89,7 +89,7 @@
                       position="after">
                     <field name="business_requirement_id"
                            string="Business requirement"
-                           attrs="{'invisible': ['|', ('business_requirement_id','=',False)]}"/>
+                           attrs="{'invisible': ['|', ('business_requirement_id', '=', False)]}"/>
                 </field>
             </field>
         </record>

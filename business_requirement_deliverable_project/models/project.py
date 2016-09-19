@@ -19,13 +19,12 @@ class Project(models.Model):
             br_ids = self.br_ids
             from_project = True
         default_uom = self.env['project.config.settings'].\
-            get_default_time_unit('time_unit')
-        default_uom = default_uom.get('time_unit', False)
+            get_default_time_unit('time_unit').get('time_unit', False)
         if not default_uom:
             raise osv.except_osv(
                 _('Error'),
-                _("""Please set working time default unit in project config settings
-                """))
+                _("""Please set working time default unit in project
+                    config settings"""))
         lines = []
         for br in br_ids:
             if br.state not in ['approved', 'cancel', 'done']:
@@ -40,7 +39,8 @@ class Project(models.Model):
                     if line.resource_type != 'task':
                         continue
                     generated = self.env['project.task'].search(
-                        [('br_resource_id', '=', line.id)])
+                        [('br_resource_id', '=', line.id)],
+                        limit=1)
                     if generated:
                         continue
                     lines.append(line.id)
@@ -51,11 +51,11 @@ class Project(models.Model):
                 _("""There is no available business requirement resource line to
                     generate task"""))
         if from_project:
-            br_ids = [x for x in br_ids if x.parent_id.id is False]
+            br_ids.filtered(lambda br_id: not br_id.parent_id)
         vals = {
             'partner_id': self.partner_id.id,
             'project_id': self.id,
-            'br_ids': [(6, 0, [x.id for x in br_ids])]
+            'br_ids': [(6, 0, br_ids.ids)]
         }
         wizard_obj = self.env['br.generate.projects']
         wizard = wizard_obj.with_context(
@@ -67,10 +67,10 @@ class Project(models.Model):
 class ProjectTask(models.Model):
     _inherit = "project.task"
 
-    """ Link the task and the business requirement """
     business_requirement_id = fields.Many2one(
         'business.requirement',
         string='Business Requirement',
+        help='Link the task and the business requirement',
         readonly=True,
     )
 
