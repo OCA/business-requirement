@@ -280,7 +280,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
             from_project = self.env[
                 'br.generate.projects'].browse(action['res_id']).br_ids
             self.assertTrue(from_project)
-            br_ids_a = [
-                x for x in self.projectA.br_ids if x.parent_id.id is False]
-            br_ids_b = [x for x in from_project if x.parent_id.id is False]
+
+            br_ids_a = self.projectA.br_ids
+            br_ids_a.filtered(lambda br_ids_a: not br_ids_a.parent_id)
+
+            br_ids_b = from_project
+            br_ids_b.filtered(lambda br_ids_b: not br_ids_b.parent_id)
+
             self.assertEqual(br_ids_a, br_ids_b)
