@@ -2,7 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
-from openerp.osv import osv
+from openerp.exceptions import ValidationError
 
 
 @common.at_install(False)
@@ -107,184 +107,119 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB = self.env['business.requirement'].create(vals)
         self.brC = self.env['business.requirement'].create(vals)
 
-    def test_br_state(self):
+    def test_br_state_generate_project_wizard(self):
         # test when state=draft
         self.brA.state = 'draft'
         self.brB.state = 'draft'
         self.brC.state = 'draft'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception, e:
-            action = False
-            self.assertEqual(action, False)
-            if type(e) == osv.except_osv:
-                self.assertEqual(
-                    type(e),
-                    osv.except_osv
-                )
+        with self.assertRaises(ValidationError):
+            self.projectA.generate_project_wizard()
 
         # test when state=confirmed
         self.brA.state = 'confirmed'
         self.brB.state = 'confirmed'
         self.brC.state = 'confirmed'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception, e:
-            action = False
-            self.assertEqual(action, False)
-            if type(e) == osv.except_osv:
-                self.assertEqual(
-                    type(e),
-                    osv.except_osv
-                )
+        with self.assertRaises(ValidationError):
+            self.projectA.generate_project_wizard()
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception, e:
-            action = False
-            self.assertEqual(action, False)
-            if type(e) == osv.except_osv:
-                self.assertEqual(
-                    type(e),
-                    osv.except_osv
-                )
+        with self.assertRaises(ValidationError):
+            self.projectA.generate_project_wizard()
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'draft'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception, e:
-            action = False
-            self.assertEqual(action, False)
-            if type(e) == osv.except_osv:
-                self.assertEqual(
-                    type(e),
-                    osv.except_osv
-                )
+        with self.assertRaises(ValidationError):
+            self.projectA.generate_project_wizard()
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'confirmed'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception, e:
-            action = False
-            self.assertEqual(action, False)
-            if type(e) == osv.except_osv:
-                self.assertEqual(
-                    type(e),
-                    osv.except_osv
-                )
+        with self.assertRaises(ValidationError):
+            self.projectA.generate_project_wizard()
 
         # test when state=approved
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertNotEqual(action, False)
+        action = self.projectA.generate_project_wizard()
+        self.assertTrue(action)
 
         # test when state=approved
         self.brA.state = 'done'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertNotEqual(action, False)
+        action = self.projectA.generate_project_wizard()
+        self.assertTrue(action)
 
         # test when state=approved
-        self.brA.state = 'done'
+        self.brA.state = 'cancel'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertNotEqual(action, False)
+        action = self.projectA.generate_project_wizard()
+        self.assertTrue(action)
 
-    def test_for_br(self):
+    def test_wizard_apply(self):
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertNotEqual(action, False)
-            self.assertNotEqual(action.get('res_id', False), False)
-            self.wizard = self.env[
-                'br.generate.projects'].browse(action['res_id'])
-            self.wizard.for_br = True
-            try:
-                self.wizard.apply()
-            except:
-                pass
+        action = self.projectA.generate_project_wizard()
+        self.assertNotEqual(action, False)
+        self.assertNotEqual(action.get('res_id', False), False)
+        self.wizard = self.env[
+            'br.generate.projects'].browse(action['res_id'])
+        self.wizard.for_br = True
+        res = self.wizard.apply()
+        self.assertEqual(res.get('type', True), 'ir.actions.act_window')
 
     def test_br_generate_projects_wizard(self):
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
-        try:
-            action = self.brA.generate_projects_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertEqual(
-                'ir.actions.act_window',
-                action['type'])
+        action = self.brA.generate_projects_wizard()
+        self.assertEqual(
+            'ir.actions.act_window',
+            action['type'])
 
     def test_project_generate_project_wizard(self):
         self.brA.state = 'approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
+
         default_uom = self.env[
             'project.config.settings'
         ].get_default_time_unit('time_unit').get('time_unit', False)
 
-        try:
-            action = self.projectA.generate_project_wizard()
-        except Exception:
-            action = False
-        if action:
-            self.assertEqual(
-                action.get('context', False).get('default_uom', False),
-                default_uom
-            )
-            self.assertEqual(
-                self.projectA.br_ids,
-                self.env[
-                    'br.generate.projects'].browse(action['res_id']).br_ids
-            )
-            for br in self.projectA.br_ids:
-                self.assertEqual('approved', br.state)
-
-                generated = self.env['project.task'].search(
-                    [('br_resource_id', '=', br.id)])
-                self.assertFalse(generated)
-
-            from_project = self.env[
+        action = self.projectA.generate_project_wizard()
+        self.assertEqual(
+            action.get('context', False).get('default_uom', False),
+            default_uom
+        )
+        self.assertEqual(
+            self.projectA.br_ids,
+            self.env[
                 'br.generate.projects'].browse(action['res_id']).br_ids
-            self.assertTrue(from_project)
+        )
+        for br in self.projectA.br_ids:
+            self.assertEqual('approved', br.state)
 
-            br_ids_a = self.projectA.br_ids
-            br_ids_a.filtered(lambda br_ids_a: not br_ids_a.parent_id)
+            generated = self.env['project.task'].search(
+                [('br_resource_id', '=', br.id)])
+            self.assertFalse(generated)
 
-            br_ids_b = from_project
-            br_ids_b.filtered(lambda br_ids_b: not br_ids_b.parent_id)
+        from_project = self.env[
+            'br.generate.projects'].browse(action['res_id']).br_ids
+        self.assertTrue(from_project)
 
-            self.assertEqual(br_ids_a, br_ids_b)
+        br_ids_a = self.projectA.br_ids
+        br_ids_a.filtered(lambda br_ids_a: not br_ids_a.parent_id)
+
+        br_ids_b = from_project
+        br_ids_b.filtered(lambda br_ids_b: not br_ids_b.parent_id)
+
+        self.assertEqual(br_ids_a, br_ids_b)

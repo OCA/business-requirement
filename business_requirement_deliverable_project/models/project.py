@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
 from openerp.tools.translate import _
-from openerp.osv import osv
+from openerp.exceptions import ValidationError
 
 
 class Project(models.Model):
@@ -21,17 +21,15 @@ class Project(models.Model):
         default_uom = self.env['project.config.settings'].\
             get_default_time_unit('time_unit').get('time_unit', False)
         if not default_uom:
-            raise osv.except_osv(
-                _('Error'),
+            raise ValidationError(
                 _("""Please set working time default unit in project
                     config settings"""))
         lines = []
         for br in br_ids:
             if br.state not in ['approved', 'cancel', 'done']:
-                raise osv.except_osv(
-                    _('Error'),
-                    _("""All business requirements of the project should be approved/canceled/done
-                    """))
+                raise ValidationError(
+                    _("""All business requirements of the project should
+                        be approved/canceled/done"""))
             if br.state != 'approved':
                 continue
             for deliverables in br.deliverable_lines:
@@ -46,8 +44,7 @@ class Project(models.Model):
                     lines.append(line.id)
 
         if not lines:
-            raise osv.except_osv(
-                _('Error'),
+            raise ValidationError(
                 _("""There is no available business requirement resource line to
                     generate task"""))
         if from_project:
