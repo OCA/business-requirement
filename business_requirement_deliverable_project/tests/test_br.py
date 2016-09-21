@@ -223,3 +223,50 @@ class BusinessRequirementTestCase(common.TransactionCase):
         br_ids_b.filtered(lambda br_ids_b: not br_ids_b.parent_id)
 
         self.assertEqual(br_ids_a, br_ids_b)
+
+    def test_br_wizard_onchange_for_br(self):
+        wizard_obj = self.env['br.generate.projects']
+        vals = {
+            'partner_id': 1,
+            'project_id': self.projectA.id,
+            'for_deliverable': False,
+            'for_childs': True,
+            'br_ids': self.projectA.br_ids,
+        }
+        wizard = wizard_obj.create(vals)
+        wizard.write({'for_br': False})
+        wizard._onchange_for_br()
+        self.assertEqual(wizard.for_childs, False)
+
+    def test_br_wizard_apply(self):
+        vals = {
+            'for_br': False,
+            'for_deliverable': False,
+            'for_childs': False,
+        }
+        self.brA.state = 'approved'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        action = self.projectA.generate_project_wizard()
+        self.wizard = self.env[
+            'br.generate.projects'].browse(action['res_id'])
+        self.wizard.write(vals)
+        res = self.wizard.apply()
+        self.assertEqual(str(res.get('name')), 'Task')
+
+    def test_br_wizard_generate_deliverable_projects(self):
+        vals = {
+            'for_br': False,
+            'for_deliverable': False,
+            'for_childs': False,
+        }
+        self.brA.state = 'approved'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        action = self.projectA.generate_project_wizard()
+        self.wizard = self.env[
+            'br.generate.projects'].browse(action['res_id'])
+        self.wizard.write(vals)
+        res = self.wizard.generate_deliverable_projects(
+            self.projectA, self.brA.deliverable_lines, [], [])
+        res = res

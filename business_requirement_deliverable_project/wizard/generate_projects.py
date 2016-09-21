@@ -159,15 +159,20 @@ class BrGenerateProjects(models.TransientModel):
 
     @api.multi
     def _prepare_project_vals(self, br, parent):
+        description = br.name
+        privacy_visibility = parent.privacy_visibility
+        if br._name == 'business.requirement':
+            description = br.description
+            privacy_visibility = br.project_id.privacy_visibility
         vals = {
-            'name': br.description,
+            'name': description,
             'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
             'members': [(6, 0, parent.members.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
-            'privacy_visibility': '%s' % (br.project_id.privacy_visibility)
+            'privacy_visibility': '%s' % (privacy_visibility)
         }
         return vals
 
