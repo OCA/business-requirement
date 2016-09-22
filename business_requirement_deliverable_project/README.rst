@@ -82,7 +82,6 @@ eg: if a master project contains the following BR:
     |  |- RL1
     |  `- RL2
     |
-    
     BR2
     |
     |- DL2
