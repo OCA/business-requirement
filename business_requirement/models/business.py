@@ -2,8 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models, _
-from openerp.exceptions import except_orm
+from openerp import api, fields, models
 
 
 class BusinessRequirement(models.Model):
@@ -11,15 +10,6 @@ class BusinessRequirement(models.Model):
     _name = "business.requirement"
     _description = "Business Requirement"
     _order = 'id desc'
-
-    @api.model
-    def _get_default_company(self):
-        company_id = self.env.user._get_company()
-        if not company_id:
-            raise except_orm(
-                _('Error!'),
-                _('There is no default company for the current user!'))
-        return self.env['res.company'].browse(company_id)
 
     sequence = fields.Char(
         'Sequence',
@@ -160,7 +150,7 @@ class BusinessRequirement(models.Model):
     company_id = fields.Many2one(
         'res.company', string='Company',
         required=True, readonly=True, states={'draft': [('readonly', False)]},
-        default=_get_default_company,
+        default=lambda self: self.env.user.company_id,
     )
 
     @api.multi
