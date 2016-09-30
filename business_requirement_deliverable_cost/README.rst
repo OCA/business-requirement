@@ -10,7 +10,8 @@ Business Requirement Deliverable Cost Control
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements 
+<https://github.com/OCA/business-requirement/blob/9.0/README.md>`_) 
 
 This module improves the cost control of the original module with the following:
 
@@ -29,8 +30,10 @@ Configuration
 Users
 -----
 
-* **Business Requirement Sales Estimates**: Can See the sales prices in DL and RL (ideal for sales/presales)
-* **Business Requirement Cost Control**: Can See the cost prices for project profit control (Manager/Finance dept)
+* **Business Requirement Sales Estimates**: Can See the sales prices in DL and 
+  RL (ideal for sales/presales)
+* **Business Requirement Cost Control**: Can See the cost prices for project 
+  profit control (Manager/Finance dept)
 
 Without Sales Estimate nor Cost Control rights:
 
@@ -62,20 +65,26 @@ used in deliverable lines and sales price for the resource lines.
 Usage
 =====
 
-The pricelist stored in the Project/Estimation pricelist field will be used to help the calculation 
-of the expected revenue of a Deliverable based on the sum of related RL.
+The pricelist stored in the Project/Estimation pricelist field will be used to 
+help the calculation of the expected revenue of a Deliverable based on the sum 
+of related RL.
 
-#. In the BR, you can add as many deliverable lines as necessary. You can keep the price empty at that stage.
+#. In the BR, you can add as many deliverable lines as necessary. You can keep 
+   the price empty at that stage.
 
-#. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. 
+#. Once the deliverable lines are created you can create as many resources lines 
+   as necessary in each DL. 
 
 #. in RL, the estimation sales price will be display per resource.
 
-#. The total Revenue from the resources (sum of the sales estimation for all RL) can be manually added back to the deliverable line.
+#. The total Revenue from the resources (sum of the sales estimation for all RL) 
+   can be manually added back to the deliverable line.
 
-#. you can review the cost control tab of your BR as followed (only available for ACL Cost Control)
+#. you can review the cost control tab of your BR as followed (only available for 
+   ACL Cost Control)
 
-#. Eventually you can manually update the price of all resource clicking on the Update button.
+#. Eventually you can manually update the price of all resource clicking on the 
+   Update button.
 
 .. figure:: /business_requirement_deliverable_cost/static/img/bus_req_control.png
    :width: 600 px
