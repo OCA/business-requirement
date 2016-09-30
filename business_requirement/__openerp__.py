@@ -4,9 +4,9 @@
 {
     'name': 'Business Requirement',
     'category': 'Business Requirements Management',
-    'summary': 'Manage the Business Requirements (stories, scenarii and gaps) \
-                for your customers',
-    'version': '8.0.5.1.0',
+    'summary': 'Manage the Business Requirements (stories, scenarios, gaps\
+        and test cases) for your customers',
+    'version': '8.0.5.1.1',
     'website': 'www.elico-corp.com',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
