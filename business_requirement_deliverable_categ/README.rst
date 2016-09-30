@@ -30,14 +30,14 @@ Usage
 =====
 
 #. In the Business requirement, you can add as many Deliverable Lines as necessary. 
-Price of the Deliverable Lines will depend on the pricelist defined in master 
-project or customer.
+   Price of the Deliverable Lines will depend on the pricelist defined in master 
+   project or customer.
 
 #. Once the Deliverable Lines are created, you can create as many Resource Lines as 
-necessary in each Deliverable Lines.
+   necessary in each Deliverable Lines.
 
 #. in Resource Lines, you can then already assign task category on top of the assignee 
-if necessary.
+   if necessary.
 
 NB: Task category cannot be assigned to a procurement line.
 
