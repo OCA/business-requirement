@@ -9,28 +9,35 @@ Business Requirement Resources Task Categories
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_).
+This module is part of a set of modules (`Business Requirements 
+<https://github.com/OCA/business-requirement/blob/8.0/README.md>`_).
 
 
-This module introduces **Task Category** in the business requirements resource lines.
+This module introduces **Task Category** in the business requirements resource 
+lines.
 
-If module business_requirement_project is installed the category will be propagated 
-to the task at project/task creation.
+If module business_requirement_project is installed the category will be 
+propagated to the task at project/task creation.
 
 Configuration
 =============
 
-You can maintain the task categories in the Project/Configuration/Task category menu.
+You can maintain the task categories in the Project/Configuration/Task category 
+menu.
 
 
 Usage
 =====
 
-#. In the Business requirement, you can add as many Deliverable Lines as necessary. Price of the Deliverable Lines will depend on the pricelist defined in master project or customer.
+#. In the Business requirement, you can add as many Deliverable Lines as necessary. 
+Price of the Deliverable Lines will depend on the pricelist defined in master 
+project or customer.
 
-#. Once the Deliverable Lines are created, you can create as many Resource Lines as necessary in each Deliverable Lines.
+#. Once the Deliverable Lines are created, you can create as many Resource Lines as 
+necessary in each Deliverable Lines.
 
-#. in Resource Lines, you can then already assign task category on top of the assignee if necessary.
+#. in Resource Lines, you can then already assign task category on top of the assignee 
+if necessary.
 
 NB: Task category cannot be assigned to a procurement line.
 
