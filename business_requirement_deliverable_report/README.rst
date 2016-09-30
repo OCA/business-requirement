@@ -9,7 +9,8 @@ Business Requirement Document Printout
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements 
+<https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module adds multiple printouts to the deliverable modules:
 
@@ -20,15 +21,15 @@ This module adds multiple printouts to the deliverable modules:
    :width: 600 px
    :alt: Basic Business requirement printout 
 
-* **Business requirement Document with Deliverables**: above printout including the deliverable lines at 
-  sales price
+* **Business requirement Document with Deliverables**: above printout including 
+* the deliverable lines at sales price
 
 .. figure:: /business_requirement_deliverable_report/static/img/bus_req_report2.png
    :width: 600 px
    :alt: Deliverable printout (details)
 
-* **Business requirement Document with Deliverables and Resources**: above printout including the resource lines with 
-  expected quantity
+* **Business requirement Document with Deliverables and Resources**: above 
+  printout including the resource lines with expected quantity
 
 .. figure:: /business_requirement_deliverable_report/static/img/bus_req_report3.png
    :width: 600 px
