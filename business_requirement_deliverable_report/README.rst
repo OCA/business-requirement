@@ -10,7 +10,7 @@ Introduction
 ============
 
 This module is part of a set of modules (`Business Requirements 
-<https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+<https://github.com/OCA/business-requirement/blob/9.0/README.md>`_) 
 
 This module adds multiple printouts to the deliverable modules:
 
