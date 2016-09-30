@@ -12,20 +12,18 @@ class BusinessRequirement(models.Model):
     _order = 'id desc'
 
     sequence = fields.Char(
-        'Sequence',
         readonly=True,
         copy=False,
         index=True,
     )
     name = fields.Char(
-        'Name',
         required=False,
         readonly=True,
         copy=False,
         states={'draft': [('readonly', False)]}
     )
     description = fields.Char(
-        'Description', required=True,
+        required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -35,12 +33,10 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)]}
     )
     scenario = fields.Html(
-        'Scenario',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     gap = fields.Html(
-        'Gap',
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -108,7 +104,6 @@ class BusinessRequirement(models.Model):
     )
     priority = fields.Selection(
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
-        'Priority',
         required=True,
         default='1'
     )
@@ -123,7 +118,6 @@ class BusinessRequirement(models.Model):
             'confirmed': [('readonly', False)]}
     )
     confirmation_date = fields.Datetime(
-        string='Confirmation Date',
         readonly=True
     )
     confirmed_id = fields.Many2one(
@@ -131,7 +125,6 @@ class BusinessRequirement(models.Model):
         readonly=True
     )
     reviewed_date = fields.Datetime(
-        string='Reviewed Date',
         readonly=True
     )
     reviewed_id = fields.Many2one(
@@ -139,7 +132,6 @@ class BusinessRequirement(models.Model):
         readonly=True
     )
     approval_date = fields.Datetime(
-        string='Approval Date',
         readonly=True
     )
     approved_id = fields.Many2one(
@@ -156,8 +148,7 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.onchange('project_id')
     def project_id_change(self):
-        if self.project_id and self.project_id.partner_id:
-            self.partner_id = self.project_id.partner_id.id
+        self.partner_id = self.project_id.partner_id.id
 
     @api.model
     def create(self, vals):
@@ -257,7 +248,7 @@ class BusinessRequirementCategory(models.Model):
     _name = "business.requirement.category"
     _description = "Categories"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)
     parent_id = fields.Many2one(
         comodel_name='business.requirement.category',
         string='Parent Category',
