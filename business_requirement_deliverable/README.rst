@@ -9,7 +9,8 @@ Business Requirement Deliverable
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements 
+<https://github.com/OCA/business-requirement/blob/9.0/README.md>`_) 
 
 Two new concepts complement the main business requirements model:
 
@@ -19,15 +20,17 @@ Two new concepts complement the main business requirements model:
 What is a Deliverable Line?
 ---------------------------
 
-Deliverable Lines (DL) contains products and services that will be delivered to the 
-customer. They are **customer oriented** and can be either physical or service products:
+Deliverable Lines (DL) contains products and services that will be delivered to 
+the customer. They are **customer oriented** and can be either physical or 
+service products:
 
 * Servers and procured goods
 * Gap analysis services
 * Module development services
 * Training etc.
 
-These are the products that will appear in the SO and that the customer/stakeholder will receive.
+These are the products that will appear in the SO and that the customer/
+stakeholder will receive.
 
 .. figure:: ../business_requirement_deliverable/static/img/bus_req_deliverable.png
    :width: 600 px
@@ -37,7 +40,8 @@ These are the products that will appear in the SO and that the customer/stakehol
 What are Resources Lines?
 -------------------------
 
-Resources Lines (RL) are the different tasks or procurements needed to achieve one deliverable:
+Resources Lines (RL) are the different tasks or procurements needed to achieve 
+one deliverable:
 
 * Service tasks (Development, consultant etc.)
 * Procurement of other physical goods (server, etc.)
@@ -61,7 +65,10 @@ Valuation   Valued at Customer Sales Price                           Valued at C
 Usage       Used in Sales Quotations                                 Used in Project management or procurement management
 =========== ======================================================== ========================================================
 
-Business Requirement contains Deliverable lines and Deliverable line contains Resource lines. Example of a structure:
+Business Requirement contains Deliverable lines and Deliverable line contains 
+Resource lines. 
+
+Example of a `Business Req. / Deliverable lines / Resource Line` structure:
 
 ::
 
@@ -117,9 +124,11 @@ the one from the customer associated will be used.
 Usage
 =====
 
-#. In the BR, you can add as many deliverable lines as necessary. Price of the deliverable lines will depend on the pricelist in master project or customer.
+#. In the BR, you can add as many deliverable lines as necessary. Price of the 
+   deliverable lines will depend on the pricelist in master project or customer.
 
-#. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. Cost price of the product will apply
+#. Once the deliverable lines are created you can create as many resources lines 
+   as necessary in each DL. Cost price of the product will apply
 
 #. in RL you can already assign the responsible of the task if necessary
 
@@ -130,7 +139,7 @@ Usage
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/9.0
 
 
 Bug Tracker
