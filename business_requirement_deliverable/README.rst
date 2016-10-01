@@ -97,29 +97,14 @@ Example of a `Business Req. / Deliverable lines / Resource Line` structure:
     |  `- RL9
 
 
-
-Installation
-============
-
-No specific steps required
-
 Configuration
 =============
 
-Users
------
+You can define a **master project** linked to the business requirement.
 
-No specific ACL are required for the module.
-
-Master project
---------------
-
-You can define a master project linked to the business requirement.
-
-You have to specify a estimation price list in the master project, used for 
-deliverable price management. If no pricelist is specified in the project, 
-the one from the customer associated will be used.
-
+NB: You have to specify a `Estimation price list` in the master project, which 
+price will be used to value the deliverable lines. If no pricelist is defined 
+in the project, the one from the associated customer will be used.
 
 Usage
 =====
