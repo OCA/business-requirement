@@ -186,41 +186,41 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     def action_button_confirm(self):
-        self.write({'state': 'confirmed'})
+        self.state = 'confirmed'
         self.confirmed_id = self.env.user
         self.confirmation_date = fields.Datetime.now()
 
     @api.multi
     def action_button_back_draft(self):
-        self.write({'state': 'draft'})
+        self.state = 'draft'
         self.confirmed_id = self.approved_id = []
         self.confirmation_date = self.approval_date = ''
 
     @api.multi
     def action_button_approve(self):
-        self.write({'state': 'approved'})
+        self.state = 'approved'
         self.approved_id = self.env.user
         self.approval_date = fields.Datetime.now()
 
     @api.multi
     def action_button_stakeholder_approval(self):
-        self.write({'state': 'stakeholder_approval'})
+        self.state = 'stakeholder_approval'
 
     @api.multi
     def action_button_in_progress(self):
-        self.write({'state': 'in_progress'})
+        self.state = 'in_progress'
 
     @api.multi
     def action_button_done(self):
-        self.write({'state': 'done'})
+        self.state = 'done'
 
     @api.multi
     def action_button_cancel(self):
-        self.write({'state': 'cancel'})
+        self.state = 'cancel'
 
     @api.multi
     def action_button_drop(self):
-        self.write({'state': 'drop'})
+        self.state = 'drop'
 
     @api.cr_uid_ids_context
     def message_post(self, cr, uid, thread_id, body='', subject=None,
@@ -242,15 +242,3 @@ class BusinessRequirement(models.Model):
             content_subtype='html', **kwargs
         )
         return res
-
-
-class BusinessRequirementCategory(models.Model):
-    _name = "business.requirement.category"
-    _description = "Categories"
-
-    name = fields.Char(required=True)
-    parent_id = fields.Many2one(
-        comodel_name='business.requirement.category',
-        string='Parent Category',
-        ondelete='restrict'
-    )
