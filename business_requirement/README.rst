@@ -42,12 +42,12 @@ apply to many other cases/industries (customer or internal projects):
 More information about business requirements management:
 
 * `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`_
-* `Six Sigma <(https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
+* `Six Sigma <https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
 
 Business Requirement set of modules
 -----------------------------------
 
-This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/8.0>`_).
+This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/9.0>`_).
 
 The base Business Requirements module creates the basic objects and 
 can be used as a standalone module.
