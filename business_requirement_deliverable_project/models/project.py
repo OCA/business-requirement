@@ -29,8 +29,8 @@ class Project(models.Model):
             if br.state not in ['stakeholder_approved', 'cancel', 'done']:
                 raise ValidationError(
                     _("""All business requirements of the project should
-                        be approved/canceled/done"""))
-            if br.state != 'approved':
+                        be stakeholder_approved/canceled/done"""))
+            if br.state not in ['stakeholder_approved', 'cancel', 'done']:
                 continue
             for deliverables in br.deliverable_lines:
                 for line in deliverables.resource_ids:
@@ -39,6 +39,7 @@ class Project(models.Model):
                     generated = self.env['project.task'].search(
                         [('br_resource_id', '=', line.id)],
                         limit=1)
+
                     if generated:
                         continue
                     lines.append(line.id)
