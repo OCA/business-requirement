@@ -10,7 +10,6 @@
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": [
-        "project_categ",
         "business_requirement_deliverable"
     ],
     "data": [
