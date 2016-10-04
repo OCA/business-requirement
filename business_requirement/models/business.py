@@ -70,6 +70,7 @@ class BusinessRequirement(models.Model):
         selection="_get_states",
         string='State',
         default='draft',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]},
         track_visibility='onchange'
@@ -107,6 +108,7 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         string='Master Project',
         ondelete='set null',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -114,6 +116,7 @@ class BusinessRequirement(models.Model):
         comodel_name='res.partner',
         string='Customer',
         store=True,
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -139,27 +142,33 @@ class BusinessRequirement(models.Model):
     )
     confirmation_date = fields.Datetime(
         string='Confirmation Date',
+        copy=False,
         readonly=True
     )
     confirmed_id = fields.Many2one(
         'res.users', string='Confirmed by',
+        copy=False,
         readonly=True
     )
     reviewed_date = fields.Datetime(
         string='Reviewed Date',
+        copy=False,
         readonly=True
     )
     reviewed_id = fields.Many2one(
         'res.users', string='Reviewed by',
+        copy=False,
         readonly=True
     )
     approval_date = fields.Datetime(
         string='Approval Date',
+        copy=False,
         readonly=True
     )
     approved_id = fields.Many2one(
         'res.users',
         string='Approved by',
+        copy=False,
         readonly=True
     )
     company_id = fields.Many2one(
