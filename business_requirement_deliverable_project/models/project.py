@@ -26,7 +26,7 @@ class Project(models.Model):
                     config settings"""))
         lines = []
         for br in br_ids:
-            if br.state not in ['approved', 'cancel', 'done']:
+            if br.state not in ['stakeholder_approved', 'cancel', 'done']:
                 raise ValidationError(
                     _("""All business requirements of the project should
                         be approved/canceled/done"""))

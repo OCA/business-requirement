@@ -199,7 +199,7 @@ class BusinessRequirement(models.Model):
             ('draft', 'Draft'),
             ('confirmed', 'Confirmed'),
             ('approved', 'Approved'),
-            ('stakeholder_approval', 'Stakeholder Approval'),
+            ('stakeholder_approved', 'Approved by Stakeholder'),
             ('in_progress', 'In progress'),
             ('done', 'Done'),
             ('cancel', 'Cancel'),
@@ -226,8 +226,8 @@ class BusinessRequirement(models.Model):
         self.approval_date = fields.Datetime.now()
 
     @api.multi
-    def action_button_stakeholder_approval(self):
-        self.write({'state': 'stakeholder_approval'})
+    def action_button_stakeholder_approved(self):
+        self.write({'state': 'stakeholder_approved'})
 
     @api.multi
     def action_button_in_progress(self):
