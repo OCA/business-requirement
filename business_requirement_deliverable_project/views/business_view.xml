@@ -41,7 +41,7 @@
                             type="object"
                             class="oe_highlight"
                             groups="business_requirement.group_business_requirement_manager"
-                            attrs="{'invisible': ['|', ('project_id', '!=', False), ('state', '!=', 'stakeholder_approval')]}"/>
+                            attrs="{'invisible': ['|', ('link_project', '!=', False), ('state', '!=', 'stakeholder_approval')]}"/>
                 </xpath>
 
                 <xpath expr="//div[@name='buttons']"
