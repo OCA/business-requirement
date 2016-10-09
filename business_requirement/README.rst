@@ -24,6 +24,9 @@ meet his/her requirements:
   answer the customer story
 * **Gap**: For the uncovered part of the scenario, elaborate the gap/need for specific 
   developments/setup
+* **Test case**: A set of conditions under which a tester will determine whether the 
+  application, software system or one of its features is working as it was originally 
+  established for it to do.
 * **Deliverables** to be provided to the customer/user
 * **Resources** necessary to achieve the deliverables
 * **Additional** information (approval, cost control etc.)
@@ -144,13 +147,13 @@ Simple BR
    .. figure:: ../business_requirement/static/img/bus_req_tags2.png
       :width: 600 px
 
-2. Input the customer story, scenario and gap (simple html editor with image and text)
+2. Input the customer story, scenario gap and test case (simple html editor with image and text)
 
    .. figure:: ../business_requirement/static/img/bus_req_cust_story.png
       :width: 600 px
 
 3. Confirm the Business requirement (for BR User and Manager)
-   At that stage the Customer story/Scenario/Gap is not modifiable anymore
+   At that stage the Customer story/Scenario/Gap/Test case is not modifiable anymore
 
    .. figure:: ../business_requirement/static/img/bus_req_confirmed.png
       :width: 600 px

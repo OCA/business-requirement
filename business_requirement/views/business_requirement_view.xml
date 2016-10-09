@@ -58,6 +58,9 @@
                             <group string="Gap">
                                 <field name="gap" nolabel="1"/>
                             </group>
+                            <group string="Test Case">
+                                <field name="test_case" nolabel="1"/>
+                            </group>
                         </page>
                         <page string="Other Information" name="other_info">
                             <group col="4">
