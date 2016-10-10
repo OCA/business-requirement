@@ -125,6 +125,17 @@
                     </tbody>
                 </table>
             </t>
+
+            <t t-if="o.test_case">
+                <h3>Test Case:</h3>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><span t-field="o.test_case"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
         </template>
 
         <template id="br_report">
