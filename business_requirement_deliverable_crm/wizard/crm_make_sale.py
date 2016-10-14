@@ -60,7 +60,7 @@ class CrmMakeSale(models.TransientModel):
                     'product_uom': br_line.uom_id.id,
                     'product_uos': br_line.uom_id.id,
                     'price_unit': br_line.unit_price,
-                    'tax_id': taxes.ids,
+                    'tax_id': [(6, 0, taxes.ids)],
                 }
                 lines.append(vals)
         return lines
