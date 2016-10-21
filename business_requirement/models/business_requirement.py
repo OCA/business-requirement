@@ -55,6 +55,7 @@ class BusinessRequirement(models.Model):
         selection="_get_states",
         string='State',
         default='draft',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]},
         track_visibility='onchange'
@@ -92,6 +93,7 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         string='Master Project',
         ondelete='set null',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -99,6 +101,7 @@ class BusinessRequirement(models.Model):
         comodel_name='res.partner',
         string='Customer',
         store=True,
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -122,25 +125,32 @@ class BusinessRequirement(models.Model):
             'confirmed': [('readonly', False)]}
     )
     confirmation_date = fields.Datetime(
+        copy=False,
         readonly=True
     )
     confirmed_id = fields.Many2one(
         'res.users', string='Confirmed by',
+        copy=False,
         readonly=True
     )
     reviewed_date = fields.Datetime(
+        copy=False,
         readonly=True
     )
     reviewed_id = fields.Many2one(
-        'res.users', string='Reviewed by',
+        'res.users',
+        string='Reviewed by',
+        copy=False,
         readonly=True
     )
     approval_date = fields.Datetime(
+        copy=False,
         readonly=True
     )
     approved_id = fields.Many2one(
         'res.users',
         string='Approved by',
+        copy=False,
         readonly=True
     )
     company_id = fields.Many2one(
@@ -152,7 +162,9 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.onchange('project_id')
     def project_id_change(self):
-        self.partner_id = self.project_id.partner_id.id
+        for br in self:
+            if br.project_id and br.project_id.partner_id:
+                br.partner_id = br.project_id.partner_id
 
     @api.model
     def create(self, vals):
