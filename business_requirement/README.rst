@@ -116,14 +116,16 @@ Sequences
 
 Default numbering format: BR123456.
 
-You can modify the default numbering sequence in Settings/Technical/Sequences&Identifier/Sequences.
+You can modify the default numbering sequence in
+Settings/Technical/Sequences&Identifier/Sequences.
 
 Search for Business Requirement sequence and alter it if necessary.
 
 Tags
 ----
 
-You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
+You can create and assign tags for your business requirements in
+Business Requirements/Configuration/Bus. Req. Category.
 
 .. figure:: ../business_requirement/static/img/bus_req_tags.png
    :width: 600 px
