@@ -192,7 +192,7 @@ class BusinessRequirement(models.Model):
             ('draft', 'Draft'),
             ('confirmed', 'Confirmed'),
             ('approved', 'Approved'),
-            ('stakeholder_approval', 'Stakeholder Approval'),
+            ('stakeholder_approval', 'Stakeholder Approved'),
             ('in_progress', 'In progress'),
             ('done', 'Done'),
             ('cancel', 'Cancel'),
