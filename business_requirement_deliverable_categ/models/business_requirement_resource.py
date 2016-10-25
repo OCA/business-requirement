@@ -5,14 +5,16 @@
 from openerp import api, fields, models
 
 
-class BusinessRequirementDeliverableCateg(models.Model):
+class BusinessRequirementResource(models.Model):
     _inherit = "business.requirement.resource"
 
-    task_categ_id = fields.Many2one('project.tags',
-                                    string="Root Category for Tasks")
+    task_categ_id = fields.Many2one(
+        'project.tags',
+        string="Root Category for Tasks"
+    )
 
     @api.onchange('resource_type')
     def resource_type_change(self):
-        super(BusinessRequirementDeliverableCateg, self).resource_type_change()
+        super(BusinessRequirementResource, self).resource_type_change()
         if self.resource_type == 'procurement':
             self.task_categ_id = False
