@@ -74,6 +74,12 @@ class BusinessRequirementResource(models.Model):
                     "When resource type is task, "
                     "the uom category should be time"))
 
+    @api.multi
+    def write(self, vals):
+        if vals.get('resource_type', '') == 'procurement':
+            vals['user_id'] = None
+        return super(BusinessRequirementResource, self).write(vals)
+
 
 class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
