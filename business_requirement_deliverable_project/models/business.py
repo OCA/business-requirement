@@ -38,3 +38,15 @@ class BusinessRequirement(models.Model):
     def _compute_task_count(self):
         for r in self:
             r.task_count = len(r.task_ids)
+
+
+class BusinessRequirementDeliverable(models.Model):
+    _inherit = "business.requirement.deliverable"
+
+    linked_project = fields.Many2one(
+        string='Linked project',
+        comodel_name='project.project',
+        groups='project.group_project_user',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
