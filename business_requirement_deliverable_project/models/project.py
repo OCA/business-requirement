@@ -27,7 +27,6 @@ class Project(models.Model):
         lines = []
         for br in br_ids:
             if br.state not in [
-                    'approved',
                     'stakeholder_approval',
                     'cancel',
                     'done'
@@ -35,7 +34,7 @@ class Project(models.Model):
                 raise ValidationError(
                     _("""All business requirements of the project should
                         be approved/canceled/done"""))
-            if br.state not in ['approved', 'stakeholder_approval']:
+            if br.state != 'stakeholder_approval':
                 continue
             for deliverables in br.deliverable_lines:
                 for line in deliverables.resource_ids:
