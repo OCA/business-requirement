@@ -174,7 +174,8 @@ class BrGenerateProjects(models.TransientModel):
             'message_follower_ids': parent.message_follower_ids.ids,
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
-            'privacy_visibility': '%s' % (privacy_visibility)
+            'privacy_visibility': '%s' % (privacy_visibility),
+            'br_ids': [(6, 0, [br.id])],
         }
         return vals
 
