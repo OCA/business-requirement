@@ -18,3 +18,9 @@ class BusinessRequirementResource(models.Model):
         super(BusinessRequirementResource, self).resource_type_change()
         if self.resource_type == 'procurement':
             self.task_categ_id = False
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('resource_type', '') == 'procurement':
+            vals['task_categ_id'] = None
+        return super(BusinessRequirementResource, self).write(vals)
