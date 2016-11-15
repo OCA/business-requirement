@@ -191,6 +191,7 @@ Contributors
 * Alex Duan<alex.duan@elico-corp.com>
 * Xie XiaoPeng<xie.xiaopeng@elico-corp.com>
 * Victor M. Martin <victor.martin@elico-corp.com>
+* Frank Song<frank.song@elico-corp.com>
 
 Maintainer
 ----------
