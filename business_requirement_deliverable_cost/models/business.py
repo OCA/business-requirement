@@ -46,11 +46,8 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     def _get_partner(self):
         self.ensure_one()
-        br_id = br_deliverable = False
-        if self.business_requirement_deliverable_id:
-            br_deliverable = self.business_requirement_deliverable_id
-        if br_deliverable.business_requirement_id:
-            br_id = br_deliverable.business_requirement_id
+        br_id = self.business_requirement_deliverable_id.\
+            business_requirement_id.id
         if br_id and br_id.partner_id:
             return br_id.partner_id
         else:
