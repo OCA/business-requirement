@@ -49,7 +49,7 @@ class BusinessRequirementResource(models.Model):
         br_id = br_deliverable = False
         if self.business_requirement_deliverable_id.id:
             br_deliverable = self.business_requirement_deliverable_id
-        if br_deliverable.business_requirement_id.id:
+        if br_deliverable and br_deliverable.business_requirement_id.id:
             br_id = br_deliverable.business_requirement_id
         if br_id and br_id.partner_id:
             return br_id.partner_id
