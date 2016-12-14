@@ -48,7 +48,10 @@ class BusinessRequirementResource(models.Model):
         self.ensure_one()
         partner_id = self.business_requirement_deliverable_id.\
             business_requirement_id.partner_id
-        return partner_id
+        if partner_id:
+            return partner_id
+        else:
+            return False
 
     @api.multi
     def _get_pricelist(self):
