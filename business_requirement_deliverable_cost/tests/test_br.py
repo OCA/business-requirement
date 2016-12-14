@@ -232,3 +232,19 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
                 self.assertEqual(
                     resource.sale_price_unit, sale_price_unit)
+
+    def test_get_partner(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('name', '=', 'Resource Line1')])
+        self.assertEqual(
+            resource.business_requirement_deliverable_id.
+            business_requirement_id.partner_id,
+            resource._get_partner()
+        )
+        resource.business_requirement_deliverable_id.\
+            business_requirement_id.partner_id = None
+        self.assertEqual(
+            resource.business_requirement_deliverable_id.
+            business_requirement_id.partner_id.id,
+            resource._get_partner()
+        )
