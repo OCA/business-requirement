@@ -24,5 +24,6 @@
     "data": [
         "security/business_requirement_deliverable_security.xml",
         "views/business.xml",
+        "views/project.xml",
     ],
 }
