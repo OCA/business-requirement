@@ -59,7 +59,6 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     def _get_project(self):
         self.ensure_one()
-        br_id = br_deliverable = False
         if self.business_requirement_deliverable_id.id:
             br_deliverable = self.business_requirement_deliverable_id
             if br_deliverable.business_requirement_id.id:
@@ -77,6 +76,7 @@ class BusinessRequirementResource(models.Model):
             return project_id.pricelist_id
         elif partner_id and partner_id.property_product_pricelist:
             return partner_id.property_product_pricelist
+        return False
 
     @api.multi
     @api.onchange('product_id')
