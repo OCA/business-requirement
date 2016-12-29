@@ -80,11 +80,19 @@ class BusinessRequirementResource(models.Model):
     @api.onchange('product_id')
     def product_id_change(self):
         self.ensure_one()
+        pricelist_id = partner_id = False
         super(BusinessRequirementResource, self).product_id_change()
-        if self._origin.business_requirement_deliverable_id.id:
+        if isinstance(self.id, models.NewId):
+            if self._origin.business_requirement_deliverable_id.id:
+                pricelist_id = self._origin._get_pricelist()
+                partner_id = self._origin._get_partner()
+        else:
+            if self.business_requirement_deliverable_id.id:
+                pricelist_id = self._get_pricelist()
+                partner_id = self._get_partner()
+
+        if pricelist_id and partner_id:
             unit_price = self.product_id.standard_price
-            pricelist_id = self._origin._get_pricelist()
-            partner_id = self._origin._get_partner()
             sale_price_unit = self.product_id.list_price
             if pricelist_id and partner_id and self.uom_id:
                 product = self.product_id.with_context(
@@ -104,12 +112,20 @@ class BusinessRequirementResource(models.Model):
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
         self.ensure_one()
-        if self._origin.business_requirement_deliverable_id.id:
+        pricelist_id = partner_id = False
+        if isinstance(self.id, models.NewId):
+            if self._origin.business_requirement_deliverable_id.id:
+                pricelist_id = self._origin._get_pricelist()
+                partner_id = self._origin._get_partner()
+        else:
+            if self.business_requirement_deliverable_id.id:
+                pricelist_id = self._get_pricelist()
+                partner_id = self._get_partner()
+
+        if pricelist_id and partner_id:
             qty_uom = 0
             unit_price = self.unit_price
             sale_price_unit = self.product_id.list_price
-            pricelist = self._origin._get_pricelist()
-            partner_id = self._origin._get_partner()
             product_uom = self.env['product.uom']
 
             if self.qty != 0:
@@ -119,12 +135,12 @@ class BusinessRequirementResource(models.Model):
                     self.product_id.uom_id.id
                 ) / self.qty
 
-            if pricelist:
+            if pricelist_id:
                 product = self.product_id.with_context(
                     lang=partner_id.lang,
                     partner=partner_id.id,
                     quantity=self.qty,
-                    pricelist=pricelist.id,
+                    pricelist=pricelist_id.id,
                     uom=self.uom_id.id,
                 )
                 unit_price = product.standard_price
