@@ -32,13 +32,13 @@ class BusinessRequirementResource(models.Model):
     )
 
     @api.multi
-    @api.depends('unit_price', 'qty')
+    @api.depends('unit_price', 'qty', 'uom_id')
     def _compute_get_price_total(self):
         for resource in self:
             resource.price_total = resource.unit_price * resource.qty
 
     @api.multi
-    @api.depends('sale_price_unit', 'qty')
+    @api.depends('sale_price_unit', 'qty', 'uom_id')
     def _compute_sale_price_total(self):
         for resource in self:
             resource.sale_price_total = resource.sale_price_unit * resource.qty
@@ -94,6 +94,7 @@ class BusinessRequirementResource(models.Model):
         if pricelist_id and partner_id:
             unit_price = self.product_id.standard_price
             sale_price_unit = self.product_id.list_price
+
             if pricelist_id and partner_id and self.uom_id:
                 product = self.product_id.with_context(
                     lang=partner_id.lang,
@@ -102,7 +103,7 @@ class BusinessRequirementResource(models.Model):
                     pricelist=pricelist_id.id,
                     uom=self.uom_id.id,
                 )
-                sale_price_unit = product.list_price
+                sale_price_unit = product.price
                 unit_price = product.standard_price
 
             self.unit_price = unit_price
@@ -123,17 +124,8 @@ class BusinessRequirementResource(models.Model):
                 partner_id = self._get_partner()
 
         if pricelist_id and partner_id:
-            qty_uom = 0
             unit_price = self.unit_price
             sale_price_unit = self.product_id.list_price
-            product_uom = self.env['product.uom']
-
-            if self.qty != 0:
-                qty_uom = product_uom._compute_qty(
-                    self.uom_id.id,
-                    self.qty,
-                    self.product_id.uom_id.id
-                ) / self.qty
 
             if pricelist_id:
                 product = self.product_id.with_context(
@@ -144,10 +136,10 @@ class BusinessRequirementResource(models.Model):
                     uom=self.uom_id.id,
                 )
                 unit_price = product.standard_price
-                sale_price_unit = product.list_price
+                sale_price_unit = product.price
 
-            self.unit_price = unit_price * qty_uom
-            self.sale_price_unit = sale_price_unit * qty_uom
+            self.unit_price = unit_price
+            self.sale_price_unit = sale_price_unit
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -169,7 +161,7 @@ class BusinessRequirementDeliverable(models.Model):
                 for resource in deliverable.resource_ids:
                     pricelist_id = resource._get_pricelist()
                     partner_id = resource._get_partner()
-                    resource.sale_price_unit = resource.product_id.lst_price
+                    resource.sale_price_unit = resource.product_id.list_price
                     if pricelist_id and partner_id and resource.uom_id:
                         product = resource.product_id.with_context(
                             lang=partner_id.lang,
@@ -178,6 +170,7 @@ class BusinessRequirementDeliverable(models.Model):
                             pricelist=pricelist_id.id,
                             uom=resource.uom_id.id,
                         )
+                        resource.unit_price = product.standard_price
                         resource.sale_price_unit = product.price
 
 
