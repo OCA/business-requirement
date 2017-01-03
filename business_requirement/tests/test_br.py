@@ -15,7 +15,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         br_vals1 = {
             'name': ' test',
             'description': 'test',
-            'ref': 'Ref1',
+            'ref': '/',
             'parent_id': False,
         }
         br1 = self.br.create(br_vals1)
