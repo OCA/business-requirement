@@ -126,23 +126,25 @@ class BusinessRequirementTestCase(common.TransactionCase):
         resource = self.env['business.requirement.resource'].search([
             ('name', '=', 'Resource Line1')])
         resource.product_id_change()
-        # should be ammend
-
-        unit_price = 0
-        unit_price = resource.product_id.standard_price
+        pricelist_id = partner_id = False
+        unit_price = sale_price_unit = False
         pricelist_id = resource._get_pricelist()
         partner_id = resource._get_partner()
-        sale_price_unit = resource.product_id.list_price
-        if pricelist_id and partner_id and resource.uom_id:
-            product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
-                quantity=resource.qty,
-                pricelist=pricelist_id.id,
-                uom=resource.uom_id.id,
-            )
-            sale_price_unit = product.list_price
-            unit_price = product.standard_price
+
+        if pricelist_id and partner_id:
+            unit_price = resource.product_id.standard_price
+            sale_price_unit = resource.product_id.list_price
+
+            if pricelist_id and partner_id and resource.uom_id:
+                product = resource.product_id.with_context(
+                    lang=partner_id.lang,
+                    partner=partner_id.id,
+                    quantity=resource.qty,
+                    pricelist=pricelist_id.id,
+                    uom=resource.uom_id.id,
+                )
+                sale_price_unit = product.price
+                unit_price = product.standard_price
 
         self.assertEqual(
             resource.unit_price, unit_price)
@@ -179,33 +181,25 @@ class BusinessRequirementTestCase(common.TransactionCase):
         resource = self.env['business.requirement.resource'].search([
             ('name', '=', 'Resource Line1')])
         resource.product_uom_change()
-        qty_uom = 0
-        unit_price = resource.unit_price
-        sale_price_unit = resource.product_id.list_price
-        pricelist = resource._get_pricelist()
+        pricelist_id = resource._get_pricelist()
         partner_id = resource._get_partner()
-        product_uom = resource.env['product.uom']
+        if pricelist_id and partner_id:
+            unit_price = resource.unit_price
+            sale_price_unit = resource.product_id.list_price
 
-        if resource.qty != 0:
-            qty_uom = product_uom._compute_qty(
-                resource.uom_id.id,
-                resource.qty,
-                resource.product_id.uom_id.id
-            ) / resource.qty
+            if pricelist_id:
+                product = resource.product_id.with_context(
+                    lang=partner_id.lang,
+                    partner=partner_id.id,
+                    quantity=resource.qty,
+                    pricelist=pricelist_id.id,
+                    uom=resource.uom_id.id,
+                )
+                unit_price = product.standard_price
+                sale_price_unit = product.price
 
-        if pricelist:
-            product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
-                quantity=resource.qty,
-                pricelist=pricelist.id,
-                uom=resource.uom_id.id,
-            )
-            unit_price = product.standard_price
-            sale_price_unit = product.list_price
-
-        self.unit_price = unit_price * qty_uom
-        self.sale_price_unit = sale_price_unit * qty_uom
+        self.unit_price = unit_price
+        self.sale_price_unit = sale_price_unit
 
         self.assertEqual(
             resource.unit_price, self.unit_price)
@@ -232,3 +226,18 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
                 self.assertEqual(
                     resource.sale_price_unit, sale_price_unit)
+
+    def test_get_pricelist(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('name', '=', 'Resource Line1')])
+        self.br.project_id = None
+        partner_id = resource._get_partner()
+        pricelist_id = resource._get_pricelist()
+        self.assertEqual(
+            partner_id.property_product_pricelist, pricelist_id)
+
+        new_resource = self.env[
+            'business.requirement.resource'].new(resource.copy_data()[0])
+        new_resource._origin = resource.with_context(__onchange=True)
+        new_pricelist_id = new_resource._get_pricelist()
+        self.assertEqual(new_pricelist_id, pricelist_id)
