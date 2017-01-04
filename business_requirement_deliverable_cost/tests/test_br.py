@@ -151,6 +151,34 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.sale_price_unit, sale_price_unit)
 
+        new_resource = self.env[
+            'business.requirement.resource'].new(resource.copy_data()[0])
+        new_resource._origin = resource.with_context(__onchange=True)
+        new_resource.product_id_change()
+        pricelist_id = partner_id = False
+        unit_price = sale_price_unit = False
+        pricelist_id = new_resource._get_pricelist()
+        partner_id = new_resource._get_partner()
+
+        if pricelist_id and partner_id:
+            unit_price = new_resource.product_id.standard_price
+            sale_price_unit = new_resource.product_id.list_price
+
+            if pricelist_id and partner_id and new_resource.uom_id:
+                product = new_resource.product_id.with_context(
+                    lang=partner_id.lang,
+                    partner=partner_id.id,
+                    quantity=new_resource.qty,
+                    pricelist=pricelist_id.id,
+                    uom=new_resource.uom_id.id,
+                )
+                sale_price_unit = product.price
+                unit_price = product.standard_price
+        self.assertEqual(
+            new_resource.unit_price, unit_price)
+        self.assertEqual(
+            new_resource.sale_price_unit, sale_price_unit)
+
     def test_compute_resource_task_total(self):
         """ Checks if the _compute_resource_task_total works properly
         """
@@ -205,6 +233,34 @@ class BusinessRequirementTestCase(common.TransactionCase):
             resource.unit_price, self.unit_price)
         self.assertEqual(
             resource.sale_price_unit, self.sale_price_unit)
+
+        new_resource = self.env[
+            'business.requirement.resource'].new(resource.copy_data()[0])
+        new_resource._origin = resource.with_context(__onchange=True)
+        new_resource.product_uom_change()
+        pricelist_id = partner_id = False
+        unit_price = sale_price_unit = False
+        pricelist_id = new_resource._get_pricelist()
+        partner_id = new_resource._get_partner()
+
+        if pricelist_id and partner_id:
+            unit_price = new_resource.product_id.standard_price
+            sale_price_unit = new_resource.product_id.list_price
+
+            if pricelist_id and partner_id and new_resource.uom_id:
+                product = new_resource.product_id.with_context(
+                    lang=partner_id.lang,
+                    partner=partner_id.id,
+                    quantity=new_resource.qty,
+                    pricelist=pricelist_id.id,
+                    uom=new_resource.uom_id.id,
+                )
+                sale_price_unit = product.price
+                unit_price = product.standard_price
+        self.assertEqual(
+            new_resource.unit_price, unit_price)
+        self.assertEqual(
+            new_resource.sale_price_unit, sale_price_unit)
 
     def test_action_button_update_estimation(self):
         deliverable = self.br.deliverable_lines[0]
