@@ -113,11 +113,12 @@ class BusinessRequirementResource(models.Model):
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
         self.ensure_one()
-        pricelist_id = partner_id = False
+        pricelist_id = partner_id = from_uom_id = False
         if isinstance(self.id, models.NewId):
             if self._origin.business_requirement_deliverable_id.id:
                 pricelist_id = self._origin._get_pricelist()
                 partner_id = self._origin._get_partner()
+                from_uom_id = self._origin.uom_id
         else:
             if self.business_requirement_deliverable_id.id:
                 pricelist_id = self._get_pricelist()
@@ -138,10 +139,11 @@ class BusinessRequirementResource(models.Model):
                 unit_price = product.standard_price
                 sale_price_unit = product.price
 
-            self.unit_price = self.uom_id._compute_price(
-                self._origin.uom_id.id,
-                unit_price,
-                self.uom_id.id)
+            if from_uom_id:
+                self.unit_price = self.uom_id._compute_price(
+                    from_uom_id.id,
+                    unit_price,
+                    self.uom_id.id)
             self.sale_price_unit = sale_price_unit
 
 

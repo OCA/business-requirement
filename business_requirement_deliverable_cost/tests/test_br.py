@@ -36,7 +36,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.ProductObj = self.env['product.product']
         self.productA = self.ProductObj.create(
             {'name': 'Product A', 'uom_id': self.uom_hours.id,
-                'lst_price': 1000, 'uom_po_id': self.uom_hours.id})
+                'standard_price': 500, 'lst_price': 1000,
+                'uom_po_id': self.uom_hours.id})
         self.productB = self.ProductObj.create(
             {'name': 'Product B', 'uom_id': self.uom_hours.id,
                 'lst_price': 3000, 'uom_po_id': self.uom_hours.id})
