@@ -138,7 +138,10 @@ class BusinessRequirementResource(models.Model):
                 unit_price = product.standard_price
                 sale_price_unit = product.price
 
-            self.unit_price = unit_price
+            self.unit_price = self.uom_id._compute_price(
+                self._origin.uom_id.id,
+                unit_price,
+                self.uom_id.id)
             self.sale_price_unit = sale_price_unit
 
 
