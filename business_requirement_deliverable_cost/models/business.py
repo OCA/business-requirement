@@ -113,20 +113,24 @@ class BusinessRequirementResource(models.Model):
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
         self.ensure_one()
-        pricelist_id = partner_id = from_uom_id = False
+        pricelist_id = partner_id = False
         if isinstance(self.id, models.NewId):
             if self._origin.business_requirement_deliverable_id.id:
                 pricelist_id = self._origin._get_pricelist()
                 partner_id = self._origin._get_partner()
-                from_uom_id = self._origin.uom_id
         else:
             if self.business_requirement_deliverable_id.id:
                 pricelist_id = self._get_pricelist()
                 partner_id = self._get_partner()
 
+        unit_price = self.product_id.standard_price
+        sale_price_unit = self.product_id.list_price
+
         if pricelist_id and partner_id:
-            unit_price = self.unit_price
-            sale_price_unit = self.product_id.list_price
+            self.uom_id._compute_qty(
+                self.product_id.uom_id.id,
+                self.qty,
+                self.uom_id.id)
 
             if pricelist_id:
                 product = self.product_id.with_context(
@@ -136,15 +140,13 @@ class BusinessRequirementResource(models.Model):
                     pricelist=pricelist_id.id,
                     uom=self.uom_id.id,
                 )
-                unit_price = product.standard_price
                 sale_price_unit = product.price
 
-            if from_uom_id:
-                self.unit_price = self.uom_id._compute_price(
-                    from_uom_id.id,
-                    unit_price,
-                    self.uom_id.id)
-            self.sale_price_unit = sale_price_unit
+        self.unit_price = self.uom_id._compute_price(
+            self.product_id.uom_id.id,
+            unit_price,
+            self.uom_id.id)
+        self.sale_price_unit = sale_price_unit
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -175,7 +177,12 @@ class BusinessRequirementDeliverable(models.Model):
                             pricelist=pricelist_id.id,
                             uom=resource.uom_id.id,
                         )
-                        resource.unit_price = product.standard_price
+
+                        unit_price = product.standard_price
+                        resource.unit_price = resource.uom_id._compute_price(
+                            resource.product_id.uom_id.id,
+                            unit_price,
+                            resource.uom_id.id)
                         resource.sale_price_unit = product.price
 
 
