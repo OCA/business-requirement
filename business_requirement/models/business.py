@@ -290,10 +290,10 @@ class BusinessRequirement(models.Model):
             ).browse(cr, uid, context['default_res_id'])
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
         res = super(BusinessRequirement, self).message_post(
-            cr, uid, thread_id, body='', subject=subject,
-            type='notification', subtype=None, parent_id=False,
-            attachments=None, context=None,
-            content_subtype='html', **kwargs
+            cr, uid, thread_id, body=body, subject=subject,
+            type=type, subtype=subtype, parent_id=parent_id,
+            attachments=attachments, context=context,
+            content_subtype=content_subtype, **kwargs
         )
         return res
 
