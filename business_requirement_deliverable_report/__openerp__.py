@@ -19,6 +19,7 @@
         'report/report.xml',
     ],
     'image': [
+        'static/description/icon.png',
         'static/img/bus_req_report1.png',
         'static/img/bus_req_report2.png',
         'static/img/bus_req_report3.png',
