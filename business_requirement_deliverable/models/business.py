@@ -47,16 +47,11 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
-        description = ''
-        uom_id = False
-        product = self.product_id
-        if product:
-            description = product.name_get()[0][1]
-            uom_id = product.uom_id.id
-        if product.description_sale:
-            description += '\n' + product.description_sale
-        self.name = description
-        self.uom_id = uom_id
+        if self.product_id:
+            self.name = self.product_id.name_get()[0][1]
+            self.uom_id = self.product_id.uom_id.id
+        if self.product_id.description_sale:
+            self.name += '\n' + self.product_id.description_sale
 
     @api.onchange('resource_type')
     def resource_type_change(self):
@@ -69,7 +64,8 @@ class BusinessRequirementResource(models.Model):
         for resource in self:
             if resource.resource_type == 'task' and (
                     resource.uom_id.category_id != (
-                        self.env.ref('product.uom_categ_wtime'))):
+                        self.env.ref('product.uom_categ_wtime',
+                                     raise_if_not_found=False))):
                 raise ValidationError(_(
                     "When resource type is task, "
                     "the uom category should be time"))
@@ -140,14 +136,11 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     def _get_pricelist(self):
         for brd in self:
-            partner_id = False
-            if brd.business_requirement_id and (
-                brd.business_requirement_id.partner_id
-            ):
-                partner_id = brd.business_requirement_id.partner_id
-            if partner_id and partner_id.property_product_pricelist:
-                return partner_id.property_product_pricelist
-            return partner_id
+            if brd.business_requirement_id.partner_id.\
+                    property_product_pricelist:
+                return brd.business_requirement_id.partner_id.\
+                    property_product_pricelist
+            return False
 
     @api.multi
     @api.depends('unit_price', 'qty')
@@ -158,33 +151,26 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
-        description = ''
-        uom_id = False
-        product = self.product_id
 
-        if product:
-            description = product.name_get()[0][1]
-            uom_id = product.uom_id.id
+        if self.product_id:
+            self.name = self.product_id.name_get()[0][1]
+            self.uom_id = self.product_id.uom_id.id
 
-        if product.description_sale:
-            description += '\n' + product.description_sale
+        if self.product_id.description_sale:
+            self.name += '\n' + self.product_id.description_sale
 
-        unit_price = self.product_id.list_price
+        self.unit_price = self.product_id.list_price
         pricelist = self._get_pricelist()
 
         if pricelist:
-            product = self.product_id.with_context(
+            self.product_id = self.product_id.with_context(
                 lang=self.business_requirement_id.partner_id.lang,
                 partner=self.business_requirement_id.partner_id.id,
                 quantity=self.qty,
                 pricelist=pricelist.id,
                 uom=self.uom_id.id,
             )
-            unit_price = product.price
-
-        self.name = description
-        self.uom_id = uom_id
-        self.unit_price = unit_price
+            self.unit_price = self.product_id.price
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
