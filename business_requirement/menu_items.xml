@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top menu item -->
+    <menuitem id="menu_business_root"
+              name="Business Requirement"
+              groups="business_requirement.group_business_requirement_user"
+              sequence="30"/>
+
+    <menuitem id="menu_business_requirement"
+              name="Business Requirement"
+              groups="business_requirement.group_business_requirement_user"
+              parent="menu_business_root"
+              sequence="8"/>
+
+    <menuitem id="menu_business_configuration"
+              name="Configuration"
+              groups="business_requirement.group_business_requirement_user"
+              parent="menu_business_root"
+              sequence="8"/>
+
+    <menuitem id="menu_business_requirement1"
+              groups="business_requirement.group_business_requirement_user"
+              action="action_business_requirement_tree"
+              parent="menu_business_requirement"
+              sequence="10"/>
+
+    <menuitem id="menu_business_requirement_category"
+              groups="business_requirement.group_business_requirement_user"
+              action="action_business_requirement_category_tree"
+              parent="menu_business_configuration"
+              sequence="10"/>
+
+    <menuitem id="menu_product_template_action"
+              action="product.product_template_action"
+              parent="menu_business_configuration"
+              sequence="11" />
+
+</odoo>
