@@ -3,23 +3,25 @@
    :alt: License: AGPL-3
 
 
-====================
-Business Requirement
-====================
+====================================================================
+Business Requirements Default Resource Lines in Deliverable Products
+====================================================================
 
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/9.0/README.md>`_) 
 
-This module adds the following features particularly useful for sales package with standard resources:
+This module adds the following features particularly useful for sales package
+with standard resources:
 
-* In Product template, a new tab "Resources" with the resource lines management 
+* In Product template, a new tab "Resources" with the resource lines management
   (You could add, delete or create new resources).
-* Possibility to create default resource lines for a given deliverable product. Those resource 
-  lines will be automatically added to the BR when the deliverable product is selected.
-* This allows the user to have standard resource lines uploaded in the BR for deliverable 
-  packages.
+* Possibility to create default resource lines for a given deliverable product.
+  Those resource lines will be automatically added to the BR when the deliverable 
+  product is selected.
+* This allows the user to have standard resource lines uploaded in the BR for
+  deliverable packages.
 
 Configuration
 =============
@@ -32,9 +34,11 @@ No special ACL set up
 Default resources in Deliverable Product
 ----------------------------------------
 
-You can create Deliverable products and add in them standard resource lines
-expected to be added in the Business requirement by default.
-Depending on the modules you are using for the business requirements, the 
+You can create Deliverable products and add default standard resource lines in
+them. Those resource lines will be automatically added to the Deliverable lines in
+the Business requirement when the deliverable product is added.
+
+Depending on the modules you are using for the business requirements, the
 content of the resources lines will reflect the expected resources lines in the 
 BR.
 
@@ -47,9 +51,8 @@ Usage
 =====
 
 #. Prepare your deliverables in the Product menu and add the expected RL
-
 #. Create a new BR and add the deliverable product in the deliverable line
-
+#. Default resource lines are automatically added to the BR
 #. Adapt the resources lines if necessary
 
 .. figure:: /business_requirement_deliverable_default/static/img/bus_req_default2.png
@@ -72,7 +75,7 @@ Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/
-project/issues>`_.
+business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
@@ -84,7 +87,6 @@ Contributors
 
 * Eric Caudal <eric.caudal@elico-corp.com>
 * Victor M. Martin <victor.martin@elico-corp.com>
-* Sudhir P. Arya <sudhir.arya@serpentcs.com>
 
 Maintainer
 ----------
