@@ -33,7 +33,7 @@ class Project(models.Model):
             ]:
                 raise ValidationError(
                     _("""All business requirements of the project should
-                        be approved/canceled/done"""))
+                        be Approved by Stakeholder"""))
             if br.state != 'stakeholder_approval':
                 continue
             for deliverables in br.deliverable_lines:
