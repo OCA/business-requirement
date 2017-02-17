@@ -131,12 +131,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
         unit_price = 0
         unit_price = resource.product_id.standard_price
         pricelist_id = resource._get_pricelist()
-        partner_id = resource._get_partner()
+        # partner_id = resource._get_partner()
         sale_price_unit = resource.product_id.list_price
-        if pricelist_id and partner_id and resource.uom_id:
+        if pricelist_id and resource.partner_id and resource.uom_id:
             product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=resource.partner_id.lang,
+                # partner=resource.partner_id.id,
                 quantity=resource.qty,
                 pricelist=pricelist_id.id,
                 uom=resource.uom_id.id,
@@ -183,7 +183,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         unit_price = resource.unit_price
         sale_price_unit = resource.product_id.list_price
         pricelist = resource._get_pricelist()
-        partner_id = resource._get_partner()
+        # partner_id = resource._get_partner()
         product_uom = resource.env['product.uom']
 
         if resource.qty != 0:
@@ -195,8 +195,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         if pricelist:
             product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=resource.partner_id.lang,
+                partner=resource.partner_id.id,
                 quantity=resource.qty,
                 pricelist=pricelist.id,
                 uom=resource.uom_id.id,
@@ -218,12 +218,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         if deliverable.resource_ids:
             for resource in deliverable.resource_ids:
                 pricelist_id = resource._get_pricelist()
-                partner_id = resource._get_partner()
                 sale_price_unit = resource.product_id.lst_price
-                if pricelist_id and partner_id and resource.uom_id:
+                if pricelist_id and resource.partner_id and resource.uom_id:
                     product = resource.product_id.with_context(
-                        lang=partner_id.lang,
-                        partner=partner_id.id,
+                        lang=resource.partner_id.lang,
+                        partner=resource.partner_id.id,
                         quantity=resource.qty,
                         pricelist=pricelist_id.id,
                         uom=resource.uom_id.id,
@@ -232,19 +231,3 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
                 self.assertEqual(
                     resource.sale_price_unit, sale_price_unit)
-
-    def test_get_partner(self):
-        resource = self.env['business.requirement.resource'].search([
-            ('name', '=', 'Resource Line1')])
-        self.assertEqual(
-            resource.business_requirement_deliverable_id.
-            business_requirement_id.partner_id,
-            resource._get_partner()
-        )
-        resource.business_requirement_deliverable_id.\
-            business_requirement_id.partner_id = None
-        self.assertEqual(
-            resource.business_requirement_deliverable_id.
-            business_requirement_id.partner_id.id,
-            resource._get_partner()
-        )
