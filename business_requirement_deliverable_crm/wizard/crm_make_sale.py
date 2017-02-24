@@ -34,6 +34,7 @@ class CrmMakeSale(models.TransientModel):
     def prepare_sale_order_line(self, case_id, order_id):
         lines = []
         case = self.env['crm.lead'].browse(case_id)
+        order = self.env['sale.order'].browse(order_id)
         linked_brs = case.project_id and case.project_id.br_ids or []
         if not linked_brs:
             raise ValidationError(
@@ -44,6 +45,12 @@ class CrmMakeSale(models.TransientModel):
             if br.state in ('drop', 'cancel'):
                 continue
             for br_line in br.deliverable_lines:
+                taxes = br_line.product_id.taxes_id
+                fp = order.partner_id.property_account_position
+                if fp:
+                    taxes = fp.map_tax(taxes)
+                taxes = taxes.filtered(
+                    lambda x: x.company_id == br.company_id)
                 vals = {
                     'order_id': order_id,
                     'product_id': br_line.product_id.id,
@@ -53,6 +60,7 @@ class CrmMakeSale(models.TransientModel):
                     'product_uom': br_line.uom_id.id,
                     'product_uos': br_line.uom_id.id,
                     'price_unit': br_line.unit_price,
+                    'tax_id': [(6, 0, taxes.ids)],
                 }
                 lines.append(vals)
         return lines

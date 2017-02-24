@@ -39,6 +39,13 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
+    ref = fields.Char(
+        'Reference',
+        required=False,
+        readonly=True,
+        copy=False,
+        states={'draft': [('readonly', False)]}
+    )
     business_requirement = fields.Html(
         'Customer Story',
         readonly=True,
@@ -70,6 +77,7 @@ class BusinessRequirement(models.Model):
         selection="_get_states",
         string='State',
         default='draft',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]},
         track_visibility='onchange'
@@ -107,6 +115,7 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         string='Master Project',
         ondelete='set null',
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -114,6 +123,7 @@ class BusinessRequirement(models.Model):
         comodel_name='res.partner',
         string='Customer',
         store=True,
+        copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -139,27 +149,33 @@ class BusinessRequirement(models.Model):
     )
     confirmation_date = fields.Datetime(
         string='Confirmation Date',
+        copy=False,
         readonly=True
     )
     confirmed_id = fields.Many2one(
         'res.users', string='Confirmed by',
+        copy=False,
         readonly=True
     )
     reviewed_date = fields.Datetime(
         string='Reviewed Date',
+        copy=False,
         readonly=True
     )
     reviewed_id = fields.Many2one(
         'res.users', string='Reviewed by',
+        copy=False,
         readonly=True
     )
     approval_date = fields.Datetime(
         string='Approval Date',
+        copy=False,
         readonly=True
     )
     approved_id = fields.Many2one(
         'res.users',
         string='Approved by',
+        copy=False,
         readonly=True
     )
     company_id = fields.Many2one(
@@ -206,6 +222,21 @@ class BusinessRequirement(models.Model):
             ('drop', 'Drop'),
         ]
         return states
+
+    @api.multi
+    def name_get(self):
+        """
+        Display [Reference] Description if reference is defined
+        otherwise display [Name] Description
+        """
+        result = []
+        for br in self:
+            if br.ref:
+                formatted_name = '[{}] {}'.format(br.ref, br.description)
+            else:
+                formatted_name = '[{}] {}'.format(br.name, br.description)
+            result.append((br.id, formatted_name))
+        return result
 
     @api.multi
     def action_button_confirm(self):
@@ -259,10 +290,10 @@ class BusinessRequirement(models.Model):
             ).browse(cr, uid, context['default_res_id'])
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
         res = super(BusinessRequirement, self).message_post(
-            cr, uid, thread_id, body='', subject=subject,
-            type='notification', subtype=None, parent_id=False,
-            attachments=None, context=None,
-            content_subtype='html', **kwargs
+            cr, uid, thread_id, body=body, subject=subject,
+            type=type, subtype=subtype, parent_id=parent_id,
+            attachments=attachments, context=context,
+            content_subtype=content_subtype, **kwargs
         )
         return res
 

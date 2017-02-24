@@ -44,7 +44,7 @@ apply to many other cases/industries (customer or internal projects):
 More information about business requirements management:
 
 * `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`_
-* `Six Sigma <(https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
+* `Six Sigma <https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
 
 Business Requirement set of modules
 -----------------------------------
