@@ -31,6 +31,14 @@ class BusinessRequirementResource(models.Model):
         'group_business_requirement_cost_control',
     )
 
+    partner_id = fields.Many2one(
+        'res.partner',
+        related='business_requirement_deliverable_id.'
+        'business_requirement_id.partner_id',
+        string='Parter ID Related',
+        readonly=True,
+    )
+
     @api.multi
     @api.depends('unit_price', 'qty')
     def _compute_get_price_total(self):
@@ -44,39 +52,13 @@ class BusinessRequirementResource(models.Model):
             resource.sale_price_total = resource.sale_price_unit * resource.qty
 
     @api.multi
-    def _get_partner(self):
-        self.ensure_one()
-        br_id = br_deliverable = False
-        if self.business_requirement_deliverable_id.id:
-            br_deliverable = self.business_requirement_deliverable_id
-        if br_deliverable.business_requirement_id.id:
-            br_id = br_deliverable.business_requirement_id
-        if br_id and br_id.partner_id:
-            return br_id.partner_id
-        else:
-            return False
-
-    @api.multi
-    def _get_project(self):
-        self.ensure_one()
-        if self.business_requirement_deliverable_id.id:
-            br_deliverable = self.business_requirement_deliverable_id
-            if br_deliverable.business_requirement_id.id:
-                br_id = br_deliverable.business_requirement_id
-                if br_id and br_id.project_id:
-                    return br_id.project_id
-        return False
-
-    @api.multi
     def _get_pricelist(self):
         self.ensure_one()
-        project_id = self._get_project()
-        partner_id = self._get_partner()
-        if project_id and project_id.pricelist_id:
-            return project_id.pricelist_id
-        elif partner_id and partner_id.property_product_pricelist:
-            return partner_id.property_product_pricelist
-        return False
+        if self.partner_id:
+            if self.partner_id.property_product_pricelist:
+                return self.partner_id.property_product_pricelist
+        else:
+            return False
 
     @api.multi
     @api.onchange('product_id')
@@ -84,12 +66,11 @@ class BusinessRequirementResource(models.Model):
         super(BusinessRequirementResource, self).product_id_change()
         unit_price = self.product_id.standard_price
         pricelist_id = self._get_pricelist()
-        partner_id = self._get_partner()
         sale_price_unit = self.product_id.list_price
-        if pricelist_id and partner_id and self.uom_id:
+        if pricelist_id and self.partner_id and self.uom_id:
             product = self.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=self.partner_id.lang,
+                partner=self.partner_id.id,
                 quantity=self.qty,
                 pricelist=pricelist_id.id,
                 uom=self.uom_id.id,
@@ -107,7 +88,6 @@ class BusinessRequirementResource(models.Model):
         unit_price = self.unit_price
         sale_price_unit = self.product_id.list_price
         pricelist = self._get_pricelist()
-        partner_id = self._get_partner()
         product_uom = self.env['product.uom']
 
         if self.qty != 0:
@@ -119,8 +99,8 @@ class BusinessRequirementResource(models.Model):
 
         if pricelist:
             product = self.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=self.partner_id.lang,
+                partner=self.partner_id.id,
                 quantity=self.qty,
                 pricelist=pricelist.id,
                 uom=self.uom_id.id,
@@ -150,12 +130,12 @@ class BusinessRequirementDeliverable(models.Model):
             if deliverable.resource_ids:
                 for resource in deliverable.resource_ids:
                     pricelist_id = resource._get_pricelist()
-                    partner_id = resource._get_partner()
                     resource.sale_price_unit = resource.product_id.lst_price
-                    if pricelist_id and partner_id and resource.uom_id:
+                    if pricelist_id and resource.partner_id \
+                            and resource.uom_id:
                         product = resource.product_id.with_context(
-                            lang=partner_id.lang,
-                            partner=partner_id.id,
+                            lang=resource.partner_id.lang,
+                            partner=resource.partner_id.id,
                             quantity=resource.qty,
                             pricelist=pricelist_id.id,
                             uom=resource.uom_id.id,

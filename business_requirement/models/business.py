@@ -39,6 +39,13 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
+    ref = fields.Char(
+        'Reference',
+        required=False,
+        readonly=True,
+        copy=False,
+        states={'draft': [('readonly', False)]}
+    )
     business_requirement = fields.Html(
         'Customer Story',
         readonly=True,
@@ -217,6 +224,21 @@ class BusinessRequirement(models.Model):
         return states
 
     @api.multi
+    def name_get(self):
+        """
+        Display [Reference] Description if reference is defined
+        otherwise display [Name] Description
+        """
+        result = []
+        for br in self:
+            if br.ref:
+                formatted_name = '[{}] {}'.format(br.ref, br.description)
+            else:
+                formatted_name = '[{}] {}'.format(br.name, br.description)
+            result.append((br.id, formatted_name))
+        return result
+
+    @api.multi
     def action_button_confirm(self):
         self.write({'state': 'confirmed'})
         self.confirmed_id = self.env.user
@@ -268,10 +290,10 @@ class BusinessRequirement(models.Model):
             ).browse(cr, uid, context['default_res_id'])
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
         res = super(BusinessRequirement, self).message_post(
-            cr, uid, thread_id, body='', subject=subject,
-            type='notification', subtype=None, parent_id=False,
-            attachments=None, context=None,
-            content_subtype='html', **kwargs
+            cr, uid, thread_id, body=body, subject=subject,
+            type=type, subtype=subtype, parent_id=parent_id,
+            attachments=attachments, context=context,
+            content_subtype=content_subtype, **kwargs
         )
         return res
 
