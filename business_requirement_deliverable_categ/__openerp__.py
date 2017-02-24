@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Business Requirement Resources Task Categories",
-    'category': 'Business Requirement Management',
+    'category': 'Business Requirements Management',
     'summary': 'Adds Task Categories to your Business Requirement Resources',
     "version": "8.0.3.0.2",
     "website": "www.elico-corp.com",

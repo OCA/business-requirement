@@ -22,7 +22,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_form" />
             <field name="arch" type="xml">
-                <xpath expr="//group[1]" position="after">
+                <xpath expr="//group[1]" position="before">
                     <group>
                         <button name="action_button_update_estimation" 
                                 string="Update Prices on Resource Lines"

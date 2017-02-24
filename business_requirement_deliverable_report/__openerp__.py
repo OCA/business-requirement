@@ -7,7 +7,7 @@
     'version': '8.0.5.0.1',
     'category': 'Business Requirements Management',
     'website': 'https://www.elico-corp.com',
-    'author': 'Elico Corp',
+    'author': 'Elico Corp, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'application': False,
     'installable': True,
