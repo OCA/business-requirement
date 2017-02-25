@@ -40,7 +40,7 @@ env:
   # and use:
   #   $ travis encrypt TRANSIFEX_PASSWORD=your-password -r owner/project
   # Secure list for current OCA projects is in https://github.com/OCA/maintainer-quality-tools/issues/194
-  - secure: PjP88tPSwimBv4tsgn3UcQAD1heK/wcuSaSfhi2xUt/jSrOaTmWzjaW2gH/eKM1ilxPXwlPGyAIShJ2JJdBiA97hQufOeiqxdkWDctnNVVEDx2Tk0BiG3PPYyhXPgUZ+FNOnjZFF3pNWvzXTQaB0Nvz8plqp93Ov/DEyhrCxHDs=
+  - secure: SOqfTrrC52vWbjccaSMGEwNlk6wJTQisMzGTwludqbVJ4GdRMZKuqljAzBfmrXqfrM7PVu4ouFeepGgnhhZGVvLTLov2TnSmPhggx369YzAdkxvVAo0Ev6HLi8p8+MwdJbaZRDUPcZ2+Wqn+UuYcZGqp8GU7LHmW0XIQB3n/kq8T69xpBihNEmkMNJvw00fSt71ew1rOjG/JejgOJekVlABp9xf6e+e7pXDPJSAatpaU51+UQkVZvDEPQFoLubyk1HlHOX1MbWshCAmzLCUQuG3FgCOHFnA+GMHRISqeLxvNZ2slk4V5c6BfDIzkOkwtOoYzTzvsuvqXbfs4ZpLNBbOTFN7XzyStkjkcLSPg3Y+zLL+k3kXIrcTpn7lsyP0xpSQAv11qq2nbAstRCW3hIkudoTrUvAYc9FPlFPGomcGkP0lx582ppL4rX/fmxxl3vn/7A+bY4tZ8MwtssMfATQoszUw8sx2/S2mp7/RpiZPdQfve5z95bMt0/BR1UBkzpr5q2zzVqVFV6lQvbmfAK4XZTCONRUX/Ud/TCapC/Cx0xnCe1GF28Ja65uFmAyRwtCcP4kh+wIxYZSB8L2zfVAVNDqnbFy0BjbS3Id8tmwcBDNZUeOM6+amHhs8XP9f/18HR/gFNl0uqxfbfklkOiImYzRp+jTD7MguKrrF26h8=
   # Use the following lines if you need to manually change the transifex project slug or/and the transifex organization.
   # The default project slug is owner-repo_name-version (with dash in the version string).
   # The default organization is the owner of the repo.
