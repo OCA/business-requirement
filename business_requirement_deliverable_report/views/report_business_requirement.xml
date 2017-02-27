@@ -31,7 +31,7 @@
     </template>
 
     <template id="layout_br_base">
-        <h3><span t-field="o.name"/>-<span t-field="o.description"/></h3>
+        <h3 class="text-center"><span t-field="o.name"/>-<span t-field="o.description"/></h3>
         <table class="table table-bordered" style="table-collapse:collapse; table-layout:fixed">
             <tbody>
                 <tr>

@@ -13,6 +13,7 @@
         'business_requirement_deliverable',
     ],
     'data': [
+        'data/br_report_paperformat.xml',
         'views/report_business_requirement.xml',
         'views/report_business_requirement_deliverable.xml',
         'views/report_business_requirement_deliverable_resource.xml',
