@@ -1,6 +1,6 @@
 [![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/222/10.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-business-requirement-222)
 [![Build Status](https://travis-ci.org/OCA/business-requirement.svg?branch=10.0)](https://travis-ci.org/OCA/business-requirement)
-[![codecov](https://codecov.io/gh/OCA/business-requirement/branch/10.0/graph/badge.svg)](https://codecov.io/gh/OCA/project)
+[![codecov](https://codecov.io/gh/OCA/business-requirement/branch/10.0/graph/badge.svg)](https://codecov.io/gh/OCA/business-requirement)
 
 
 # Business Requirement Management
