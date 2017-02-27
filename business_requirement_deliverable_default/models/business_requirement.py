@@ -22,17 +22,6 @@ class BusinessRequirementDeliverable(models.Model):
             self.resource_ids = br_resource_obj
 
 
-class ProductTemplate(models.Model):
-    _inherit = "product.template"
-
-    resource_lines = fields.One2many(
-        comodel_name='business.requirement.resource',
-        inverse_name='product_template_id',
-        string='Business Requirement Resources',
-        copy=True,
-    )
-
-
 class BusinessRequirementResource(models.Model):
     _inherit = "business.requirement.resource"
 
