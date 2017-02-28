@@ -74,14 +74,15 @@ class BusinessRequirementResource(models.Model):
     def product_id_change(self):
         self.ensure_one()
         super(BusinessRequirementResource, self).product_id_change()
-        if self.pricelist_id and self.partner_id and self.uom_id:
+        pricelist_id = self._get_pricelist()
+        if pricelist_id and self.partner_id and self.uom_id:
             unit_price = self.product_id.standard_price
             sale_price_unit = self.product_id.list_price
             product = self.product_id.with_context(
                 lang=self.partner_id.lang,
                 partner=self.partner_id.id,
                 quantity=self.qty,
-                pricelist=self.pricelist_id.id,
+                pricelist=pricelist_id.id,
                 uom=self.uom_id.id,
             )
             sale_price_unit = product.list_price
@@ -96,19 +97,20 @@ class BusinessRequirementResource(models.Model):
         self.ensure_one()
         unit_price = self.product_id.standard_price
         sale_price_unit = self.product_id.list_price
+        pricelist_id = self._get_pricelist()
 
-        if self.pricelist_id and self.partner_id:
+        if pricelist_id and self.partner_id:
             self.uom_id._compute_qty(
                 self.product_id.uom_id.id,
                 self.qty,
                 self.uom_id.id)
 
-            if self.pricelist_id:
+            if pricelist_id:
                 product = self.product_id.with_context(
                     lang=self.partner_id.lang,
                     partner=self.partner_id.id,
                     quantity=self.qty,
-                    pricelist=self.pricelist_id.id,
+                    pricelist=pricelist_id.id,
                     uom=self.uom_id.id,
                 )
                 sale_price_unit = product.price
