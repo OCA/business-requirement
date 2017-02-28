@@ -2,7 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Business Requirement Deliverable Default',
+    'name': 'Business Requirements Default Resource Lines in Deliverable Products',
     'category': 'Business Requirements Management',
     'summary': """Manage default resource lines in your
                deliverable sales package""",
