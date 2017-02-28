@@ -39,6 +39,14 @@ class BusinessRequirementResource(models.Model):
         readonly=True,
     )
 
+    project_id = fields.Many2one(
+        'project.project',
+        related='business_requirement_deliverable_id.'
+        'business_requirement_id.project_id',
+        string='Project ID Related',
+        readonly=True,
+    )
+
     @api.multi
     @api.depends('unit_price', 'qty', 'uom_id')
     def _compute_get_price_total(self):
@@ -54,9 +62,10 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     def _get_pricelist(self):
         self.ensure_one()
-        if self.partner_id:
-            if self.partner_id.property_product_pricelist:
-                return self.partner_id.property_product_pricelist
+        if self.project_id and self.project_id.pricelist_id:
+            return self.project_id.pricelist_id
+        elif self.partner_id and self.partner_id.property_product_pricelist:
+            return self.partner_id.property_product_pricelist
         else:
             return False
 
@@ -65,39 +74,41 @@ class BusinessRequirementResource(models.Model):
     def product_id_change(self):
         self.ensure_one()
         super(BusinessRequirementResource, self).product_id_change()
-        unit_price = self.product_id.standard_price
-        pricelist_id = self._get_pricelist()
-        sale_price_unit = self.product_id.list_price
-        if pricelist_id and self.partner_id and self.uom_id:
+        if self.pricelist_id and self.partner_id and self.uom_id:
+            unit_price = self.product_id.standard_price
+            sale_price_unit = self.product_id.list_price
             product = self.product_id.with_context(
                 lang=self.partner_id.lang,
                 partner=self.partner_id.id,
                 quantity=self.qty,
-                pricelist=pricelist_id.id,
+                pricelist=self.pricelist_id.id,
                 uom=self.uom_id.id,
             )
             sale_price_unit = product.list_price
             unit_price = product.standard_price
 
-        self.unit_price = unit_price
-        self.sale_price_unit = sale_price_unit
+            self.unit_price = unit_price
+            self.sale_price_unit = sale_price_unit
 
     @api.multi
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
         self.ensure_one()
-        if pricelist_id and partner_id:
+        unit_price = self.product_id.standard_price
+        sale_price_unit = self.product_id.list_price
+
+        if self.pricelist_id and self.partner_id:
             self.uom_id._compute_qty(
                 self.product_id.uom_id.id,
                 self.qty,
                 self.uom_id.id)
 
-            if pricelist_id:
+            if self.pricelist_id:
                 product = self.product_id.with_context(
-                    lang=partner_id.lang,
-                    partner=partner_id.id,
+                    lang=self.partner_id.lang,
+                    partner=self.partner_id.id,
                     quantity=self.qty,
-                    pricelist=pricelist_id.id,
+                    pricelist=self.pricelist_id.id,
                     uom=self.uom_id.id,
                 )
                 sale_price_unit = product.price
@@ -126,7 +137,7 @@ class BusinessRequirementDeliverable(models.Model):
         for deliverable in self:
             if deliverable.resource_ids:
                 for resource in deliverable.resource_ids:
-                    pricelist_id = resource._get_pricelist()
+                    pricelist_id = resource.pricelist_id
                     resource.sale_price_unit = resource.product_id.lst_price
                     if pricelist_id and resource.partner_id \
                             and resource.uom_id:
