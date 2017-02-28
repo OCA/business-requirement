@@ -137,7 +137,7 @@ class BusinessRequirementDeliverable(models.Model):
         for deliverable in self:
             if deliverable.resource_ids:
                 for resource in deliverable.resource_ids:
-                    pricelist_id = resource.pricelist_id
+                    pricelist_id = resource._get_pricelist()
                     resource.sale_price_unit = resource.product_id.lst_price
                     if pricelist_id and resource.partner_id \
                             and resource.uom_id:
