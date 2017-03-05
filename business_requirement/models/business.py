@@ -39,6 +39,13 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
+    ref = fields.Char(
+        'Reference',
+        required=False,
+        readonly=True,
+        copy=False,
+        states={'draft': [('readonly', False)]}
+    )
     business_requirement = fields.Html(
         'Customer Story',
         readonly=True,
@@ -215,6 +222,21 @@ class BusinessRequirement(models.Model):
             ('drop', 'Drop'),
         ]
         return states
+
+    @api.multi
+    def name_get(self):
+        """
+        Display [Reference] Description if reference is defined
+        otherwise display [Name] Description
+        """
+        result = []
+        for br in self:
+            if br.ref:
+                formatted_name = '[{}] {}'.format(br.ref, br.description)
+            else:
+                formatted_name = '[{}] {}'.format(br.name, br.description)
+            result.append((br.id, formatted_name))
+        return result
 
     @api.multi
     def action_button_confirm(self):
