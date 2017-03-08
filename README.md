@@ -1,6 +1,7 @@
 [![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/222/8.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-business-requirement-222)
 [![Build Status](https://travis-ci.org/OCA/business-requirement.svg?branch=8.0)](https://travis-ci.org/OCA/business-requirement)
-[![Coverage Status](https://coveralls.io/repos/OCA/business-requirement/badge.svg?branch=8.0&service=github)](https://coveralls.io/github/OCA/business-requirement?branch=8.0)
+[![codecov](https://codecov.io/gh/OCA/business-requirement/branch/8.0/graph/badge.svg)](https://codecov.io/gh/OCA/business-requirement)
+
 
 # Business Requirement Management
 
@@ -16,7 +17,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[business_requirement](business_requirement/) | 8.0.5.1.1 | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
+[business_requirement](business_requirement/) | 8.0.5.1.2 | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
 [business_requirement_deliverable](business_requirement_deliverable/) | 8.0.4.0.0 | Manage the Business Requirement Deliverables and Resources for your customers
 [business_requirement_deliverable_categ](business_requirement_deliverable_categ/) | 8.0.3.0.2 | Adds Task Categories to your Business Requirement Resources
 [business_requirement_deliverable_cost](business_requirement_deliverable_cost/) | 8.0.1.0.1 | Control the cost of your Business Requirements

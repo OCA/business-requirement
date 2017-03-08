@@ -120,8 +120,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         with self.assertRaises(ValidationError):
             self.brB.generate_project_wizard()
 
-        # test when state=approved
-        self.brA.state = 'approved'
+        # test when state=stakeholder_approval
+        self.brA.state = 'stakeholder_approved'
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
         with self.assertRaises(ValidationError):
@@ -153,6 +153,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         action = self.brA.generate_project_wizard()
+
         self.assertNotEqual(action, False)
         self.assertNotEqual(action.get('res_id', False), False)
         self.wizard = self.env[
@@ -165,6 +166,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brA.state = 'stakeholder_approved'
         self.brB.state = 'approved'
         self.brC.state = 'approved'
+
         action = self.brA.generate_projects_wizard()
         self.assertEqual(
             'ir.actions.act_window',
