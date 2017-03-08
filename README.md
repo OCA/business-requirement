@@ -15,3 +15,12 @@ So a Quotation can have an estimation supported by a BR analysis, and Project Ta
 [//]: # (addons)
 this part will be replaced nightly
 [//]: # (end addons)
+Translation Status
+------------------
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-business-requirement-10-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-business-requirement-10-0)
+
+----
+
+OCA, or the [Odoo Community Association](http://odoo-community.org/), is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
