@@ -38,7 +38,6 @@ class CrmMakeSale(models.TransientModel):
         linked_brs = case.project_id and case.project_id.br_ids or []
         if not linked_brs:
             raise ValidationError(
-                _('Error!'),
                 _("""There is no available business requirement to
                     make sale order!"""))
         for br in linked_brs:
