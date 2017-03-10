@@ -128,15 +128,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
         resource.product_id_change()
         # should be ammend
 
-        unit_price = 0
         unit_price = resource.product_id.standard_price
         pricelist_id = resource._get_pricelist()
-        partner_id = resource._get_partner()
+        partner = resource.partner_id
         sale_price_unit = resource.product_id.list_price
-        if pricelist_id and partner_id and resource.uom_id:
+        if pricelist_id and partner and resource.uom_id:
             product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=partner.lang,
+                partner=partner.id,
                 quantity=resource.qty,
                 pricelist=pricelist_id.id,
                 uom=resource.uom_id.id,
@@ -183,7 +182,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         unit_price = resource.unit_price
         sale_price_unit = resource.product_id.list_price
         pricelist = resource._get_pricelist()
-        partner_id = resource._get_partner()
+        partner = resource.partner_id
         product_uom = resource.env['product.uom']
 
         if resource.qty != 0:
@@ -195,8 +194,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         if pricelist:
             product = resource.product_id.with_context(
-                lang=partner_id.lang,
-                partner=partner_id.id,
+                lang=partner.lang,
+                partner=partner.id,
                 quantity=resource.qty,
                 pricelist=pricelist.id,
                 uom=resource.uom_id.id,
@@ -218,12 +217,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
         if deliverable.resource_ids:
             for resource in deliverable.resource_ids:
                 pricelist_id = resource._get_pricelist()
-                partner_id = resource._get_partner()
+                partner = resource.partner_id
                 sale_price_unit = resource.product_id.lst_price
-                if pricelist_id and partner_id and resource.uom_id:
+                if pricelist_id and partner and resource.uom_id:
                     product = resource.product_id.with_context(
-                        lang=partner_id.lang,
-                        partner=partner_id.id,
+                        lang=partner.lang,
+                        partner=partner.id,
                         quantity=resource.qty,
                         pricelist=pricelist_id.id,
                         uom=resource.uom_id.id,
