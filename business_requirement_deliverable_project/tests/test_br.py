@@ -258,10 +258,20 @@ class BusinessRequirementTestCase(common.TransactionCase):
         res = res
 
     def test_br_wizard_generate_br_projects(self):
-        vals = {
+        vals_br = {
+            'for_br': True,
+            'for_deliverable': False,
+            'for_childs': False,
+        }
+        vals_deliverable = {
             'for_br': False,
             'for_deliverable': True,
             'for_childs': False,
+        }
+        vals_childs = {
+            'for_br': False,
+            'for_deliverable': False,
+            'for_childs': True,
         }
         self.brA.state = 'stakeholder_approved'
         self.brB.state = 'stakeholder_approved'
@@ -269,7 +279,18 @@ class BusinessRequirementTestCase(common.TransactionCase):
         action = self.brA.project_id.generate_project_wizard()
         self.wizard = self.env[
             'br.generate.projects'].browse(action['res_id'])
-        self.wizard.write(vals)
+# Create sub-projects for Business requirements
+        self.wizard.write(vals_br)
         res = self.wizard.generate_br_projects(
             self.projectA, self.brA, [], [])
+        res = res
+# Create sub-projects for Deliverables
+        self.wizard.write(vals_deliverable)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brB, [], [])
+        res = res
+# Create sub-projects for Child Business requirements
+        self.wizard.write(vals_childs)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brC, [], [])
         res = res
