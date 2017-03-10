@@ -256,3 +256,20 @@ class BusinessRequirementTestCase(common.TransactionCase):
         res = self.wizard.generate_deliverable_projects(
             self.projectA, self.brA.deliverable_lines, [], [])
         res = res
+
+    def test_br_wizard_generate_br_projects(self):
+        vals = {
+            'for_br': False,
+            'for_deliverable': True,
+            'for_childs': False,
+        }
+        self.brA.state = 'stakeholder_approved'
+        self.brB.state = 'stakeholder_approved'
+        self.brC.state = 'stakeholder_approved'
+        action = self.brA.project_id.generate_project_wizard()
+        self.wizard = self.env[
+            'br.generate.projects'].browse(action['res_id'])
+        self.wizard.write(vals)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brA, [], [])
+        res = res
