@@ -36,7 +36,7 @@ class BusinessRequirementResource(models.Model):
         'business_requirement_id.partner_id',
         string='Parter ID Related',
         readonly=True,
-     )
+    )
 
     @api.multi
     @api.depends('unit_price', 'qty')
