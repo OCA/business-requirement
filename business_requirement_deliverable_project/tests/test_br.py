@@ -100,6 +100,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ],
         }
+        br_obj = self.env['business.requirement']
+        br_obj = br_obj.new({'project_id': self.projectA.id})
+        br_obj.project_id_change()
+        vals.update({'partner_id': br_obj.partner_id.id})
 
         self.brA = self.env['business.requirement'].create(vals)
         self.brB = self.env['business.requirement'].create(vals)
@@ -120,8 +124,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         with self.assertRaises(ValidationError):
             self.brB.project_id.generate_project_wizard()
 
-        # test when state=stakeholder_approval
-        self.brA.state = 'stakeholder_approved'
+        self.brA.action_button_stakeholder_approved()
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
         with self.assertRaises(ValidationError):
@@ -144,7 +147,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.assertTrue(action)
 
         # test when state=cancel
-        self.brA.state = 'cancel'
+        self.brA.action_button_cancel()
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         with self.assertRaises(ValidationError):
