@@ -13,7 +13,6 @@ So a Quotation can have an estimation supported by a BR analysis, and Project Ta
 
 
 [//]: # (addons)
-this part will be replaced nightly
 [//]: # (end addons)
 Translation Status
 ------------------
