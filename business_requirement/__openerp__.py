@@ -7,7 +7,7 @@
     'summary': 'Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers',
     'version': '8.0.5.1.2',
-    'website': 'www.elico-corp.com',
+    'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
         'product',
