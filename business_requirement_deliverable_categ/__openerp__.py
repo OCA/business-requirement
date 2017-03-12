@@ -6,7 +6,7 @@
     'category': 'Business Requirements Management',
     'summary': 'Adds Task Categories to your Business Requirement Resources',
     "version": "8.0.3.0.2",
-    "website": "www.elico-corp.com",
+    "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,

@@ -6,7 +6,7 @@
     "summary": "Control the cost of your Business Requirements",
     "version": "8.0.1.0.1",
     'category': 'Business Requirements Management',
-    "website": "www.elico-corp.com",
+    "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
