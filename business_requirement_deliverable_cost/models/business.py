@@ -50,19 +50,6 @@ class BusinessRequirementResource(models.Model):
         for resource in self:
             resource.sale_price_total = resource.sale_price_unit * resource.qty
 
-#    @api.multi
-#    def _get_partner(self):
-#        self.ensure_one()
-#        br_id = False
-#        if self.business_requirement_deliverable_id:
-#            br_deliverable = self.business_requirement_deliverable_id
-#            if br_deliverable and br_deliverable.business_requirement_id:
-#                br_id = br_deliverable.business_requirement_id
-#        if br_id and br_id.partner_id:
-#            return br_id.partner_id
-#        else:
-#            return False
-
     @api.multi
     def _get_pricelist(self):
         self.ensure_one()
