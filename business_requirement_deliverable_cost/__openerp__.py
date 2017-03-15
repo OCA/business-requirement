@@ -25,5 +25,6 @@
         "security/business_requirement_deliverable_security.xml",
         "views/business.xml",
         "views/project.xml",
+        "report/br_deliverable_cost_report_view.xml",
     ],
 }
