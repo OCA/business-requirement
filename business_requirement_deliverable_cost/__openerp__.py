@@ -23,7 +23,7 @@
     ],
     "data": [
         "security/business_requirement_deliverable_security.xml",
-	"security/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "views/business.xml",
         "views/project.xml",
         "report/br_deliverable_cost_report_view.xml",
