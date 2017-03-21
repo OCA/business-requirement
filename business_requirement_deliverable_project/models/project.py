@@ -72,7 +72,6 @@ class ProjectTask(models.Model):
         'business.requirement',
         string='Business Requirement',
         help='Link the task and the business requirement',
-        readonly=True,
     )
 
     br_resource_id = fields.Many2one(
