@@ -194,6 +194,22 @@ class BusinessRequirement(models.Model):
     def create(self, vals):
         if vals.get('name', '/') == '/':
             vals['name'] = self.env['ir.sequence'].get('business.requirement')
+        if vals.get('project_id'):
+            project_id = self.env['project.project'].\
+                browse(vals.get('project_id'))
+            if project_id and project_id.message_follower_ids:
+                vals['message_follower_ids'] =\
+                    project_id.message_follower_ids.ids
+        return super(BusinessRequirement, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('project_id'):
+            project_id = self.env['project.project'].\
+                browse(vals.get('project_id'))
+            if project_id and project_id.message_follower_ids:
+                vals['message_follower_ids'] =\
+                    project_id.message_follower_ids.ids
         return super(BusinessRequirement, self).create(vals)
 
     @api.multi
