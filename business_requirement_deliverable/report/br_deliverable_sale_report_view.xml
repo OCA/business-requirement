@@ -4,7 +4,7 @@
 
         <record id="view_deliverable_sale_graph" model="ir.ui.view">
              <field name="name">Deliverable Sale Report</field>
-             <field name="model">deliverable.sale.report</field>
+             <field name="model">business.requirement.deliverable.sale.report</field>
              <field name="arch" type="xml">
                  <graph string="cost Analysis" type="pivot" stacked="True">
                      <field name="name" type="row"/>
@@ -21,7 +21,7 @@
 
         <record id="action_deliverable_sale_report" model="ir.actions.act_window">
             <field name="name">Deliverable Sale Analysis</field>
-            <field name="res_model">deliverable.sale.report</field>
+            <field name="res_model">business.requirement.deliverable.sale.report</field>
             <field name="view_type">form</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="view_deliverable_sale_graph"/>

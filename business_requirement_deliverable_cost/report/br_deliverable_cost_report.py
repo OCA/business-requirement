@@ -5,8 +5,8 @@ from openerp import tools
 from openerp import fields, models
 
 
-class DeliverableCostReport(models.Model):
-    _name = "deliverable.cost.report"
+class BusinessRequirementDeliverableCostReport(models.Model):
+    _name = "business.requirement.deliverable.cost.report"
     _description = "Deliverable Cost Report"
     _auto = False
 
@@ -18,12 +18,12 @@ class DeliverableCostReport(models.Model):
     change_request = fields.Boolean('Change Request?', readonly=True)
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'),
                                  ('2', 'High')], 'Priority', readonly=True)
+    dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product', 'Dlv Product',
                                   readonly=True)
-    dlv_description = fields.Text('Deliverable Description', readonly=True)
+    res_description = fields.Text('Resource Description', readonly=True)
     res_product = fields.Many2one('product.product', 'Res Product',
                                   readonly=True)
-    res_description = fields.Text('Resource Description', readonly=True)
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
     res_count = fields.Integer('Resource Count', readonly=True)
@@ -35,9 +35,11 @@ class DeliverableCostReport(models.Model):
     total_cost = fields.Float('Total cost', readonly=True)
 
     def init(self, cr):
-            tools.drop_view_if_exists(cr, 'deliverable_cost_report')
+            tools.\
+            drop_view_if_exists(cr,
+                                "business_requirement_deliverable_cost_report")
             cr.execute("""
-                CREATE VIEW deliverable_cost_report AS (
+                CREATE VIEW business_requirement_deliverable_cost_report AS (
                     SELECT
                     br.id,
                     br.name,

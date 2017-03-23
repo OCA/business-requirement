@@ -5,8 +5,8 @@ from openerp import tools
 from openerp import fields, models
 
 
-class DeliverableReport(models.Model):
-    _name = "deliverable.report"
+class BusinessRequirementDeliverableReport(models.Model):
+    _name = "business.requirement.deliverable.report"
     _description = "Deliverable Report"
     _auto = False
 
@@ -20,12 +20,12 @@ class DeliverableReport(models.Model):
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'),
                                  ('2', 'High')],
                                 'Priority', readonly=True)
+    dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product', 'Dlv Product',
                                   readonly=True)
-    dlv_description = fields.Text('Deliverable Description', readonly=True)
+    res_description = fields.Text('Resource Description', readonly=True)
     res_product = fields.Many2one('product.product', 'Res Product',
                                   readonly=True)
-    res_description = fields.Text('Resource Description', readonly=True)
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
     res_count = fields.Integer('Resource Count', readonly=True)
@@ -33,9 +33,10 @@ class DeliverableReport(models.Model):
     res_qty = fields.Float('Resource Qty', readonly=True)
 
     def init(self, cr):
-            tools.drop_view_if_exists(cr, 'deliverable_report')
+            tools.drop_view_if_exists(cr,
+                                      'business_requirement_deliverable_report')
             cr.execute("""
-                CREATE VIEW deliverable_report AS (
+                CREATE VIEW business_requirement_deliverable_report AS (
                     SELECT
                     br.id,
                     br.name,

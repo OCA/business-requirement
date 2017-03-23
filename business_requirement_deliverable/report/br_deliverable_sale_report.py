@@ -5,8 +5,8 @@ from openerp import tools
 from openerp import fields, models
 
 
-class DeliverableSaleReport(models.Model):
-    _name = "deliverable.sale.report"
+class BusinessRequirementDeliverableSaleReport(models.Model):
+    _name = "business.requirement.deliverable.sale.report"
     _description = "Deliverable Sales Report"
     _auto = False
 
@@ -18,9 +18,9 @@ class DeliverableSaleReport(models.Model):
     change_request = fields.Boolean('Change Request?', readonly=True)
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
                                 'Priority', readonly=True)
+    dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product', 'Dlv Product',
                                   readonly=True)
-    dlv_description = fields.Text('Deliverable Description', readonly=True)
     res_product = fields.Many2one('product.product', 'Res Product',
                                   readonly=True)
     res_description = fields.Text('Resource Description', readonly=True)
@@ -33,9 +33,11 @@ class DeliverableSaleReport(models.Model):
     total_revenue = fields.Float('Total Revenue', readonly=True)
 
     def init(self, cr):
-            tools.drop_view_if_exists(cr, 'deliverable_sale_report')
+            tools.\
+            drop_view_if_exists(cr,
+                                'business_requirement_deliverable_sale_report')
             cr.execute("""
-                CREATE VIEW deliverable_sale_report AS (
+                CREATE VIEW business_requirement_deliverable_sale_report AS (
                     SELECT
                     br.id,
                     br.name,
