@@ -55,7 +55,7 @@ class Project(models.Model):
             br_ids.filtered(lambda br_id: not br_id.parent_id)
         vals = {
             'partner_id': self.partner_id.id,
-            'project_id': self.id,
+            'linked_project': self.id,
             'br_ids': [(6, 0, br_ids.ids)]
         }
         wizard_obj = self.env['br.generate.projects']
