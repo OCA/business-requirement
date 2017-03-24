@@ -29,7 +29,7 @@ class Project(models.Model):
             if br.state not in ['stakeholder_approval', 'cancel', 'done']:
                 raise ValidationError(
                     _("All business requirements of the project should "
-                      "be stakeholder_approved/canceled/done"))
+                      "be stakeholder_approval/canceled/done"))
             for deliverables in br.deliverable_lines:
                 for line in deliverables.resource_ids:
                     if line.resource_type != 'task':
