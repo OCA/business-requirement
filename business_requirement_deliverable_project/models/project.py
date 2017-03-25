@@ -26,16 +26,10 @@ class Project(models.Model):
                     config settings"""))
         lines = []
         for br in br_ids:
-            if br.state not in [
-                    'stakeholder_approval',
-                    'cancel',
-                    'done'
-            ]:
+            if br.state not in ['stakeholder_approval', 'cancel', 'done']:
                 raise ValidationError(
-                    _("""All business requirements of the project should
-                        be Approved by Stakeholder"""))
-            if br.state != 'stakeholder_approval':
-                continue
+                    _("All business requirements of the project should "
+                      "be stakeholder_approval/canceled/done"))
             for deliverables in br.deliverable_lines:
                 for line in deliverables.resource_ids:
                     if line.resource_type != 'task':
@@ -43,14 +37,15 @@ class Project(models.Model):
                     generated = self.env['project.task'].search(
                         [('br_resource_id', '=', line.id)],
                         limit=1)
+
                     if generated:
                         continue
                     lines.append(line.id)
 
         if not lines:
             raise ValidationError(
-                _("""There is no available business requirement resource line to
-                    generate task"""))
+                _("""There is no available business requirement resource line
+                    to generate task"""))
         if from_project:
             br_ids.filtered(lambda br_id: not br_id.parent_id)
         vals = {
