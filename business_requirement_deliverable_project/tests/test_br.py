@@ -100,6 +100,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ],
         }
+        br_obj = self.env['business.requirement']
+        br_obj = br_obj.new({'project_id': self.projectA.id})
+        br_obj.project_id_change()
+        vals.update({'partner_id': br_obj.partner_id.id})
 
         self.brA = self.env['business.requirement'].create(vals)
         self.brB = self.env['business.requirement'].create(vals)
@@ -111,98 +115,94 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'draft'
         self.brC.state = 'draft'
         with self.assertRaises(ValidationError):
-            self.projectA.generate_project_wizard()
+            self.brA.project_id.generate_project_wizard()
 
         # test when state=confirmed
         self.brA.state = 'confirmed'
         self.brB.state = 'confirmed'
         self.brC.state = 'confirmed'
         with self.assertRaises(ValidationError):
-            self.projectA.generate_project_wizard()
+            self.brB.project_id.generate_project_wizard()
 
-        # test when state=stakeholder_approval
-        self.brA.state = 'stakeholder_approval'
+        self.brA.action_button_stakeholder_approval()
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
         with self.assertRaises(ValidationError):
-            self.projectA.generate_project_wizard()
+            self.brA.project_id.generate_project_wizard()
 
         # test when state=stakeholder_approval
         self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'draft'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
         with self.assertRaises(ValidationError):
-            self.projectA.generate_project_wizard()
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
 
-        # test when state=stakeholder_approval
-        self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'confirmed'
-        with self.assertRaises(ValidationError):
-            self.projectA.generate_project_wizard()
-
-        # test when state=stakeholder_approval
-        self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
-        self.assertTrue(action)
-
-        # test when state=stakeholder_approval
+        # test when state=done
         self.brA.state = 'done'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
-        self.assertTrue(action)
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
 
-        # test when state=stakeholder_approval
-        self.brA.state = 'cancel'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
-        self.assertTrue(action)
+        # test when state=cancel
+        self.brA.action_button_cancel()
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
 
     def test_wizard_apply(self):
         self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
-        self.assertNotEqual(action, False)
-        self.assertNotEqual(action.get('res_id', False), False)
-        self.wizard = self.env[
-            'br.generate.projects'].browse(action['res_id'])
-        self.wizard.for_br = True
-        res = self.wizard.apply()
-        self.assertEqual(res.get('type', True), 'ir.actions.act_window')
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
+
+            self.assertNotEqual(action, False)
+            self.assertNotEqual(action.get('res_id', False), False)
+            self.wizard = self.env[
+                'br.generate.projects'].browse(action['res_id'])
+            self.wizard.for_br = True
+            res = self.wizard.apply()
+            self.assertEqual(res.get('type', True), 'ir.actions.act_window')
 
     def test_br_generate_projects_wizard(self):
         self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
-        self.brC.state = 'stakeholder_approval'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+
         action = self.brA.generate_projects_wizard()
         self.assertEqual(
             'ir.actions.act_window',
             action['type'])
 
     def test_project_generate_project_wizard(self):
-        self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'stakeholder_approval'
+        self.brA.state = 'approved'
+        self.brB.state = 'approved'
         self.brC.state = 'stakeholder_approval'
 
         default_uom = self.env[
             'project.config.settings'
         ].get_default_time_unit('time_unit').get('time_unit', False)
 
-        action = self.projectA.generate_project_wizard()
-        self.assertEqual(
-            action.get('context', False).get('default_uom', False),
-            default_uom
-        )
-        self.assertEqual(
-            self.projectA.br_ids,
-            self.env[
-                'br.generate.projects'].browse(action['res_id']).br_ids
-        )
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertEqual(
+                action.get('context', {}).get('default_uom', False),
+                default_uom
+            )
+            self.assertEqual(
+                self.projectA.br_ids,
+                self.env[
+                    'br.generate.projects'].browse(action['res_id']).br_ids
+            )
+
+        self.brA.state = 'stakeholder_approval'
+        self.brB.state = 'stakeholder_approval'
         for br in self.projectA.br_ids:
             self.assertEqual('stakeholder_approval', br.state)
 
@@ -210,17 +210,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 [('br_resource_id', '=', br.id)])
             self.assertFalse(generated)
 
-        from_project = self.env[
-            'br.generate.projects'].browse(action['res_id']).br_ids
-        self.assertTrue(from_project)
-
         br_ids_a = self.projectA.br_ids
         br_ids_a.filtered(lambda br_ids_a: not br_ids_a.parent_id)
-
-        br_ids_b = from_project
-        br_ids_b.filtered(lambda br_ids_b: not br_ids_b.parent_id)
-
-        self.assertEqual(br_ids_a, br_ids_b)
 
     def test_br_wizard_onchange_for_br(self):
         wizard_obj = self.env['br.generate.projects']
@@ -245,7 +236,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brA.state = 'stakeholder_approval'
         self.brB.state = 'stakeholder_approval'
         self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
+        action = self.brA.project_id.generate_project_wizard()
         self.wizard = self.env[
             'br.generate.projects'].browse(action['res_id'])
         self.wizard.write(vals)
@@ -261,10 +252,48 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brA.state = 'stakeholder_approval'
         self.brB.state = 'stakeholder_approval'
         self.brC.state = 'stakeholder_approval'
-        action = self.projectA.generate_project_wizard()
+        action = self.brA.project_id.generate_project_wizard()
         self.wizard = self.env[
             'br.generate.projects'].browse(action['res_id'])
         self.wizard.write(vals)
         res = self.wizard.generate_deliverable_projects(
             self.projectA, self.brA.deliverable_lines, [], [])
+        res = res
+
+    def test_br_wizard_generate_br_projects(self):
+        vals_br = {
+            'for_br': True,
+            'for_deliverable': False,
+            'for_childs': False,
+        }
+        vals_deliverable = {
+            'for_br': False,
+            'for_deliverable': True,
+            'for_childs': False,
+        }
+        vals_childs = {
+            'for_br': False,
+            'for_deliverable': False,
+            'for_childs': True,
+        }
+        self.brA.state = 'stakeholder_approval'
+        self.brB.state = 'stakeholder_approval'
+        self.brC.state = 'stakeholder_approval'
+        action = self.brA.project_id.generate_project_wizard()
+        self.wizard = self.env[
+            'br.generate.projects'].browse(action['res_id'])
+# Create sub-projects for Business requirements
+        self.wizard.write(vals_br)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brA, [], [])
+        res = res
+# Create sub-projects for Deliverables
+        self.wizard.write(vals_deliverable)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brB, [], [])
+        res = res
+# Create sub-projects for Child Business requirements
+        self.wizard.write(vals_childs)
+        res = self.wizard.generate_br_projects(
+            self.projectA, self.brC, [], [])
         res = res
