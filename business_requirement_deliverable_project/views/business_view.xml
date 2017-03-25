@@ -88,8 +88,7 @@
                <field name="categ_ids"
                       position="after">
                     <field name="business_requirement_id"
-                           string="Business requirement"
-                           attrs="{'invisible': ['|', ('business_requirement_id', '=', False)]}"/>
+                           string="Business requirement"/>
                 </field>
             </field>
         </record>
