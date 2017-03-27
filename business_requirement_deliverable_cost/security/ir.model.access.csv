@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_deliverable_cost_report_user,deliverable.cost.report.user,model_deliverable_cost_report,business_requirement.group_business_requirement_user,1,0,0,0
+access_deliverable_cost_report_manager,deliverable.cost.report.manager,model_deliverable_cost_report,business_requirement.group_business_requirement_manager,1,1,1,1
