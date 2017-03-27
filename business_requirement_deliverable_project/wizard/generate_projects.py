@@ -166,9 +166,6 @@ class BrGenerateProjects(models.TransientModel):
             description = br.description
             privacy_visibility = br.project_id.privacy_visibility \
                 or br.project_id._defaults['privacy_visibility']
-            br_id = br.id
-        elif br._name == 'business.requirement.deliverable':
-            br_id = br.business_requirement_id.id
         vals = {
             'name': description,
             'parent_id': parent.analytic_account_id.id,
@@ -178,7 +175,6 @@ class BrGenerateProjects(models.TransientModel):
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
             'privacy_visibility': '%s' % (privacy_visibility),
-            'br_ids': [(6, 0, [br_id])],
         }
         return vals
 
