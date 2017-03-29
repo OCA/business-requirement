@@ -33,34 +33,34 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
     total_revenue = fields.Float('Total Revenue', readonly=True)
 
     def init(self, cr):
-            tools.\
+        tools.\
             drop_view_if_exists(cr,
                                 'business_requirement_deliverable_sale_report')
-            cr.execute("""
-                CREATE VIEW business_requirement_deliverable_sale_report AS (
-                    SELECT
-                    br.id,
-                    br.name,
-                    br.description,
-                    br.partner_id,
-                    br.project_id,
-                    br.change_request,
-                    br.priority,
-                    dlv.product_id as dlv_product,
-                    dlv.name as dlv_description,
-                    res.product_id as res_product,
-                    res.name as res_description,
-                    count(distinct br.id) as br_count,
-                    count(distinct dlv.id) as dlv_count,
-                    count(distinct res.id) as res_count,
-                    res.qty as res_qty,
-                    dlv.qty as dlv_qty,
-                    dlv.unit_price as sale_price,
-                    (dlv.unit_price * dlv.qty) as total_revenue
-                    FROM business_requirement br
-                    FULL OUTER JOIN business_requirement_deliverable dlv
-                    ON br.id = dlv.business_requirement_id
-                    FULL OUTER JOIN business_requirement_resource res
-                    ON res.business_requirement_deliverable_id = dlv.id
-                    Group By dlv.id, br.id, res.id
-                    )""")
+        cr.execute("""
+            CREATE VIEW business_requirement_deliverable_sale_report AS (
+                SELECT
+                br.id,
+                br.name,
+                br.description,
+                br.partner_id,
+                br.project_id,
+                br.change_request,
+                br.priority,
+                dlv.product_id as dlv_product,
+                dlv.name as dlv_description,
+                res.product_id as res_product,
+                res.name as res_description,
+                count(distinct br.id) as br_count,
+                count(distinct dlv.id) as dlv_count,
+                count(distinct res.id) as res_count,
+                res.qty as res_qty,
+                dlv.qty as dlv_qty,
+                dlv.unit_price as sale_price,
+                (dlv.unit_price * dlv.qty) as total_revenue
+                FROM business_requirement br
+                FULL OUTER JOIN business_requirement_deliverable dlv
+                ON br.id = dlv.business_requirement_id
+                FULL OUTER JOIN business_requirement_resource res
+                ON res.business_requirement_deliverable_id = dlv.id
+                Group By dlv.id, br.id, res.id
+                )""")
