@@ -14,6 +14,7 @@
         'business_requirement',
     ],
     'data': [
+        'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
     ],
