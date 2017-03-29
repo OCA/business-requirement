@@ -13,6 +13,7 @@ So a Quotation can have an estimation supported by a BR analysis, and Project Ta
 
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
@@ -23,7 +24,7 @@ addon | version | summary
 [business_requirement_deliverable_cost](business_requirement_deliverable_cost/) | 8.0.1.0.1 | Control the cost of your Business Requirements
 [business_requirement_deliverable_crm](business_requirement_deliverable_crm/) | 8.0.1.0.1 | Create your sales quotations directly from the Business Requirements deliverables
 [business_requirement_deliverable_default](business_requirement_deliverable_default/) | 8.0.2.0.2 | Manage default resource lines in your deliverable sales package
-[business_requirement_deliverable_project](business_requirement_deliverable_project/) | 8.0.4.0.4 | Create projects and tasks directly from the Business Requirement and Resources lines
+[business_requirement_deliverable_project](business_requirement_deliverable_project/) | 8.0.4.0.5 | Create projects and tasks directly from the Business Requirement and Resources lines
 [business_requirement_deliverable_report](business_requirement_deliverable_report/) | 8.0.5.0.1 | Print the Business Requirement Document for your customers
 
 [//]: # (end addons)
