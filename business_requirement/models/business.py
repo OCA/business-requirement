@@ -54,17 +54,20 @@ class BusinessRequirement(models.Model):
     scenario = fields.Html(
         'Scenario',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     gap = fields.Html(
         'Gap',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     test_case = fields.Html(
         'Test Case',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     category_ids = fields.Many2many(
         'business.requirement.category',
@@ -210,7 +213,7 @@ class BusinessRequirement(models.Model):
             if project_id and project_id.message_follower_ids:
                 vals['message_follower_ids'] =\
                     project_id.message_follower_ids.ids
-        return super(BusinessRequirement, self).create(vals)
+        return super(BusinessRequirement, self).write(vals)
 
     @api.multi
     @api.depends('parent_id')
