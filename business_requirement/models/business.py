@@ -210,7 +210,7 @@ class BusinessRequirement(models.Model):
             if project_id and project_id.message_follower_ids:
                 vals['message_follower_ids'] =\
                     project_id.message_follower_ids.ids
-        return super(BusinessRequirement, self).create(vals)
+        return super(BusinessRequirement, self).write(vals)
 
     @api.multi
     @api.depends('parent_id')
