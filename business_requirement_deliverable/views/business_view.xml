@@ -31,7 +31,7 @@
             <field name="model">business.requirement.deliverable</field>
             <field name="arch" type="xml">
                 <tree string="Business Requirement Deliverable" default_order="sequence">
-                    <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
                     <field name="product_id"/>
@@ -68,7 +68,7 @@
                 <form string="Business Requirement Task Type">
                     <group>
                         <group>
-                            <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                             <field name="product_id"/>
                             <label for="qty"/>
                             <div>
