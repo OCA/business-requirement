@@ -67,7 +67,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'product_id': self.productA.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
-                                'unit_price': 500,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
                             }),
@@ -76,7 +75,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'product_id': self.productC.id,
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
-                                'unit_price': 500,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
                             })
@@ -139,7 +137,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
             'customer': True,
-            'company_type': 'company',
         })
         self.br.write({'partner_id': self.partner.id})
         self.br._compute_get_currency()
@@ -153,7 +150,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
             'customer': True,
-            'company_type': 'company',
         })
         self.br.write({'partner_id': self.partner.id})
         partner_id = self.br.partner_id
@@ -175,7 +171,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
             'customer': True,
-            'company_type': 'company',
         })
         self.br.write({'partner_id': self.partner.id})
         for line in self.br.deliverable_lines:
@@ -241,7 +236,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
             'customer': True,
-            'company_type': 'company',
         })
         self.br.write({'partner_id': self.partner.id})
         try:
