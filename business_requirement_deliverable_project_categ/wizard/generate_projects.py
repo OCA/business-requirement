@@ -11,5 +11,5 @@ class BrGenerateProjectsWithCategories(models.TransientModel):
     def _prepare_project_task(self, line, project_id):
         vals = super(BrGenerateProjectsWithCategories, self) \
             ._prepare_project_task(line, project_id)
-        vals.update({'categ_ids': [(6, 0, [line.task_categ_id.id])]})
+        vals.update({'categ_ids': [(6, 0, line.task_categ_id.ids)]})
         return vals
