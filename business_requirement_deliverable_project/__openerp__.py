@@ -14,6 +14,8 @@
         'project',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'report/br_deliverable_report_view.xml',
         'views/business_view.xml',
         'wizard/generate_projects_view.xml',
     ],

@@ -21,9 +21,9 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
     dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product', 'Dlv Product',
                                   readonly=True)
+    res_description = fields.Text('Resource Description', readonly=True)
     res_product = fields.Many2one('product.product', 'Res Product',
                                   readonly=True)
-    res_description = fields.Text('Resource Description', readonly=True)
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
     res_count = fields.Integer('Resource Count', readonly=True)
