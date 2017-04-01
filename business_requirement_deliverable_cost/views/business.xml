@@ -31,6 +31,9 @@
                                 class="oe_highlight"/>
                     </group>
                 </xpath>
+                <xpath expr="//field[@name='price_total']" position="after">
+                    <field name="gross_profit"/>
+                </xpath>
             </field>
         </record>
 
