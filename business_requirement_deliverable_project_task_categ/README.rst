@@ -27,6 +27,21 @@ You can maintain the task categories in the Project/Configuration/Task Category 
 Usage
 =====
 
+#. In the Business requirement, you can add as many Deliverable Lines as necessary. 
+   Price of the Deliverable Lines will depend on the pricelist defined in master
+   project or customer.
+
+#. Once the Deliverable Lines are created, you can create as many Resource Lines as
+    necessary in each Deliverable Lines.
+
+#. in Resource Lines, you can then already assign task category on top of the assignee 
+   if necessary.
+
+NB: Task category cannot be assigned to a procurement line.
+
+.. figure:: static/img/bus_req_category.png
+   :width: 600 px
+   :alt: Inputing the deliverables and resources lines
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
