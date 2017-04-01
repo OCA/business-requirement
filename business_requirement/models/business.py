@@ -54,17 +54,20 @@ class BusinessRequirement(models.Model):
     scenario = fields.Html(
         'Scenario',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     gap = fields.Html(
         'Gap',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     test_case = fields.Html(
         'Test Case',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     category_ids = fields.Many2many(
         'business.requirement.category',
