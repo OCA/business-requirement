@@ -126,21 +126,19 @@ class BusinessRequirementDeliverable(models.Model):
     gross_profit = fields.Float(
         compute='_compute_gross_profit',
         string='Gross Profit',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control'
     )
 
     @api.multi
-    @api.depends('resource_ids.price_total',
-                 'resource_ids.sale_price_total')
+    @api.depends('price_total', 'resource_ids.price_total')
     def _compute_gross_profit(self):
         for brd in self:
             if brd.resource_ids:
-                price_total = 0
-                sale_price = 0
+                price_total = 0.0
                 for res in brd.resource_ids:
                     price_total += res.price_total
-                    sale_price += res.sale_price_total
-                brd.gross_profit = price_total - sale_price
-            brd.resource_ids = 0.0
+                brd.gross_profit = brd.price_total - price_total
 
     @api.multi
     def action_button_update_estimation(self):

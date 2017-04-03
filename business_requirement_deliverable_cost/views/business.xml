@@ -32,7 +32,7 @@
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='price_total']" position="after">
-                    <field name="gross_profit"/>
+                    <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
             </field>
         </record>
