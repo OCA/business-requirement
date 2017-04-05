@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import tools
 from openerp import fields, models
@@ -54,23 +54,25 @@ class BusinessRequirementEarnedValueReport(models.Model):
             res.unit_price as product_cost_from_rl,
             (res.qty * res.unit_price) as planned_value,
             pt.effective_hours as actual_time_in_timesheet,
-            (select list_price from product_template where id =
-            aal.product_id) as product_cost_from_timesheet_product,
+            (select list_price from product_template where id = aal.product_id)
+             as product_cost_from_timesheet_product,
             (pt.effective_hours * (select list_price from product_template
             where id = aal.product_id)) as actual_cost,
             ((pt.effective_hours * (select list_price from product_template
             where id = aal.product_id)) - (res.qty * res.unit_price))
             as variance,
             (((pt.effective_hours * (select list_price from product_template
-            where id = aal.product_id)) - (res.qty * res.unit_price))
-            / res.unit_price) as per_variances,
+            where id = aal.product_id)) - (res.qty * res.unit_price)) /
+            res.unit_price) as per_variances,
             pt.remaining_hours,
-            (pt.effective_hours + pt.remaining_hours)
-            as total_expected_time,
+            (pt.effective_hours + pt.remaining_hours) as total_expected_time,
+            CASE WHEN (pt.effective_hours + pt.remaining_hours) > 0 THEN
             (pt.effective_hours / (pt.effective_hours + pt.remaining_hours))
-            as project_completion,
-            ((res.qty * (res.unit_price * res.qty)) * (pt.effective_hours / (
-            pt.effective_hours + pt.remaining_hours))) as earned_value
+            ElSE 0.0 END as project_completion,
+            CASE WHEN (pt.effective_hours + pt.remaining_hours) > 0 THEN
+            ((res.qty * (res.unit_price * res.qty)) * (pt.effective_hours /
+            (pt.effective_hours + pt.remaining_hours))) ElSE 0.0 END
+            as earned_value
             FROM business_requirement br
             FULL OUTER JOIN business_requirement_deliverable dlv
             ON br.id = dlv.business_requirement_id
