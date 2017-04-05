@@ -16,8 +16,6 @@ class BusinessRequirementDeliverableReport(models.Model):
                                  readonly=True)
     project_id = fields.Many2one('project.project', 'Master Project',
                                  readonly=True)
-    linked_project = fields.Many2one('project.project', 'Linked Project',
-                                     readonly=True)
     change_request = fields.Boolean('Change Request?', readonly=True)
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'),
                                  ('2', 'High')],
@@ -45,7 +43,6 @@ class BusinessRequirementDeliverableReport(models.Model):
                 br.description,
                 br.partner_id,
                 br.project_id,
-                br.linked_project,
                 br.change_request,
                 br.priority,
                 dlv.product_id as dlv_product,

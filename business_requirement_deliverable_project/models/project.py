@@ -45,7 +45,7 @@ class Project(models.Model):
         if not lines:
             raise ValidationError(
                 _("""There is no available business requirement resource line
-                to generate task"""))
+                    to generate task"""))
         if from_project:
             br_ids.filtered(lambda br_id: not br_id.parent_id)
         vals = {

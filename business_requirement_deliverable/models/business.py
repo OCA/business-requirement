@@ -127,13 +127,6 @@ class BusinessRequirementDeliverable(models.Model):
         readonly=True,
         compute='_compute_get_currency',
     )
-    linked_project = fields.Many2one(
-        string='Linked project',
-        comodel_name='project.project',
-        groups='project.group_project_user',
-        readonly=True,
-        states={'draft': [('readonly', False)]}
-    )
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')

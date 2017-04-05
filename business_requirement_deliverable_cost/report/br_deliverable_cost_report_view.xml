@@ -6,7 +6,7 @@
              <field name="name">Deliverable Cost Report</field>
              <field name="model">business.requirement.deliverable.cost.report</field>
              <field name="arch" type="xml">
-                 <graph string="cost Analysis" type="pivot" stacked="True">
+                 <graph string="Cost Analysis" type="pivot" stacked="True">
                      <field name="name" type="row"/>
                      <field name="br_count" type="measure"/>
                      <field name="dlv_count" type="measure"/>
@@ -30,7 +30,7 @@
         </record>
 
         <menuitem action="action_deliverable_cost_report" id="menu_action_deliverable_cost_report"
-            parent="base.menu_project_report"/>
+            parent="base.menu_project_report" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
 
     </data>
 </openerp>

@@ -17,6 +17,7 @@
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
+        'report/br_deliverable_report_view.xml',
         'report/br_deliverable_sale_report_view.xml',
     ],
     'image': [
