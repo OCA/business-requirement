@@ -12,17 +12,24 @@ class BusinessRequirementDeliverableCostReport(models.Model):
 
     name = fields.Char('Name', readonly=True)
     description = fields.Char('Description', readonly=True)
-    partner_id = fields.Many2one('res.partner', 'Customer', readonly=True)
-    project_id = fields.Many2one('project.project', 'Master Project',
+    partner_id = fields.Many2one('res.partner',
+                                 'Customer',
+                                 readonly=True)
+    project_id = fields.Many2one('project.project',
+                                 'Master Project',
                                  readonly=True)
     change_request = fields.Boolean('Change Request?', readonly=True)
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'),
-                                 ('2', 'High')], 'Priority', readonly=True)
+                                 ('2', 'High')],
+                                'Priority',
+                                readonly=True)
     dlv_description = fields.Text('Deliverable Description', readonly=True)
-    dlv_product = fields.Many2one('product.product', 'Dlv Product',
+    dlv_product = fields.Many2one('product.product',
+                                  'Dlv Product',
                                   readonly=True)
     res_description = fields.Text('Resource Description', readonly=True)
-    res_product = fields.Many2one('product.product', 'Res Product',
+    res_product = fields.Many2one('product.product',
+                                  'Res Product',
                                   readonly=True)
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
@@ -33,6 +40,7 @@ class BusinessRequirementDeliverableCostReport(models.Model):
     total_revenue = fields.Float('Total Revenue', readonly=True)
     cost_price = fields.Float('Cost price', readonly=True)
     total_cost = fields.Float('Total cost', readonly=True)
+    gross_profit = fields.Float('Gross Profit', readonly=True)
 
     def init(self, cr):
         tools.\
@@ -60,7 +68,9 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 dlv.unit_price as sale_price,
                 (dlv.unit_price * dlv.qty) as total_revenue,
                 res.unit_price as cost_price,
-                (res.unit_price * res.qty) as total_cost
+                (res.unit_price * res.qty) as total_cost,
+                ((dlv.unit_price * dlv.qty) - (res.unit_price * res.qty))
+                as gross_profit
                 FROM business_requirement br
                 FULL OUTER JOIN business_requirement_deliverable dlv
                 ON br.id = dlv.business_requirement_id

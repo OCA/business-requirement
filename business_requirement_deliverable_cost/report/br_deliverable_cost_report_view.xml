@@ -17,6 +17,7 @@
                      <field name="total_revenue" type="measure"/>
                      <field name="cost_price" type="measure"/>
                      <field name="total_cost" type="measure"/>
+                     <field name="gross_profit" type="measure"/>
                  </graph>
              </field>
         </record>
