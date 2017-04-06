@@ -16,6 +16,7 @@
         'business_requirement_deliverable_project',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'report/br_earned_value_report_view.xml',
     ],
     'license': 'AGPL-3',
