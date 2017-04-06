@@ -18,9 +18,9 @@ class BusinessRequirementEarnedValueReport(models.Model):
                                  readonly=True)
     res_product = fields.Many2one('product.product', 'Res Product',
                                   readonly=True)
-    hr_timesheet_product =\
-        fields.Many2one('product.product', 'HR Timesheet Product',
-                        readonly=True)
+    hr_timesheet_product = fields.Many2one('product.product',
+                                           'HR Timesheet Product',
+                                           readonly=True)
     planned_time_in_rl = fields.Float('Planned time in RL', readonly=True)
     product_cost_from_rl = fields.Float('Product Cost from RL', readonly=True)
     planned_value = fields.Float('Planned Value', readonly=True)
@@ -66,10 +66,10 @@ class BusinessRequirementEarnedValueReport(models.Model):
             res.unit_price) as per_variances,
             pt.remaining_hours,
             (pt.effective_hours + pt.remaining_hours) as total_expected_time,
-            CASE WHEN (pt.effective_hours + pt.remaining_hours) > 0 THEN
+            CASE WHEN (pt.remaining_hours) > 0 THEN
             (pt.effective_hours / (pt.effective_hours + pt.remaining_hours))
             ElSE 0.0 END as project_completion,
-            CASE WHEN (pt.effective_hours + pt.remaining_hours) > 0 THEN
+            CASE WHEN (pt.remaining_hours) > 0 THEN
             ((res.qty * (res.unit_price * res.qty)) * (pt.effective_hours /
             (pt.effective_hours + pt.remaining_hours))) ElSE 0.0 END
             as earned_value
