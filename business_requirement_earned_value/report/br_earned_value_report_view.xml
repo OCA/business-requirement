@@ -32,8 +32,10 @@
             <field name="view_id" ref="view_earned_value_graph"/>
         </record>
 
-        <menuitem action="action_earned_value_report" id="menu_action_deliverable_report"
-            parent="base.menu_project_report" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+        <menuitem id="menu_action_deliverable_report"
+            action="action_earned_value_report"
+            parent="base.menu_project_report"
+            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
 
     </data>
 </openerp>
