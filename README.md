@@ -13,7 +13,9 @@ So a Quotation can have an estimation supported by a BR analysis, and Project Ta
 
 
 [//]: # (addons)
+
 [//]: # (end addons)
+
 Translation Status
 ------------------
 [![Transifex Status](https://www.transifex.com/projects/p/OCA-business-requirement-10-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-business-requirement-10-0)
