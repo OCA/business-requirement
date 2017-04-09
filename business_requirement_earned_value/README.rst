@@ -13,7 +13,9 @@ Introduction
 This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_).
 
 
-This module introduces **Earned Value Management report** based on the information from the Business Requirements Resources and Deliverable lines. You can check the following resources for more information about EVM:
+This module introduces **Earned Value Management report** based on the information 
+from the Business Requirements Resources and Deliverable lines. You can check the 
+following resources for more information about EVM:
 
 * `[RFC] Earned Value Management Report <https://github.com/OCA/business-requirement/issues/81>`_
 * `Earned Value Management introduction <https://www.humphreys-assoc.com/evms/basic-concepts-earned-value-management-evm-ta-a-74.html>`_
