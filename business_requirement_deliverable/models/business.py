@@ -283,6 +283,22 @@ class BusinessRequirement(models.Model):
         readonly=True,
         compute='_compute_get_currency',
     )
+    dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
+    rl_count = fields.Integer('DL Count', compute='_compute_rl_count')
+
+    @api.multi
+    def _compute_dl_count(self):
+        self.dl_count = self.env['business.requirement.deliverable'].\
+            search_count([('business_requirement_id', '=', self.id)])
+
+    @api.multi
+    def _compute_rl_count(self):
+        self.rl_count = self.env['business.requirement.resource'].\
+            search_count(
+                [('business_requirement_deliverable_id',
+                  'in',
+                  self.deliverable_lines.ids)]
+                )
 
     @api.multi
     def open_deliverable_line(self):
