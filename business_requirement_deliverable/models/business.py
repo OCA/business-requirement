@@ -11,6 +11,16 @@ class BusinessRequirementResource(models.Model):
     _name = "business.requirement.resource"
     _description = "Business Requirement Resource"
 
+    @api.model
+    def default_get(self, fields):
+        res = super(BusinessRequirementResource, self).default_get(fields)
+        if self._context.get('business_requirement_id'):
+            res.update({
+                'business_requirement_id':
+                self._context.get('business_requirement_id')
+            })
+        return res
+
     sequence = fields.Integer('Sequence')
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
@@ -48,6 +58,23 @@ class BusinessRequirementResource(models.Model):
         comodel_name='business.requirement.deliverable',
         string='Business Requirement Deliverable',
         ondelete='cascade'
+    )
+    business_requirement_id = fields.Many2one(
+        comodel_name='business.requirement',
+        string='Business Requirement',
+        required=True,
+    )
+    business_requirement_partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        related='business_requirement_id.partner_id',
+        string='Business Requirement',
+        store=True
+    )
+    business_requirement_project_id = fields.Many2one(
+        comodel_name='project.project',
+        related='business_requirement_id.project_id',
+        string='Business Requirement',
+        store=True
     )
 
     @api.multi
@@ -132,6 +159,18 @@ class BusinessRequirementDeliverable(models.Model):
         string='Currency',
         readonly=True,
         compute='_compute_get_currency',
+    )
+    business_requirement_partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        related='business_requirement_id.partner_id',
+        string='Business Requirement',
+        store=True
+    )
+    business_requirement_project_id = fields.Many2one(
+        comodel_name='project.project',
+        related='business_requirement_id.project_id',
+        string='Business Requirement',
+        store=True
     )
 
     @api.multi
@@ -244,6 +283,46 @@ class BusinessRequirement(models.Model):
         readonly=True,
         compute='_compute_get_currency',
     )
+
+    @api.multi
+    def open_deliverable_line(self):
+        domain = [('business_requirement_id', '=', self.id)]
+        return {
+            'name': _('Deliverable Lines'),
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'business.requirement.deliverable',
+            'target': 'current',
+            'domain': domain,
+            'context': {
+                'tree_view_ref': 'business_requirement_deliverable.' +
+                'view_business_requirement_deliverable_tree',
+                'form_view_ref': 'business_requirement_deliverable.' +
+                'view_business_requirement_deliverable_form',
+                'default_business_requirement_id': self.id
+            }
+        }
+
+    @api.multi
+    def open_resource_line(self):
+        res_lines = self.env['business.requirement.resource'].search(
+            [('business_requirement_deliverable_id', 'in',
+                self.deliverable_lines.ids)]
+        )
+        return {
+            'name': _('Resource Lines'),
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'business.requirement.resource',
+            'type': 'ir.actions.act_window',
+            'domain': [('id', 'in', res_lines.ids)],
+            'context': {
+                'tree_view_ref': 'business_requirement_deliverable.' +
+                'view_business_requirement_resource_tree',
+                'default_business_requirement_id': self.id
+                }
+        }
 
     @api.multi
     @api.depends('partner_id')
