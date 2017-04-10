@@ -123,22 +123,54 @@ class BusinessRequirementDeliverable(models.Model):
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_estimation',
     )
-    gross_profit = fields.Float(
-        compute='_compute_gross_profit',
-        string='Gross Profit',
+    resource_task_total = fields.Float(
+        compute='_compute_resource_task_total',
+        string='Total tasks',
+        store=False,
         groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control'
+        'group_business_requirement_cost_control',
+    )
+    resource_procurement_total = fields.Float(
+        compute='_compute_resource_procurement_total',
+        string='Total procurement',
+        store=False,
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
+    )
+    gross_profit = fields.Float(
+        string='Estimated Gross Profit',
+        compute='_compute_gross_profit',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
 
     @api.multi
-    @api.depends('price_total', 'resource_ids.price_total')
+    @api.depends('resource_ids')
+    def _compute_resource_task_total(self):
+        if self:
+            self.resource_task_total = sum(
+                self.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'task').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends('resource_ids')
+    def _compute_resource_procurement_total(self):
+        if self:
+            self.resource_procurement_total = sum(
+                self.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'procurement').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends(
+        'price_total',
+        'resource_task_total',
+        'resource_procurement_total')
     def _compute_gross_profit(self):
-        for brd in self:
-            if brd.resource_ids:
-                price_total = 0.0
-                for res in brd.resource_ids:
-                    price_total += res.price_total
-                brd.gross_profit = brd.price_total - price_total
+        if self:
+            self.gross_profit = self.price_total - \
+                self.resource_task_total - self.resource_procurement_total
 
     @api.multi
     def action_button_update_estimation(self):
@@ -197,7 +229,7 @@ class BusinessRequirement(models.Model):
                     br.mapped('deliverable_lines').mapped(
                         'resource_ids').filtered(
                         lambda r: r.resource_type == 'task').mapped(
-                            'price_total'))
+                        'price_total'))
 
     @api.multi
     @api.depends('deliverable_lines')
