@@ -135,6 +135,20 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.uom_id.id, self.productB.uom_id.id)
 
+    def test_resource_fields_view_get(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('product_id', '=', self.productA.id)])[0]
+        resource.fields_view_get(False, 'tree')
+        self.br.deliverable_lines[0].fields_view_get(False, 'form')
+
+    def test_compute_business_requirement_dl_rl(self):
+        self.br._compute_dl_count()
+        self.br._compute_rl_count()
+
+    def test_open_business_requirement_dl_rl(self):
+        self.br.open_deliverable_line()
+        self.br.open_resource_line()
+
     def test_compute_get_currency(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',

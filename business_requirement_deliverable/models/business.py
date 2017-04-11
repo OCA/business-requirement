@@ -328,12 +328,12 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     def _compute_rl_count(self):
-        self.rl_count = self.env['business.requirement.resource'].\
-            search_count(
-                [('business_requirement_deliverable_id',
-                  'in',
-                  self.deliverable_lines.ids)]
-                )
+        for r in self:
+            r.rl_count = self.env['business.requirement.resource'
+                                  ].search_count([('business_requirement_id',
+                                                   '=',
+                                                   r.id)]
+                                                 )
 
     @api.multi
     def open_deliverable_line(self):
@@ -357,23 +357,24 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     def open_resource_line(self):
-        res_lines = self.env['business.requirement.resource'].search(
-            [('business_requirement_deliverable_id', 'in',
-                self.deliverable_lines.ids)]
-        )
-        return {
-            'name': _('Resource Lines'),
-            'view_type': 'form',
-            'view_mode': 'tree,form',
-            'res_model': 'business.requirement.resource',
-            'type': 'ir.actions.act_window',
-            'domain': [('id', 'in', res_lines.ids)],
-            'context': {
-                'tree_view_ref': 'business_requirement_deliverable.' +
-                'view_business_requirement_resource_tree',
-                'default_business_requirement_id': self.id
-                }
-        }
+        for self in self:
+            res_lines = self.env['business.requirement.resource'].search(
+                [('business_requirement_id', '=',
+                    self.id)]
+            )
+            return {
+                'name': _('Resource Lines'),
+                'view_type': 'form',
+                'view_mode': 'tree',
+                'res_model': 'business.requirement.resource',
+                'type': 'ir.actions.act_window',
+                'domain': [('id', 'in', res_lines.ids)],
+                'context': {
+                    'tree_view_ref': 'business_requirement_resource.' +
+                    'view_business_requirement_resource_tree',
+                    'default_business_requirement_id': self.id
+                    }
+            }
 
     @api.multi
     @api.depends('partner_id')
