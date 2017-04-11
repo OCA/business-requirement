@@ -42,7 +42,7 @@ class BusinessRequirementEarnedValueReport(models.Model):
                                   'business_requirement_earned_value_report')
         cr.execute("""
             CREATE VIEW business_requirement_earned_value_report AS (
-            SELECT 
+            SELECT
                 br.id,
                 br.name as name,
                 br.description as description,
@@ -74,15 +74,15 @@ class BusinessRequirementEarnedValueReport(models.Model):
                 ) * (pt.effective_hours /
                 pt.effective_hours + pt.remaining_hours))) ElSE 0.0 END
                 as earned_value
-            From    
+            From
                 business_requirement br
                 LEFT JOIN business_requirement_deliverable dlv
                 ON dlv.business_requirement_id = br.id
                 LEFT JOIN business_requirement_resource res
                 ON res.business_requirement_deliverable_id = dlv.id
-                LEFT JOIN  project_task pt 
-                ON pt.business_requirement_id = br.id 
+                LEFT JOIN  project_task pt
+                ON pt.business_requirement_id = br.id
                 JOIN product_template as ptm ON ptm.id = res.product_id
-            group by 
+            group by
                 br.id,pt.id,ptm.id
             )""")
