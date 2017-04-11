@@ -155,6 +155,15 @@
                         context="{'tree_view_ref':'business_requirement_deliverable.view_business_requirement_resource_tree',
                         'default_business_requirement_id': business_requirement_id}"
                         nolabel="1">
+                        <tree editable="1">
+                            <field name="resource_type"/>
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                            <field name="qty"/>
+                            <field name="uom_id"/>
+                            <field name="business_requirement_id" invisible="1"/>
+                        </tree>
                         </field>
                     </group>
                 </form>
