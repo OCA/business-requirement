@@ -5,6 +5,7 @@ from openerp import api, fields, models
 from openerp.exceptions import Warning as UserError
 from openerp.exceptions import ValidationError
 from openerp.tools.translate import _
+from lxml import etree
 
 
 class BusinessRequirementResource(models.Model):
@@ -66,6 +67,23 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement',
         store=True
     )
+
+    @api.model
+    def fields_view_get(self, view_id=None,
+                        view_type='form', toolbar=False, submenu=False):
+        result = super(BusinessRequirementResource,
+                       self).fields_view_get(view_id, view_type,
+                                             toolbar=toolbar, submenu=submenu)
+        if view_type in ['form', 'tree']:
+            business_requirement = self.env['business.requirement'].browse(
+                self._context.get('active_id')).state
+            if business_requirement not in ['draft', 'confirmed']:
+                doc = etree.XML(result['arch'])
+                nodes = doc.xpath("//tree")
+                for node in nodes:
+                    node.set('edit', '0')
+                result['arch'] = etree.tostring(doc)
+        return result
 
     @api.multi
     @api.onchange('product_id')
@@ -163,6 +181,23 @@ class BusinessRequirementDeliverable(models.Model):
         string='Business Requirement',
         store=True
     )
+
+    @api.model
+    def fields_view_get(self, view_id=None,
+                        view_type='form', toolbar=False, submenu=False):
+        result = super(BusinessRequirementDeliverable,
+                       self).fields_view_get(view_id, view_type,
+                                             toolbar=toolbar, submenu=submenu)
+        if view_type in ['form', 'tree']:
+            business_requirement = self.env['business.requirement'].browse(
+                self._context.get('active_id')).state
+            if business_requirement not in ['draft', 'confirmed']:
+                doc = etree.XML(result['arch'])
+                nodes = doc.xpath("//form")
+                for node in nodes:
+                    node.set('edit', '0')
+                result['arch'] = etree.tostring(doc)
+        return result
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
