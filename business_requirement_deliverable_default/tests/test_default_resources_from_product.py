@@ -17,12 +17,14 @@ class TestDefaultResourcesFromProduct(common.TransactionCase):
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
                  'name': 'Test A',
+                 'business_requirement_id': self.br.id
                  })
 
         self.brd_b = \
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
                  'name': 'Test B',
+                 'business_requirement_id': self.br.id
                  })
         # Common resource_lines
         self.rl_lines = [

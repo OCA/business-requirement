@@ -5,22 +5,11 @@ from openerp import api, fields, models
 from openerp.exceptions import Warning as UserError
 from openerp.exceptions import ValidationError
 from openerp.tools.translate import _
-from lxml import etree
 
 
 class BusinessRequirementResource(models.Model):
     _name = "business.requirement.resource"
     _description = "Business Requirement Resource"
-
-    @api.model
-    def default_get(self, fields):
-        res = super(BusinessRequirementResource, self).default_get(fields)
-        if self._context.get('business_requirement_id'):
-            res.update({
-                'business_requirement_id':
-                self._context.get('business_requirement_id')
-            })
-        return res
 
     sequence = fields.Integer('Sequence')
     name = fields.Char('Name', required=True)
@@ -77,23 +66,6 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement',
         store=True
     )
-
-    @api.model
-    def fields_view_get(self, view_id=None,
-                        view_type='form', toolbar=False, submenu=False):
-        result = super(BusinessRequirementResource,
-                       self).fields_view_get(view_id, view_type,
-                                             toolbar=toolbar, submenu=submenu)
-        if view_type in ['form', 'tree']:
-            business_requirement = self.env['business.requirement'].browse(
-                self._context.get('active_id')).state
-            if business_requirement not in ['draft', 'confirmed']:
-                doc = etree.XML(result['arch'])
-                nodes = doc.xpath("//tree")
-                for node in nodes:
-                    node.set('edit', '0')
-                result['arch'] = etree.tostring(doc)
-        return result
 
     @api.multi
     @api.onchange('product_id')
@@ -163,7 +135,8 @@ class BusinessRequirementDeliverable(models.Model):
     business_requirement_id = fields.Many2one(
         comodel_name='business.requirement',
         string='Business Requirement',
-        ondelete='cascade'
+        ondelete='cascade',
+        required=True
     )
     unit_price = fields.Float(
         string='Sales Price'
@@ -190,23 +163,6 @@ class BusinessRequirementDeliverable(models.Model):
         string='Business Requirement',
         store=True
     )
-
-    @api.model
-    def fields_view_get(self, view_id=None,
-                        view_type='form', toolbar=False, submenu=False):
-        result = super(BusinessRequirementDeliverable,
-                       self).fields_view_get(view_id, view_type,
-                                             toolbar=toolbar, submenu=submenu)
-        if view_type in ['form', 'tree']:
-            business_requirement = self.env['business.requirement'].browse(
-                self._context.get('active_id')).state
-            if business_requirement not in ['draft', 'confirmed']:
-                doc = etree.XML(result['arch'])
-                nodes = doc.xpath("//form")
-                for node in nodes:
-                    node.set('edit', '0')
-                result['arch'] = etree.tostring(doc)
-        return result
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
@@ -337,23 +293,26 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     def open_deliverable_line(self):
-        domain = [('business_requirement_id', '=', self.id)]
-        return {
-            'name': _('Deliverable Lines'),
-            'type': 'ir.actions.act_window',
-            'view_type': 'form',
-            'view_mode': 'tree,form',
-            'res_model': 'business.requirement.deliverable',
-            'target': 'current',
-            'domain': domain,
-            'context': {
-                'tree_view_ref': 'business_requirement_deliverable.' +
-                'view_business_requirement_deliverable_tree',
-                'form_view_ref': 'business_requirement_deliverable.' +
-                'view_business_requirement_deliverable_form',
-                'default_business_requirement_id': self.id
-            }
-        }
+        for self in self:
+            domain = [('business_requirement_id', '=', self.id)]
+            br_id = 0
+            if self.state in ('draft', 'confirmed'):
+                br_id = self.id
+            return {
+                'name': _('Deliverable Lines'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form',
+                'res_model': 'business.requirement.deliverable',
+                'target': 'current',
+                'domain': domain,
+                'context': {
+                    'tree_view_ref': 'business_requirement_deliverable.' +
+                    'view_business_requirement_deliverable_tree',
+                    'form_view_ref': 'business_requirement_deliverable.' +
+                    'view_business_requirement_deliverable_form',
+                    'default_business_requirement_id': br_id
+                    }}
 
     @api.multi
     def open_resource_line(self):
@@ -362,6 +321,9 @@ class BusinessRequirement(models.Model):
                 [('business_requirement_id', '=',
                     self.id)]
             )
+            br_id = 0
+            if self.state in ('draft', 'confirmed'):
+                br_id = self.id
             return {
                 'name': _('Resource Lines'),
                 'view_type': 'form',
@@ -372,7 +334,7 @@ class BusinessRequirement(models.Model):
                 'context': {
                     'tree_view_ref': 'business_requirement_resource.' +
                     'view_business_requirement_resource_tree',
-                    'default_business_requirement_id': self.id
+                    'default_business_requirement_id': br_id
                     }
             }
 
