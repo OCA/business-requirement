@@ -44,46 +44,46 @@ class BusinessRequirementDeliverableCostReport(models.Model):
 
     def _select(self):
         select_str = """
-                SELECT
-                    br.id,
-                    br.name,
-                    br.description,
-                    br.partner_id,
-                    br.project_id,
-                    br.change_request,
-                    br.priority,
-                    dlv.product_id as dlv_product,
-                    dlv.name as dlv_description,
-                    res.product_id as res_product,
-                    res.name as res_description,
-                    count(distinct br.id) as br_count,
-                    count(distinct dlv.id) as dlv_count,
-                    count(distinct res.id) as res_count,
-                    res.qty as res_qty,
-                    dlv.qty as dlv_qty,
-                    dlv.unit_price as sale_price,
-                    (dlv.unit_price * dlv.qty) as total_revenue,
-                    res.unit_price as cost_price,
-                    (res.unit_price * res.qty) as total_cost,
-                    ((dlv.unit_price * dlv.qty) - (res.unit_price * res.qty))
-                    as gross_profit
+            SELECT
+                br.id,
+                br.name,
+                br.description,
+                br.partner_id,
+                br.project_id,
+                br.change_request,
+                br.priority,
+                dlv.product_id as dlv_product,
+                dlv.name as dlv_description,
+                res.product_id as res_product,
+                res.name as res_description,
+                count(distinct br.id) as br_count,
+                count(distinct dlv.id) as dlv_count,
+                count(distinct res.id) as res_count,
+                res.qty as res_qty,
+                dlv.qty as dlv_qty,
+                dlv.unit_price as sale_price,
+                (dlv.unit_price * dlv.qty) as total_revenue,
+                res.unit_price as cost_price,
+                (res.unit_price * res.qty) as total_cost,
+                ((dlv.unit_price * dlv.qty) - (res.unit_price * res.qty))
+                as gross_profit
         """
         return select_str
 
     def _from(self):
         from_str = """
-                business_requirement br
-                FULL OUTER JOIN business_requirement_deliverable dlv
-                    ON br.id = dlv.business_requirement_id
-                FULL OUTER JOIN business_requirement_resource res
-                    ON res.business_requirement_deliverable_id = dlv.id
+            business_requirement br
+            FULL OUTER JOIN business_requirement_deliverable dlv
+                ON br.id = dlv.business_requirement_id
+            FULL OUTER JOIN business_requirement_resource res
+                ON res.business_requirement_deliverable_id = dlv.id
         """
         return from_str
 
     def _group_by(self):
         group_by_str = """
-                GROUP BY
-                    dlv.id, br.id, res.id
+            GROUP BY
+                dlv.id, br.id, res.id
         """
         return group_by_str
 
