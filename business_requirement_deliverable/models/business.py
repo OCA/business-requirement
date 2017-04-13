@@ -337,7 +337,7 @@ class BusinessRequirement(models.Model):
                 'name': _('Deliverable Lines'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
-                'view_mode': 'tree,form',
+                'view_mode': 'tree,form,graph',
                 'res_model': 'business.requirement.deliverable',
                 'target': 'current',
                 'domain': domain,
@@ -352,17 +352,16 @@ class BusinessRequirement(models.Model):
     @api.multi
     def open_resource_line(self):
         for self in self:
-            res_lines = self.env['business.requirement.resource'].search(
-                [('business_requirement_id', '=',
-                    self.id)]
-            )
+            res_lines = self.env['business.requirement.resource'
+                                 ].search([('business_requirement_id', '=',
+                                            self.id)])
             br_id = 0
             if self.state in ('draft', 'confirmed'):
                 br_id = self.id
             return {
                 'name': _('Resource Lines'),
                 'view_type': 'form',
-                'view_mode': 'tree',
+                'view_mode': 'tree,graph',
                 'res_model': 'business.requirement.resource',
                 'type': 'ir.actions.act_window',
                 'domain': [('id', 'in', res_lines.ids)],

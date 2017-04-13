@@ -91,7 +91,7 @@
             <field name="arch" type="xml">
                 <tree string="Business Requirement Resource" editable="bottom" default_order="sequence">
                     <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"/>
-                    <field name="business_requirement_deliverable_id"/>
+                    <field name="business_requirement_deliverable_id" domain="[('business_requirement_id', '=', business_requirement_id)]"/>
                     <field name="sequence" widget="handle"/>
                     <field name="resource_type"/>
                     <field name="product_id"/>
