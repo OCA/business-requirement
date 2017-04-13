@@ -45,44 +45,77 @@ class BusinessRequirementEarnedValueReport(models.Model):
             SELECT
                 br.id,
                 br.name as name,
-                br.description as description,
-                br.partner_id as partner_id,
-                br.project_id as project_id,
-                ptm.id as hr_timesheet_product,
-                sum(res.qty) as planned_time_in_rl,
-                sum(res.unit_price) as product_cost_from_rl,
-                (sum(res.qty) * sum(res.unit_price)) as planned_value,
-                (pt.effective_hours) as actual_time_in_timesheet,
-                (ptm.list_price) as product_cost_from_timesheet_product,
-                (pt.effective_hours * ptm.list_price)
-                as actual_cost,
-                abs((pt.effective_hours * ptm.list_price
-                ) - (sum(res.qty) * sum(res.unit_price)))
-                as variance,
-                (abs((pt.effective_hours * ptm.list_price
-                ) - (sum(res.qty) * sum(res.unit_price))) /
-                sum(res.unit_price)) as per_variances,
-                pt.remaining_hours as remaining_hours,
-                (pt.effective_hours + pt.remaining_hours)
-                as total_expected_time,
-                CASE WHEN (pt.remaining_hours) > 0 THEN
-                (pt.effective_hours / (pt.effective_hours + pt.remaining_hours
+                br.description AS description,
+                br.partner_id AS partner_id,
+                br.project_id AS project_id,
+                ptm.id AS hr_timesheet_product,
+                SUM(res.qty) AS planned_time_in_rl,
+                SUM(res.unit_price) AS product_cost_from_rl,
+                (SUM(res.qty) * SUM(res.unit_price)) AS planned_value,
+                (SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id)
+                AS  actual_time_in_timesheet,
+                (ptm.list_price) AS product_cost_from_timesheet_product,
+                ((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id) * ptm.list_price)
+                AS actual_cost,
+                abs(((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id) * ptm.list_price
+                ) - (SUM(res.qty) * SUM(res.unit_price)))
+                AS variance,
+                (abs(((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id) * ptm.list_price
+                ) - (SUM(res.qty) * SUM(res.unit_price))) /
+                SUM(res.unit_price)) AS per_variances,
+                (SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id) AS remaining_hours,
+                ((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id
+                ) + (SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id))
+                AS total_expected_time,
+                CASE WHEN ((SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id)) > 0 THEN
+                ((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id
+                ) / ((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id
+                ) + (SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id)
                 ))
                 ElSE 0.0 END as project_completion,
-                CASE WHEN (pt.remaining_hours) > 0 THEN
-                (((sum(res.qty) * (sum(res.unit_price) * sum(res.qty))
-                ) * (pt.effective_hours /
-                pt.effective_hours + pt.remaining_hours))) ElSE 0.0 END
-                as earned_value
-            From
+                CASE WHEN ((SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id)) > 0 THEN
+                (((SUM(res.qty) * (SUM(res.unit_price) * SUM(res.qty))
+                ) * ((SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id) /
+                (SELECT SUM(pt.effective_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id
+                ) + (SELECT SUM(pt.remaining_hours)
+                FROM project_task pt, business_requirement br
+                WHERE pt.business_requirement_id = br.id)))) ElSE 0.0 END
+                AS earned_value
+            FROM
                 business_requirement br
                 LEFT JOIN business_requirement_deliverable dlv
                 ON dlv.business_requirement_id = br.id
                 LEFT JOIN business_requirement_resource res
                 ON res.business_requirement_deliverable_id = dlv.id
-                LEFT JOIN  project_task pt
-                ON pt.business_requirement_id = br.id
                 JOIN product_template as ptm ON ptm.id = res.product_id
-            group by
-                br.id,pt.id,ptm.id
+            GROUP BY
+                br.id,ptm.id
             )""")
