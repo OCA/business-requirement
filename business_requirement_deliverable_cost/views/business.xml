@@ -49,6 +49,8 @@
                 <xpath expr="//group/field/tree/field[@name='qty']" position="after">
                     <field name="unit_price" type="measure" />
                     <field name="price_total" type="measure" sum="Total Price"/>
+                    <field name="sale_price_unit"/>
+                    <field name="sale_price_total" sum="Total Sale"/>
                 </xpath>
             </field>
         </record>
