@@ -192,7 +192,7 @@ class BusinessRequirement(models.Model):
                     br.mapped('deliverable_lines').mapped(
                         'resource_ids').filtered(
                         lambda r: r.resource_type == 'procurement').mapped(
-                        'price_total'))
+                            'price_total'))
 
     @api.multi
     @api.depends(
