@@ -11,7 +11,6 @@ class BusinessRequirementEarnedValueReport(models.Model):
     _auto = False
 
     name = fields.Char('Name', readonly=True)
-    description = fields.Char('Description', readonly=True)
     partner_id = fields.Many2one('res.partner', 'Customer',
                                  readonly=True)
     project_id = fields.Many2one('project.project', 'Master Project',
@@ -21,101 +20,224 @@ class BusinessRequirementEarnedValueReport(models.Model):
     hr_timesheet_product = fields.Many2one('product.product',
                                            'HR Timesheet Product',
                                            readonly=True)
-    planned_time_in_rl = fields.Float('Planned time in RL', readonly=True)
-    product_cost_from_rl = fields.Float('Product Cost from RL', readonly=True)
+    planned_time_in_rl = fields.Float('Planned Time', readonly=True)
+    product_cost_from_rl = fields.Float('Unit Cost', readonly=True)
     planned_value = fields.Float('Planned Value', readonly=True)
-    actual_time_in_timesheet = fields.Float('Actual time in Timesheet',
+    actual_time_in_timesheet = fields.Float('Actual Time',
                                             readonly=True)
     product_cost_from_timesheet_product =\
-        fields.Float('Product Cost from Timesheet product',
+        fields.Float('Act. Unit Cost',
                      readonly=True)
     actual_cost = fields.Float('Actual Cost', readonly=True)
     variance = fields.Float('Variance', readonly=True)
     per_variances = fields.Float('% Variance', readonly=True)
     remaining_hours = fields.Float('Remaining time', readonly=True)
     total_expected_time = fields.Float('Total expected time', readonly=True)
-    project_completion = fields.Float('Project Completion', readonly=True)
+    project_completion = fields.Float('% Project Completion', readonly=True)
     earned_value = fields.Float('Earned Value', readonly=True)
 
-    def init(self, cr):
-        tools.drop_view_if_exists(cr,
-                                  'business_requirement_earned_value_report')
-        cr.execute("""
-            CREATE VIEW business_requirement_earned_value_report AS (
+    def _select(self):
+        select_str = """
             SELECT
                 br.id,
-                br.name as name,
-                br.description AS description,
+                CONCAT(br.name,'[',br.description,']') as name,
                 br.partner_id AS partner_id,
                 br.project_id AS project_id,
                 ptm.id AS hr_timesheet_product,
                 SUM(res.qty) AS planned_time_in_rl,
                 SUM(res.unit_price) AS product_cost_from_rl,
                 (SUM(res.qty) * SUM(res.unit_price)) AS planned_value,
-                (SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id)
-                AS  actual_time_in_timesheet,
+                (SELECT
+                     SUM(pt.effective_hours)
+                 FROM
+                     project_task pt
+                 WHERE
+                     pt.business_requirement_id = br.id)
+                AS actual_time_in_timesheet,
                 (ptm.list_price) AS product_cost_from_timesheet_product,
-                ((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id) * ptm.list_price)
+                ((SELECT
+                      SUM(pt.effective_hours)
+                  FROM
+                      project_task pt
+                  WHERE
+                      pt.business_requirement_id = br.id) * ptm.list_price)
                 AS actual_cost,
-                abs(((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id) * ptm.list_price
-                ) - (SUM(res.qty) * SUM(res.unit_price)))
-                AS variance,
-                (abs(((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id) * ptm.list_price
-                ) - (SUM(res.qty) * SUM(res.unit_price))) /
-                SUM(res.unit_price)) AS per_variances,
-                (SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id) AS remaining_hours,
-                ((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id
-                ) + (SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id))
-                AS total_expected_time,
-                CASE WHEN ((SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id)) > 0 THEN
-                ((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id
-                ) / ((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id
-                ) + (SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id)
-                ))
-                ElSE 0.0 END as project_completion,
-                CASE WHEN ((SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id)) > 0 THEN
-                (((SUM(res.qty) * (SUM(res.unit_price) * SUM(res.qty))
-                ) * ((SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id) /
-                (SELECT SUM(pt.effective_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id
-                ) + (SELECT SUM(pt.remaining_hours)
-                FROM project_task pt, business_requirement br
-                WHERE pt.business_requirement_id = br.id)))) ElSE 0.0 END
-                AS earned_value
-            FROM
-                business_requirement br
+                CASE
+                    WHEN (SELECT
+                              SUM(pt.effective_hours)
+                          FROM
+                              project_task pt
+                          WHERE
+                              pt.business_requirement_id = br.id) > 0
+                    THEN
+                        (((SELECT
+                               SUM(pt.effective_hours)
+                           FROM
+                               project_task pt
+                           WHERE
+                               pt.business_requirement_id = br.id
+                           ) * ptm.list_price) - (SUM(res.qty
+                           ) * SUM(res.unit_price)))
+                ElSE 0.0 END AS variance,
+                CASE
+                    WHEN
+                        (SELECT
+                            SUM(pt.effective_hours)
+                         FROM
+                             project_task pt
+                         WHERE
+                             pt.business_requirement_id = br.id) > 0
+                    THEN
+                        (abs(((SELECT
+                                   SUM(pt.effective_hours)
+                               FROM
+                                   project_task pt
+                               WHERE
+                                   pt.business_requirement_id = br.id
+                               ) * ptm.list_price) - (SUM(res.qty
+                               ) * SUM(res.unit_price))) /
+                                SUM(res.unit_price))
+                ElSE 0.0 END AS per_variances,
+                CASE
+                    WHEN
+                        (SELECT
+                            SUM(pt.effective_hours)
+                         FROM
+                             project_task pt
+                         WHERE
+                             pt.business_requirement_id = br.id) > 0
+                    THEN
+                        (SELECT
+                            SUM(pt.remaining_hours)
+                         FROM
+                             project_task pt
+                        WHERE pt.business_requirement_id = br.id)
+                ElSE 0.0 END AS remaining_hours,
+                CASE
+                    WHEN
+                        (SELECT
+                            SUM(pt.effective_hours)
+                         FROM
+                             project_task pt
+                         WHERE
+                             pt.business_requirement_id = br.id) > 0
+                    THEN
+                        ((SELECT
+                            SUM(pt.effective_hours)
+                          FROM
+                              project_task pt
+                          WHERE
+                              pt.business_requirement_id = br.id
+                          ) + (SELECT
+                                   SUM(pt.remaining_hours)
+                               FROM
+                                   project_task pt
+                               WHERE
+                                   pt.business_requirement_id = br.id))
+                ElSE 0.0 END AS total_expected_time,
+                CASE
+                    WHEN ((SELECT
+                               SUM(pt.remaining_hours)
+                           FROM
+                               project_task pt
+                           WHERE
+                               pt.business_requirement_id = br.id)) > 0
+                    THEN
+                        CASE
+                            WHEN
+                                (SELECT
+                                    SUM(pt.effective_hours)
+                                 FROM
+                                     project_task pt
+                                 WHERE
+                                     pt.business_requirement_id = br.id) > 0
+                            THEN
+                                ((SELECT
+                                    SUM(pt.effective_hours)
+                                 FROM
+                                    project_task pt
+                                 WHERE
+                                    pt.business_requirement_id = br.id
+                                  ) / ((SELECT
+                                      SUM(pt.effective_hours)
+                                  FROM
+                                      project_task pt
+                                  WHERE
+                                      pt.business_requirement_id = br.id
+                                 ) + (SELECT
+                                          SUM(pt.remaining_hours)
+                                      FROM
+                                          project_task pt
+                                      WHERE
+                                          pt.business_requirement_id = br.id)
+                                ) * 100) ELSE 0.0 END
+                ElSE 0.0 END AS project_completion,
+                CASE
+                    WHEN
+                        (SELECT
+                             SUM(pt.remaining_hours)
+                         FROM
+                             project_task pt
+                         WHERE
+                             pt.business_requirement_id = br.id) > 0
+                    THEN
+                        CASE
+                            WHEN
+                                (SELECT
+                                    SUM(pt.effective_hours)
+                                 FROM
+                                     project_task pt
+                                 WHERE
+                                     pt.business_requirement_id = br.id) > 0
+                            THEN
+                                ((SUM(res.qty) * SUM(res.unit_price)
+                                ) * ((SELECT
+                                          SUM(pt.effective_hours)
+                                      FROM
+                                          project_task pt
+                                      WHERE
+                                          pt.business_requirement_id = br.id
+                                ) / ((SELECT
+                                          SUM(pt.effective_hours)
+                                      FROM
+                                          project_task pt
+                                      WHERE
+                                          pt.business_requirement_id = br.id
+                                ) + (SELECT
+                                        SUM(pt.remaining_hours)
+                                    FROM
+                                        project_task pt
+                                    WHERE
+                                        pt.business_requirement_id = br.id))))
+                            ElSE 0.0 END
+                ElSE 0.0 END AS earned_value
+        """
+        return select_str
+
+    def _from(self):
+        from_str = """
+            business_requirement br
                 LEFT JOIN business_requirement_deliverable dlv
-                ON dlv.business_requirement_id = br.id
+                    ON dlv.business_requirement_id = br.id
                 LEFT JOIN business_requirement_resource res
-                ON res.business_requirement_deliverable_id = dlv.id
-                JOIN product_template as ptm ON ptm.id = res.product_id
+                    ON res.business_requirement_deliverable_id = dlv.id
+                    JOIN product_template as ptm
+                        ON ptm.id = res.product_id
+        """
+        return from_str
+
+    def _group_by(self):
+        group_by_str = """
             GROUP BY
                 br.id,ptm.id
-            )""")
+        """
+        return group_by_str
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, self._table)
+        cr.execute("""CREATE or REPLACE VIEW %s as (
+            %s
+            FROM ( %s )
+            %s
+            )""" % (self._table, self._select(), self._from(),
+                    self._group_by()))
