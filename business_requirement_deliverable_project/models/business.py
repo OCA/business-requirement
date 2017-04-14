@@ -6,6 +6,7 @@ from openerp import api, fields, models
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
+    _order = "priority desc, sequence"
 
     @api.multi
     def generate_projects_wizard(self):
@@ -33,11 +34,41 @@ class BusinessRequirement(models.Model):
         compute='_compute_task_count'
     )
 
+    total_hour = fields.Float(
+        string='Total Hours in Timesheets related to business requirement',
+        compute='_compute_hour'
+    )
+
+    total_planned_hour = fields.Float(
+        string='Total Planned Hour in RL related to business requirement',
+        compute='_compute_planned_hour'
+    )
+
     @api.multi
     @api.depends('task_ids')
     def _compute_task_count(self):
         for r in self:
             r.task_count = len(r.task_ids)
+
+    @api.multi
+    def _compute_hour(self):
+        for r in self:
+            if r.task_ids:
+                total_hour = 0.0
+                for task in r.task_ids:
+                    total_hour += task.effective_hours
+                r.total_hour = total_hour
+
+    @api.multi
+    def _compute_planned_hour(self):
+        for r in self:
+            if r.deliverable_lines:
+                total_planned_hour = 0.0
+                for dl in r.deliverable_lines:
+                    if dl.resource_ids:
+                        for rl in dl.resource_ids:
+                            total_planned_hour += rl.qty
+                r.total_planned_hour = total_planned_hour
 
 
 class BusinessRequirementDeliverable(models.Model):
