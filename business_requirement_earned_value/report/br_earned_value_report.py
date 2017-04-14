@@ -32,8 +32,8 @@ class BusinessRequirementEarnedValueReport(models.Model):
     variance = fields.Float('Variance', readonly=True)
     per_variances = fields.Float('% Variance', readonly=True)
     remaining_hours = fields.Float('Remaining time', readonly=True)
-    total_expected_time = fields.Float('Total expected time', readonly=True)
-    project_completion = fields.Float('% Project Completion', readonly=True)
+    total_expected_time = fields.Float('Total Exp. time', readonly=True)
+    project_completion = fields.Float('% Completion', readonly=True)
     earned_value = fields.Float('Earned Value', readonly=True)
 
     def _select(self):
