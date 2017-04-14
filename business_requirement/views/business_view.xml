@@ -87,6 +87,9 @@
                                     <field name="approval_date"/>
                                 </group>
                                 <group col="12">
+                                    <field name="to_be_reviewed"/>
+                                </group>
+                                <group col="12">
                                     <field name="reviewer_ids" widget="many2many_tags"/>
                                 </group>
                             </page>
@@ -130,12 +133,14 @@
                     <field name="project_id" string="Project"/>
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
+                    <filter string="To be Reviewed" name="to_be_reviewed" domain="[('to_be_reviewed','!=', False)]"/>
                     <group expand="0" string="Group By">
                         <filter string="Project" icon="terp-go-home"  context="{'group_by':'project_id'}"/>
                         <filter string="Customer " icon="terp-go-home"  context="{'group_by':'partner_id'}"/>
                         <filter string="State" icon="terp-go-home" context="{'group_by':'state'}"/>
                         <filter string="Priority" icon="terp-go-home" context="{'group_by':'priority'}"/>
                         <filter string="Responsible" icon="terp-go-home" context="{'group_by':'required'}"/>
+                        <filter string="To be Reviewed" icon="terp-go-home" context="{'group_by':'to_be_reviewed'}"/>
                     </group>
                 </search>
             </field>
