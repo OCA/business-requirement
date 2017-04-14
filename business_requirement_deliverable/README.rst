@@ -16,6 +16,8 @@ Two new concepts complement the main business requirements model:
 * Deliverable lines
 * Resource lines
 
+Customer model is completed with a new field for pricelist estimation
+
 What is a Deliverable Line?
 ---------------------------
 
