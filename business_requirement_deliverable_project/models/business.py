@@ -2,6 +2,8 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
+from openerp.exceptions import Warning as UserError
+from openerp.tools.translate import _
 
 
 class BusinessRequirement(models.Model):
@@ -45,6 +47,53 @@ class BusinessRequirement(models.Model):
     )
 
     @api.multi
+    def write(self, vals):
+        for r in self:
+            if vals.get('state'):
+                ir_obj = self.env['ir.model.data']
+                br_xml_id = ir_obj.\
+                    get_object('business_requirement',
+                               'group_business_requirement_manager')
+                grps = [group.id
+                        for group in self.env['res.users'
+                                              ].browse(self._uid).groups_id]
+                user = self.env.user.id
+                date = fields.Datetime.now()
+                if vals['state'] == 'confirmed':
+                    vals.update({'confirmed_id': user,
+                                 'confirmation_date': date})
+                if vals['state'] == 'draft':
+                    vals.update({'confirmed_id': False,
+                                 'approved_id': False,
+                                 'confirmation_date': False,
+                                 'approval_date': False
+                                 })
+                if vals['state'] == 'approved':
+                    if br_xml_id.id in grps:
+                        if not r.confirmed_id and r.confirmation_date:
+                            vals.update({'confirmed_id': user,
+                                         'confirmation_date': date})
+
+                        vals.update({'approved_id': user,
+                                     'approval_date': date})
+                    else:
+                        raise UserError(_('''You cannot Approved
+                        Business Requirement.'''))
+                if vals['state'] == 'stakeholder_approval':
+                    if br_xml_id.id not in grps:
+                        raise UserError(_('''You cannot Approved
+                        Business Requirement.'''))
+                if vals['state'] == 'in_progress':
+                    if br_xml_id.id not in grps:
+                        raise UserError(_('''You cannot Approved
+                        Business Requirement.'''))
+                if vals['state'] == 'done':
+                    if br_xml_id.id not in grps:
+                        raise UserError(_('''You cannot Approved
+                        Business Requirement.'''))
+            return super(BusinessRequirement, self).write(vals)
+
+    @api.multi
     @api.depends('task_ids')
     def _compute_task_count(self):
         for r in self:
@@ -53,22 +102,22 @@ class BusinessRequirement(models.Model):
     @api.multi
     def _compute_hour(self):
         for r in self:
+            total_hour = 0.0
             if r.task_ids:
-                total_hour = 0.0
                 for task in r.task_ids:
                     total_hour += task.effective_hours
-                r.total_hour = total_hour
+            r.total_hour = total_hour
 
     @api.multi
     def _compute_planned_hour(self):
         for r in self:
+            total_planned_hour = 0.0
             if r.deliverable_lines:
-                total_planned_hour = 0.0
                 for dl in r.deliverable_lines:
                     if dl.resource_ids:
                         for rl in dl.resource_ids:
                             total_planned_hour += rl.qty
-                r.total_planned_hour = total_planned_hour
+            r.total_planned_hour = total_planned_hour
 
 
 class BusinessRequirementDeliverable(models.Model):

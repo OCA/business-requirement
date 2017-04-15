@@ -106,6 +106,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         vals.update({'partner_id': br_obj.partner_id.id})
 
         self.brA = self.env['business.requirement'].create(vals)
+        self.brA._compute_hour()
+        self.brA._compute_planned_hour()
         self.brB = self.env['business.requirement'].create(vals)
         self.brC = self.env['business.requirement'].create(vals)
 
