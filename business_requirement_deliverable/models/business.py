@@ -69,14 +69,14 @@ class BusinessRequirementResource(models.Model):
     )
 
     @api.model
-    def fields_view_get(self, view_id=None,
-                        view_type='form', toolbar=False, submenu=False):
-        result = super(BusinessRequirementResource,
-                       self).fields_view_get(view_id, view_type,
-                                             toolbar=toolbar, submenu=submenu)
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False,
+                        submenu=False):
+        result = super(BusinessRequirementResource, self).\
+            fields_view_get(view_id, view_type, toolbar=toolbar,
+                            submenu=submenu)
         if view_type in ['form', 'tree']:
-            business_requirement = self.env['business.requirement'].browse(
-                self._context.get('active_id')).state
+            business_requirement = self.env['business.requirement'].\
+                browse(self._context.get('active_id')).state
             if business_requirement not in ['draft', 'confirmed']:
                 doc = etree.XML(result['arch'])
                 nodes = doc.xpath("//tree")
@@ -185,12 +185,12 @@ class BusinessRequirementDeliverable(models.Model):
     @api.model
     def fields_view_get(self, view_id=None,
                         view_type='form', toolbar=False, submenu=False):
-        result = super(BusinessRequirementDeliverable,
-                       self).fields_view_get(view_id, view_type,
-                                             toolbar=toolbar, submenu=submenu)
+        result = super(BusinessRequirementDeliverable, self).\
+            fields_view_get(view_id, view_type,
+                            toolbar=toolbar, submenu=submenu)
         if view_type in ['form', 'tree']:
-            business_requirement = self.env['business.requirement'].browse(
-                self._context.get('active_id')).state
+            business_requirement = self.env['business.requirement'].\
+                browse(self._context.get('active_id')).state
             if business_requirement not in ['draft', 'confirmed']:
                 doc = etree.XML(result['arch'])
                 nodes = doc.xpath("//form")
@@ -320,11 +320,8 @@ class BusinessRequirement(models.Model):
     @api.multi
     def _compute_rl_count(self):
         for r in self:
-            r.rl_count = self.env['business.requirement.resource'
-                                  ].search_count([('business_requirement_id',
-                                                   '=',
-                                                   r.id)]
-                                                 )
+            r.rl_count = self.env['business.requirement.resource'].\
+                search_count([('business_requirement_id', '=', r.id)])
 
     @api.multi
     def open_deliverable_line(self):
@@ -352,9 +349,8 @@ class BusinessRequirement(models.Model):
     @api.multi
     def open_resource_line(self):
         for self in self:
-            res_lines = self.env['business.requirement.resource'
-                                 ].search([('business_requirement_id', '=',
-                                            self.id)])
+            res_lines = self.env['business.requirement.resource'].\
+                search([('business_requirement_id', '=', self.id)])
             br_id = 0
             if self.state in ('draft', 'confirmed'):
                 br_id = self.id
