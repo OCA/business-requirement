@@ -76,9 +76,7 @@
                                 </group>
                                 <group col="12">
                                     <field name="create_uid" readonly="1"/>
-                                </group>
-                                <group col="12">
-                                    <field name="create_date" readonly="1"/>
+                                    <field name="create_date" string="Creation Date" readonly="1"/>
                                 </group>
                                 <group col="12">
                                     <field name="confirmed_id"/>
@@ -115,7 +113,7 @@
                      <field name="change_request"/>
                      <field name="priority"/>
                      <field name="state"/>
-                     <field name="create_date"/>
+                     <field name="create_date" string="Creation Date"/>
                 </tree>
             </field>
         </record>
