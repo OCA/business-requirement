@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
 from openerp.exceptions import ValidationError
+from openerp.exceptions import Warning
 
 
 @common.at_install(False)
@@ -99,6 +100,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ],
+            'task_ids': [(0, 0, {'name': 'Test Task'}),
+                     (0, 0, {'name': 'Test Task2'})],
         }
         br_obj = self.env['business.requirement']
         br_obj = br_obj.new({'project_id': self.projectA.id})
@@ -299,3 +302,36 @@ class BusinessRequirementTestCase(common.TransactionCase):
         res = self.wizard.generate_br_projects(
             self.projectA, self.brC, [], [])
         res = res
+
+    def test_user_error_br_deliverable_project(self):
+        self.brA.state = 'stakeholder_approval'
+        self.assertRaises(Warning)
+
+        self.brA.state = 'in_progress'
+        self.assertRaises(Warning)
+
+        self.brA.state = 'done'
+        self.assertRaises(Warning)
+
+        self.brA.state = 'approved'
+        self.assertRaises(Warning)
+
+        groups = self.env['res.users'].browse(self.env.user.id).groups_id
+        test = groups
+        for group in groups:
+            group.write({'users': [(3, self.env.user.id)]})
+
+        if self.brA.state == 'stakeholder_approval':
+            self.assertRaises(Warning)
+
+        if self.brA.state == 'approved':
+            self.assertRaises(Warning)
+
+        if self.brA.state == 'done':
+            self.assertRaises(Warning)
+
+        if self.brA.state == 'in_progress':
+            self.assertRaises(Warning)
+
+        for group in test:
+            group.write({'users': [(4, self.env.user.id)]})

@@ -87,7 +87,7 @@
             <field name="name">business.requirement.kanban</field>
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
-                <kanban class="oe_background_grey" default_group_by="state">
+                <kanban default_group_by="state">
                     <field name="state"/>
                     <field name="name"/>
                     <field name="description"/>
@@ -104,10 +104,7 @@
                             <div t-attf-class="oe_kanban_card oe_kanban_global_click">
                                 <div class="oe_kanban_content">
                                     <h4 class="text-center">
-                                        <strong>[
-                                            <field name="name"/>]
-                                            <field name="description"/>
-                                        </strong>
+                                        <strong>[<field name="name"/>]<field name="description"/></strong>
                                     </h4>
                                     <field name="project_id"/>
                                     <field name="category_ids"/>

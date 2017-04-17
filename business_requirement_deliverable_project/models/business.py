@@ -2,7 +2,7 @@
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
-from openerp.exceptions import Warning as UserError
+from openerp.exceptions import Warning
 from openerp.tools.translate import _
 
 
@@ -54,10 +54,8 @@ class BusinessRequirement(models.Model):
                 br_xml_id = ir_obj.\
                     get_object('business_requirement',
                                'group_business_requirement_manager')
-                grps = [group.id
-                        for group in self.env['res.users'
-                                              ].browse(self._uid).groups_id]
-                user = self.env.user.id
+                user = self.env['res.users']
+                grps = [grp.id for grp in user.browse(self._uid).groups_id]
                 date = fields.Datetime.now()
                 if vals['state'] == 'confirmed':
                     vals.update({'confirmed_id': user,
@@ -70,27 +68,16 @@ class BusinessRequirement(models.Model):
                                  })
                 if vals['state'] == 'approved':
                     if br_xml_id.id in grps:
-                        if not r.confirmed_id and r.confirmation_date:
-                            vals.update({'confirmed_id': user,
-                                         'confirmation_date': date})
-
                         vals.update({'approved_id': user,
                                      'approval_date': date})
                     else:
-                        raise UserError(_('''You cannot Approved
-                        Business Requirement.'''))
-                if vals['state'] == 'stakeholder_approval':
+                        raise Warning(_('You cannot Approved\
+                        Business Requirement.'))
+                if vals['state'] in ('stakeholder_approval', 'in_progress',
+                                     'done'):
                     if br_xml_id.id not in grps:
-                        raise UserError(_('''You cannot Approved
-                        Business Requirement.'''))
-                if vals['state'] == 'in_progress':
-                    if br_xml_id.id not in grps:
-                        raise UserError(_('''You cannot Approved
-                        Business Requirement.'''))
-                if vals['state'] == 'done':
-                    if br_xml_id.id not in grps:
-                        raise UserError(_('''You cannot Approved
-                        Business Requirement.'''))
+                        raise UserError('You cannot Approved Business\
+                             Requirement.')
             return super(BusinessRequirement, self).write(vals)
 
     @api.multi
