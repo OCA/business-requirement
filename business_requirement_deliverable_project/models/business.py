@@ -3,7 +3,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
 from openerp.exceptions import Warning
-from openerp.tools.translate import _
 
 
 class BusinessRequirement(models.Model):
@@ -71,13 +70,13 @@ class BusinessRequirement(models.Model):
                         vals.update({'approved_id': user,
                                      'approval_date': date})
                     else:
-                        raise Warning(_('You cannot Approved\
-                        Business Requirement.'))
+                        raise Warning('You cannot Approved Business\
+                            Requirement.')
                 if vals['state'] in ('stakeholder_approval', 'in_progress',
                                      'done'):
                     if br_xml_id.id not in grps:
-                        raise UserError('You cannot Approved Business\
-                             Requirement.')
+                        raise Warning('You cannot Approved Business\
+                            Requirement.')
             return super(BusinessRequirement, self).write(vals)
 
     @api.multi

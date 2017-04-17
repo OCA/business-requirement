@@ -101,7 +101,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ],
             'task_ids': [(0, 0, {'name': 'Test Task'}),
-                     (0, 0, {'name': 'Test Task2'})],
+                         (0, 0, {'name': 'Test Task2'})]
         }
         br_obj = self.env['business.requirement']
         br_obj = br_obj.new({'project_id': self.projectA.id})
