@@ -160,15 +160,23 @@ class BusinessRequirement(models.Model):
         copy=False,
         readonly=True
     )
-    reviewed_date = fields.Datetime(
-        string='Reviewed Date',
+    responsible_id = fields.Many2one(
+        'res.users', string='Responsible',
         copy=False,
-        readonly=True
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]
+        }
     )
-    reviewed_id = fields.Many2one(
-        'res.users', string='Reviewed by',
+    reviewer_ids = fields.Many2many(
+        'res.users', string='Reviewers',
         copy=False,
-        readonly=True
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]
+        }
     )
     approval_date = fields.Datetime(
         string='Approval Date',

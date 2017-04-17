@@ -129,4 +129,4 @@ class BusinessRequirementDeliverable(models.Model):
         groups='project.group_project_user',
         readonly=True,
         states={'draft': [('readonly', False)]}
-    )
+        )
