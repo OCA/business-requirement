@@ -20,9 +20,9 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
             <field name="arch" type="xml">
-                <xpath expr='//field[@name="create_date"]' position='after'>
-                    <field name="total_revenue" sum="Sale Revenue"/>
-                </xpath>
+                <field name="create_date" position='after'>
+                    <field name="total_revenue" sum="Sale Revenue" string="Total revenue"/>
+                </field>
             </field>
         </record>
 

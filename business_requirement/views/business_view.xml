@@ -34,7 +34,7 @@
                         <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
                              <button class="oe_inline oe_stat_button" type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
                                 <field name="sub_br_count" string="Sub Bus. Req." widget="statinfo"/>
-                            </button>                          
+                            </button>
                         </div>
                         <h1>
                             <field name="name" class="oe_inline" readonly="1"/>-
