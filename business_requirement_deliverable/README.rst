@@ -16,7 +16,8 @@ Two new concepts complement the main business requirements model:
 * Deliverable lines
 * Resource lines
 
-Customer model is completed with a new field for pricelist estimation
+A new field for pricelist estimation has been added to the partner to be used in the Deliverable
+lines and Resources lines.
 
 What is a Deliverable Line?
 ---------------------------
@@ -115,7 +116,6 @@ You have to specify a estimation price list in the master project, used for
 deliverable price management. If no pricelist is specified in the project, 
 the one from the customer associated will be used.
 
-
 Usage
 =====
 
@@ -134,7 +134,6 @@ Usage
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/222/8.0
 
-
 Bug Tracker
 ===========
 
@@ -142,6 +141,11 @@ Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
+Known issues / Roadmap
+======================
+* As of version 8.0.5.0.0, the estimation pricelist has been moved from Project to
+  Partner object. There is no migration script for the change and the data will 
+  have to be migrated manually.
 Credits
 =======
 
