@@ -71,6 +71,12 @@ class BusinessRequirementResource(models.Model):
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False,
                         submenu=False):
+        '''
+        Used the active_id 'business_requirement' field:
+        We get the BR current status and set Access rights.
+        make Business Requirement Resource Read Only if
+        BR is not in draft / confirmed state.
+        '''
         result = super(BusinessRequirementResource, self).\
             fields_view_get(view_id, view_type, toolbar=toolbar,
                             submenu=submenu)
@@ -185,6 +191,12 @@ class BusinessRequirementDeliverable(models.Model):
     @api.model
     def fields_view_get(self, view_id=None,
                         view_type='form', toolbar=False, submenu=False):
+        '''
+        Used the active_id 'business_requirement' field:
+        We get the BR current status and set Access rights.
+        Make Business Requirement Deliverable Read Only if
+        BR is not in draft / confirmed state.
+        '''
         result = super(BusinessRequirementDeliverable, self).\
             fields_view_get(view_id, view_type,
                             toolbar=toolbar, submenu=submenu)
@@ -298,6 +310,17 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', False)]},
     )
+
+    resource_lines = fields.One2many(
+        comodel_name='business.requirement.resource',
+        inverse_name='business_requirement_id',
+        string='Resource Lines',
+        copy=True,
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]},
+    )
+
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
         string='Total Revenue',
@@ -314,14 +337,13 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     def _compute_dl_count(self):
-        self.dl_count = self.env['business.requirement.deliverable'].\
-            search_count([('business_requirement_id', '=', self.id)])
+        for r in self:
+            r.dl_count = len(r.deliverable_lines.ids)
 
     @api.multi
     def _compute_rl_count(self):
         for r in self:
-            r.rl_count = self.env['business.requirement.resource'].\
-                search_count([('business_requirement_id', '=', r.id)])
+            r.rl_count = len(r.resource_lines.ids)
 
     @api.multi
     def open_deliverable_line(self):
