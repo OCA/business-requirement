@@ -4,7 +4,7 @@
 {
     "name": "Business Requirement Deliverable Project Categ",
     'category': 'Business Requirement Management',
-    'summary': 'Include category on genrating project',
+    'summary': 'Include category on generating project',
     "version": "8.0.1.0.0",
     "website": "https://www.elico-corp.com",
     "author": "Elico Corp, Odoo Community Association (OCA)",
