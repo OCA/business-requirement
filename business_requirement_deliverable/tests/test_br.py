@@ -58,9 +58,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         vals = {
             'description': ' test',
+        }
+        self.br = self.env['business.requirement'].create(vals)
+        self.br.write({
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.br.id,
                         'resource_ids': [
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -69,6 +73,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'uom_id': self.uom_hours.id,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
+                                'business_requirement_id': self.br.id
                             }),
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -77,6 +82,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'uom_id': self.uom_hours.id,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
+                                'business_requirement_id': self.br.id
                             })
                         ]
                         }),
@@ -87,9 +93,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
-            ],
-        }
-        self.br = self.env['business.requirement'].create(vals)
+            ]})
 
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
@@ -121,7 +125,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
     def test_resource_product_id_change(self):
         resource = self.env['business.requirement.resource'].search([
             ('product_id', '=', self.productA.id)])[0]
-
         resource.write({'product_id': self.productB.id})
         resource.product_id_change()
 
@@ -131,6 +134,20 @@ class BusinessRequirementTestCase(common.TransactionCase):
             resource.product_id.id, self.productB.id)
         self.assertEqual(
             resource.uom_id.id, self.productB.uom_id.id)
+
+    def test_resource_fields_view_get(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('product_id', '=', self.productA.id)])[0]
+        resource.fields_view_get(False, 'tree')
+        self.br.deliverable_lines[0].fields_view_get(False, 'form')
+
+    def test_compute_business_requirement_dl_rl(self):
+        self.br._compute_dl_count()
+        self.br._compute_rl_count()
+
+    def test_open_business_requirement_dl_rl(self):
+        self.br.open_deliverable_line()
+        self.br.open_resource_line()
 
     def test_compute_get_currency(self):
         self.partner = self.env['res.partner'].create({
