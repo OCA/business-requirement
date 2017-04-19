@@ -72,9 +72,18 @@ class BusinessRequirementTestCase(common.TransactionCase):
         vals = {
             'description': 'test',
             'project_id': self.projectA.id,
+        }
+        br_obj = self.env['business.requirement']
+        br_obj = br_obj.new({'project_id': self.projectA.id})
+        br_obj.project_id_change()
+        vals.update({'partner_id': br_obj.partner_id.id})
+
+        self.brA = self.env['business.requirement'].create(vals)
+        self.brA.write({
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.brA.id,
                         'resource_ids': [
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -82,6 +91,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
                                 'resource_type': 'task',
+                                'business_requirement_id': self.brA.id,
                             }),
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -89,20 +99,24 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'qty': 100,
                                 'uom_id': self.uom_hours.id,
                                 'resource_type': 'task',
+                                'business_requirement_id': self.brA.id,
                             })
                         ]
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'business_requirement_id': self.brA.id,
                         'unit_price': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'business_requirement_id': self.brA.id,
                         'unit_price': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'business_requirement_id': self.brA.id,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ],
             'task_ids': [(0, 0, {'name': 'Test Task'}),
                          (0, 0, {'name': 'Test Task2'})]
-        }
+        })
         br_obj = self.env['business.requirement']
         br_obj = br_obj.new({'project_id': self.projectA.id})
         br_obj.project_id_change()
@@ -112,7 +126,77 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brA._compute_hour()
         self.brA._compute_planned_hour()
         self.brB = self.env['business.requirement'].create(vals)
+        self.brB.write({
+            'deliverable_lines': [
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
+                        'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.brB.id,
+                        'resource_ids': [
+                            (0, 0, {
+                                'name': 'Resource Line1',
+                                'product_id': self.productA.id,
+                                'qty': 100,
+                                'uom_id': self.uom_hours.id,
+                                'resource_type': 'task',
+                                'business_requirement_id': self.brB.id,
+                            }),
+                            (0, 0, {
+                                'name': 'Resource Line1',
+                                'product_id': self.productB.id,
+                                'qty': 100,
+                                'uom_id': self.uom_hours.id,
+                                'resource_type': 'task',
+                                'business_requirement_id': self.brB.id,
+                            })
+                        ]
+                        }),
+                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'business_requirement_id': self.brB.id,
+                        'unit_price': 1100, 'uom_id': 1}),
+                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'business_requirement_id': self.brB.id,
+                        'unit_price': 1300, 'uom_id': 1}),
+                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'business_requirement_id': self.brB.id,
+                        'unit_price': 1500, 'uom_id': 1,
+                        }),
+            ]})
         self.brC = self.env['business.requirement'].create(vals)
+        self.brC.write({
+            'deliverable_lines': [
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
+                        'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.brC.id,
+                        'resource_ids': [
+                            (0, 0, {
+                                'name': 'Resource Line1',
+                                'product_id': self.productA.id,
+                                'qty': 100,
+                                'uom_id': self.uom_hours.id,
+                                'resource_type': 'task',
+                                'business_requirement_id': self.brC.id,
+                            }),
+                            (0, 0, {
+                                'name': 'Resource Line1',
+                                'product_id': self.productB.id,
+                                'qty': 100,
+                                'uom_id': self.uom_hours.id,
+                                'resource_type': 'task',
+                                'business_requirement_id': self.brC.id,
+                            })
+                        ]
+                        }),
+                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'business_requirement_id': self.brC.id,
+                        'unit_price': 1100, 'uom_id': 1}),
+                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'business_requirement_id': self.brC.id,
+                        'unit_price': 1300, 'uom_id': 1}),
+                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'business_requirement_id': self.brC.id,
+                        'unit_price': 1500, 'uom_id': 1,
+                        }),
+            ]})
 
     def test_br_state_generate_project_wizard(self):
         # test when state=draft
