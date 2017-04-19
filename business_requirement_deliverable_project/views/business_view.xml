@@ -95,7 +95,6 @@
                     <field name="project_id"/>
                     <field name="category_ids"/>
                     <field name="priority"/>
-                    <field name="requested_id"/>
                     <field name="task_ids"/>
                     <field name="task_count"/>
                     <field name="total_planned_hour"/>
@@ -118,8 +117,8 @@
                                     <t t-if="record.total_hour.raw_value" t-raw="record.total_hour.raw_value"/> / <t t-if="record.total_planned_hour.raw_value" t-raw="record.total_planned_hour.raw_value"/>
                                     <div class="oe_kanban_bottom_right">
                                         <div class="pull-left" groups="base.group_user">
-                                            <img t-att-src="kanban_image('res.users', 'image_small', record.requested_id.raw_value)"
-                                                t-att-title="record.requested_id.value" width="24" height="24"
+                                            <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_id.raw_value)"
+                                                t-att-title="record.responsible_id.value" width="24" height="24"
                                                 class="oe_kanban_avatar pull-right"/>
                                             <field name="priority" widget="priority"/>
                                         </div>
