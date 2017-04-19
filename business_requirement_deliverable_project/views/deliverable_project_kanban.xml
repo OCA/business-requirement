@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <template id="assets_backend" name="business_requirement_deliverable_project assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/business_requirement_deliverable_project/static/src/js/deliverable_project_kanban.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

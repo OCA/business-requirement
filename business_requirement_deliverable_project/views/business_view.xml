@@ -91,6 +91,7 @@
                     <field name="state"/>
                     <field name="name"/>
                     <field name="description"/>
+                    <field name="responsible_id"/>
                     <field name="project_id"/>
                     <field name="category_ids"/>
                     <field name="priority"/>
@@ -106,7 +107,8 @@
                                     <h4 class="text-center">
                                         <strong>[<field name="name"/>]<field name="description"/></strong>
                                     </h4>
-                                    <field name="project_id"/>
+                                    <field name="responsible_id"/><br/>
+                                    <field name="project_id"/><br/>
                                     <field name="category_ids"/>
                                     <div class="oe_kanban_project_list">
                                         <a t-if="record.task_count.raw_value" name="%(action_view_tasks_business_requirement)d" type="action">
