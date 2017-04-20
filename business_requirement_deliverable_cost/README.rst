@@ -9,6 +9,7 @@ Business Requirement Deliverable Cost Control
 
 Introduction
 ============
+
 This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
 
 This module improves the cost control of the original module with the following:
