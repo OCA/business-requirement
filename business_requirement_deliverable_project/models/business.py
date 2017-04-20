@@ -70,13 +70,13 @@ class BusinessRequirement(models.Model):
                         vals.update({'approved_id': user,
                                      'approval_date': date})
                     else:
-                        raise Warning('You cannot Approved Business\
-                            Requirement.')
+                        raise Warning('You can only move to the following\
+                            stage: draft/confirmed/cancel/drop.')
                 if vals['state'] in ('stakeholder_approval', 'in_progress',
                                      'done'):
                     if br_xml_id.id not in grps:
-                        raise Warning('You cannot Approved Business\
-                            Requirement.')
+                        raise Warning('You can only move to the following\
+                            stage: draft/confirmed/cancel/drop.')
             return super(BusinessRequirement, self).write(vals)
 
     @api.multi
