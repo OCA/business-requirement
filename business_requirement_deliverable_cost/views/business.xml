@@ -67,6 +67,9 @@
                             <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                         </group>
                     </group>
+                    <group>
+                        <field name="name"/>
+                    </group>
                 </xpath>
             </field>
         </record>
