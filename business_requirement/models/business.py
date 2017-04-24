@@ -54,17 +54,20 @@ class BusinessRequirement(models.Model):
     scenario = fields.Html(
         'Scenario',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     gap = fields.Html(
         'Gap',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     test_case = fields.Html(
         'Test Case',
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
     )
     category_ids = fields.Many2many(
         'business.requirement.category',
@@ -157,15 +160,23 @@ class BusinessRequirement(models.Model):
         copy=False,
         readonly=True
     )
-    reviewed_date = fields.Datetime(
-        string='Reviewed Date',
+    responsible_id = fields.Many2one(
+        'res.users', string='Responsible',
         copy=False,
-        readonly=True
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]
+        }
     )
-    reviewed_id = fields.Many2one(
-        'res.users', string='Reviewed by',
+    reviewer_ids = fields.Many2many(
+        'res.users', string='Reviewers',
         copy=False,
-        readonly=True
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', False)]
+        }
     )
     approval_date = fields.Datetime(
         string='Approval Date',
@@ -194,7 +205,23 @@ class BusinessRequirement(models.Model):
     def create(self, vals):
         if vals.get('name', '/') == '/':
             vals['name'] = self.env['ir.sequence'].get('business.requirement')
+        if vals.get('project_id'):
+            project_id = self.env['project.project'].\
+                browse(vals.get('project_id'))
+            if project_id and project_id.message_follower_ids:
+                vals['message_follower_ids'] =\
+                    project_id.message_follower_ids.ids
         return super(BusinessRequirement, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('project_id'):
+            project_id = self.env['project.project'].\
+                browse(vals.get('project_id'))
+            if project_id and project_id.message_follower_ids:
+                vals['message_follower_ids'] =\
+                    project_id.message_follower_ids.ids
+        return super(BusinessRequirement, self).write(vals)
 
     @api.multi
     @api.depends('parent_id')
@@ -232,9 +259,9 @@ class BusinessRequirement(models.Model):
         result = []
         for br in self:
             if br.ref:
-                formatted_name = '[{}] {}'.format(br.ref, br.description)
+                formatted_name = u'[{}] {}'.format(br.ref, br.description)
             else:
-                formatted_name = '[{}] {}'.format(br.name, br.description)
+                formatted_name = u'[{}] {}'.format(br.name, br.description)
             result.append((br.id, formatted_name))
         return result
 

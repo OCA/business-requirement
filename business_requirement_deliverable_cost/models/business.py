@@ -9,13 +9,13 @@ class BusinessRequirementResource(models.Model):
 
     sale_price_unit = fields.Float(
         string='Sales Price',
-        groups='business_requirement_deliverable_cost.'
+        groups='business_requirement_deliverable.'
         'group_business_requirement_estimation',
     )
     sale_price_total = fields.Float(
         compute='_compute_sale_price_total',
         string='Total Revenue',
-        groups='business_requirement_deliverable_cost.'
+        groups='business_requirement_deliverable.'
         'group_business_requirement_estimation',
     )
     unit_price = fields.Float(
@@ -116,11 +116,11 @@ class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
     unit_price = fields.Float(
-        groups='business_requirement_deliverable_cost.'
+        groups='business_requirement_deliverable.'
         'group_business_requirement_estimation',
     )
     price_total = fields.Float(
-        groups='business_requirement_deliverable_cost.'
+        groups='business_requirement_deliverable.'
         'group_business_requirement_estimation',
     )
     resource_task_total = fields.Float(
@@ -240,7 +240,7 @@ class BusinessRequirement(models.Model):
                     br.mapped('deliverable_lines').mapped(
                         'resource_ids').filtered(
                         lambda r: r.resource_type == 'procurement').mapped(
-                        'price_total'))
+                            'price_total'))
 
     @api.multi
     @api.depends(
