@@ -317,18 +317,18 @@
                         <group>
                             <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"/>
                             <field name="product_id"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
                             <label for="qty"/>
                             <div>
                                 <field name="qty"/>
                                 <field name="uom_id" class="oe_inline"/>
                             </div>
                             <field name="unit_price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                             <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         </group>
-                    <group>
-                        <field name="name"/>
-                    </group>
                     </group>
                     <group string="Resource Lines">
                         <field name="resource_ids"

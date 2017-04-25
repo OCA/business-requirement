@@ -46,7 +46,7 @@
                                 class="oe_highlight"/>
                     </group>
                 </xpath>
-                <xpath expr="//group[2]/field[@name='name']" position="before">
+                <xpath expr="//field[@name='price_total']" position="after">
                     <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
