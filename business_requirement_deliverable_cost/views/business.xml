@@ -46,30 +46,10 @@
                                 class="oe_highlight"/>
                     </group>
                 </xpath>
-                <xpath expr="//group[2]" position="replace">
-                    <group>
-                        <field name="currency_id" invisible="1"/>
-                        <field name="product_id"/>
-                    </group>
-                    <group>
-                        <group>
-                            <label for="qty"/>
-                            <div>
-                                <field name="qty"/>
-                                <field name="uom_id" class="oe_inline"/>
-                            </div>
-                            <field name="unit_price"/>
-                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                        </group>
-                        <group>
-                            <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                            <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                            <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                        </group>
-                    </group>
-                    <group>
-                        <field name="name"/>
-                    </group>
+                <xpath expr="//group[2]/field[@name='name']" position="before">
+                    <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
             </field>
         </record>
