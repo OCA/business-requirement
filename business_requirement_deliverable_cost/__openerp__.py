@@ -4,7 +4,7 @@
 {
     "name": "Business Requirement Deliverable Cost Control",
     "summary": "Control the cost of your Business Requirements",
-    "version": "8.0.1.0.1",
+    "version": "8.0.2.0.0",
     'category': 'Business Requirements Management',
     "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
@@ -25,7 +25,6 @@
         "security/business_requirement_deliverable_security.xml",
         "security/ir.model.access.csv",
         "views/business.xml",
-        "views/project.xml",
         "report/br_deliverable_cost_report_view.xml",
     ],
 }
