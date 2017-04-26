@@ -194,11 +194,6 @@ class BusinessRequirementDeliverable(models.Model):
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
 
-    total_revenue = fields.Float(
-        store=False,
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_estimation',
-    )
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
         string='Total tasks',

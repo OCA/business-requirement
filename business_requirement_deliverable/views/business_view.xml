@@ -215,15 +215,17 @@
                     </button>
                     <button class="oe_inline oe_stat_button"
                         type="object" name="open_deliverable_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
-                        <field name="dl_count" string="Deliverable Lines"
+                        <field name="dl_count" string="Deliverable"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
+                        <field name="dl_total_revenue" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                     <button class="oe_inline oe_stat_button"
                         type="object" name="open_resource_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
-	                    <field name="rl_count" string="Resource Lines"
-	                        widget="statinfo"
-	                        modifiers="{'readonly': true}"/>
+                        <field name="rl_count" string="Resource"
+                            widget="statinfo"
+                            modifiers="{'readonly': true}"/>
+                        <field name="rl_total_cost" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                 </xpath>
             </field>
@@ -234,8 +236,9 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
             <field name="arch" type="xml">
-                <xpath expr='//field[@name="change_request"]' position='after'>
-                    <field name="total_revenue"/>
+                <xpath expr='//tree/field[@name="change_request"]' position='after'>
+                    <field name="currency_id"/>
+                    <field name="total_revenue" sum="Total revenue"/>
                 </xpath>
             </field>
         </record>

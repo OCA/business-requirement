@@ -149,7 +149,7 @@ class BusinessRequirementDeliverable(models.Model):
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_compute_get_currency',
+        compute='_compute_get_currency'
     )
     business_requirement_partner_id = fields.Many2one(
         comodel_name='res.partner',
@@ -172,6 +172,8 @@ class BusinessRequirementDeliverable(models.Model):
             currency_id = partner_id.property_product_pricelist.currency_id
             if currency_id:
                 brd.currency_id = currency_id
+            else:
+                brd.currency_id = self.env.user.company_id.currency_id.id
 
     @api.multi
     def _get_pricelist(self):
@@ -277,18 +279,37 @@ class BusinessRequirement(models.Model):
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
         string='Total Revenue',
-        store=False
+        store=False,
+        groups='business_requirement_deliverable.'
+        'group_business_requirement_estimation'
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_compute_get_currency',
+        compute='_compute_get_currency'
     )
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
+    dl_total_revenue = fields.Float('DL Total Revenue',
+                                    compute='_compute_dl_total_revenue')
+    rl_total_cost = fields.Float('RL Total Cost',
+                                 compute='_compute_rl_total_cost')
     rl_count = fields.Integer('DL Count', compute='_compute_rl_count')
     dl_counta = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_counta = fields.Integer('DL Count', compute='_compute_rl_count')
+
+    @api.multi
+    def _compute_dl_total_revenue(self):
+        for r in self:
+            r.dl_total_revenue = sum(dl.price_total for dl in
+                                     r.deliverable_lines)
+
+    @api.multi
+    def _compute_rl_total_cost(self):
+        for r in self:
+            for dl in r.deliverable_lines:
+                r.rl_total_cost += sum(rl.price_total for rl in
+                                       dl.resource_ids)
 
     @api.multi
     def _compute_dl_count(self):
@@ -350,11 +371,14 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.depends('partner_id')
     def _compute_get_currency(self):
-        if self.partner_id and (
-            self.partner_id.property_product_pricelist.currency_id
-        ):
-            self.currency_id = \
-                self.partner_id.property_product_pricelist.currency_id
+        for br in self:
+            if br.partner_id and (
+                br.partner_id.property_product_pricelist.currency_id
+            ):
+                br.currency_id = \
+                    br.partner_id.property_product_pricelist.currency_id
+            else:
+                br.currency_id = self.env.user.company_id.currency_id.id
 
     @api.multi
     @api.onchange('partner_id')

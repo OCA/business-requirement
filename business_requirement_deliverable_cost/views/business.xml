@@ -51,6 +51,10 @@
                     <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
+                <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
+                    <field name="unit_price" />
+                    <field name="price_total" sum="Total Price"/>
+                </xpath>
             </field>
         </record>
 
@@ -74,5 +78,6 @@
                 </xpath>
             </field>
         </record>
+
     </data>
 </openerp>

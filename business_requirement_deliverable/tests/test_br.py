@@ -149,6 +149,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.open_deliverable_line()
         self.br.open_resource_line()
 
+    def test_compute_total_revenue_cost(self):
+        self.br._compute_dl_total_revenue()
+        self.br._compute_rl_total_cost()
+
     def test_compute_get_currency(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
@@ -163,6 +167,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.br.currency_id, currency_id)
 
     def test_deliverable_compute_get_currency(self):
+        if not self.br.partner_id:
+            self.br.deliverable_lines[0]._compute_get_currency()
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
