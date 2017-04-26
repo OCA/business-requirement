@@ -7,15 +7,6 @@ from openerp import fields, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    pricelist_id = fields.Many2one(
-        string='Estimation Pricelist',
-        comodel_name='product.pricelist',
-        domain=[('type', '=', 'sale')],
-        help='''Pricelist used for the estimation of the Business Requirements
-        Deliverables linked to this project.
-        Currency of the Deliverables will be the one from this pricelist.'''
-    )
-
     property_product_estimation_pricelist = fields.Many2one(
         string='Estimation Pricelist',
         comodel_name='product.pricelist',
@@ -24,7 +15,12 @@ class ResPartner(models.Model):
         Deliverables linked to this project.
         Currency of the Deliverables will be the one from this pricelist.''')
 
-    def _commercial_fields(self):
-        res = super(ResPartner, self)._commercial_fields()
-        res + ['property_product_estimation_pricelist']
-        return res
+    def _commercial_fields(self, cr, uid, context=None):
+        return super(
+            ResPartner,
+            self
+        )._commercial_fields(
+            cr,
+            uid,
+            context=context
+        ) + ['property_product_estimation_pricelist']
