@@ -11,9 +11,9 @@ class ResPartner(models.Model):
         string='Estimation Pricelist',
         comodel_name='product.pricelist',
         company_dependent=True,
-        help='''Pricelist used for the estimation of the Business Requirements
-        Deliverables linked to this project.
-        Currency of the Deliverables will be the one from this pricelist.''')
+        help="""Pricelist used for the estimation of the Business Requirements
+        Deliverables linked to this Customer.
+        Currency of the Deliverables will be the one from the pricelist.""")
 
     def _commercial_fields(self, cr, uid, context=None):
         return super(
