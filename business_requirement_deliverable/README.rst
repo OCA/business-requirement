@@ -16,8 +16,8 @@ Two new concepts complement the main business requirements model:
 * Deliverable lines
 * Resource lines
 
-A new field for pricelist estimation has been added to the partner to be used in the Deliverable
-lines and Resources lines.
+A field for pricelist estimation is available in the partner to be used in Deliverable
+and Resources lines valuation to customers.
 
 What is a Deliverable Line?
 ---------------------------
@@ -46,8 +46,7 @@ Resources Lines (RL) are the different tasks or procurements needed to achieve o
 * Procurement of other physical goods (server, etc.)
 * Procurement of other virtual goods (templates, sub-contracting, etc.)
 
-RL directly depends on the DL.
-
+RL depends on the DL or directly on BR
 
 ..  figure:: ../business_requirement_deliverable/static/img/bus_req_resource.png
    :width: 600 px
@@ -105,23 +104,39 @@ Configuration
 Users
 -----
 
-No specific ACL are required for the module.
+Estimation Pricelist: user can see the Sales price and revenue of the BR.
 
 Master project
 --------------
 
-You can define a master project linked to the business requirement.
+You can define a master project linked to the business requirement. Default Customer 
+from the project will be used to populate the BR. The customer can be changed if necessary.
 
-You have to specify a estimation price list in the master project, used for 
-deliverable price management. If no pricelist is specified in the project, 
-the one from the customer associated will be used.
+Valuation of the Deliverable and Resources lines
+------------------------------------------------
+When writing a BR the user has the possibility to add Deliverable and Resources lines.
+To value the Deliverable lines, you can specify an estimation price list in the customer,
+which will be used in 2 main places:
+
+* In Deliverable lines if the deliverable product is in pricelist
+* In Resource lines if you want to value your deliverable from the resources
+
+NB: Here is the way Odoo will get a price in Deliverable and Resources Lines:
+
+#. If the Estimation Pricelist field is not empty use the Estimation pricelist 
+#. If empty, use the standard customer pricelist field
+#. If no pricelist available (for example no customer defined in the project), use
+   the product Sales price.
+
 
 Usage
 =====
 
-#. In the BR, you can add as many deliverable lines as necessary. Price of the deliverable lines will depend on the pricelist in master project or customer.
+#. In the BR, you can add as many deliverable lines as necessary. Price of the deliverable 
+   lines will depend on the pricelist(s) in customer.
 
-#. Once the deliverable lines are created you can create as many resources lines as necessary in each DL. Cost price of the product will apply
+#. Once the deliverable lines are created you can create as many resources lines as necessary
+   in each DL. Cost price of the product will apply
 
 #. in RL you can already assign the responsible of the task if necessary
 
