@@ -149,18 +149,18 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     @api.depends('resource_ids')
     def _compute_resource_task_total(self):
-        if self:
-            self.resource_task_total = sum(
-                self.mapped('resource_ids').filtered(
+        for rec in self:
+            rec.resource_task_total = sum(
+                rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'task').mapped(
                     'price_total'))
 
     @api.multi
     @api.depends('resource_ids')
     def _compute_resource_procurement_total(self):
-        if self:
-            self.resource_procurement_total = sum(
-                self.mapped('resource_ids').filtered(
+        for rec in self:
+            rec.resource_procurement_total = sum(
+                rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'procurement').mapped(
                     'price_total'))
 
@@ -170,9 +170,9 @@ class BusinessRequirementDeliverable(models.Model):
         'resource_task_total',
         'resource_procurement_total')
     def _compute_gross_profit(self):
-        if self:
-            self.gross_profit = self.price_total - \
-                self.resource_task_total - self.resource_procurement_total
+        for rec in self:
+            rec.gross_profit = rec.price_total - \
+                rec.resource_task_total - rec.resource_procurement_total
 
     @api.multi
     def action_button_update_estimation(self):

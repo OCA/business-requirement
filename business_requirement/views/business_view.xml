@@ -135,7 +135,7 @@
                         <filter string="Customer " icon="terp-go-home"  context="{'group_by':'partner_id'}"/>
                         <filter string="State" icon="terp-go-home" context="{'group_by':'state'}"/>
                         <filter string="Priority" icon="terp-go-home" context="{'group_by':'priority'}"/>
-                        <filter string="Responsible" icon="terp-go-home" context="{'group_by':'required'}"/>
+                        <filter string="Responsible" icon="terp-go-home" context="{'group_by':'responsible_id'}"/>
                     </group>
                 </search>
             </field>
@@ -194,9 +194,9 @@
             <field name="name">Business requirement</field>
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
-                <graph string="Business Requirement">
-                    <field name="project_id"/>
-                    <field name="partner_id"/>
+                <graph string="Business Requirement" type="pivot" stacked="True">
+                    <field name="partner_id" type="row"/>
+                    <field name="project_id" type="col"/>
                 </graph>
             </field>
         </record>
