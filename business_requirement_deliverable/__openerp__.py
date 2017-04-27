@@ -6,7 +6,7 @@
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirement Deliverables and \
                 Resources for your customers',
-    'version': '8.0.4.0.0',
+    'version': '8.0.5.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
@@ -17,6 +17,7 @@
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
+        'views/res_partner.xml',
         'report/br_deliverable_report_view.xml',
         'report/br_deliverable_sale_report_view.xml',
     ],
