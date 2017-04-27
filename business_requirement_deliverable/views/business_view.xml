@@ -254,6 +254,7 @@
                     <field name="product_id"/>
                     <field name="uom_id"/>
                     <field name="qty"/>
+                    <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="unit_price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="price_total" sum="Total price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </tree>

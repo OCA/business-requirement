@@ -17,6 +17,7 @@ class BusinessRequirementResource(models.Model):
         string='Total Revenue',
         groups='business_requirement_deliverable.'
         'group_business_requirement_estimation',
+        store=True
     )
     unit_price = fields.Float(
         string='Cost Price',
@@ -24,7 +25,7 @@ class BusinessRequirementResource(models.Model):
         'group_business_requirement_cost_control',
     )
     price_total = fields.Float(
-        store=False,
+        store=True,
         compute='_compute_get_price_total',
         string='Total Cost',
         groups='business_requirement_deliverable_cost.'
@@ -142,6 +143,7 @@ class BusinessRequirementDeliverable(models.Model):
         compute='_compute_gross_profit',
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
+        store=True
     )
 
     @api.multi
@@ -213,6 +215,7 @@ class BusinessRequirement(models.Model):
         compute='_compute_gross_profit',
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
+        store=True,
     )
 
     @api.multi

@@ -200,7 +200,7 @@
                 </graph>
             </field>
         </record>
-        
+
         <record model="ir.actions.act_window" id="action_business_requirement_tree">
             <field name="name">Business Requirement</field>
             <field name="res_model">business.requirement</field>
