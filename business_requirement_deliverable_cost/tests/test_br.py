@@ -69,9 +69,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'description': 'test',
             'project_id': self.project.id,
             'partner_id': 3,
+        }
+        self.br = self.env['business.requirement'].create(vals)
+        vals = {
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.br.id,
                         'resource_ids': [
                             (0, 0, {
                                 'name': 'Resource Line2',
@@ -80,6 +84,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'uom_id': self.uom_hours.id,
                                 'unit_price': 500,
                                 'resource_type': 'task',
+                                'business_requirement_id': self.br.id
                             }),
                             (0, 0, {
                                 'name': 'Resource Line1',
@@ -89,6 +94,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'unit_price': 500,
                                 'resource_type': 'task',
                                 'sale_price_unit': 400,
+                                'business_requirement_id': self.br.id
                             }),
                             (0, 0, {
                                 'name': 'Resource Line3',
@@ -98,19 +104,22 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'unit_price': 500,
                                 'resource_type': 'procurement',
                                 'sale_price_unit': 100,
+                                'business_requirement_id': self.br.id
                             }),
                         ]
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'business_requirement_id': self.br.id,
                         'unit_price': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'business_requirement_id': self.br.id,
                         'unit_price': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'business_requirement_id': self.br.id,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
-            ],
-        }
-        self.br = self.env['business.requirement'].create(vals)
+            ]}
+        self.br.write(vals)
 
     def test_compute_sale_price_total(self):
         """ Checks if the _compute_sale_price_total works properly
@@ -148,6 +157,23 @@ class BusinessRequirementTestCase(common.TransactionCase):
             resource.unit_price, unit_price)
         self.assertEqual(
             resource.sale_price_unit, sale_price_unit)
+
+    def test_compute_resource_task_total_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_task_total()
+            self.assertEqual(dl.resource_task_total, 100000.0)
+
+    def test_compute_resource_procurement_total_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_procurement_total()
+            self.assertEqual(dl.resource_procurement_total, 50000.0)
+
+    def test_compute_gross_profit_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_task_total()
+            dl._compute_resource_procurement_total()
+            dl._compute_gross_profit()
+            self.assertEqual(dl.gross_profit, -149100.0)
 
     def test_compute_resource_task_total(self):
         """ Checks if the _compute_resource_task_total works properly

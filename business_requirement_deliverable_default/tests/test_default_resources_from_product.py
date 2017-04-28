@@ -9,36 +9,43 @@ class TestDefaultResourcesFromProduct(common.TransactionCase):
     def setUp(self):
         super(TestDefaultResourcesFromProduct, self).setUp()
 
+        vals = {
+            'description': ' test',
+        }
+        self.br = self.env['business.requirement'].create(vals)
         self.brd_a = \
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
                  'name': 'Test A',
+                 'business_requirement_id': self.br.id
                  })
 
         self.brd_b = \
             self.env['business.requirement.deliverable'].create(
                 {'uom_id': 5,
                  'name': 'Test B',
+                 'business_requirement_id': self.br.id
                  })
-
         # Common resource_lines
         self.rl_lines = [
             (0, 0, {'resource_type': 'task',
                     'product_id': 26,
                     'uom_id': 5,
                     'name': 'Test A',
+                    'business_requirement_id': self.br.id
                     }),
             (0, 0, {'resource_type': 'task',
                     'product_id': 27,
                     'uom_id': 5,
                     'name': 'Test B',
+                    'business_requirement_id': self.br.id
                     }),
             (0, 0, {'resource_type': 'procurement',
                     'product_id': 26,
                     'uom_id': 5,
                     'name': 'Test C',
+                    'business_requirement_id': self.br.id
                     })]
-
         # Search product and set up product_template with resource_lines
         self.product = self.env['product.product'].search(
             [('id', '=', '9')])

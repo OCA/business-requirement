@@ -16,6 +16,21 @@
             </field>
         </record>
 
+        <record id="view_business_requirement_resource_pivot" model="ir.ui.view">
+            <field name="name">business.requirement.resource.pivot</field>
+            <field name="model">business.requirement.resource</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='qty']" position="after">
+                    <field name="unit_price" type="measure" />
+                    <field name="price_total" type="measure" sum="Total Price"/>
+                    <field name="sale_price_unit" type="measure"/>
+                    <field name="sale_price_total" type="measure" sum="Total Sale"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="view_business_requirement_deliverable_form" model="ir.ui.view">
             <field name="name">business.requirement.deliverable.form</field>
             <field name="model">business.requirement.deliverable</field>
@@ -31,6 +46,31 @@
                                 class="oe_highlight"/>
                     </group>
                 </xpath>
+                <xpath expr="//field[@name='price_total']" position="after">
+                    <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                </xpath>
+                <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
+                    <field name="unit_price" />
+                    <field name="price_total" sum="Total Price"/>
+                    <field name="sale_price_unit"/>
+                    <field name="sale_price_total" sum="Total Sale"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_deliverable_pivot" model="ir.ui.view">
+            <field name="name">business.requirement.deliverable.pivot</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='unit_price']" position="after">
+                    <field name="price_total" type="measure" sum="Total Price"/>
+                    <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total" type="measure"/>
+                    <field name="resource_procurement_total" type="measure"/>
+                </xpath>
             </field>
         </record>
 
@@ -44,6 +84,7 @@
                     <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
                         <group>
                             <group>
+                                <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                                 <field name="total_revenue"/>
                                 <field name="resource_procurement_total"/>
                                 <field name="resource_task_total"/>
@@ -54,5 +95,20 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="view_business_requirement_graph" model="ir.ui.view">
+            <field name="name">business.requirement.pivot</field>
+            <field name="model">business.requirement</field>
+            <field name="inherit_id" ref="business_requirement.view_business_requirement_graph"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="total_revenue" type="measure"/>
+                    <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total" type="measure"/>
+                    <field name="resource_procurement_total" type="measure"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>

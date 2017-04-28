@@ -49,6 +49,23 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement Deliverable',
         ondelete='cascade'
     )
+    business_requirement_id = fields.Many2one(
+        comodel_name='business.requirement',
+        string='Business Requirement',
+        required=True,
+    )
+    business_requirement_partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        related='business_requirement_id.partner_id',
+        string='Business Requirement',
+        store=True
+    )
+    business_requirement_project_id = fields.Many2one(
+        comodel_name='project.project',
+        related='business_requirement_id.project_id',
+        string='Business Requirement',
+        store=True
+    )
 
     @api.multi
     @api.onchange('product_id')
@@ -118,7 +135,8 @@ class BusinessRequirementDeliverable(models.Model):
     business_requirement_id = fields.Many2one(
         comodel_name='business.requirement',
         string='Business Requirement',
-        ondelete='cascade'
+        ondelete='cascade',
+        required=True
     )
     unit_price = fields.Float(
         string='Sales Price'
@@ -126,12 +144,25 @@ class BusinessRequirementDeliverable(models.Model):
     price_total = fields.Float(
         compute='_compute_get_price_total',
         string='Total revenue',
+        store=True
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
         compute='_compute_get_currency',
+    )
+    business_requirement_partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        related='business_requirement_id.partner_id',
+        string='Business Requirement',
+        store=True
+    )
+    business_requirement_project_id = fields.Many2one(
+        comodel_name='project.project',
+        related='business_requirement_id.project_id',
+        string='Business Requirement',
+        store=True
     )
 
     @api.multi
@@ -142,6 +173,8 @@ class BusinessRequirementDeliverable(models.Model):
             currency_id = partner_id.property_product_pricelist.currency_id
             if currency_id:
                 brd.currency_id = currency_id
+            else:
+                brd.currency_id = self.env.user.company_id.currency_id
 
     @api.multi
     def _get_pricelist(self):
@@ -233,26 +266,120 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', False)]},
     )
+
+    resource_lines = fields.One2many(
+        comodel_name='business.requirement.resource',
+        inverse_name='business_requirement_id',
+        string='Resource Lines',
+        copy=True,
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]},
+    )
+
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
         string='Total Revenue',
-        store=True
+        store=True,
+        groups='business_requirement_deliverable.'
+        'group_business_requirement_estimation'
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_compute_get_currency',
+        compute='_compute_get_currency'
     )
+    dl_total_revenue = fields.Float('DL Total Revenue',
+                                    compute='_compute_dl_total_revenue')
+    rl_total_cost = fields.Float('RL Total Cost',
+                                 compute='_compute_rl_total_cost')
+    dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
+    rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
+    dl_count_noedit = fields.Integer('DL Count', compute='_compute_dl_count')
+    rl_count_noedit = fields.Integer('RL Count', compute='_compute_rl_count')
+
+    @api.multi
+    def _compute_dl_total_revenue(self):
+        for r in self:
+            r.dl_total_revenue = sum(dl.price_total for dl in
+                                     r.deliverable_lines)
+
+    @api.multi
+    def _compute_rl_total_cost(self):
+        for r in self:
+            for dl in r.deliverable_lines:
+                r.rl_total_cost += sum(rl.price_total for rl in
+                                       dl.resource_ids)
+
+    @api.multi
+    def _compute_dl_count(self):
+        for r in self:
+            r.dl_count = len(r.deliverable_lines.ids)
+            r.dl_count_noedit = len(r.deliverable_lines.ids)
+
+    @api.multi
+    def _compute_rl_count(self):
+        for r in self:
+            r.rl_count = len(r.resource_lines.ids)
+            r.rl_count_noedit = len(r.resource_lines.ids)
+
+    @api.multi
+    def open_deliverable_line(self):
+        for self in self:
+            domain = [('business_requirement_id', '=', self.id)]
+            br_id = 0
+            if self.state in ('draft', 'confirmed'):
+                br_id = self.id
+            return {
+                'name': _('Deliverable Lines'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'business.requirement.deliverable',
+                'target': 'current',
+                'domain': domain,
+                'context': {
+                    'tree_view_ref': 'business_requirement_deliverable.' +
+                    'view_business_requirement_deliverable_tree',
+                    'form_view_ref': 'business_requirement_deliverable.' +
+                    'view_business_requirement_deliverable_form',
+                    'default_business_requirement_id': br_id
+                    }}
+
+    @api.multi
+    def open_resource_line(self):
+        for self in self:
+            res_lines = self.env['business.requirement.resource'].\
+                search([('business_requirement_id', '=', self.id)])
+            br_id = 0
+            if self.state in ('draft', 'confirmed'):
+                br_id = self.id
+            return {
+                'name': _('Resource Lines'),
+                'view_type': 'form',
+                'view_mode': 'tree,graph',
+                'res_model': 'business.requirement.resource',
+                'type': 'ir.actions.act_window',
+                'domain': [('id', 'in', res_lines.ids)],
+                'context': {
+                    'tree_view_ref': 'business_requirement_resource.' +
+                    'view_business_requirement_resource_tree',
+                    'default_business_requirement_id': br_id
+                    }
+            }
 
     @api.multi
     @api.depends('partner_id')
     def _compute_get_currency(self):
-        if self.partner_id and (
-            self.partner_id.property_product_pricelist.currency_id
-        ):
-            self.currency_id = \
-                self.partner_id.property_product_pricelist.currency_id
+        for br in self:
+            if br.partner_id and (
+                br.partner_id.property_product_pricelist.currency_id
+            ):
+                br.currency_id = \
+                    br.partner_id.property_product_pricelist.currency_id
+            else:
+                br.currency_id = self.env.user.company_id.currency_id.id
 
     @api.multi
     @api.onchange('partner_id')
