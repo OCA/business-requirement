@@ -45,6 +45,33 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
 
+    @api.model
+    def read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+        if groupby and groupby[0] == "state":
+            states = self.env['business.requirement'].fields_get(
+            ['state']).get('state').get('selection')
+            read_group_all_states = [{
+                '__context': {'group_by': groupby[1:]},
+                '__domain': domain + [('state', '=', state_value)],
+                'state': state_value,
+                'state_count': 0,
+            } for state_value, state_name in states]
+            # Get standard results
+            read_group_res = super(BusinessRequirement, self).read_group(domain, fields, groupby,
+                                                                         offset=offset, limit=limit, orderby=orderby)
+            # Update standard results with default results
+            result = []
+            for state_value, state_name in states:
+                res = filter(lambda x: x['state'] == state_value, read_group_res)
+                if not res:
+                    res = filter(lambda x: x['state'] == state_value, read_group_all_states)
+                res[0]['state'] = [state_value, state_name]
+                result.append(res[0])
+            return result
+        else:
+            return super(BusinessRequirement, self).read_group(domain, fields, groupby,
+                                                               offset=offset, limit=limit, orderby=orderby)
+
     @api.multi
     def write(self, vals):
         for r in self:

@@ -15,7 +15,6 @@
     ],
     'data': [
         'views/business_view.xml',
-        'views/deliverable_project_kanban.xml',
         'wizard/generate_projects_view.xml',
     ],
     'image': [
