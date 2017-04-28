@@ -194,6 +194,9 @@ class BusinessRequirement(models.Model):
         required=True, readonly=True, states={'draft': [('readonly', False)]},
         default=_get_default_company,
     )
+    to_be_reviewed = fields.Boolean(
+        string='To be Reviewed'
+    )
 
     @api.multi
     @api.onchange('project_id')
