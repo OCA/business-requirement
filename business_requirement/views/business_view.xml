@@ -34,7 +34,7 @@
                         <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
                              <button class="oe_inline oe_stat_button" type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
                                 <field name="sub_br_count" string="Sub Bus. Req." widget="statinfo"/>
-                            </button>                          
+                            </button>
                         </div>
                         <h1>
                             <field name="name" class="oe_inline" readonly="1"/>-
@@ -107,15 +107,15 @@
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
                 <tree string="Business Requirement">
-                     <field name="name"/>
-                     <field name="description"/>
-                     <field name="ref"/>
-                     <field name="project_id"/>
-                     <field name="category_ids"/>
-                     <field name="change_request"/>
-                     <field name="priority"/>
-                     <field name="state"/>
-                     <field name="create_date"/>
+                    <field name="responsible_id"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="ref"/>
+                    <field name="project_id"/>
+                    <field name="category_ids"/>
+                    <field name="change_request"/>
+                    <field name="priority"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -131,11 +131,11 @@
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
                     <group expand="0" string="Group By">
-                        <filter string="Project" icon="terp-go-home"  context="{'group_by':'project_id'}"/>
-                        <filter string="Customer " icon="terp-go-home"  context="{'group_by':'partner_id'}"/>
-                        <filter string="State" icon="terp-go-home" context="{'group_by':'state'}"/>
-                        <filter string="Priority" icon="terp-go-home" context="{'group_by':'priority'}"/>
-                        <filter string="Responsible" icon="terp-go-home" context="{'group_by':'required'}"/>
+                        <filter string="Project" context="{'group_by':'project_id'}"/>
+                        <filter string="Customer" context="{'group_by':'partner_id'}"/>
+                        <filter string="State" context="{'group_by':'state'}"/>
+                        <filter string="Priority" context="{'group_by':'priority'}"/>
+                        <filter string="Responsible" context="{'group_by':'responsible_id'}"/>
                     </group>
                 </search>
             </field>
@@ -194,13 +194,13 @@
             <field name="name">Business requirement</field>
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
-                <graph string="Business Requirement">
-                    <field name="project_id"/>
-                    <field name="partner_id"/>
+                <graph string="Business Requirement" type="pivot" stacked="True">
+                    <field name="partner_id" type="row"/>
+                    <field name="project_id" type="col"/>
                 </graph>
             </field>
         </record>
-        
+
         <record model="ir.actions.act_window" id="action_business_requirement_tree">
             <field name="name">Business Requirement</field>
             <field name="res_model">business.requirement</field>
