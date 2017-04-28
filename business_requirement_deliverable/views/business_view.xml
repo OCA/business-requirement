@@ -203,27 +203,31 @@
                 <xpath expr='//div[@name="buttons"]' position='inside'>
                     <button class="oe_inline oe_stat_button"
                         type="action" name="%(action_deliverable_lines_noedit)d" icon="fa-tasks" attrs="{'invisible':[('state','in',['draft','confirmed'])]}">
-                        <field name="dl_counta" string="Deliverable Lines"
+                        <field name="dl_count_noedit" string="Deliverable"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
+                        <field name="dl_total_revenue" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                     <button class="oe_inline oe_stat_button"
                         type="action" name="%(action_requirement_resource_noedit)d" icon="fa-tasks" attrs="{'invisible':[('state','in',['draft','confirmed'])]}">
-                        <field name="rl_counta" string="Resource Lines"
+                        <field name="rl_count_noedit" string="Resource"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
+                        <field name="rl_total_cost" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                     <button class="oe_inline oe_stat_button"
                         type="object" name="open_deliverable_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
-                        <field name="dl_count" string="Deliverable Lines"
+                        <field name="dl_count" string="Deliverable"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
+                        <field name="dl_total_revenue" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                     <button class="oe_inline oe_stat_button"
                         type="object" name="open_resource_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
-	                    <field name="rl_count" string="Resource Lines"
-	                        widget="statinfo"
-	                        modifiers="{'readonly': true}"/>
+                        <field name="rl_count" string="Resource"
+                            widget="statinfo"
+                            modifiers="{'readonly': true}"/>
+                        <field name="rl_total_cost" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                 </xpath>
             </field>
@@ -234,8 +238,9 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
             <field name="arch" type="xml">
-                <xpath expr='//field[@name="change_request"]' position='after'>
-                    <field name="total_revenue"/>
+                <xpath expr='//tree/field[@name="change_request"]' position='after'>
+                    <field name="currency_id"/>
+                    <field name="total_revenue" sum="Total revenue"/>
                 </xpath>
             </field>
         </record>
@@ -251,6 +256,7 @@
                     <field name="product_id"/>
                     <field name="uom_id"/>
                     <field name="qty"/>
+                    <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="unit_price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="price_total" sum="Total price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </tree>
@@ -317,18 +323,18 @@
                         <group>
                             <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"/>
                             <field name="product_id"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
                             <label for="qty"/>
                             <div>
                                 <field name="qty"/>
                                 <field name="uom_id" class="oe_inline"/>
                             </div>
                             <field name="unit_price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                             <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         </group>
-                    <group>
-                        <field name="name"/>
-                    </group>
                     </group>
                     <group string="Resource Lines">
                         <field name="resource_ids"
