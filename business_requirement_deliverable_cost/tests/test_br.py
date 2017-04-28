@@ -158,6 +158,23 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.sale_price_unit, sale_price_unit)
 
+    def test_compute_resource_task_total_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_task_total()
+            self.assertEqual(dl.resource_task_total, 100000.0)
+
+    def test_compute_resource_procurement_total_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_procurement_total()
+            self.assertEqual(dl.resource_procurement_total, 50000.0)
+
+    def test_compute_gross_profit_dl(self):
+        for dl in self.br.deliverable_lines[0]:
+            dl._compute_resource_task_total()
+            dl._compute_resource_procurement_total()
+            dl._compute_gross_profit()
+            self.assertEqual(dl.gross_profit, -149100.0)
+
     def test_compute_resource_task_total(self):
         """ Checks if the _compute_resource_task_total works properly
         """
