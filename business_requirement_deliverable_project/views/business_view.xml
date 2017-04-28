@@ -57,7 +57,7 @@
                     </button>
                 </xpath>
 
-                <xpath expr="//field[@name='level']"
+                <xpath expr="//field[@name='priority']"
                        position="after">
                     <field name="linked_project"/>
                 </xpath>
