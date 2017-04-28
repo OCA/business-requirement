@@ -149,9 +149,18 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.open_deliverable_line()
         self.br.open_resource_line()
 
-    def test_compute_total_revenue_cost(self):
-        self.br._compute_dl_total_revenue()
-        self.br._compute_rl_total_cost()
+    def test_compute_dl_total_revenue(self):
+        for r in self.br:
+            dl_total_revenue = sum(dl.price_total for dl in
+                                   r.deliverable_lines)
+        self.assertEqual(dl_total_revenue, r.dl_total_revenue)
+
+    def test_compute_rl_total_cost(self):
+        for r in self.br:
+            for dl in r.deliverable_lines:
+                rl_total_cost = sum(rl.price_total for rl in
+                                    dl.resource_ids)
+        self.assertEqual(rl_total_cost, r.rl_total_cost)
 
     def test_compute_get_currency(self):
         if not self.br.partner_id:

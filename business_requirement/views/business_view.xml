@@ -108,14 +108,14 @@
             <field name="arch" type="xml">
                 <tree string="Business Requirement">
                     <field name="responsible_id"/>
-                     <field name="name"/>
-                     <field name="description"/>
-                     <field name="ref"/>
-                     <field name="project_id"/>
-                     <field name="category_ids"/>
-                     <field name="change_request"/>
-                     <field name="priority"/>
-                     <field name="state"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="ref"/>
+                    <field name="project_id"/>
+                    <field name="category_ids"/>
+                    <field name="change_request"/>
+                    <field name="priority"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -131,11 +131,11 @@
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
                     <group expand="0" string="Group By">
-                        <filter string="Project" icon="terp-go-home"  context="{'group_by':'project_id'}"/>
-                        <filter string="Customer " icon="terp-go-home"  context="{'group_by':'partner_id'}"/>
-                        <filter string="State" icon="terp-go-home" context="{'group_by':'state'}"/>
-                        <filter string="Priority" icon="terp-go-home" context="{'group_by':'priority'}"/>
-                        <filter string="Responsible" icon="terp-go-home" context="{'group_by':'responsible_id'}"/>
+                        <filter string="Project" context="{'group_by':'project_id'}"/>
+                        <filter string="Customer" context="{'group_by':'partner_id'}"/>
+                        <filter string="State" context="{'group_by':'state'}"/>
+                        <filter string="Priority" context="{'group_by':'priority'}"/>
+                        <filter string="Responsible" context="{'group_by':'responsible_id'}"/>
                     </group>
                 </search>
             </field>

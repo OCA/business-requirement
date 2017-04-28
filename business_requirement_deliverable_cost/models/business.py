@@ -127,14 +127,14 @@ class BusinessRequirementDeliverable(models.Model):
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
         string='Total tasks',
-        store=False,
+        store=True,
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
         string='Total procurement',
-        store=False,
+        store=True,
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
     )
@@ -199,14 +199,14 @@ class BusinessRequirement(models.Model):
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
         string='Total tasks',
-        store=False,
+        store=True,
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
         string='Total procurement',
-        store=False,
+        store=True,
         groups='business_requirement_deliverable_cost.'
         'group_business_requirement_cost_control',
     )
@@ -223,22 +223,20 @@ class BusinessRequirement(models.Model):
     def _compute_resource_task_total(self):
         for br in self:
             if br.deliverable_lines:
-                br.resource_task_total = sum(
-                    br.mapped('deliverable_lines').mapped(
-                        'resource_ids').filtered(
-                        lambda r: r.resource_type == 'task').mapped(
-                        'price_total'))
+                br.resource_task_total =\
+                    sum(br.mapped('deliverable_lines').mapped('resource_ids')
+                        .filtered(lambda r: r.resource_type == 'task')
+                        .mapped('price_total'))
 
     @api.multi
     @api.depends('deliverable_lines')
     def _compute_resource_procurement_total(self):
         for br in self:
             if br.deliverable_lines:
-                br.resource_procurement_total = sum(
-                    br.mapped('deliverable_lines').mapped(
-                        'resource_ids').filtered(
-                        lambda r: r.resource_type == 'procurement').mapped(
-                        'price_total'))
+                br.resource_procurement_total =\
+                    sum(br.mapped('deliverable_lines').mapped('resource_ids')
+                        .filtered(lambda r: r.resource_type == 'procurement')
+                        .mapped('price_total'))
 
     @api.multi
     @api.depends(

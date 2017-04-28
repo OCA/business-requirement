@@ -68,6 +68,8 @@
                 <xpath expr="//field[@name='unit_price']" position="after">
                     <field name="price_total" type="measure" sum="Total Price"/>
                     <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total" type="measure"/>
+                    <field name="resource_procurement_total" type="measure"/>
                 </xpath>
             </field>
         </record>
@@ -102,6 +104,8 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="total_revenue" type="measure"/>
                     <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total" type="measure"/>
+                    <field name="resource_procurement_total" type="measure"/>
                 </xpath>
             </field>
         </record>
