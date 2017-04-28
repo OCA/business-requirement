@@ -1,0 +1,443 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-05 10:25+0000\n"
+"PO-Revision-Date: 2017-05-05 10:25+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
+msgid ""
+"<p>\n"
+"                    Odoo's Business Requirement management allows you to manage the list\n"
+"                    of Business requirement from a customer for efficient follow up. You can\n"
+"                    track progress, discuss on tasks, attach documents, etc.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Upravljanje poslovnih zahtev omogoča upravljanje seznama\n"
+"                    poslovnih zahtev kupca za učinkovito sledenje. Sledite\n"
+"                    lahko napredovanju, razpravljate o opravilih, pripenjate dokumente, ipd.\n"
+"                </p>\n"
+"            "
+
+#. module: business_requirement
+#: field:business.requirement,approval_date:0
+msgid "Approval Date"
+msgstr "Datum odobritve"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Approve"
+msgstr "Odobri"
+
+#. module: business_requirement
+#: field:business.requirement,approved_id:0
+msgid "Approved by"
+msgstr "Odobril"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Back To Draft"
+msgstr "Nazaj v osnutek"
+
+#. module: business_requirement
+#: view:project.project:business_requirement.edit_project
+msgid "Business Req."
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: view:business.requirement:business_requirement.view_business_requirement_graph
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: view:business.requirement:business_requirement.view_business_requirement_tree
+#: view:business.requirement.category:business_requirement.view_business_requirement_category_form
+#: view:business.requirement.category:business_requirement.view_business_requirement_category_tree
+#: model:ir.actions.act_window,name:business_requirement.act_view_project_br_all
+#: model:ir.actions.act_window,name:business_requirement.act_view_sub_br_all
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_tree
+#: model:ir.model,name:business_requirement.model_business_requirement
+#: model:ir.module.category,name:business_requirement.module_category_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
+#: model:ir.ui.menu,name:business_requirement.menu_business_root
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_manager
+msgid "Business Requirement Manager"
+msgstr "Upravitelj poslovnih zahtev"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_stakeholder
+msgid "Business Requirement Stakeholder"
+msgstr "Deležnik poslovnih zahtev"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_user
+msgid "Business Requirement User"
+msgstr "Uporabnik poslovnih zahtev"
+
+#. module: business_requirement
+#: view:project.project:business_requirement.view_project_kanban
+#: field:project.project,br_ids:0
+msgid "Business Requirements"
+msgstr "Poslovne zahteve"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: business_requirement
+#: field:business.requirement,category_ids:0
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_category_tree
+#: model:ir.model,name:business_requirement.model_business_requirement_category
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement_category
+msgid "Categories"
+msgstr "Kategorije"
+
+#. module: business_requirement
+#: field:business.requirement,change_request:0
+msgid "Change Request?"
+msgstr "Zahteva po spremembi?"
+
+#. module: business_requirement
+#: field:business.requirement,company_id:0
+msgid "Company"
+msgstr "Družba"
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_configuration
+msgid "Configuration"
+msgstr "Nastavitve"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Confirm"
+msgstr "Potrdi"
+
+#. module: business_requirement
+#: field:business.requirement,confirmation_date:0
+msgid "Confirmation Date"
+msgstr "Datum potrditve"
+
+#. module: business_requirement
+#: field:business.requirement,confirmed_id:0
+msgid "Confirmed by"
+msgstr "Potrdil"
+
+#. module: business_requirement
+#: field:business.requirement,sub_br_count:0
+msgid "Count"
+msgstr "Seštevek"
+
+#. module: business_requirement
+#: field:business.requirement,create_uid:0
+#: field:business.requirement.category,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement
+#: field:business.requirement,create_date:0
+#: field:business.requirement.category,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Creation Date"
+msgstr "Datum nastanka"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,partner_id:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,business_requirement:0
+msgid "Customer Story"
+msgstr "Kupčeva zgodba"
+
+#. module: business_requirement
+#: help:business.requirement,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Datum zadnjega objavljenega sporočila na zapisu."
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,description:0
+msgid "Description"
+msgstr "Opis"
+
+#. module: business_requirement
+#: field:business.requirement,display_name:0
+#: field:business.requirement.category,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Done"
+msgstr "Opravljeno"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Drop"
+msgstr "Zavrži"
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:20
+#, python-format
+msgid "Error!"
+msgstr "Napaka!"
+
+#. module: business_requirement
+#: field:business.requirement,message_follower_ids:0
+msgid "Followers"
+msgstr "Sledilci"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,gap:0
+msgid "Gap"
+msgstr "Vrzel"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "High"
+msgstr "Visoka"
+
+#. module: business_requirement
+#: help:business.requirement,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Povzetek (število sporočil,..) v html formatu, da se lahko neposredno vstavi"
+" v prikaze tipa kanban."
+
+#. module: business_requirement
+#: field:business.requirement,id:0 field:business.requirement.category,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement
+#: help:business.requirement,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "In Progress"
+msgstr "Napredovanje"
+
+#. module: business_requirement
+#: field:business.requirement,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Je sledilec"
+
+#. module: business_requirement
+#: field:business.requirement,message_last_post:0
+msgid "Last Message Date"
+msgstr "Datum zadnjega sporočila"
+
+#. module: business_requirement
+#: field:business.requirement,__last_update:0
+#: field:business.requirement.category,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement
+#: field:business.requirement,write_uid:0
+#: field:business.requirement.category,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement
+#: field:business.requirement,write_date:0
+#: field:business.requirement.category,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement
+#: field:business.requirement,level:0
+msgid "Level"
+msgstr "Nivo"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Logs"
+msgstr "Dnevniki"
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "Low"
+msgstr "Nizka"
+
+#. module: business_requirement
+#: field:business.requirement,project_id:0
+msgid "Master Project"
+msgstr "Nosilni projekt"
+
+#. module: business_requirement
+#: field:business.requirement,message_ids:0
+msgid "Messages"
+msgstr "Sporočila"
+
+#. module: business_requirement
+#: help:business.requirement,message_ids:0
+msgid "Messages and communication history"
+msgstr "Komunikacije in kronologija komunikacij"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,name:0
+#: field:business.requirement.category,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "Normal"
+msgstr "Običajna"
+
+#. module: business_requirement
+#: field:project.project,br_count:0
+msgid "Number of Business Requirements"
+msgstr "Število poslovnih zahtev"
+
+#. module: business_requirement
+#: field:business.requirement,parent_id:0
+msgid "Parent"
+msgstr "Nadrejena"
+
+#. module: business_requirement
+#: field:business.requirement.category,parent_id:0
+msgid "Parent Category"
+msgstr "Nadrejena kategorija"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,priority:0
+msgid "Priority"
+msgstr "Prioriteta"
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_product_template_action
+msgid "Products"
+msgstr "Proizvodi"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: model:ir.model,name:business_requirement.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.open_view_subproject_all
+msgid "Projects"
+msgstr "Projekti"
+
+#. module: business_requirement
+#: field:business.requirement,ref:0
+msgid "Reference"
+msgstr "Sklic"
+
+#. module: business_requirement
+#: field:business.requirement,requested_id:0
+msgid "Requested by"
+msgstr "Zahteval"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,responsible_id:0
+msgid "Responsible"
+msgstr "Odgovorni"
+
+#. module: business_requirement
+#: field:business.requirement,reviewer_ids:0
+msgid "Reviewers"
+msgstr "Revizorji"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,scenario:0
+msgid "Scenario"
+msgstr "Scenarij"
+
+#. module: business_requirement
+#: field:business.requirement,sequence:0
+msgid "Sequence"
+msgstr "Zaporedje"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Stakeholder Approval"
+msgstr "Deležnikova odobritev"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,state:0
+msgid "State"
+msgstr "Stanje"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Sub Bus. Req."
+msgstr "Podr. posl. zaht."
+
+#. module: business_requirement
+#: field:business.requirement,business_requirement_ids:0
+msgid "Sub Business Requirement"
+msgstr "Podr. posl. zahteva"
+
+#. module: business_requirement
+#: field:business.requirement,message_summary:0
+msgid "Summary"
+msgstr "Povzetek"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,test_case:0
+msgid "Test Case"
+msgstr "Preizkusni primer"
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:21
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr "Trenutni uporabnik nima privzete družbe!"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,to_be_reviewed:0
+msgid "To be Reviewed"
+msgstr "Za revizijo"
+
+#. module: business_requirement
+#: field:business.requirement,message_unread:0
+msgid "Unread Messages"
+msgstr "Neprebrana sporočila"
