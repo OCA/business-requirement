@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.exceptions import Warning
+from openerp import api, fields, models, _
+from openerp.exceptions import Warning as UserError
 
 
 class BusinessRequirement(models.Model):
@@ -46,10 +46,11 @@ class BusinessRequirement(models.Model):
     )
 
     @api.model
-    def read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+    def read_group(self, domain, fields, groupby, offset=0,
+                   limit=None, orderby=False, lazy=True):
         if groupby and groupby[0] == "state":
-            states = self.env['business.requirement'].fields_get(
-            ['state']).get('state').get('selection')
+            states = self.env['business.requirement'].\
+                fields_get(['state']).get('state').get('selection')
             read_group_all_states = [{
                 '__context': {'group_by': groupby[1:]},
                 '__domain': domain + [('state', '=', state_value)],
@@ -57,20 +58,24 @@ class BusinessRequirement(models.Model):
                 'state_count': 0,
             } for state_value, state_name in states]
             # Get standard results
-            read_group_res = super(BusinessRequirement, self).read_group(domain, fields, groupby,
-                                                                         offset=offset, limit=limit, orderby=orderby)
+            read_group_res = super(BusinessRequirement, self).\
+                read_group(domain, fields, groupby, offset=offset,
+                           limit=limit, orderby=orderby)
             # Update standard results with default results
             result = []
             for state_value, state_name in states:
-                res = filter(lambda x: x['state'] == state_value, read_group_res)
+                res = filter(lambda x: x['state'] == state_value,
+                             read_group_res)
                 if not res:
-                    res = filter(lambda x: x['state'] == state_value, read_group_all_states)
+                    res = filter(lambda x: x['state'] == state_value,
+                                 read_group_all_states)
                 res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result
         else:
-            return super(BusinessRequirement, self).read_group(domain, fields, groupby,
-                                                               offset=offset, limit=limit, orderby=orderby)
+            return super(BusinessRequirement, self).\
+                read_group(domain, fields, groupby,
+                           offset=offset, limit=limit, orderby=orderby)
 
     @api.multi
     def write(self, vals):
@@ -97,13 +102,15 @@ class BusinessRequirement(models.Model):
                         vals.update({'approved_id': user,
                                      'approval_date': date})
                     else:
-                        raise Warning('You can only move to the following\
-                            stage: draft/confirmed/cancel/drop.')
+                        raise UserError(_('You can only move to the following'
+                                        'stage: draft/confirmed'
+                                          '/cancel/drop.'))
                 if vals['state'] in ('stakeholder_approval', 'in_progress',
                                      'done'):
                     if br_xml_id.id not in grps:
-                        raise Warning('You can only move to the following\
-                            stage: draft/confirmed/cancel/drop.')
+                        raise UserError(_('You can only move to the'
+                                          'following stage: draft/'
+                                          'confirmed/cancel/drop.'))
             return super(BusinessRequirement, self).write(vals)
 
     @api.multi

@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp.tests import common
 from openerp.exceptions import ValidationError
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 
 @common.at_install(False)
@@ -377,16 +377,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_user_error_br_deliverable_project(self):
         self.brA.state = 'stakeholder_approval'
-        self.assertRaises(Warning)
+        self.assertRaises(UserError)
 
         self.brA.state = 'in_progress'
-        self.assertRaises(Warning)
+        self.assertRaises(UserError)
 
         self.brA.state = 'done'
-        self.assertRaises(Warning)
+        self.assertRaises(UserError)
 
         self.brA.state = 'approved'
-        self.assertRaises(Warning)
+        self.assertRaises(UserError)
 
         groups = self.env['res.users'].browse(self.env.user.id).groups_id
         test = groups
@@ -394,16 +394,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
             group.write({'users': [(3, self.env.user.id)]})
 
         if self.brA.state == 'stakeholder_approval':
-            self.assertRaises(Warning)
+            self.assertRaises(UserError)
 
         if self.brA.state == 'approved':
-            self.assertRaises(Warning)
+            self.assertRaises(UserError)
 
         if self.brA.state == 'done':
-            self.assertRaises(Warning)
+            self.assertRaises(UserError)
 
         if self.brA.state == 'in_progress':
-            self.assertRaises(Warning)
+            self.assertRaises(UserError)
 
         for group in test:
             group.write({'users': [(4, self.env.user.id)]})
