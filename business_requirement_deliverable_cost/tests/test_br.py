@@ -147,7 +147,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 lang=resource.partner_id.lang,
                 # partner=resource.partner_id.id,
                 quantity=resource.qty,
-                pricelist=pricelist_id.id,
+                pricelist=pricelist_id,
                 uom=resource.uom_id.id,
             )
             sale_price_unit = product.list_price
@@ -224,7 +224,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 lang=resource.partner_id.lang,
                 partner=resource.partner_id.id,
                 quantity=resource.qty,
-                pricelist=pricelist.id,
+                pricelist=pricelist,
                 uom=resource.uom_id.id,
             )
             unit_price = product.standard_price
@@ -250,7 +250,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         lang=resource.partner_id.lang,
                         partner=resource.partner_id.id,
                         quantity=resource.qty,
-                        pricelist=pricelist_id.id,
+                        pricelist=pricelist_id,
                         uom=resource.uom_id.id,
                     )
                     sale_price_unit = product.price
