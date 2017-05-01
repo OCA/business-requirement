@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_crm
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-28 10:07+0000\n"
+"PO-Revision-Date: 2017-04-28 10:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_deliverable_crm
+#: model:ir.actions.act_window,help:business_requirement_deliverable_crm.act_view_lead_br_all
+msgid ""
+"<p>\n"
+"                    Odoo's project management allows you to manage the pipeline\n"
+"                    of tasks in order to get things done efficiently. You can\n"
+"                    track progress, discuss on tasks, attach documents, etc.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Upravljanje projektov omogoči upravljanje sosledja\n"
+"                    opravil za učinkovito izvajanje del. Sledite lahko\n"
+"                    napredku, razpravljate o opravilih, pripenjate dokumente, ipd.\n"
+"                </p>\n"
+"            "
+
+#. module: business_requirement_deliverable_crm
+#: view:crm.lead:business_requirement_deliverable_crm.crm_case_form_view_oppor
+msgid "Business Req."
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_deliverable_crm
+#: view:crm.lead:business_requirement_deliverable_crm.crm_case_form_view_oppor
+#: model:ir.actions.act_window,name:business_requirement_deliverable_crm.act_view_lead_br_all
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_deliverable_crm
+#: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: business_requirement_deliverable_crm
+#: help:br.crm.make.sale,close:0
+msgid ""
+"Check this to close the opportunity after having created the sales order."
+msgstr "Označite, da bi z nastankom prodajnega naloga zaprli priložnost. "
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,partner_id:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_deliverable_crm
+#: model:ir.model,name:business_requirement_deliverable_crm.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Indic/Priložnost"
+
+#. module: business_requirement_deliverable_crm
+#: model:ir.model,name:business_requirement_deliverable_crm.model_br_crm_make_sale
+msgid "Make sales"
+msgstr "Izvedi prodaje"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,close:0
+msgid "Mark Won"
+msgstr "Označi kot dobljeno"
+
+#. module: business_requirement_deliverable_crm
+#: code:addons/business_requirement_deliverable_crm/wizard/crm_make_sale.py:21
+#, python-format
+msgid "Opportunity: %s"
+msgstr "Priložnost: %s"
+
+#. module: business_requirement_deliverable_crm
+#: field:crm.lead,project_id:0
+msgid "Project"
+msgstr "Projekt"
+
+#. module: business_requirement_deliverable_crm
+#: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
+#: view:crm.lead:business_requirement_deliverable_crm.crm_case_form_view_oppor
+#: model:ir.actions.act_window,name:business_requirement_deliverable_crm.action_crm_make_sale
+msgid "Quotation from Business Requirements"
+msgstr "Predračun iz poslovne zahteve"
+
+#. module: business_requirement_deliverable_crm
+#: code:addons/business_requirement_deliverable_crm/wizard/crm_make_sale.py:41
+#, python-format
+msgid ""
+"There is no available business requirement to\n"
+"                    make sale order!"
+msgstr ""
+"Na poslovne zahteve na voljo, da bi lahko\n"
+"                    sestavili prodajni nalog!"
+
+#. module: business_requirement_deliverable_crm
+#: field:crm.lead,resource_cost_total:0
+msgid "Total Revenue from BR"
+msgstr "Skupni prihodki iz PZ"
+
+#. module: business_requirement_deliverable_crm
+#: field:br.crm.make.sale,update_quotation:0
+msgid "Update existing quotation"
+msgstr "Posodobi obstoječi predračun"
+
+#. module: business_requirement_deliverable_crm
+#: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
+msgid "_Create"
+msgstr "_Ustvari"
+
+#. module: business_requirement_deliverable_crm
+#: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
+msgid "or"
+msgstr "ali"
