@@ -81,7 +81,6 @@
                 <xpath expr="//field[@name='priority']"
                        position="after">
                     <field name="linked_project"/>
-                    <field name="states"/>
                 </xpath>
             </field>
         </record>
