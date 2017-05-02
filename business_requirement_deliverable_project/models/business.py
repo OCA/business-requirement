@@ -44,19 +44,22 @@ class BusinessRequirement(models.Model):
         string='Total Planned Hour in RL related to business requirement',
         compute='_compute_planned_hour'
     )
+    states = fields.Selection([('normal', 'Normal'), ('on_hold', 'On Hold'),
+                               ('ready_for_next_step', 'Ready for Next Step')],
+                              default='normal')
 
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
                    limit=None, orderby=False, lazy=True):
-        if groupby and groupby[0] == "state":
+        if groupby and groupby[0] == "states":
             states = self.env['business.requirement'].\
-                fields_get(['state']).get('state').get('selection')
-            read_group_all_states = [{
-                '__context': {'group_by': groupby[1:]},
-                '__domain': domain + [('state', '=', state_value)],
-                'state': state_value,
-                'state_count': 0,
-            } for state_value, state_name in states]
+                fields_get(['states']).get('states').get('selection')
+            read_group_all_states = [{'__context': {'group_by': groupby[1:]},
+                                      '__domain': domain + [('states', '=',
+                                                             state_value)],
+                                      'states': state_value,
+                                      'state_count': 0}
+                                     for state_value, state_name in states]
             # Get standard results
             read_group_res = super(BusinessRequirement, self).\
                 read_group(domain, fields, groupby, offset=offset,
@@ -64,12 +67,12 @@ class BusinessRequirement(models.Model):
             # Update standard results with default results
             result = []
             for state_value, state_name in states:
-                res = filter(lambda x: x['state'] == state_value,
+                res = filter(lambda x: x['states'] == state_value,
                              read_group_res)
                 if not res:
-                    res = filter(lambda x: x['state'] == state_value,
+                    res = filter(lambda x: x['states'] == state_value,
                                  read_group_all_states)
-                res[0]['state'] = [state_value, state_name]
+                res[0]['states'] = [state_value, state_name]
                 result.append(res[0])
             return result
         else:

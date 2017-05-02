@@ -407,3 +407,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         for group in test:
             group.write({'users': [(4, self.env.user.id)]})
+
+    def test_br_read_group(self):
+        self.env['business.requirement'].read_group(
+            [],
+            ['states'], ['states'])[0]
+        self.env['business.requirement'].read_group(
+            [],
+            [], [])[0]

@@ -81,6 +81,7 @@
                 <xpath expr="//field[@name='priority']"
                        position="after">
                     <field name="linked_project"/>
+                    <field name="states"/>
                 </xpath>
             </field>
         </record>
@@ -88,8 +89,8 @@
             <field name="name">business.requirement.kanban</field>
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="state">
-                    <field name="state"/>
+                <kanban default_group_by="states">
+                    <field name="states"/>
                     <field name="name"/>
                     <field name="description"/>
                     <field name="responsible_id"/>
