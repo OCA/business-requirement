@@ -42,7 +42,7 @@
                         <button name="action_button_update_estimation" 
                                 string="Update Prices on Resource Lines"
                                 type="object" 
-                                groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"
+                                groups="business_requirement_deliverable.group_business_requirement_estimation"
                                 class="oe_highlight"/>
                     </group>
                 </xpath>
