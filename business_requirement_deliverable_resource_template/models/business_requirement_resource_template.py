@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+# © 2017 Elico Corp (https://www.elico-corp.com).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from openerp import api, fields, models
+from openerp.exceptions import ValidationError
+from openerp.tools.translate import _
+
+
+class BusinessRequirementDeliverable(models.Model):
+    _inherit = "business.requirement.deliverable"
+
+    def _prepare_resource_lines(self):
+        rl_data = self.product_id.sudo().resource_lines.copy_data()
+        rl_data = [(0, 0, item) for index, item in enumerate(rl_data)]
+        return rl_data
+
+    @api.multi
+    @api.onchange('product_id')
+    def product_id_change(self):
+        super(BusinessRequirementDeliverable, self).product_id_change()
+        product = self.product_id
+        if product:
+            self.resource_ids = self._prepare_resource_lines()
+        business_requirement = self.business_requirement_id
+        if business_requirement:
+            for resource in self.resource_ids:
+                resource.business_requirement_id = business_requirement.id
+
+
+class BusinessRequirementResource(models.Model):
+    _name = "business.requirement.resource.template"
+
+    product_template_id = fields.Many2one(
+        comodel_name='product.template',
+        string='Product',
+        ondelete='set null',
+        copy=False
+    )
+    name = fields.Char('Name', required=True)
+    product_id = fields.Many2one(
+        comodel_name='product.product',
+        string='Product',
+        required=False
+    )
+    uom_id = fields.Many2one(
+        comodel_name='product.uom',
+        string='UoM',
+        required=True
+    )
+    qty = fields.Float(
+        string='Quantity',
+        default=1,
+    )
+    resource_type = fields.Selection(
+        selection=[('task', 'Task'), ('procurement', 'Procurement')],
+        string='Type',
+        required=True,
+        default='task'
+    )
+
+    @api.multi
+    @api.onchange('product_id')
+    def product_id_change(self):
+        description = ''
+        uom_id = False
+        product = self.product_id
+        if product:
+            description = product.name_get()[0][1]
+            uom_id = product.uom_id.id
+        if product.description_sale:
+            description += '\n' + product.description_sale
+        self.name = description
+        self.uom_id = uom_id
+
+    @api.multi
+    @api.constrains('resource_type', 'uom_id')
+    def _check_description(self):
+        for resource in self:
+            if resource.resource_type == 'task' and (
+                    resource.uom_id.category_id != (
+                        self.env.ref('product.uom_categ_wtime'))):
+                raise ValidationError(_(
+                    "When resource type is task, "
+                    "the uom category should be time"))
