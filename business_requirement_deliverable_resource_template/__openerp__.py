@@ -18,6 +18,7 @@
         'static/img/bus_req_default2.png'
     ],
     'data': [
+        "security/ir.model.access.csv",
         "views/business_requirement_deliverable_default.xml",
     ],
     'license': 'AGPL-3',
