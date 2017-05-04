@@ -80,4 +80,4 @@ class BusinessRequirementResourceTemplate(models.Model):
                         self.env.ref('product.uom_categ_wtime'))):
                 raise ValidationError(_(
                     "When resource type is task, "
-                    "the uom category should be time"))
+                    "the UoM category should be time"))
