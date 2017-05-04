@@ -411,7 +411,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
     def test_br_read_group(self):
         self.env['business.requirement'].read_group(
             [],
-            ['states'], ['states'])[0]
+            ['state'], ['state'])[0]
         self.env['business.requirement'].read_group(
             [],
             [], [])[0]

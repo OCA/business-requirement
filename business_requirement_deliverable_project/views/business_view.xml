@@ -28,6 +28,11 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
             <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <div class="oe_left">
+                        <field name="kanban_state" class="oe_inline" widget="kanban_state_selection"/>
+                    </div>
+                </field>
                 <xpath expr="//header/button[@name='action_button_confirm']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
@@ -88,8 +93,8 @@
             <field name="name">business.requirement.kanban</field>
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="states">
-                    <field name="states"/>
+                <kanban default_group_by="state">
+                    <field name="state"/>
                     <field name="name"/>
                     <field name="description"/>
                     <field name="responsible_id"/>
@@ -121,6 +126,7 @@
                                             <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_id.raw_value)"
                                                 t-att-title="record.responsible_id.value" width="24" height="24"
                                                 class="oe_kanban_avatar pull-right"/>
+                                            <field name="kanban_state" widget="kanban_state_selection"/>
                                             <field name="priority" widget="priority"/>
                                         </div>
                                     </div>
