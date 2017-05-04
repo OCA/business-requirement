@@ -26,18 +26,16 @@ class BusinessRequirementResource(common.TransactionCase):
             'rounding': 0.000001})
         self.ProductS = self.env.ref('product.product_product_consultant')
         self.ProductObj = self.env['product.template']
-        self.productA = self.ProductObj.create(
-            {'name': 'Product A',
-             'resource_lines': [
-                            (0, 0, {
-                                'name': 'Resource Line1',
-                                'product_id': self.ProductS.id,
-                                'qty': 100,
-                                'uom_id': self.uom_hours.id,
-                                'resource_type': 'task'
-                            })
-                        ]
-             })
+        self.productA = self.ProductObj.create({
+            'name': 'Product A',
+            'resource_lines': [
+                (0, 0, {
+                    'name': 'Resource Line1',
+                    'product_id': self.ProductS.id,
+                    'qty': 100,
+                    'uom_id': self.uom_hours.id,
+                    'resource_type': 'task'
+                })]})
 
     def test_product_id_onchnage(self):
         for resource in self.productA.resource_lines:
