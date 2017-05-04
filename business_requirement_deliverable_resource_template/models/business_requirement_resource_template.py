@@ -11,8 +11,7 @@ class BusinessRequirementDeliverable(models.Model):
 
     def _prepare_resource_lines(self):
         rl_data = self.product_id.sudo().resource_lines.copy_data()
-        rl_data = [(0, 0, item) for index, item in enumerate(rl_data)]
-        return rl_data
+        return [(0, 0, item) for index, item in enumerate(rl_data)]
 
     @api.multi
     @api.onchange('product_id')
