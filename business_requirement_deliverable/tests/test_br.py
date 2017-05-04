@@ -276,3 +276,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.br.partner_id_change()
         except UserError, e:
             self.assertEqual(type(e), UserError)
+
+    def test_business_requirement_id_change(self):
+        for line in self.br.deliverable_lines:
+            line.business_requirement_id_change()
+            for resource in line.resource_ids:
+                self.assertEqual(line.business_requirement_id,
+                                 resource.business_requirement_id)

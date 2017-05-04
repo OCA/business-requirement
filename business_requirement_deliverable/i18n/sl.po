@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 10:07+0000\n"
-"PO-Revision-Date: 2017-04-28 10:07+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"POT-Creation-Date: 2017-05-05 10:25+0000\n"
+"PO-Revision-Date: 2017-05-05 10:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,12 +108,12 @@ msgstr "Kupec"
 #: field:business.requirement,dl_count:0
 #: field:business.requirement,dl_count_noedit:0
 msgid "DL Count"
-msgstr "Števec prenosov"
+msgstr "Števec dobavnih postavk"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,dl_total_revenue:0
 msgid "DL Total Revenue"
-msgstr ""
+msgstr "Skupaj prihodki dobavnih postavk"
 
 #. module: business_requirement_deliverable
 #: view:business.requirement:business_requirement_deliverable.view_business_requirement_form
@@ -139,7 +140,7 @@ msgid "Deliverable Description"
 msgstr "Opis dobav"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:335
+#: code:addons/business_requirement_deliverable/models/business.py:344
 #: field:business.requirement,deliverable_lines:0
 #, python-format
 msgid "Deliverable Lines"
@@ -261,7 +262,7 @@ msgstr "Običajna"
 #. module: business_requirement_deliverable
 #: model:ir.model,name:business_requirement_deliverable.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: business_requirement_deliverable
 #: help:res.partner,property_product_estimation_pricelist:0
@@ -270,6 +271,9 @@ msgid ""
 "        Deliverables linked to this Customer.\n"
 "        Currency of the Deliverables will be the one from the pricelist."
 msgstr ""
+"Cenik, ki se uporablja pri oceni dobav poslovnih zahtev\n"
+"        v zvezi s tem kupcem.\n"
+"        Za valuto dobav se bo uporabila valuta iz tega cenika."
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable.report,priority:0
@@ -306,12 +310,12 @@ msgstr "Količina"
 #: field:business.requirement,rl_count:0
 #: field:business.requirement,rl_count_noedit:0
 msgid "RL Count"
-msgstr ""
+msgstr "Števec postavk virov"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,rl_total_cost:0
 msgid "RL Total Cost"
-msgstr ""
+msgstr "Skupaj stroški postavk virov"
 
 #. module: business_requirement_deliverable
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_pivot
@@ -342,7 +346,7 @@ msgstr "Proizvod vira"
 #. module: business_requirement_deliverable
 #: view:business.requirement:business_requirement_deliverable.view_business_requirement_form
 msgid "Resource"
-msgstr ""
+msgstr "Vir"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable.report,res_count:0
@@ -357,7 +361,7 @@ msgid "Resource Description"
 msgstr "Opis vira"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:359
+#: code:addons/business_requirement_deliverable/models/business.py:368
 #: field:business.requirement,resource_lines:0
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form_noedit
@@ -438,7 +442,7 @@ msgid "When resource type is task, the uom category should be time"
 msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:389
+#: code:addons/business_requirement_deliverable/models/business.py:398
 #, python-format
 msgid ""
 "You are changing customer, on a business requirementwhich already contains "
