@@ -166,6 +166,15 @@ class BusinessRequirementDeliverable(models.Model):
     )
 
     @api.multi
+    @api.onchange('business_requirement_id')
+    def business_requirement_id_change(self):
+        for deliverables in self:
+            if deliverables.business_requirement_id:
+                for resource in deliverables.resource_ids:
+                    resource.business_requirement_id =\
+                        deliverables.business_requirement_id
+
+    @api.multi
     @api.depends('business_requirement_id.partner_id')
     def _compute_get_currency(self):
         for brd in self:
