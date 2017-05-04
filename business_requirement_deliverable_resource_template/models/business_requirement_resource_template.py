@@ -27,7 +27,7 @@ class BusinessRequirementDeliverable(models.Model):
                 resource.business_requirement_id = business_requirement.id
 
 
-class BusinessRequirementResource(models.Model):
+class BusinessRequirementResourceTemplate(models.Model):
     _name = "business.requirement.resource.template"
 
     product_template_id = fields.Many2one(

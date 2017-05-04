@@ -5,9 +5,9 @@ from openerp.tests import common
 from openerp.exceptions import ValidationError
 
 
-class BusinessRequirementResource(common.TransactionCase):
+class BusinessRequirementResourceTemplate(common.TransactionCase):
     def setUp(self):
-        super(BusinessRequirementResource, self).setUp()
+        super(BusinessRequirementResourceTemplate, self).setUp()
         self.categ_wtime = self.env.ref('product.uom_categ_wtime')
         self.categ_kgm = self.env.ref('product.product_uom_categ_kgm')
 
