@@ -76,9 +76,9 @@ class BusinessRequirementResourceTemplate(models.Model):
     @api.constrains('resource_type', 'uom_id')
     def _check_description(self):
         for resource in self:
-            # FIXME: UoM elegible should be on a list configurable
             if resource.resource_type == 'task' and (
                     resource.uom_id.category_id != (
+                        # FIXME: UoM elegible should be on a list configurable
                         self.env.ref('product.uom_categ_wtime'))):
                 raise ValidationError(_(
                     "When resource type is task, "
