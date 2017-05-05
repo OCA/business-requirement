@@ -51,6 +51,7 @@ class BusinessRequirementResourceTemplate(models.Model):
         default=1,
     )
     resource_type = fields.Selection(
+        # FIXME: selection should be on a constant imported
         selection=[('task', 'Task'), ('procurement', 'Procurement')],
         string='Type',
         required=True,
@@ -75,6 +76,7 @@ class BusinessRequirementResourceTemplate(models.Model):
     @api.constrains('resource_type', 'uom_id')
     def _check_description(self):
         for resource in self:
+            # FIXME: UoM elegible should be on a list configurable
             if resource.resource_type == 'task' and (
                     resource.uom_id.category_id != (
                         self.env.ref('product.uom_categ_wtime'))):
