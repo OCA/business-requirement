@@ -62,7 +62,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             ]
         })
         self.project = self.env['project.project'].create({
-            'name': 'Project A', 'pricelist_id': self.pricelistA.id,
+            'name': 'Project A',
             'partner_id': 3,
         })
         vals = {
