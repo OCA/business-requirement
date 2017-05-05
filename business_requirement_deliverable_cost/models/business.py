@@ -57,9 +57,8 @@ class BusinessRequirementResource(models.Model):
         self.ensure_one()
         if self.partner_id:
             return (
-                self.partner_id.property_product_estimation_pricelist or (
-                    self.partner_id.property_product_pricelist)
-            )
+                self.partner_id.property_product_estimation_pricelist or
+                self.partner_id.property_product_pricelist)
         else:
             return False
 
