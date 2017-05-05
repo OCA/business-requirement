@@ -56,8 +56,9 @@ class BusinessRequirementResource(models.Model):
     def _get_pricelist(self):
         self.ensure_one()
         if self.partner_id:
-            if self.partner_id.property_product_pricelist:
-                return self.partner_id.property_product_pricelist
+            return (
+                self.partner_id.property_product_estimation_pricelist or
+                self.partner_id.property_product_pricelist)
         else:
             return False
 
@@ -73,7 +74,7 @@ class BusinessRequirementResource(models.Model):
                 lang=self.partner_id.lang,
                 partner=self.partner_id.id,
                 quantity=self.qty,
-                pricelist=pricelist_id.id,
+                pricelist=pricelist_id,
                 uom=self.uom_id.id,
             )
             sale_price_unit = product.list_price
@@ -88,7 +89,7 @@ class BusinessRequirementResource(models.Model):
         qty_uom = 0
         unit_price = self.unit_price
         sale_price_unit = self.product_id.list_price
-        pricelist = self._get_pricelist()
+        pricelist_id = self._get_pricelist()
         product_uom = self.env['product.uom']
 
         if self.qty != 0:
@@ -98,12 +99,12 @@ class BusinessRequirementResource(models.Model):
                 self.product_id.uom_id.id
             ) / self.qty
 
-        if pricelist:
+        if pricelist_id:
             product = self.product_id.with_context(
                 lang=self.partner_id.lang,
                 partner=self.partner_id.id,
                 quantity=self.qty,
-                pricelist=pricelist.id,
+                pricelist=pricelist_id,
                 uom=self.uom_id.id,
             )
             unit_price = product.standard_price
@@ -187,7 +188,7 @@ class BusinessRequirementDeliverable(models.Model):
                             lang=resource.partner_id.lang,
                             partner=resource.partner_id.id,
                             quantity=resource.qty,
-                            pricelist=pricelist_id.id,
+                            pricelist=pricelist_id,
                             uom=resource.uom_id.id,
                         )
                         resource.sale_price_unit = product.price
