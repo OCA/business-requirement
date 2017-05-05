@@ -23,7 +23,7 @@ class BusinessRequirementDeliverable(models.Model):
         business_requirement = self.business_requirement_id
         if business_requirement:
             for resource in self.resource_ids:
-                resource.business_requirement_id = business_requirement.id
+                resource.business_requirement_id = business_requirement
 
 
 class BusinessRequirementResourceTemplate(models.Model):
