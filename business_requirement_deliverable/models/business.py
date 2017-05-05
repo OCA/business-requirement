@@ -233,7 +233,8 @@ class BusinessRequirementDeliverable(models.Model):
             )
             sale_price_unit = product.price
 
-        self.name = description
+        if not self.name:
+            self.name = description
         self.uom_id = uom_id
         self.sale_price_unit = sale_price_unit
 
