@@ -66,7 +66,11 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement',
         store=True
     )
-    unit_price = fields.Float(string='Cost Price')
+    unit_price = fields.Float(
+        string='Cost Price',
+        groups='business_requirement_deliverable.'
+               'group_business_requirement_estimation'
+    )
 
     @api.multi
     @api.onchange('product_id')
