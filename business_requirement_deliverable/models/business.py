@@ -138,8 +138,9 @@ class BusinessRequirementDeliverable(models.Model):
         ondelete='cascade',
         required=True
     )
-    unit_price = fields.Float(
-        string='Sales Price'
+    sale_price_unit = fields.Float(
+        string='Sales Price',
+        oldname='unit_price'
     )
     price_total = fields.Float(
         compute='_compute_get_price_total',
@@ -198,28 +199,28 @@ class BusinessRequirementDeliverable(models.Model):
             return partner_id
 
     @api.multi
-    @api.depends('unit_price', 'qty')
+    @api.depends('sale_price_unit', 'qty')
     def _compute_get_price_total(self):
         for brd in self:
-            brd.price_total = brd.unit_price * brd.qty
+            brd.price_total = brd.sale_price_unit * brd.qty
 
     @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
         description = ''
         uom_id = False
-        unit_price = 0
+        sale_price_unit = 0
         product = self.product_id
 
         if product:
             description = product.name_get()[0][1]
             uom_id = product.uom_id.id
-            unit_price = product.list_price
+            sale_price_unit = product.list_price
 
         if product.description_sale:
             description += '\n' + product.description_sale
 
-        unit_price = self.product_id.list_price
+        sale_price_unit = self.product_id.list_price
         pricelist = self._get_pricelist()
 
         if pricelist:
@@ -230,11 +231,11 @@ class BusinessRequirementDeliverable(models.Model):
                 pricelist=pricelist.id,
                 uom=self.uom_id.id,
             )
-            unit_price = product.price
+            sale_price_unit = product.price
 
         self.name = description
         self.uom_id = uom_id
-        self.unit_price = unit_price
+        self.sale_price_unit = sale_price_unit
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
@@ -242,7 +243,7 @@ class BusinessRequirementDeliverable(models.Model):
             self.price_unit = 0.0
             return
         qty_uom = 0
-        unit_price = self.product_id.list_price
+        sale_price_unit = self.product_id.list_price
         pricelist = self._get_pricelist()
         product_uom = self.env['product.uom']
 
@@ -258,9 +259,9 @@ class BusinessRequirementDeliverable(models.Model):
                 pricelist=pricelist.id,
                 uom=self.uom_id.id,
             )
-            unit_price = product.price
+            sale_price_unit = product.price
 
-        self.unit_price = unit_price * qty_uom
+        self.sale_price_unit = sale_price_unit * qty_uom
 
 
 class BusinessRequirement(models.Model):
@@ -301,8 +302,6 @@ class BusinessRequirement(models.Model):
     )
     dl_total_revenue = fields.Float('DL Total Revenue',
                                     compute='_compute_dl_total_revenue')
-    rl_total_cost = fields.Float('RL Total Cost',
-                                 compute='_compute_rl_total_cost')
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
     dl_count_noedit = fields.Integer('DL Count', compute='_compute_dl_count')
@@ -313,13 +312,6 @@ class BusinessRequirement(models.Model):
         for r in self:
             r.dl_total_revenue = sum(dl.price_total for dl in
                                      r.deliverable_lines)
-
-    @api.multi
-    def _compute_rl_total_cost(self):
-        for r in self:
-            for dl in r.deliverable_lines:
-                r.rl_total_cost += sum(rl.price_total for rl in
-                                       dl.resource_ids)
 
     @api.multi
     def _compute_dl_count(self):
@@ -354,7 +346,7 @@ class BusinessRequirement(models.Model):
                     'form_view_ref': 'business_requirement_deliverable.' +
                     'view_business_requirement_deliverable_form',
                     'default_business_requirement_id': br_id
-                    }}
+                }}
 
     @api.multi
     def open_resource_line(self):
@@ -375,7 +367,7 @@ class BusinessRequirement(models.Model):
                     'tree_view_ref': 'business_requirement_resource.' +
                     'view_business_requirement_resource_tree',
                     'default_business_requirement_id': br_id
-                    }
+                }
             }
 
     @api.multi
