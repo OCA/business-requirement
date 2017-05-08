@@ -65,7 +65,7 @@
             <field name="model">business.requirement.deliverable</field>
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_pivot"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='unit_price']" position="after">
+                <xpath expr="//field[@name='sale_price_unit']" position="after">
                     <field name="price_total" type="measure" sum="Total Price"/>
                     <field name="gross_profit" type="measure"/>
                     <field name="resource_task_total" type="measure"/>
