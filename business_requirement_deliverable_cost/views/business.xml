@@ -110,5 +110,27 @@
             </field>
         </record>
 
+        <record id="view_business_requirement_deliverable_form_noedit" model="ir.ui.view">
+            <field name="name">business.requirement.deliverable.form.noedit</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="inherit_id"
+                   ref="business_requirement_deliverable.view_business_requirement_deliverable_form_noedit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='rl_count_noedit']" position="after">
+                    <field name="rl_total_cost"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           widget="statinfo"
+                           modifiers="{'readonly': true}"/>
+                </xpath>
+                <xpath expr="//field[@name='rl_count']" position="after">
+                    <field name="rl_total_cost"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           widget="statinfo"
+                           modifiers="{'readonly': true}"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </openerp>

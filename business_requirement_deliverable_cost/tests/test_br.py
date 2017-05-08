@@ -257,3 +257,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
                 self.assertEqual(
                     resource.sale_price_unit, sale_price_unit)
+
+    def test_compute_rl_total_cost(self):
+        for r in self.br:
+            for dl in r.deliverable_lines:
+                rl_total_cost = sum(rl.price_total for rl in
+                                    dl.resource_ids)
+        self.assertEqual(rl_total_cost, r.rl_total_cost)
