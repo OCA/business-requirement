@@ -66,6 +66,11 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement',
         store=True
     )
+    unit_price = fields.Float(
+        string='Cost Price',
+        groups='business_requirement_deliverable.'
+               'group_business_requirement_estimation'
+    )
 
     @api.multi
     @api.onchange('product_id')
@@ -80,6 +85,7 @@ class BusinessRequirementResource(models.Model):
             description += '\n' + product.description_sale
         self.name = description
         self.uom_id = uom_id
+        self.unit_price = self.product_id.standard_price
 
     @api.onchange('resource_type')
     def resource_type_change(self):
@@ -318,7 +324,7 @@ class BusinessRequirement(models.Model):
     def _compute_rl_total_cost(self):
         for r in self:
             for dl in r.deliverable_lines:
-                r.rl_total_cost += sum(rl.price_total for rl in
+                r.rl_total_cost += sum(rl.unit_price for rl in
                                        dl.resource_ids)
 
     @api.multi

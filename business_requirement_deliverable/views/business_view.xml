@@ -350,6 +350,7 @@
                             <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                             <field name="qty"/>
                             <field name="uom_id"/>
+                            <field name="unit_price"/>
                             <field name="business_requirement_id" invisible="1"/>
                         </tree>
                         </field>
