@@ -244,6 +244,17 @@ class BusinessRequirement(models.Model):
         'group_business_requirement_cost_control',
         store=True,
     )
+    rl_total_cost = fields.Float(
+        'RL Total Cost',
+        compute='_compute_rl_total_cost'
+    )
+
+    @api.multi
+    def _compute_rl_total_cost(self):
+        for r in self:
+            for dl in r.deliverable_lines:
+                r.rl_total_cost += sum(rl.price_total for rl in
+                                       dl.resource_ids)
 
     @api.multi
     @api.depends('deliverable_lines')
