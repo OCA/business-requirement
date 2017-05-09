@@ -74,7 +74,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         vals = {
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
-                        'unit_price': 900, 'uom_id': 1,
+                        'sale_price_unit': 900, 'uom_id': 1,
                         'business_requirement_id': self.br.id,
                         'resource_ids': [
                             (0, 0, {
@@ -110,13 +110,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
                         'business_requirement_id': self.br.id,
-                        'unit_price': 1100, 'uom_id': 1}),
+                        'sale_price_unit': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
                         'business_requirement_id': self.br.id,
-                        'unit_price': 1300, 'uom_id': 1}),
+                        'sale_price_unit': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'business_requirement_id': self.br.id,
-                        'unit_price': 1500, 'uom_id': 1,
+                        'sale_price_unit': 1500, 'uom_id': 1,
                         }),
             ]}
         self.br.write(vals)
@@ -257,3 +257,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
                 self.assertEqual(
                     resource.sale_price_unit, sale_price_unit)
+
+    def test_compute_rl_total_cost(self):
+            deliverable = self.br.deliverable_lines[0]
+            rl_total_cost = sum(rl.price_total for rl in
+                                deliverable.resource_ids)
+            self.assertEqual(rl_total_cost, self.br.rl_total_cost)
