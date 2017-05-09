@@ -63,7 +63,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.write({
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
-                        'unit_price': 900, 'uom_id': 1,
+                        'sale_price_unit': 900, 'uom_id': 1,
                         'business_requirement_id': self.br.id,
                         'resource_ids': [
                             (0, 0, {
@@ -87,11 +87,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         ]
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
-                        'unit_price': 1100, 'uom_id': 1}),
+                        'sale_price_unit': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
-                        'unit_price': 1300, 'uom_id': 1}),
+                        'sale_price_unit': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
-                        'unit_price': 1500, 'uom_id': 1,
+                        'sale_price_unit': 1500, 'uom_id': 1,
                         }),
             ]})
 
@@ -155,13 +155,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                    r.deliverable_lines)
         self.assertEqual(dl_total_revenue, r.dl_total_revenue)
 
-    def test_compute_rl_total_cost(self):
-        for r in self.br:
-            for dl in r.deliverable_lines:
-                rl_total_cost = sum(rl.price_total for rl in
-                                    dl.resource_ids)
-        self.assertEqual(rl_total_cost, r.rl_total_cost)
-
     def test_compute_get_currency(self):
         if not self.br.partner_id:
             self.br.deliverable_lines[0]._compute_get_currency()
@@ -217,17 +210,17 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id})
             description = ''
-            unit_price = 0
+            sale_price_unit = 0
             product = self.productA
 
             if product:
                 description = product.name_get()[0][1]
-                unit_price = product.list_price
+                sale_price_unit = product.list_price
 
             if product.description_sale:
                 description += '\n' + product.description_sale
 
-            unit_price = line.product_id.list_price
+            sale_price_unit = line.product_id.list_price
             pricelist = line._get_pricelist()
 
             if pricelist:
@@ -238,7 +231,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                     pricelist=pricelist.id,
                     uom=line.uom_id.id,
                 )
-                unit_price = product.price
+                sale_price_unit = product.price
 
             if pricelist:
                 product = line.product_id.with_context(
@@ -248,12 +241,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
                     pricelist=pricelist.id,
                     uom=line.uom_id.id,
                 )
-                unit_price = product.price
+                sale_price_unit = product.price
 
             line.product_id_change()
             self.assertEqual(line.name, description)
             self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
-            self.assertEqual(line.unit_price, unit_price)
+            self.assertEqual(line.sale_price_unit, sale_price_unit)
 
     def test_product_uom_change(self):
         self.uom_id = self.env['product.uom'].search([('id', '=', 2)])
@@ -261,9 +254,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
             line.write({'product_id': self.productA.id})
             line.product_id_change()
             line.write({'product_id': self.uom_id.id})
-            self.unit_price = line.unit_price
+            self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
-            self.assertTrue(line.unit_price > self.unit_price)
+            self.assertTrue(line.sale_price_unit > self.sale_price_unit)
 
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({
