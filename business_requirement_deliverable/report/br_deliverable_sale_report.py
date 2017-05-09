@@ -51,8 +51,8 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
                 count(distinct res.id) as res_count,
                 res.qty as res_qty,
                 dlv.qty as dlv_qty,
-                dlv.unit_price as sale_price,
-                (dlv.unit_price * dlv.qty) as total_revenue
+                dlv.sale_price_unit as sale_price,
+                (dlv.sale_price_unit * dlv.qty) as total_revenue
         """
         return select_str
 
