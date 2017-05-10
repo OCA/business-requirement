@@ -218,7 +218,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_product_id_change(self):
         for line in self.br.deliverable_lines:
-            line.write({'product_id': self.productA.id})
+            line.write({'product_id': self.productA.id, 'name': ''})
             description = ''
             sale_price_unit = 0
             product = self.productA
