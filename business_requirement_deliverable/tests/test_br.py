@@ -211,7 +211,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         })
         self.br.write({'partner_id': self.partner.id})
         for line in self.br.deliverable_lines:
-            price_list = line._get_pricelist()
+            line.write({'product_id': self.productA.id, 'name': ''})
             self.assertEqual(
                 price_list.id,
                 self.partner.property_product_pricelist.id)
