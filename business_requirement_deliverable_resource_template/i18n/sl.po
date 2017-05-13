@@ -3,13 +3,14 @@
 # * business_requirement_deliverable_resource_template
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 10:25+0000\n"
-"PO-Revision-Date: 2017-05-05 10:25+0000\n"
+"POT-Creation-Date: 2017-05-10 00:43+0000\n"
+"PO-Revision-Date: 2017-05-10 00:43+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +37,7 @@ msgstr "Ustvarjeno"
 #. module: business_requirement_deliverable_resource_template
 #: view:product.template:business_requirement_deliverable_resource_template.product_template_only_form_view
 msgid "Default Resource Lines"
-msgstr ""
+msgstr "Privzete postavke virov"
 
 #. module: business_requirement_deliverable_resource_template
 #: field:business.requirement.resource.template,display_name:0
@@ -108,4 +109,4 @@ msgstr "EM"
 #: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:83
 #, python-format
 msgid "When resource type is task, the UoM category should be time"
-msgstr ""
+msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
