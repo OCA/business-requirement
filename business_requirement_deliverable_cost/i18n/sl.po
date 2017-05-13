@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 10:07+0000\n"
-"PO-Revision-Date: 2017-04-28 10:07+0000\n"
+"POT-Creation-Date: 2017-05-10 00:43+0000\n"
+"PO-Revision-Date: 2017-05-10 00:43+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,6 @@ msgstr "Stroškovna analiza"
 #: field:business.requirement.resource,unit_price:0
 msgid "Cost Price"
 msgstr "Nabavna cena"
-
-#. module: business_requirement_deliverable_cost
-#: view:business.requirement:business_requirement_deliverable_cost.view_business_requirement_form
-msgid "Cost control"
-msgstr "Nadzor stroškov"
 
 #. module: business_requirement_deliverable_cost
 #: field:business.requirement.deliverable.cost.report,cost_price:0
@@ -171,6 +166,11 @@ msgid "Priority"
 msgstr "Prioriteta"
 
 #. module: business_requirement_deliverable_cost
+#: field:business.requirement,rl_total_cost:0
+msgid "RL Total Cost"
+msgstr "Skupaj stroški postavk virov"
+
+#. module: business_requirement_deliverable_cost
 #: field:business.requirement.deliverable.cost.report,res_product:0
 msgid "Res Product"
 msgstr "Proizvod vira"
@@ -242,6 +242,11 @@ msgstr "Skupaj oskrbovanje"
 #: field:business.requirement.deliverable,resource_task_total:0
 msgid "Total tasks"
 msgstr "Skupaj opravil"
+
+#. module: business_requirement_deliverable_cost
+#: field:business.requirement.deliverable,unit_price:0
+msgid "Unit price"
+msgstr "Cena enote"
 
 #. module: business_requirement_deliverable_cost
 #: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
