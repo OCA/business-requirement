@@ -57,7 +57,7 @@ class BusinessRequirementResource(models.Model):
                 resource.sale_price_unit = product.price
 
     @api.multi
-    def _set_unit_price(self):
+    def _set_cost_price(self):
         for resource in self:
             qty_uom = 0
             product_uom = self.env['product.uom']
@@ -98,7 +98,7 @@ class BusinessRequirementResource(models.Model):
         super(BusinessRequirementResource, self).product_id_change()
         # self.unit_price = self.product_id.standard_price
         self._set_sales_price()
-        self._set_unit_price()
+        self._set_cost_price()
 
     @api.multi
     @api.onchange('uom_id', 'qty')
@@ -107,7 +107,7 @@ class BusinessRequirementResource(models.Model):
         # Calculte the sales_price_unit
         self._set_sales_price()
         # Calculate the unit_price
-        self._set_unit_price()
+        self._set_cost_price()
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -177,16 +177,7 @@ class BusinessRequirementDeliverable(models.Model):
             if deliverable.resource_ids:
                 for resource in deliverable.resource_ids:
                     resource._set_sales_price()
-                    resource._set_unit_price()
-
-    @api.multi
-    @api.depends('sale_price_unit', 'qty', 'resource_ids')
-    def _compute_get_price_total(self):
-        # Re Compute the BRD Total Revenue with RL sales price
-        super(BusinessRequirementDeliverable, self)._compute_get_price_total()
-        for brd in self:
-            brd.price_total = sum(
-                rl.sale_price_total for rl in brd.resource_ids)
+                    resource._set_cost_price()
 
 
 class BusinessRequirement(models.Model):
