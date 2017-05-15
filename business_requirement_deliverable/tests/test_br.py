@@ -256,7 +256,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             line.write({'product_id': self.uom_id.id})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
-            self.assertTrue(line.sale_price_unit > self.sale_price_unit)
+            self.assertEqual(line.sale_price_unit, self.sale_price_unit)
 
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({
