@@ -135,6 +135,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             resource.uom_id.id, self.productB.uom_id.id)
 
+    def test_resource_product_id_change_description_sale(self):
+        resource = self.env['business.requirement.resource'].search([
+            ('product_id', '=', self.productA.id)])[0]
+        self.productB.write({
+            'description_sale': 'Sales Description Product B'})
+        resource.write({'product_id': self.productB.id})
+        resource.product_id_change()
+        self.assertTrue(
+            self.productB.description_sale in resource.name)
+
     def test_resource_fields_view_get(self):
         resource = self.env['business.requirement.resource'].search([
             ('product_id', '=', self.productA.id)])[0]
@@ -233,6 +243,34 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 )
                 sale_price_unit = product.price
 
+            line.product_id_change()
+            self.assertEqual(line.name, description)
+            self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
+            self.assertEqual(line.sale_price_unit, sale_price_unit)
+
+    def test_product_id_change_with_pricelist(self):
+        self.partner = self.env['res.partner'].create({
+            'name': 'Your company test',
+            'email': 'your.company@your-company.com',
+            'customer': True,
+        })
+        self.br.write({'partner_id': self.partner.id})
+        for line in self.br.deliverable_lines:
+            line.write({'product_id': self.productA.id})
+            description = ''
+            sale_price_unit = 0
+            product = self.productA
+
+            if product:
+                description = product.name_get()[0][1]
+                sale_price_unit = product.list_price
+
+            if product.description_sale:
+                description += '\n' + product.description_sale
+
+            sale_price_unit = line.product_id.list_price
+            pricelist = line._get_pricelist()
+
             if pricelist:
                 product = line.product_id.with_context(
                     lang=line.business_requirement_id.partner_id.lang,
@@ -248,15 +286,23 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
             self.assertEqual(line.sale_price_unit, sale_price_unit)
 
-    def test_product_uom_change(self):
-        self.uom_id = self.env['product.uom'].search([('id', '=', 2)])
+    def test_product_id_change_description_sale(self):
+        self.productA.write({
+            'description_sale': 'Sales Description Product A'})
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id})
             line.product_id_change()
-            line.write({'product_id': self.uom_id.id})
+            self.assertTrue(
+                self.productA.description_sale in line.name)
+
+    def test_product_uom_change(self):
+        for line in self.br.deliverable_lines:
+            line.write({'product_id': self.productA.id})
+            line.product_id_change()
+            line.write({'uom_id': self.uom_days.id})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
-            self.assertTrue(line.sale_price_unit > self.sale_price_unit)
+            self.assertEqual(line.sale_price_unit, self.sale_price_unit)
 
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({

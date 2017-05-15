@@ -239,16 +239,11 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        if not self.uom_id:
-            self.price_unit = 0.0
-            return
-        qty_uom = 0
-        sale_price_unit = self.product_id.list_price
         pricelist = self._get_pricelist()
         product_uom = self.env['product.uom']
 
         if self.qty != 0:
-            qty_uom = product_uom._compute_qty(
+            product_uom._compute_qty(
                 self.uom_id.id, self.qty, self.product_id.uom_id.id) / self.qty
 
         if pricelist:
@@ -259,9 +254,7 @@ class BusinessRequirementDeliverable(models.Model):
                 pricelist=pricelist.id,
                 uom=self.uom_id.id,
             )
-            sale_price_unit = product.price
-
-        self.sale_price_unit = sale_price_unit * qty_uom
+            self.sale_price_unit = product.price
 
 
 class BusinessRequirement(models.Model):
@@ -395,6 +388,7 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.depends(
         'deliverable_lines',
+        'deliverable_lines.price_total',
         'company_id.currency_id',
     )
     def _compute_deliverable_total(self):
