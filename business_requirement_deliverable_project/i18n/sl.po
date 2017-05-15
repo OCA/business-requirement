@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 10:07+0000\n"
-"PO-Revision-Date: 2017-04-28 10:07+0000\n"
+"POT-Creation-Date: 2017-05-10 00:43+0000\n"
+"PO-Revision-Date: 2017-05-10 00:43+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -117,6 +117,16 @@ msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_deliverable_project
+#: selection:business.requirement,kanban_state:0
+msgid "In Progress"
+msgstr "Napredovanje"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,kanban_state:0
+msgid "Kanban State"
+msgstr "Kanban stanje"
+
+#. module: business_requirement_deliverable_project
 #: field:br.generate.projects,__last_update:0
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
@@ -141,6 +151,11 @@ msgstr "Poveži opravilo s poslovno zahtevo"
 #: field:business.requirement.deliverable,linked_project:0
 msgid "Linked project"
 msgstr "Povezani projekt"
+
+#. module: business_requirement_deliverable_project
+#: selection:business.requirement,kanban_state:0
+msgid "On Hold"
+msgstr "Zadržano"
 
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:25
@@ -168,6 +183,11 @@ msgid "Projects From Business Requirement"
 msgstr "Projekt iz poslovne zahteve"
 
 #. module: business_requirement_deliverable_project
+#: selection:business.requirement,kanban_state:0
+msgid "Ready for next stage"
+msgstr "Pripravljeno na naslednjo stopnjo"
+
+#. module: business_requirement_deliverable_project
 #: field:project.project,origin:0
 msgid "Source Document"
 msgstr "Izvorni dokument"
@@ -179,6 +199,7 @@ msgstr "Opravilo"
 
 #. module: business_requirement_deliverable_project
 #: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_kanban_project
 #: field:business.requirement,task_ids:0
 msgid "Tasks"
 msgstr "Opravila"
@@ -194,9 +215,36 @@ msgstr ""
 "                    opravilo"
 
 #. module: business_requirement_deliverable_project
+#: field:business.requirement,total_hour:0
+msgid "Total Hours in Timesheets related to business requirement"
+msgstr "Skupaj ur po časovnici povezanih s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,total_planned_hour:0
+msgid "Total Planned Hour in RL related to business requirement"
+msgstr "Skupaj planiranih ur v postavki vira povezani s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
 #: field:business.requirement,task_count:0
 msgid "Total number of tasks related to a business requirement"
 msgstr "Skupno število opravil povezanih s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+msgid "True"
+msgstr "True"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:112
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:118
+#, python-format
+msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
 
 #. module: business_requirement_deliverable_project
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
@@ -207,6 +255,11 @@ msgstr "_Uveljavi"
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
 msgid "_Cancel"
 msgstr "_Preklic"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+msgid "business_requirement.group_business_requirement_user"
+msgstr "business_requirement.group_business_requirement_user"
 
 #. module: business_requirement_deliverable_project
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
