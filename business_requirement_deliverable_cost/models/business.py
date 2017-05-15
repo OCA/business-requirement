@@ -41,6 +41,35 @@ class BusinessRequirementResource(models.Model):
     )
 
     @api.multi
+    def _set_sales_price(self):
+        for resource in self:
+            pricelist_id = resource._get_pricelist()
+            resource.sale_price_unit = resource.product_id.lst_price
+            if pricelist_id and resource.partner_id \
+                    and resource.uom_id:
+                product = resource.product_id.with_context(
+                    lang=resource.partner_id.lang,
+                    partner=resource.partner_id.id,
+                    quantity=resource.qty,
+                    pricelist=pricelist_id.id,
+                    uom=resource.uom_id.id,
+                )
+                resource.sale_price_unit = product.price
+
+    @api.multi
+    def _set_cost_price(self):
+        for resource in self:
+            qty_uom = 0
+            product_uom = self.env['product.uom']
+            if resource.qty != 0:
+                qty_uom = product_uom._compute_qty(
+                    resource.uom_id.id,
+                    resource.qty,
+                    resource.product_id.uom_id.id
+                ) / resource.qty
+            resource.unit_price = resource.product_id.standard_price * qty_uom
+
+    @api.multi
     @api.depends('unit_price', 'qty')
     def _compute_get_price_total(self):
         for resource in self:
@@ -91,53 +120,20 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
+        self.ensure_one()
         super(BusinessRequirementResource, self).product_id_change()
-        unit_price = self.product_id.standard_price
-        pricelist_id = self._get_pricelist()
-        sale_price_unit = self.product_id.list_price
-        if pricelist_id and self.partner_id and self.uom_id:
-            product = self.product_id.with_context(
-                lang=self.partner_id.lang,
-                partner=self.partner_id.id,
-                quantity=self.qty,
-                pricelist=pricelist_id,
-                uom=self.uom_id.id,
-            )
-            sale_price_unit = product.list_price
-            unit_price = product.standard_price
-
-        self.unit_price = unit_price
-        self.sale_price_unit = sale_price_unit
+        # self.unit_price = self.product_id.standard_price
+        self._set_sales_price()
+        self._set_cost_price()
 
     @api.multi
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        qty_uom = 0
-        unit_price = self.unit_price
-        sale_price_unit = self.product_id.list_price
-        pricelist_id = self._get_pricelist()
-        product_uom = self.env['product.uom']
-
-        if self.qty != 0:
-            qty_uom = product_uom._compute_qty(
-                self.uom_id.id,
-                self.qty,
-                self.product_id.uom_id.id
-            ) / self.qty
-
-        if pricelist_id:
-            product = self.product_id.with_context(
-                lang=self.partner_id.lang,
-                partner=self.partner_id.id,
-                quantity=self.qty,
-                pricelist=pricelist_id,
-                uom=self.uom_id.id,
-            )
-            unit_price = product.standard_price
-            sale_price_unit = product.list_price
-
-        self.unit_price = unit_price * qty_uom
-        self.sale_price_unit = sale_price_unit * qty_uom
+        self.ensure_one()
+        # Calculte the sales_price_unit
+        self._set_sales_price()
+        # Calculate the unit_price
+        self._set_cost_price()
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -206,18 +202,8 @@ class BusinessRequirementDeliverable(models.Model):
         for deliverable in self:
             if deliverable.resource_ids:
                 for resource in deliverable.resource_ids:
-                    pricelist_id = resource._get_pricelist()
-                    resource.sale_price_unit = resource.product_id.lst_price
-                    if pricelist_id and resource.partner_id \
-                            and resource.uom_id:
-                        product = resource.product_id.with_context(
-                            lang=resource.partner_id.lang,
-                            partner=resource.partner_id.id,
-                            quantity=resource.qty,
-                            pricelist=pricelist_id,
-                            uom=resource.uom_id.id,
-                        )
-                        resource.sale_price_unit = product.price
+                    resource._set_sales_price()
+                    resource._set_cost_price()
 
 
 class BusinessRequirement(models.Model):
@@ -250,11 +236,12 @@ class BusinessRequirement(models.Model):
     )
 
     @api.multi
+    @api.depends('deliverable_lines.resource_ids.price_total')
     def _compute_rl_total_cost(self):
         for r in self:
             for dl in r.deliverable_lines:
-                r.rl_total_cost += sum(rl.price_total for rl in
-                                       dl.resource_ids)
+                r.rl_total_cost += sum(
+                    rl.price_total for rl in dl.resource_ids)
 
     @api.multi
     @api.depends('deliverable_lines')
@@ -283,5 +270,7 @@ class BusinessRequirement(models.Model):
         'resource_procurement_total')
     def _compute_gross_profit(self):
         for br in self:
-            br.gross_profit = br.total_revenue - \
-                br.resource_task_total - br.resource_procurement_total
+            br.gross_profit = (
+                br.total_revenue -
+                br.resource_task_total -
+                br.resource_procurement_total)
