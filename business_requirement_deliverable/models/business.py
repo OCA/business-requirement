@@ -239,9 +239,6 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        if not self.uom_id:
-            self.price_unit = 0.0
-            return
         pricelist = self._get_pricelist()
         product_uom = self.env['product.uom']
 
