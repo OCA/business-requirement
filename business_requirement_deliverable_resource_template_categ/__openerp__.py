@@ -4,8 +4,8 @@
 {
     'name': 'Business Requirement Deliverable Resource Template Category',
     'category': 'Business Requirements Management',
-    'summary': """Manage default resource lines in your
-               deliverable sales package from product template""",
+    'summary': """Manage default resource lines categories in your
+               deliverable templates""",
     'version': '8.0.1.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",

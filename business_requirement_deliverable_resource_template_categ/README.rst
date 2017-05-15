@@ -47,11 +47,8 @@ Usage
 =====
 
 #. Prepare your deliverables in the Product menu and add the expected RL
-
 #. Create a new BR and add the deliverable product in the deliverable line
-
 #. Adapt the resources lines if necessary
-
 .. figure:: static/img/bus_req_default2.png
    :width: 600 px
    :alt: The default resource lines are automatically added to your BR
@@ -59,13 +56,6 @@ Usage
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/222/8.0
-
-Known issues / Roadmap
-======================
-
-* Currently prices are not updated when the resource lines are uploaded in the 
-  BR. => Add a button to recalculate Sales estimation prices in the Deliverable 
-  line
 
 
 Bug Tracker
