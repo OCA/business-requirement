@@ -5,7 +5,7 @@
     "name": "Business Requirement Deliverable Project Task Categ",
     'category': 'Business Requirements Management',
     'summary': 'Adds Task Categories to your Business Requirement Resources',
-    "version": "8.0.1.0.1",
+    "version": "8.0.1.0.2",
     "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
