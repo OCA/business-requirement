@@ -4,7 +4,7 @@
 {
     'name': 'Business Requirement Document Printout',
     'summary': 'Print the Business Requirement Document for your customers',
-    'version': '8.0.5.0.1',
+    'version': '8.0.5.0.2',
     'category': 'Business Requirements Management',
     'website': 'https://www.elico-corp.com',
     'author': 'Elico Corp, Odoo Community Association (OCA)',

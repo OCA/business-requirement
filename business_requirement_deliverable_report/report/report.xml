@@ -9,6 +9,9 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_report"
         file="business_requirement_deliverable_report.br_report"
+        paperformat="business_requirement_deliverable_report.br_report_paperformat_us"
+        attachment_use="True"
+        attachment="('BR-'+(object.name+object.description)+'.pdf')"
     />
 
    <report
@@ -18,6 +21,9 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_report"
         file="business_requirement_deliverable_report.br_deliverable_report"
+        paperformat="business_requirement_deliverable_report.br_report_paperformat_us"
+        attachment_use="True"
+        attachment="('BRD-'+(object.name+object.description)+'.pdf')"
     />
 
     <report
@@ -27,6 +33,9 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_resource_report" 
         file="business_requirement_deliverable_report.br_deliverable_resource_report"
+        paperformat="business_requirement_deliverable_report.br_report_paperformat_us"
+        attachment_use="True"
+        attachment="('BRDR-'+(object.name+object.description)+'.pdf')"
     />
 
 </data>
