@@ -12,7 +12,7 @@
                     <field name="categ_id" 
                            attrs="{'readonly':[('resource_type','=','procurement')],'required':[('resource_type','=','task')]}"/>
                 </field>
-            </field>business_requirement_deliverable_project_task_categ
+            </field>
         </record>
 
         <!-- Search View Business Requirement Resource Line-->
@@ -26,7 +26,7 @@
                     <field name="categ_id"/>
                 </field>
                 <group expand="0" position="inside">
-                    <filter string="Category" icon="terp-go-home" context="{'group_by':'categ_id'}"/>
+                    <filter string="Category" context="{'group_by':'categ_id'}"/>
                 </group>
             </field>
         </record>
@@ -38,7 +38,7 @@
             <field name="inherit_id"
                    ref="business_requirement_deliverable.view_business_requirement_deliverable_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='resource_ids']/tree[@editable='1']/field[@name='name']"
+                <xpath expr="//field[@name='resource_ids']/tree[1]/field[@name='name']"
                        position="after">
                     <field name="categ_id"/>
                 </xpath>
