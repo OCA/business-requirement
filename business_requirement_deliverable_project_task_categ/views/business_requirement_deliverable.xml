@@ -12,7 +12,7 @@
                     <field name="categ_id" 
                            attrs="{'readonly':[('resource_type','=','procurement')],'required':[('resource_type','=','task')]}"/>
                 </field>
-            </field>
+            </field>business_requirement_deliverable_project_task_categ
         </record>
 
         <!-- Search View Business Requirement Resource Line-->
@@ -40,8 +40,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='resource_ids']/tree[@editable='1']/field[@name='name']"
                        position="after">
-                       <field name="categ_id"/>
-               </xpath>
+                    <field name="categ_id"/>
+                </xpath>
             </field>
         </record>
 
