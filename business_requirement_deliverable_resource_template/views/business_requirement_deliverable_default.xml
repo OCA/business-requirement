@@ -9,7 +9,7 @@
                 <page name="variants" position='after'>
                     <page name="resources" string="Default Resource Lines">
                         <field name="resource_lines">
-                            <tree editable="top">
+                            <tree editable="top" default_order="sequence">
                                 <field name="resource_type"/>
                                 <field name="product_id"/>
                                 <field name="name"/>
