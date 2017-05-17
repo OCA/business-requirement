@@ -35,6 +35,7 @@ class BusinessRequirementResourceTemplate(models.Model):
         ondelete='set null',
         copy=False
     )
+    sequence = fields.Integer('Sequence')
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
