@@ -232,7 +232,9 @@ class BusinessRequirement(models.Model):
     )
     rl_total_cost = fields.Float(
         'RL Total Cost',
-        compute='_compute_rl_total_cost'
+        compute='_compute_rl_total_cost',
+        groups='business_requirement_deliverable_cost.'
+        'group_business_requirement_cost_control',
     )
 
     @api.multi
