@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 10:07+0000\n"
-"PO-Revision-Date: 2017-04-28 10:07+0000\n"
+"POT-Creation-Date: 2017-05-18 00:43+0000\n"
+"PO-Revision-Date: 2017-05-18 00:43+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,11 @@ msgstr ""
 #: model:ir.model,name:business_requirement_deliverable_project_task_categ.model_business_requirement_resource
 msgid "Business Requirement Resource"
 msgstr "Vir poslovne zahteve"
+
+#. module: business_requirement_deliverable_project_task_categ
+#: view:business.requirement.resource:business_requirement_deliverable_project_task_categ.view_business_requirement_resource_search
+msgid "Category"
+msgstr "Kategorija"
 
 #. module: business_requirement_deliverable_project_task_categ
 #: model:ir.model,name:business_requirement_deliverable_project_task_categ.model_br_generate_projects
