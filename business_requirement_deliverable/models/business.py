@@ -194,8 +194,7 @@ class BusinessRequirementDeliverable(models.Model):
                 return (
                     partner_id.property_product_estimation_pricelist or
                     partner_id.property_product_pricelist)
-            else:
-                return False
+            return False
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
