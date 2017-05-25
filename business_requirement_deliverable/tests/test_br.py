@@ -218,7 +218,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_product_id_change(self):
         for line in self.br.deliverable_lines:
-            line.write({'product_id': self.productA.id})
+            line.write({'product_id': self.productA.id, 'name': ''})
             description = ''
             sale_price_unit = 0
             product = self.productA
@@ -282,7 +282,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 sale_price_unit = product.price
 
             line.product_id_change()
-            self.assertEqual(line.name, description)
             self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
             self.assertEqual(line.sale_price_unit, sale_price_unit)
 
@@ -290,10 +289,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.productA.write({
             'description_sale': 'Sales Description Product A'})
         for line in self.br.deliverable_lines:
-            line.write({'product_id': self.productA.id})
-            line.product_id_change()
-            self.assertTrue(
-                self.productA.description_sale in line.name)
+            if not line.name:
+                line.write({'product_id': self.productA.id})
+                line.product_id_change()
+                self.assertTrue(
+                    self.productA.description_sale in line.name)
 
     def test_product_uom_change(self):
         for line in self.br.deliverable_lines:
