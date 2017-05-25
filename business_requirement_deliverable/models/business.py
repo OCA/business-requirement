@@ -189,14 +189,12 @@ class BusinessRequirementDeliverable(models.Model):
     @api.multi
     def _get_pricelist(self):
         for brd in self:
-            partner_id = False
-            if brd.business_requirement_id and (
-                brd.business_requirement_id.partner_id
-            ):
-                partner_id = brd.business_requirement_id.partner_id
-            if partner_id and partner_id.property_product_pricelist:
-                return partner_id.property_product_pricelist
-            return partner_id
+            if brd.business_requirement_partner_id:
+                partner_id = brd.business_requirement_partner_id
+                return (
+                    partner_id.property_product_estimation_pricelist or
+                    partner_id.property_product_pricelist)
+            return False
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
