@@ -78,7 +78,8 @@ class BusinessRequirementResource(models.Model):
             uom_id = product.uom_id.id
         if product.description_sale:
             description += '\n' + product.description_sale
-        self.name = description
+        if not self.name:
+            self.name = description
         self.uom_id = uom_id
 
     @api.onchange('resource_type')
