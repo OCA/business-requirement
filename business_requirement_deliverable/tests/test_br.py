@@ -139,7 +139,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             ('product_id', '=', self.productA.id)])[0]
         self.productB.write({
             'description_sale': 'Sales Description Product B'})
-        resource.write({'product_id': self.productB.id,'name': ''})
+        resource.write({'product_id': self.productB.id, 'name': ''})
         resource.product_id_change()
         self.assertTrue(self.productB.description_sale in resource.name)
 
