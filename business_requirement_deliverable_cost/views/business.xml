@@ -7,7 +7,7 @@
             <field name="type">tree</field>
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
             <field name="arch" type="xml">
-                <xpath expr="//tree/field[@name='qty']" position="after">
+                <xpath expr="//tree/field[@name='uom_id']" position="after">
                     <field name="unit_price" />
                     <field name="price_total" sum="Total Price"/>
                     <field name="sale_price_unit"/>
