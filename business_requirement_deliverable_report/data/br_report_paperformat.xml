@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="br_report_paperformat_us" model="report.paperformat">
-            <field name="name">BR Report US Letter</field>
+        <record id="br_report_paperformat_eu" model="report.paperformat">
+            <field name="name">European A4</field>
             <field name="default" eval="True" />
             <field name="format">Letter</field>
             <field name="page_height">0</field>
