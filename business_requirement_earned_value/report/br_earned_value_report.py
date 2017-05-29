@@ -94,6 +94,8 @@ class BusinessRequirementEarnedValueReport(models.Model):
                                    project_task pt
                                WHERE
                                    pt.business_requirement_id = br.id
+                                   AND
+                                   SUM(res.unit_price) > 0
                                ) * ptm.list_price) - (SUM(res.qty
                                ) * SUM(res.unit_price))) /
                                 SUM(res.unit_price))
