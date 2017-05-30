@@ -88,17 +88,29 @@ class BusinessRequirementEarnedValueReport(models.Model):
                          WHERE
                              pt.business_requirement_id = br.id) > 0
                     THEN
-                        (abs(((SELECT
+                        CASE
+                            WHEN 
+                              SUM(res.unit_price) > 0
+                            THEN
+                                abs(((SELECT
                                    SUM(pt.effective_hours)
                                FROM
                                    project_task pt
                                WHERE
                                    pt.business_requirement_id = br.id
-                                   AND
-                                   SUM(res.unit_price) > 0
                                ) * ptm.list_price) - (SUM(res.qty
-                               ) * SUM(res.unit_price))) /
-                                SUM(res.unit_price))
+                               ) * SUM(res.unit_price))) / 
+                                SUM(res.unit_price)
+                            ELSE
+                                abs(((SELECT
+                                   SUM(pt.effective_hours)
+                               FROM
+                                   project_task pt
+                               WHERE
+                                   pt.business_requirement_id = br.id
+                               ) * ptm.list_price) - (SUM(res.qty
+                               ) * SUM(res.unit_price)))
+                            END
                 ElSE 0.0 END AS per_variances,
                 CASE
                     WHEN
