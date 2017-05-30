@@ -41,14 +41,14 @@
                             <field name="description"/>
                         </h1>
                         <group col="4">
+                            <field name="requested_id"/>
+                            <field name="responsible_id" required="1"/>
                             <field name="project_id"/>
                             <field name="parent_id"/>
                             <field name="partner_id"/>
                             <field name="ref"/>
                             <field name="category_ids" widget="many2many_tags"/>
                             <field name="change_request"/>
-                            <field name="requested_id"/>
-                            <field name="responsible_id" required="1"/>
                             <field name="to_be_reviewed"/>
                             <field name="reviewer_ids" widget="many2many_tags"/>
                             <field name="priority" groups="base.group_user" widget="priority"/>
