@@ -28,7 +28,8 @@
                         <button name="action_button_done" states="in_progress" string="Done" type="object" groups="business_requirement.group_business_requirement_manager" class="oe_highlight"/>
                         <button name="action_button_cancel" string="Cancel" type="object" attrs="{'invisible': [('state', 'in', ('done','cancel'))]}" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
                         <button name="action_button_drop" string="Drop" type="object" attrs="{'invisible': [('state', 'in', ('done','drop','cancel'))]}" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved,stakeholder_approval,in_progress,done,cancel"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,confirmed,approved,stakeholder_approval,in_progress,done,cancel,drop"/>
                     </header>
                     <sheet>
                         <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
