@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 00:42+0000\n"
-"PO-Revision-Date: 2017-05-18 00:42+0000\n"
+"POT-Creation-Date: 2017-05-31 19:29+0000\n"
+"PO-Revision-Date: 2017-05-31 19:29+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -431,7 +431,7 @@ msgid "UoM"
 msgstr "EM"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:96
+#: code:addons/business_requirement_deliverable/models/business.py:97
 #, python-format
 msgid "When resource type is task, the uom category should be time"
 msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
