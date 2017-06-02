@@ -125,7 +125,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
     def test_resource_product_id_change(self):
         resource = self.env['business.requirement.resource'].search([
             ('product_id', '=', self.productA.id)])[0]
-        resource.write({'product_id': self.productB.id})
+        resource.write({'product_id': self.productB.id, 'name': ''})
         resource.product_id_change()
 
         self.assertEqual(
@@ -140,10 +140,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
             ('product_id', '=', self.productA.id)])[0]
         self.productB.write({
             'description_sale': 'Sales Description Product B'})
-        resource.write({'product_id': self.productB.id})
+        resource.write({'product_id': self.productB.id, 'name': ''})
         resource.product_id_change()
-        self.assertTrue(
-            self.productB.description_sale in resource.name)
+        self.assertTrue(self.productB.description_sale in resource.name)
 
     def test_resource_fields_view_get(self):
         resource = self.env['business.requirement.resource'].search([
