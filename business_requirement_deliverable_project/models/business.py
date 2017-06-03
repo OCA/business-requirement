@@ -20,7 +20,6 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         groups='project.group_project_user',
         readonly=True,
-        states={'draft': [('readonly', False)]}
     )
 
     task_ids = fields.One2many(
@@ -155,5 +154,4 @@ class BusinessRequirementDeliverable(models.Model):
         comodel_name='project.project',
         groups='project.group_project_user',
         readonly=True,
-        states={'draft': [('readonly', False)]}
         )
