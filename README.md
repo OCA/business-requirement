@@ -27,7 +27,7 @@ addon | version | summary
 [business_requirement_deliverable_project](business_requirement_deliverable_project/) | 8.0.4.0.6 | Create projects and tasks directly from the Business Requirement and Resources lines
 [business_requirement_deliverable_project_categ](business_requirement_deliverable_project_categ/) | 8.0.1.0.0 | Include category on generating project
 [business_requirement_deliverable_project_task_categ](business_requirement_deliverable_project_task_categ/) | 8.0.1.0.2 | Adds Task Categories to your Business Requirement Resources
-[business_requirement_deliverable_report](business_requirement_deliverable_report/) | 8.0.5.0.1 | Print the Business Requirement Document for your customers
+[business_requirement_deliverable_report](business_requirement_deliverable_report/) | 8.0.5.0.2 | Print the Business Requirement Document for your customers
 [business_requirement_deliverable_resource_template](business_requirement_deliverable_resource_template/) | 8.0.1.0.1 | Manage default resource lines in your deliverable sales package from product template
 [business_requirement_deliverable_resource_template_categ](business_requirement_deliverable_resource_template_categ/) | 8.0.1.0.0 | Manage default resource lines categories in your deliverable templates
 [business_requirement_earned_value](business_requirement_earned_value/) | 8.0.1.0.0 | Manage the Earned Value for your customers
