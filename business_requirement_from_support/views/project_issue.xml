@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_create_br_form" model="ir.ui.view">
+            <field name="name">view.issue.form</field>
+            <field name="model">project.issue</field>
+            <field name='inherit_id' ref='project_issue.project_issue_form_view'/>
+            <field name="arch" type="xml">
+                <xpath expr="//header">
+                    <button string="Create BR"
+                            type="action"
+                            name="%(br_issue.action_create_br)d"
+                            class="oe_highlight"
+                            context="{}" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_view_br_wizard" model="ir.actions.act_window">
+            <field name="name">Create BR</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">br.issue</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>
