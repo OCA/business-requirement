@@ -28,11 +28,6 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
             <field name="arch" type="xml">
-                <field name="name" position="before">
-                    <div class="oe_left">
-                        <field name="kanban_state" class="oe_inline" widget="kanban_state_selection"/>
-                    </div>
-                </field>
                 <xpath expr="//header/button[@name='action_button_confirm']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
