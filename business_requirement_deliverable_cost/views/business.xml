@@ -52,7 +52,6 @@
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
                 <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price" />
                     <field name="price_total" sum="Total Price"/>
                     <field name="sale_price_unit"/>
                     <field name="sale_price_total" sum="Total Sale"/>
