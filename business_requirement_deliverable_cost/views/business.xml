@@ -8,10 +8,16 @@
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
             <field name="arch" type="xml">
                 <xpath expr="//tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price" />
-                    <field name="price_total" sum="Total Price"/>
-                    <field name="sale_price_unit"/>
-                    <field name="sale_price_total" sum="Total Sale"/>
+                    <field name="unit_price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </xpath>
             </field>
         </record>
@@ -23,10 +29,20 @@
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_pivot"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='qty']" position="after">
-                    <field name="unit_price" type="measure" />
-                    <field name="price_total" type="measure" sum="Total Price"/>
-                    <field name="sale_price_unit" type="measure"/>
-                    <field name="sale_price_total" type="measure" sum="Total Sale"/>
+                    <field name="unit_price"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           type="measure"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit"
+                           type="measure"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"
+                           type="measure"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </xpath>
             </field>
         </record>
@@ -52,10 +68,16 @@
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
                 <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price" />
-                    <field name="price_total" sum="Total Price"/>
-                    <field name="sale_price_unit"/>
-                    <field name="sale_price_total" sum="Total Sale"/>
+                    <field name="unit_price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </xpath>
             </field>
         </record>
@@ -66,10 +88,17 @@
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_pivot"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='sale_price_unit']" position="after">
-                    <field name="price_total" type="measure" sum="Total Price"/>
+                    <field name="price_total"
+                           type="measure"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_estimation"/>
                     <field name="gross_profit" type="measure"/>
-                    <field name="resource_task_total" type="measure"/>
-                    <field name="resource_procurement_total" type="measure"/>
+                    <field name="resource_task_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_procurement_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
             </field>
         </record>
@@ -87,8 +116,10 @@
                                 <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                                 <field name="total_revenue"/>
                                 <field name="resource_procurement_total"/>
-                                <field name="resource_task_total"/>
-                                <field name="gross_profit"/>
+                                <field name="resource_task_total"
+                                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                                <field name="gross_profit"
+                                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                             </group>
                         </group>
                     </page>
@@ -104,8 +135,12 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="total_revenue" type="measure"/>
                     <field name="gross_profit" type="measure"/>
-                    <field name="resource_task_total" type="measure"/>
-                    <field name="resource_procurement_total" type="measure"/>
+                    <field name="resource_task_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_procurement_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
             </field>
         </record>
@@ -121,14 +156,16 @@
                            class="oe_inline badge"
                            nolabel="1"
                            widget="statinfo"
-                           modifiers="{'readonly': true}"/>
+                           modifiers="{'readonly': true}"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
                 <xpath expr="//field[@name='rl_count']" position="after">
                     <field name="rl_total_cost"
                            class="oe_inline badge"
                            nolabel="1"
                            widget="statinfo"
-                           modifiers="{'readonly': true}"/>
+                           modifiers="{'readonly': true}"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
             </field>
         </record>
