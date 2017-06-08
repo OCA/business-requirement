@@ -116,13 +116,6 @@
             <field name="inherit_id"
                    ref="business_requirement_deliverable.view_business_requirement_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='rl_count_noedit']" position="after">
-                    <field name="rl_total_cost"
-                           class="oe_inline badge"
-                           nolabel="1"
-                           widget="statinfo"
-                           modifiers="{'readonly': true}"/>
-                </xpath>
                 <xpath expr="//field[@name='rl_count']" position="after">
                     <field name="rl_total_cost"
                            class="oe_inline badge"
