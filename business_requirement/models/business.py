@@ -197,6 +197,13 @@ class BusinessRequirement(models.Model):
     to_be_reviewed = fields.Boolean(
         string='To be Reviewed'
     )
+    kanban_state = fields.Selection([('normal', 'In Progress'),
+                                     ('on_hold', 'On Hold'),
+                                     ('done', 'Ready for next stage')],
+                                    'Kanban State',
+                                    track_visibility='onchange',
+                                    required=False,
+                                    copy=False, default='normal')
 
     @api.multi
     @api.onchange('project_id')
