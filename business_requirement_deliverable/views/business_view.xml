@@ -148,15 +148,18 @@
             <field name="arch" type="xml">
                 <tree string="Business Requirement Resource" editable="bottom" default_order="sequence">
                     <field name="sequence" widget="handle"/>
+                    <field name="state" invisible="0"/>
                     <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"
                            attrs="{'readonly':[('business_requirement_deliverable_id', '!=', False)]}"/>
-                    <field name="business_requirement_deliverable_id" domain="[('business_requirement_id', '=', business_requirement_id)]"/>
-                    <field name="resource_type"/>
-                    <field name="product_id"/>
-                    <field name="name"/>
+                    <field name="business_requirement_deliverable_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           domain="[('business_requirement_id', '=', business_requirement_id)]"/>
+                    <field name="resource_type" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" />
+                    <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                    <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                     <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                    <field name="qty"/>
-                    <field name="uom_id"/>
+                    <field name="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                    <field name="uom_id"
+                           attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" />
                 </tree>
             </field>
         </record>
@@ -234,7 +237,7 @@
                             <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="user_id"
                                    attrs="{'readonly':[('resource_type','=','procurement'),
-                                   ('state','not in',['draft', 'confirmed', 'stakeholder_approval'])]}"/>
+                                   ('state','not in',['draft', 'confirmed', 'stakeholder_approval', 'approved'])]}"/>
                             <field name="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="uom_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="business_requirement_id"

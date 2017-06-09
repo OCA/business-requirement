@@ -8,9 +8,9 @@
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
             <field name="arch" type="xml">
                 <xpath expr="//tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price" />
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" />
                     <field name="price_total" sum="Total Price"/>
-                    <field name="sale_price_unit"/>
+                    <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                     <field name="sale_price_total" sum="Total Sale"/>
                 </xpath>
             </field>
@@ -52,9 +52,9 @@
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
                 <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price" />
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                     <field name="price_total" sum="Total Price"/>
-                    <field name="sale_price_unit"/>
+                    <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                     <field name="sale_price_total" sum="Total Sale"/>
                 </xpath>
             </field>
