@@ -11,7 +11,7 @@
                             type="object"
                             name="br_wizard"
                             class="oe_highlight"
-                            context="{}" />
+                            context="{'default_priority': priority, 'default_business_requirement': description, 'default_requested_id': user_id, 'default_partner_id': partner_id, 'default_responsible_id': user_id, 'default_to_be_reviewed': True, 'default_project_id': project_id, 'default_reviewer_ids': [user_id] }" />
                 </xpath>
             </field>
         </record>
