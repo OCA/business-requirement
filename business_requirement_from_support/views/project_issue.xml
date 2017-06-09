@@ -6,23 +6,14 @@
             <field name="model">project.issue</field>
             <field name='inherit_id' ref='project_issue.project_issue_form_view'/>
             <field name="arch" type="xml">
-                <xpath expr="//header">
+                <xpath expr="//field[@name='stage_id']" position="before">
                     <button string="Create BR"
-                            type="action"
-                            name="%(br_issue.action_create_br)d"
+                            type="object"
+                            name="br_wizard"
                             class="oe_highlight"
                             context="{}" />
                 </xpath>
             </field>
-        </record>
-
-        <record id="action_view_br_wizard" model="ir.actions.act_window">
-            <field name="name">Create BR</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">br.issue</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
         </record>
     </data>
 </openerp>
