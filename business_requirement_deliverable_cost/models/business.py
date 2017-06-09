@@ -8,30 +8,21 @@ class BusinessRequirementResource(models.Model):
     _inherit = "business.requirement.resource"
 
     sale_price_unit = fields.Float(
-        string='Sales Price',
-        groups='business_requirement_deliverable.'
-        'group_business_requirement_estimation',
+        string='Sales Price'
     )
     sale_price_total = fields.Float(
         compute='_compute_sale_price_total',
         string='Total Revenue',
-        groups='business_requirement_deliverable.'
-        'group_business_requirement_estimation',
         store=True
     )
     unit_price = fields.Float(
-        string='Cost Price',
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        string='Cost Price'
     )
     price_total = fields.Float(
         store=True,
         compute='_compute_get_price_total',
-        string='Total Cost',
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        string='Total Cost'
     )
-
     partner_id = fields.Many2one(
         'res.partner',
         related='business_requirement_deliverable_id.'
@@ -122,7 +113,6 @@ class BusinessRequirementResource(models.Model):
     def product_id_change(self):
         self.ensure_one()
         super(BusinessRequirementResource, self).product_id_change()
-        # self.unit_price = self.product_id.standard_price
         self._set_sales_price()
         self._set_cost_price()
 
@@ -139,33 +129,21 @@ class BusinessRequirementResource(models.Model):
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
-    unit_price = fields.Float(
-        groups='business_requirement_deliverable.'
-        'group_business_requirement_estimation',
-    )
-    price_total = fields.Float(
-        groups='business_requirement_deliverable.'
-        'group_business_requirement_estimation',
-    )
+    unit_price = fields.Float()
+    price_total = fields.Float()
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
         string='Total tasks',
-        store=True,
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
         string='Total procurement',
-        store=True,
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        store=True
     )
     gross_profit = fields.Float(
         string='Estimated Gross Profit',
         compute='_compute_gross_profit',
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
         store=True
     )
 
@@ -212,29 +190,21 @@ class BusinessRequirement(models.Model):
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
         string='Total tasks',
-        store=True,
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
         string='Total procurement',
-        store=True,
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        store=True
     )
     gross_profit = fields.Float(
         string='Estimated Gross Profit',
         compute='_compute_gross_profit',
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
         store=True,
     )
     rl_total_cost = fields.Float(
         'RL Total Cost',
-        compute='_compute_rl_total_cost',
-        groups='business_requirement_deliverable_cost.'
-        'group_business_requirement_cost_control',
+        compute='_compute_rl_total_cost'
     )
 
     @api.multi
