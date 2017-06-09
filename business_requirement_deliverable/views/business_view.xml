@@ -239,7 +239,9 @@
             <field name="arch" type="xml">
                 <xpath expr='//tree/field[@name="change_request"]' position='after'>
                     <field name="currency_id"/>
-                    <field name="total_revenue" sum="Total revenue"/>
+                    <field name="total_revenue"
+                           sum="Total revenue"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </xpath>
             </field>
         </record>
