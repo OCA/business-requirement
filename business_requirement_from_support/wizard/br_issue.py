@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
+# © 2017 Praxya (https://www.praxya.com).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
-# from openerp.exceptions import ValidationError
-import logging
-_logger = logging.getLogger(__name__)
-
 
 class BrIssue(models.TransientModel):
     _name = "br.issue"
 
+    name = fields.Char()
     requested_id = fields.Many2one(
         comodel_name="res.users",
         string="Requested by",
@@ -48,11 +47,25 @@ class BrIssue(models.TransientModel):
 
     @api.multi
     def create_br(self):
-        _logger.debug("Creando BR")
-
-        # context = self.env.context
-        # case_id = context and context.get('active_ids', []) or []
-        # case_id = case_id and case_id[0] or False
-
-        # fields to fill in the BR
-        _logger.debug("Fin de create_br, hasta luego")
+        vals = {
+            'description': self.name,
+            "requested_id": self.requested_id.id,
+            "responsible_id": self.responsible_id.id,
+            "partner_id": self.partner_id.id,
+            "project_id": self.project_id.id,
+            "to_be_reviewed": self.to_be_reviewed,
+            "priority": self.priority,
+            "business_requirement": self.business_requirement,
+            "change_request": True,
+        }
+        if self.to_be_reviewed:
+            vals.update({"reviewer_ids": [(6, 0, self.reviewer_ids.ids)]})
+        created_br = self.env['business.requirement'].create(vals)
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'business.requirement',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_id': created_br.id,
+            'context': {}
+        }
