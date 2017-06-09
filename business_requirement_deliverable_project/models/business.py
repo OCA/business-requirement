@@ -43,13 +43,6 @@ class BusinessRequirement(models.Model):
         string='Total Planned Hour in RL related to business requirement',
         compute='_compute_planned_hour'
     )
-    kanban_state = fields.Selection([('normal', 'In Progress'),
-                                     ('on_hold', 'On Hold'),
-                                     ('done', 'Ready for next stage')],
-                                    'Kanban State',
-                                    track_visibility='onchange',
-                                    required=False,
-                                    copy=False, default='normal')
 
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
