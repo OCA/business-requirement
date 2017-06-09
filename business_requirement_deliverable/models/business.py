@@ -283,9 +283,7 @@ class BusinessRequirement(models.Model):
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
         string='Total Revenue',
-        store=True,
-        groups='business_requirement_deliverable.'
-        'group_business_requirement_estimation'
+        store=True
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
