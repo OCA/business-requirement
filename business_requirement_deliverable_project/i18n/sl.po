@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-31 19:29+0000\n"
-"PO-Revision-Date: 2017-05-31 19:29+0000\n"
+"POT-Creation-Date: 2017-06-09 08:12+0000\n"
+"PO-Revision-Date: 2017-06-09 08:12+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -117,16 +117,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_deliverable_project
-#: selection:business.requirement,kanban_state:0
-msgid "In Progress"
-msgstr "Napredovanje"
-
-#. module: business_requirement_deliverable_project
-#: field:business.requirement,kanban_state:0
-msgid "Kanban State"
-msgstr "Kanban stanje"
-
-#. module: business_requirement_deliverable_project
 #: field:br.generate.projects,__last_update:0
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
@@ -153,11 +143,6 @@ msgid "Linked project"
 msgstr "Povezani projekt"
 
 #. module: business_requirement_deliverable_project
-#: selection:business.requirement,kanban_state:0
-msgid "On Hold"
-msgstr "Zadržano"
-
-#. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:25
 #, python-format
 msgid ""
@@ -181,11 +166,6 @@ msgstr "Projekt, kjer se ustvari opravila"
 #: view:project.project:business_requirement_deliverable_project.edit_project
 msgid "Projects From Business Requirement"
 msgstr "Projekt iz poslovne zahteve"
-
-#. module: business_requirement_deliverable_project
-#: selection:business.requirement,kanban_state:0
-msgid "Ready for next stage"
-msgstr "Pripravljeno na naslednjo stopnjo"
 
 #. module: business_requirement_deliverable_project
 #: field:project.project,origin:0
@@ -235,13 +215,13 @@ msgid "True"
 msgstr "True"
 
 #. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:112
+#: code:addons/business_requirement_deliverable_project/models/business.py:104
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
 
 #. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:118
+#: code:addons/business_requirement_deliverable_project/models/business.py:110
 #, python-format
 msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
 msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 10:25+0000\n"
-"PO-Revision-Date: 2017-05-05 10:25+0000\n"
+"POT-Creation-Date: 2017-06-09 08:11+0000\n"
+"PO-Revision-Date: 2017-06-09 08:11+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -251,6 +251,7 @@ msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
+#: selection:business.requirement,kanban_state:0
 msgid "In Progress"
 msgstr "Napredovanje"
 
@@ -258,6 +259,11 @@ msgstr "Napredovanje"
 #: field:business.requirement,message_is_follower:0
 msgid "Is a Follower"
 msgstr "Je sledilec"
+
+#. module: business_requirement
+#: field:business.requirement,kanban_state:0
+msgid "Kanban State"
+msgstr "Kanban stanje"
 
 #. module: business_requirement
 #: field:business.requirement,message_last_post:0
@@ -330,6 +336,11 @@ msgid "Number of Business Requirements"
 msgstr "Število poslovnih zahtev"
 
 #. module: business_requirement
+#: selection:business.requirement,kanban_state:0
+msgid "On Hold"
+msgstr "Zadržano"
+
+#. module: business_requirement
 #: field:business.requirement,parent_id:0
 msgid "Parent"
 msgstr "Nadrejena"
@@ -360,6 +371,11 @@ msgstr "Projekt"
 #: model:ir.actions.act_window,name:business_requirement.open_view_subproject_all
 msgid "Projects"
 msgstr "Projekti"
+
+#. module: business_requirement
+#: selection:business.requirement,kanban_state:0
+msgid "Ready for next stage"
+msgstr "Pripravljeno na naslednjo stopnjo"
 
 #. module: business_requirement
 #: field:business.requirement,ref:0
