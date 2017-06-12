@@ -9,7 +9,7 @@
     'website': 'https://www.praxya.com/',
     "author": "Rubén Cabrera Martínez",
     'depends': [
-        'business_requirement_deliverable_project',
+        'business_requirement',
         'project_issue',
     ],
     'data': [

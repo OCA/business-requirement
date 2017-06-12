@@ -2,15 +2,14 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-====================================
-Business Requirement Deliverable CRM
-====================================
+================================
+Business Requirement from Issues
+================================
 Introduction
 ============
 
 This module is part of a set of modules 
 (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
-
 This module adds integration between project issues  and Business Requirement
 model:
 

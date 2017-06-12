@@ -3,10 +3,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, fields, models
 
+
 class BrIssue(models.TransientModel):
     _name = "br.issue"
 
     name = fields.Char()
+    issue_id = fields.Many2one(
+        comodel_name="project.issue",
+        string="Related Issue",
+        help="The issue that originated or made this BR relevant.",
+    )
     requested_id = fields.Many2one(
         comodel_name="res.users",
         string="Requested by",
@@ -61,6 +67,12 @@ class BrIssue(models.TransientModel):
         if self.to_be_reviewed:
             vals.update({"reviewer_ids": [(6, 0, self.reviewer_ids.ids)]})
         created_br = self.env['business.requirement'].create(vals)
+        if created_br:
+            self.env['project.issue'].search(
+                [('id', '=', self.issue_id.id)]
+            ).write(
+                {'business_requirement_id': created_br.id}
+            )
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'business.requirement',
