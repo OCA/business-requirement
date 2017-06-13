@@ -26,7 +26,7 @@ class BrIssue(models.TransientModel):
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Customer",
-        help="Customer who has to approve the BR before it goes to development",
+        help="Customer who has to approve the BR before it goes to development"
     )
     project_id = fields.Many2one(
         comodel_name="project.project",
