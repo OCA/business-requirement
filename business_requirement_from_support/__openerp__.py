@@ -7,7 +7,9 @@
     'summary': 'Generate Business Requirements from issues',
     'version': '8.0.1.0.0',
     'website': 'https://www.praxya.com/',
-    "author": "Rubén Cabrera Martínez",
+    "author": "Rubén Cabrera Martínez, "
+              "Praxya, "
+              "Odoo Community Association (OCA), ",
     'depends': [
         'business_requirement',
         'project_issue',
