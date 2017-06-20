@@ -5,8 +5,8 @@
           <field name="name">create.br.form</field>
           <field name="model">br.issue</field>
           <field name="arch" type="xml">
-            <form string="Business Requirement from Issue" >
-                <group >
+            <form string="Business Requirement from Issue">
+                <group>
                     <field name="name" required="1"/>
                     <field name="requested_id" required="1"/>
                     <field name="responsible_id" required="1"/>
@@ -15,7 +15,7 @@
                     <field name="to_be_reviewed"/>
                     <field name="priority" widget="priority"/>
                     <field name="reviewer_ids" widget="many2many_tags"
-                           attrs="{'invisible':[('to_be_reviewed', '!=', True)]}"
+                           attrs="{'invisible': [('to_be_reviewed', '!=', True)]}"
                         />
                     <field name="business_requirement"/>
                 </group>
@@ -27,14 +27,12 @@
             </form>
           </field>
        </record>
-       <!-- crm make sale's  action -->
        <record id="action_create_br" model="ir.actions.act_window">
           <field name="name">Business Requirement from issue</field>
           <field name="type">ir.actions.act_window</field>
           <field name="res_model">br.issue</field>
           <field name="view_type">form</field>
           <field name="view_mode">form</field>
-          <!--<field name="view_id" ref="create_br_view" />-->
           <field name="target">new</field>
        </record>
    </data>
