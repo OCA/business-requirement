@@ -8,9 +8,7 @@
         string="Business Requirement Report"
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_report"
-        file="business_requirement_deliverable_report.br_report"
-        attachment_use="True"
-        attachment="('BR-'+(object.name+object.description)+'.pdf')"
+        file="business_requirement_deliverable_report.br_report"        
     />
 
    <report
@@ -20,8 +18,6 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_report"
         file="business_requirement_deliverable_report.br_deliverable_report"
-        attachment_use="True"
-        attachment="('BRD-'+(object.name)+'.pdf')"
     />
 
     <report
@@ -31,8 +27,6 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_resource_report" 
         file="business_requirement_deliverable_report.br_deliverable_resource_report"
-        attachment_use="True"
-        attachment="('BRDR-'+(object.name)+'.pdf')"
     />
 
     <record id="business_requirement_report" model="ir.actions.report.xml">
