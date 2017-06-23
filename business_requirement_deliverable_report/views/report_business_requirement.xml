@@ -21,27 +21,38 @@
                     </div>
                     <div class="col-xs-2 col-xs-offset-1 text-right">
                         <ul class="list-inline">
-                            <li><span class="page"/></li>
+                            <li>
+                                <span class="page"/>
+                            </li>
                             <li>/</li>
-                            <li><span class="topage"/></li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <t t-raw="0" />
+            <t t-raw="0"/>
         </template>
 
         <template id="layout_br_base">
-            <h3><span t-field="o.name"/>-<span t-field="o.description"/></h3>
-            <table class="table table-bordered" style="table-collapse:collapse; table-layout:fixed">
+            <h3><span t-field="o.name"/>-
+                <span t-field="o.description"/>
+            </h3>
+            <table class="table table-bordered"
+                   style="table-collapse:collapse; table-layout:fixed">
                 <tbody>
                     <tr>
                         <th colspan="3">Customer</th>
                         <th colspan="3">Project</th>
                     </tr>
                     <tr>
-                        <td colspan="3"><span t-field="o.partner_id.name"/> </td>
-                        <td colspan="3"><span t-field="o.project_id.name"/> </td>
+                        <td colspan="3">
+                            <span t-field="o.partner_id.name"/>
+                        </td>
+                        <td colspan="3">
+                            <span t-field="o.project_id.name"/>
+                        </td>
                     </tr>
 
                     <tr>
@@ -63,27 +74,27 @@
                         <th class="text-center" colspan="2">Approval</th>
                     </tr>
                     <tr>
-                        <th >Date</th>
-                        <th >User</th>
-                        <th >Date</th>
-                        <th >User</th>
-                        <th >Date</th>
-                        <th >User</th>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>User</th>
                     </tr>
                     <tr>
-                        <td >
+                        <td>
                             <span t-field="o.create_date"/>
                         </td>
                         <td>
                             <span t-field="o.create_uid.name"/>
                         </td>
-                        <td >
+                        <td>
                             <span t-field="o.confirmation_date"/>
                         </td>
                         <td>
                             <span t-field="o.confirmed_id.name"/>
                         </td>
-                        <td >
+                        <td>
                             <span t-field="o.approval_date"/>
                         </td>
                         <td>
@@ -98,7 +109,11 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td><span t-field="o.business_requirement"/></td>
+                            <td>
+                                <pre style="padding-left: 30px;">
+                                    <span t-field="o.business_requirement"/>
+                                </pre>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -106,10 +121,14 @@
 
             <t t-if="o.scenario">
                 <h3>Scenario:</h3>
-                <table class="table table-bordered">
+                <table class="table .table-striped">
                     <tbody>
                         <tr>
-                            <td><span t-field="o.scenario"/></td>
+                            <td>
+                                <pre style="padding-left: 30px;">
+                                    <span t-field="o.scenario"/>
+                                </pre>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -120,7 +139,11 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td><span t-field="o.gap"/></td>
+                            <td>
+                                <pre style="padding-left: 30px;">
+                                    <span t-field="o.gap"/>
+                                </pre>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -131,7 +154,11 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td><span t-field="o.test_case"/></td>
+                            <td>
+                                <pre style="padding-left: 30px;">
+                                    <t t-raw="o.test_case"/>
+                                </pre>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -142,9 +169,11 @@
             <t t-call="report.html_container">
                 <t t-call="business_requirement_deliverable_report.internal_layout_br_header">
                     <div class="page" name="page">
-                        <h2 class="text-center">Business Requirement Document</h2><br/>
+                        <h2 class="text-center">Business Requirement Document
+                        </h2>
+                        <br/>
                         <t t-foreach="docs" t-as="o">
-                            <div style="page-break-after: always;">            
+                            <div style="page-break-after: always;">
                                 <t t-call="business_requirement_deliverable_report.layout_br_base">
                                 </t>
                             </div>
