@@ -18,11 +18,14 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
                                 'Priority', readonly=True)
     state = fields.Selection(
-        [('draft', 'Draft'), ('confirmed', 'Confirmed'),
+        [('draft', 'Draft'),
+         ('confirmed', 'Confirmed'),
          ('approved', 'Approved'),
          ('stakeholder_approval', 'Stakeholder Approval'),
-         ('in_progress', 'In progress'), ('done', 'Done'),
-         ('cancel', 'Cancel'), ('drop', 'Drop'),
+         ('in_progress', 'In progress'),
+         ('done', 'Done'),
+         ('cancel', 'Cancel'),
+         ('drop', 'Drop'),
          ],
         'Status',
         readonly=True,
