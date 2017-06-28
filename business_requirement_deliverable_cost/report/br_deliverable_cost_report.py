@@ -10,26 +10,35 @@ class BusinessRequirementDeliverableCostReport(models.Model):
     _description = "Deliverable Cost Report"
     _auto = False
 
-    name = fields.Char('Name', readonly=True)
-    description = fields.Char('Description', readonly=True)
+    br_name = fields.Char('Bus. Requirement', readonly=True)
+    responsible_id = fields.Many2one('res.users', 'Responsible', readonly=True)
     partner_id = fields.Many2one('res.partner',
                                  'Customer',
                                  readonly=True)
     project_id = fields.Many2one('project.project',
                                  'Master Project',
                                  readonly=True)
-    change_request = fields.Boolean('Change Request?', readonly=True)
     priority = fields.Selection([('0', 'Low'), ('1', 'Normal'),
                                  ('2', 'High')],
                                 'Priority',
                                 readonly=True)
+    state = fields.Selection(
+        [('draft', 'Draft'), ('confirmed', 'Confirmed'),
+         ('approved', 'Approved'),
+         ('stakeholder_approval', 'Stakeholder Approval'),
+         ('in_progress', 'In progress'), ('done', 'Done'),
+         ('cancel', 'Cancel'), ('drop', 'Drop'),
+         ],
+        'Status',
+        readonly=True,
+    )
     dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product',
-                                  'Dlv Product',
+                                  'Deliverable Product',
                                   readonly=True)
     res_description = fields.Text('Resource Description', readonly=True)
     res_product = fields.Many2one('product.product',
-                                  'Res Product',
+                                  'Resource Product',
                                   readonly=True)
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
@@ -46,12 +55,13 @@ class BusinessRequirementDeliverableCostReport(models.Model):
         select_str = """
             SELECT
                 br.id,
-                br.name,
-                br.description,
+                (select CONCAT('[',name,']', description) from
+                business_requirement where id=br.id) AS br_name,
+                br.responsible_id,
                 br.partner_id,
                 br.project_id,
-                br.change_request,
                 br.priority,
+                br.state,
                 dlv.product_id as dlv_product,
                 dlv.name as dlv_description,
                 res.product_id as res_product,
