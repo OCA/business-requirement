@@ -14,13 +14,17 @@ class BusinessRequirementResource(models.Model):
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
         related='business_requirement_id.state',
-        selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),
+        selection=[('draft', 'Draft'),
+                   ('confirmed', 'Confirmed'),
                    ('approved', 'Approved'),
                    ('stakeholder_approval', 'Stakeholder Approval'),
-                   ('in_progress', 'In progress'), ('done', 'Done'),
-                   ('cancel', 'Cancel'), ('drop', 'Drop'),
+                   ('in_progress', 'In progress'),
+                   ('done', 'Done'),
+                   ('cancel', 'Cancel'),
+                   ('drop', 'Drop'),
                    ],
-        store=True)
+        store=True,
+    )
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
@@ -121,13 +125,17 @@ class BusinessRequirementDeliverable(models.Model):
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
         related='business_requirement_id.state',
-        selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),
+        selection=[('draft', 'Draft'),
+                   ('confirmed', 'Confirmed'),
                    ('approved', 'Approved'),
                    ('stakeholder_approval', 'Stakeholder Approval'),
-                   ('in_progress', 'In progress'), ('done', 'Done'),
-                   ('cancel', 'Cancel'), ('drop', 'Drop'),
+                   ('in_progress', 'In progress'),
+                   ('done', 'Done'),
+                   ('cancel', 'Cancel'),
+                   ('drop', 'Drop'),
                    ],
-        store=True)
+        store=True,
+    )
     name = fields.Text('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
