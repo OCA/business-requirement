@@ -44,6 +44,19 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
 
+    @api.multi
+    def open_linked_projects(self):
+        for rec in self:
+            domain = [('id', '=', rec.linked_project.id)]
+            return {
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'project.project',
+                'target': 'current',
+                'domain': domain
+            }
+
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
                    limit=None, orderby=False, lazy=True):

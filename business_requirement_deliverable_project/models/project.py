@@ -11,6 +11,18 @@ class Project(models.Model):
 
     origin = fields.Char('Source Document')
 
+    business_requirement_id = fields.Many2one(
+        'business.requirement',
+        string='Business Requirement',
+        help='Link the Project and the business requirement',
+    )
+
+    business_requirement_deliverable_id = fields.Many2one(
+        comodel_name='business.requirement.deliverable',
+        string='Business Requirement Deliverable',
+        help='Link the Project and the business requirement deliverable',
+    )
+
     @api.multi
     def generate_project_wizard(self):
         br_ids = self.env.context.get('br_ids', False)

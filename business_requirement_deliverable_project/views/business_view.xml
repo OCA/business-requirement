@@ -76,12 +76,18 @@
                                name="task_count"
                                widget="statinfo"/>
                     </button>
+                    <button name="open_linked_projects"
+                            class="oe_stat_button"
+                            type="object"
+                            string="Linked Project"
+                            icon="fa-tasks"/>
                 </xpath>
 
                 <xpath expr="//field[@name='priority']"
                        position="after">
-                    <field name="linked_project"/>
+                    <field name="linked_project" invisible="1"/>
                 </xpath>
+
             </field>
         </record>
         <record model="ir.ui.view" id="view_business_requirement_kanban_project">
