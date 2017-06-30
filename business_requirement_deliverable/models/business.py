@@ -67,7 +67,7 @@ class BusinessRequirementResource(models.Model):
         store=True
     )
     state = fields.Selection(related='business_requirement_id.state',
-                             string='State', store=True)
+                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('product_id')
@@ -169,7 +169,7 @@ class BusinessRequirementDeliverable(models.Model):
         store=True
     )
     state = fields.Selection(related='business_requirement_id.state',
-                             string='State', store=True)
+                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('business_requirement_id')
