@@ -20,6 +20,7 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         groups='project.group_project_user',
         readonly=True,
+        copy=False
     )
 
     task_ids = fields.One2many(
@@ -47,7 +48,10 @@ class BusinessRequirement(models.Model):
     @api.multi
     def open_linked_projects(self):
         for rec in self:
-            domain = [('id', '=', rec.linked_project.id)]
+            domain = ['|',
+                      ('business_requirement_id', '=', rec.id),
+                      ('business_requirement_deliverable_id', 'in',
+                       rec.deliverable_lines.ids)]
             return {
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
