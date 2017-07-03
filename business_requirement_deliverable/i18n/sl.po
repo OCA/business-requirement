@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 08:11+0000\n"
-"PO-Revision-Date: 2017-06-09 08:11+0000\n"
+"POT-Creation-Date: 2017-07-05 08:56+0000\n"
+"PO-Revision-Date: 2017-07-05 08:56+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,6 @@ msgstr "Poslovna zahteva"
 #. module: business_requirement_deliverable
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_search
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_tree
-#: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_tree_noedit
 #: field:business.requirement.resource,business_requirement_deliverable_id:0
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable
 msgid "Business Requirement Deliverable"
@@ -61,14 +60,12 @@ msgstr "Ocena poslovne zahteve"
 #: field:business.requirement.deliverable,resource_ids:0
 #: view:business.requirement.resource:business_requirement_deliverable.view_business_requirement_resource_search
 #: view:business.requirement.resource:business_requirement_deliverable.view_business_requirement_resource_tree
-#: view:business.requirement.resource:business_requirement_deliverable.view_business_requirement_resource_tree_noedit
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement_resource
 msgid "Business Requirement Resource"
 msgstr "Vir poslovne zahteve"
 
 #. module: business_requirement_deliverable
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form
-#: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form_noedit
 msgid "Business Requirement Task Type"
 msgstr "Tip opravila poslovne zahteve"
 
@@ -106,7 +103,6 @@ msgstr "Kupec"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,dl_count:0
-#: field:business.requirement,dl_count_noedit:0
 msgid "DL Count"
 msgstr "Števec dobavnih postavk"
 
@@ -308,7 +304,6 @@ msgstr "Količina"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,rl_count:0
-#: field:business.requirement,rl_count_noedit:0
 msgid "RL Count"
 msgstr "Števec postavk virov"
 
@@ -359,7 +354,6 @@ msgstr "Opis vira"
 #: code:addons/business_requirement_deliverable/models/business.py:351
 #: field:business.requirement,resource_lines:0
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form
-#: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form_noedit
 #, python-format
 msgid "Resource Lines"
 msgstr "Postavke virov"
@@ -393,6 +387,8 @@ msgstr "Zaporedje"
 
 #. module: business_requirement_deliverable
 #: view:business.requirement:business_requirement_deliverable.view_business_requirement_search
+#: field:business.requirement.deliverable,state:0
+#: field:business.requirement.resource,state:0
 msgid "State"
 msgstr "Stanje"
 
@@ -409,7 +405,6 @@ msgstr "Skupni prihodki"
 
 #. module: business_requirement_deliverable
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_tree
-#: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_tree_noedit
 msgid "Total price"
 msgstr "Skupna cena"
 
@@ -431,7 +426,7 @@ msgid "UoM"
 msgstr "EM"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:97
+#: code:addons/business_requirement_deliverable/models/business.py:99
 #, python-format
 msgid "When resource type is task, the uom category should be time"
 msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
