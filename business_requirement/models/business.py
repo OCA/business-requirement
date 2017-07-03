@@ -271,7 +271,7 @@ class BusinessRequirement(models.Model):
         for br in self:
             if br.ref:
                 formatted_name = u'[{}][{}] {}'.format(br.ref, br.name,
-                                                       br.name)
+                                                       br.description)
             else:
                 formatted_name = u'[{}] {}'.format(br.name, br.description)
             result.append((br.id, formatted_name))
