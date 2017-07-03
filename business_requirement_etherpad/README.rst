@@ -7,6 +7,7 @@
 Business Requirement Etherpad
 =============================
 
+"This module extends the functionality of the business requirements and introduces a field link to Etherpad in order for the team to keep internal notes about the BR"
 
 Configuration
 =============
@@ -145,10 +146,6 @@ Contributors
 ------------
 
 * Eric Caudal <eric.caudal@elico-corp.com>
-* Alex Duan <alex.duan@elico-corp.com>
-* Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
-* Victor M. Martin <victor.martin@elico-corp.com>
-* Evan Li <li.aiwen@elico-corp.com>
 
 Maintainer
 ----------
