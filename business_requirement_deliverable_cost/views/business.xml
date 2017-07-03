@@ -8,14 +8,14 @@
             <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
             <field name="arch" type="xml">
                 <xpath expr="//tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price"
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="price_total"
                            sum="Total Price"
                            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="sale_price_unit"
                            groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                    <field name="sale_price_total"
+                    <field name="sale_price_total"  attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                            sum="Total Sale"
                            groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </xpath>
@@ -68,12 +68,12 @@
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 </xpath>
                 <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
-                    <field name="unit_price"
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="price_total"
                            sum="Total Price"
                            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                    <field name="sale_price_unit"
+                    <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                            groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     <field name="sale_price_total"
                            sum="Total Sale"
@@ -151,14 +151,6 @@
             <field name="inherit_id"
                    ref="business_requirement_deliverable.view_business_requirement_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='rl_count_noedit']" position="after">
-                    <field name="rl_total_cost"
-                           class="oe_inline badge"
-                           nolabel="1"
-                           widget="statinfo"
-                           modifiers="{'readonly': true}"
-                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                </xpath>
                 <xpath expr="//field[@name='rl_count']" position="after">
                     <field name="rl_total_cost"
                            class="oe_inline badge"
