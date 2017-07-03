@@ -51,6 +51,7 @@
                             <field name="parent_id"/>
                             <field name="partner_id"/>
                             <field name="ref"/>
+                            <field name="origin"/>
                             <field name="category_ids" widget="many2many_tags"/>
                             <field name="change_request"/>
                             <field name="to_be_reviewed"/>
@@ -131,6 +132,7 @@
                     <field name="project_id" string="Project"/>
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
+                    <field name="origin" string="Source"/>
                     <filter string="To be Reviewed" name="to_be_reviewed" domain="[('to_be_reviewed','!=', False)]"/>
                     <group expand="0" string="Group By">
                         <filter string="Project" context="{'group_by':'project_id'}"/>
