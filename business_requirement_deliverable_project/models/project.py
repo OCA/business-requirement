@@ -61,7 +61,9 @@ class Project(models.Model):
 
     @api.multi
     def message_post(self, subtype=None, **kwargs):
-        kwargs.update({'body':('Project  %s  has been created') % (self.name)})
+        kwargs.update({
+            'body': ('Project  %s  has been created') % (self.name)
+        })
         return super(Project, self).message_post(subtype=subtype, **kwargs)
 
 
