@@ -59,13 +59,6 @@ class Project(models.Model):
         action = wizard.wizard_view()
         return action
 
-    @api.multi
-    def message_post(self, subtype=None, **kwargs):
-        kwargs.update({
-            'body': ('Project  %s  has been created') % (self.name)
-        })
-        return super(Project, self).message_post(subtype=subtype, **kwargs)
-
 
 class ProjectTask(models.Model):
     _inherit = "project.task"
