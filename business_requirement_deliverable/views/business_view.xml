@@ -36,26 +36,6 @@
             </field>
         </record>
 
-        <!-- Tree View Business Requirement Resource Line-->
-        <record id="view_business_requirement_resource_tree_noedit" model="ir.ui.view">
-            <field name="name">business.requirement.resource.tree.noedit</field>
-            <field name="model">business.requirement.resource</field>
-            <field name="arch" type="xml">
-                <tree string="Business Requirement Resource" edit="false" create="false" default_order="sequence">
-                    <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"
-                           attrs="{'readonly':[('business_requirement_deliverable_id', '!=', False)]}"/>
-                    <field name="business_requirement_deliverable_id" domain="[('business_requirement_id', '=', business_requirement_id)]"/>
-                    <field name="sequence" widget="handle"/>
-                    <field name="resource_type"/>
-                    <field name="product_id"/>
-                    <field name="name"/>
-                    <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                    <field name="qty"/>
-                    <field name="uom_id"/>
-                </tree>
-            </field>
-        </record>
-
         <!-- Action Business Requirement Resource Line-->
         <record model="ir.actions.act_window" id="action_requirement_resource_noedit">
             <field name="name">Requirement Resource</field>
@@ -70,76 +50,7 @@
             <field name="search_view_id" ref="view_business_requirement_resource_search"/>
         </record>
 
-        <!-- Action View Of Tree View Of Business Requirement Resource -->
-        <record id="action_requirement_resource_lines_noedit_tree" model="ir.actions.act_window.view">
-            <field name="view_mode">tree</field>
-            <field eval="0" name="sequence"/>
-            <field name="view_id" ref="view_business_requirement_resource_tree_noedit"/>
-            <field name="act_window_id" ref="action_requirement_resource_noedit"/>
-        </record>
-
-        <!-- Requirement Deliverable Line Noedit tree view-->
-        <record id="view_business_requirement_deliverable_tree_noedit" model="ir.ui.view">
-            <field name="name">business.requirement.deliverable.tree.noedit</field>
-            <field name="model">business.requirement.deliverable</field>
-            <field name="arch" type="xml">
-                <tree string="Business Requirement Deliverable" edit="false" create="false" default_order="sequence">
-                    <field name="business_requirement_id"/>
-                    <field name="sequence" widget="handle"/>
-                    <field name="name"/>
-                    <field name="product_id"/>
-                    <field name="uom_id"/>
-                    <field name="qty"/>
-                    <field name="sale_price_unit" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                    <field name="price_total" sum="Total price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                </tree>
-            </field>
-        </record>
-
         <!-- Requirement Deliverable Line Noedit form view-->
-        <record id="view_business_requirement_deliverable_form_noedit" model="ir.ui.view">
-            <field name="name">business.requirement.deliverable.form.noedit</field>
-            <field name="model">business.requirement.deliverable</field>
-            <field name="type">form</field>
-            <field name="priority">20</field>
-            <field name="arch" type="xml">
-                <form string="Business Requirement Task Type" edit="false" create="false">
-                    <group>
-                        <group>
-                            <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"/>
-                            <field name="product_id"/>
-                            <label for="qty"/>
-                            <div>
-                                <field name="qty"/>
-                                <field name="uom_id" class="oe_inline"/>
-                            </div>
-                            <field name="sale_price_unit" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                        </group>
-                    <group>
-                        <field name="name"/>
-                    </group>
-                    </group>
-                    <group string="Resource Lines">
-                        <field name="resource_ids"
-                        context="{'tree_view_ref':'business_requirement_deliverable.view_business_requirement_resource_tree',
-                        'default_business_requirement_id': business_requirement_id}"
-                        nolabel="1">
-                        <tree editable="1">
-                            <field name="resource_type"/>
-                            <field name="product_id"/>
-                            <field name="name"/>
-                            <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                            <field name="qty"/>
-                            <field name="uom_id"/>
-                            <field name="business_requirement_id" invisible="1"/>
-                        </tree>
-                        </field>
-                    </group>
-                </form>
-            </field>
-        </record>
 
         <record id="view_business_requirement_deliverable_search"
             model="ir.ui.view">
@@ -178,24 +89,6 @@
             <field name="search_view_id" ref="view_business_requirement_deliverable_search"/>
         </record>
 
-        <!-- Action View Of Tree View Of Requirement Deliverable Line -->
-
-        <record id="action_deliverable_lines_noedit_tree" model="ir.actions.act_window.view">
-            <field name="view_mode">tree</field>
-            <field eval="0" name="sequence"/>
-            <field name="view_id" ref="view_business_requirement_deliverable_tree_noedit"/>
-            <field name="act_window_id" ref="action_deliverable_lines_noedit"/>
-        </record>
-
-       <!-- Action View Of Form View Of Requirement Deliverable Line -->
-
-        <record id="action_deliverable_lines_noedit_form" model="ir.actions.act_window.view">
-            <field name="view_mode">form</field>
-            <field eval="0" name="sequence"/>
-            <field name="view_id" ref="view_business_requirement_deliverable_form_noedit"/>
-            <field name="act_window_id" ref="action_deliverable_lines_noedit"/>
-        </record>
-
         <record id="view_business_requirement_form" model="ir.ui.view">
             <field name="name">business.requirement.form</field>
             <field name="model">business.requirement</field>
@@ -203,27 +96,14 @@
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
                     <button class="oe_inline oe_stat_button"
-                        type="action" name="%(action_deliverable_lines_noedit)d" icon="fa-tasks" attrs="{'invisible':[('state','in',['draft','confirmed'])]}">
-                        <field name="dl_count_noedit" string="Deliverable"
-                            widget="statinfo"
-                            modifiers="{'readonly': true}"/>
-                        <field name="dl_total_revenue" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
-                    </button>
-                    <button class="oe_inline oe_stat_button"
-                        type="action" name="%(action_requirement_resource_noedit)d" icon="fa-tasks" attrs="{'invisible':[('state','in',['draft','confirmed'])]}">
-                        <field name="rl_count_noedit" string="Resource"
-                            widget="statinfo"
-                            modifiers="{'readonly': true}"/>
-                    </button>
-                    <button class="oe_inline oe_stat_button"
-                        type="object" name="open_deliverable_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
+                        type="object" name="open_deliverable_line" icon="fa-tasks" >
                         <field name="dl_count" string="Deliverable"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
                         <field name="dl_total_revenue" class="oe_inline badge" nolabel="1" widget="statinfo" modifiers="{'readonly': true}"/>
                     </button>
                     <button class="oe_inline oe_stat_button"
-                        type="object" name="open_resource_line" icon="fa-tasks" attrs="{'invisible':[('state','not in',['draft','confirmed'])]}">
+                        type="object" name="open_resource_line" icon="fa-tasks" >
                         <field name="rl_count" string="Resource"
                             widget="statinfo"
                             modifiers="{'readonly': true}"/>
@@ -270,15 +150,18 @@
             <field name="arch" type="xml">
                 <tree string="Business Requirement Resource" editable="bottom" default_order="sequence">
                     <field name="sequence" widget="handle"/>
+                    <field name="state" invisible="0"/>
                     <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"
                            attrs="{'readonly':[('business_requirement_deliverable_id', '!=', False)]}"/>
-                    <field name="business_requirement_deliverable_id" domain="[('business_requirement_id', '=', business_requirement_id)]"/>
-                    <field name="resource_type"/>
-                    <field name="product_id"/>
-                    <field name="name"/>
+                    <field name="business_requirement_deliverable_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           domain="[('business_requirement_id', '=', business_requirement_id)]"/>
+                    <field name="resource_type" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" />
+                    <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                    <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                     <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                    <field name="qty"/>
-                    <field name="uom_id"/>
+                    <field name="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                    <field name="uom_id"
+                           attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" />
                 </tree>
             </field>
         </record>
@@ -323,19 +206,24 @@
                 <form string="Business Requirement Task Type">
                     <group>
                         <group>
-                            <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]"/>
-                            <field name="product_id"/>
-                            <field name="name"/>
+                            <field name="state" invisible="1"/>
+                            <field name="business_requirement_id"
+                                   domain="[('state', 'in', ('draft', 'confirmed'))]" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                         </group>
                         <group>
-                            <label for="qty"/>
+                            <label for="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <div>
-                                <field name="qty"/>
-                                <field name="uom_id" class="oe_inline"/>
+                                <field name="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                                <field name="uom_id" class="oe_inline" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             </div>
-                            <field name="sale_price_unit" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"  />
+                            <field name="currency_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="price_total" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         </group>
                     </group>
                     <group string="Resource Lines">
@@ -343,14 +231,21 @@
                         context="{'tree_view_ref':'business_requirement_deliverable.view_business_requirement_resource_tree',
                         'default_business_requirement_id': business_requirement_id}"
                         nolabel="1">
-                        <tree editable="1">
-                            <field name="resource_type"/>
-                            <field name="product_id"/>
-                            <field name="name"/>
-                            <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                            <field name="qty"/>
-                            <field name="uom_id"/>
-                            <field name="business_requirement_id" invisible="1"/>
+                        <!--#RFC : define Tree view it's own record, rather
+                        than defining it inside a field for better extensibility-->
+                        <tree editable="1" >
+                            <field name="state" invisible="1"/>
+                            <field name="resource_type"
+                                   attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="user_id"
+                                   attrs="{'readonly':[('resource_type','=','procurement'),
+                                   ('state','not in',['draft', 'confirmed', 'stakeholder_approval', 'approved'])]}"/>
+                            <field name="qty" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="uom_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="business_requirement_id"
+                                   invisible="1" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                         </tree>
                         </field>
                     </group>

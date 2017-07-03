@@ -165,6 +165,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(dl_total_revenue, r.dl_total_revenue)
 
     def test_compute_get_currency(self):
+        self.br.partner_id = False
+        self.br._compute_get_currency()
         if not self.br.partner_id:
             self.br.deliverable_lines[0]._compute_get_currency()
         self.partner = self.env['res.partner'].create({
@@ -301,6 +303,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             line.write({'uom_id': self.uom_days.id})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
+
             self.assertEqual(line.sale_price_unit, self.sale_price_unit)
 
     def test_partner_id_change(self):
