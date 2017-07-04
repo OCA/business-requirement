@@ -137,8 +137,10 @@ class BrGenerateProjects(models.TransientModel):
         if self.for_childs:
             br_project = br_project or parent_project
             for child_br in br.business_requirement_ids:
-                self.generate_br_projects(
-                    br_project, child_br, project_ids, task_ids)
+                if child_br.state == 'stakeholder_approval' and \
+                        child_br.linked_project:
+                    self.generate_br_projects(br_project, child_br,
+                                              project_ids, task_ids)
 
     @api.multi
     def generate_deliverable_projects(
