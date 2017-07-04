@@ -157,6 +157,14 @@ class BusinessRequirementDeliverable(models.Model):
                     resource._set_sales_price()
                     resource._set_cost_price()
 
+    @api.multi
+    def action_button_update_total_revenue(self):
+        total_revenue = 0.0
+        if self.price_total != total_revenue:
+            for rl in self.resource_ids:
+                total_revenue += rl.sale_price_total
+            self.price_total = total_revenue
+
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
