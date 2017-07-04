@@ -9,6 +9,10 @@ Business Requirement Etherpad
 
 "This module extends the functionality of the business requirements and introduces a field link to Etherpad in order for the team to keep internal notes about the BR"
 
+.. figure:: ../business_requirement_etherpad/static/img/bus_etherpad.png
+   :width: 600 px
+   :alt: Business Requirement List view
+
 
 Bug Tracker
 ===========
