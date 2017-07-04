@@ -12,6 +12,7 @@
     'depends': [
         'product',
         'project',
+        'portal'
     ],
     'data': [
         'data/business_data.xml',
@@ -35,6 +36,7 @@
         'static/img/bus_req_tree.png',
         'static/img/bus_req_workflow.png'
     ],
+    'demo': ['data/business_requirement_demo.xml'],
     'license': 'AGPL-3',
     'installable': True,
 }
