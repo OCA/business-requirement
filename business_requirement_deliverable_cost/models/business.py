@@ -159,11 +159,8 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.multi
     def action_button_update_total_revenue(self):
-        total_revenue = 0.0
-        if self.price_total != total_revenue:
-            for rl in self.resource_ids:
-                total_revenue += rl.sale_price_total
-            self.price_total = total_revenue
+        self.sale_price_unit = sum(self.resource_ids.
+                                   mapped('sale_price_total'))
 
 
 class BusinessRequirement(models.Model):

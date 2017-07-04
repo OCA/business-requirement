@@ -60,13 +60,16 @@
                                 type="object" 
                                 groups="business_requirement_deliverable.group_business_requirement_estimation"
                                 class="oe_highlight"/>
+                        <button name="action_button_update_total_revenue"
+                                string="Update Total Revenue"
+                                type="object"
+                                class="oe_highlight"/>
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='price_total']" position="after">
                     <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                     <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                    <button name="action_button_update_total_revenue" string="Update Total Revenue" type="object" class="oe_highlight"/>
                 </xpath>
                 <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
                     <field name="unit_price"
