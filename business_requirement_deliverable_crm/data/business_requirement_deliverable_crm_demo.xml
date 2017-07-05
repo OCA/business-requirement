@@ -6,7 +6,7 @@
             <field name="type">opportunity</field>
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
-            <field name="project_id" ref="business_reqirement.project_3"/>
+            <field name="project_id" ref="business_requirement.project_3"/>
         </record>
 
         </data>

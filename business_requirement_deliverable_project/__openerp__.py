@@ -21,6 +21,7 @@
         'static/description/icon.png',
         'static/img/bus_req_project.png'
     ],
+    'demo': ['data/business_requirement_deliverable_project_demo.xml'],
     'license': 'AGPL-3',
     'installable': True,
 }
