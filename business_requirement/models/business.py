@@ -10,7 +10,7 @@ class BusinessRequirement(models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _name = "business.requirement"
     _description = "Business Requirement"
-    _order = 'id desc, name desc'
+    _order = 'name desc'
 
     @api.model
     def _get_default_company(self):
