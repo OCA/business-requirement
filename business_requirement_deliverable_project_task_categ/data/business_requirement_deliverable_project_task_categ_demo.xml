@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="project_category_main_1" model="project.category.main">
+            <field name="name">DESIGN</field>
+        </record>
+        <record id="project_category_main_2" model="project.category.main">
+            <field name="name">DEVELOPMENT</field>
+        </record>
+        <record id="project_category_main_3" model="project.category.main">
+            <field name="name">ANALYSIS</field>
+        </record>
+        <record id="project_category_main_4" model="project.category.main">
+            <field name="name">PM</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_1" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_1_4" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_1" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_2" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_3" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_1" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_3" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_1_1" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_2_1" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_2_2" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_5_1_1" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_5_2_1" model="business.requirement.resource">
+            <field name="categ_id"
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
+        </record>
+    </data>
+</openerp>
