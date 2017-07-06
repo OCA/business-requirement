@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
-
-        <record id="business_requirement_category_1" model="business.requirement.category">
+    <data noupdate="1">
+        <record id="business_requirement_category_1"
+                model="business.requirement.category">
             <field name="name">WEBSITE</field>
         </record>
-        <record id="business_requirement_category_2" model="business.requirement.category">
+        <record id="business_requirement_category_2"
+                model="business.requirement.category">
             <field name="name">ERP</field>
         </record>
-        <record id="business_requirement_category_3" model="business.requirement.category">
+        <record id="business_requirement_category_3"
+                model="business.requirement.category">
             <field name="name">DESIGN</field>
         </record>
-        <record id="business_requirement_category_4" model="business.requirement.category">
+        <record id="business_requirement_category_4"
+                model="business.requirement.category">
             <field name="name">INFRA</field>
         </record>
-
         <record id="project_1" model="project.project">
             <field name="name">Corporate Website</field>
             <field name="partner_id" ref="base.res_partner_2"/>
@@ -27,20 +29,6 @@
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
-
-        <record id="project_category_1" model="project.category">
-            <field name="name">DESIGN</field>
-        </record>
-        <record id="project_category_2" model="project.category">
-            <field name="name">DEVELOPMENT</field>
-        </record>
-        <record id="project_category_3" model="project.category">
-            <field name="name">ANALYSIS</field>
-        </record>
-        <record id="project_category_4" model="project.category">
-            <field name="name">PM</field>
-        </record>
-
         <record id="product_template_1" model="product.template">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
@@ -93,16 +81,14 @@
             <field name="standard_price">4000.0</field>
             <field name="list_price">1500.0</field>
         </record>
-
         <record id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
             <field name="responsible_id" ref="base.user_root"/>
             <field name="priority">2</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_1'),
-                    ref('business_requirement_category_3')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('base.user_demo')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('base.user_demo')])]"/>
             <field name="to_be_reviewed" eval="1"/>
             <field name="state">confirmed</field>
             <field name="partner_id" ref="base.res_partner_2"/>
@@ -127,23 +113,23 @@
             ]]></field>
             <field name="scenario"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
 
@@ -151,23 +137,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="gap"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
             ]]></field>
@@ -185,29 +171,27 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-
         <record id="business_requirement_2_1" model="business.requirement">
             <field name="description">ERP Implementation</field>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_2')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('portal.demo_user0')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
         </record>
-
         <record id="business_requirement_2_2" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">ERP Setup</field>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_2')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('portal.demo_user0')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">approved</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -232,23 +216,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="scenario"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
 
@@ -256,23 +240,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="gap"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
             ]]></field>
@@ -290,17 +274,15 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-
         <record id="business_requirement_3" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">Server Set up</field>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">2</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_2'),
-                    ref('business_requirement_category_4')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('portal.demo_user0')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_2'),                     ref('business_requirement_category_4')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -325,23 +307,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="scenario"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
 
@@ -349,23 +331,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="gap"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
             ]]></field>
@@ -383,16 +365,15 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-
         <record id="business_requirement_4" model="business.requirement">
             <field name="description">Business Analysis</field>
             <field name="project_id" ref="project_3"/>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_2')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('base.user_demo')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('base.user_demo')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">in_progress</field>
             <field name="partner_id" ref="base.res_partner_12"/>
@@ -417,23 +398,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="scenario"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
 
@@ -441,23 +422,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="gap"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
             ]]></field>
@@ -475,16 +456,15 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-
         <record id="business_requirement_5" model="business.requirement">
             <field name="description">Gap Analysis</field>
             <field name="project_id" ref="project_2"/>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
-            <field name="category_ids" eval="[(6, 0, [
-                    ref('business_requirement_category_2')])]"/>
-            <field name="reviewer_ids" eval="[(6, 0, [
-                    ref('portal.demo_user0')])]"/>
+            <field name="category_ids"
+                   eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
+            <field name="reviewer_ids"
+                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">confirmed</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -509,23 +489,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="scenario"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
 
@@ -533,23 +513,23 @@ pulvinar et, cursus sed purus.
             ]]></field>
             <field name="gap"><![CDATA[
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor 
-ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec 
-at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim 
-imperdiet. Donec eget sem quis felis ultrices congue id et magna. 
-Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque. 
-Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit 
-magna, in iaculis magna felis fermentum velit. Cras consectetur ante 
-auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque 
-pellentesque posuere. Aenean ut risus gravida, suscipit urna a, 
-convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
 dictum mollis.
 </p>
 <p>
-Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem. 
-Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum. 
-Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam, 
-auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac 
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
             ]]></field>
@@ -567,6 +547,5 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-
     </data>
 </openerp>
