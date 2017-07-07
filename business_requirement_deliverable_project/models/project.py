@@ -41,8 +41,7 @@ class Project(models.Model):
                     if generated:
                         continue
                     lines.append(line.id)
-
-        if not lines:
+        if not lines and not br.linked_project:
             raise ValidationError(
                 _("""There is no available business requirement resource line
                     to generate task"""))

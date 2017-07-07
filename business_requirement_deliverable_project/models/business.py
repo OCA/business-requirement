@@ -44,6 +44,24 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
 
+    all_project_generated = fields.Boolean(compute='compute_project_generate',
+                                           string='All Project Generated')
+
+    @api.depends('business_requirement_ids',
+                 'business_requirement_ids.linked_project')
+    def compute_project_generate(self):
+        for rec in self:
+            if rec.business_requirement_ids:
+                if all(line.linked_project for line in
+                       rec.business_requirement_ids):
+                    rec.all_project_generated = True
+                else:
+                    rec.all_project_generated = False
+            elif rec.linked_project:
+                rec.all_project_generated = True
+            else:
+                rec.all_project_generated = False
+
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
                    limit=None, orderby=False, lazy=True):
