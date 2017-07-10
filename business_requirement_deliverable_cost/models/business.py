@@ -183,6 +183,11 @@ class BusinessRequirementDeliverable(models.Model):
                     resource._set_sales_price()
                     resource._set_cost_price()
 
+    @api.multi
+    def action_button_update_total_revenue(self):
+        self.sale_price_unit = sum(self.resource_ids.
+                                   mapped('sale_price_total'))
+
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"

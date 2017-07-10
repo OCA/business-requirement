@@ -60,6 +60,10 @@
                                 type="object" 
                                 groups="business_requirement_deliverable.group_business_requirement_estimation"
                                 class="oe_highlight"/>
+                        <button name="action_button_update_total_revenue"
+                                string="Update Total Revenue"
+                                type="object"
+                                class="oe_highlight"/>
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='price_total']" position="after">
