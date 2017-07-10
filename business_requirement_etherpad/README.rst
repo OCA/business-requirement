@@ -7,11 +7,19 @@
 Business Requirement Etherpad
 =============================
 
-"This module extends the functionality of the business requirements and introduces a field link to Etherpad in order for the team to keep internal notes about the BR"
+This module extends the functionality of the business requirements and introduces a field link to Etherpad in order for the team to keep internal notes about the BR
 
 .. figure:: ../business_requirement_etherpad/static/img/bus_etherpad.png
    :width: 600 px
    :alt: Business Requirement List view
+
+
+Usage
+=====
+
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/222/8.0
 
 
 Bug Tracker
