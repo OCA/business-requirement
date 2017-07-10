@@ -40,7 +40,7 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)]}
     )
     ref = fields.Char(
-        'Reference',
+        'WBS',
         required=False,
         readonly=True,
         copy=False,
@@ -204,6 +204,7 @@ class BusinessRequirement(models.Model):
                                     track_visibility='onchange',
                                     required=False,
                                     copy=False, default='normal')
+    origin = fields.Text(string='Source')
 
     @api.multi
     @api.onchange('project_id')
@@ -269,7 +270,8 @@ class BusinessRequirement(models.Model):
         result = []
         for br in self:
             if br.ref:
-                formatted_name = u'[{}] {}'.format(br.ref, br.description)
+                formatted_name = u'[{}][{}] {}'.format(br.ref, br.name,
+                                                       br.description)
             else:
                 formatted_name = u'[{}] {}'.format(br.name, br.description)
             result.append((br.id, formatted_name))
