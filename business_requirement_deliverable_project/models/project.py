@@ -25,7 +25,6 @@ class Project(models.Model):
 
     @api.multi
     def open_linked_br_dl(self):
-
         for rec in self:
             domain = [('linked_project', '=', rec.id)]
             return_val = {
@@ -35,8 +34,6 @@ class Project(models.Model):
                 'target': 'current',
                 'domain': domain
             }
-            print "rec.business_requirement_deliverable_id",rec.business_requirement_deliverable_id
-            print "business_requirement_id",rec.business_requirement_id
             if rec.business_requirement_deliverable_id:
                 return_val.update({
                     'res_model': 'business.requirement.deliverable'
@@ -110,4 +107,3 @@ class ProjectTask(models.Model):
         string='Business Requirement Resource',
         ondelete='set null'
     )
-
