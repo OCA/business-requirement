@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 08:12+0000\n"
-"PO-Revision-Date: 2017-06-09 08:12+0000\n"
+"POT-Creation-Date: 2017-07-05 08:56+0000\n"
+"PO-Revision-Date: 2017-07-05 08:56+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -215,13 +215,13 @@ msgid "True"
 msgstr "True"
 
 #. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:104
+#: code:addons/business_requirement_deliverable_project/models/business.py:103
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
 
 #. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:110
+#: code:addons/business_requirement_deliverable_project/models/business.py:109
 #, python-format
 msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
 msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."

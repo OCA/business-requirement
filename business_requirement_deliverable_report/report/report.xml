@@ -8,9 +8,7 @@
         string="Business Requirement Report"
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_report"
-        file="business_requirement_deliverable_report.br_report"
-        attachment_use="True"
-        attachment="('BR-'+(object.name+object.description)+'.pdf')"
+        file="business_requirement_deliverable_report.br_report"        
     />
 
    <report
@@ -20,8 +18,6 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_report"
         file="business_requirement_deliverable_report.br_deliverable_report"
-        attachment_use="True"
-        attachment="('BRD-'+(object.name)+'.pdf')"
     />
 
     <report
@@ -31,8 +27,15 @@
         report_type="qweb-pdf"
         name="business_requirement_deliverable_report.br_deliverable_resource_report" 
         file="business_requirement_deliverable_report.br_deliverable_resource_report"
-        attachment_use="True"
-        attachment="('BRDR-'+(object.name)+'.pdf')"
+    />
+
+    <report
+        id="business_requirement_other_resources_report"
+        model="business.requirement" 
+        string="Business Requirement Deliverable Other Resources Report"
+        report_type="qweb-pdf"
+        name="business_requirement_deliverable_report.br_deliverable_other_resources_report" 
+        file="business_requirement_deliverable_report.br_deliverable_other_resources_report"
     />
 
     <record id="business_requirement_report" model="ir.actions.report.xml">
@@ -50,5 +53,11 @@
             <field name="paperformat_id"
                    ref="business_requirement_deliverable_report.br_report_paperformat_eu"/>
     </record>
+
+     <record id="business_requirement_other_resources_report" model="ir.actions.report.xml">
+            <field name="paperformat_id"
+                   ref="business_requirement_deliverable_report.br_report_paperformat_eu"/>
+    </record>
+
 </data>
 </openerp>

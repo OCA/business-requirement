@@ -12,6 +12,19 @@ class BusinessRequirementResource(models.Model):
     _description = "Business Requirement Resource"
 
     sequence = fields.Integer('Sequence')
+    state = fields.Selection(
+        related='business_requirement_id.state',
+        selection=[('draft', 'Draft'),
+                   ('confirmed', 'Confirmed'),
+                   ('approved', 'Approved'),
+                   ('stakeholder_approval', 'Stakeholder Approval'),
+                   ('in_progress', 'In progress'),
+                   ('done', 'Done'),
+                   ('cancel', 'Cancel'),
+                   ('drop', 'Drop'),
+                   ],
+        store=True,
+    )
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
@@ -66,6 +79,8 @@ class BusinessRequirementResource(models.Model):
         string='Business Requirement',
         store=True
     )
+    state = fields.Selection(related='business_requirement_id.state',
+                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('product_id')
@@ -110,6 +125,19 @@ class BusinessRequirementDeliverable(models.Model):
     _description = "Business Requirement Deliverable"
 
     sequence = fields.Integer('Sequence')
+    state = fields.Selection(
+        related='business_requirement_id.state',
+        selection=[('draft', 'Draft'),
+                   ('confirmed', 'Confirmed'),
+                   ('approved', 'Approved'),
+                   ('stakeholder_approval', 'Stakeholder Approval'),
+                   ('in_progress', 'In progress'),
+                   ('done', 'Done'),
+                   ('cancel', 'Cancel'),
+                   ('drop', 'Drop'),
+                   ],
+        store=True,
+    )
     name = fields.Text('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
@@ -166,6 +194,8 @@ class BusinessRequirementDeliverable(models.Model):
         string='Business Requirement',
         store=True
     )
+    state = fields.Selection(related='business_requirement_id.state',
+                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('business_requirement_id')
@@ -295,8 +325,6 @@ class BusinessRequirement(models.Model):
                                     compute='_compute_dl_total_revenue')
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
-    dl_count_noedit = fields.Integer('DL Count', compute='_compute_dl_count')
-    rl_count_noedit = fields.Integer('RL Count', compute='_compute_rl_count')
 
     @api.multi
     def _compute_dl_total_revenue(self):
@@ -308,13 +336,11 @@ class BusinessRequirement(models.Model):
     def _compute_dl_count(self):
         for r in self:
             r.dl_count = len(r.deliverable_lines.ids)
-            r.dl_count_noedit = len(r.deliverable_lines.ids)
 
     @api.multi
     def _compute_rl_count(self):
         for r in self:
             r.rl_count = len(r.resource_lines.ids)
-            r.rl_count_noedit = len(r.resource_lines.ids)
 
     @api.multi
     def open_deliverable_line(self):

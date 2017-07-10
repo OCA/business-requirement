@@ -263,3 +263,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             rl_total_cost = sum(rl.price_total for rl in
                                 deliverable.resource_ids)
             self.assertEqual(rl_total_cost, self.br.rl_total_cost)
+
+    def test_action_button_update_total_revenue(self):
+        self.br.deliverable_lines[0].action_button_update_total_revenue()

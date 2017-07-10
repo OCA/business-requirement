@@ -7,7 +7,6 @@ from openerp.exceptions import Warning as UserError
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
-    _order = "priority desc, sequence"
 
     @api.multi
     def generate_projects_wizard(self):
