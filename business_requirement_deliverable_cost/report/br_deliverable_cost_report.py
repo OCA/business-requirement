@@ -67,7 +67,8 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 br.state,
                 dlv.product_id as dlv_product,
                 dlv.name as dlv_description,
-                res.product_id as res_product,
+                (select business_requirement_deliverable_id from
+                business_requirement_resource where id=dlv.id) as res_product,
                 res.name as res_description,
                 count(distinct br.id) as br_count,
                 count(distinct dlv.id) as dlv_count,
