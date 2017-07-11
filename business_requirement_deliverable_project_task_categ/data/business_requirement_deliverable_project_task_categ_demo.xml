@@ -2,16 +2,16 @@
 <openerp>
     <data noupdate="1">
         <record id="project_category_main_1" model="project.category.main">
-            <field name="name">DESIGN</field>
+            <field name="name">Design</field>
         </record>
         <record id="project_category_main_2" model="project.category.main">
-            <field name="name">DEVELOPMENT</field>
+            <field name="name">Development</field>
         </record>
         <record id="project_category_main_3" model="project.category.main">
-            <field name="name">ANALYSIS</field>
+            <field name="name">Analysis</field>
         </record>
         <record id="project_category_main_4" model="project.category.main">
-            <field name="name">PM</field>
+            <field name="name">Pm</field>
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
             <field name="categ_id"

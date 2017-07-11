@@ -3,7 +3,7 @@
     <data noupdate="1">
         <record id="business_requirement_category_1"
                 model="business.requirement.category">
-            <field name="name">WEBSITE</field>
+            <field name="name">Website</field>
         </record>
         <record id="business_requirement_category_2"
                 model="business.requirement.category">
@@ -11,11 +11,11 @@
         </record>
         <record id="business_requirement_category_3"
                 model="business.requirement.category">
-            <field name="name">DESIGN</field>
+            <field name="name">Design</field>
         </record>
         <record id="business_requirement_category_4"
                 model="business.requirement.category">
-            <field name="name">INFRA</field>
+            <field name="name">Infra</field>
         </record>
         <record id="project_1" model="project.project">
             <field name="name">Corporate Website</field>
@@ -29,7 +29,7 @@
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
-        <record id="product_template_1" model="product.template">
+        <record id="product_product_1" model="product.product">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -38,7 +38,7 @@
             <field name="standard_price">25.0</field>
             <field name="list_price">35.0</field>
         </record>
-        <record id="product_template_2" model="product.template">
+        <record id="product_product_2" model="product.product">
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -47,7 +47,7 @@
             <field name="standard_price">35.0</field>
             <field name="list_price">60.0</field>
         </record>
-        <record id="product_template_3" model="product.template">
+        <record id="product_product_3" model="product.product">
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -56,8 +56,8 @@
             <field name="standard_price">30.0</field>
             <field name="list_price">50.0</field>
         </record>
-        <record id="product_template_4" model="product.template">
-            <field name="name">Website Template</field>
+        <record id="product_product_4" model="product.product">
+            <field name="name">Website product</field>
             <field name="default_code">WEB01</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="uom_po_id" ref="product.product_uom_unit"/>
@@ -65,7 +65,7 @@
             <field name="standard_price">100.0</field>
             <field name="list_price">150.0</field>
         </record>
-        <record id="product_template_5" model="product.template">
+        <record id="product_product_5" model="product.product">
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -74,7 +74,7 @@
             <field name="standard_price">3500.0</field>
             <field name="list_price">5200.0</field>
         </record>
-        <record id="product_template_6" model="product.template">
+        <record id="product_product_6" model="product.product">
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
@@ -178,7 +178,7 @@ pulvinar et, cursus sed purus.
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
             <field name="reviewer_ids"
-                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
+                   eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -191,7 +191,7 @@ pulvinar et, cursus sed purus.
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
             <field name="reviewer_ids"
-                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
+                   eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">approved</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -282,7 +282,7 @@ pulvinar et, cursus sed purus.
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2'),                     ref('business_requirement_category_4')])]"/>
             <field name="reviewer_ids"
-                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
+                   eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
@@ -464,7 +464,7 @@ pulvinar et, cursus sed purus.
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
             <field name="reviewer_ids"
-                   eval="[(6, 0, [ref('portal.demo_user0')])]"/>
+                   eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">confirmed</field>
             <field name="partner_id" ref="base.main_partner"/>

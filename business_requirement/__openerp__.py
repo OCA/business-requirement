@@ -12,7 +12,6 @@
     'depends': [
         'product',
         'project',
-        'portal'
     ],
     'data': [
         'data/business_data.xml',

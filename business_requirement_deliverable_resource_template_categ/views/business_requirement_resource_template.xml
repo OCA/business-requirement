@@ -7,7 +7,7 @@
             <field name="inherit_id"
                    ref="business_requirement_deliverable_resource_template.product_template_only_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='resource_lines']/tree[@editable='top']/field[@name='name']"
+                <xpath expr="//field[@name='resource_template_lines']/tree[@editable='top']/field[@name='name']"
                        position="after">
                     <field name="categ_id"/>
                 </xpath>
