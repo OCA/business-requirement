@@ -79,8 +79,11 @@
                     <button name="open_linked_projects"
                             class="oe_stat_button"
                             type="object"
-                            string="Linked Project"
-                            icon="fa-tasks"/>
+                            icon="fa-tasks">
+                    <field string="Linked Project"
+                           name="linked_project_count"
+                           widget="statinfo"/>
+                    </button>
                 </xpath>
 
                 <xpath expr="//field[@name='priority']"

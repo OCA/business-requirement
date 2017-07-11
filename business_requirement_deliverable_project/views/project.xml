@@ -12,9 +12,6 @@
                             type="object"
                             name="open_linked_br_dl"
                             icon="fa-tasks">
-                        <field name="br_count"
-                               string="Business Req."
-                               widget="statinfo"/>
                     </button>
                 </xpath>
             </field>

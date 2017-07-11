@@ -43,6 +43,20 @@ class BusinessRequirement(models.Model):
         string='Total Planned Hour in RL related to business requirement',
         compute='_compute_planned_hour'
     )
+    linked_project_count = fields.Integer(
+        compute='_compute_linked_project_count',
+        string="Number of Business Requirements"
+    )
+
+    @api.depends('linked_project', 'deliverable_lines')
+    def _compute_linked_project_count(self):
+        for rec in self:
+            domain = ['|',
+                      ('business_requirement_id', '=', rec.id),
+                      ('business_requirement_deliverable_id', 'in',
+                       rec.deliverable_lines.ids)]
+            rec.linked_project_count = self.env['project.project'].\
+                search_count(domain)
 
     @api.multi
     def open_linked_projects(self):

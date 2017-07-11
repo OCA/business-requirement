@@ -14,12 +14,3 @@ class Project(models.Model):
         string='Business Requirements',
         copy=False,
     )
-    br_count = fields.Integer(
-        compute='_compute_br_count',
-        string="Number of Business Requirements"
-    )
-
-    @api.one
-    @api.depends('br_ids')
-    def _compute_br_count(self):
-        self.br_count = len(self.br_ids)
