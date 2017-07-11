@@ -76,7 +76,7 @@
                                name="task_count"
                                widget="statinfo"/>
                     </button>
-                    <button name="open_linked_projects"
+                    <button name="action_open_linked_br_dl"
                             class="oe_stat_button"
                             type="object"
                             icon="fa-tasks">

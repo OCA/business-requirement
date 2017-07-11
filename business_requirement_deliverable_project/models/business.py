@@ -59,7 +59,7 @@ class BusinessRequirement(models.Model):
                 search_count(domain)
 
     @api.multi
-    def open_linked_projects(self):
+    def action_open_linked_br_dl(self):
         for rec in self:
             domain = ['|',
                       ('business_requirement_id', '=', rec.id),

@@ -10,7 +10,7 @@
                        position="inside">
                     <button class="oe_inline oe_stat_button"
                             type="object"
-                            name="open_linked_br_dl"
+                            name="action_open_linked_br_dl"
                             icon="fa-tasks">
                     </button>
                 </xpath>

@@ -24,7 +24,7 @@ class Project(models.Model):
     )
 
     @api.multi
-    def open_linked_br_dl(self):
+    def action_open_linked_br_dl(self):
         for rec in self:
             domain = [('linked_project', '=', rec.id)]
             return_val = {
