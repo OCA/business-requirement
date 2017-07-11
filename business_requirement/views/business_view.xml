@@ -46,17 +46,15 @@
                         </h1>
                         <group col="4">
                             <field name="responsible_id" required="1"/>
-                            <field name="requested_id"/>
                             <field name="project_id"/>
-                            <field name="parent_id"/>
                             <field name="partner_id"/>
                             <field name="ref"/>
+                            <field name="origin"/>
                             <field name="category_ids" widget="many2many_tags"/>
-                            <field name="change_request"/>
+
                             <field name="to_be_reviewed"/>
                             <field name="reviewer_ids" widget="many2many_tags"/>
                             <field name="priority" groups="base.group_user" widget="priority"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         
                         <notebook>
@@ -89,6 +87,16 @@
                                 <group col="12">
                                     <field name="approved_id"/>
                                     <field name="approval_date"/>
+                                </group>
+                            </page>
+                            <page string="Other">
+                                <group col="12">
+                                    <field name="parent_id"/>
+                                    <field name="requested_id"/>
+                                </group>
+                                <group col="12">
+                                    <field name="change_request"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
                                 </group>
                             </page>
                         </notebook>
@@ -131,6 +139,7 @@
                     <field name="project_id" string="Project"/>
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
+                    <field name="origin" string="Source"/>
                     <filter string="To be Reviewed" name="to_be_reviewed" domain="[('to_be_reviewed','!=', False)]"/>
                     <group expand="0" string="Group By">
                         <filter string="Project" context="{'group_by':'project_id'}"/>

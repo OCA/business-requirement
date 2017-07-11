@@ -19,6 +19,7 @@
         'views/report_business_requirement.xml',
         'views/report_business_requirement_deliverable.xml',
         'views/report_business_requirement_deliverable_resource.xml',
+        'views/report_business_requirement_other_resources_report.xml',
         'report/report.xml'
     ],
     'image': [

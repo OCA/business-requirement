@@ -114,6 +114,8 @@ class BrGenerateProjects(models.TransientModel):
                 br_project_val = self._prepare_project_vals(
                     br, parent_project)
                 br_project = project_obj.create(br_project_val)
+                msg = ('Project  %s  has been created') % (br_project.name)
+                br.message_post(body=msg)
                 br.linked_project = br_project.id
                 project_ids.append(br_project.id)
             else:
