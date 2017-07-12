@@ -124,7 +124,7 @@ class BusinessRequirement(models.Model):
     )
     partner_id = fields.Many2one(
         comodel_name='res.partner',
-        string='Customer',
+        string='Stakeholder',
         store=True,
         copy=False,
         readonly=True,
