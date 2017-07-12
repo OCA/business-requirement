@@ -21,26 +21,9 @@ class BusinessRequirementDeliverable(models.Model):
             self.resource_ids = self._prepare_resource_lines()
 
 
-class ProductTemplate(models.Model):
-    _inherit = "product.template"
-
-    resource_lines = fields.One2many(
-        comodel_name='business.requirement.resource',
-        inverse_name='product_template_id',
-        string='Business Requirement Resources',
-        copy=True,
-    )
-
-
 class BusinessRequirementResource(models.Model):
     _inherit = "business.requirement.resource"
 
-    product_template_id = fields.Many2one(
-        comodel_name='product.template',
-        string='Product',
-        ondelete='set null',
-        copy=False
-    )
     business_requirement_deliverable_id = fields.Many2one(
         comodel_name='business.requirement.deliverable',
         copy=False

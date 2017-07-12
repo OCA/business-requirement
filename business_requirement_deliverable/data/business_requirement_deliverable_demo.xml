@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="1">
+    <data noupdate="0">
         <record id="business_requirement_deliverable_1"
                 model="business.requirement.deliverable">
             <field name="business_requirement_id"
@@ -8,7 +8,8 @@
             <field name="qty">1.0</field>
             <field name="sale_price_unit">5200.0</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
-            <field name="name">Use Website Design Product</field>
+            <field name="product_id" ref="business_requirement.product_product_5"/>
+            <field name="name">Website Design</field>
         </record>
         <record id="business_requirement_resource_1_1"
                 model="business.requirement.resource">
@@ -16,7 +17,7 @@
                    ref="business_requirement_deliverable_1"/>
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_1"/>
-            <field name="product_id" ref="product.product_product_8"/>
+            <field name="product_id" ref="business_requirement.product_product_5"/>
             <field name="qty">1.0</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="resource_type">procurement</field>
@@ -70,6 +71,8 @@
             <field name="qty">1.0</field>
             <field name="sale_price_unit">4000.0</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
             <field name="name">Use Odoo Quick Start</field>
         </record>
         <record id="business_requirement_resource_2_1"
@@ -249,7 +252,6 @@
             <field name="resource_type">task</field>
             <field name="name">Prototype</field>
             <field name="user_id" ref="base.user_demo"/>
-            <field name="sale_price_unit">35.0</field>
         </record>
     </data>
 </openerp>

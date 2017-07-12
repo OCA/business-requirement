@@ -11,7 +11,7 @@
             <field name="name">Analysis</field>
         </record>
         <record id="project_category_main_4" model="project.category.main">
-            <field name="name">Pm</field>
+            <field name="name">PM</field>
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
             <field name="categ_id"

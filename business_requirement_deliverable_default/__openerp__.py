@@ -17,9 +17,6 @@
         'static/img/bus_req_default.png',
         'static/img/bus_req_default2.png'
     ],
-    'data': [
-        "views/business_requirement_deliverable_default.xml",
-    ],
     'license': 'AGPL-3',
     'installable': True,
 }
