@@ -41,7 +41,16 @@ class Project(models.Model):
                     if generated:
                         continue
                     lines.append(line.id)
-
+            for resource_line in br.resource_lines:
+                if resource_line.resource_type != 'task':
+                    continue
+                generated = self.env['project.task'].search(
+                    [('br_resource_id', '=', resource_line.id)],
+                    limit=1)
+                if generated:
+                    continue
+                lines.append(resource_line.id)
+        lines = list(set(lines))
         if not lines:
             raise ValidationError(
                 _("""There is no available business requirement resource line
