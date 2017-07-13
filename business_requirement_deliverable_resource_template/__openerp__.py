@@ -21,6 +21,9 @@
         "security/ir.model.access.csv",
         "views/business_requirement_deliverable_default.xml",
     ],
+    'demo': [
+        'data/business_requirement_deliverable_resource_template_data.xml'
+    ],
     'license': 'AGPL-3',
     'installable': True,
 }

@@ -7,7 +7,7 @@ from openerp import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    resource_template_lines = fields.One2many(
+    resource_lines = fields.One2many(
         comodel_name='business.requirement.resource.template',
         inverse_name='product_template_id',
         string='Business Requirement Resources',

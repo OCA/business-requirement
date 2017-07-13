@@ -97,7 +97,6 @@ class BusinessRequirementResource(models.Model):
             self.name = description
         self.uom_id = uom_id
 
-
     @api.onchange('resource_type')
     def resource_type_change(self):
         if self.resource_type == 'procurement':
