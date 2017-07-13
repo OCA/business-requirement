@@ -17,6 +17,7 @@
     'data': [
         'wizard/br_from_issue_view.xml',
         'views/project_issue.xml',
+        'views/business_requirement.xml',
     ],
     'image': [
         'static/description/icon.png'
