@@ -281,15 +281,15 @@ class BusinessRequirement(models.Model):
         Search BR based on Name or Description
         """
         # Make a search with default criteria
-        names1 = super(BusinessRequirement, self).name_search(
+        names = super(BusinessRequirement, self).name_search(
             name=name, args=args, operator=operator, limit=limit)
         # Make the other search
-        names2 = []
+        descriptions = []
         if name:
             domain = [('description', '=ilike', name + '%')]
-            names2 = self.search(domain, limit=limit).name_get()
+            descriptions = self.search(domain, limit=limit).name_get()
         # Merge both results
-        return list(set(names1) | set(names2))[:limit]
+        return list(set(names) | set(descriptions))[:limit]
 
     @api.multi
     def action_button_confirm(self):
