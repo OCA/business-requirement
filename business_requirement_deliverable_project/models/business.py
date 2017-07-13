@@ -44,12 +44,14 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
 
-    all_project_generated = fields.Boolean(compute='compute_project_generate',
-                                           string='All Project Generated')
+    all_project_generated = fields.Boolean(
+        compute='compute_all_project_generated',
+        string='All Project Generated'
+    )
 
     @api.depends('business_requirement_ids',
                  'business_requirement_ids.linked_project')
-    def compute_project_generate(self):
+    def compute_all_project_generated(self):
         for rec in self:
             if rec.business_requirement_ids:
                 if all(line.linked_project for line in
