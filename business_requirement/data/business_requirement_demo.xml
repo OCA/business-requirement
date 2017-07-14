@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
+    <data noupdate="1">
         <record id="business_requirement_category_1"
                 model="business.requirement.category">
             <field name="name">Website</field>
