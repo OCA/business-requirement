@@ -277,6 +277,22 @@ class BusinessRequirement(models.Model):
             result.append((br.id, formatted_name))
         return result
 
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        """
+        Search BR based on Name or Description
+        """
+        # Make a search with default criteria
+        names = super(BusinessRequirement, self).name_search(
+            name=name, args=args, operator=operator, limit=limit)
+        # Make the other search
+        descriptions = []
+        if name:
+            domain = [('description', '=ilike', name + '%')]
+            descriptions = self.search(domain, limit=limit).name_get()
+        # Merge both results
+        return list(set(names) | set(descriptions))[:limit]
+
     @api.multi
     def action_button_confirm(self):
         self.write({'state': 'confirmed'})
