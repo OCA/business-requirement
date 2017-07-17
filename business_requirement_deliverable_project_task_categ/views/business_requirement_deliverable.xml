@@ -40,7 +40,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='resource_ids']/tree[1]/field[@name='name']"
                        position="after">
-                    <field name="categ_id"/>
+                    <field name="categ_id" attrs="{'readonly': [('resource_type', '=', 'procurement')]}"/>
                 </xpath>
             </field>
         </record>
