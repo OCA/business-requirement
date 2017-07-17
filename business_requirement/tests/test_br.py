@@ -82,3 +82,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
         br = self.br.create(br_vals)
         br.action_button_done()
         self.assertEqual(br.state, 'done')
+
+    def test_br_name_search(self):
+        br_vals = {
+            'name': ' test',
+            'description': 'test',
+            'parent_id': False,
+        }
+        self.br.create(br_vals)
+        brs = self.br.name_search(name='test')
+        self.assertEqual(bool(brs), True)
