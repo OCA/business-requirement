@@ -67,8 +67,8 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 br.state,
                 dlv.product_id as dlv_product,
                 dlv.name as dlv_description,
-                (select business_requirement_deliverable_id from
-                business_requirement_resource where id=dlv.id) as res_product,
+                (select count(business_requirement_id)
+                from business_requirement_resource) as res_product,
                 res.name as res_description,
                 count(distinct br.id) as br_count,
                 count(distinct dlv.id) as dlv_count,
@@ -90,7 +90,7 @@ class BusinessRequirementDeliverableCostReport(models.Model):
             FULL OUTER JOIN business_requirement_deliverable dlv
                 ON br.id = dlv.business_requirement_id
             FULL OUTER JOIN business_requirement_resource res
-                ON res.business_requirement_deliverable_id = dlv.id
+                ON res.business_requirement_id = br.id
         """
         return from_str
 
