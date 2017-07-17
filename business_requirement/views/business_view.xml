@@ -134,8 +134,7 @@
             <field name="model">business.requirement</field>
             <field name="arch" type="xml">
                 <search string="Business Requirement">
-                    <field name="name" string="Name"/>
-                    <field name="description" string="Description"/>
+                    <field name="name" string="Name" filter_domain="['|',('name','ilike',self),('description','ilike',self)]"/>
                     <field name="project_id" string="Project"/>
                     <field name="partner_id" string="Customer"/>
                     <field name="responsible_id" string="Responsible"/>
