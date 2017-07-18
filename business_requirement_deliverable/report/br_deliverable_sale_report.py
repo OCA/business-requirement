@@ -73,6 +73,11 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
                 dlv.qty as dlv_qty,
                 dlv.sale_price_unit as sale_price,
                 (dlv.sale_price_unit * dlv.qty) as total_revenue
+        """
+        return select_str
+    
+    def _from(self):
+        from_str = """
             FROM
             business_requirement br,
             business_requirement_deliverable dlv,
@@ -80,7 +85,7 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
             where br.id = dlv.business_requirement_id and
                     br.id = res.business_requirement_id
         """
-        return select_str
+        return from_str
 
     def _group_by(self):
         group_by_str = """
@@ -92,5 +97,5 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, self._table)
         cr.execute("""CREATE or REPLACE VIEW %s as (
-            %s %s
-            )""" % (self._table, self._select(), self._group_by()))
+            %s %s %s
+            )""" % (self._table, self._select(), self._from(), self._group_by()))
