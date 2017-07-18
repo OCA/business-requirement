@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+
         <record id="business_requirement_deliverable_1"
                 model="business.requirement.deliverable">
             <field name="business_requirement_id"
@@ -19,7 +20,7 @@
                    ref="business_requirement.business_requirement_1"/>
             <field name="product_id" ref="business_requirement.product_product_5"/>
             <field name="qty">1.0</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="resource_type">procurement</field>
             <field name="name">Server</field>
         </record>
@@ -32,7 +33,7 @@
             <field name="product_id"
                    ref="business_requirement.product_product_4"/>
             <field name="qty">1.0</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="resource_type">procurement</field>
             <field name="name">Beautiful template</field>
         </record>
@@ -45,10 +46,10 @@
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_1"/>
             <field name="qty">3.0</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_day"/>
             <field name="resource_type">task</field>
             <field name="name">Customer design assistance</field>
-            <field name="user_id" ref="base.user_root"/>
+            <field name="user_id" ref="base.user_demo"/>
         </record>
         <record id="business_requirement_resource_1_4"
                 model="business.requirement.resource">
@@ -59,10 +60,10 @@
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_1"/>
             <field name="qty">7.0</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_day"/>
             <field name="resource_type">task</field>
             <field name="name">Interface Development</field>
-            <field name="user_id" ref="base.user_root"/>
+            <field name="user_id" ref="base.user_demo"/>
         </record>
         <record id="business_requirement_deliverable_2"
                 model="business.requirement.deliverable">
@@ -178,7 +179,7 @@
         <record id="business_requirement_resource_4_2_1"
                 model="business.requirement.resource">
             <field name="business_requirement_deliverable_id"
-                   ref="business_requirement_deliverable_4_1"/>
+                   ref="business_requirement_deliverable_4_2"/>
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_4"/>
             <field name="product_id"
@@ -187,12 +188,12 @@
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="resource_type">task</field>
             <field name="name">Technical Architecture</field>
-            <field name="user_id" ref="base.user_root"/>
+            <field name="user_id" ref="base.user_demo"/>
         </record>
         <record id="business_requirement_resource_4_2_2"
                 model="business.requirement.resource">
             <field name="business_requirement_deliverable_id"
-                   ref="business_requirement_deliverable_4_1"/>
+                   ref="business_requirement_deliverable_4_2"/>
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_4"/>
             <field name="product_id"
@@ -253,5 +254,6 @@
             <field name="name">Prototype</field>
             <field name="user_id" ref="base.user_demo"/>
         </record>
+
     </data>
 </openerp>

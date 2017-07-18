@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+
         <record id="project_category_main_1" model="project.category.main">
             <field name="name">Design</field>
         </record>
@@ -31,7 +32,7 @@
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_2_3" model="business.requirement.resource">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_1" />
+                   ref="business_requirement_deliverable_project_task_categ.project_category_main_4" />
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_3" model="business.requirement.resource">
             <field name="categ_id"
@@ -57,5 +58,6 @@
             <field name="categ_id"
                    ref="business_requirement_deliverable_project_task_categ.project_category_main_3" />
         </record>
+
     </data>
 </openerp>

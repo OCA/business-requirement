@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+
         <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
             <field name="unit_price">35.0</field>
             <field name="sale_price_unit">60.0</field>
@@ -45,5 +46,6 @@
             <field name="unit_price">25.0</field>
             <field name="sale_price_unit">35.0</field>
         </record>
+
     </data>
 </openerp>

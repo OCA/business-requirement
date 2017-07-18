@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+
         <record id="business_requirement_category_1"
                 model="business.requirement.category">
             <field name="name">Website</field>
@@ -29,7 +30,7 @@
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
-        <record id="product_product_1" model="product.product">
+        <record id="product_template_1" model="product.template">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -39,7 +40,11 @@
             <field name="list_price">35.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_2" model="product.product">
+        <record id="product_product_1" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_1"/>
+            <field name="default_code">SER01</field>
+        </record>
+        <record id="product_template_2" model="product.template">
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -49,7 +54,11 @@
             <field name="list_price">60.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_3" model="product.product">
+        <record id="product_product_2" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_2"/>
+            <field name="default_code">SER02</field>
+        </record>
+        <record id="product_template_3" model="product.template">
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -59,7 +68,11 @@
             <field name="list_price">50.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_4" model="product.product">
+        <record id="product_product_3" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_3"/>
+            <field name="default_code">SER03</field>
+        </record>
+        <record id="product_template_4" model="product.template">
             <field name="name">Website Template</field>
             <field name="default_code">WEB01</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -69,7 +82,11 @@
             <field name="list_price">150.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_5" model="product.product">
+        <record id="product_product_4" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_4"/>
+            <field name="default_code">WEB01</field>
+        </record>
+        <record id="product_template_5" model="product.template">
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -79,13 +96,21 @@
             <field name="list_price">5200.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_6" model="product.product">
+        <record id="product_product_5" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_5"/>
+            <field name="default_code">WEB02</field>
+        </record>
+        <record id="product_template_6" model="product.template">
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
             <field name="standard_price">4000.0</field>
             <field name="list_price">1500.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
+        </record>
+        <record id="product_product_6" model="product.product">
+            <field name="product_tmpl_id" ref="product_template_6"/>
+            <field name="default_code">OD01</field>
         </record>
         <record id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
@@ -286,7 +311,7 @@ pulvinar et, cursus sed purus.
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">2</field>
             <field name="category_ids"
-                   eval="[(6, 0, [ref('business_requirement_category_2'),                     ref('business_requirement_category_4')])]"/>
+                   eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"/>
             <field name="reviewer_ids"
                    eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
@@ -553,5 +578,6 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
+
     </data>
 </openerp>
