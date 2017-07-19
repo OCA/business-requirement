@@ -121,8 +121,8 @@ class BrGenerateProjects(models.TransientModel):
             else:
                 br_project = br.linked_project
                 project_ids.append(br_project.id)
-            lines = [br.resource_lines]
-            self.create_project_task(lines, br_project.id, task_ids)
+            self.create_project_task([br.resource_lines],
+                                     br_project.id, task_ids)
 
         if self.for_deliverable:
             if self.for_br:
