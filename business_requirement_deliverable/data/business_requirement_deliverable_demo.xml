@@ -18,7 +18,7 @@
                    ref="business_requirement_deliverable_1"/>
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_1"/>
-            <field name="product_id" ref="business_requirement.product_product_5"/>
+            <field name="product_id" ref="product.product_product_8"/>
             <field name="qty">1.0</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="resource_type">procurement</field>
@@ -73,8 +73,8 @@
             <field name="sale_price_unit">4000.0</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_1"/>
-            <field name="name">Use Odoo Quick Start</field>
+                   ref="business_requirement.product_product_6"/>
+            <field name="name">Odoo Quick Start Package</field>
         </record>
         <record id="business_requirement_resource_2_1"
                 model="business.requirement.resource">
@@ -124,6 +124,7 @@
                    ref="business_requirement.product_product_1"/>
             <field name="qty">8.0</field>
             <field name="name">Server Setup</field>
+            <field name="sale_price_unit">35.0</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
         </record>
         <record id="business_requirement_resource_3"
@@ -247,7 +248,7 @@
             <field name="business_requirement_id"
                    ref="business_requirement.business_requirement_5"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_3"/>
+                   ref="business_requirement.product_product_1"/>
             <field name="qty">24.0</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="resource_type">task</field>

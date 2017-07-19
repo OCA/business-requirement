@@ -40,7 +40,7 @@
             <field name="resource_type">procurement</field>
             <field name="name">Server</field>
             <field name="qty">1</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="product_id"
                    ref="product.product_product_8"/>
             <field name="product_template_id"
@@ -51,7 +51,7 @@
             <field name="resource_type">procurement</field>
             <field name="name">Beautiful template</field>
             <field name="qty">1</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="product_id"
                    ref="business_requirement.product_product_4"/>
             <field name="product_template_id"

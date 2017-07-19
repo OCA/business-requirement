@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-
+        <!--Business Requirement Category -->
         <record id="business_requirement_category_1"
                 model="business.requirement.category">
             <field name="name">Website</field>
@@ -18,6 +18,8 @@
                 model="business.requirement.category">
             <field name="name">Infra</field>
         </record>
+
+        <!-- Projects -->
         <record id="project_1" model="project.project">
             <field name="name">Corporate Website</field>
             <field name="partner_id" ref="base.res_partner_2"/>
@@ -30,6 +32,8 @@
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
+
+        <!-- Products -->
         <record id="product_template_1" model="product.template">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
@@ -104,8 +108,8 @@
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
-            <field name="standard_price">4000.0</field>
-            <field name="list_price">1500.0</field>
+            <field name="standard_price">1500.0</field>
+            <field name="list_price">4000.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
         <record id="product_product_6" model="product.product">
@@ -404,7 +408,7 @@ pulvinar et, cursus sed purus.
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
             <field name="reviewer_ids"
-                   eval="[(6, 0, [ref('base.user_demo')])]"/>
+                   eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">in_progress</field>
             <field name="partner_id" ref="base.res_partner_12"/>
