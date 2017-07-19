@@ -54,8 +54,7 @@ class BusinessRequirement(models.Model):
     def compute_all_project_generated(self):
         for rec in self:
             if rec.business_requirement_ids:
-                if all(line.linked_project for line in
-                       rec.business_requirement_ids):
+                if all(rec.mapped('business_requirement_ids.linked_project')):
                     rec.all_project_generated = True
                 else:
                     rec.all_project_generated = False
