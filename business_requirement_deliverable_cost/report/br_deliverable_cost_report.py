@@ -91,6 +91,11 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 ((dlv.sale_price_unit * dlv.qty) - ((select sum(unit_price)
                 from business_requirement_resource) * (select sum(qty) from
                 business_requirement_resource))) as gross_profit
+        """
+        return select_str
+
+    def _from(self):
+        from_str = """
             FROM
             business_requirement br,
             business_requirement_deliverable dlv,
@@ -98,7 +103,7 @@ class BusinessRequirementDeliverableCostReport(models.Model):
             where br.id = dlv.business_requirement_id and
                     br.id = res.business_requirement_id
         """
-        return select_str
+        return from_str
 
     def _group_by(self):
         group_by_str = """
@@ -110,6 +115,6 @@ class BusinessRequirementDeliverableCostReport(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, self._table)
         cr.execute("""CREATE or REPLACE VIEW %s as (
-            %s
-            %s
-            )""" % (self._table, self._select(), self._group_by()))
+            %s %s %s
+            )""" % (self._table, self._select(), self._from(),
+                    self._group_by()))
