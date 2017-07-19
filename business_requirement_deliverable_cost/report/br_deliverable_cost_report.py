@@ -66,13 +66,13 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 br.priority,
                 br.state,
                 (select name from business_requirement_deliverable dlv where
-                dlv.business_requirement_id = br.id) as dlv_description,
+                id = br.id) as dlv_description,
                 (select product_id from business_requirement_deliverable dlv
-                where dlv.business_requirement_id = br.id) as dlv_product,
-                (select product_id from business_requirement_resource res
-                where id = br.id) as res_product,
-                (select name from business_requirement_resource res where
-                id = br.id) as res_description,
+                where id = br.id) as dlv_product,
+                (select product_id from business_requirement_resource where id
+                = br.id) as res_product,
+                (select name from business_requirement_resource where id =
+                br.id) as res_description,
                 (select count(id) from business_requirement) as br_count,
                 (select count(id) from business_requirement_deliverable)
                 as dlv_count,
@@ -81,14 +81,17 @@ class BusinessRequirementDeliverableCostReport(models.Model):
                 (select sum(qty) from business_requirement_resource)
                 as res_qty,
                 dlv.qty as dlv_qty,
-                dlv.sale_price_unit as sale_price,
-                (dlv.sale_price_unit * dlv.qty) as total_revenue,
+                (select sale_price_unit from business_requirement_deliverable
+                where id = br.id) as sale_price,
+                ((select sale_price_unit from business_requirement_deliverable
+                where id = br.id) * dlv.qty) as total_revenue,
                 (select sum(unit_price) from business_requirement_resource)
                 as cost_price,
                 ((select sum(unit_price) from business_requirement_resource)
                 * (select sum(qty) from business_requirement_resource))
                 as total_cost,
-                ((dlv.sale_price_unit * dlv.qty) - ((select sum(unit_price)
+                (((select sale_price_unit from business_requirement_deliverable
+                where id = br.id)* dlv.qty) - ((select sum(unit_price)
                 from business_requirement_resource) * (select sum(qty) from
                 business_requirement_resource))) as gross_profit
         """
@@ -108,7 +111,7 @@ class BusinessRequirementDeliverableCostReport(models.Model):
     def _group_by(self):
         group_by_str = """
             GROUP BY
-                br_count,br.id,dlv.qty,dlv.sale_price_unit
+                br.id,dlv.qty
         """
         return group_by_str
 
