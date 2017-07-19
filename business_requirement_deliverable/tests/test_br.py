@@ -200,6 +200,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             for resource in line.resource_ids:
                 if resource and resource.resource_type == 'task':
+                    resource.resource_type_change()
                     resource.write({'resource_type': 'procurement'})
                     resource.resource_type_change()
                     self.assertEqual(resource.user_id.id, False)
