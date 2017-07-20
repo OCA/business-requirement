@@ -15,7 +15,7 @@
                      <field name="dlv_qty" type="measure"/>
                      <field name="sale_price" type="measure"/>
                      <field name="total_revenue" type="measure"/>
-                     <field name="cost_price" type="measure"/>
+                     <field name="avg_price" type="measure"/>
                      <field name="total_cost" type="measure"/>
                      <field name="gross_profit" type="measure"/>
                  </graph>
@@ -32,6 +32,7 @@
                     <field name="project_id"/>
                     <field name="res_product"/>
                     <field name="dlv_product"/>
+                    <field name="resource_type"/>
                 </search>
             </field>
         </record>

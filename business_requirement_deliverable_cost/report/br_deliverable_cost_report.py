@@ -33,16 +33,25 @@ class BusinessRequirementDeliverableCostReport(models.Model):
          ('drop', 'Drop'),
          ],
         'Status',
-        readonly=True,
+        readonly=True
     )
     dlv_description = fields.Text('Deliverable Description', readonly=True)
     dlv_product = fields.Many2one('product.product',
                                   'Deliverable Product',
                                   readonly=True)
+    res_uom_id = fields.Many2one(
+        comodel_name='product.uom',
+        string='UoM',
+        readonly=True
+    )
     res_description = fields.Text('Resource Description', readonly=True)
     res_product = fields.Many2one('product.product',
                                   'Resource Product',
                                   readonly=True)
+    resource_type = fields.Selection(
+        [('task', 'Task'), ('procurement', 'Procurement')], 'Resource Type',
+        readonly=True
+    )
     br_count = fields.Integer('BR Count', readonly=True)
     dlv_count = fields.Integer('Deliverable Count', readonly=True)
     res_count = fields.Integer('Resource Count', readonly=True)
@@ -50,74 +59,66 @@ class BusinessRequirementDeliverableCostReport(models.Model):
     res_qty = fields.Float('Resource Qty', readonly=True)
     sale_price = fields.Float('Sale Price', readonly=True)
     total_revenue = fields.Float('Total Revenue', readonly=True)
-    cost_price = fields.Float('Cost price', readonly=True)
-    total_cost = fields.Float('Total cost', readonly=True)
+    avg_price = fields.Float('Avg Price', readonly=True)
+    total_cost = fields.Float('Total Cost', readonly=True)
     gross_profit = fields.Float('Gross Profit', readonly=True)
 
     def _select(self):
-        select_str = """
-            SELECT
-                br.id,
-                (select CONCAT('[',name,']', description) from
-                business_requirement where id=br.id) AS br_name,
+        select_str = """SELECT ROW_NUMBER() OVER (ORDER BY brd.id) AS id,
+            CONCAT('[',br.name,']', br.description) AS br_name,
+            br.responsible_id,
+            br.partner_id,
+            br.project_id,
+            br.priority,
+            br.state,
+            brs.resource_type,
+            brd.name AS dlv_description,
+            brd.product_id AS dlv_product,
+            brs.product_id AS res_product,
+            brs.uom_id AS res_uom_id,
+            COUNT(br.id) AS br_count,
+            COUNT(brd.id) AS dlv_count,
+            COUNT(brs.id) AS res_count,
+            SUM(brs.qty) AS res_qty,
+            SUM(brd.qty) AS dlv_qty,
+            SUM((brd.sale_price_unit * brd.qty) / brd.qty) AS sale_price,
+            SUM(brd.sale_price_unit * brd.qty) AS total_revenue,
+            SUM((brs.unit_price * brs.qty) / brd.qty) AS avg_price,
+            SUM(brs.unit_price * brs.qty) AS total_cost,
+            SUM((brd.sale_price_unit * brd.qty) - (brs.unit_price * brs.qty))
+                AS gross_profit
+        """
+        return select_str
+
+    def _from(self):
+        from_str = """FROM business_requirement_resource brs
+            LEFT JOIN business_requirement br ON
+                br.id=brs.business_requirement_id
+            LEFT JOIN business_requirement_deliverable brd ON
+            brd.id=brs.business_requirement_deliverable_id
+        """
+        return from_str
+
+    def _group_by(self):
+        group_by_str = """GROUP BY
+                brd.id,
+                br_name,
+                dlv_description,
+                res_product,
+                dlv_product,
                 br.responsible_id,
                 br.partner_id,
                 br.project_id,
                 br.priority,
                 br.state,
-                (select name from business_requirement_deliverable dlv where
-                id = br.id) as dlv_description,
-                (select product_id from business_requirement_deliverable dlv
-                where id = br.id) as dlv_product,
-                (select product_id from business_requirement_resource where id
-                = br.id) as res_product,
-                (select name from business_requirement_resource where id =
-                br.id) as res_description,
-                (select count(id) from business_requirement) as br_count,
-                (select count(id) from business_requirement_deliverable)
-                as dlv_count,
-                (select count(*) from business_requirement_resource res
-                where res.business_requirement_id = br.id) as res_count,
-                (select sum(qty) from business_requirement_resource)
-                as res_qty,
-                dlv.qty as dlv_qty,
-                (select sale_price_unit from business_requirement_deliverable
-                where id = br.id) as sale_price,
-                ((select sale_price_unit from business_requirement_deliverable
-                where id = br.id) * dlv.qty) as total_revenue,
-                (select sum(unit_price) from business_requirement_resource)
-                as cost_price,
-                ((select sum(unit_price) from business_requirement_resource)
-                * (select sum(qty) from business_requirement_resource))
-                as total_cost,
-                (((select sale_price_unit from business_requirement_deliverable
-                where id = br.id)* dlv.qty) - ((select sum(unit_price)
-                from business_requirement_resource) * (select sum(qty) from
-                business_requirement_resource))) as gross_profit
-        """
-        return select_str
-
-    def _from(self):
-        from_str = """
-            FROM
-            business_requirement br,
-            business_requirement_deliverable dlv,
-            business_requirement_resource res
-            where br.id = dlv.business_requirement_id and
-                    br.id = res.business_requirement_id
-        """
-        return from_str
-
-    def _group_by(self):
-        group_by_str = """
-            GROUP BY
-                br.id,dlv.qty
+                brs.resource_type,
+                res_uom_id
         """
         return group_by_str
 
     def init(self, cr):
         tools.drop_view_if_exists(cr, self._table)
-        cr.execute("""CREATE or REPLACE VIEW %s as (
+        cr.execute("""CREATE or REPLACE VIEW %s AS (
             %s %s %s
             )""" % (self._table, self._select(), self._from(),
                     self._group_by()))
