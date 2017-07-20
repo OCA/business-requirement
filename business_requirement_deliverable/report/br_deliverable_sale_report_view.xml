@@ -7,7 +7,7 @@
              <field name="model">business.requirement.deliverable.sale.report</field>
              <field name="arch" type="xml">
                  <graph string="Sales Analysis" type="pivot" stacked="True">
-                     <field name="name" type="row"/>
+                     <field name="br_name" type="row"/>
                      <field name="br_count" type="measure"/>
                      <field name="dlv_count" type="measure"/>
                      <field name="res_count" type="measure"/>
@@ -17,6 +17,20 @@
                      <field name="total_revenue" type="measure"/>
                  </graph>
              </field>
+        </record>
+
+        <record id="view_deliverable_sale_search" model="ir.ui.view">
+            <field name="name">Deliverable Sale Report Search</field>
+            <field name="model">business.requirement.deliverable.sale.report</field>
+            <field name="arch" type="xml">
+                <search string="Deliverable Sale">
+                    <field name="br_name"/>
+                    <field name="partner_id"/>
+                    <field name="project_id"/>
+                    <field name="res_product"/>
+                    <field name="dlv_product"/>
+                </search>
+            </field>
         </record>
 
         <record id="action_deliverable_sale_report" model="ir.actions.act_window">

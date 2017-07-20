@@ -7,7 +7,7 @@
              <field name="model">business.requirement.deliverable.cost.report</field>
              <field name="arch" type="xml">
                  <graph string="Cost Analysis" type="pivot" stacked="True">
-                     <field name="name" type="row"/>
+                     <field name="br_name" type="row"/>
                      <field name="br_count" type="measure"/>
                      <field name="dlv_count" type="measure"/>
                      <field name="res_count" type="measure"/>
@@ -15,11 +15,26 @@
                      <field name="dlv_qty" type="measure"/>
                      <field name="sale_price" type="measure"/>
                      <field name="total_revenue" type="measure"/>
-                     <field name="cost_price" type="measure"/>
+                     <field name="avg_price" type="measure"/>
                      <field name="total_cost" type="measure"/>
                      <field name="gross_profit" type="measure"/>
                  </graph>
              </field>
+        </record>
+
+        <record id="view_deliverable_cost_search" model="ir.ui.view">
+            <field name="name">Deliverable Cost Report Search</field>
+            <field name="model">business.requirement.deliverable.cost.report</field>
+            <field name="arch" type="xml">
+                <search string="Deliverable Cost">
+                    <field name="br_name"/>
+                    <field name="partner_id"/>
+                    <field name="project_id"/>
+                    <field name="res_product"/>
+                    <field name="dlv_product"/>
+                    <field name="resource_type"/>
+                </search>
+            </field>
         </record>
 
         <record id="action_deliverable_cost_report" model="ir.actions.act_window">

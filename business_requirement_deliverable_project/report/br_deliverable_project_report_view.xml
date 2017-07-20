@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_deliverable_project_sale_search" model="ir.ui.view">
+            <field name="name">Deliverable Sale Report Search</field>
+            <field name="model">business.requirement.deliverable.sale.report</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_deliverable_sale_search"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="linked_project"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

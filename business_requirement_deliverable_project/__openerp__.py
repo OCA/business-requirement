@@ -16,6 +16,7 @@
     'data': [
         'views/business_view.xml',
         'wizard/generate_projects_view.xml',
+        'report/br_deliverable_project_report_view.xml',
     ],
     'image': [
         'static/description/icon.png',
