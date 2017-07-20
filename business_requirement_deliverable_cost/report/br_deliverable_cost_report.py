@@ -81,9 +81,10 @@ class BusinessRequirementDeliverableCostReport(models.Model):
             COUNT(brs.id) AS res_count,
             SUM(brs.qty) AS res_qty,
             SUM(brd.qty) AS dlv_qty,
-            SUM((brd.sale_price_unit * brd.qty) / brd.qty) AS sale_price,
+            SUM((brd.sale_price_unit * brd.qty) / NULLIF(brd.qty, 0))
+                AS sale_price,
             SUM(brd.sale_price_unit * brd.qty) AS total_revenue,
-            SUM((brs.unit_price * brs.qty) / brd.qty) AS avg_price,
+            SUM((brs.unit_price * brs.qty) / NULLIF(brs.qty, 0)) AS avg_price,
             SUM(brs.unit_price * brs.qty) AS total_cost,
             SUM((brd.sale_price_unit * brd.qty) - (brs.unit_price * brs.qty))
                 AS gross_profit
