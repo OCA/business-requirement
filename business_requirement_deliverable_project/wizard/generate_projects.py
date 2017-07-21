@@ -114,17 +114,15 @@ class BrGenerateProjects(models.TransientModel):
                 br_project_val = self._prepare_project_vals(
                     br, parent_project)
                 br_project = project_obj.create(br_project_val)
+                msg = ('Project  %s  has been created') % (br_project.name)
+                br.message_post(body=msg)
                 br.linked_project = br_project.id
                 project_ids.append(br_project.id)
             else:
                 br_project = br.linked_project
                 project_ids.append(br_project.id)
-            if not self.for_deliverable:
-                lines = [
-                    line.resource_ids for line in br.deliverable_lines
-                    if line.resource_ids
-                ]
-                self.create_project_task(lines, br_project.id, task_ids)
+            self.create_project_task([br.resource_lines],
+                                     br_project.id, task_ids)
 
         if self.for_deliverable:
             if self.for_br:
@@ -189,10 +187,9 @@ class BrGenerateProjects(models.TransientModel):
         name = line.name
         br_id = False
         if self.for_br:
-            name = line.business_requirement_deliverable_id\
-                .business_requirement_id.name + '-' + name
-            br_id = line.business_requirement_deliverable_id\
-                .business_requirement_id.id
+            if line.business_requirement_id:
+                name = line.business_requirement_id.name + '-' + name
+                br_id = line.business_requirement_id.id
         vals = {
             'name': line.name,
             'sequence': line.sequence,

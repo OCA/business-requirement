@@ -10,7 +10,7 @@ class BusinessRequirement(models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _name = "business.requirement"
     _description = "Business Requirement"
-    _order = 'id desc, name desc'
+    _order = 'name desc'
 
     @api.model
     def _get_default_company(self):
@@ -40,7 +40,7 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)]}
     )
     ref = fields.Char(
-        'Reference',
+        'WBS',
         required=False,
         readonly=True,
         copy=False,
@@ -124,7 +124,7 @@ class BusinessRequirement(models.Model):
     )
     partner_id = fields.Many2one(
         comodel_name='res.partner',
-        string='Customer',
+        string='Stakeholder',
         store=True,
         copy=False,
         readonly=True,
@@ -204,6 +204,7 @@ class BusinessRequirement(models.Model):
                                     track_visibility='onchange',
                                     required=False,
                                     copy=False, default='normal')
+    origin = fields.Text(string='Source')
 
     @api.multi
     @api.onchange('project_id')
@@ -269,11 +270,28 @@ class BusinessRequirement(models.Model):
         result = []
         for br in self:
             if br.ref:
-                formatted_name = u'[{}] {}'.format(br.ref, br.description)
+                formatted_name = u'[{}][{}] {}'.format(br.ref, br.name,
+                                                       br.description)
             else:
                 formatted_name = u'[{}] {}'.format(br.name, br.description)
             result.append((br.id, formatted_name))
         return result
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        """
+        Search BR based on Name or Description
+        """
+        # Make a search with default criteria
+        names = super(BusinessRequirement, self).name_search(
+            name=name, args=args, operator=operator, limit=limit)
+        # Make the other search
+        descriptions = []
+        if name:
+            domain = [('description', '=ilike', name + '%')]
+            descriptions = self.search(domain, limit=limit).name_get()
+        # Merge both results
+        return list(set(names) | set(descriptions))[:limit]
 
     @api.multi
     def action_button_confirm(self):

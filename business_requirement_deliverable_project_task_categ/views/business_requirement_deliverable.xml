@@ -9,8 +9,8 @@
                    ref="business_requirement_deliverable.view_business_requirement_resource_tree"/>
             <field name="arch" type="xml">
                 <field name="name" position='after'>
-                    <field name="categ_id" 
-                           attrs="{'readonly':[('resource_type','=','procurement')],'required':[('resource_type','=','task')]}"/>
+                    <field name="categ_id"
+                           attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                 </field>
             </field>
         </record>
@@ -40,7 +40,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='resource_ids']/tree[1]/field[@name='name']"
                        position="after">
-                    <field name="categ_id"/>
+                    <field name="categ_id" attrs="{'readonly': [('resource_type', '=', 'procurement')]}"/>
                 </xpath>
             </field>
         </record>

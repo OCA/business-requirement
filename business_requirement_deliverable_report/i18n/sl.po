@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 10:07+0000\n"
-"PO-Revision-Date: 2017-04-28 10:07+0000\n"
+"POT-Creation-Date: 2017-07-05 08:56+0000\n"
+"PO-Revision-Date: 2017-07-05 08:56+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,11 @@ msgid "Approval"
 msgstr "Odobritev"
 
 #. module: business_requirement_deliverable_report
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_other_resources_report
+msgid "Business Requirement Deliverable Other Resources Report"
+msgstr "Poročilo o drugih virih dobave poslovne zahteve"
+
+#. module: business_requirement_deliverable_report
 #: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_deliverable_report
 msgid "Business Requirement Deliverable Report"
 msgstr "Poročilo o dobavi poslovne zahteve"
@@ -34,6 +39,7 @@ msgid "Business Requirement Deliverable Resource Report"
 msgstr "Poročilo o viru dobave poslovne zahteve"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 #: view:website:business_requirement_deliverable_report.br_report
@@ -81,6 +87,7 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Deliverable"
 msgstr "Dobava"
@@ -96,18 +103,26 @@ msgid "Gap:"
 msgstr "Vrzel:"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Name"
 msgstr "Naziv"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+msgid "Other Resources :"
+msgstr "Drugi viri"
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Price"
 msgstr "Cena"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Product"
@@ -119,12 +134,14 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Qty"
 msgstr "Kol."
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Resource lines for deliverable"
 msgstr "Postavke virov za dobavo"
@@ -140,17 +157,20 @@ msgid "Test Case:"
 msgstr "Preizkusni primer:"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Total"
 msgstr "Skupaj"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "Type"
 msgstr "Tip"
 
 #. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_report
 #: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
 msgid "UoM"
