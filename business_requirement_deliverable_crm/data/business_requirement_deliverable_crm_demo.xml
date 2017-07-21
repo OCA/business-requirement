@@ -39,8 +39,5 @@
             <field name="ref" ref="crm_sale_order_1"/>
         </record>
 
-        <!-- Confirm some Sale Orders-->
-        <workflow action="order_confirm" model="sale.order" ref="crm_sale_order_1"/>
-
     </data>
 </openerp>
