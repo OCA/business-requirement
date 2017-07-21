@@ -18,14 +18,6 @@
             <field name="unit_price">280.0</field>
             <field name="sale_price_unit">480.0</field>
         </record>
-        <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
-            <field name="unit_price">35.0</field>
-            <field name="sale_price_unit">60.0</field>
-        </record>
-        <record id="business_requirement_deliverable.business_requirement_resource_1_4" model="business.requirement.resource">
-            <field name="unit_price">25.0</field>
-            <field name="sale_price_unit">35.0</field>
-        </record>
         <record id="business_requirement_deliverable.business_requirement_resource_2_1" model="business.requirement.resource">
             <field name="unit_price">30.0</field>
             <field name="sale_price_unit">50.0</field>
