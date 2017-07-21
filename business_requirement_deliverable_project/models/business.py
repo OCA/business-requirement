@@ -44,12 +44,12 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
     linked_project_count = fields.Integer(
-        compute='_compute_linked_project_count',
+        compute='action_open_linked_br_dl',
         string="Number of Business Requirements"
     )
 
     @api.multi
-    def action_open_linked_project(self):
+    def action_open_linked_br_dl(self):
         for rec in self:
             domain = ['|',
                       ('business_requirement_id', '=', rec.id),
