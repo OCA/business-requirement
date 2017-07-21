@@ -24,7 +24,7 @@ class Project(models.Model):
             raise ValidationError(
                 _("""Please set working time default unit in project
                     config settings"""))
-        lines = []
+        lines = self.env['business.requirement.resource']
         for br in br_ids:
             if br.state not in ['stakeholder_approval', 'cancel', 'done']:
                 raise ValidationError(
@@ -40,8 +40,15 @@ class Project(models.Model):
 
                     if generated:
                         continue
-                    lines.append(line.id)
-
+                    lines |= line
+            for resource_line in br.resource_lines.filtered(
+                    lambda resource: resource.resource_type == 'task'):
+                generated = self.env['project.task'].search(
+                    [('br_resource_id', '=', resource_line.id)],
+                    limit=1)
+                if generated:
+                    continue
+                lines |= resource_line
         if not lines:
             raise ValidationError(
                 _("""There is no available business requirement resource line
