@@ -24,27 +24,6 @@ class Project(models.Model):
     )
 
     @api.multi
-    def action_open_linked_br_dl(self):
-        for rec in self:
-            domain = [('linked_project', '=', rec.id)]
-            return_val = {
-                'type': 'ir.actions.act_window',
-                'view_type': 'form',
-                'view_mode': 'tree,form,graph',
-                'target': 'current',
-                'domain': domain
-            }
-            if rec.business_requirement_deliverable_id:
-                return_val.update({
-                    'res_model': 'business.requirement.deliverable'
-                })
-            if rec.business_requirement_id:
-                return_val.update({
-                    'res_model': 'business.requirement'
-                })
-            return return_val
-
-    @api.multi
     def generate_project_wizard(self):
         br_ids = self.env.context.get('br_ids', False)
         from_project = False

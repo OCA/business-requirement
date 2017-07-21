@@ -6,13 +6,14 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@name='buttons']"
-                       position="inside">
-                    <button class="oe_inline oe_stat_button"
-                            type="object"
-                            name="action_open_linked_br_dl"
-                            icon="fa-tasks">
-                    </button>
+                <xpath expr="//form/sheet/group/group/field[@name='partner_id']"
+                       position="after">
+                    <newline/>
+                    <field name="business_requirement_deliverable_id"
+                            attrs="{'invisible': [('business_requirement_deliverable_id', '==', False)]}"/>
+                    <newline/>
+                    <field name="business_requirement_id"
+                           attrs="{'invisible': [('business_requirement_id', '==', False)]}"/>
                 </xpath>
             </field>
         </record>
