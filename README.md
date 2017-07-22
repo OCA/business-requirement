@@ -23,7 +23,6 @@ addon | version | summary
 [business_requirement_deliverable_categ](business_requirement_deliverable_categ/) | 8.0.3.0.2 | Adds Task Categories to your Business Requirement Resources
 [business_requirement_deliverable_cost](business_requirement_deliverable_cost/) | 8.0.2.0.0 | Control the cost of your Business Requirements
 [business_requirement_deliverable_crm](business_requirement_deliverable_crm/) | 8.0.1.0.1 | Create your sales quotations directly from the Business Requirements deliverables
-[business_requirement_deliverable_default](business_requirement_deliverable_default/) | 8.0.2.0.2 | Manage default resource lines in your deliverable sales package
 [business_requirement_deliverable_project](business_requirement_deliverable_project/) | 8.0.4.0.6 | Create projects and tasks directly from the Business Requirement and Resources lines
 [business_requirement_deliverable_project_categ](business_requirement_deliverable_project_categ/) | 8.0.1.0.0 | Include category on generating project
 [business_requirement_deliverable_project_task_categ](business_requirement_deliverable_project_task_categ/) | 8.0.1.0.2 | Adds Task Categories to your Business Requirement Resources
