@@ -3,14 +3,14 @@
 # * business_requirement_deliverable_project
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 08:56+0000\n"
-"PO-Revision-Date: 2017-07-05 08:56+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"POT-Creation-Date: 2017-07-21 12:10+0000\n"
+"PO-Revision-Date: 2017-07-21 12:10+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -185,7 +185,7 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/project.py:47
+#: code:addons/business_requirement_deliverable_project/models/project.py:54
 #, python-format
 msgid ""
 "There is no available business requirement resource line\n"

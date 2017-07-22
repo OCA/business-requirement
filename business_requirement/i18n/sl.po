@@ -3,13 +3,14 @@
 # * business_requirement
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-12 00:51+0000\n"
-"PO-Revision-Date: 2017-07-12 00:51+0000\n"
+"POT-Creation-Date: 2017-07-21 12:10+0000\n"
+"PO-Revision-Date: 2017-07-21 12:10+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -181,7 +182,6 @@ msgid "Date of the last message posted on the record."
 msgstr "Datum zadnjega objavljenega sporočila na zapisu."
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_search
 #: field:business.requirement,description:0
 msgid "Description"
 msgstr "Opis"
@@ -342,7 +342,7 @@ msgstr "Zadržano"
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. module: business_requirement
 #: field:business.requirement,parent_id:0
@@ -412,12 +412,12 @@ msgstr "Zaporedje"
 #: view:business.requirement:business_requirement.view_business_requirement_search
 #: field:business.requirement,origin:0
 msgid "Source"
-msgstr ""
+msgstr "Vir"
 
 #. module: business_requirement
 #: field:business.requirement,partner_id:0
 msgid "Stakeholder"
-msgstr ""
+msgstr "Deležnik"
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
@@ -471,4 +471,4 @@ msgstr "Neprebrana sporočila"
 #. module: business_requirement
 #: field:business.requirement,ref:0
 msgid "WBS"
-msgstr ""
+msgstr "Členitev"
