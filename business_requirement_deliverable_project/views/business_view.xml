@@ -56,6 +56,10 @@
                     <attribute name="clickable">True</attribute>
                     <attribute name="groups">business_requirement.group_business_requirement_user</attribute>
                 </xpath>
+                <xpath expr="//field[@name='priority']"
+                       position="after">
+                    <field name="all_project_generated" invisible="1"/>
+                </xpath>
                 <xpath expr="//header/field[@name='state']"
                        position="before">
                     <button name="generate_projects_wizard"
@@ -63,7 +67,7 @@
                             type="object"
                             class="oe_highlight"
                             groups="business_requirement.group_business_requirement_manager"
-                            attrs="{'invisible': ['|', ('linked_project', '!=', False), ('state', '!=', 'stakeholder_approval')]}"/>
+                            attrs="{'invisible': ['|',('state', '!=', 'stakeholder_approval'), ('all_project_generated', '!=', False)]}"/>
                 </xpath>
                 <xpath expr="//div[@name='buttons']"
                        position="inside">
