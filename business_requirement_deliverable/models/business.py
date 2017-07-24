@@ -10,6 +10,7 @@ from openerp.tools.translate import _
 class BusinessRequirementResource(models.Model):
     _name = "business.requirement.resource"
     _description = "Business Requirement Resource"
+    _order = 'sequence'
 
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
