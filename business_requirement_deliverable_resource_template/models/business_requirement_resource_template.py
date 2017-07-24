@@ -10,7 +10,10 @@ class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
     def _prepare_resource_lines(self):
-        rl_data = self.product_id.sudo().resource_lines.copy_data()
+        rl_data = self.env['business.requirement.resource.template'].search(
+            [('product_template_id', '=', self.product_id.product_tmpl_id.id)],
+            order='sequence'
+        ).copy_data()
         return [(0, 0, item) for index, item in enumerate(rl_data)]
 
     @api.multi
