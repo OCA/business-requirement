@@ -18,7 +18,7 @@
                                 <field name="partner_id"
                                        readonly="1"/>
                                 <field name="project_id"/>
-                                <field name="for_br"/>
+                                <field name="for_br" readonly="1"/>
                                 <field name="for_deliverable"/>
                                 <field name="for_childs"
                                        attrs="{'readonly': [('for_br', '!=', True)]}"/>
