@@ -204,6 +204,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
                     resource.resource_type_change()
                     self.assertEqual(resource.user_id.id, False)
 
+    def test_uom_resource_type_change(self):
+        for line in self.br.deliverable_lines:
+            for resource in line.resource_ids:
+                resource.write({'resource_type': 'task'})
+                resource.resource_type_change()
+
     def test_get_pricelist(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
