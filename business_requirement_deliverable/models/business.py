@@ -96,12 +96,16 @@ class BusinessRequirementResource(models.Model):
             description += '\n' + product.description_sale
         if not self.name:
             self.name = description
-        self.uom_id = uom_id
+        if uom_id:
+            self.uom_id = uom_id
 
     @api.onchange('resource_type')
     def resource_type_change(self):
         if self.resource_type == 'procurement':
             self.user_id = False
+            self.uom_id = self.env.ref('product.product_uom_unit').id
+        else:
+            self.uom_id = self.env.ref('product.product_uom_hour').id
 
     @api.multi
     @api.constrains('resource_type', 'uom_id')
@@ -149,7 +153,8 @@ class BusinessRequirementDeliverable(models.Model):
     uom_id = fields.Many2one(
         comodel_name='product.uom',
         string='UoM',
-        required=True
+        required=True,
+        default=lambda self: self.env.ref('product.product_uom_unit')
     )
     qty = fields.Float(
         string='Quantity',
@@ -265,7 +270,8 @@ class BusinessRequirementDeliverable(models.Model):
 
         if not self.name:
             self.name = description
-        self.uom_id = uom_id
+        if uom_id:
+            self.uom_id = uom_id
         self.sale_price_unit = sale_price_unit
 
     @api.onchange('uom_id', 'qty')
