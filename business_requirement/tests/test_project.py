@@ -44,7 +44,3 @@ class ProjectTestCase(common.TransactionCase):
         br3._get_level()
         level3 = br3.level
         self.assertEqual(level3, 3)
-
-    def test_compute_br_count(self):
-        self.pr_5._compute_br_count()
-        self.assertEqual(self.pr_5.br_count, len(self.pr_5.br_ids))
