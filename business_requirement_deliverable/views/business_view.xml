@@ -238,6 +238,7 @@
                         <!--#RFC : define Tree view it's own record, rather
                         than defining it inside a field for better extensibility-->
                         <tree editable="1" >
+                            <field name="sequence" widget="handle"/>
                             <field name="state" invisible="1"/>
                             <field name="resource_type"
                                    attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
