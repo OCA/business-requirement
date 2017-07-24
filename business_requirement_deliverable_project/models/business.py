@@ -19,6 +19,7 @@ class BusinessRequirement(models.Model):
         comodel_name='project.project',
         groups='project.group_project_user',
         readonly=True,
+        copy=False
     )
 
     task_ids = fields.One2many(
@@ -42,6 +43,26 @@ class BusinessRequirement(models.Model):
         string='Total Planned Hour in RL related to business requirement',
         compute='_compute_planned_hour'
     )
+    linked_project_count = fields.Integer(
+        compute='action_open_linked_br_dl',
+        string="Number of Business Requirements"
+    )
+
+    @api.multi
+    def action_open_linked_br_dl(self):
+        for rec in self:
+            domain = ['|',
+                      ('business_requirement_id', '=', rec.id),
+                      ('business_requirement_deliverable_id', 'in',
+                       rec.deliverable_lines.ids)]
+            return {
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'project.project',
+                'target': 'current',
+                'domain': domain
+            }
 
     all_project_generated = fields.Boolean(
         compute='compute_all_project_generated',
