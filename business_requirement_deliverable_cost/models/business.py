@@ -122,7 +122,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
 
     @api.multi
-    @api.depends('resource_ids')
+    @api.depends('resource_ids', 'resource_ids.price_total')
     def _compute_resource_task_total(self):
         for rec in self:
             rec.resource_task_total = sum(
@@ -131,7 +131,7 @@ class BusinessRequirementDeliverable(models.Model):
                     'price_total'))
 
     @api.multi
-    @api.depends('resource_ids')
+    @api.depends('resource_ids', 'resource_ids.price_total')
     def _compute_resource_procurement_total(self):
         for rec in self:
             rec.resource_procurement_total = sum(
