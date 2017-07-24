@@ -164,6 +164,7 @@ class BusinessRequirement(models.Model):
         'res.users', string='Responsible',
         copy=False,
         readonly=True,
+        default=lambda self: self.env.user,
         states={
             'draft': [('readonly', False)],
             'confirmed': [('readonly', False)]
