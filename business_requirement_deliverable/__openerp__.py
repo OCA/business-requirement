@@ -29,5 +29,5 @@
     ],
     'demo': ['data/business_requirement_deliverable_demo.xml'],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }
