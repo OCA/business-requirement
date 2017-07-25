@@ -36,5 +36,5 @@
         'static/img/bus_req_workflow.png'
     ],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }

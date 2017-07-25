@@ -28,5 +28,5 @@
         'static/img/bus_req_resource.png'
     ],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }

@@ -22,5 +22,5 @@
         'static/description/icon.png'
     ],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }

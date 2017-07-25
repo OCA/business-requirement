@@ -1,6 +1,6 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/222/8.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-business-requirement-222)
-[![Build Status](https://travis-ci.org/OCA/business-requirement.svg?branch=8.0)](https://travis-ci.org/OCA/business-requirement)
-[![codecov](https://codecov.io/gh/OCA/business-requirement/branch/8.0/graph/badge.svg)](https://codecov.io/gh/OCA/business-requirement)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/222/9.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-business-requirement-222)
+[![Build Status](https://travis-ci.org/OCA/business-requirement.svg?branch=9.0)](https://travis-ci.org/OCA/business-requirement)
+[![codecov](https://codecov.io/gh/OCA/business-requirement/branch/9.0/graph/badge.svg)](https://codecov.io/gh/OCA/business-requirement)
 
 
 # Business Requirement Management
@@ -36,7 +36,7 @@ addon | version | summary
 
 Translation Status
 ------------------
-[![Transifex Status](https://www.transifex.com/projects/p/OCA-business-requirement-8-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-business-requirement-8-0)
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-business-requirement-9-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-business-requirement-9-0)
 
 ----
 

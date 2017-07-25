@@ -22,5 +22,5 @@
         "views/business_requirement_resource_template.xml",
     ],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }
