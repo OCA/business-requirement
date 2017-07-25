@@ -23,5 +23,5 @@
     ],
     'demo': ['data/business_requirement_deliverable_crm_demo.xml'],
     'license': 'AGPL-3',
-    'installable': True,
+    'installable': False,
 }
