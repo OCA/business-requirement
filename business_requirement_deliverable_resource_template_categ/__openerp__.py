@@ -23,7 +23,7 @@
     ],
     'demo': [
         "data/"
-        "business_requirement_deliverable_resource_template_categ_data.xml",
+        "business_requirement_deliverable_resource_template_categ_demo.xml",
     ],
     'license': 'AGPL-3',
     'installable': True,
