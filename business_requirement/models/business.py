@@ -365,9 +365,8 @@ class BusinessRequirement(models.Model):
                      subtype=None, parent_id=False, attachments=None,
                      content_subtype='html', **kwargs):
         context = self._context or {}
-        if context.get(
-                'default_model') == 'business.requirement' and context.get(
-            'default_res_id'):
+        if context.get('default_model') ==\
+                'business.requirement' and context.get('default_res_id'):
             br_rec = self.env[context.get('default_model')]. \
                 browse(context['default_res_id'])
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
