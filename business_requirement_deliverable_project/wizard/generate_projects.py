@@ -121,12 +121,8 @@ class BrGenerateProjects(models.TransientModel):
             else:
                 br_project = br.linked_project
                 project_ids.append(br_project.id)
-            if not self.for_deliverable:
-                lines = [
-                    line.resource_ids for line in br.deliverable_lines
-                    if line.resource_ids
-                ]
-                self.create_project_task(lines, br_project.id, task_ids)
+            self.create_project_task([br.resource_lines],
+                                     br_project.id, task_ids)
 
         if self.for_deliverable:
             if self.for_br:
@@ -139,8 +135,9 @@ class BrGenerateProjects(models.TransientModel):
         if self.for_childs:
             br_project = br_project or parent_project
             for child_br in br.business_requirement_ids:
-                self.generate_br_projects(
-                    br_project, child_br, project_ids, task_ids)
+                if child_br.state == 'stakeholder_approval':
+                    self.generate_br_projects(br_project, child_br,
+                                              project_ids, task_ids)
 
     @api.multi
     def generate_deliverable_projects(
@@ -153,6 +150,9 @@ class BrGenerateProjects(models.TransientModel):
             else:
                 line_project_val = self._prepare_project_vals(
                     line, parent_project)
+                line_project_val.update({
+                    'business_requirement_deliverable_id': line.id
+                })
                 line_project = project_obj.create(line_project_val)
                 line.linked_project = line_project.id
                 project_ids.append(line_project.id)
@@ -164,11 +164,13 @@ class BrGenerateProjects(models.TransientModel):
         description = br.name
         privacy_visibility = parent.privacy_visibility \
             or parent._defaults['privacy_visibility']
+        vals = {}
         if br._name == 'business.requirement':
             description = br.description
             privacy_visibility = br.project_id.privacy_visibility \
                 or br.project_id._defaults['privacy_visibility']
-        vals = {
+            vals.update({'business_requirement_id': br.id})
+        vals.update({
             'name': description,
             'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
@@ -177,7 +179,7 @@ class BrGenerateProjects(models.TransientModel):
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
             'privacy_visibility': '%s' % (privacy_visibility),
-        }
+        })
         return vals
 
     @api.multi
@@ -190,10 +192,9 @@ class BrGenerateProjects(models.TransientModel):
         name = line.name
         br_id = False
         if self.for_br:
-            name = line.business_requirement_deliverable_id\
-                .business_requirement_id.name + '-' + name
-            br_id = line.business_requirement_deliverable_id\
-                .business_requirement_id.id
+            if line.business_requirement_id:
+                name = line.business_requirement_id.name + '-' + name
+                br_id = line.business_requirement_id.id
         vals = {
             'name': line.name,
             'sequence': line.sequence,

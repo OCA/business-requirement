@@ -3,13 +3,14 @@
 # * business_requirement
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 08:11+0000\n"
-"PO-Revision-Date: 2017-06-09 08:11+0000\n"
+"POT-Creation-Date: 2017-07-21 12:10+0000\n"
+"PO-Revision-Date: 2017-07-21 12:10+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +167,6 @@ msgstr "Datum nastanka"
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_search
-#: field:business.requirement,partner_id:0
 msgid "Customer"
 msgstr "Kupec"
 
@@ -182,7 +182,6 @@ msgid "Date of the last message posted on the record."
 msgstr "Datum zadnjega objavljenega sporočila na zapisu."
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_search
 #: field:business.requirement,description:0
 msgid "Description"
 msgstr "Opis"
@@ -341,6 +340,11 @@ msgid "On Hold"
 msgstr "Zadržano"
 
 #. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Other"
+msgstr "Drugo"
+
+#. module: business_requirement
 #: field:business.requirement,parent_id:0
 msgid "Parent"
 msgstr "Nadrejena"
@@ -378,11 +382,6 @@ msgid "Ready for next stage"
 msgstr "Pripravljeno na naslednjo stopnjo"
 
 #. module: business_requirement
-#: field:business.requirement,ref:0
-msgid "Reference"
-msgstr "Sklic"
-
-#. module: business_requirement
 #: field:business.requirement,requested_id:0
 msgid "Requested by"
 msgstr "Zahteval"
@@ -408,6 +407,17 @@ msgstr "Scenarij"
 #: field:business.requirement,sequence:0
 msgid "Sequence"
 msgstr "Zaporedje"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,origin:0
+msgid "Source"
+msgstr "Vir"
+
+#. module: business_requirement
+#: field:business.requirement,partner_id:0
+msgid "Stakeholder"
+msgstr "Deležnik"
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
@@ -457,3 +467,8 @@ msgstr "Za revizijo"
 #: field:business.requirement,message_unread:0
 msgid "Unread Messages"
 msgstr "Neprebrana sporočila"
+
+#. module: business_requirement
+#: field:business.requirement,ref:0
+msgid "WBS"
+msgstr "Členitev"

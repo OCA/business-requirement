@@ -15,6 +15,7 @@
     ],
     'data': [
         'views/business_view.xml',
+        'views/project.xml',
         'wizard/generate_projects_view.xml',
     ],
     'image': [

@@ -11,6 +11,7 @@
                           string="Default Resource Template Lines">
                         <field name="resource_lines">
                             <tree editable="top" default_order="sequence">
+                                <field name="sequence" widget="handle"/>
                                 <field name="resource_type"/>
                                 <field name="product_id"/>
                                 <field name="name"/>

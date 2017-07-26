@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-31 19:29+0000\n"
-"PO-Revision-Date: 2017-05-31 19:29+0000\n"
+"POT-Creation-Date: 2017-07-21 12:10+0000\n"
+"PO-Revision-Date: 2017-07-21 12:10+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -258,3 +258,8 @@ msgstr "Cena enote"
 #: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
 msgid "Update Prices on Resource Lines"
 msgstr "Posodobi cene na postavkah virov"
+
+#. module: business_requirement_deliverable_cost
+#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+msgid "Update Total Revenue"
+msgstr "Posodobi skupni prihodek"

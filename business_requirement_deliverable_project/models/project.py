@@ -11,6 +11,18 @@ class Project(models.Model):
 
     origin = fields.Char('Source Document')
 
+    business_requirement_id = fields.Many2one(
+        'business.requirement',
+        string='Business Requirement',
+        help='Link the Project and the business requirement',
+    )
+
+    business_requirement_deliverable_id = fields.Many2one(
+        comodel_name='business.requirement.deliverable',
+        string='Business Requirement Deliverable',
+        help='Link the Project and the business requirement deliverable',
+    )
+
     @api.multi
     def generate_project_wizard(self):
         br_ids = self.env.context.get('br_ids', False)
@@ -24,7 +36,7 @@ class Project(models.Model):
             raise ValidationError(
                 _("""Please set working time default unit in project
                     config settings"""))
-        lines = []
+        lines = self.env['business.requirement.resource']
         for br in br_ids:
             if br.state not in ['stakeholder_approval', 'cancel', 'done']:
                 raise ValidationError(
@@ -40,9 +52,16 @@ class Project(models.Model):
 
                     if generated:
                         continue
-                    lines.append(line.id)
-
-        if not lines:
+                    lines |= line
+            for resource_line in br.resource_lines.filtered(
+                    lambda resource: resource.resource_type == 'task'):
+                generated = self.env['project.task'].search(
+                    [('br_resource_id', '=', resource_line.id)],
+                    limit=1)
+                if generated:
+                    continue
+                lines |= resource_line
+        if not lines and not br.linked_project:
             raise ValidationError(
                 _("""There is no available business requirement resource line
                     to generate task"""))
