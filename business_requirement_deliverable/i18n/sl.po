@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-12 00:51+0000\n"
-"PO-Revision-Date: 2017-07-12 00:51+0000\n"
+"POT-Creation-Date: 2017-07-27 11:49+0000\n"
+"PO-Revision-Date: 2017-07-27 11:49+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgid "Deliverable Description"
 msgstr "Opis dobav"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:353
+#: code:addons/business_requirement_deliverable/models/business.py:360
 #: field:business.requirement,deliverable_lines:0
 #, python-format
 msgid "Deliverable Lines"
@@ -350,7 +350,7 @@ msgid "Resource Description"
 msgstr "Opis vira"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:377
+#: code:addons/business_requirement_deliverable/models/business.py:384
 #: field:business.requirement,resource_lines:0
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_form
 #, python-format
@@ -427,13 +427,13 @@ msgid "UoM"
 msgstr "EM"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:112
+#: code:addons/business_requirement_deliverable/models/business.py:117
 #, python-format
 msgid "When resource type is task, the uom category should be time"
 msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:407
+#: code:addons/business_requirement_deliverable/models/business.py:414
 #, python-format
 msgid ""
 "You are changing customer, on a business requirementwhich already contains "
