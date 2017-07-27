@@ -10,6 +10,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
     def setUp(self):
         super(BusinessRequirementTestCase, self).setUp()
         self.br = self.env['business.requirement']
+        self.pr_1 = self.env.ref('project.project_project_1')
+        self.pr_2 = self.env.ref('project.project_project_2')
 
     def test_get_level(self):
         br_vals1 = {
@@ -92,3 +94,22 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.create(br_vals)
         brs = self.br.name_search(name='test')
         self.assertEqual(bool(brs), True)
+
+    def test_create_sequance(self):
+        br_vals = {
+            'name': '/',
+            'description': 'test',
+        }
+        self.br.create(br_vals)
+
+    def test_create_write_project(self):
+        br_vals = {
+            'name': 'test',
+            'description': 'test',
+            'project_id': self.pr_1.id
+        }
+        self.br.create(br_vals)
+        br_vals1 = {
+            'project_id': self.pr_2.id
+        }
+        self.br.write(br_vals1)
