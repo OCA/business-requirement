@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="business_requirement_deliverable_1"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_1"/>
+            <field name="qty">1.0</field>
+            <field name="sale_price_unit">5200.0</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="product_id" ref="business_requirement.product_product_5"/>
+            <field name="name">Website Design</field>
+        </record>
+        <record id="business_requirement_resource_1_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_1"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_1"/>
+            <field name="product_id" ref="product.product_product_8"/>
+            <field name="qty">1.0</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="resource_type">procurement</field>
+            <field name="name">Server</field>
+        </record>
+        <record id="business_requirement_resource_1_2"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_1"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_1"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_4"/>
+            <field name="qty">1.0</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="resource_type">procurement</field>
+            <field name="name">Beautiful template</field>
+        </record>
+        <record id="business_requirement_resource_1_3"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_1"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_1"/>
+            <field name="qty">3.0</field>
+            <field name="uom_id" ref="product.product_uom_day"/>
+            <field name="resource_type">task</field>
+            <field name="name">Customer design assistance</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+        <record id="business_requirement_resource_1_4"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_1"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_1"/>
+            <field name="qty">7.0</field>
+            <field name="uom_id" ref="product.product_uom_day"/>
+            <field name="resource_type">task</field>
+            <field name="name">Interface Development</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+        <record id="business_requirement_deliverable_2"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_2_2"/>
+            <field name="qty">1.0</field>
+            <field name="sale_price_unit">4000.0</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_6"/>
+            <field name="name">Odoo Quick Start Package</field>
+        </record>
+        <record id="business_requirement_resource_2_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_2_2"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">24.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Functional Analysis</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+        <record id="business_requirement_resource_2_2"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_2_2"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">32.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Technical Support</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+        <record id="business_requirement_resource_2_3"
+                model="business.requirement.resource">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_2_2"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">8.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Project Management</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+        <record id="business_requirement_deliverable_3"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_3"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">8.0</field>
+            <field name="name">Server Setup</field>
+            <field name="sale_price_unit">35.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+        </record>
+        <record id="business_requirement_resource_3"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_3"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_3"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">8.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Server Setup</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+        <record id="business_requirement_deliverable_4_1"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_4"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">16.0</field>
+            <field name="name">Functional Analysis</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_resource_4_1_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_4_1"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_4"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">16.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Functional Analysis</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+        <record id="business_requirement_deliverable_4_2"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_4"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">48.0</field>
+            <field name="name">Technical Architecture</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="sale_price_unit">45.0</field>
+        </record>
+        <record id="business_requirement_resource_4_2_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_4_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_4"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">24.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Technical Architecture</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+        <record id="business_requirement_resource_4_2_2"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_4_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_4"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">24.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Module Stack</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+        <record id="business_requirement_deliverable_5_1"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_5"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">16.0</field>
+            <field name="name">Functional Gap Analysis</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_resource_5_1_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_5_1"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_5"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_3"/>
+            <field name="qty">16.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Functional Gap Analysis</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+        <record id="business_requirement_deliverable_5_2"
+                model="business.requirement.deliverable">
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_5"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">24.0</field>
+            <field name="name">Prototype</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="sale_price_unit">35.0</field>
+        </record>
+        <record id="business_requirement_resource_5_2_1"
+                model="business.requirement.resource">
+            <field name="business_requirement_deliverable_id"
+                   ref="business_requirement_deliverable_5_2"/>
+            <field name="business_requirement_id"
+                   ref="business_requirement.business_requirement_5"/>
+            <field name="product_id"
+                   ref="business_requirement.product_product_1"/>
+            <field name="qty">24.0</field>
+            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="resource_type">task</field>
+            <field name="name">Prototype</field>
+            <field name="user_id" ref="base.user_demo"/>
+        </record>
+
+    </data>
+</openerp>
