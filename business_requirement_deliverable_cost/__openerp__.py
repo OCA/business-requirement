@@ -27,4 +27,5 @@
         "views/business.xml",
         "report/br_deliverable_cost_report_view.xml",
     ],
+    'demo': ['data/business_requirement_deliverable_cost_demo.xml'],
 }
