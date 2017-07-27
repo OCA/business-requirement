@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class BusinessRequirementResource(models.Model):
@@ -53,8 +53,7 @@ class BusinessRequirementResource(models.Model):
             qty_uom = 0
             product_uom = self.env['product.uom']
             if resource.qty != 0:
-                qty_uom = product_uom._compute_qty(
-                    resource.uom_id.id,
+                qty_uom = product_uom._compute_quantity(
                     resource.qty,
                     resource.product_id.uom_id.id
                 ) / resource.qty
@@ -195,7 +194,7 @@ class BusinessRequirement(models.Model):
                     rl.price_total for rl in dl.resource_ids)
 
     @api.multi
-    @api.depends('deliverable_lines')
+    @api.depends('deliverable_lines', 'deliverable_lines.price_total')
     def _compute_resource_task_total(self):
         for br in self:
             if br.deliverable_lines:
@@ -205,7 +204,7 @@ class BusinessRequirement(models.Model):
                         .mapped('price_total'))
 
     @api.multi
-    @api.depends('deliverable_lines')
+    @api.depends('deliverable_lines', 'deliverable_lines.price_total')
     def _compute_resource_procurement_total(self):
         for br in self:
             if br.deliverable_lines:

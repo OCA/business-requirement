@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
+from odoo.tests import common
 
 
 class BusinessRequirementTestCase(common.TransactionCase):
@@ -49,17 +49,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.pricelistA = self.env['product.pricelist'].create({
             'name': 'Pricelist A',
-            'type': 'sale',
-            'version_id': [
-                (0, 0, {
-                    'name': 'Version A',
-                    'items_id': [(0, 0, {
-                        'name': 'Item A',
-                        'product_id': self.productA.id,
-                        'price_discount': '-0.5',
-                    })]
-                })
-            ]
+            'item_ids': [(0, 0, {
+                'name': 'Item A',
+                'product_id': self.productA.id,
+                'price_discount': '-0.5',
+            })]
         })
         self.project = self.env['project.project'].create({
             'name': 'Project A',
@@ -213,8 +207,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         product_uom = resource.env['product.uom']
 
         if resource.qty != 0:
-            qty_uom = product_uom._compute_qty(
-                resource.uom_id.id,
+            qty_uom = product_uom._compute_quantity(
                 resource.qty,
                 resource.product_id.uom_id.id
             ) / resource.qty
@@ -232,7 +225,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.unit_price = unit_price * qty_uom
         self.sale_price_unit = sale_price_unit * qty_uom
-
         self.assertEqual(
             resource.unit_price, self.unit_price)
         self.assertEqual(
