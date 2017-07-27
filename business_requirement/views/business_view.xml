@@ -192,10 +192,51 @@
                 'active_test': False,
             }</field>
             <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new Business Requirement.
+                </p>
                 <p>
-                    Odoo's Business Requirement management allows you to manage the list
-                    of Business requirement from a customer for efficient follow up. You can
-                    track progress, discuss on tasks, attach documents, etc.
+                    <ul>
+                        <li>
+                            A Business requirement (BR) is the expression of a business need
+                            by a customer or internal project user.
+                        </li>
+                        <li>
+                            A BR contains multiple different parts to explain the stakeholder
+                            need and how to meet his/her requirements:
+                        </li>
+                        <li>
+                            Customer Story: this is the requirement as expressed by the
+                            customer.
+                        </li>
+                        <li>
+                            Customer Story: this is the requirement as expressed by the
+                            customer.
+                        </li>
+                        <li>
+                            Scenario: How/where the current solution can provide a suitable
+                            scenario to answer the customer story.
+                        </li>
+                        <li>
+                            Gap: For the uncovered part of the scenario, elaborate the
+                            gap/need for specific developments/setup.
+                        </li>
+                        <li>
+                            Test case: A set of conditions under which a tester will
+                            determine whether the application, software system or one of
+                            its features is working as it was originally established
+                            for it to do.
+                        </li>
+                        <li>
+                            Deliverables to be provided to the customer/user
+                        </li>
+                        <li>
+                            Resources necessary to achieve the deliverables.
+                        </li>
+                        <li>
+                            Additional information (approval, cost control etc).
+                        </li>
+                    </ul>
                 </p>
             </field>
         </record>
@@ -217,6 +258,54 @@
             <field name="view_mode">tree,form,graph</field>
             <field name="view_type">form</field>
             <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new Business Requirement.
+                </p>
+                <p>
+                    <ul>
+                        <li>
+                            A Business requirement (BR) is the expression of a business need
+                            by a customer or internal project user.
+                        </li>
+                        <li>
+                            A BR contains multiple different parts to explain the stakeholder
+                            need and how to meet his/her requirements:
+                        </li>
+                        <li>
+                            Customer Story: this is the requirement as expressed by the
+                            customer.
+                        </li>
+                        <li>
+                            Customer Story: this is the requirement as expressed by the
+                            customer.
+                        </li>
+                        <li>
+                            Scenario: How/where the current solution can provide a suitable
+                            scenario to answer the customer story.
+                        </li>
+                        <li>
+                            Gap: For the uncovered part of the scenario, elaborate the
+                            gap/need for specific developments/setup.
+                        </li>
+                        <li>
+                            Test case: A set of conditions under which a tester will
+                            determine whether the application, software system or one of
+                            its features is working as it was originally established
+                            for it to do.
+                        </li>
+                        <li>
+                            Deliverables to be provided to the customer/user
+                        </li>
+                        <li>
+                            Resources necessary to achieve the deliverables.
+                        </li>
+                        <li>
+                            Additional information (approval, cost control etc).
+                        </li>
+                    </ul>
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_business_requirement_category_tree">
