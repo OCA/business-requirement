@@ -205,7 +205,13 @@ class BusinessRequirement(models.Model):
                                     track_visibility='onchange',
                                     required=False,
                                     copy=False, default='normal')
-    origin = fields.Text(string='Source')
+    origin = fields.Text(
+        string='Source',
+        readonly=True,
+        states={
+            'draft': [('readonly', False)]
+        }
+    )
 
     @api.multi
     @api.onchange('project_id')
