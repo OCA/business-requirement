@@ -208,7 +208,12 @@ class BusinessRequirement(models.Model):
         default='normal'
     )
     origin = fields.Text(
-        string='Source'
+        string='Source',
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', True)]
+        }
     )
 
     @api.multi

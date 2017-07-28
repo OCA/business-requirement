@@ -15,10 +15,13 @@
     ],
     'data': [
         'data/business_data.xml',
+        'data/br_report_paperformat.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/report_business_requirement.xml',
         'views/business_view.xml',
         'views/project.xml',
+        'report/report.xml'
     ],
     'image': [
         'static/description/icon.png',
@@ -37,4 +40,5 @@
     ],
     'license': 'AGPL-3',
     'installable': True,
+    'application': True,
 }
