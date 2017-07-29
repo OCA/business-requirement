@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 12:10+0000\n"
-"PO-Revision-Date: 2017-07-21 12:10+0000\n"
+"POT-Creation-Date: 2017-07-27 11:49+0000\n"
+"PO-Revision-Date: 2017-07-27 11:49+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,18 +21,100 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
+#: model:ir.actions.act_window,help:business_requirement.action_business_requirement_tree
 msgid ""
-"<p>\n"
-"                    Odoo's Business Requirement management allows you to manage the list\n"
-"                    of Business requirement from a customer for efficient follow up. You can\n"
-"                    track progress, discuss on tasks, attach documents, etc.\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to start a new Business Requirement.\n"
+"                </p>\n"
+"                <p>\n"
+"                    <ul>\n"
+"                        <li>\n"
+"                            A Business requirement (BR) is the expression of a business need\n"
+"                            by a customer or internal project user.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            A BR contains multiple different parts to explain the stakeholder\n"
+"                            need and how to meet his/her requirements:\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Customer Story: this is the requirement as expressed by the\n"
+"                            customer.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Customer Story: this is the requirement as expressed by the\n"
+"                            customer.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Scenario: How/where the current solution can provide a suitable\n"
+"                            scenario to answer the customer story.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Gap: For the uncovered part of the scenario, elaborate the\n"
+"                            gap/need for specific developments/setup.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Test case: A set of conditions under which a tester will\n"
+"                            determine whether the application, software system or one of\n"
+"                            its features is working as it was originally established\n"
+"                            for it to do.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Deliverables to be provided to the customer/user\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Resources necessary to achieve the deliverables.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Additional information (approval, cost control etc).\n"
+"                        </li>\n"
+"                    </ul>\n"
 "                </p>\n"
 "            "
 msgstr ""
-"<p>\n"
-"                    Upravljanje poslovnih zahtev omogoča upravljanje seznama\n"
-"                    poslovnih zahtev kupca za učinkovito sledenje. Sledite\n"
-"                    lahko napredovanju, razpravljate o opravilih, pripenjate dokumente, ipd.\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Odprite novo poslovno zahtevo.\n"
+"                </p>\n"
+"                <p>\n"
+"                    <ul>\n"
+"                        <li>\n"
+"                            Poslovna zahteva (BR) je izraz poslovne potrebe\n"
+"                            s strani kupca ali projektnega deležnika.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            BR vsebuje več različnih delov za obrazložitev potrebe\n"
+"                            deležnika in način, kako bi njegove zahteve zadovoljili:\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Kupčeva zgodba: zahteva, kakor jo je formulirala\n"
+"                            stranka.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Kupčeva zgodba: zahteva, kakor jo je formulirala\n"
+"                            stranka.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Scenarij: kako/kje lahko trenutna rešitev zagotovi ustrezen\n"
+"                            scenarij kot odgovor na kupčevo zgodbo.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Vrzel: za tisti del scenarija, ki ni krit, natančneje razložite\n"
+"                            vrzel/potrebo po določenem razvoju dogodkov/ureditve.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Testni primer: sklop pogojev, pod katerimi lahko tester\n"
+"                            določi, ali aplikacija, sistem ali ena izmed njegovih komponent,\n"
+"                            deluje tako, kot je bilo na začetku vzpostavljeno.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Dobave, ki se morajo zagotoviti stranki/uporabniku\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Viri, potrebni za doseganje dobav.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Dodatne informacije (odobritev, kontrola stroškov, ...).\n"
+"                        </li>\n"
+"                    </ul>\n"
 "                </p>\n"
 "            "
 
@@ -55,11 +137,6 @@ msgstr "Odobril"
 #: view:business.requirement:business_requirement.view_business_requirement_form
 msgid "Back To Draft"
 msgstr "Nazaj v osnutek"
-
-#. module: business_requirement
-#: view:project.project:business_requirement.edit_project
-msgid "Business Req."
-msgstr "Poslovna zahteva"
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
@@ -95,7 +172,6 @@ msgid "Business Requirement User"
 msgstr "Uporabnik poslovnih zahtev"
 
 #. module: business_requirement
-#: view:project.project:business_requirement.view_project_kanban
 #: field:project.project,br_ids:0
 msgid "Business Requirements"
 msgstr "Poslovne zahteve"
@@ -144,6 +220,12 @@ msgid "Confirmed by"
 msgstr "Potrdil"
 
 #. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_3_product_template
+#: model:product.template,name:business_requirement.product_template_3
+msgid "Consultant"
+msgstr "Svetovalec"
+
+#. module: business_requirement
 #: field:business.requirement,sub_br_count:0
 msgid "Count"
 msgstr "Seštevek"
@@ -185,6 +267,18 @@ msgstr "Datum zadnjega objavljenega sporočila na zapisu."
 #: field:business.requirement,description:0
 msgid "Description"
 msgstr "Opis"
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_2_product_template
+#: model:product.template,name:business_requirement.product_template_2
+msgid "Designer"
+msgstr "Oblikovalec"
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_1_product_template
+#: model:product.template,name:business_requirement.product_template_1
+msgid "Developer"
+msgstr "Razvijalec"
 
 #. module: business_requirement
 #: field:business.requirement,display_name:0
@@ -330,9 +424,10 @@ msgid "Normal"
 msgstr "Običajna"
 
 #. module: business_requirement
-#: field:project.project,br_count:0
-msgid "Number of Business Requirements"
-msgstr "Število poslovnih zahtev"
+#: model:product.template,name:business_requirement.product_product_6_product_template
+#: model:product.template,name:business_requirement.product_template_6
+msgid "Odoo Quick Start Package"
+msgstr "Paket Odoo hitri start"
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -472,3 +567,15 @@ msgstr "Neprebrana sporočila"
 #: field:business.requirement,ref:0
 msgid "WBS"
 msgstr "Členitev"
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_5_product_template
+#: model:product.template,name:business_requirement.product_template_5
+msgid "Website Design"
+msgstr "Oblikovanje spletne strani"
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_4_product_template
+#: model:product.template,name:business_requirement.product_template_4
+msgid "Website Template"
+msgstr "Predloga spletne strani"
