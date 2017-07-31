@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="business_requirement_deliverable.business_requirement_resource_1_1" model="business.requirement.resource">
+            <field name="unit_price">1299.0</field>
+            <field name="sale_price_unit">1799.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_1_2" model="business.requirement.resource">
+            <field name="unit_price">100.0</field>
+            <field name="sale_price_unit">150.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_1_4" model="business.requirement.resource">
+            <field name="unit_price">200.0</field>
+            <field name="sale_price_unit">280.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
+            <field name="unit_price">280.0</field>
+            <field name="sale_price_unit">480.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_1" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_2" model="business.requirement.resource">
+            <field name="unit_price">25.0</field>
+            <field name="sale_price_unit">35.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_2_3" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_3" model="business.requirement.resource">
+            <field name="unit_price">25.0</field>
+            <field name="sale_price_unit">35.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_1_1" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_2_1" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_4_2_2" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_5_1_1" model="business.requirement.resource">
+            <field name="unit_price">30.0</field>
+            <field name="sale_price_unit">50.0</field>
+        </record>
+        <record id="business_requirement_deliverable.business_requirement_resource_5_2_1" model="business.requirement.resource">
+            <field name="unit_price">25.0</field>
+            <field name="sale_price_unit">35.0</field>
+        </record>
+
+    </data>
+</openerp>
