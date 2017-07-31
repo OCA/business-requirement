@@ -43,46 +43,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         level3 = br3.level
         self.assertEqual(level3, 3)
 
-    def test_action_button_confirm(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_confirm()
-        self.assertEqual(br.state, 'confirmed')
-
-    def test_action_button_back_draft(self):
-        br_vals = {
-            'name': 'test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_back_draft()
-        self.assertEqual(br.state, 'draft')
-
-    def test_action_button_approve(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_approve()
-        self.assertEqual(br.state, 'approved')
-
-    def test_action_button_done(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_done()
-        self.assertEqual(br.state, 'done')
-
     def test_br_name_search(self):
         br_vals = {
             'name': ' test',

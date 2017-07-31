@@ -294,44 +294,6 @@ class BusinessRequirement(models.Model):
         # Merge both results
         return list(set(names) | set(descriptions))[:limit]
 
-    @api.multi
-    def action_button_confirm(self):
-        self.write({'state': 'confirmed'})
-        self.confirmed_id = self.env.user
-        self.confirmation_date = fields.Datetime.now()
-
-    @api.multi
-    def action_button_back_draft(self):
-        self.write({'state': 'draft'})
-        self.confirmed_id = self.approved_id = []
-        self.confirmation_date = self.approval_date = ''
-
-    @api.multi
-    def action_button_approve(self):
-        self.write({'state': 'approved'})
-        self.approved_id = self.env.user
-        self.approval_date = fields.Datetime.now()
-
-    @api.multi
-    def action_button_stakeholder_approval(self):
-        self.write({'state': 'stakeholder_approval'})
-
-    @api.multi
-    def action_button_in_progress(self):
-        self.write({'state': 'in_progress'})
-
-    @api.multi
-    def action_button_done(self):
-        self.write({'state': 'done'})
-
-    @api.multi
-    def action_button_cancel(self):
-        self.write({'state': 'cancel'})
-
-    @api.multi
-    def action_button_drop(self):
-        self.write({'state': 'drop'})
-
     @api.cr_uid_ids_context
     def message_post(self, cr, uid, thread_id, body='', subject=None,
                      type='notification', subtype=None, parent_id=False,
