@@ -186,6 +186,49 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         })
             ]})
 
+    def test_br_state_generate_project_wizard(self):
+        # test when state=draft
+        self.brA.state = 'draft'
+        self.brB.state = 'draft'
+        self.brC.state = 'draft'
+        with self.assertRaises(ValidationError):
+            self.brA.project_id.generate_project_wizard()
+
+        # test when state=confirmed
+        self.brA.state = 'confirmed'
+        self.brB.state = 'confirmed'
+        self.brC.state = 'confirmed'
+        with self.assertRaises(ValidationError):
+            self.brB.project_id.generate_project_wizard()
+
+        self.brB.state = 'confirmed'
+        self.brC.state = 'draft'
+        with self.assertRaises(ValidationError):
+            self.brA.project_id.generate_project_wizard()
+
+        # test when state=stakeholder_approval
+        self.brA.state = 'stakeholder_approval'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
+
+        # test when state=done
+        self.brA.state = 'done'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
+
+        # test when state=cancel
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+        with self.assertRaises(ValidationError):
+            action = self.brA.project_id.generate_project_wizard()
+            self.assertTrue(action)
+
     def test_wizard_apply(self):
         self.brA.state = 'stakeholder_approval'
         self.brB.state = 'approved'
