@@ -207,7 +207,7 @@ class BusinessRequirement(models.Model):
         required=False,
         default='normal'
     )
-    origin = fields.Text(
+    origin = fields.Char(
         string='Source',
         readonly=True,
         states={
