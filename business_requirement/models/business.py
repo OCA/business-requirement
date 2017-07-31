@@ -205,7 +205,7 @@ class BusinessRequirement(models.Model):
                                     track_visibility='onchange',
                                     required=False,
                                     copy=False, default='normal')
-    origin = fields.Text(
+    origin = fields.Char(
         string='Source',
         readonly=True,
         states={
