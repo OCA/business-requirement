@@ -7,7 +7,8 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <page name="variants" position='after'>
-                    <page name="resources" string="Default Resource Lines">
+                    <page name="resources"
+                          string="Default Resource Template Lines">
                         <field name="resource_lines">
                             <tree editable="top" default_order="sequence">
                                 <field name="sequence" widget="handle"/>
