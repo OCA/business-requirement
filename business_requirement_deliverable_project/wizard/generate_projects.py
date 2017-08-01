@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import models, fields, api
-from openerp.tools.translate import _
+from odoo import models, fields, api
+from odoo.tools.translate import _
 
 
 class BrGenerateProjects(models.TransientModel):
@@ -174,7 +174,7 @@ class BrGenerateProjects(models.TransientModel):
             'name': description,
             'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
-            'members': [(6, 0, parent.members.ids)],
+            'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),

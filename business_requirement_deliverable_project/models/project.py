@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
+from odoo import api, fields, models
+from odoo.tools.translate import _
+from odoo.exceptions import ValidationError
 
 
 class Project(models.Model):
@@ -30,8 +30,9 @@ class Project(models.Model):
         if not br_ids:
             br_ids = self.br_ids
             from_project = True
-        default_uom = self.env['project.config.settings'].\
-            get_default_time_unit('time_unit').get('time_unit', False)
+        default_uom = self.env.user and self.env.user.company_id and \
+                      self.env.user.company_id.project_time_mode_id.id
+        #     get_default_time_unit('time_unit').get('time_unit', False)
         if not default_uom:
             raise ValidationError(
                 _("""Please set working time default unit in project
