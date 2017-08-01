@@ -51,11 +51,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.pricelistA = self.env['product.pricelist'].create({
             'name': 'Pricelist A',
             'item_ids': [(0, 0, {
-                        'name': 'Item A',
-                        'product_id': self.productA.id,
-                        'price_discount': '-0.5',
-                })
-            ]
+                'name': 'Item A',
+                'product_id': self.productA.id,
+                'price_discount': '-0.5'
+            })]
         })
         self.project = self.env['project.project'].create({
             'name': 'Project A',
@@ -72,7 +71,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br = self.env['business.requirement'].create(vals)
         self.br.write({
             'deliverable_lines': [
-                (0, 0, {'name': 'deliverable line1','qty': 1.0,
+                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
                         'product_id': self.productB.id,
                         'unit_price': 900, 'uom_id': 1,
                         'business_requirement_id': self.br.id,

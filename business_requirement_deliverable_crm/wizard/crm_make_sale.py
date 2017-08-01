@@ -81,7 +81,6 @@ class CrmMakeSale(models.TransientModel):
             if br.state in ('drop', 'cancel'):
                 continue
             for br_line in br.deliverable_lines:
-                taxes = br_line.product_id.taxes_id
                 vals = {
                     'order_id': order_id and order_id.id,
                     'product_id': br_line.product_id.id,
