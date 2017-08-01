@@ -27,18 +27,35 @@ class CrmMakeSale(models.TransientModel):
         case_id = context and context.get('active_ids', []) or []
         case_id = case_id and case_id[0] or False
         crm_id = self.env['crm.lead'].browse(case_id)
+        if crm_id and crm_id.order_ids:
+            return {
+                'domain': str([('id', 'in', crm_id.order_ids.ids)]),
+                'view_type': 'form',
+                'view_mode': 'tree,form',
+                'res_model': 'sale.order',
+                'view_id': False,
+                'type': 'ir.actions.act_window',
+                'name': _('Quotation'),
+                'res_ids': crm_id.order_ids.ids
+            }
         if crm_id and crm_id.project_id:
             partner = crm_id.partner_id
             sale_order = self.env['sale.order']
-            pricelist = partner.property_product_pricelist.id or False
+            pricelist = partner.property_product_pricelist.id
+            partner_addr = partner.address_get(
+                ['default', 'invoice', 'delivery', 'contact']
+            )
             sale_order_vals = {
                 'partner_id': partner.id,
                 'opportunity_id': crm_id.id,
                 'pricelist_id': pricelist,
+                'partner_invoice_id': partner_addr['invoice'],
+                'partner_shipping_id': partner_addr['delivery'],
                 'date_order': fields.datetime.now(),
                 }
+
             order_id = sale_order.create(sale_order_vals)
-            order_lines = self.prepare_sale_order_line(case_id, order_id)
+            order_lines = self.prepare_sale_order_line(case_id, order_id.id)
             self.create_sale_order_line(order_lines)
             return {
                 'domain': str([('id', 'in', [order_id.id])]),
@@ -54,6 +71,7 @@ class CrmMakeSale(models.TransientModel):
     def prepare_sale_order_line(self, case_id, order_id):
         lines = []
         case = self.env['crm.lead'].browse(case_id)
+        order_id = self.env['sale.order'].browse(order_id)
         linked_brs = case.project_id and case.project_id.br_ids or []
         if not linked_brs:
             raise ValidationError(
@@ -64,18 +82,13 @@ class CrmMakeSale(models.TransientModel):
                 continue
             for br_line in br.deliverable_lines:
                 taxes = br_line.product_id.taxes_id
-                taxes = taxes.filtered(
-                    lambda x: x.company_id == br.company_id)
                 vals = {
                     'order_id': order_id and order_id.id,
                     'product_id': br_line.product_id.id,
                     'name': br_line.name,
                     'product_uom_qty': br_line.qty,
-                    'product_uos_qty': br_line.qty,
                     'product_uom': br_line.uom_id.id,
-                    'product_uos': br_line.uom_id.id,
                     'price_unit': br_line.sale_price_unit,
-                    'tax_id': [(6, 0, taxes.ids)],
                 }
                 lines.append(vals)
         return lines

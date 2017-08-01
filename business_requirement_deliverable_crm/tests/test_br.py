@@ -50,20 +50,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.pricelistA = self.env['product.pricelist'].create({
             'name': 'Pricelist A',
-            'type': 'sale',
-            'version_id': [
-                (0, 0, {
-                    'name': 'Version A',
-                    'items_id': [(0, 0, {
+            'item_ids': [(0, 0, {
                         'name': 'Item A',
                         'product_id': self.productA.id,
                         'price_discount': '-0.5',
-                    })]
                 })
             ]
         })
         self.project = self.env['project.project'].create({
-            'name': 'Project A', 'pricelist_id': self.pricelistA.id,
+            'name': 'Project A',
             'partner_id': 3,
         })
         self.crm_lead_1 = self.env.ref('crm.crm_case_1')
@@ -77,7 +72,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br = self.env['business.requirement'].create(vals)
         self.br.write({
             'deliverable_lines': [
-                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line1','qty': 1.0,
+                        'product_id': self.productB.id,
                         'unit_price': 900, 'uom_id': 1,
                         'business_requirement_id': self.br.id,
                         'resource_ids': [
@@ -113,18 +109,21 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         ]
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'product_id': self.productA.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'product_id': self.productC.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'product_id': self.productD.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ]})
 
-    def test__compute_resource_cost_total(self):
+    def test_compute_resource_cost_total(self):
         self.crm_lead_1._compute_resource_cost_total()
         br_ids = self.crm_lead_1.project_id.br_ids
         resource_cost_total = sum(
