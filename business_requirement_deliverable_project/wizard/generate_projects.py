@@ -114,8 +114,6 @@ class BrGenerateProjects(models.TransientModel):
                 br_project_val = self._prepare_project_vals(
                     br, parent_project)
                 br_project = project_obj.create(br_project_val)
-                msg = ('Project  %s  has been created') % (br_project.name)
-                br.message_post(body=msg)
                 br.linked_project = br_project.id
                 project_ids.append(br_project.id)
             else:
@@ -162,23 +160,22 @@ class BrGenerateProjects(models.TransientModel):
     @api.multi
     def _prepare_project_vals(self, br, parent):
         description = br.name
-        privacy_visibility = parent.privacy_visibility \
-            or parent._defaults['privacy_visibility']
+        privacy_visibility = parent.privacy_visibility
         vals = {}
         if br._name == 'business.requirement':
             description = br.description
-            privacy_visibility = br.project_id.privacy_visibility \
-                or br.project_id._defaults['privacy_visibility']
+            privacy_visibility = br.project_id.privacy_visibility
             vals.update({'business_requirement_id': br.id})
+        if privacy_visibility:
+            vals.update({'privacy_visibility': privacy_visibility})
         vals.update({
             'name': description,
-            'parent_id': parent.analytic_account_id.id,
+            'analytic_account_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
             'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
-            'privacy_visibility': '%s' % (privacy_visibility),
         })
         return vals
 
@@ -187,13 +184,13 @@ class BrGenerateProjects(models.TransientModel):
         context = self.env.context
         default_uom = context and context.get('default_uom', False)
         product_uom_obj = self.env['product.uom']
-        qty = product_uom_obj._compute_qty(
-            line.uom_id.id, line.qty, default_uom)
+        qty = product_uom_obj._compute_quantity(
+            line.qty, default_uom
+        )
         name = line.name
         br_id = False
         if self.for_br:
             if line.business_requirement_id:
-                name = line.business_requirement_id.name + '-' + name
                 br_id = line.business_requirement_id.id
         vals = {
             'name': line.name,

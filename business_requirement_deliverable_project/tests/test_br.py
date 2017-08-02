@@ -18,14 +18,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.AnalyticAccountObject = self.env['account.analytic.account']
 
         self.AnalyticAccount = self.AnalyticAccountObject.create(
-            {'name': 'AnalyticAccount for Test',
-             'state': 'draft'})
+            {'name': 'AnalyticAccount for Test'})
 
         self.projectA = self.ProjectObj.\
-            create({'name': 'Test Project A', 'partner_id': 1, 'parent_id': 1,
+            create({'name': 'Test Project A', 'partner_id': 1,
+                    'analytic_account_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
         self.projectB = self.ProjectObj.\
-            create({'name': 'Test Project B', 'partner_id': 1, 'parent_id': 1,
+            create({'name': 'Test Project B', 'partner_id': 1,
+                    'analytic_account_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
 
         # Configure unit of measure.
@@ -115,9 +116,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         'unit_price': 1500, 'uom_id': 1,
                         })
             ]})
-
         self.brA._compute_hour()
         self.brA._compute_planned_hour()
+        vals = {
+            'description': 'test',
+            'project_id': self.projectA.id,
+            'task_ids': [(0, 0, {'name': 'Test Task'}),
+                         (0, 0, {'name': 'Test Task2'})],
+            'partner_id': br_obj.partner_id.id
+        }
 
         self.brB = self.env['business.requirement'].create(vals)
         self.brB.write({
@@ -150,6 +157,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'business_requirement_id': self.brB.id,
                         'unit_price': 1500, 'uom_id': 1})]})
+
+        vals = {
+            'description': 'test',
+            'project_id': self.projectA.id,
+            'task_ids': [(0, 0, {'name': 'Test Task'}),
+                         (0, 0, {'name': 'Test Task2'})],
+            'partner_id': br_obj.partner_id.id
+        }
 
         self.brC = self.env['business.requirement'].create(vals)
         self.brC.write({
@@ -262,9 +277,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'stakeholder_approval'
 
-        default_uom = self.env[
-            'project.config.settings'
-        ].get_default_time_unit('time_unit').get('time_unit', False)
+        default_uom = self.env.user and self.env.user.company_id and \
+                      self.env.user.company_id.project_time_mode_id.id
 
         with self.assertRaises(ValidationError):
             action = self.brA.project_id.generate_project_wizard()

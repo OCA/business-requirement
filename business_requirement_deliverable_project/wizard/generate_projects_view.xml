@@ -6,29 +6,29 @@
         <field name="type">form</field>
         <field name="priority">20</field>
         <field name="arch" type="xml">
-            <data>
-                <form string="Generate Tasks">
-                     <group>
-                        <group>
-                            <field name="br_ids"
-                                   widget="many2many_tags"
-                                   readonly="1"/>
-                            <field name="partner_id"
-                                   readonly="1"/>
-                            <field name="project_id"/>
-                            <field name="for_br" readonly="1"/>
-                            <field name="for_deliverable"/>
-                            <field name="for_childs"
-                                   attrs="{'readonly': [('for_br', '!=', True)]}"/>
-                        </group>
+            <form string="Generate Tasks">
+                <sheet>
+                    <group>
+                        <field name="br_ids"
+                               widget="many2many_tags"
+                               readonly="1"/>
+                        <field name="partner_id"
+                               readonly="1"/>
+                        <field name="project_id"/>
                     </group>
-                </form>
-                <footer>
-                    <button name="apply" string="_Apply" type="object" class="oe_highlight"/>
-                    or
-                    <button string="_Cancel" class="oe_link" special="cancel" />
-                </footer>
-            </data>
+                    <group>
+                        <field name="for_br" readonly="1"/>
+                        <field name="for_deliverable"/>
+                        <field name="for_childs"
+                               attrs="{'readonly': [('for_br', '!=', True)]}"/>
+                    </group>
+                </sheet>
+            </form>
+            <footer>
+                <button name="apply" string="_Apply" type="object" class="oe_highlight"/>
+                or
+                <button string="_Cancel" class="oe_link" special="cancel" />
+            </footer>
         </field>
     </record>
 </odoo>
