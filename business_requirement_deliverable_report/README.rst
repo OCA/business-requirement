@@ -9,7 +9,7 @@ Business Requirement Document Printout
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/10.0/README.md>`_)
 
 This module adds multiple printouts to the deliverable modules:
 
@@ -41,7 +41,7 @@ Select the BR and print desired report.
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/10.0
 
 
 Bug Tracker
