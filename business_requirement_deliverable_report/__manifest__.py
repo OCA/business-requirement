@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Business Requirement Document Printout',
     'summary': 'Print the Business Requirement Document for your customers',
-    'version': '8.0.5.0.2',
+    'version': '10.0.1.0.0',
     'category': 'Business Requirements Management',
     'website': 'https://www.elico-corp.com',
     'author': 'Elico Corp, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'application': False,
-    'installable': False,
+    'installable': True,
     'depends': [
         'business_requirement_deliverable',
     ],
