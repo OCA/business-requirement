@@ -3,16 +3,16 @@
     <data noupdate="1">
 
         <!-- Task Categories -->
-        <record id="project_category_main_1" model="project.category.main">
+        <record id="project_category_main_1" model="project.tags">
             <field name="name">Design</field>
         </record>
-        <record id="project_category_main_2" model="project.category.main">
+        <record id="project_category_main_2" model="project.tags">
             <field name="name">Development</field>
         </record>
-        <record id="project_category_main_3" model="project.category.main">
+        <record id="project_category_main_3" model="project.tags">
             <field name="name">Analysis</field>
         </record>
-        <record id="project_category_main_4" model="project.category.main">
+        <record id="project_category_main_4" model="project.tags">
             <field name="name">PM</field>
         </record>
 
@@ -24,7 +24,7 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
 
         </record>
@@ -35,7 +35,7 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
         </record>
         <record id="project_task_3" model="project.task">
@@ -45,7 +45,7 @@
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
             <field name="name">Module Stack</field>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
         </record>
 
