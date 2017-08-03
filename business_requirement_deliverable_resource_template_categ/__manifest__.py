@@ -21,6 +21,10 @@
     'data': [
         "views/business_requirement_resource_template.xml",
     ],
+    'demo': [
+        "data/"
+        "business_requirement_deliverable_resource_template_categ_demo.xml",
+    ],
     'license': 'AGPL-3',
     'installable': False,
 }
