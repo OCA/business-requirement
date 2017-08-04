@@ -9,9 +9,60 @@ from odoo.tests import common
 class BusinessRequirementTestCase(common.TransactionCase):
     def setUp(self):
         super(BusinessRequirementTestCase, self).setUp()
+        self.ProjectObj = self.env['project.project']
+
+        self.AnalyticAccountObject = self.env['account.analytic.account']
+        # Configure unit of measure.
+        self.categ_wtime = self.ref('product.uom_categ_wtime')
+        self.categ_kgm = self.ref('product.product_uom_categ_kgm')
+
+        self.UomObj = self.env['product.uom']
+        self.uom_hours = self.UomObj.create({
+            'name': 'Test-Hours',
+            'category_id': self.categ_wtime,
+            'factor': 8,
+            'uom_type': 'smaller'})
+        self.uom_days = self.UomObj.create({
+            'name': 'Test-Days',
+            'category_id': self.categ_wtime,
+            'factor': 1})
+        self.uom_kg = self.UomObj.create({
+            'name': 'Test-KG',
+            'category_id': self.categ_kgm,
+            'factor_inv': 1,
+            'factor': 1,
+            'uom_type': 'reference',
+            'rounding': 0.000001})
+
+        self.AnalyticAccount = self.AnalyticAccountObject.create(
+            {'name': 'AnalyticAccount for Test',
+             'state': 'draft'})
+
+        self.projectA = self.ProjectObj. \
+            create({'name': 'Test Project A', 'partner_id': 1, 'parent_id': 1,
+                    'analytic_account_id': self.AnalyticAccount.id})
         self.br = self.env['business.requirement']
         self.pr_1 = self.env.ref('project.project_project_1')
         self.pr_2 = self.env.ref('project.project_project_2')
+
+        vals = {
+            'description': 'test',
+            'project_id': self.projectA.id
+        }
+        # Product Created A, B, C, D
+        self.ProductObj = self.env['product.product']
+        self.productA = self.ProductObj.create(
+            {'name': 'Product A', 'uom_id': self.uom_hours.id,
+             'uom_po_id': self.uom_hours.id,
+             'standard_price': 450})
+        self.productB = self.ProductObj. \
+            create({'name': 'Product B', 'uom_id': self.uom_hours.id,
+                    'uom_po_id': self.uom_hours.id,
+                    'standard_price': 550})
+
+        self.brA = self.env['business.requirement'].create(vals)
+        self.brB = self.env['business.requirement'].create(vals)
+        self.brC = self.env['business.requirement'].create(vals)
 
     def test_get_level(self):
         br_vals1 = {
@@ -45,46 +96,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         level3 = br3.level
         self.assertEqual(level3, 3)
 
-    def test_action_button_confirm(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_confirm()
-        self.assertEqual(br.state, 'confirmed')
-
-    def test_action_button_back_draft(self):
-        br_vals = {
-            'name': 'test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_back_draft()
-        self.assertEqual(br.state, 'draft')
-
-    def test_action_button_approve(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_approve()
-        self.assertEqual(br.state, 'approved')
-
-    def test_action_button_done(self):
-        br_vals = {
-            'name': ' test',
-            'description': 'test',
-            'parent_id': False,
-        }
-        br = self.br.create(br_vals)
-        br.action_button_done()
-        self.assertEqual(br.state, 'done')
-
     def test_br_name_search(self):
         br_vals = {
             'name': ' test',
@@ -113,3 +124,39 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'project_id': self.pr_2.id
         }
         self.br.write(br_vals1)
+
+    def test_br_read_group(self):
+        self.env['business.requirement'].read_group(
+            [],
+            ['state'], ['state'])[0]
+        self.env['business.requirement'].read_group(
+            [],
+            [], [])[0]
+
+    def test_br_state_generate_project_wizard(self):
+        # test when state=draft
+        self.brA.state = 'draft'
+        self.brB.state = 'draft'
+        self.brC.state = 'draft'
+
+        # test when state=confirmed
+        self.brA.state = 'confirmed'
+        self.brB.state = 'confirmed'
+        self.brC.state = 'confirmed'
+
+        self.brB.state = 'confirmed'
+        self.brC.state = 'draft'
+
+        # test when state=stakeholder_approval
+        self.brA.state = 'stakeholder_approval'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+
+        # test when state=done
+        self.brA.state = 'done'
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'
+
+        # test when state=cancel
+        self.brB.state = 'approved'
+        self.brC.state = 'approved'

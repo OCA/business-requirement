@@ -327,48 +327,9 @@ class BusinessRequirement(models.Model):
         return list(set(names) | set(descriptions))[:limit]
 
     @api.multi
-    def action_button_confirm(self):
-        self.write({'state': 'confirmed'})
-        self.confirmed_id = self.env.user
-        self.confirmation_date = fields.Datetime.now()
-
-    @api.multi
-    def action_button_back_draft(self):
-        self.write({'state': 'draft'})
-        self.confirmed_id = self.approved_id = []
-        self.confirmation_date = self.approval_date = ''
-
-    @api.multi
-    def action_button_approve(self):
-        self.write({'state': 'approved'})
-        self.approved_id = self.env.user
-        self.approval_date = fields.Datetime.now()
-
-    @api.multi
-    def action_button_stakeholder_approval(self):
-        self.write({'state': 'stakeholder_approval'})
-
-    @api.multi
-    def action_button_in_progress(self):
-        self.write({'state': 'in_progress'})
-
-    @api.multi
-    def action_button_done(self):
-        self.write({'state': 'done'})
-
-    @api.multi
-    def action_button_cancel(self):
-        self.write({'state': 'cancel'})
-
-    @api.multi
-    def action_button_drop(self):
-        self.write({'state': 'drop'})
-
-    @api.multi
     @api.returns('self', lambda value: value.id)
     def message_post(self, body='', subject=None, message_type='notification',
                      subtype=None, parent_id=False, attachments=None,
-                     content_subtype='html', **kwargs):
         context = self._context or {}
         if context.get('default_model') ==\
                 'business.requirement' and context.get('default_res_id'):
@@ -386,6 +347,77 @@ class BusinessRequirement(models.Model):
             content_subtype=content_subtype,
             **kwargs)
         return message
+
+    @api.model
+    def read_group(self, domain, fields, groupby, offset=0,
+                   limit=None, orderby=False, lazy=True):
+        """ Read group customization in order to display all the stages in the
+            kanban view. if the stages values are there it will group by state.
+        """
+        if groupby and groupby[0] == "state":
+            states = self.env['business.requirement'].\
+                fields_get(['state']).get('state').get('selection')
+            read_group_all_states = [{'__context': {'group_by': groupby[1:]},
+                                      '__domain': domain + [('state', '=',
+                                                             state_value)],
+                                      'state': state_value,
+                                      'state_count': 0}
+                                     for state_value, state_name in states]
+            # Get standard results
+            read_group_res = super(BusinessRequirement, self).\
+                read_group(domain, fields, groupby, offset=offset,
+                           limit=limit, orderby=orderby)
+            # Update standard results with default results
+            result = []
+            for state_value, state_name in states:
+                res = filter(lambda x: x['state'] == state_value,
+                             read_group_res)
+                if not res:
+                    res = filter(lambda x: x['state'] == state_value,
+                                 read_group_all_states)
+                res[0]['state'] = [state_value, state_name]
+                result.append(res[0])
+            return result
+        else:
+            return super(BusinessRequirement, self).\
+                read_group(domain, fields, groupby,
+                           offset=offset, limit=limit, orderby=orderby)
+
+    @api.multi
+    def write(self, vals):
+        for r in self:
+            if vals.get('state'):
+                ir_obj = self.env['ir.model.data']
+                br_xml_id = ir_obj.\
+                    get_object('business_requirement',
+                               'group_business_requirement_manager')
+                user = self.env['res.users']
+                grps = [grp.id for grp in user.browse(self._uid).groups_id]
+                date = fields.Datetime.now()
+                if vals['state'] == 'confirmed':
+                    vals.update({'confirmed_id': user,
+                                 'confirmation_date': date})
+                if vals['state'] == 'draft':
+                    vals.update({'confirmed_id': False,
+                                 'approved_id': False,
+                                 'confirmation_date': False,
+                                 'approval_date': False
+                                 })
+                if vals['state'] == 'approved':
+                    if br_xml_id.id in grps:
+                        vals.update({'approved_id': user,
+                                     'approval_date': date})
+                    else:
+                        raise UserError(_('You can only move to the '
+                                          'following stage: draft/confirmed'
+                                          '/cancel/drop.'))
+                if vals['state'] in ('stakeholder_approval', 'in_progress',
+                                     'done'):
+                    if br_xml_id.id not in grps:
+                        raise UserError(_('You can only move to the'
+                                          'following stage: draft/'
+                                          'confirmed/cancel/drop.'))
+            return super(BusinessRequirement, self).write(vals)
 
 
 class BusinessRequirementCategory(models.Model):
