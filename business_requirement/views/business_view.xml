@@ -19,15 +19,7 @@
         <field name="arch" type="xml">
             <form string="Business Requirement">
                 <header>
-                    <button name="action_button_confirm" states="draft" string="Confirm" type="object" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
-                    <button name="action_button_back_draft" string="Back To Draft" type="object" attrs="{'invisible': [('state', 'in', ('draft','done'))]}" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
-                    <button name="action_button_approve" states="confirmed" string="Approve" type="object" groups="business_requirement.group_business_requirement_manager" class="oe_highlight"/>
-                    <button name="action_button_stakeholder_approval" states="approved" string="Stakeholder Approval" type="object" groups="business_requirement.group_business_requirement_manager" class="oe_highlight"/>
-                    <button name="action_button_in_progress" states="stakeholder_approval" string="In Progress" type="object" groups="business_requirement.group_business_requirement_manager" class="oe_highlight"/>
-                    <button name="action_button_done" states="in_progress" string="Done" type="object" groups="business_requirement.group_business_requirement_manager" class="oe_highlight"/>
-                    <button name="action_button_cancel" string="Cancel" type="object" attrs="{'invisible': [('state', 'in', ('done','cancel'))]}" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
-                    <button name="action_button_drop" string="Drop" type="object" attrs="{'invisible': [('state', 'in', ('done','drop','cancel'))]}" groups="business_requirement.group_business_requirement_user" class="oe_highlight"/>
-                    <field name="state" widget="statusbar"
+                    <field name="state" widget="statusbar" clickable="True"
                            statusbar_visible="draft,confirmed,approved,stakeholder_approval,in_progress,done,cancel,drop"/>
                 </header>
                 <sheet>
