@@ -69,7 +69,7 @@
                                  <field name="test_case" nolabel="1" default_focus="0"/>
                             </group>
                         </page>
-                        <page string="Logs">
+                        <page string="Logs" name="logs">
                             <group col="4">
                                 <field name="level" invisible="1"/>
                             </group>
