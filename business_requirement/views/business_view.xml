@@ -66,7 +66,7 @@
                                  <field name="gap" nolabel="1"/>
                             </group>
                             <group string="Test Case">
-                                 <field name="test_case" nolabel="1"/>
+                                 <field name="test_case" nolabel="1" default_focus="0"/>
                             </group>
                         </page>
                         <page string="Logs">
@@ -213,8 +213,8 @@
         <field name="model">business.requirement</field>
         <field name="arch" type="xml">
             <pivot string="Business Requirement" disable_linking="True">
-                <field name="partner_id" type="row"/>
-                <field name="project_id" type="col"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
             </pivot>
         </field>
     </record>
