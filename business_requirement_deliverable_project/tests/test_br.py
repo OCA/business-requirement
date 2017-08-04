@@ -201,7 +201,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         with self.assertRaises(ValidationError):
             self.brB.project_id.generate_project_wizard()
 
-        self.brA.action_button_stakeholder_approval()
         self.brB.state = 'confirmed'
         self.brC.state = 'draft'
         with self.assertRaises(ValidationError):
@@ -224,7 +223,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.assertTrue(action)
 
         # test when state=cancel
-        self.brA.action_button_cancel()
         self.brB.state = 'approved'
         self.brC.state = 'approved'
         with self.assertRaises(ValidationError):
@@ -407,11 +405,3 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         for group in test:
             group.write({'users': [(4, self.env.user.id)]})
-
-    def test_br_read_group(self):
-        self.env['business.requirement'].read_group(
-            [],
-            ['state'], ['state'])[0]
-        self.env['business.requirement'].read_group(
-            [],
-            [], [])[0]
