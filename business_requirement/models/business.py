@@ -265,6 +265,37 @@ class BusinessRequirement(models.Model):
                     msg_followers.append((0, 0, msg_vals))
                 if msg_followers:
                     vals['message_follower_ids'] = msg_followers
+        if vals.get('state'):
+            ir_obj = self.env['ir.model.data']
+            br_xml_id = ir_obj.\
+                get_object('business_requirement',
+                           'group_business_requirement_manager')
+            user = self.env['res.users']
+            grps = [grp.id for grp in user.browse(self._uid).groups_id]
+            date = fields.Datetime.now()
+            if vals['state'] == 'confirmed':
+                vals.update({'confirmed_id': user,
+                             'confirmation_date': date})
+            if vals['state'] == 'draft':
+                vals.update({'confirmed_id': False,
+                             'approved_id': False,
+                             'confirmation_date': False,
+                             'approval_date': False
+                             })
+            if vals['state'] == 'approved':
+                if br_xml_id.id in grps:
+                    vals.update({'approved_id': user,
+                                 'approval_date': date})
+                else:
+                    raise ValidationError(_(
+                        'You can only move to the following stage:'
+                        'draft/confirmed /cancel/drop.'))
+            if vals['state'] in ('stakeholder_approval', 'in_progress',
+                                 'done'):
+                if br_xml_id.id not in grps:
+                    raise ValidationError(_(
+                        'You can only move to the following stage:'
+                        'draft/confirmed/cancel/drop.'))
         return super(BusinessRequirement, self).write(vals)
 
     @api.multi
@@ -330,6 +361,7 @@ class BusinessRequirement(models.Model):
     @api.returns('self', lambda value: value.id)
     def message_post(self, body='', subject=None, message_type='notification',
                      subtype=None, parent_id=False, attachments=None,
+                     content_subtype='html', **kwargs):
         context = self._context or {}
         if context.get('default_model') ==\
                 'business.requirement' and context.get('default_res_id'):
@@ -382,42 +414,6 @@ class BusinessRequirement(models.Model):
             return super(BusinessRequirement, self).\
                 read_group(domain, fields, groupby,
                            offset=offset, limit=limit, orderby=orderby)
-
-    @api.multi
-    def write(self, vals):
-        for r in self:
-            if vals.get('state'):
-                ir_obj = self.env['ir.model.data']
-                br_xml_id = ir_obj.\
-                    get_object('business_requirement',
-                               'group_business_requirement_manager')
-                user = self.env['res.users']
-                grps = [grp.id for grp in user.browse(self._uid).groups_id]
-                date = fields.Datetime.now()
-                if vals['state'] == 'confirmed':
-                    vals.update({'confirmed_id': user,
-                                 'confirmation_date': date})
-                if vals['state'] == 'draft':
-                    vals.update({'confirmed_id': False,
-                                 'approved_id': False,
-                                 'confirmation_date': False,
-                                 'approval_date': False
-                                 })
-                if vals['state'] == 'approved':
-                    if br_xml_id.id in grps:
-                        vals.update({'approved_id': user,
-                                     'approval_date': date})
-                    else:
-                        raise UserError(_('You can only move to the '
-                                          'following stage: draft/confirmed'
-                                          '/cancel/drop.'))
-                if vals['state'] in ('stakeholder_approval', 'in_progress',
-                                     'done'):
-                    if br_xml_id.id not in grps:
-                        raise UserError(_('You can only move to the'
-                                          'following stage: draft/'
-                                          'confirmed/cancel/drop.'))
-            return super(BusinessRequirement, self).write(vals)
 
 
 class BusinessRequirementCategory(models.Model):
