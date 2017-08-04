@@ -319,6 +319,9 @@ class BusinessRequirement(models.Model):
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
                    limit=None, orderby=False, lazy=True):
+        """ Read group customization in order to display all the stages in the
+            kanban view. if the stages values are there it will group by state.
+        """
         if groupby and groupby[0] == "state":
             states = self.env['business.requirement'].\
                 fields_get(['state']).get('state').get('selection')
