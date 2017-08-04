@@ -35,11 +35,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'rounding': 0.000001})
 
         self.AnalyticAccount = self.AnalyticAccountObject.create(
-            {'name': 'AnalyticAccount for Test',
-             'state': 'draft'})
+            {'name': 'AnalyticAccount for Test'})
 
         self.projectA = self.ProjectObj. \
-            create({'name': 'Test Project A', 'partner_id': 1, 'parent_id': 1,
+            create({'name': 'Test Project A', 'partner_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
         self.br = self.env['business.requirement']
         self.pr_1 = self.env.ref('project.project_project_1')
@@ -61,8 +60,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
                     'standard_price': 550})
 
         self.brA = self.env['business.requirement'].create(vals)
-        self.brB = self.env['business.requirement'].create(vals)
-        self.brC = self.env['business.requirement'].create(vals)
+        vals1 = {
+            'description': 'test',
+            'project_id': self.projectA.id
+        }
+        self.brB = self.env['business.requirement'].create(vals1)
+        vals2 = {
+            'description': 'test',
+            'project_id': self.projectA.id
+        }
+        self.brC = self.env['business.requirement'].create(vals2)
 
     def test_get_level(self):
         br_vals1 = {
@@ -103,6 +110,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'parent_id': False,
         }
         self.br.create(br_vals)
+
         brs = self.br.name_search(name='test')
         self.assertEqual(bool(brs), True)
 
