@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 11:49+0000\n"
-"PO-Revision-Date: 2017-07-27 11:49+0000\n"
+"POT-Creation-Date: 2017-08-04 09:58+0000\n"
+"PO-Revision-Date: 2017-08-04 09:58+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -124,19 +124,9 @@ msgid "Approval Date"
 msgstr "Datum odobritve"
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Approve"
-msgstr "Odobri"
-
-#. module: business_requirement
 #: field:business.requirement,approved_id:0
 msgid "Approved by"
 msgstr "Odobril"
-
-#. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Back To Draft"
-msgstr "Nazaj v osnutek"
 
 #. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_form
@@ -177,11 +167,6 @@ msgid "Business Requirements"
 msgstr "Poslovne zahteve"
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Cancel"
-msgstr "Preklic"
-
-#. module: business_requirement
 #: field:business.requirement,category_ids:0
 #: model:ir.actions.act_window,name:business_requirement.action_business_requirement_category_tree
 #: model:ir.model,name:business_requirement.model_business_requirement_category
@@ -203,11 +188,6 @@ msgstr "Družba"
 #: model:ir.ui.menu,name:business_requirement.menu_business_configuration
 msgid "Configuration"
 msgstr "Nastavitve"
-
-#. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Confirm"
-msgstr "Potrdi"
 
 #. module: business_requirement
 #: field:business.requirement,confirmation_date:0
@@ -287,17 +267,7 @@ msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Done"
-msgstr "Opravljeno"
-
-#. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Drop"
-msgstr "Zavrži"
-
-#. module: business_requirement
-#: code:addons/business_requirement/models/business.py:20
+#: code:addons/business_requirement/models/business.py:21
 #, python-format
 msgid "Error!"
 msgstr "Napaka!"
@@ -343,7 +313,6 @@ msgid "If checked new messages require your attention."
 msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
 #: selection:business.requirement,kanban_state:0
 msgid "In Progress"
 msgstr "Napredovanje"
@@ -515,11 +484,6 @@ msgid "Stakeholder"
 msgstr "Deležnik"
 
 #. module: business_requirement
-#: view:business.requirement:business_requirement.view_business_requirement_form
-msgid "Stakeholder Approval"
-msgstr "Deležnikova odobritev"
-
-#. module: business_requirement
 #: view:business.requirement:business_requirement.view_business_requirement_search
 #: field:business.requirement,state:0
 msgid "State"
@@ -547,7 +511,7 @@ msgid "Test Case"
 msgstr "Preizkusni primer"
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:21
+#: code:addons/business_requirement/models/business.py:22
 #, python-format
 msgid "There is no default company for the current user!"
 msgstr "Trenutni uporabnik nima privzete družbe!"
@@ -579,3 +543,15 @@ msgstr "Oblikovanje spletne strani"
 #: model:product.template,name:business_requirement.product_template_4
 msgid "Website Template"
 msgstr "Predloga spletne strani"
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:385
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:391
+#, python-format
+msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."

@@ -4,14 +4,13 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 11:49+0000\n"
-"PO-Revision-Date: 2017-07-27 11:49+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"POT-Creation-Date: 2017-08-04 09:58+0000\n"
+"PO-Revision-Date: 2017-08-04 09:58+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,23 +232,6 @@ msgid "Total number of tasks related to a business requirement"
 msgstr "Skupno število opravil povezanih s poslovno zahtevo"
 
 #. module: business_requirement_deliverable_project
-#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
-msgid "True"
-msgstr "True"
-
-#. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:143
-#, python-format
-msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
-msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
-
-#. module: business_requirement_deliverable_project
-#: code:addons/business_requirement_deliverable_project/models/business.py:149
-#, python-format
-msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
-msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
-
-#. module: business_requirement_deliverable_project
 #: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_kanban_project
 msgid "]&nbsp;"
 msgstr "]&nbsp;"
@@ -263,11 +245,6 @@ msgstr "_Uveljavi"
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
 msgid "_Cancel"
 msgstr "_Preklic"
-
-#. module: business_requirement_deliverable_project
-#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
-msgid "business_requirement.group_business_requirement_user"
-msgstr "business_requirement.group_business_requirement_user"
 
 #. module: business_requirement_deliverable_project
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
