@@ -59,16 +59,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
                     'uom_po_id': self.uom_hours.id,
                     'standard_price': 550})
 
+        vals1 = vals.copy()
+        vals2 = vals.copy()
         self.brA = self.env['business.requirement'].create(vals)
-        vals1 = {
-            'description': 'test',
-            'project_id': self.projectA.id
-        }
         self.brB = self.env['business.requirement'].create(vals1)
-        vals2 = {
-            'description': 'test',
-            'project_id': self.projectA.id
-        }
         self.brC = self.env['business.requirement'].create(vals2)
 
     def test_get_level(self):
