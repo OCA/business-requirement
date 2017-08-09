@@ -288,13 +288,13 @@ class BusinessRequirement(models.Model):
                                  'approval_date': date})
                 else:
                     raise ValidationError(_(
-                        'You can only move to the following stage:'
+                        'You can only move to the following stage: '
                         'draft/confirmed /cancel/drop.'))
             if vals['state'] in ('stakeholder_approval', 'in_progress',
                                  'done'):
                 if br_xml_id.id not in grps:
                     raise ValidationError(_(
-                        'You can only move to the following stage:'
+                        'You can only move to the following stage: '
                         'draft/confirmed/cancel/drop.'))
         return super(BusinessRequirement, self).write(vals)
 

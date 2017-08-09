@@ -38,7 +38,7 @@
             <span t-field="o.description"/>
         </h3>
         <table class="table table-bordered"
-               style="table-collapse:collapse; table-layout:fixed">
+               style="table-collapse: collapse; table-layout:fixed">
             <tbody>
                 <tr>
                     <th colspan="3">Customer</th>
