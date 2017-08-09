@@ -12,7 +12,7 @@
     'application': False,
     'installable': True,
     'depends': [
-        'business_requirement_deliverable',
+        'business_requirement_deliverable_cost',
     ],
     'data': [
         'data/br_report_paperformat.xml',
