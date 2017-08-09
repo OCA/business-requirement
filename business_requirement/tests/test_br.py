@@ -113,7 +113,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': '/',
             'description': 'test',
         }
-        self.br.create(br_vals)
+        res = self.br.create(br_vals)
+        self.assertTrue(res.name)
 
     def test_create_write_project(self):
         br_vals = {
@@ -121,11 +122,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'description': 'test',
             'project_id': self.pr_1.id
         }
-        self.br.create(br_vals)
+        res = self.br.create(br_vals)
         br_vals1 = {
             'project_id': self.pr_2.id
         }
-        self.br.write(br_vals1)
+        res = res.write(br_vals1)
+        self.assertTrue(res)
 
     def test_br_read_group(self):
         self.env['business.requirement'].read_group(
