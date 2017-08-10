@@ -126,8 +126,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         br_vals1 = {
             'project_id': self.pr_2.id
         }
-        res = res.write(br_vals1)
-        self.assertTrue(res)
+        res.write(br_vals1)
+        self.assertEqual(res.project_id.id, self.pr_2.id)
 
     def test_br_read_group(self):
         self.env['business.requirement'].read_group(
