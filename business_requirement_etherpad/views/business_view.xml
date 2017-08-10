@@ -5,7 +5,7 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
             <field name="arch" type="xml">
-                <xpath expr='//page[@name="logs"]' position='before'>
+                <xpath expr="//page[@name='logs']" position="before">
                     <page string="Notes" name="notes">
                         <group>
                             <field name="notes" widget="pad"/>
