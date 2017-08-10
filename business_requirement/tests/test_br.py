@@ -108,13 +108,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
         brs = self.br.name_search(name='test')
         self.assertEqual(bool(brs), True)
 
-    def test_create_sequance(self):
+    def test_create_name_equal_slash(self):
+        name = self.env['ir.sequence'].next_by_code('business.requirement')
         br_vals = {
             'name': '/',
             'description': 'test',
         }
+        len_seq = name[2:]
+        seq = "BR" + str(int(len_seq) + 1).zfill(int(len(len_seq)))
         res = self.br.create(br_vals)
-        self.assertTrue(res.name)
+        self.assertEqual(seq, res.name)
 
     def test_create_write_project(self):
         br_vals = {
