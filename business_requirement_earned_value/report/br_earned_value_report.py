@@ -11,6 +11,19 @@ class BusinessRequirementEarnedValueReport(models.Model):
     _auto = False
 
     name = fields.Char('Name', readonly=True)
+    state = fields.Selection(
+        [('draft', 'Draft'),
+         ('confirmed', 'Confirmed'),
+         ('approved', 'Approved'),
+         ('stakeholder_approval', 'Stakeholder Approval'),
+         ('in_progress', 'In progress'),
+         ('done', 'Done'),
+         ('cancel', 'Cancel'),
+         ('drop', 'Drop'),
+         ],
+        'Status',
+        readonly=True,
+    )
     partner_id = fields.Many2one('res.partner', 'Customer',
                                  readonly=True)
     project_id = fields.Many2one('project.project', 'Master Project',
@@ -41,6 +54,7 @@ class BusinessRequirementEarnedValueReport(models.Model):
             SELECT
                 br.id,
                 CONCAT(br.name,'[',br.description,']') as name,
+                br.state AS state,
                 br.partner_id AS partner_id,
                 br.project_id AS project_id,
                 ptm.id AS hr_timesheet_product,

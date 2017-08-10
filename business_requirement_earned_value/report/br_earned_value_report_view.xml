@@ -21,6 +21,19 @@
              </graph>
          </field>
     </record>
+  
+    <record id="view_earned_value_graph_search" model="ir.ui.view">
+        <field name="name">Earned Value Report Search</field>
+        <field name="model">business.requirement.earned.value.report</field>
+        <field name="arch" type="xml">
+            <search string="Earned Value Analysis">
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="res_product"/>
+                <field name="hr_timesheet_product"/>
+            </search>
+        </field>
+    </record>
 
     <record id="action_earned_value_report" model="ir.actions.act_window">
         <field name="name">Earned Value Analysis</field>
@@ -29,9 +42,10 @@
         <field name="view_mode">graph</field>
         <field name="view_id" ref="view_earned_value_graph"/>
     </record>
-
+  
     <menuitem id="menu_action_deliverable_report"
-        action="action_earned_value_report"
-        parent="project.menu_project_report"
-        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+      action="action_earned_value_report"
+      parent="project.menu_project_report"
+      groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+
 </odoo>
