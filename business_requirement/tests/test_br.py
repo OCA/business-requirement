@@ -15,7 +15,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         # Configure unit of measure.
         self.categ_wtime = self.ref('product.uom_categ_wtime')
         self.categ_kgm = self.ref('product.product_uom_categ_kgm')
-
+        self.partner1 = self.ref('base.res_partner_1')
         self.UomObj = self.env['product.uom']
         self.uom_hours = self.UomObj.create({
             'name': 'Test-Hours',
@@ -64,6 +64,35 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brA = self.env['business.requirement'].create(vals)
         self.brB = self.env['business.requirement'].create(vals1)
         self.brC = self.env['business.requirement'].create(vals2)
+
+    def test_project_id_change(self):
+        self.pr_1.write({'partner_id': self.partner1})
+        self.brA.project_id_change()
+        self.assertEqual(
+            self.brA.project_id.partner_id.id, self.brA.partner_id.id
+        )
+
+    def test_compute_sub_br_count(self):
+        self.brC.write({'parent_id': self.brA.id})
+        self.brB.write({'parent_id': self.brA.id})
+        self.brA._compute_sub_br_count()
+        self.assertEqual(
+            self.brA.sub_br_count, len(self.brA.business_requirement_ids)
+        )
+
+    def test_message_post(self):
+        self.brA.with_context({
+            'default_model': 'business.requirement',
+            'default_res_id': self.brA.id
+        }).message_post(
+            body='Test Body',
+            message_type='notification',
+            subtype='mt_notification',
+            parent_id=False,
+            attachments=None,
+            content_subtype='html',
+            **{}
+        )
 
     def test_get_level(self):
         br_vals1 = {
