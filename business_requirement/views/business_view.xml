@@ -29,8 +29,8 @@
                     </div>
                     <div class="oe_right oe_button_box"
                          name="buttons" groups="base.group_user">
-                         <button class="oe_inline oe_stat_button"
-                                 type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
+                        <button class="oe_inline oe_stat_button"
+                                type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
                             <field name="sub_br_count" string="Sub Bus. Req." widget="statinfo"/>
                         </button>
                     </div>
@@ -52,16 +52,16 @@
                     <notebook>
                         <page string="Business Requirement">
                             <group string="Customer Story">
-                                 <field name="business_requirement" nolabel="1"/>
+                                <field name="business_requirement" nolabel="1"/>
                             </group>
                             <group string="Scenario">
                                 <field name="scenario" nolabel="1"/>
                             </group>
                             <group string="Gap">
-                                 <field name="gap" nolabel="1"/>
+                                <field name="gap" nolabel="1"/>
                             </group>
                             <group string="Test Case">
-                                 <field name="test_case" nolabel="1" default_focus="0"/>
+                                <field name="test_case" nolabel="1" default_focus="0"/>
                             </group>
                         </page>
                         <page string="Logs" name="logs">
@@ -160,8 +160,8 @@
             <form string="Business Requirement">
                 <sheet>
                     <group>
-                         <field name="name"/>
-                         <field name="parent_id"/>
+                        <field name="name"/>
+                        <field name="parent_id"/>
                     </group>
                 </sheet>
             </form>
@@ -175,8 +175,8 @@
         <field name="priority">20</field>
         <field name="arch" type="xml">
             <tree string="Business Requirement">
-                 <field name="name"/>
-                 <field name="parent_id"/>
+                <field name="name"/>
+                <field name="parent_id"/>
             </tree>
         </field>
     </record>

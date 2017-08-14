@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <report
-            id="business_requirement_report"
+    <report id="business_requirement_report"
             model="business.requirement"
             string="Business Requirement Report"
             report_type="qweb-pdf"
