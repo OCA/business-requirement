@@ -2,6 +2,7 @@
 # © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo.tests import common
+from openerp.exceptions import ValidationError
 
 
 @common.at_install(False)
@@ -93,6 +94,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
             content_subtype='html',
             **{}
         )
+
+    def test_get_default_company(self):
+        self.brA._get_default_company()
+        self.env.user.company_id = False
+        with self.assertRaises(ValidationError):
+            self.brA._get_default_company()
 
     def test_get_level(self):
         br_vals1 = {
