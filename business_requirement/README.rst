@@ -49,7 +49,7 @@ More information about business requirements management:
 Business Requirement set of modules
 -----------------------------------
 
-This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/8.0>`_).
+This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/10.0>`_).
 
 The base Business Requirements module creates the basic objects and 
 can be used as a standalone module.
@@ -200,7 +200,7 @@ This is a simple parent/child relation (see roadmap).
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/10.0
 
 Known issues / Roadmap
 ======================
