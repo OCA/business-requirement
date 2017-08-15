@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models, _
-from openerp.exceptions import except_orm
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class BusinessRequirement(models.Model):
@@ -15,12 +14,10 @@ class BusinessRequirement(models.Model):
 
     @api.model
     def _get_default_company(self):
-        company_id = self.env.user._get_company()
-        if not company_id:
-            raise except_orm(
-                _('Error!'),
+        if not self.env.user.company_id:
+            raise ValidationError(
                 _('There is no default company for the current user!'))
-        return self.env['res.company'].browse(company_id)
+        return self.env.user.company_id.id
 
     sequence = fields.Char(
         'Sequence',
@@ -199,18 +196,23 @@ class BusinessRequirement(models.Model):
     to_be_reviewed = fields.Boolean(
         string='To be Reviewed'
     )
-    kanban_state = fields.Selection([('normal', 'In Progress'),
-                                     ('on_hold', 'On Hold'),
-                                     ('done', 'Ready for next stage')],
-                                    'Kanban State',
-                                    track_visibility='onchange',
-                                    required=False,
-                                    copy=False, default='normal')
+    kanban_state = fields.Selection(
+        [
+            ('normal', 'In Progress'),
+            ('on_hold', 'On Hold'),
+            ('done', 'Ready for next stage')
+        ],
+        'Kanban State',
+        track_visibility='onchange',
+        required=False,
+        default='normal'
+    )
     origin = fields.Char(
         string='Source',
         readonly=True,
         states={
-            'draft': [('readonly', False)]
+            'draft': [('readonly', False)],
+            'confirmed': [('readonly', True)]
         }
     )
 
@@ -223,23 +225,77 @@ class BusinessRequirement(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].get('business.requirement')
+            vals['name'] = self.env['ir.sequence'].next_by_code(
+                'business.requirement')
         if vals.get('project_id'):
-            project_id = self.env['project.project'].\
+            project_id = self.env['project.project']. \
                 browse(vals.get('project_id'))
             if project_id and project_id.message_follower_ids:
-                vals['message_follower_ids'] =\
-                    project_id.message_follower_ids.ids
+                msg_followers = []
+                for project in project_id.message_follower_ids:
+                    msg_vals = {
+                        'channel_id': project.channel_id.id,
+                        'display_name': project.display_name,
+                        'partner_id': project.partner_id.id,
+                        'res_model': self._name,
+                        'subtype_ids': project.subtype_ids.ids
+                    }
+                    msg_followers.append((0, 0, msg_vals))
+                if msg_followers:
+                    vals['message_follower_ids'] = msg_followers
         return super(BusinessRequirement, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('project_id'):
-            project_id = self.env['project.project'].\
+            project_id = self.env['project.project']. \
                 browse(vals.get('project_id'))
             if project_id and project_id.message_follower_ids:
-                vals['message_follower_ids'] =\
-                    project_id.message_follower_ids.ids
+                msg_followers = []
+                for followers in self.message_follower_ids:
+                    msg_followers.append((2, followers.id))
+                for project in project_id.message_follower_ids:
+                    msg_vals = {
+                        'channel_id': project.channel_id.id,
+                        'display_name': project.display_name,
+                        'partner_id': project.partner_id.id,
+                        'res_model': self._name,
+                        'subtype_ids': project.subtype_ids.ids
+                    }
+                    msg_followers.append((0, 0, msg_vals))
+                if msg_followers:
+                    vals['message_follower_ids'] = msg_followers
+        if vals.get('state'):
+            ir_obj = self.env['ir.model.data']
+            br_xml_id = ir_obj.\
+                get_object('business_requirement',
+                           'group_business_requirement_manager')
+            user = self.env['res.users']
+            grps = [grp.id for grp in user.browse(self._uid).groups_id]
+            date = fields.Datetime.now()
+            if vals['state'] == 'confirmed':
+                vals.update({'confirmed_id': user,
+                             'confirmation_date': date})
+            if vals['state'] == 'draft':
+                vals.update({'confirmed_id': False,
+                             'approved_id': False,
+                             'confirmation_date': False,
+                             'approval_date': False
+                             })
+            if vals['state'] == 'approved':
+                if br_xml_id.id in grps:
+                    vals.update({'approved_id': user,
+                                 'approval_date': date})
+                else:
+                    raise ValidationError(_(
+                        'You can only move to the following stage: '
+                        'draft/confirmed /cancel/drop.'))
+            if vals['state'] in ('stakeholder_approval', 'in_progress',
+                                 'done'):
+                if br_xml_id.id not in grps:
+                    raise ValidationError(_(
+                        'You can only move to the following stage: '
+                        'draft/confirmed/cancel/drop.'))
         return super(BusinessRequirement, self).write(vals)
 
     @api.multi
@@ -301,26 +357,28 @@ class BusinessRequirement(models.Model):
         # Merge both results
         return list(set(names) | set(descriptions))[:limit]
 
-    @api.cr_uid_ids_context
-    def message_post(self, cr, uid, thread_id, body='', subject=None,
-                     type='notification', subtype=None, parent_id=False,
-                     attachments=None, context=None,
+    @api.multi
+    @api.returns('self', lambda value: value.id)
+    def message_post(self, body='', subject=None, message_type='notification',
+                     subtype=None, parent_id=False, attachments=None,
                      content_subtype='html', **kwargs):
-        subject = None
-        if context.get(
-                'default_model'
-        ) == 'business.requirement' and context.get('default_res_id'):
-            br_rec = self.pool.get(
-                context.get('default_model')
-            ).browse(cr, uid, context['default_res_id'])
+        context = self._context or {}
+        if context.get('default_model') ==\
+                'business.requirement' and context.get('default_res_id'):
+            br_rec = self.env[context.get('default_model')]. \
+                browse(context['default_res_id'])
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
-        res = super(BusinessRequirement, self).message_post(
-            cr, uid, thread_id, body=body, subject=subject,
-            type=type, subtype=subtype, parent_id=parent_id,
-            attachments=attachments, context=context,
-            content_subtype=content_subtype, **kwargs
-        )
-        return res
+        message = super(BusinessRequirement, self.with_context(
+            mail_create_nosubscribe=True)).message_post(
+            body=body,
+            subject=subject,
+            message_type=message_type,
+            subtype=subtype,
+            parent_id=parent_id,
+            attachments=attachments,
+            content_subtype=content_subtype,
+            **kwargs)
+        return message
 
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
@@ -356,42 +414,6 @@ class BusinessRequirement(models.Model):
             return super(BusinessRequirement, self).\
                 read_group(domain, fields, groupby,
                            offset=offset, limit=limit, orderby=orderby)
-
-    @api.multi
-    def write(self, vals):
-        for r in self:
-            if vals.get('state'):
-                ir_obj = self.env['ir.model.data']
-                br_xml_id = ir_obj.\
-                    get_object('business_requirement',
-                               'group_business_requirement_manager')
-                user = self.env['res.users']
-                grps = [grp.id for grp in user.browse(self._uid).groups_id]
-                date = fields.Datetime.now()
-                if vals['state'] == 'confirmed':
-                    vals.update({'confirmed_id': user,
-                                 'confirmation_date': date})
-                if vals['state'] == 'draft':
-                    vals.update({'confirmed_id': False,
-                                 'approved_id': False,
-                                 'confirmation_date': False,
-                                 'approval_date': False
-                                 })
-                if vals['state'] == 'approved':
-                    if br_xml_id.id in grps:
-                        vals.update({'approved_id': user,
-                                     'approval_date': date})
-                    else:
-                        raise UserError(_('You can only move to the '
-                                          'following stage: draft/confirmed'
-                                          '/cancel/drop.'))
-                if vals['state'] in ('stakeholder_approval', 'in_progress',
-                                     'done'):
-                    if br_xml_id.id not in grps:
-                        raise UserError(_('You can only move to the'
-                                          'following stage: draft/'
-                                          'confirmed/cancel/drop.'))
-            return super(BusinessRequirement, self).write(vals)
 
 
 class BusinessRequirementCategory(models.Model):
