@@ -37,9 +37,11 @@ class BusinessRequirementResourceTemplate(common.TransactionCase):
                     'resource_type': 'task'
                 })]})
 
-    def test_product_id_onchnage(self):
+    def test_product_id_change(self):
         for resource in self.productA.resource_lines:
             resource.product_id_change()
+            description = self.ProductS.name_get()[0][1]
+            self.assertEqual(resource.name, description)
 
     def test_resource_uom_change(self):
         for line in self.productA:
