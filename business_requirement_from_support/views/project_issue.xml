@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_create_br_form" model="ir.ui.view">
+            <field name="name">view.issue.form</field>
+            <field name="model">project.issue</field>
+            <field name='inherit_id' ref='project_issue.project_issue_form_view'/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="before">
+                    <button string="Create BR"
+                            attrs="{'invisible': [('business_requirement_id', '!=', False)]}" 
+                            type="object"
+                            name="br_wizard"
+                            class="oe_highlight"
+                            context="{'default_issue_id': id, 'default_name': name, 'default_priority': priority, 'default_business_requirement': description, 'default_requested_id': user_id, 'default_partner_id': partner_id, 'default_responsible_id': user_id, 'default_to_be_reviewed': True, 'default_project_id': project_id, 'default_origin': name, 'default_reviewer_ids': [user_id] }" />
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="after">
+                    <field name="business_requirement_id" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
