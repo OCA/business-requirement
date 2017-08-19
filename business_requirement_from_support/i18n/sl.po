@@ -1,0 +1,221 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_from_support
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-18 02:54+0000\n"
+"PO-Revision-Date: 2017-08-18 02:54+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_from_support
+#: model:ir.model,name:business_requirement_from_support.model_business_requirement
+#: field:project.issue,business_requirement_id:0
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_from_support
+#: view:br.issue:business_requirement_from_support.view_create_br_from_issue
+msgid "Business Requirement from Issue"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: model:ir.actions.act_window,name:business_requirement_from_support.action_create_br
+msgid "Business Requirement from issue"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: view:br.issue:business_requirement_from_support.view_create_br_from_issue
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: business_requirement_from_support
+#: help:br.issue,to_be_reviewed:0
+msgid "Check if this BR has to be reviewed by a consultant or a PM"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: view:project.issue:business_requirement_from_support.view_create_br_form
+msgid "Create BR"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: code:addons/business_requirement_from_support/models/project_issue.py:23
+#, python-format
+msgid "Create Business Requirement"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_from_support
+#: field:br.issue,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_from_support
+#: field:br.issue,partner_id:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement_from_support
+#: field:br.issue,business_requirement:0
+msgid "Customer Story"
+msgstr "Kupčeva zgodba"
+
+#. module: business_requirement_from_support
+#: help:br.issue,partner_id:0
+msgid "Customer who has to approve the BR before it goes to development"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement_from_support
+#: selection:br.issue,priority:0
+msgid "High"
+msgstr "Visoka"
+
+#. module: business_requirement_from_support
+#: field:br.issue,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_from_support
+#: view:business.requirement:business_requirement_from_support.view_br_form_issues
+msgid "Issues"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: model:ir.actions.act_window,name:business_requirement_from_support.action_view_issue_business_requirement
+msgid "Issues Related BR"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: help:business.requirement,issue_ids:0
+msgid "Issues related to this BR, click to view"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_from_support
+#: field:br.issue,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_from_support
+#: field:br.issue,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_from_support
+#: selection:br.issue,priority:0
+msgid "Low"
+msgstr "Nizka"
+
+#. module: business_requirement_from_support
+#: field:br.issue,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: business_requirement_from_support
+#: selection:br.issue,priority:0
+msgid "Normal"
+msgstr "Običajna"
+
+#. module: business_requirement_from_support
+#: help:br.issue,requested_id:0
+msgid "Odoo user who requests this issue to be converted to BR."
+msgstr ""
+
+#. module: business_requirement_from_support
+#: help:br.issue,responsible_id:0
+msgid "Odoo user who will be in charge of this BR."
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,priority:0
+msgid "Priority"
+msgstr "Prioriteta"
+
+#. module: business_requirement_from_support
+#: field:br.issue,project_id:0
+msgid "Project"
+msgstr "Projekt"
+
+#. module: business_requirement_from_support
+#: model:ir.model,name:business_requirement_from_support.model_project_issue
+msgid "Project Issue"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,issue_id:0
+msgid "Related Issue"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:business.requirement,issue_ids:0
+msgid "Related issues"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,requested_id:0
+msgid "Requested by"
+msgstr "Zahteval"
+
+#. module: business_requirement_from_support
+#: field:br.issue,responsible_id:0
+msgid "Responsible"
+msgstr "Odgovorni"
+
+#. module: business_requirement_from_support
+#: field:br.issue,reviewer_ids:0
+msgid "Reviewers"
+msgstr "Revizorji"
+
+#. module: business_requirement_from_support
+#: help:br.issue,issue_id:0
+msgid "The issue that originated or made this BR relevant."
+msgstr ""
+
+#. module: business_requirement_from_support
+#: field:br.issue,to_be_reviewed:0
+msgid "To be Reviewed"
+msgstr "Za revizijo"
+
+#. module: business_requirement_from_support
+#: field:business.requirement,issue_count:0
+msgid "Total number of issues related to a business requirement"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: help:br.issue,reviewer_ids:0
+msgid "Users to review the BR"
+msgstr ""
+
+#. module: business_requirement_from_support
+#: view:br.issue:business_requirement_from_support.view_create_br_from_issue
+msgid "_Create"
+msgstr "_Ustvari"
+
+#. module: business_requirement_from_support
+#: view:br.issue:business_requirement_from_support.view_create_br_from_issue
+msgid "or"
+msgstr "ali"
