@@ -31,6 +31,7 @@ addon | version | summary
 [business_requirement_deliverable_resource_template_categ](business_requirement_deliverable_resource_template_categ/) | 8.0.1.0.0 | Manage default resource lines categories in your deliverable templates
 [business_requirement_earned_value](business_requirement_earned_value/) | 8.0.1.0.0 | Manage the Earned Value for your customers
 [business_requirement_etherpad](business_requirement_etherpad/) | 8.0.1.0.0 | Manage the Business Requirements Notes via Etherpad
+[business_requirement_from_support](business_requirement_from_support/) | 8.0.1.0.0 | Generate Business Requirements from issues
 
 [//]: # (end addons)
 
