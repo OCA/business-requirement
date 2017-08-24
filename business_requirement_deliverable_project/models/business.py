@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from openerp import api, fields, models, _
 
 
 class BusinessRequirement(models.Model):
@@ -65,6 +65,7 @@ class BusinessRequirement(models.Model):
                       ('business_requirement_deliverable_id', 'in',
                        rec.deliverable_lines.ids)]
             return {
+                'name': _('Projects'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
                 'view_mode': 'tree,form,graph',
