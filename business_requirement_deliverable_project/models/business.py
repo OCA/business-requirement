@@ -13,12 +13,10 @@ class BusinessRequirement(models.Model):
             br_ids=self).generate_project_wizard()
         return res
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
-        groups='project.group_project_user',
-        readonly=True,
-        copy=False
+        inverse_name='business_requirement_id',
+        string='Projects'
     )
 
     task_ids = fields.One2many(
@@ -43,12 +41,12 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
     linked_project_count = fields.Integer(
-        compute='_compute_linked_project_count',
+        compute='_compute_projects_count',
         string="Number of Business Requirements"
     )
 
-    @api.depends('linked_project', 'deliverable_lines')
-    def _compute_linked_project_count(self):
+    @api.depends('project_ids', 'deliverable_lines')
+    def _compute_projects_count(self):
         for rec in self:
             domain = ['|',
                       ('business_requirement_id', '=', rec.id),
@@ -80,15 +78,15 @@ class BusinessRequirement(models.Model):
     )
 
     @api.depends('business_requirement_ids',
-                 'business_requirement_ids.linked_project')
+                 'business_requirement_ids.project_ids')
     def compute_all_project_generated(self):
         for rec in self:
             if rec.business_requirement_ids:
-                if all(rec.mapped('business_requirement_ids.linked_project')):
+                if all(rec.mapped('business_requirement_ids.project_ids')):
                     rec.all_project_generated = True
                 else:
                     rec.all_project_generated = False
-            elif rec.linked_project:
+            elif rec.project_ids:
                 rec.all_project_generated = True
             else:
                 rec.all_project_generated = False
@@ -123,9 +121,33 @@ class BusinessRequirement(models.Model):
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
-        groups='project.group_project_user',
-        readonly=True,
-        )
+        inverse_name='business_requirement_deliverable_id',
+        string='Projects'
+    )
+
+    linked_project_count = fields.Integer(
+        compute='_compute_projects_count',
+        string="Number of Business Requirements"
+    )
+
+    @api.depends('project_ids')
+    def _compute_projects_count(self):
+        for rec in self:
+            rec.linked_project_count = len(rec.project_ids.ids)
+
+    @api.multi
+    def action_open_linked_project(self):
+        for rec in self:
+            domain = [('business_requirement_deliverable_id', '=',
+                       rec.id)]
+            return {
+                'name': _('Projects'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'project.project',
+                'target': 'current',
+                'domain': domain
+            }

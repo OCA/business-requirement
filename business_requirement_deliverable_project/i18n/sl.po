@@ -1,27 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_deliverable_project
-# 
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
+#	* business_requirement_deliverable_project
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 09:58+0000\n"
-"PO-Revision-Date: 2017-08-04 09:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"POT-Creation-Date: 2017-08-25 11:57+0000\n"
+"PO-Revision-Date: 2017-08-25 11:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
-
-#. module: business_requirement_deliverable_project
-#: model:ir.actions.act_window,name:business_requirement_deliverable_project.action_view_tasks_business_requirement
-msgid "Action Tasks Related BR"
-msgstr "Ukrepi povezani s PZ"
+"Plural-Forms: \n"
 
 #. module: business_requirement_deliverable_project
 #: field:business.requirement,all_project_generated:0
@@ -31,11 +23,8 @@ msgstr "Vsi ustvarjeni projekti"
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:43
 #, python-format
-msgid ""
-"All business requirements of the project should be "
-"stakeholder_approval/canceled/done"
-msgstr ""
-"Vse poslovne zahteve projekta morajo biti odobrene/preklicane/opravljene"
+msgid "All business requirements of the project should be stakeholder_approval/canceled/done"
+msgstr "Vse poslovne zahteve projekta morajo biti odobrene/preklicane/opravljene"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement
@@ -159,12 +148,6 @@ msgid "Linked Project"
 msgstr "Povezani projekt"
 
 #. module: business_requirement_deliverable_project
-#: field:business.requirement,linked_project:0
-#: field:business.requirement.deliverable,linked_project:0
-msgid "Linked project"
-msgstr "Povezani projekt"
-
-#. module: business_requirement_deliverable_project
 #: field:business.requirement,linked_project_count:0
 msgid "Number of Business Requirements"
 msgstr "Število poslovnih zahtev"
@@ -172,11 +155,9 @@ msgstr "Število poslovnih zahtev"
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:37
 #, python-format
-msgid ""
-"Please set working time default unit in project\n"
+msgid "Please set working time default unit in project\n"
 "                    config settings"
-msgstr ""
-"Nastavite privzeto enoto za delovni čas v\n"
+msgstr "Nastavite privzeto enoto za delovni čas v\n"
 "                    nastavitvah projekta"
 
 #. module: business_requirement_deliverable_project
@@ -188,6 +169,14 @@ msgstr "Projekt"
 #: field:br.generate.projects,project_id:0
 msgid "Project to create the tasks"
 msgstr "Projekt, kjer se ustvari opravila"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:66
+#: field:business.requirement,project_ids:0
+#: field:business.requirement.deliverable,project_ids:0
+#, python-format
+msgid "Projects"
+msgstr "Projects"
 
 #. module: business_requirement_deliverable_project
 #: field:project.project,origin:0
@@ -203,17 +192,16 @@ msgstr "Opravilo"
 #: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
 #: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_kanban_project
 #: field:business.requirement,task_ids:0
+#: model:ir.actions.act_window,name:business_requirement_deliverable_project.action_view_tasks_business_requirement
 msgid "Tasks"
 msgstr "Opravila"
 
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:66
 #, python-format
-msgid ""
-"There is no available business requirement resource line\n"
+msgid "There is no available business requirement resource line\n"
 "                    to generate task"
-msgstr ""
-"Ni poslovne zahteve na voljo, da bi lahko ustvarili\n"
+msgstr "Ni poslovne zahteve na voljo, da bi lahko ustvarili\n"
 "                    opravilo"
 
 #. module: business_requirement_deliverable_project
@@ -250,3 +238,4 @@ msgstr "_Preklic"
 #: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
 msgid "or"
 msgstr "ali"
+

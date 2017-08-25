@@ -254,7 +254,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertEqual(
             'ir.actions.act_window',
             action['type'])
-        self.brA._compute_linked_project_count()
+        self.brA._compute_projects_count()
+        self.brA.deliverable_lines[0]._compute_projects_count()
+
+    def test_action_open_linked_project_for_br_dl(self):
+        self.brA.action_open_linked_project()
+        self.brA.deliverable_lines[0].action_open_linked_project()
 
     def test_project_generate_project_wizard(self):
         self.brA.state = 'approved'
