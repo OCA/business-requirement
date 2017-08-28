@@ -34,7 +34,7 @@
         </record>
 
         <!-- Products -->
-        <record id="product_template_1" model="product.template">
+        <record id="product_template_1" model="product.template" context="{'create_product_product': True}">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -48,7 +48,7 @@
             <field name="product_tmpl_id" ref="product_template_1"/>
             <field name="default_code">SER01</field>
         </record>
-        <record id="product_template_2" model="product.template">
+        <record id="product_template_2" model="product.template" context="{'create_product_product': True}">
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -62,7 +62,7 @@
             <field name="product_tmpl_id" ref="product_template_2"/>
             <field name="default_code">SER02</field>
         </record>
-        <record id="product_template_3" model="product.template">
+        <record id="product_template_3" model="product.template" context="{'create_product_product': True}">
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -76,7 +76,7 @@
             <field name="product_tmpl_id" ref="product_template_3"/>
             <field name="default_code">SER03</field>
         </record>
-        <record id="product_template_4" model="product.template">
+        <record id="product_template_4" model="product.template" context="{'create_product_product': True}">
             <field name="name">Website Template</field>
             <field name="default_code">WEB01</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -90,7 +90,7 @@
             <field name="product_tmpl_id" ref="product_template_4"/>
             <field name="default_code">WEB01</field>
         </record>
-        <record id="product_template_5" model="product.template">
+        <record id="product_template_5" model="product.template" context="{'create_product_product': True}">
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -104,7 +104,7 @@
             <field name="product_tmpl_id" ref="product_template_5"/>
             <field name="default_code">WEB02</field>
         </record>
-        <record id="product_template_6" model="product.template">
+        <record id="product_template_6" model="product.template" context="{'create_product_product': True}">
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
