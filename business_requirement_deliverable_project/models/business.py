@@ -16,6 +16,8 @@ class BusinessRequirement(models.Model):
     project_ids = fields.One2many(
         comodel_name='project.project',
         inverse_name='business_requirement_id',
+        groups='project.group_project_user',
+        readonly=True,
         string='Projects'
     )
 
@@ -41,12 +43,12 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
     linked_project_count = fields.Integer(
-        compute='_compute_projects_count',
+        compute='_compute_linked_project_count',
         string="Number of Business Requirements"
     )
 
     @api.depends('project_ids', 'deliverable_lines')
-    def _compute_projects_count(self):
+    def _compute_linked_project_count(self):
         for rec in self:
             domain = ['|',
                       ('business_requirement_id', '=', rec.id),
@@ -124,16 +126,18 @@ class BusinessRequirementDeliverable(models.Model):
     project_ids = fields.One2many(
         comodel_name='project.project',
         inverse_name='business_requirement_deliverable_id',
+        groups='project.group_project_user',
+        readonly=True,
         string='Projects'
     )
 
     linked_project_count = fields.Integer(
-        compute='_compute_projects_count',
+        compute='_compute_linked_project_count',
         string="Number of Business Requirements"
     )
 
     @api.depends('project_ids')
-    def _compute_projects_count(self):
+    def _compute_linked_project_count(self):
         for rec in self:
             rec.linked_project_count = len(rec.project_ids.ids)
 
