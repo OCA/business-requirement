@@ -51,7 +51,7 @@
                     </group>
                     <notebook>
                         <page string="Business Requirement">
-                            <group string="Customer Story">
+                            <group string="Stakeholder Story">
                                 <field name="business_requirement" nolabel="1"/>
                             </group>
                             <group string="Scenario">
@@ -109,12 +109,12 @@
         <field name="arch" type="xml">
             <tree string="Business Requirement">
                 <field name="responsible_id"/>
+                <field name="partner_id"/>
                 <field name="name"/>
                 <field name="description"/>
                 <field name="ref"/>
                 <field name="project_id"/>
                 <field name="category_ids"/>
-                <field name="change_request"/>
                 <field name="priority"/>
                 <field name="state"/>
             </tree>
@@ -182,7 +182,7 @@
                        ('name', 'ilike', self),
                        ('description', 'ilike', self)]"/>
                 <field name="project_id" string="Project"/>
-                <field name="partner_id" string="Customer"/>
+                <field name="partner_id" string="Stakeholder"/>
                 <field name="responsible_id" string="Responsible"/>
                 <field name="origin" string="Source"/>
                 <filter string="To be Reviewed" name="to_be_reviewed"
@@ -190,7 +190,7 @@
                 <group expand="0" string="Group By">
                     <filter string="Project"
                             context="{'group_by': 'project_id'}"/>
-                    <filter string="Customer"
+                    <filter string="Stakeholder"
                             context="{'group_by': 'partner_id'}"/>
                     <filter string="State" context="{'group_by': 'state'}"/>
                     <filter string="Priority"
@@ -246,7 +246,7 @@
         <field name="help" type="html">
             <p>
                 Odoo's Business Requirement management allows you to manage the list
-                of Business requirement from a customer for efficient follow up. You can
+                of Business requirement from a Stakeholder for efficient follow up. You can
                 track progress, discuss on tasks, attach documents, etc.
             </p>
         </field>
