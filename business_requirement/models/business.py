@@ -79,7 +79,7 @@ class BusinessRequirement(models.Model):
         string='State',
         default='draft',
         copy=False,
-        readonly=True,
+        readonly=False,
         states={'draft': [('readonly', False)]},
         track_visibility='onchange'
     )
