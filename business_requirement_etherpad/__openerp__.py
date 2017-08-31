@@ -13,6 +13,7 @@
         'business_requirement',
     ],
     'data': [
+        'data/pad_demo.xml',
         'views/business_view.xml',
     ],
     'license': 'AGPL-3',
