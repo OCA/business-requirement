@@ -259,6 +259,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.wizard.for_br = True
             res = self.wizard.apply()
             self.assertEqual(res.get('type', True), 'ir.actions.act_window')
+        self.brA.deliverable_lines[0]._compute_linked_project_count()
+
+    def test_action_open_linked_project_for_br_dl(self):
+        self.brA.action_open_linked_project()
+        self.brA.deliverable_lines[0].action_open_linked_project()
 
     def test_br_generate_projects_wizard(self):
         self.brA.state = 'stakeholder_approval'
