@@ -1,0 +1,508 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement
+# 
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-29 02:27+0000\n"
+"PO-Revision-Date: 2017-08-29 02:27+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
+#: model:ir.actions.act_window,help:business_requirement.action_business_requirement_tree
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to start a new Business Requirement.\n"
+"                </p>\n"
+"                <p>\n"
+"                    <ul>\n"
+"                        <li>\n"
+"                            A Business requirement (BR) is the expression of a business need\n"
+"                            by a customer or internal project user.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            A BR contains multiple different parts to explain the stakeholder\n"
+"                            need and how to meet his/her requirements:\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Customer Story: this is the requirement as expressed by the\n"
+"                            customer.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Customer Story: this is the requirement as expressed by the\n"
+"                            customer.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Scenario: How/where the current solution can provide a suitable\n"
+"                            scenario to answer the customer story.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Gap: For the uncovered part of the scenario, elaborate the\n"
+"                            gap/need for specific developments/setup.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Test case: A set of conditions under which a tester will\n"
+"                            determine whether the application, software system or one of\n"
+"                            its features is working as it was originally established\n"
+"                            for it to do.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Deliverables to be provided to the customer/user\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Resources necessary to achieve the deliverables.\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            Additional information (approval, cost control etc).\n"
+"                        </li>\n"
+"                    </ul>\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,approval_date:0
+msgid "Approval Date"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,approved_id:0
+msgid "Approved by"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: view:business.requirement:business_requirement.view_business_requirement_graph
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: view:business.requirement:business_requirement.view_business_requirement_tree
+#: view:business.requirement.category:business_requirement.view_business_requirement_category_form
+#: view:business.requirement.category:business_requirement.view_business_requirement_category_tree
+#: model:ir.actions.act_window,name:business_requirement.act_view_project_br_all
+#: model:ir.actions.act_window,name:business_requirement.act_view_sub_br_all
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_tree
+#: model:ir.model,name:business_requirement.model_business_requirement
+#: model:ir.module.category,name:business_requirement.module_category_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
+#: model:ir.ui.menu,name:business_requirement.menu_business_root
+msgid "Business Requirement"
+msgstr "Demande client"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_manager
+msgid "Business Requirement Manager"
+msgstr ""
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_stakeholder
+msgid "Business Requirement Stakeholder"
+msgstr ""
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_user
+msgid "Business Requirement User"
+msgstr ""
+
+#. module: business_requirement
+#: field:project.project,br_ids:0
+msgid "Business Requirements"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,category_ids:0
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_category_tree
+#: model:ir.model,name:business_requirement.model_business_requirement_category
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement_category
+msgid "Categories"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,change_request:0
+msgid "Change Request?"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,confirmation_date:0
+msgid "Confirmation Date"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,confirmed_id:0
+msgid "Confirmed by"
+msgstr ""
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_3_product_template
+#: model:product.template,name:business_requirement.product_template_3
+msgid "Consultant"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,sub_br_count:0
+msgid "Count"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,create_uid:0
+#: field:business.requirement.category,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: business_requirement
+#: field:business.requirement,create_date:0
+#: field:business.requirement.category,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Creation Date"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,business_requirement:0
+msgid "Customer Story"
+msgstr "Cas client"
+
+#. module: business_requirement
+#: help:business.requirement,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,description:0
+msgid "Description"
+msgstr ""
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_2_product_template
+#: model:product.template,name:business_requirement.product_template_2
+msgid "Designer"
+msgstr ""
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_1_product_template
+#: model:product.template,name:business_requirement.product_template_1
+msgid "Developer"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,display_name:0
+#: field:business.requirement.category,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:21
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,gap:0
+msgid "Gap"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+msgid "Group By"
+msgstr ""
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "High"
+msgstr "Élevée"
+
+#. module: business_requirement
+#: help:business.requirement,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,id:0 field:business.requirement.category,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement
+#: help:business.requirement,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: business_requirement
+#: selection:business.requirement,kanban_state:0
+msgid "In Progress"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,kanban_state:0
+msgid "Kanban State"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,__last_update:0
+#: field:business.requirement.category,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: business_requirement
+#: field:business.requirement,write_uid:0
+#: field:business.requirement.category,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: business_requirement
+#: field:business.requirement,write_date:0
+#: field:business.requirement.category,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: business_requirement
+#: field:business.requirement,level:0
+msgid "Level"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Logs"
+msgstr ""
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "Low"
+msgstr "Basse"
+
+#. module: business_requirement
+#: field:business.requirement,project_id:0
+msgid "Master Project"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: business_requirement
+#: help:business.requirement,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,name:0
+#: field:business.requirement.category,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: business_requirement
+#: selection:business.requirement,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_6_product_template
+#: model:product.template,name:business_requirement.product_template_6
+msgid "Odoo Quick Start Package"
+msgstr ""
+
+#. module: business_requirement
+#: selection:business.requirement,kanban_state:0
+msgid "On Hold"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Other"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,parent_id:0
+msgid "Parent"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement.category,parent_id:0
+msgid "Parent Category"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,priority:0
+msgid "Priority"
+msgstr "Priorité"
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_product_template_action
+msgid "Products"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: model:ir.model,name:business_requirement.model_project_project
+msgid "Project"
+msgstr "Projet"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.open_view_subproject_all
+msgid "Projects"
+msgstr ""
+
+#. module: business_requirement
+#: selection:business.requirement,kanban_state:0
+msgid "Ready for next stage"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,requested_id:0
+msgid "Requested by"
+msgstr "Demandé par"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,responsible_id:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: business_requirement
+#: field:business.requirement,reviewer_ids:0
+msgid "Reviewers"
+msgstr "Relecteurs"
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,scenario:0
+msgid "Scenario"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,origin:0
+msgid "Source"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,partner_id:0
+msgid "Stakeholder"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,state:0
+msgid "State"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+msgid "Sub Bus. Req."
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,business_requirement_ids:0
+msgid "Sub Business Requirement"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_form
+#: field:business.requirement,test_case:0
+msgid "Test Case"
+msgstr ""
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:22
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr ""
+
+#. module: business_requirement
+#: view:business.requirement:business_requirement.view_business_requirement_search
+#: field:business.requirement,to_be_reviewed:0
+msgid "To be Reviewed"
+msgstr "À revoir"
+
+#. module: business_requirement
+#: field:business.requirement,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: business_requirement
+#: field:business.requirement,ref:0
+msgid "WBS"
+msgstr ""
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_5_product_template
+#: model:product.template,name:business_requirement.product_template_5
+msgid "Website Design"
+msgstr ""
+
+#. module: business_requirement
+#: model:product.template,name:business_requirement.product_product_4_product_template
+#: model:product.template,name:business_requirement.product_template_4
+msgid "Website Template"
+msgstr ""
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:385
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr ""
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:391
+#, python-format
+msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
+msgstr ""

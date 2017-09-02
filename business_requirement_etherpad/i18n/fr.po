@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_etherpad
+# 
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-29 02:28+0000\n"
+"PO-Revision-Date: 2017-08-29 02:28+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: business_requirement_etherpad
+#: model:ir.model,name:business_requirement_etherpad.model_business_requirement
+msgid "Business Requirement"
+msgstr "Demande client"
+
+#. module: business_requirement_etherpad
+#: view:business.requirement:business_requirement_etherpad.view_business_requirement_form
+#: field:business.requirement,notes:0
+msgid "Notes"
+msgstr ""

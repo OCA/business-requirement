@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_earned_value
+# 
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-29 02:28+0000\n"
+"PO-Revision-Date: 2017-08-29 02:28+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,project_completion:0
+msgid "% Completion"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,per_variances:0
+msgid "% Variance"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,product_cost_from_timesheet_product:0
+msgid "Act. Unit Cost"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,actual_cost:0
+msgid "Actual Cost"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,actual_time_in_timesheet:0
+msgid "Actual Time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Approved"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,partner_id:0
+msgid "Customer"
+msgstr "Client"
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Done"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Drop"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,earned_value:0
+msgid "Earned Value"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: view:business.requirement.earned.value.report:business_requirement_earned_value.view_earned_value_graph
+#: view:business.requirement.earned.value.report:business_requirement_earned_value.view_earned_value_graph_search
+#: model:ir.actions.act_window,name:business_requirement_earned_value.action_earned_value_report
+#: model:ir.ui.menu,name:business_requirement_earned_value.menu_action_deliverable_report
+msgid "Earned Value Analysis"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model,name:business_requirement_earned_value.model_business_requirement_earned_value_report
+msgid "Earned Value Report"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,hr_timesheet_product:0
+msgid "HR Timesheet Product"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "In progress"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,project_id:0
+msgid "Master Project"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,planned_time_in_rl:0
+msgid "Planned Time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,planned_value:0
+msgid "Planned Value"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,remaining_hours:0
+msgid "Remaining time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,res_product:0
+msgid "Res Product"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:business.requirement.earned.value.report,state:0
+msgid "Stakeholder Approval"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,state:0
+msgid "Status"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,total_expected_time:0
+msgid "Total Exp. time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,product_cost_from_rl:0
+msgid "Unit Cost"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: field:business.requirement.earned.value.report,variance:0
+msgid "Variance"
+msgstr ""

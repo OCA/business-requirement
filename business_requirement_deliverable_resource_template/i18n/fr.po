@@ -1,0 +1,121 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_resource_template
+# 
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-29 02:28+0000\n"
+"PO-Revision-Date: 2017-08-29 02:28+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_deliverable
+msgid "Business Requirement Deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:product.template,resource_lines:0
+msgid "Business Requirement Resources"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: business_requirement_deliverable_resource_template
+#: view:product.template:business_requirement_deliverable_resource_template.product_template_only_form_view
+msgid "Default Resource Template Lines"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Procurement"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,product_id:0
+#: field:business.requirement.resource.template,product_template_id:0
+msgid "Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,qty:0
+msgid "Quantity"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Task"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,resource_type:0
+msgid "Type"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,uom_id:0
+msgid "UoM"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:87
+#, python-format
+msgid "When resource type is task, the UoM category should be time"
+msgstr ""

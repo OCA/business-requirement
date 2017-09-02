@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_report
+# 
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-29 02:28+0000\n"
+"PO-Revision-Date: 2017-08-29 02:28+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Approval"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_other_resources_report
+msgid "Business Requirement Deliverable Other Resources Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_deliverable_report
+msgid "Business Requirement Deliverable Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_deliverable_resource_report
+msgid "Business Requirement Deliverable Resource Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+#: view:website:business_requirement_deliverable_report.br_report
+msgid "Business Requirement Document"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_report.business_requirement_report
+msgid "Business Requirement Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Category"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Change Request"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Confirmation"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Creation"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Customer"
+msgstr "Client"
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Customer Story:"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Date"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+msgid "Deliverable lines:"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Gap:"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Name"
+msgstr "Nom"
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+msgid "Other Resources :"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Project"
+msgstr "Projet"
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Resource lines for deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Scenario:"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Test Case:"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Total"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "Type"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_report
+#: view:website:business_requirement_deliverable_report.br_deliverable_resource_report
+msgid "UoM"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "User"
+msgstr ""
+
+#. module: business_requirement_deliverable_report
+#: view:website:business_requirement_deliverable_report.layout_br_base
+msgid "Yes"
+msgstr ""
