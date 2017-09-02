@@ -152,7 +152,6 @@ class BrGenerateProjects(models.TransientModel):
                     'business_requirement_id': line.business_requirement_id.id
                 })
                 line_project = project_obj.create(line_project_val)
-                line.linked_project = line_project.id
                 project_ids.append(line_project.id)
             self.create_project_task(
                 line.resource_ids, line_project.id, task_ids)

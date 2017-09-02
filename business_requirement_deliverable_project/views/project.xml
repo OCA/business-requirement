@@ -11,8 +11,7 @@
                 <field name="business_requirement_deliverable_id"
                         attrs="{'invisible': [('business_requirement_deliverable_id', '==', False)]}"/>
                 <newline/>
-                <field name="business_requirement_id"
-                       attrs="{'invisible': [('business_requirement_id', '==', False)]}"/>
+                <field name="business_requirement_id"/>
             </xpath>
         </field>
     </record>
