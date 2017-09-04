@@ -119,8 +119,9 @@ class BrGenerateProjects(models.TransientModel):
             else:
                 for project in br.project_ids:
                     project_ids.append(project.id)
-            self.create_project_task([br.resource_lines],
-                                     br_project.id, task_ids)
+            if not self.for_deliverable:
+                self.create_project_task([br.resource_lines],
+                                         br_project.id, task_ids)
         if self.for_deliverable:
             if self.for_br:
                 line_parent = br_project
@@ -169,7 +170,6 @@ class BrGenerateProjects(models.TransientModel):
             vals.update({'privacy_visibility': privacy_visibility})
         vals.update({
             'name': description,
-            'analytic_account_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
             'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
