@@ -256,9 +256,9 @@
         <field name="name">Business requirement</field>
         <field name="model">business.requirement</field>
         <field name="arch" type="xml">
-            <graph string="Business Requirement" type="pivot" stacked="True">
-                <field name="partner_id" type="row"/>
-                <field name="project_id" type="col"/>
+            <graph string="Business Requirement" stacked="True">
+                <field name="partner_id"/>
+                <field name="project_id"/>
             </graph>
         </field>
     </record>
