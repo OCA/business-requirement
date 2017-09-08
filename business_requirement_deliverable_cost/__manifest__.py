@@ -26,7 +26,6 @@
         "security/ir.model.access.csv",
         "views/business.xml",
         "report/br_deliverable_cost_report_view.xml",
-        'views/report_business_requirement_deliverable_resource.xml',
         'views/report_business_requirement_other_resources_report.xml',
         'report/report.xml',
 
