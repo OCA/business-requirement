@@ -27,7 +27,7 @@
         <field name="type">tree</field>
         <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_pivot"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='qty']" position="after">
+            <xpath expr="//pivot" position="inside">
                 <field name="unit_price"
                        type="measure"
                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
@@ -90,7 +90,7 @@
         <field name="model">business.requirement.deliverable</field>
         <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_pivot"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='sale_price_unit']" position="after">
+            <xpath expr="//pivot" position="inside">
                 <field name="price_total"
                        type="measure"
                        sum="Total Price"
