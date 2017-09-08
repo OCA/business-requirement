@@ -258,6 +258,18 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="view_business_requirement_deliverable_graph">
+            <field name="name">Business requirement Deliverable</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="arch" type="xml">
+                <graph string="Business Requirement Deliverable" type="pivot"
+                       stacked="True">
+                    <field name="business_requirement_id"/>
+                    <field name="business_requirement_deliverable_id"/>
+                </graph>
+            </field>
+        </record>
+
         <!-- Pivot view Requirement Deliverable Line-->
         <record id="view_business_requirement_deliverable_pivot" model="ir.ui.view">
              <field name="name">business.requirement.deliverable.pivot</field>

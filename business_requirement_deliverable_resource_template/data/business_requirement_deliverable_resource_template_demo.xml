@@ -9,9 +9,9 @@
             <field name="qty">1</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_1"/>
+                   ref="business_requirement_deliverable.product_product_1"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_1"/>
+                   ref="business_requirement_deliverable.product_template_1"/>
         </record>
         <record id="resource_template_02"
                 model="business.requirement.resource.template">
@@ -20,9 +20,9 @@
             <field name="qty">1</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_2"/>
+                   ref="business_requirement_deliverable.product_product_2"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_2"/>
+                   ref="business_requirement_deliverable.product_template_2"/>
         </record>
         <record id="resource_template_03"
                 model="business.requirement.resource.template">
@@ -31,9 +31,9 @@
             <field name="qty">1</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_3"/>
+                   ref="business_requirement_deliverable.product_product_3"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_3"/>
+                   ref="business_requirement_deliverable.product_template_3"/>
         </record>
         <record id="resource_template_04"
                 model="business.requirement.resource.template">
@@ -44,7 +44,7 @@
             <field name="product_id"
                    ref="product.product_product_8"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_5"/>
+                   ref="business_requirement_deliverable.product_template_5"/>
         </record>
         <record id="resource_template_05"
                 model="business.requirement.resource.template">
@@ -53,9 +53,9 @@
             <field name="qty">1</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_4"/>
+                   ref="business_requirement_deliverable.product_product_4"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_5"/>
+                   ref="business_requirement_deliverable.product_template_5"/>
         </record>
         <record id="resource_template_06"
                 model="business.requirement.resource.template">
@@ -64,9 +64,9 @@
             <field name="qty">3</field>
             <field name="uom_id" ref="product.product_uom_day"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_2"/>
+                   ref="business_requirement_deliverable.product_product_2"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_5"/>
+                   ref="business_requirement_deliverable.product_template_5"/>
         </record>
         <record id="resource_template_07"
                 model="business.requirement.resource.template">
@@ -75,9 +75,9 @@
             <field name="qty">7</field>
             <field name="uom_id" ref="product.product_uom_day"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_1"/>
+                   ref="business_requirement_deliverable.product_product_1"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_5"/>
+                   ref="business_requirement_deliverable.product_template_5"/>
         </record>
         <record id="resource_template_08"
                 model="business.requirement.resource.template">
@@ -86,9 +86,9 @@
             <field name="qty">24</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_3"/>
+                   ref="business_requirement_deliverable.product_product_3"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_6"/>
+                   ref="business_requirement_deliverable.product_template_6"/>
         </record>
         <record id="resource_template_09"
                 model="business.requirement.resource.template">
@@ -97,9 +97,9 @@
             <field name="qty">32</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="product_id"
-                   ref="business_requirement.product_product_1"/>
+                   ref="business_requirement_deliverable.product_product_1"/>
             <field name="product_template_id"
-                   ref="business_requirement.product_template_6"/>
+                   ref="business_requirement_deliverable.product_template_6"/>
         </record>
 
     </data>
