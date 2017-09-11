@@ -128,7 +128,6 @@ class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
     _description = "Business Requirement Deliverable"
 
-    yogesh = fields.Integer('Yogesh')
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
         related='business_requirement_id.state',
