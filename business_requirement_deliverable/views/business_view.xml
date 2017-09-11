@@ -138,7 +138,6 @@
         <field name="arch" type="xml">
             <tree string="Business Requirement Deliverable" default_order="sequence">
                 <field name="business_requirement_id"/>
-                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="product_id"/>
                 <field name="uom_id"/>
@@ -274,24 +273,24 @@
         <field name="name">Business requirement Deliverable</field>
         <field name="model">business.requirement.deliverable</field>
         <field name="arch" type="xml">
-            <pivot string="Business Requirement">
+            <pivot string="Business Requirement" display_quantity="true" disable_linking="True">
             </pivot>
         </field>
     </record>
 
     <!--&lt;!&ndash; Graph view Requirement Deliverable Line&ndash;&gt;-->
-    <!--<record id="view_business_requirement_deliverable_graph" model="ir.ui.view">-->
-         <!--<field name="name">business.requirement.deliverable.graph</field>-->
-         <!--<field name="model">business.requirement.deliverable</field>-->
-         <!--<field name="arch" type="xml">-->
-             <!--<graph string="Requirement Deliverable" stacked="True">-->
-                 <!--<field name="business_requirement_id" type="row"/>-->
-                 <!--<field name="product_id" type="col"/>-->
+    <record id="view_business_requirement_deliverable_graph" model="ir.ui.view">
+         <field name="name">business.requirement.deliverable.graph</field>
+         <field name="model">business.requirement.deliverable</field>
+         <field name="arch" type="xml">
+             <graph string="Requirement Deliverable" stacked="True">
+                 <field name="business_requirement_id"/>
+                 <field name="product_id"/>
                  <!--<field name="qty" type="measure"/>-->
                  <!--<field name="sale_price_unit" type="measure"/>-->
-             <!--</graph>-->
-         <!--</field>-->
-    <!--</record>-->
+             </graph>
+         </field>
+    </record>
 
     <!-- Action Requirement Deliverable Line-->
     <record model="ir.actions.act_window" id="action_deliverable_lines">
