@@ -79,7 +79,7 @@ class BusinessRequirement(models.Model):
         string='State',
         default='draft',
         copy=False,
-        readonly=True,
+        readonly=False,
         states={'draft': [('readonly', False)]},
         track_visibility='onchange'
     )
@@ -410,10 +410,9 @@ class BusinessRequirement(models.Model):
                 res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result
-        else:
-            return super(BusinessRequirement, self).\
-                read_group(domain, fields, groupby,
-                           offset=offset, limit=limit, orderby=orderby)
+        return super(BusinessRequirement, self).\
+            read_group(domain, fields, groupby,
+                       offset=offset, limit=limit, orderby=orderby, lazy=lazy)
 
 
 class BusinessRequirementCategory(models.Model):
