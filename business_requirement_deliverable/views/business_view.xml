@@ -286,8 +286,6 @@
              <graph string="Requirement Deliverable" stacked="True">
                  <field name="business_requirement_id"/>
                  <field name="product_id"/>
-                 <!--<field name="qty" type="measure"/>-->
-                 <!--<field name="sale_price_unit" type="measure"/>-->
              </graph>
          </field>
     </record>
