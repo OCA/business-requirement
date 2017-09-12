@@ -23,7 +23,7 @@
         "views/business_requirement_deliverable.xml",
     ],
     'demo': [
-        'data/business_requirement_deliverable_project_task_categ_demo.xml'
+        'demo/business_requirement_deliverable_project_task_categ_demo.xml'
     ],
 
 }
