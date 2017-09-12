@@ -2,39 +2,39 @@
 <openerp>
     <data noupdate="1">
         <!--Business Requirement Category -->
-        <record id="business_requirement_category_1"
+        <record forcecreate="0" id="business_requirement_category_1"
                 model="business.requirement.category">
             <field name="name">Website</field>
         </record>
-        <record id="business_requirement_category_2"
+        <record forcecreate="0" id="business_requirement_category_2"
                 model="business.requirement.category">
             <field name="name">ERP</field>
         </record>
-        <record id="business_requirement_category_3"
+        <record forcecreate="0" id="business_requirement_category_3"
                 model="business.requirement.category">
             <field name="name">Design</field>
         </record>
-        <record id="business_requirement_category_4"
+        <record forcecreate="0" id="business_requirement_category_4"
                 model="business.requirement.category">
             <field name="name">Infra</field>
         </record>
 
         <!-- Projects -->
-        <record id="project_1" model="project.project">
+        <record forcecreate="0" id="project_1" model="project.project">
             <field name="name">Corporate Website</field>
             <field name="partner_id" ref="base.res_partner_2"/>
         </record>
-        <record id="project_2" model="project.project">
+        <record forcecreate="0" id="project_2" model="project.project">
             <field name="name">ERP improvements</field>
             <field name="partner_id" ref="base.main_partner"/>
         </record>
-        <record id="project_3" model="project.project">
+        <record forcecreate="0" id="project_3" model="project.project">
             <field name="name">Business Analysis</field>
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
 
         <!-- Products -->
-        <record id="product_template_1" model="product.template">
+        <record forcecreate="0" id="product_template_1" model="product.template">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -44,11 +44,11 @@
             <field name="list_price">35.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_1" model="product.product">
+        <record forcecreate="0" id="product_product_1" model="product.product">
             <field name="product_tmpl_id" ref="product_template_1"/>
             <field name="default_code">SER01</field>
         </record>
-        <record id="product_template_2" model="product.template">
+        <record forcecreate="0" id="product_template_2" model="product.template">
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -58,11 +58,11 @@
             <field name="list_price">60.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_2" model="product.product">
+        <record forcecreate="0" id="product_product_2" model="product.product">
             <field name="product_tmpl_id" ref="product_template_2"/>
             <field name="default_code">SER02</field>
         </record>
-        <record id="product_template_3" model="product.template">
+        <record forcecreate="0" id="product_template_3" model="product.template">
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
@@ -72,11 +72,11 @@
             <field name="list_price">50.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_3" model="product.product">
+        <record forcecreate="0" id="product_product_3" model="product.product">
             <field name="product_tmpl_id" ref="product_template_3"/>
             <field name="default_code">SER03</field>
         </record>
-        <record id="product_template_4" model="product.template">
+        <record forcecreate="0" id="product_template_4" model="product.template">
             <field name="name">Website Template</field>
             <field name="default_code">WEB01</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -86,11 +86,11 @@
             <field name="list_price">150.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_4" model="product.product">
+        <record forcecreate="0" id="product_product_4" model="product.product">
             <field name="product_tmpl_id" ref="product_template_4"/>
             <field name="default_code">WEB01</field>
         </record>
-        <record id="product_template_5" model="product.template">
+        <record forcecreate="0" id="product_template_5" model="product.template">
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
@@ -100,11 +100,11 @@
             <field name="list_price">5200.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_5" model="product.product">
+        <record forcecreate="0" id="product_product_5" model="product.product">
             <field name="product_tmpl_id" ref="product_template_5"/>
             <field name="default_code">WEB02</field>
         </record>
-        <record id="product_template_6" model="product.template">
+        <record forcecreate="0" id="product_template_6" model="product.template">
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
@@ -112,11 +112,11 @@
             <field name="list_price">4000.0</field>
             <field name="categ_id" ref="product.product_category_5"/>
         </record>
-        <record id="product_product_6" model="product.product">
+        <record forcecreate="0" id="product_product_6" model="product.product">
             <field name="product_tmpl_id" ref="product_template_6"/>
             <field name="default_code">OD01</field>
         </record>
-        <record id="business_requirement_1" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
             <field name="responsible_id" ref="base.user_root"/>
             <field name="priority">2</field>
@@ -206,7 +206,7 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-        <record id="business_requirement_2_1" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_2_1" model="business.requirement">
             <field name="description">ERP Implementation</field>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
@@ -218,7 +218,7 @@ pulvinar et, cursus sed purus.
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
         </record>
-        <record id="business_requirement_2_2" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_2_2" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">ERP Setup</field>
             <field name="responsible_id" ref="base.user_demo"/>
@@ -309,7 +309,7 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-        <record id="business_requirement_3" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_3" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">Server Set up</field>
             <field name="responsible_id" ref="base.user_demo"/>
@@ -400,7 +400,7 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-        <record id="business_requirement_4" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_4" model="business.requirement">
             <field name="description">Business Analysis</field>
             <field name="project_id" ref="project_3"/>
             <field name="responsible_id" ref="base.user_demo"/>
@@ -491,7 +491,7 @@ pulvinar et, cursus sed purus.
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
         </record>
-        <record id="business_requirement_5" model="business.requirement">
+        <record forcecreate="0" id="business_requirement_5" model="business.requirement">
             <field name="description">Gap Analysis</field>
             <field name="project_id" ref="project_2"/>
             <field name="responsible_id" ref="base.user_demo"/>
