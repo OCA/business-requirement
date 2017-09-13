@@ -5,7 +5,7 @@
     'name': 'Business Requirement Etherpad',
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirements Notes via Etherpad',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
@@ -16,5 +16,5 @@
         'views/business_view.xml',
     ],
     'license': 'AGPL-3',
-    'installable': False,
+    'installable': True,
 }

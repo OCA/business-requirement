@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -15,12 +15,7 @@ class ResPartner(models.Model):
         Deliverables linked to this Customer.
         Currency of the Deliverables will be the one from the pricelist.""")
 
-    def _commercial_fields(self, cr, uid, context=None):
-        return super(
-            ResPartner,
-            self
-        )._commercial_fields(
-            cr,
-            uid,
-            context=context
-        ) + ['property_product_estimation_pricelist']
+    @api.model
+    def _commercial_fields(self):
+        return super(ResPartner, self)._commercial_fields() + \
+            ['property_product_estimation_pricelist']
