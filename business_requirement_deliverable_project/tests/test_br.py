@@ -281,8 +281,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'stakeholder_approval'
 
-        default_uom = self.env.user and self.env.user.company_id and \
-                      self.env.user.company_id.project_time_mode_id.id
+        default_uom = self.env.user and self.env.user.company_id \
+            and self.env.user.company_id.project_time_mode_id.id
 
         with self.assertRaises(ValidationError):
             action = self.brA.project_id.generate_project_wizard()

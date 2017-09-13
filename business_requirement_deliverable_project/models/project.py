@@ -30,9 +30,8 @@ class Project(models.Model):
         if not br_ids:
             br_ids = self.br_ids
             from_project = True
-        default_uom = self.env.user and self.env.user.company_id and \
-                      self.env.user.company_id.project_time_mode_id.id
-        #     get_default_time_unit('time_unit').get('time_unit', False)
+        default_uom = self.env.user and self.env.user.company_id \
+            and self.env.user.company_id.project_time_mode_id.id
         if not default_uom:
             raise ValidationError(
                 _("""Please set working time default unit in project
