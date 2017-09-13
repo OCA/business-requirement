@@ -3,14 +3,14 @@
 # * business_requirement_etherpad
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 12:10+0000\n"
-"PO-Revision-Date: 2017-07-21 12:10+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"POT-Creation-Date: 2017-08-16 02:38+0000\n"
+"PO-Revision-Date: 2017-08-16 02:38+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgid "Business Requirement"
 msgstr "Poslovna zahteva"
 
 #. module: business_requirement_etherpad
-#: view:business.requirement:business_requirement_etherpad.view_business_requirement_form
-#: field:business.requirement,notes:0
+#: model:ir.model.fields,field_description:business_requirement_etherpad.field_business_requirement_notes
+#: model:ir.ui.view,arch_db:business_requirement_etherpad.view_business_requirement_form
 msgid "Notes"
-msgstr "Opombe"
+msgstr ""
