@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
-from openerp.exceptions import Warning as UserError
+from odoo.tests import common
+from odoo.exceptions import UserError
 
 
 @common.at_install(False)
@@ -55,9 +55,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your user test',
             'login': 'your.user@your-user.com'
         })
-
+        self.partner1 = self.ref('base.res_partner_1')
         vals = {
             'description': ' test',
+            'partner_id': self.partner1
         }
         self.br = self.env['business.requirement'].create(vals)
         self.br.write({
@@ -94,6 +95,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         'sale_price_unit': 1500, 'uom_id': 1,
                         }),
             ]})
+
+    def test_commercial_fields(self):
+        self.br.partner_id._commercial_fields()
 
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
@@ -309,8 +313,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
             line.write({'uom_id': self.uom_days.id})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
-
-            self.assertEqual(line.sale_price_unit, self.sale_price_unit)
+            pricelist = line._get_pricelist()
+            product = self.productA.with_context(
+                lang=self.br.partner_id.lang,
+                partner=self.br.partner_id.id,
+                quantity=line.qty,
+                pricelist=pricelist.id,
+                uom=line.uom_id.id,
+            )
+            self.assertEqual(line.sale_price_unit, product.price)
 
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({
