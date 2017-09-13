@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="business_requirement_deliverable"
+        model="business.requirement" 
+        string="Business Requirement Deliverable Report"
+        report_type="qweb-pdf"
+        name="business_requirement_deliverable.br_deliverable_report"
+        file="business_requirement_deliverable.br_deliverable_report"
+     />
+
+    <report
+        id="business_requirement_deliverable_resource_report"
+        model="business.requirement"
+        string="Business Requirement Deliverable Resource Report"
+        report_type="qweb-pdf"
+        name="business_requirement_deliverable.br_deliverable_resource_report"
+        file="business_requirement_deliverable.br_deliverable_resource_report"
+    />
+
+
+    <record id="business_requirement_deliverable" model="ir.actions.report.xml">
+        <field name="paperformat_id"
+               ref="business_requirement_deliverable.br_report_paperformat_eu"/>
+    </record>
+
+    <record id="business_requirement_deliverable_resource_report" model="ir.actions.report.xml">
+        <field name="paperformat_id"
+               ref="business_requirement_deliverable.br_report_paperformat_eu"/>
+    </record>
+
+</odoo>
