@@ -28,34 +28,6 @@
             <field name="model">business.requirement</field>
             <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//header/button[@name='action_button_confirm']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_back_draft']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_approve']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_stakeholder_approval']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_in_progress']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_done']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_cancel']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/button[@name='action_button_drop']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//header/field[@name='state']" position="attributes">
-                    <attribute name="clickable">True</attribute>
-                    <attribute name="groups">business_requirement.group_business_requirement_user</attribute>
-                </xpath>
                 <xpath expr="//field[@name='priority']"
                        position="after">
                     <field name="all_project_generated" invisible="1"/>
