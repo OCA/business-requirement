@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import tools
-from openerp import fields, models
+from odoo import tools
+from odoo import api, fields, models
 
 
 class BusinessRequirementDeliverableSaleReport(models.Model):
@@ -73,9 +73,10 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
         """
         return group_by_str
 
-    def init(self, cr):
-        tools.drop_view_if_exists(cr, self._table)
-        cr.execute("""CREATE or REPLACE VIEW %s as (
+    @api.model_cr
+    def init(self):
+        tools.drop_view_if_exists(self.env.cr, self._table)
+        self.env.cr.execute("""CREATE or REPLACE VIEW %s as (
             %s
             FROM ( %s )
             %s

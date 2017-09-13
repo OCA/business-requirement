@@ -148,7 +148,7 @@ msgid "Deliverable Qty"
 msgstr "Kol. dobav"
 
 #. module: business_requirement_deliverable
-#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_report
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable
 msgid "Deliverable Report"
 msgstr "Poročilo o dobavah"
 
@@ -441,3 +441,170 @@ msgid ""
 msgstr ""
 "Kupca spreminjate na poslovni zahtevi, ki že vsebuje postavke dobav. Cenik "
 "bi lahko bil drugačen."
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Approval"
+msgstr "Odobritev"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_other_resources_report
+msgid "Business Requirement Deliverable Other Resources Report"
+msgstr "Poročilo o drugih virih dobave poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_deliverable
+msgid "Business Requirement Deliverable Report"
+msgstr "Poročilo o dobavi poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_deliverable_resource_report
+msgid "Business Requirement Deliverable Resource Report"
+msgstr "Poročilo o viru dobave poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+#: view:website:business_requirement_deliverable.br_report
+msgid "Business Requirement Document"
+msgstr "Dokument poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_report
+msgid "Business Requirement Report"
+msgstr "Poročilo o poslovni zahtevi"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Category"
+msgstr "Kategorija"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Change Request"
+msgstr "Zahteva po spremembi"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Confirmation"
+msgstr "Potrditev"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Creation"
+msgstr "Nastanek"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Customer Story:"
+msgstr "Kupčeva zgodba:"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Date"
+msgstr "Datum"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Deliverable"
+msgstr "Dobava"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_report
+msgid "Deliverable lines:"
+msgstr "Postavke dobav:"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Gap:"
+msgstr "Vrzel:"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Name"
+msgstr "Naziv"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+msgid "Other Resources :"
+msgstr "Drugi viri"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Price"
+msgstr "Cena"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Project"
+msgstr "Projekt"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Qty"
+msgstr "Kol."
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Resource lines for deliverable"
+msgstr "Postavke virov za dobavo"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Scenario:"
+msgstr "Scenarij:"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Test Case:"
+msgstr "Preizkusni primer:"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Total"
+msgstr "Skupaj"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Type"
+msgstr "Tip"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement_deliverable.br_deliverable_other_resources_report
+#: view:website:business_requirement_deliverable.br_deliverable_report
+#: view:website:business_requirement_deliverable.br_deliverable_resource_report
+msgid "UoM"
+msgstr "EM"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "User"
+msgstr "Uporabnik"
+
+#. module: business_requirement_deliverable
+#: view:website:business_requirement.layout_br_base
+msgid "Yes"
+msgstr "Da"

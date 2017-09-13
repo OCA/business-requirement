@@ -9,7 +9,7 @@ Business Requirement Deliverable
 Introduction
 ============
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/10.0/README.md>`_)
 
 Two new concepts complement the main business requirements model:
 
@@ -147,7 +147,7 @@ Usage
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/10.0
 
 Bug Tracker
 ===========
@@ -158,7 +158,7 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 
 Known issues / Roadmap
 ======================
-* As of version 8.0.5.0.0, the estimation pricelist has been moved from Project to
+* As of version 10.0.1.0.0, the estimation pricelist has been moved from Project to
   Partner object. There is no migration script for the change and the data will 
   have to be migrated manually.
 Credits

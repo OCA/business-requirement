@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.exceptions import Warning as UserError
-from openerp.exceptions import ValidationError
-from openerp.tools.translate import _
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
+from odoo.addons import decimal_precision as dp
 
 
 class BusinessRequirementResource(models.Model):
@@ -71,13 +70,13 @@ class BusinessRequirementResource(models.Model):
     business_requirement_partner_id = fields.Many2one(
         comodel_name='res.partner',
         related='business_requirement_id.partner_id',
-        string='Business Requirement',
+        string='Stakeholder',
         store=True
     )
     business_requirement_project_id = fields.Many2one(
         comodel_name='project.project',
         related='business_requirement_id.project_id',
-        string='Business Requirement',
+        string='Project',
         store=True
     )
     state = fields.Selection(related='business_requirement_id.state',
@@ -180,7 +179,8 @@ class BusinessRequirementDeliverable(models.Model):
     price_total = fields.Float(
         compute='_compute_get_price_total',
         string='Total revenue',
-        store=True
+        store=True,
+        readonly=True
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
@@ -191,13 +191,13 @@ class BusinessRequirementDeliverable(models.Model):
     business_requirement_partner_id = fields.Many2one(
         comodel_name='res.partner',
         related='business_requirement_id.partner_id',
-        string='Business Requirement',
+        string='Stakeholder',
         store=True
     )
     business_requirement_project_id = fields.Many2one(
         comodel_name='project.project',
         related='business_requirement_id.project_id',
-        string='Business Requirement',
+        string='Project',
         store=True
     )
     state = fields.Selection(related='business_requirement_id.state',
@@ -280,7 +280,7 @@ class BusinessRequirementDeliverable(models.Model):
         product_uom = self.env['product.uom']
 
         if self.qty != 0:
-            product_uom._compute_qty(
+            product_uom._compute_quantity(
                 self.uom_id.id, self.qty, self.product_id.uom_id.id) / self.qty
 
         if pricelist:
@@ -328,8 +328,11 @@ class BusinessRequirement(models.Model):
         readonly=True,
         compute='_compute_get_currency'
     )
-    dl_total_revenue = fields.Float('DL Total Revenue',
-                                    compute='_compute_dl_total_revenue')
+    dl_total_revenue = fields.Float(
+        string='DL Total Revenue',
+        digit=dp.get_precision('Account'),
+        compute='_compute_dl_total_revenue'
+    )
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
 
