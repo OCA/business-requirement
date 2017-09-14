@@ -22,11 +22,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.projectA = self.ProjectObj.\
             create({'name': 'Test Project A', 'partner_id': 1,
-                    'analytic_account_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
         self.projectB = self.ProjectObj.\
             create({'name': 'Test Project B', 'partner_id': 1,
-                    'analytic_account_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
 
         # Configure unit of measure.
