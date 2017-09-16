@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models
+from odoo.addons import decimal_precision as dp
 
 
 class BusinessRequirementResource(models.Model):
@@ -182,7 +183,8 @@ class BusinessRequirement(models.Model):
     )
     rl_total_cost = fields.Float(
         'RL Total Cost',
-        compute='_compute_rl_total_cost'
+        compute='_compute_rl_total_cost',
+        digit=dp.get_precision('Account')
     )
 
     @api.multi

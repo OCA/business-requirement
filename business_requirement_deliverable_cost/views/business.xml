@@ -158,9 +158,9 @@
                 <field name="rl_total_cost"
                        class="oe_inline badge"
                        nolabel="1"
-                       widget="statinfo"
                        modifiers="{'readonly': true}"
-                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"
+                />
             </xpath>
         </field>
     </record>
