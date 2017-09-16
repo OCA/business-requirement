@@ -104,8 +104,11 @@
                     <field name="dl_count" string="Deliverable"
                         widget="statinfo"
                         modifiers="{'readonly': true}"/>
-                    <field name="dl_total_revenue" class="oe_inline badge"
-                           nolabel="1" modifiers="{'readonly': true}"/>
+                    <field name="dl_total_revenue"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           modifiers="{'readonly': true}"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </button>
                 <br/>
                 <button class="oe_inline oe_stat_button"
