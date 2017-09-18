@@ -12,7 +12,7 @@
     <record id="group_business_requirement_manager" model="res.groups">
         <field name="name">Business Requirement Manager</field>
         <field name="implied_ids"
-               eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
+               eval="[(4, ref('business_requirement.group_business_requirement_stakeholder'))]"/>
         <field name="category_id"
                ref="business_requirement.module_category_business_requirement"/>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
@@ -21,7 +21,7 @@
     <record id="group_business_requirement_stakeholder" model="res.groups">
         <field name="name">Business Requirement Stakeholder</field>
         <field name="implied_ids"
-               eval="[(4, ref('business_requirement.group_business_requirement_manager'))]"/>
+               eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
         <field name="category_id"
                ref="business_requirement.module_category_business_requirement"/>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>

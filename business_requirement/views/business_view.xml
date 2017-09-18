@@ -9,13 +9,6 @@
             'search_default_parent_id': [active_id],
             'default_parent_id': active_id,
         }</field>
-        <field name="help" type="html">
-            <p>
-                Odoo's project management allows you to manage the pipeline
-                of tasks in order to get things done efficiently. You can
-                track progress, discuss on tasks, attach documents, etc.
-            </p>
-        </field>
     </record>
 
     <record id="view_business_requirement_form" model="ir.ui.view">
