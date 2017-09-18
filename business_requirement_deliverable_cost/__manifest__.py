@@ -22,6 +22,7 @@
         'static/img/bus_req_control.png'
     ],
     "data": [
+        "data/business_data.xml",
         "security/business_requirement_deliverable_security.xml",
         "security/ir.model.access.csv",
         "views/business.xml",
