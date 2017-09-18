@@ -10,13 +10,6 @@
             'default_project_id': project_id,
             'active_test': False,
         }</field>
-        <field name="help" type="html">
-            <p>
-                Odoo's project management allows you to manage the pipeline
-                of tasks in order to get things done efficiently. You can
-                track progress, discuss on tasks, attach documents, etc.
-            </p>
-        </field>
     </record>
     <record id="crm_case_form_view_oppor" model="ir.ui.view">
         <field name="name">crm.lead.form</field>
