@@ -62,7 +62,7 @@
             </xpath>
             <xpath expr="//field[@name='priority']"
                    position="after">
-                <field name="project_ids" invisible="0"/>
+                <field name="project_ids" invisible="1"/>
             </xpath>
 
         </field>
