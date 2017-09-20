@@ -8,26 +8,42 @@
         <field name="arch" type="xml">
             <form string="Generate Tasks">
                 <sheet>
-                    <group>
-                        <field name="br_ids"
-                               widget="many2many_tags"
-                               readonly="1"/>
-                        <field name="partner_id"
-                               readonly="1"/>
-                        <field name="project_id"/>
-                    </group>
-                    <group>
-                        <field name="for_br" readonly="1"/>
-                        <field name="for_deliverable"/>
-                        <field name="for_childs"
-                               attrs="{'readonly': [('for_br', '!=', True)]}"/>
+                    <group col="2">
+                        <group col="3">
+                            <field name="br_ids"
+                                   widget="many2many_tags"
+                                   readonly="1"/>
+                        </group>
+                        <br/>
+                        <group col="3">
+                            <field name="partner_id"
+                                   readonly="1"/>
+                        </group>
+                        <br/>
+                        <group col="3">
+                            <field name="project_id"/>
+                        </group>
+                        <br/>
+                        <group col="4">
+                            <field name="for_br" readonly="1"/>
+                        </group>
+                        <br/>
+                        <group col="4">
+                            <field name="for_deliverable"/>
+                        </group>
+                        <br/>
+                        <group col="4">
+                            <field name="for_childs"
+                                   attrs="{'readonly': [('for_br', '!=', True)]}"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
             <footer>
-                <button name="apply" string="_Apply" type="object" class="oe_highlight"/>
+                <button name="apply" string="_Apply" type="object"
+                        class="oe_highlight"/>
                 or
-                <button string="_Cancel" class="oe_link" special="cancel" />
+                <button string="_Cancel" class="oe_link" special="cancel"/>
             </footer>
         </field>
     </record>

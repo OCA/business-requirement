@@ -36,6 +36,7 @@
         <record id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
             <field name="responsible_id" ref="base.user_root"/>
+            <field name="project_id" ref="project_1"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"/>
@@ -126,6 +127,7 @@ pulvinar et, cursus sed purus.
         <record id="business_requirement_2_1" model="business.requirement">
             <field name="description">ERP Implementation</field>
             <field name="responsible_id" ref="base.user_demo"/>
+            <field name="project_id" ref="project_2"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
@@ -138,6 +140,7 @@ pulvinar et, cursus sed purus.
         <record id="business_requirement_2_2" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">ERP Setup</field>
+            <field name="project_id" ref="project_2"/>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
@@ -230,6 +233,7 @@ pulvinar et, cursus sed purus.
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">Server Set up</field>
             <field name="responsible_id" ref="base.user_demo"/>
+            <field name="project_id" ref="project_2"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"/>
