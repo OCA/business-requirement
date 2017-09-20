@@ -76,7 +76,6 @@ class CrmMakeSale(models.TransientModel):
                 'res_ids': crm_id.order_ids.ids
             }
 
-
     def prepare_sale_order_line(self, case_id, order_id):
         lines = []
         case = self.env['crm.lead'].browse(case_id)
