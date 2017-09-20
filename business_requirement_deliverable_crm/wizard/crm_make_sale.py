@@ -22,6 +22,7 @@ class CrmMakeSale(models.TransientModel):
         'Customer',
         default=default_partner
     )
+    update_quotation = fields.Boolean('Update existing quotation')
 
     @api.multi
     def make_order(self):
@@ -29,17 +30,10 @@ class CrmMakeSale(models.TransientModel):
         case_id = context and context.get('active_ids', []) or []
         case_id = case_id and case_id[0] or False
         crm_id = self.env['crm.lead'].browse(case_id)
-        if crm_id and crm_id.order_ids:
-            return {
-                'domain': str([('id', 'in', crm_id.order_ids.ids)]),
-                'view_type': 'form',
-                'view_mode': 'tree,form',
-                'res_model': 'sale.order',
-                'view_id': False,
-                'type': 'ir.actions.act_window',
-                'name': _('Quotation'),
-                'res_ids': crm_id.order_ids.ids
-            }
+        if self.update_quotation and crm_id and crm_id.order_ids:
+            for order in crm_id.order_ids:
+                if order.order_line:
+                    order.order_line.unlink()
         if crm_id and crm_id.project_id:
             partner = crm_id.partner_id
             sale_order = self.env['sale.order']
@@ -55,7 +49,8 @@ class CrmMakeSale(models.TransientModel):
                 'partner_shipping_id': partner_addr['delivery'],
                 'date_order': fields.datetime.now(),
                 }
-
+            for br in crm_id.project_id.br_ids:
+                sale_order_vals.update({'client_order_ref': br.name})
             order_id = sale_order.create(sale_order_vals)
             order_lines = self.prepare_sale_order_line(case_id, order_id.id)
             self.create_sale_order_line(order_lines)
@@ -69,6 +64,18 @@ class CrmMakeSale(models.TransientModel):
                 'name': _('Quotation'),
                 'res_id': order_id.id
             }
+        if crm_id and crm_id.order_ids:
+            return {
+                'domain': str([('id', 'in', crm_id.order_ids.ids)]),
+                'view_type': 'form',
+                'view_mode': 'tree,form',
+                'res_model': 'sale.order',
+                'view_id': False,
+                'type': 'ir.actions.act_window',
+                'name': _('Quotation'),
+                'res_ids': crm_id.order_ids.ids
+            }
+
 
     def prepare_sale_order_line(self, case_id, order_id):
         lines = []
