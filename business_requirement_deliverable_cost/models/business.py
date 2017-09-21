@@ -228,7 +228,7 @@ class BusinessRequirement(models.Model):
                         .filtered(lambda r: r.resource_type == 'task')
                         .mapped('price_total'))
                 resource_task_total_ci = self.env['res.currency']._compute(
-                    rec.currency_id, self.env.user.company_id.currency_id,
+                    br.currency_id, self.env.user.company_id.currency_id,
                     resource_task_total)
                 br.resource_task_total = resource_task_total_ci
 
