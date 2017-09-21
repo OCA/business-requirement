@@ -205,8 +205,8 @@ class BusinessRequirement(models.Model):
     def _compute_total_revenue_in_ci(self):
         for rec in self:
             total_revenue_ci = self.env['res.currency']._compute(
-                self.currency_id, self.env.user.company_id.currency_id,
-                self.total_revenue)
+                rec.currency_id, self.env.user.company_id.currency_id,
+                rec.total_revenue)
             rec.total_revenue_ci = total_revenue_ci
 
     @api.multi
@@ -243,7 +243,7 @@ class BusinessRequirement(models.Model):
                         .filtered(lambda r: r.resource_type == 'procurement')
                         .mapped('price_total'))
                 resource_procurement_total_ci = self.env['res.currency']\
-                    ._compute(self.currency_id,
+                    ._compute(br.currency_id,
                               self.env.user.company_id.currency_id,
                               resource_procurement_total)
                 br.resource_procurement_total = resource_procurement_total_ci
@@ -260,6 +260,6 @@ class BusinessRequirement(models.Model):
                 br.resource_task_total -
                 br.resource_procurement_total)
             gross_profit_ci = self.env['res.currency']._compute(
-                self.currency_id, self.env.user.company_id.currency_id,
+                br.currency_id, self.env.user.company_id.currency_id,
                 gross_profit)
             br.gross_profit = gross_profit_ci
