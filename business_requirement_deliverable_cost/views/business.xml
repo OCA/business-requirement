@@ -117,12 +117,16 @@
                     <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
                         <group>
                             <group>
-                                <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                                <field name="total_revenue"/>
-                                <field name="resource_procurement_total"/>
+                                <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                <field name="ci_currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                <field name="total_revenue" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                <field name="total_revenue_ci" widget="monetary" options="{'currency_field': 'ci_currency_id'}"/>
+                                <field name="resource_procurement_total" widget="monetary" options="{'currency_field': 'ci_currency_id'}"/>
                                 <field name="resource_task_total"
+                                       widget="monetary" options="{'currency_field': 'ci_currency_id'}"
                                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                                 <field name="gross_profit"
+                                       widget="monetary" options="{'currency_field': 'ci_currency_id'}"
                                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                             </group>
                         </group>
