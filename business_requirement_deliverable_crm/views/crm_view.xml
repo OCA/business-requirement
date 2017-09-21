@@ -15,10 +15,12 @@
         <field name="name">crm.lead.form</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="priority">17</field>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_set_won']" position='before'>
-                <button type="action" name="%(act_view_lead_br_all)d" icon="fa-tasks" context="{'project_id':project_id}">
-                    <field string="Business Req." name="resource_cost_total" widget="statinfo"/>
+                <button type="action" name="%(act_view_lead_br_all)d" class="oe_highlight"
+                        icon="fa-tasks" context="{'project_id':project_id}">
+                    <field string="New Quotation (Bus. Req.)" name="resource_cost_total" widget="statinfo"/>
                 </button>
             </xpath>
             <xpath expr='//page[1]' position="after">
