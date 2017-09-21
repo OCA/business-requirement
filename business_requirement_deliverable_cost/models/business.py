@@ -186,6 +186,29 @@ class BusinessRequirement(models.Model):
         compute='_compute_rl_total_cost',
         digit=dp.get_precision('Account')
     )
+    total_revenue_ci = fields.Float(
+        compute='_compute_total_revenue_in_ci',
+        string='Total Revenue in CI',
+    )
+    ci_currency_id = fields.Many2one(
+        comodel_name='res.currency',
+        string='Currency',
+        readonly=True,
+        compute='_compute_get_ci_currency'
+    )
+
+    @api.multi
+    def _compute_get_ci_currency(self):
+        for br in self:
+            br.ci_currency_id = self.env.user.company_id.currency_id.id
+
+    @api.depends('total_revenue')
+    def _compute_total_revenue_in_ci(self):
+        for rec in self:
+            total_revenue_ci = self.env['res.currency']._compute(
+                rec.currency_id, self.env.user.company_id.currency_id,
+                rec.total_revenue)
+            rec.total_revenue_ci = total_revenue_ci
 
     @api.multi
     @api.depends('deliverable_lines.resource_ids.price_total')
@@ -201,10 +224,14 @@ class BusinessRequirement(models.Model):
     def _compute_resource_task_total(self):
         for br in self:
             if br.deliverable_lines:
-                br.resource_task_total =\
+                resource_task_total =\
                     sum(br.mapped('deliverable_lines').mapped('resource_ids')
                         .filtered(lambda r: r.resource_type == 'task')
                         .mapped('price_total'))
+                resource_task_total_ci = self.env['res.currency']._compute(
+                    br.currency_id, self.env.user.company_id.currency_id,
+                    resource_task_total)
+                br.resource_task_total = resource_task_total_ci
 
     @api.multi
     @api.depends('deliverable_lines', 'deliverable_lines.resource_ids',
@@ -212,10 +239,15 @@ class BusinessRequirement(models.Model):
     def _compute_resource_procurement_total(self):
         for br in self:
             if br.deliverable_lines:
-                br.resource_procurement_total =\
+                resource_procurement_total =\
                     sum(br.mapped('deliverable_lines').mapped('resource_ids')
                         .filtered(lambda r: r.resource_type == 'procurement')
                         .mapped('price_total'))
+                resource_procurement_total_ci = self.env['res.currency']\
+                    ._compute(br.currency_id,
+                              self.env.user.company_id.currency_id,
+                              resource_procurement_total)
+                br.resource_procurement_total = resource_procurement_total_ci
 
     @api.multi
     @api.depends(
@@ -224,7 +256,11 @@ class BusinessRequirement(models.Model):
         'resource_procurement_total')
     def _compute_gross_profit(self):
         for br in self:
-            br.gross_profit = (
+            gross_profit = (
                 br.total_revenue -
                 br.resource_task_total -
                 br.resource_procurement_total)
+            gross_profit_ci = self.env['res.currency']._compute(
+                br.currency_id, self.env.user.company_id.currency_id,
+                gross_profit)
+            br.gross_profit = gross_profit_ci
