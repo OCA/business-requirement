@@ -18,11 +18,15 @@
         <field name="priority">17</field>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_set_won']" position='before'>
-                <button type="action" name="%(act_view_lead_br_all)d" class="oe_highlight"
-                        icon="fa-tasks" context="{'project_id':project_id}">
-                    <field string="New Quotation (Bus. Req.)" name="resource_cost_total" widget="statinfo"/>
-                </button>
+                <button attrs="{'invisible': [('project_id', '=', False)]}" string="Quotation (Bus. Req.)" name="%(action_crm_make_sale)d" type="action" class="oe_highlight"/>
+
             </xpath>
+            <button name="toggle_active" position="after">
+                <button type="action" name="%(act_view_lead_br_all)d" class="oe_stat_button"
+                        icon="fa-tasks" context="{'project_id':project_id}">
+                    <field string="Business Req." name="resource_cost_total" widget="statinfo"/>
+                </button>
+            </button>
             <xpath expr='//page[1]' position="after">
                 <page string="Business Requirement">
                     <group>
@@ -31,9 +35,6 @@
                         </group>
                     </group>
                 </page>
-            </xpath>
-            <xpath expr="//field[@name='stage_id']" position="before">
-                <button attrs="{'invisible': [('project_id', '=', False)]}" string="Quotation from Business Requirements" name="%(action_crm_make_sale)d" type="action" class="oe_highlight"/>
             </xpath>
         </field>
     </record>
