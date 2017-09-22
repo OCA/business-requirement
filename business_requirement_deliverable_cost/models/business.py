@@ -200,8 +200,9 @@ class BusinessRequirement(models.Model):
         default=_default_currency,
         help="Company Currency Id"
     )
-    currency_status = fields.Boolean(compute='get_currency',
-                                    string='Curreny')
+    currency_status = fields.Boolean(
+        compute='get_currency',
+        string='Curreny')
 
     @api.depends('pricelist_id')
     def get_currency(self):
