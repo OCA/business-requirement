@@ -113,23 +113,37 @@
         <field name="inherit_id" ref="business_requirement.view_business_requirement_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook[1]" position="inside">
-                <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
-                    <group>
+                    <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
                         <group>
-                            <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="ci_currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="total_revenue" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                            <field name="total_revenue_ci" widget="monetary" options="{'currency_field': 'ci_currency_id'}"/>
-                            <field name="resource_procurement_total" widget="monetary" options="{'currency_field': 'ci_currency_id'}"/>
-                            <field name="resource_task_total"
-                                   widget="monetary" options="{'currency_field': 'ci_currency_id'}"
-                                   groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-                            <field name="gross_profit"
-                                   widget="monetary" options="{'currency_field': 'ci_currency_id'}"
-                                   groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                            <group>
+                                <group col="3">
+                                    <field name="total_revenue"
+                                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                    <field name="currency_id"
+                                           nolabel="1"
+                                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                    <field name="currency_status" invisible="1"/>
+                                </group>
+                                <group col="3">
+                                    <field name="total_revenue_ci"
+                                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                    <field name="company_currency_id" nolabel="1"
+                                           attrs="{'invisible': [('currency_status', '=', True)]}"
+                                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                </group>
+                                <group>
+                                    <field name="resource_procurement_total"
+                                       style="width: 10%"
+                                       groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                    <field name="resource_task_total"
+                                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                                    <field name="gross_profit"
+                                           style="width: 10%"
+                                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                </group>
+                            </group>
                         </group>
-                    </group>
-                </page>
+                    </page>
             </xpath>
         </field>
     </record>

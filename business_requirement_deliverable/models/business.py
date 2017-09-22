@@ -297,6 +297,15 @@ class BusinessRequirementDeliverable(models.Model):
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
 
+    @api.multi
+    def _get_pricelist(self):
+        for br in self:
+            if br.partner_id:
+                return (
+                    br.partner_id.property_product_estimation_pricelist or
+                    br.partner_id.property_product_pricelist)
+            return False
+
     deliverable_lines = fields.One2many(
         comodel_name='business.requirement.deliverable',
         inverse_name='business_requirement_id',
@@ -335,6 +344,11 @@ class BusinessRequirement(models.Model):
     )
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
+    pricelist_id = fields.Many2one(
+        comodel_name='product.pricelist',
+        string='Pricelist',
+        default=_get_pricelist
+    )
 
     @api.multi
     def _compute_dl_total_revenue(self):
