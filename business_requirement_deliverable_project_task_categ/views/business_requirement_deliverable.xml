@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_business_requirement_resource_tree" model="ir.ui.view">
+            <field name="name">business.requirement.resource.tree</field>
+            <field name="model">business.requirement.resource</field>
+            <field name="inherit_id" 
+                   ref="business_requirement_deliverable.view_business_requirement_resource_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position='after'>
+                    <field name="categ_id"
+                           attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Search View Business Requirement Resource Line-->
+        <record id="view_business_requirement_resource_search" model="ir.ui.view">
+            <field name="name">business.requirement.resource.search</field>
+            <field name="model">business.requirement.resource</field>
+            <field name="inherit_id"
+                   ref="business_requirement_deliverable.view_business_requirement_resource_search"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="categ_id"/>
+                </field>
+                <group expand="0" position="inside">
+                    <filter string="Category" context="{'group_by':'categ_id'}"/>
+                </group>
+            </field>
+        </record>
+
+        <!-- Requirement Deliverable Line Noedit form view-->
+        <record id="view_business_requirement_deliverable_form" model="ir.ui.view">
+            <field name="name">business.requirement.deliverable.form.noedit</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="inherit_id"
+                   ref="business_requirement_deliverable.view_business_requirement_deliverable_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='resource_ids']/tree[1]/field[@name='name']"
+                       position="after">
+                    <field name="categ_id" attrs="{'readonly': [('resource_type', '=', 'procurement')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

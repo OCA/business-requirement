@@ -1,0 +1,275 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_project
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-27 11:49+0000\n"
+"PO-Revision-Date: 2017-07-27 11:49+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.actions.act_window,name:business_requirement_deliverable_project.action_view_tasks_business_requirement
+msgid "Action Tasks Related BR"
+msgstr "Ukrepi povezani s PZ"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,all_project_generated:0
+msgid "All Project Generated"
+msgstr "Vsi ustvarjeni projekti"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:43
+#, python-format
+msgid ""
+"All business requirements of the project should be "
+"stakeholder_approval/canceled/done"
+msgstr ""
+"Vse poslovne zahteve projekta morajo biti odobrene/preklicane/opravljene"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement
+#: field:project.project,business_requirement_id:0
+#: field:project.task,business_requirement_id:0
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement_deliverable
+#: field:project.project,business_requirement_deliverable_id:0
+msgid "Business Requirement Deliverable"
+msgstr "Dobava iz poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: field:project.task,br_resource_id:0
+msgid "Business Requirement Resource"
+msgstr "Vir poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: view:project.task:business_requirement_deliverable_project.view_task_search_form
+msgid "Business Requirements"
+msgstr "Poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: view:project.task:business_requirement_deliverable_project.view_task_form2
+msgid "Business requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,br_ids:0
+msgid "Business requirements"
+msgstr "Poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,for_br:0
+msgid "Create sub-projects for Business requirements"
+msgstr "Ustvari pod-projekte za poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,for_childs:0
+msgid "Create sub-projects for Child Business requirements"
+msgstr "Ustvari pod-projekte za podrejene poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,for_deliverable:0
+msgid "Create sub-projects for Deliverables"
+msgstr "Ustvari pod-projekte za dobave"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,partner_id:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/wizard/generate_projects.py:50
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+#: model:ir.model,name:business_requirement_deliverable_project.model_br_generate_projects
+#, python-format
+msgid "Generate Projects"
+msgstr "Ustvari projekte"
+
+#. module: business_requirement_deliverable_project
+#: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "Generate Tasks"
+msgstr "Ustvari opravila"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_deliverable_project
+#: help:project.project,business_requirement_id:0
+msgid "Link the Project and the business requirement"
+msgstr "Poveži projekt s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: help:project.project,business_requirement_deliverable_id:0
+msgid "Link the Project and the business requirement deliverable"
+msgstr "Poveži projekt z dobavo poslovne zahteve"
+
+#. module: business_requirement_deliverable_project
+#: help:project.task,business_requirement_id:0
+msgid "Link the task and the business requirement"
+msgstr "Poveži opravilo s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+msgid "Linked Project"
+msgstr "Povezani projekt"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,linked_project:0
+#: field:business.requirement.deliverable,linked_project:0
+msgid "Linked project"
+msgstr "Povezani projekt"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,linked_project_count:0
+msgid "Number of Business Requirements"
+msgstr "Število poslovnih zahtev"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:37
+#, python-format
+msgid ""
+"Please set working time default unit in project\n"
+"                    config settings"
+msgstr ""
+"Nastavite privzeto enoto za delovni čas v\n"
+"                    nastavitvah projekta"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: business_requirement_deliverable_project
+#: field:br.generate.projects,project_id:0
+msgid "Project to create the tasks"
+msgstr "Projekt, kjer se ustvari opravila"
+
+#. module: business_requirement_deliverable_project
+#: field:project.project,origin:0
+msgid "Source Document"
+msgstr "Izvorni dokument"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_project_task
+msgid "Task"
+msgstr "Opravilo"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_kanban_project
+#: field:business.requirement,task_ids:0
+msgid "Tasks"
+msgstr "Opravila"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:66
+#, python-format
+msgid ""
+"There is no available business requirement resource line\n"
+"                    to generate task"
+msgstr ""
+"Ni poslovne zahteve na voljo, da bi lahko ustvarili\n"
+"                    opravilo"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,total_hour:0
+msgid "Total Hours in Timesheets related to business requirement"
+msgstr "Skupaj ur po časovnici povezanih s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,total_planned_hour:0
+msgid "Total Planned Hour in RL related to business requirement"
+msgstr "Skupaj planiranih ur v postavki vira povezani s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: field:business.requirement,task_count:0
+msgid "Total number of tasks related to a business requirement"
+msgstr "Skupno število opravil povezanih s poslovno zahtevo"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+msgid "True"
+msgstr "True"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:143
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:149
+#, python-format
+msgid "You can only move to thefollowing stage: draft/confirmed/cancel/drop."
+msgstr "Premaknete lahko le v naslednjo stopnjo: draft/confirmed/cancel/drop."
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_kanban_project
+msgid "]&nbsp;"
+msgstr "]&nbsp;"
+
+#. module: business_requirement_deliverable_project
+#: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "_Apply"
+msgstr "_Uveljavi"
+
+#. module: business_requirement_deliverable_project
+#: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "_Cancel"
+msgstr "_Preklic"
+
+#. module: business_requirement_deliverable_project
+#: view:business.requirement:business_requirement_deliverable_project.view_business_requirement_form
+msgid "business_requirement.group_business_requirement_user"
+msgstr "business_requirement.group_business_requirement_user"
+
+#. module: business_requirement_deliverable_project
+#: view:br.generate.projects:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "or"
+msgstr "ali"

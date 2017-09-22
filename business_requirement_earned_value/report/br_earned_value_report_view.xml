@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_earned_value_graph" model="ir.ui.view">
+             <field name="name">Earned Value Report</field>
+             <field name="model">business.requirement.earned.value.report</field>
+             <field name="arch" type="xml">
+                 <graph string="Earned Value Analysis" type="pivot" stacked="True">
+                     <field name="name" type="row"/>
+                     <field name="planned_time_in_rl" type="measure"/>
+                     <field name="product_cost_from_rl" type="measure"/>
+                     <field name="planned_value" type="measure"/>
+                     <field name="actual_time_in_timesheet" type="measure"/>
+                     <field name="product_cost_from_timesheet_product" type="measure"/>
+                     <field name="actual_cost" type="measure"/>
+                     <field name="variance" type="measure"/>
+                     <field name="per_variances" type="measure"/>
+                     <field name="remaining_hours" type="measure"/>
+                     <field name="total_expected_time" type="measure"/>
+                     <field name="project_completion" type="measure"/>
+                     <field name="earned_value" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="view_earned_value_graph_search" model="ir.ui.view">
+            <field name="name">Earned Value Report Search</field>
+            <field name="model">business.requirement.earned.value.report</field>
+            <field name="arch" type="xml">
+                <search string="Earned Value Analysis">
+                    <field name="partner_id"/>
+                    <field name="project_id"/>
+                    <field name="res_product"/>
+                    <field name="hr_timesheet_product"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_earned_value_report" model="ir.actions.act_window">
+            <field name="name">Earned Value Analysis</field>
+            <field name="res_model">business.requirement.earned.value.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_earned_value_graph"/>
+        </record>
+
+        <menuitem id="menu_action_deliverable_report"
+            action="action_earned_value_report"
+            parent="base.menu_project_report"
+            groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+
+    </data>
+</openerp>

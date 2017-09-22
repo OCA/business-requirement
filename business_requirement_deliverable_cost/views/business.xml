@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_business_requirement_resource_tree" model="ir.ui.view">
+            <field name="name">business.requirement.resource.tree</field>
+            <field name="model">business.requirement.resource</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='uom_id']" position="after">
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"  attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_resource_pivot" model="ir.ui.view">
+            <field name="name">business.requirement.resource.pivot</field>
+            <field name="model">business.requirement.resource</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='qty']" position="after">
+                    <field name="unit_price"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           type="measure"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit"
+                           type="measure"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"
+                           type="measure"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_deliverable_form" model="ir.ui.view">
+            <field name="name">business.requirement.deliverable.form</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="before">
+                    <group>
+                        <button name="action_button_update_estimation" 
+                                string="Update Prices on Resource Lines"
+                                type="object" 
+                                groups="business_requirement_deliverable.group_business_requirement_estimation"
+                                class="oe_highlight"/>
+                        <button name="action_button_update_total_revenue"
+                                string="Update Total Revenue"
+                                type="object"
+                                class="oe_highlight"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='price_total']" position="after">
+                    <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                </xpath>
+                <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
+                    <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="price_total"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    <field name="sale_price_total"
+                           sum="Total Sale"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_deliverable_pivot" model="ir.ui.view">
+            <field name="name">business.requirement.deliverable.pivot</field>
+            <field name="model">business.requirement.deliverable</field>
+            <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_price_unit']" position="after">
+                    <field name="price_total"
+                           type="measure"
+                           sum="Total Price"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_estimation"/>
+                    <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_procurement_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_form_inherit" model="ir.ui.view">
+            <field name="name">business.requirement.form</field>
+            <field name="model">business.requirement</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="business_requirement.view_business_requirement_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[1]" position="inside">
+                    <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
+                        <group>
+                            <group>
+                                <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                <field name="total_revenue"/>
+                                <field name="resource_procurement_total"/>
+                                <field name="resource_task_total"
+                                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                                <field name="gross_profit"
+                                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_graph" model="ir.ui.view">
+            <field name="name">business.requirement.pivot</field>
+            <field name="model">business.requirement</field>
+            <field name="inherit_id" ref="business_requirement.view_business_requirement_graph"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="total_revenue" type="measure"/>
+                    <field name="gross_profit" type="measure"/>
+                    <field name="resource_task_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                    <field name="resource_procurement_total"
+                           type="measure"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_business_requirement_form" model="ir.ui.view">
+            <field name="name">business.requirement.form</field>
+            <field name="model">business.requirement</field>
+            <field name="inherit_id"
+                   ref="business_requirement_deliverable.view_business_requirement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='rl_count']" position="after">
+                    <field name="rl_total_cost"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           widget="statinfo"
+                           modifiers="{'readonly': true}"
+                           groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

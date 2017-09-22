@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_resource_template
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-27 11:49+0000\n"
+"PO-Revision-Date: 2017-07-27 11:49+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_deliverable
+msgid "Business Requirement Deliverable"
+msgstr "Dobava iz poslovne zahteve"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:product.template,resource_lines:0
+msgid "Business Requirement Resources"
+msgstr "Viri poslovne zahteve"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_deliverable_resource_template
+#: view:product.template:business_requirement_deliverable_resource_template.product_template_only_form_view
+msgid "Default Resource Template Lines"
+msgstr "Privzete postavke predloge virov"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Procurement"
+msgstr "Oskrbovanje"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,product_id:0
+#: field:business.requirement.resource.template,product_template_id:0
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,qty:0
+msgid "Quantity"
+msgstr "Količina"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,sequence:0
+msgid "Sequence"
+msgstr "Zaporedje"
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Task"
+msgstr "Opravilo"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,resource_type:0
+msgid "Type"
+msgstr "Tip"
+
+#. module: business_requirement_deliverable_resource_template
+#: field:business.requirement.resource.template,uom_id:0
+msgid "UoM"
+msgstr "EM"
+
+#. module: business_requirement_deliverable_resource_template
+#: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:87
+#, python-format
+msgid "When resource type is task, the UoM category should be time"
+msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"

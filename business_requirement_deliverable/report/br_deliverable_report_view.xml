@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_deliverable_graph" model="ir.ui.view">
+         <field name="name">Deliverable Report</field>
+         <field name="model">business.requirement.deliverable.report</field>
+         <field name="arch" type="xml">
+             <graph string="Deliverable Analysis" type="pivot" stacked="True">
+                 <field name="name" type="row"/>
+                 <field name="br_count" type="measure"/>
+                 <field name="dlv_count" type="measure"/>
+                 <field name="res_count" type="measure"/>
+                 <field name="res_qty" type="measure"/>
+                 <field name="dlv_qty" type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="action_deliverable_report" model="ir.actions.act_window">
+        <field name="name">Deliverable Analysis</field>
+        <field name="res_model">business.requirement.deliverable.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_deliverable_graph"/>
+    </record>
+
+    <menuitem action="action_deliverable_report" id="menu_action_deliverable_report"
+        parent="project.menu_project_report"/>
+
+</odoo>
