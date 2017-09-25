@@ -115,13 +115,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             ]}
         self.br.write(vals)
 
-    def test_compute_get_currency_ci(self):
-        self.br.partner_id = False
-        self.br._compute_get_currency()
-        currency_id = self.env.user.company_id.currency_id
-        self.assertEqual(
-            self.br.ci_currency_id, currency_id)
-
     def test_compute_sale_price_total(self):
         """ Checks if the _compute_sale_price_total works properly
         """

@@ -115,8 +115,8 @@
                         modifiers="{'readonly': true}"/>
                 </button>
             </xpath>
-            <field name="partner_id" position="after">
-                <field name="pricelist_id"/>
+            <field name="change_request" position="after">
+                <field name="pricelist_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
             </field>
         </field>
     </record>

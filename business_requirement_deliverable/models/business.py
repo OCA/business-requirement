@@ -297,15 +297,6 @@ class BusinessRequirementDeliverable(models.Model):
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
 
-    @api.multi
-    def _get_pricelist(self):
-        for br in self:
-            if br.partner_id:
-                return (
-                    br.partner_id.property_product_estimation_pricelist or
-                    br.partner_id.property_product_pricelist)
-            return False
-
     deliverable_lines = fields.One2many(
         comodel_name='business.requirement.deliverable',
         inverse_name='business_requirement_id',
@@ -347,8 +338,22 @@ class BusinessRequirement(models.Model):
     pricelist_id = fields.Many2one(
         comodel_name='product.pricelist',
         string='Pricelist',
-        default=_get_pricelist
     )
+
+    @api.multi
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        """
+        Update the following fields when the partner is changed:
+        - Pricelist
+        """
+        if self.partner_id:
+            values = {
+                'pricelist_id':
+                    self.partner_id.property_product_estimation_pricelist or
+                    self.partner_id.property_product_pricelist or False,
+            }
+            self.update(values)
 
     @api.multi
     def _compute_dl_total_revenue(self):
