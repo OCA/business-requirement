@@ -111,22 +111,22 @@ class BusinessRequirementDeliverable(models.Model):
     price_total = fields.Float()
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
-        string='Total tasks',
+        string='Total Tasks (Cie Curr.)',
         store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
-        string='Total procurement',
+        string='Total Procurement (Cie Curr.)',
         store=True
     )
     gross_profit = fields.Float(
-        string='Estimated Gross Profit',
+        string='Est. Gross Profit (Cie Curr.)',
         compute='_compute_gross_profit',
         store=True
     )
     total_revenue_ci = fields.Float(
         compute='_compute_total_revenue_in_ci',
-        string='Total Revenue in CI',
+        string='Total Revenue (Cie Curr.)',
     )
     company_currency_id = fields.Many2one(
         comodel_name='res.currency',
@@ -134,21 +134,6 @@ class BusinessRequirementDeliverable(models.Model):
         default=_default_currency,
         help="Company Currency Id"
     )
-    currency_status = fields.Boolean(
-        compute='get_currency',
-        string='Company Currency'
-    )
-
-    @api.depends('business_requirement_id.pricelist_id')
-    def get_currency(self):
-        for rec in self:
-            if rec.business_requirement_id and \
-                    rec.business_requirement_id.pricelist_id:
-                pricelist_id = rec.business_requirement_id.pricelist_id
-                if pricelist_id and pricelist_id.currency_id and \
-                        pricelist_id.currency_id.id == \
-                                rec.company_currency_id.id:
-                    rec.currency_status = True
 
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):
@@ -162,19 +147,26 @@ class BusinessRequirementDeliverable(models.Model):
     @api.depends('resource_ids', 'resource_ids.price_total')
     def _compute_resource_task_total(self):
         for rec in self:
-            rec.resource_task_total = sum(
+            resource_task_total = sum(
                 rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'task').mapped(
                     'price_total'))
+            rec.resource_task_total = self.env['res.currency']._compute(
+                rec.currency_id, self.env.user.company_id.currency_id,
+                resource_task_total)
 
     @api.multi
     @api.depends('resource_ids', 'resource_ids.price_total')
     def _compute_resource_procurement_total(self):
         for rec in self:
-            rec.resource_procurement_total = sum(
+            resource_procurement_total = sum(
                 rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'procurement').mapped(
                     'price_total'))
+            rec.resource_procurement_total = self.env['res.currency'].\
+                _compute(rec.currency_id,
+                          self.env.user.company_id.currency_id,
+                          resource_procurement_total)
 
     @api.multi
     @api.depends(
@@ -183,8 +175,11 @@ class BusinessRequirementDeliverable(models.Model):
         'resource_procurement_total')
     def _compute_gross_profit(self):
         for rec in self:
-            rec.gross_profit = rec.price_total - \
+            gross_profit = rec.price_total - \
                 rec.resource_task_total - rec.resource_procurement_total
+            rec.gross_profit = self.env['res.currency']._compute(
+                rec.currency_id, self.env.user.company_id.currency_id,
+                gross_profit)
 
     @api.multi
     def action_button_update_estimation(self):
@@ -209,16 +204,16 @@ class BusinessRequirement(models.Model):
 
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
-        string='Total tasks',
+        string='Total Tasks (Cie Curr.)',
         store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
-        string='Total procurement',
+        string='Total Procurement (Cie Curr.)',
         store=True
     )
     gross_profit = fields.Float(
-        string='Estimated Gross Profit',
+        string='Est. Gross Profit (Cie Curr.)',
         compute='_compute_gross_profit',
         store=True,
     )
@@ -229,7 +224,7 @@ class BusinessRequirement(models.Model):
     )
     total_revenue_ci = fields.Float(
         compute='_compute_total_revenue_in_ci',
-        string='Total Revenue in CI',
+        string='Total Revenue (Cie Curr.)',
     )
     company_currency_id = fields.Many2one(
         comodel_name='res.currency',
@@ -237,18 +232,6 @@ class BusinessRequirement(models.Model):
         default=_default_currency,
         help="Company Currency Id"
     )
-    currency_status = fields.Boolean(
-        compute='get_currency',
-        string='Company Currency'
-    )
-
-    @api.depends('pricelist_id')
-    def get_currency(self):
-        for rec in self:
-            if rec.pricelist_id and rec.pricelist_id.currency_id\
-                and rec.pricelist_id.currency_id.id ==\
-                    rec.company_currency_id.id:
-                rec.currency_status = True
 
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):

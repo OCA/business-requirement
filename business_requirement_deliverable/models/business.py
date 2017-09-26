@@ -217,7 +217,8 @@ class BusinessRequirementDeliverable(models.Model):
     def _compute_get_currency(self):
         for brd in self:
             partner_id = brd.business_requirement_id.partner_id
-            currency_id = partner_id.property_product_pricelist.currency_id
+            currency_id = brd.business_requirement_id.\
+                pricelist_id.currency_id.id
             if currency_id:
                 brd.currency_id = currency_id
             else:

@@ -127,9 +127,10 @@
         <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
         <field name="arch" type="xml">
             <xpath expr='//tree/field[@name="priority"]' position='after'>
-                <field name="currency_id"/>
+                <field name="currency_id" invisible="1"/>
                 <field name="total_revenue"
                        sum="Total revenue"
+                       widget='monetary' options="{'currency_field': 'currency_id'}"
                        groups="business_requirement_deliverable.group_business_requirement_estimation"/>
             </xpath>
         </field>
