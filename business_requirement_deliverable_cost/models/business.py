@@ -103,6 +103,10 @@ class BusinessRequirementResource(models.Model):
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
+    @api.multi
+    def _default_currency(self):
+        return self.env.user.company_id.currency_id
+
     unit_price = fields.Float()
     price_total = fields.Float()
     resource_task_total = fields.Float(
@@ -120,6 +124,39 @@ class BusinessRequirementDeliverable(models.Model):
         compute='_compute_gross_profit',
         store=True
     )
+    total_revenue_ci = fields.Float(
+        compute='_compute_total_revenue_in_ci',
+        string='Total Revenue in CI',
+    )
+    company_currency_id = fields.Many2one(
+        comodel_name='res.currency',
+        string='Currency',
+        default=_default_currency,
+        help="Company Currency Id"
+    )
+    currency_status = fields.Boolean(
+        compute='get_currency',
+        string='Company Currency'
+    )
+
+    @api.depends('business_requirement_id.pricelist_id')
+    def get_currency(self):
+        for rec in self:
+            if rec.business_requirement_id and \
+                    rec.business_requirement_id.pricelist_id:
+                pricelist_id = rec.business_requirement_id.pricelist_id
+                if pricelist_id and pricelist_id.currency_id and \
+                        pricelist_id.currency_id.id == \
+                                rec.company_currency_id.id:
+                    rec.currency_status = True
+
+    @api.depends('currency_id')
+    def _compute_total_revenue_in_ci(self):
+        for rec in self:
+            total_revenue_ci = self.env['res.currency']._compute(
+                rec.currency_id, self.env.user.company_id.currency_id,
+                rec.price_total)
+            rec.total_revenue_ci = total_revenue_ci
 
     @api.multi
     @api.depends('resource_ids', 'resource_ids.price_total')
@@ -202,7 +239,8 @@ class BusinessRequirement(models.Model):
     )
     currency_status = fields.Boolean(
         compute='get_currency',
-        string='Company Currency')
+        string='Company Currency'
+    )
 
     @api.depends('pricelist_id')
     def get_currency(self):

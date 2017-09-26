@@ -70,6 +70,18 @@
                 <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
             </xpath>
+            <xpath expr="//group/group[2]" position="after">
+                <group>
+                    <field name="currency_status" invisible="1"/>
+                    <group col="3">
+                        <field name="total_revenue_ci"
+                               groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                        <field name="company_currency_id" nolabel="1"
+                               attrs="{'invisible': [('currency_status', '=', True)]}"
+                               groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                    </group>
+                </group>
+            </xpath>
             <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
                 <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
