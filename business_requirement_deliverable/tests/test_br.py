@@ -189,7 +189,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         })
         self.br.write({'partner_id': self.partner.id})
         self.br._compute_get_currency()
-        partner_id = self.br.partner_id
         currency_id = self.pricelist_id.currency_id
         self.assertEqual(
             self.br.currency_id, currency_id)
@@ -203,7 +202,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'customer': True,
         })
         self.br.write({'partner_id': self.partner.id})
-        partner_id = self.br.partner_id
         currency_id = self.br.pricelist_id.currency_id
         for line in self.br.deliverable_lines:
             line._compute_get_currency()
