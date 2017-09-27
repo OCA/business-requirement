@@ -165,8 +165,8 @@ class BusinessRequirementDeliverable(models.Model):
                     'price_total'))
             rec.resource_procurement_total = self.env['res.currency'].\
                 _compute(rec.currency_id,
-                          self.env.user.company_id.currency_id,
-                          resource_procurement_total)
+                         self.env.user.company_id.currency_id,
+                            resource_procurement_total)
 
     @api.multi
     @api.depends(

@@ -216,7 +216,6 @@ class BusinessRequirementDeliverable(models.Model):
     @api.depends('business_requirement_id.partner_id')
     def _compute_get_currency(self):
         for brd in self:
-            partner_id = brd.business_requirement_id.partner_id
             currency_id = brd.business_requirement_id.\
                 pricelist_id.currency_id.id
             if currency_id:
