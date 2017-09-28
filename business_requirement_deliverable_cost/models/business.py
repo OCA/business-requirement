@@ -145,9 +145,9 @@ class BusinessRequirementDeliverable(models.Model):
             if rec.business_requirement_id and \
                     rec.business_requirement_id.pricelist_id:
                 pricelist_id = rec.business_requirement_id.pricelist_id
-                if pricelist_id and pricelist_id.currency_id and \
-                                pricelist_id.currency_id.id == \
-                                rec.company_currency_id.id:
+                if pricelist_id and pricelist_id.currency_id \
+                        and pricelist_id.currency_id.id == \
+                        rec.company_currency_id.id:
                     rec.currency_status = True
 
     @api.depends('currency_id')
@@ -255,8 +255,8 @@ class BusinessRequirement(models.Model):
     @api.depends('pricelist_id')
     def get_currency(self):
         for rec in self:
-            if rec.pricelist_id and rec.pricelist_id.currency_id \
-                    and rec.pricelist_id.currency_id.id == \
+            if rec.pricelist_id and rec.pricelist_id.currency_id and \
+                            rec.pricelist_id.currency_id.id == \
                             rec.company_currency_id.id:
                 rec.currency_status = True
 
