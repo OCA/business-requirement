@@ -111,16 +111,16 @@ class BusinessRequirementDeliverable(models.Model):
     price_total = fields.Float()
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
-        string='Total Tasks (Cie Curr.)',
+        string='Total Tasks',
         store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
-        string='Total Procurement (Cie Curr.)',
+        string='Total Procurement',
         store=True
     )
     gross_profit = fields.Float(
-        string='Est. Gross Profit (Cie Curr.)',
+        string='Est. Gross Profit',
         compute='_compute_gross_profit',
         store=True
     )
@@ -134,6 +134,21 @@ class BusinessRequirementDeliverable(models.Model):
         default=_default_currency,
         help="Company Currency Id"
     )
+    currency_status = fields.Boolean(
+        compute='get_currency',
+        string='Company Currency'
+    )
+
+    @api.depends('business_requirement_id.pricelist_id')
+    def get_currency(self):
+        for rec in self:
+            if rec.business_requirement_id and \
+                    rec.business_requirement_id.pricelist_id:
+                pricelist_id = rec.business_requirement_id.pricelist_id
+                if pricelist_id and pricelist_id.currency_id and \
+                                pricelist_id.currency_id.id == \
+                                rec.company_currency_id.id:
+                    rec.currency_status = True
 
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):
@@ -204,16 +219,16 @@ class BusinessRequirement(models.Model):
 
     resource_task_total = fields.Float(
         compute='_compute_resource_task_total',
-        string='Total Tasks (Cie Curr.)',
+        string='Total Tasks',
         store=True
     )
     resource_procurement_total = fields.Float(
         compute='_compute_resource_procurement_total',
-        string='Total Procurement (Cie Curr.)',
+        string='Total Procurement',
         store=True
     )
     gross_profit = fields.Float(
-        string='Est. Gross Profit (Cie Curr.)',
+        string='Est. Gross Profit',
         compute='_compute_gross_profit',
         store=True,
     )
@@ -232,6 +247,18 @@ class BusinessRequirement(models.Model):
         default=_default_currency,
         help="Company Currency Id"
     )
+    currency_status = fields.Boolean(
+        compute='get_currency',
+        string='Company Currency'
+    )
+
+    @api.depends('pricelist_id')
+    def get_currency(self):
+        for rec in self:
+            if rec.pricelist_id and rec.pricelist_id.currency_id \
+                    and rec.pricelist_id.currency_id.id == \
+                            rec.company_currency_id.id:
+                rec.currency_status = True
 
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):
