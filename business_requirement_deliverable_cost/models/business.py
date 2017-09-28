@@ -135,12 +135,12 @@ class BusinessRequirementDeliverable(models.Model):
         help="Company Currency Id"
     )
     currency_status = fields.Boolean(
-        compute='get_currency',
+        compute='_compute_get_currency',
         string='Company Currency'
     )
 
     @api.depends('business_requirement_id.pricelist_id')
-    def get_currency(self):
+    def _compute_get_currency(self):
         for rec in self:
             if rec.business_requirement_id and \
                     rec.business_requirement_id.pricelist_id:
@@ -248,16 +248,16 @@ class BusinessRequirement(models.Model):
         help="Company Currency Id"
     )
     currency_status = fields.Boolean(
-        compute='get_currency',
+        compute='_compute_get_currency',
         string='Company Currency'
     )
 
     @api.depends('pricelist_id')
-    def get_currency(self):
+    def _compute_get_currency(self):
         for rec in self:
             if rec.pricelist_id and rec.pricelist_id.currency_id and \
-                            rec.pricelist_id.currency_id.id == \
-                            rec.company_currency_id.id:
+                    rec.pricelist_id.currency_id.id == \
+                        rec.company_currency_id.id:
                 rec.currency_status = True
 
     @api.depends('currency_id')
