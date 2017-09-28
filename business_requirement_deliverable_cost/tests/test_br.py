@@ -47,22 +47,22 @@ class BusinessRequirementTestCase(common.TransactionCase):
             {'name': 'Product D', 'uom_id': self.uom_kg.id,
                 'uom_po_id': self.uom_kg.id})
 
-        self.pricelistA = self.env['product.pricelist'].create({
-            'name': 'Pricelist A',
-            'item_ids': [(0, 0, {
-                'name': 'Item A',
-                'product_id': self.productA.id,
-                'price_discount': '-0.5',
-            })]
-        })
         self.project = self.env['project.project'].create({
             'name': 'Project A',
             'partner_id': 3,
+        })
+        self.currency_usd_id = self.env.ref("base.USD").id
+
+        self.pricelist_id = self.env['product.pricelist'].create({
+            'name': 'United States',
+            'sequence': 10,
+            'currency_id': self.currency_usd_id
         })
         vals = {
             'description': 'test',
             'project_id': self.project.id,
             'partner_id': 3,
+            'pricelist_id': self.pricelist_id.id
         }
         self.br = self.env['business.requirement'].create(vals)
         vals = {
@@ -114,6 +114,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ]}
         self.br.write(vals)
+
+    def test_compute_currency_status(self):
+        self.br._compute_currency_status()
+        self.assertTrue(self.br.currency_status)
+        self.br.deliverable_lines[0]._compute_currency_status()
+        self.assertTrue(self.br.deliverable_lines[0].currency_status)
 
     def test_compute_sale_price_total(self):
         """ Checks if the _compute_sale_price_total works properly
