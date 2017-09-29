@@ -328,6 +328,8 @@ class BusinessRequirement(models.Model):
     pricelist_id = fields.Many2one(
         comodel_name='product.pricelist',
         string='Pricelist',
+        readonly=True,
+        states={'draft': [('readonly', False)]},
     )
 
     @api.multi
