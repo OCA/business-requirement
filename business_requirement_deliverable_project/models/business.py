@@ -78,7 +78,7 @@ class BusinessRequirement(models.Model):
     def compute_all_project_generated(self):
         for rec in self:
             if rec.business_requirement_ids:
-                if all(rec.mapped('business_requirement_ids.project_ids')):
+                if any(rec.mapped('business_requirement_ids.project_ids')):
                     rec.all_project_generated = True
                 else:
                     rec.all_project_generated = False
