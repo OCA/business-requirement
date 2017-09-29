@@ -178,7 +178,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
     price_total = fields.Float(
         compute='_compute_get_price_total',
-        string='Total revenue',
+        string='Total Deliverable',
         store=True,
         readonly=True
     )
@@ -309,7 +309,7 @@ class BusinessRequirement(models.Model):
 
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
-        string='Total Revenue',
+        string='Total Deliverable',
         store=True
     )
     currency_id = fields.Many2one(

@@ -239,7 +239,8 @@
                         </div>
                         <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"  />
-                        <field name="currency_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                        <field name="currency_id" invisible="1"
+                               attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         <field name="price_total" widget="monetary"
                                options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>

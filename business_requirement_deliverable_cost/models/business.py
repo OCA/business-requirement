@@ -126,7 +126,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
     total_revenue_ci = fields.Float(
         compute='_compute_total_revenue_in_ci',
-        string='Total Revenue (Cie Curr.)',
+        string='Total Revenue',
     )
     company_currency_id = fields.Many2one(
         comodel_name='res.currency',
@@ -239,7 +239,7 @@ class BusinessRequirement(models.Model):
     )
     total_revenue_ci = fields.Float(
         compute='_compute_total_revenue_in_ci',
-        string='Total Revenue (Cie Curr.)',
+        string='Total Revenue',
     )
     company_currency_id = fields.Many2one(
         comodel_name='res.currency',
