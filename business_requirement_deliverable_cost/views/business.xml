@@ -119,8 +119,10 @@
                     <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
                         <group>
                             <group>
-                                <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                                <field name="company_currency_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"
+                                       groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                                <field name="company_currency_id"
+                                       invisible="1"/>
                                 <field name="currency_status" invisible="1"/>
                                 <field name="total_revenue" groups="business_requirement_deliverable.group_business_requirement_estimation" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                                 <field name="total_revenue_ci" attrs="{'invisible': [('currency_status', '=', True)]}" groups="business_requirement_deliverable.group_business_requirement_estimation"  widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
