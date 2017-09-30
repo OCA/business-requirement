@@ -178,7 +178,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
     price_total = fields.Float(
         compute='_compute_get_price_total',
-        string='Total revenue',
+        string='Total Deliverable',
         store=True,
         readonly=True
     )
@@ -216,22 +216,12 @@ class BusinessRequirementDeliverable(models.Model):
     @api.depends('business_requirement_id.partner_id')
     def _compute_get_currency(self):
         for brd in self:
-            partner_id = brd.business_requirement_id.partner_id
-            currency_id = partner_id.property_product_pricelist.currency_id
+            currency_id = brd.business_requirement_id.\
+                pricelist_id.currency_id.id
             if currency_id:
                 brd.currency_id = currency_id
             else:
                 brd.currency_id = self.env.user.company_id.currency_id
-
-    @api.multi
-    def _get_pricelist(self):
-        for brd in self:
-            if brd.business_requirement_partner_id:
-                partner_id = brd.business_requirement_partner_id
-                return (
-                    partner_id.property_product_estimation_pricelist or
-                    partner_id.property_product_pricelist)
-            return False
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
@@ -256,14 +246,14 @@ class BusinessRequirementDeliverable(models.Model):
             description += '\n' + product.description_sale
 
         sale_price_unit = self.product_id.list_price
-        pricelist = self._get_pricelist()
 
-        if pricelist:
+        if self.business_requirement_id and \
+                self.business_requirement_id.pricelist_id:
             product = self.product_id.with_context(
                 lang=self.business_requirement_id.partner_id.lang,
                 partner=self.business_requirement_id.partner_id.id,
                 quantity=self.qty,
-                pricelist=pricelist.id,
+                pricelist=self.business_requirement_id.pricelist_id.id,
                 uom=self.uom_id.id,
             )
             sale_price_unit = product.price
@@ -276,19 +266,19 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        pricelist = self._get_pricelist()
         product_uom = self.env['product.uom']
 
         if self.qty != 0:
             product_uom._compute_quantity(
                 self.uom_id.id, self.qty, self.product_id.uom_id.id) / self.qty
 
-        if pricelist:
+        if self.business_requirement_id and \
+                self.business_requirement_id.pricelist_id:
             product = self.product_id.with_context(
                 lang=self.business_requirement_id.partner_id.lang,
                 partner=self.business_requirement_id.partner_id.id,
                 quantity=self.qty,
-                pricelist=pricelist.id,
+                pricelist=self.business_requirement_id.pricelist_id.id,
                 uom=self.uom_id.id,
             )
             self.sale_price_unit = product.price
@@ -319,7 +309,7 @@ class BusinessRequirement(models.Model):
 
     total_revenue = fields.Float(
         compute='_compute_deliverable_total',
-        string='Total Revenue',
+        string='Total Deliverable',
         store=True
     )
     currency_id = fields.Many2one(
@@ -335,6 +325,27 @@ class BusinessRequirement(models.Model):
     )
     dl_count = fields.Integer('DL Count', compute='_compute_dl_count')
     rl_count = fields.Integer('RL Count', compute='_compute_rl_count')
+    pricelist_id = fields.Many2one(
+        comodel_name='product.pricelist',
+        string='Pricelist',
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+    )
+
+    @api.multi
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        """
+        Update the following fields when the partner is changed:
+        - Pricelist
+        """
+        if self.partner_id:
+            values = {
+                'pricelist_id':
+                    self.partner_id.property_product_estimation_pricelist or
+                    self.partner_id.property_product_pricelist or False,
+            }
+            self.update(values)
 
     @api.multi
     def _compute_dl_total_revenue(self):
@@ -398,14 +409,11 @@ class BusinessRequirement(models.Model):
             }
 
     @api.multi
-    @api.depends('partner_id')
+    @api.depends('pricelist_id')
     def _compute_get_currency(self):
         for br in self:
-            if br.partner_id and (
-                br.partner_id.property_product_pricelist.currency_id
-            ):
-                br.currency_id = \
-                    br.partner_id.property_product_pricelist.currency_id
+            if br.partner_id and br.pricelist_id.currency_id:
+                br.currency_id = br.pricelist_id.currency_id.id
             else:
                 br.currency_id = self.env.user.company_id.currency_id.id
 

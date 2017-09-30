@@ -115,6 +115,9 @@
                         modifiers="{'readonly': true}"/>
                 </button>
             </xpath>
+            <field name="change_request" position="after">
+                <field name="pricelist_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+            </field>
         </field>
     </record>
 
@@ -124,9 +127,10 @@
         <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
         <field name="arch" type="xml">
             <xpath expr='//tree/field[@name="priority"]' position='after'>
-                <field name="currency_id"/>
+                <field name="currency_id" invisible="1"/>
                 <field name="total_revenue"
                        sum="Total revenue"
+                       widget='monetary' options="{'currency_field': 'currency_id'}"
                        groups="business_requirement_deliverable.group_business_requirement_estimation"/>
             </xpath>
         </field>
@@ -235,7 +239,8 @@
                         </div>
                         <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"  />
-                        <field name="currency_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
+                        <field name="currency_id" invisible="1"
+                               attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         <field name="price_total" widget="monetary"
                                options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
