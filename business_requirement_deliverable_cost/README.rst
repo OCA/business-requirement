@@ -88,7 +88,7 @@ What is the difference between a BR and CRM lead?
 * CRM leads are sales oriented
 * BR are project and workload estimation oriented
 
-This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/8.0/README.md>`_) 
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/10.0/README.md>`_)
 
 This module improves the cost control of the original module with the following:
 
@@ -168,13 +168,13 @@ of the expected revenue of a Deliverable based on the sum of related RL.
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/8.0
+   :target: https://runbot.odoo-community.org/runbot/222/10.0
 
 Known issues / Roadmap
 ======================
 
 * Display the currency in the cost control panel and deliverable
-* As of version 8.0.2.0.0, the estimation pricelist has been moved from Project to 
+* As of version 10.0.1.0.0, the estimation pricelist has been moved from Project to
   Partner object. There is no migration script for the change and the data will have
   to be migrated manually.
 
