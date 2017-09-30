@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
+from odoo.tests import common
 
 
 class BusinessRequirementTestCase(common.TransactionCase):
@@ -47,28 +47,22 @@ class BusinessRequirementTestCase(common.TransactionCase):
             {'name': 'Product D', 'uom_id': self.uom_kg.id,
                 'uom_po_id': self.uom_kg.id})
 
-        self.pricelistA = self.env['product.pricelist'].create({
-            'name': 'Pricelist A',
-            'type': 'sale',
-            'version_id': [
-                (0, 0, {
-                    'name': 'Version A',
-                    'items_id': [(0, 0, {
-                        'name': 'Item A',
-                        'product_id': self.productA.id,
-                        'price_discount': '-0.5',
-                    })]
-                })
-            ]
-        })
         self.project = self.env['project.project'].create({
             'name': 'Project A',
             'partner_id': 3,
+        })
+        self.currency_usd_id = self.env.ref("base.USD").id
+
+        self.pricelist_id = self.env['product.pricelist'].create({
+            'name': 'United States',
+            'sequence': 10,
+            'currency_id': self.currency_usd_id
         })
         vals = {
             'description': 'test',
             'project_id': self.project.id,
             'partner_id': 3,
+            'pricelist_id': self.pricelist_id.id
         }
         self.br = self.env['business.requirement'].create(vals)
         vals = {
@@ -120,6 +114,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ]}
         self.br.write(vals)
+
+    def test_compute_currency_status(self):
+        self.br._compute_currency_status()
+        self.assertTrue(self.br.currency_status)
+        self.br.deliverable_lines[0]._compute_currency_status()
+        self.assertTrue(self.br.deliverable_lines[0].currency_status)
 
     def test_compute_sale_price_total(self):
         """ Checks if the _compute_sale_price_total works properly
@@ -213,8 +213,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         product_uom = resource.env['product.uom']
 
         if resource.qty != 0:
-            qty_uom = product_uom._compute_qty(
-                resource.uom_id.id,
+            qty_uom = product_uom._compute_quantity(
                 resource.qty,
                 resource.product_id.uom_id.id
             ) / resource.qty
@@ -232,7 +231,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.unit_price = unit_price * qty_uom
         self.sale_price_unit = sale_price_unit * qty_uom
-
         self.assertEqual(
             resource.unit_price, self.unit_price)
         self.assertEqual(
