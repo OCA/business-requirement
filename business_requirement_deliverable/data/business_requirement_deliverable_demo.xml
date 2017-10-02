@@ -12,7 +12,7 @@
         <!--Pricelist Demo data -->
         <record model="product.pricelist" id="brpricelist0">
             <field name="name">HKD Pricelist</field>
-            <field name="sequence">1</field>
+            <field name="sequence">2</field>
             <field name="currency_id" ref="base.HKD"/>
         </record>
 
