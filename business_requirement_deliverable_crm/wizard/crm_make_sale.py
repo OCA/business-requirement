@@ -44,13 +44,22 @@ class CrmMakeSale(models.TransientModel):
             sale_order_vals = {
                 'partner_id': partner.id,
                 'opportunity_id': crm_id.id,
-                'pricelist_id': pricelist,
                 'partner_invoice_id': partner_addr['invoice'],
                 'partner_shipping_id': partner_addr['delivery'],
                 'date_order': fields.datetime.now(),
                 }
             for br in crm_id.project_id.br_ids:
-                sale_order_vals.update({'client_order_ref': br.name})
+                sale_order_vals.update({
+                    'client_order_ref': br.name,
+                })
+                if br and br.pricelist_id:
+                    sale_order_vals.update({
+                        'pricelist_id': br.pricelist_id.id
+                    })
+                else:
+                    sale_order_vals.update({
+                        'pricelist_id': pricelist
+                    })
             order_id = sale_order.create(sale_order_vals)
             order_lines = self.prepare_sale_order_line(case_id, order_id.id)
             self.create_sale_order_line(order_lines)
