@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class CrmLead(models.Model):
@@ -17,8 +17,9 @@ class CrmLead(models.Model):
         string='Total Revenue from BR'
     )
 
-    @api.one
+    @api.multi
     def _compute_resource_cost_total(self):
+        self.ensure_one()
         self.resource_cost_total = sum(
             [br.total_revenue for br in
                 self.project_id and self.project_id.br_ids
