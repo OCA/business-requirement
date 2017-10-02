@@ -2,20 +2,23 @@
 <odoo>
     <data noupdate="1">
 
-        <!-- Projects -->
-        <record id="project_1" model="project.project">
-            <field name="name">Corporate Website</field>
-            <field name="partner_id" ref="base.res_partner_2"/>
-        </record>
-        <record id="project_2" model="project.project">
-            <field name="name">ERP improvements</field>
-            <field name="partner_id" ref="base.main_partner"/>
-        </record>
-        <record id="project_3" model="project.project">
-            <field name="name">Business Analysis</field>
-            <field name="partner_id" ref="base.res_partner_12"/>
+        <record id="base.HKD" model="res.currency">
+            <field name="name">HKD</field>
+            <field name="symbol">$</field>
+            <field name="rounding">0.01</field>
+            <field name="active" eval="True"/>
         </record>
 
+        <!--Pricelist Demo data -->
+        <record model="product.pricelist" id="brpricelist0">
+            <field name="name">HKD Pricelist</field>
+            <field name="sequence">2</field>
+            <field name="currency_id" ref="base.HKD"/>
+        </record>
+
+        <record id="business_requirement.business_requirement_4" model="business.requirement">
+            <field name="pricelist_id" ref="brpricelist0"/>
+        </record>
         <!-- Products -->
         <record id="product_template_1" model="product.template" context="{'create_product_product': True}">
             <field name="name">Developer</field>

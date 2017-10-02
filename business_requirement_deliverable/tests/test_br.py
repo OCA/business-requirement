@@ -55,13 +55,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your user test',
             'login': 'your.user@your-user.com'
         })
-        self.currency_usd_id = self.env.ref("base.USD").id
-        self.currency_eur_id = self.env.ref("base.EUR").id
+        self.currency_usd_id = self.env.ref("base.USD")
+        self.currency_eur_id = self.env.ref("base.EUR")
 
         self.pricelist_id = self.env['product.pricelist'].create({
             'name': 'United States',
             'sequence': 10,
-            'currency_id': self.currency_eur_id
+            'currency_id': self.currency_eur_id.id
         })
         self.partner1 = self.env.ref('base.res_partner_1')
         vals = {
@@ -110,8 +110,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
-        self.assertEqual(
-            cost_total, 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1)
+        total_cost = 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1
+        self.assertEqual(cost_total, total_cost)
 
     def test_compute_get_price_total(self):
         for line in self.br.deliverable_lines:
