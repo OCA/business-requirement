@@ -110,8 +110,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
-        self.assertEqual(
-            cost_total, 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1)
+        total_cost = 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1
+        self.assertEqual(cost_total, total_cost)
 
     def test_compute_get_price_total(self):
         for line in self.br.deliverable_lines:
