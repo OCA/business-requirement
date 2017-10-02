@@ -110,10 +110,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
-        KHD = self.env.ref('base.HKD')
-        total_cost = 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1
-        total_cost = KHD.compute(total_cost, self.currency_usd_id, KHD)
-        self.assertEqual(cost_total, total_cost)
+        self.assertEqual(
+            cost_total, 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1)
 
     def test_compute_get_price_total(self):
         for line in self.br.deliverable_lines:
