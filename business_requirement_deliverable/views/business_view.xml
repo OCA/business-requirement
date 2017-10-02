@@ -314,4 +314,11 @@
             parent="business_requirement.menu_business_requirement"
             sequence="11"/>
 
+    <!-- MenuItem Price List in BR Configuration-->
+    <menuitem action="product.product_pricelist_action2"
+              id="menu_product_pricelist_action2"
+              parent="business_requirement.menu_business_configuration"
+              sequence="12"
+              groups="product.group_sale_pricelist"/>
+
 </odoo>
