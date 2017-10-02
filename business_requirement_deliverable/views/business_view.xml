@@ -104,8 +104,11 @@
                     <field name="dl_count" string="Deliverable"
                         widget="statinfo"
                         modifiers="{'readonly': true}"/>
-                    <field name="dl_total_revenue" class="oe_inline badge"
-                           nolabel="1" modifiers="{'readonly': true}"/>
+                    <field name="dl_total_revenue"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           modifiers="{'readonly': true}"
+                           groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 </button>
                 <br/>
                 <button class="oe_inline oe_stat_button"
@@ -127,7 +130,7 @@
         <field name="inherit_id" ref="business_requirement.view_business_requirement_tree"/>
         <field name="arch" type="xml">
             <xpath expr='//tree/field[@name="priority"]' position='after'>
-                <field name="currency_id" invisible="1"/>
+                <field name="currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 <field name="total_revenue"
                        sum="Total revenue"
                        widget='monetary' options="{'currency_field': 'currency_id'}"
@@ -144,8 +147,8 @@
                 <field name="business_requirement_id"/>
                 <field name="name"/>
                 <field name="product_id"/>
-                <field name="uom_id"/>
                 <field name="qty"/>
+                <field name="uom_id"/>
                 <field name="sale_price_unit" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 <field name="price_total" sum="Total price" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                 <field name="currency_id" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
@@ -239,11 +242,10 @@
                         </div>
                         <field name="sale_price_unit" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"  />
+                        <field name="price_total" widget="monetary" options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         <field name="currency_id" invisible="1"
                                attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                                groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                        <field name="price_total" widget="monetary"
-                               options="{'currency_field': 'currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                     </group>
                 </group>
                 <group string="Resource Lines">

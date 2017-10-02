@@ -29,6 +29,7 @@
         </record>
         <record id="product_product_1" model="product.product">
             <field name="product_tmpl_id" ref="product_template_1"/>
+            <field name="standard_price">25.0</field>
             <field name="default_code">SER01</field>
         </record>
         <record id="product_template_2" model="product.template" context="{'create_product_product': True}">
@@ -43,6 +44,7 @@
         </record>
         <record id="product_product_2" model="product.product">
             <field name="product_tmpl_id" ref="product_template_2"/>
+            <field name="standard_price">35.0</field>
             <field name="default_code">SER02</field>
         </record>
         <record id="product_template_3" model="product.template" context="{'create_product_product': True}">
@@ -57,6 +59,7 @@
         </record>
         <record id="product_product_3" model="product.product">
             <field name="product_tmpl_id" ref="product_template_3"/>
+            <field name="standard_price">30.0</field>
             <field name="default_code">SER03</field>
         </record>
         <record id="product_template_4" model="product.template" context="{'create_product_product': True}">
@@ -71,6 +74,7 @@
         </record>
         <record id="product_product_4" model="product.product">
             <field name="product_tmpl_id" ref="product_template_4"/>
+            <field name="standard_price">100.0</field>
             <field name="default_code">WEB01</field>
         </record>
         <record id="product_template_5" model="product.template" context="{'create_product_product': True}">
@@ -85,6 +89,7 @@
         </record>
         <record id="product_product_5" model="product.product">
             <field name="product_tmpl_id" ref="product_template_5"/>
+            <field name="standard_price">3500.0</field>
             <field name="default_code">WEB02</field>
         </record>
         <record id="product_template_6" model="product.template" context="{'create_product_product': True}">
