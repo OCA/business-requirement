@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
-from openerp.exceptions import ValidationError
+from odoo.tests import common
+from odoo.exceptions import ValidationError
 
 
 class BusinessRequirementResourceTemplate(common.TransactionCase):
@@ -24,7 +24,7 @@ class BusinessRequirementResourceTemplate(common.TransactionCase):
             'factor': 1,
             'uom_type': 'reference',
             'rounding': 0.000001})
-        self.ProductS = self.env.ref('product.product_product_consultant')
+        self.ProductS = self.env.ref('product.service_order_01')
         self.ProductObj = self.env['product.template']
         self.productA = self.ProductObj.create({
             'name': 'Product A',
@@ -37,9 +37,11 @@ class BusinessRequirementResourceTemplate(common.TransactionCase):
                     'resource_type': 'task'
                 })]})
 
-    def test_product_id_onchnage(self):
+    def test_product_id_change(self):
         for resource in self.productA.resource_lines:
             resource.product_id_change()
+            description = self.ProductS.name_get()[0][1]
+            self.assertEqual(resource.name, description)
 
     def test_resource_uom_change(self):
         for line in self.productA:
