@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Business Requirement Deliverable',
@@ -14,9 +14,10 @@
         'business_requirement',
     ],
     'data': [
+        'data/business_data.xml',
+        'data/br_report_paperformat.xml',
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
-        'data/br_report_paperformat.xml',
         'views/business_view.xml',
         'views/res_partner.xml',
         'views/report_business_requirement_deliverable.xml',
