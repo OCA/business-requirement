@@ -15,4 +15,20 @@
             </xpath>
         </field>
     </record>
+        <record id="view_project_project_filter" model="ir.ui.view">
+         <field name="name">project.project.select</field>
+         <field name="model">project.project</field>
+         <field name="inherit_id" ref="project.view_project_project_filter"/>
+         <field name="type">search</field>
+         <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="parent_id"/>
+            </field>
+           <xpath expr="//filter[contains(@domain, user_id)]" position="after">
+              <filter string="Parent" icon="terp-folder-orange"
+                      domain="[]" context="{'group_by':'parent_id'}"/>
+           </xpath>
+         </field>
+     </record>
+
 </odoo>

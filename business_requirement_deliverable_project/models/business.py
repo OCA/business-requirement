@@ -87,7 +87,7 @@ class BusinessRequirement(models.Model):
             elif rec.project_ids:
                 rec.all_project_generated = True
             else:
-                rec.all_project_generated = True
+                rec.all_project_generated = False
 
     @api.multi
     @api.depends('task_ids')

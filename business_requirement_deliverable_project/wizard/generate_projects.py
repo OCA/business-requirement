@@ -24,6 +24,8 @@ class BrGenerateProjects(models.TransientModel):
         'Create sub-projects for Business requirements',
         default=True
     )
+    analytic_account_id = fields.Many2one(
+        related='project_id.analytic_account_id', string='Parent Id')
     for_deliverable = fields.Boolean('Create sub-projects for Deliverables')
     for_childs = fields.Boolean(
         'Create sub-projects for Child Business requirements')
