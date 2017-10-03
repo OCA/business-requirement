@@ -15,7 +15,7 @@
             </xpath>
         </field>
     </record>
-        <record id="view_project_project_filter" model="ir.ui.view">
+    <record id="view_project_project_filter" model="ir.ui.view">
          <field name="name">project.project.select</field>
          <field name="model">project.project</field>
          <field name="inherit_id" ref="project.view_project_project_filter"/>
@@ -30,5 +30,34 @@
            </xpath>
          </field>
      </record>
+
+    <record id="view_project_inherited_tree" model="ir.ui.view">
+        <field name="name">project.project.tree.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="priority">16</field>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="parent_id"/>
+            </field>
+        </field>
+   </record>
+
+    <record id="view_project_kanban_inherited_business_requirment" model="ir.ui.view">
+        <field name="name">project.project.kanban.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority">16</field>
+        <field name="arch" type="xml">
+            <field name="use_tasks" position="after">
+                <field name="parent_id"/>
+            </field>
+            <xpath expr="//div[contains(@class, 'o_project_kanban_main')]/div[last()]" position="after">
+                <div class="o_primary">
+                    <span> <t t-esc="record.parent_id.value"/></span>
+                </div>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
