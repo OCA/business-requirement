@@ -170,6 +170,7 @@ class BrGenerateProjects(models.TransientModel):
             vals.update({'privacy_visibility': privacy_visibility})
         vals.update({
             'name': description,
+            'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
             'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
