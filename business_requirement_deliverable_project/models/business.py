@@ -77,17 +77,17 @@ class BusinessRequirement(models.Model):
                  'business_requirement_ids.project_ids')
     def compute_all_project_generated(self):
         for rec in self:
+            rec.all_project_generated = True
             if rec.business_requirement_ids:
-                rec.all_project_generated = True
                 if rec.business_requirement_ids:
                     for subbr in rec.business_requirement_ids:
                         if not subbr.project_ids and subbr.state == \
                                 "stakeholder_approval":
                             rec.all_project_generated = False
-                elif rec.project_ids:
-                    rec.all_project_generated = True
-                else:
-                    rec.all_project_generated = True
+            elif rec.project_ids:
+                rec.all_project_generated = True
+            else:
+                rec.all_project_generated = True
 
     @api.multi
     @api.depends('task_ids')
