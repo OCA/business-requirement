@@ -118,13 +118,11 @@
 
         <t t-if="o.business_requirement">
             <h3>Stakeholder Story:</h3>
-            <table class="table table-bordered">
+            <table class="table table-responsive">
                 <tbody>
                     <tr>
-                        <td>
-                            <pre style="padding-left: 30px;">
-                                <span t-field="o.business_requirement"/>
-                            </pre>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.business_requirement"/>
                         </td>
                     </tr>
                 </tbody>
@@ -136,10 +134,8 @@
             <table class="table .table-striped">
                 <tbody>
                     <tr>
-                        <td>
-                            <pre style="padding-left: 30px;">
-                                <span t-field="o.scenario"/>
-                            </pre>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.scenario"/>
                         </td>
                     </tr>
                 </tbody>
@@ -151,10 +147,8 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td>
-                            <pre style="padding-left: 30px;">
-                                <span t-field="o.gap"/>
-                            </pre>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.gap"/>
                         </td>
                     </tr>
                 </tbody>
@@ -166,10 +160,8 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td>
-                            <pre style="padding-left: 30px;">
-                                <t t-raw="o.test_case"/>
-                            </pre>
+                        <td style="padding-left: 30px;">
+                            <t t-raw="o.test_case"/>
                         </td>
                     </tr>
                 </tbody>
