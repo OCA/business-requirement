@@ -8,7 +8,6 @@
         <t t-if="not o or not 'company_id' in o">
             <t t-set="company" t-value="res_company"></t>
         </t>
-
         <div class="header">
             <div class="row">
                 <div class="col-xs-3">
@@ -44,17 +43,17 @@
             <tbody>
                 <tr>
                     <th colspan="2">Stakeholder</th>
-                    <th colspan="3">Master Project</th>
-                    <th>Source</th>
+                    <th colspan="2">Master Project</th>
+                    <th colspan="2">Source</th>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <span t-field="o.partner_id.name"/>
                     </td>
-                    <td colspan="3">
+                    <td colspan="2">
                         <span t-field="o.project_id.name"/>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <span t-field="o.origin"/>
                     </td>
                 </tr>
