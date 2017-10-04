@@ -34,7 +34,8 @@
 
     <template id="layout_br_base">
         <center>
-        <h3><span t-field="o.name"/>-
+        <h3 style="margin-top:-10px;"><span
+                t-field="o.name"/>-
             <span t-field="o.description"/>
         </h3>
         </center>
