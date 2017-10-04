@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
+from odoo.tests import common
 
 
 @common.at_install(False)
@@ -50,20 +50,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.pricelistA = self.env['product.pricelist'].create({
             'name': 'Pricelist A',
-            'type': 'sale',
-            'version_id': [
-                (0, 0, {
-                    'name': 'Version A',
-                    'items_id': [(0, 0, {
-                        'name': 'Item A',
-                        'product_id': self.productA.id,
-                        'price_discount': '-0.5',
-                    })]
-                })
-            ]
+            'item_ids': [(0, 0, {
+                'name': 'Item A',
+                'product_id': self.productA.id,
+                'price_discount': '-0.5',
+            })]
         })
         self.project = self.env['project.project'].create({
-            'name': 'Project A', 'pricelist_id': self.pricelistA.id,
+            'name': 'Project A',
             'partner_id': 3,
         })
 
@@ -76,7 +70,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.write({
             'deliverable_lines': [
                 (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
+                        'product_id': self.productB.id,
                         'unit_price': 900, 'uom_id': 1,
+                        'business_requirement_id': self.br.id,
                         'resource_ids': [
                             (0, 0, {
                                 'name': 'Resource Line2',
@@ -110,23 +106,27 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         ]
                         }),
                 (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                        'product_id': self.productA.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1100, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                        'product_id': self.productC.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1300, 'uom_id': 1}),
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                        'product_id': self.productD.id,
                         'business_requirement_id': self.br.id,
                         'unit_price': 1500, 'uom_id': 1,
                         }),
             ]})
-        self.wizard_obj = self.env['br.crm.make.sale']
-        self.crm_lead_16 = self.env.ref('crm.crm_case_1')
-        self.crm_lead_16.project_id = self.project.id
+        self.wizard_obj = self.env['br.crm.lead']
         self.partner_4 = self.env.ref('base.res_partner_4')
+        self.crm_lead_16 = self.env.ref('crm.crm_case_1')
+        self.crm_lead_16.partner_id = self.partner_4.id
+        self.crm_lead_16.project_id = self.project.id
+
         vals_wizard = {
             'partner_id': self.partner_4.id,
-            'update_quotation': True
         }
         context_wizard = {
             'active_id': self.crm_lead_16.id,
@@ -136,12 +136,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.wizard = self.wizard_obj.create(
             vals_wizard).with_context(context_wizard)
 
-    def test_make_orderline(self):
-        res = self.wizard.make_orderline()
+    def test_make_order(self):
+        res = self.wizard.make_order()
         self.assertTrue(res.get('res_id', False))
+        self.wizard.make_order()
 
     def test_prepare_sale_order_line(self):
-        res = self.wizard.make_orderline()
+        res = self.wizard.make_order()
         order_id = res.get('res_id', False)
         lines = self.wizard.prepare_sale_order_line(
             self.crm_lead_16.id,
@@ -149,7 +150,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertTrue(lines)
 
     def test_create_sale_order_line(self):
-        res = self.wizard.make_orderline()
+        res = self.wizard.make_order()
         order_id = res.get('res_id', False)
         lines = self.wizard.prepare_sale_order_line(
             self.crm_lead_16.id,
