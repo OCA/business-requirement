@@ -34,12 +34,12 @@
                                                 <td class="text-right"><span t-field="deliverable.qty"/></td>
                                                 <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
                                                 <td class="text-right"><span t-field="deliverable.sale_price_unit" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
-                                                <strong><td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td></strong>
+                                                <td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
                                             </tr>
                                         </t>
                                         <tr>
                                             <td colspan="5"></td>
-                                                <td class="text-right"><span t-field="o.total_revenue" t-options='{"widget": "monetary", "display_currency": o.partner_id.property_product_pricelist.currency_id}'/></td>
+                                                <td class="text-right"><strong><span t-field="o.total_revenue" t-options='{"widget": "monetary", "display_currency": o.partner_id.property_product_pricelist.currency_id}'/></strong></td>
                                         </tr>
                                     </tbody>
                                 </table>
