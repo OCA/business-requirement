@@ -15,8 +15,8 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Product</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Product</th>
                                             <th class="text-right">Qty</th>
                                             <th class="text-right">UoM</th>
                                             <th class="text-right">Price</th>
@@ -34,7 +34,7 @@
                                                 <td class="text-right"><span t-field="deliverable.qty"/></td>
                                                 <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
                                                 <td class="text-right"><span t-field="deliverable.sale_price_unit" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
-                                                <td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
+                                                <strong><td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td></strong>
                                             </tr>
                                         </t>
                                         <tr>

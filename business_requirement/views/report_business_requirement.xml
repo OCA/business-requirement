@@ -117,7 +117,7 @@
         </table>
 
         <t t-if="o.business_requirement">
-            <h3>Stakeholder Story:</h3>
+            <u><h3>Stakeholder Story:</h3></u>
             <table class="table table-responsive">
                 <tbody>
                     <tr>
@@ -130,7 +130,7 @@
         </t>
 
         <t t-if="o.scenario">
-            <h3>Scenario:</h3>
+            <u><h3>Scenario:</h3></u>
             <table class="table .table-striped">
                 <tbody>
                     <tr>
@@ -143,7 +143,7 @@
         </t>
 
         <t t-if="o.gap">
-            <h3>Gap:</h3>
+            <u><h3>Gap:</h3></u>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -156,7 +156,7 @@
         </t>
 
         <t t-if="o.test_case">
-            <h3>Test Case:</h3>
+            <u><h3>Test Case:</h3></u>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
