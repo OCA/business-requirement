@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
         <!--Business Requirement Category -->
         <record id="business_requirement_category_1"
@@ -505,4 +505,4 @@ pulvinar et, cursus sed purus.
         </record>
 
     </data>
-</openerp>
+</odoo>
