@@ -9,4 +9,4 @@ class BusinessRequirement(models.Model):
     _name = "business.requirement"
     _inherit = ["business.requirement", 'pad.common']
 
-    notes = fields.Char('Notes')
+    notes = fields.Char('Notes', pad_content_field='notes')
