@@ -24,7 +24,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <t t-foreach="o.deliverable_lines" t-as="deliverable">
+                                        <t t-foreach="o.deliverable_lines.sorted(key=lambda b: b.sequence)" t-as="deliverable">
                                             <tr>
                                                 <td><span t-field="deliverable.name"/></td>
                                                 <td>
