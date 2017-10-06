@@ -7,9 +7,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='logs']" position="before">
                     <page string="Notes" name="notes">
-                        <group>
-                            <field name="notes" widget="pad"/>
-                        </group>
+                        <field name="notes" widget="pad"/>
                     </page>
                 </xpath>
             </field>
