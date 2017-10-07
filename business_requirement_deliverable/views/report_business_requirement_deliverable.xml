@@ -11,7 +11,7 @@
                             <t t-call="business_requirement.layout_br_base">
                             </t>
                             <t t-if="o.deliverable_lines">
-                                <h3>Deliverable lines:</h3>
+                                <u><h3>Deliverable lines:</h3></u>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>

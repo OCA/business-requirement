@@ -14,7 +14,7 @@
                         <t t-if="o.deliverable_lines">
                             <t t-foreach="o.deliverable_lines" t-as='deliverable'>
                                 <div style="page-break-after: always;">
-                                    <h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                    <u><h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -41,7 +41,7 @@
                                         </tbody>
                                     </table>
                                     <t t-if="deliverable.resource_ids">
-                                        <h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                        <u><h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
