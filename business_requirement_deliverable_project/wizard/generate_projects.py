@@ -167,12 +167,21 @@ class BrGenerateProjects(models.TransientModel):
         if br._name == 'business.requirement':
             description = br.description
             privacy_visibility = br.project_id.privacy_visibility
-            vals.update({'business_requirement_id': br.id})
+            vals.update({
+                'business_requirement_id': br.id,
+                'parent_project_id': br.project_id.id,
+            })
+        if br._name == 'business.requirement.deliverable':
+            vals.update({
+                'parent_project_id': br.business_requirement_id
+                and br.business_requirement_id.project_id and
+                                     br.business_requirement_id.project_id.id,
+            })
+
         if privacy_visibility:
             vals.update({'privacy_visibility': privacy_visibility})
         vals.update({
             'name': description,
-            'parent_id': parent.analytic_account_id.id,
             'partner_id': parent.partner_id.id,
             'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
             'message_follower_ids': parent.message_follower_ids.ids,
