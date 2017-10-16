@@ -173,9 +173,10 @@ class BrGenerateProjects(models.TransientModel):
             })
         if br._name == 'business.requirement.deliverable':
             vals.update({
-                'parent_project_id': br.business_requirement_id
-                and br.business_requirement_id.project_id and
-                                     br.business_requirement_id.project_id.id,
+                'parent_project_id':
+                    br.business_requirement_id and
+                    br.business_requirement_id.project_id and
+                    br.business_requirement_id.project_id.id,
             })
 
         if privacy_visibility:
