@@ -14,12 +14,12 @@
                         <t t-if="o.deliverable_lines">
                             <t t-foreach="o.deliverable_lines" t-as='deliverable'>
                                 <div style="page-break-after: always;">
-                                    <h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                    <u><h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Product</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Product</th>
                                                 <th class="text-right">Qty</th>
                                                 <th class="text-right">UoM</th>
                                                 <th class="text-right">Price</th>
@@ -41,19 +41,19 @@
                                         </tbody>
                                     </table>
                                     <t t-if="deliverable.resource_ids">
-                                        <h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                        <u><h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Type</th>
-                                                    <th>Name</th>
-                                                    <th>Product</th>
+                                                    <th class="text-center">Type</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Product</th>
                                                     <th class="text-right">Qty</th>
                                                     <th class="text-right">UoM</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <t t-foreach="deliverable.resource_ids" t-as="resource">
+                                                <t t-foreach="deliverable.resource_ids.sorted(key=lambda b: b.sequence)" t-as="resource">
                                                     <tr>
                                                         <td  class="resource_type"><span t-esc="resource.resource_type.capitalize()[:4]"/></td>
                                                         <td><span t-field="resource.name"/></td>
