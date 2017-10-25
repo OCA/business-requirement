@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
-from openerp.exceptions import ValidationError
-from openerp.exceptions import Warning as UserError
+from odoo.tests import common
+from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning as UserError
 
 
 @common.at_install(False)
@@ -18,14 +18,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.AnalyticAccountObject = self.env['account.analytic.account']
 
         self.AnalyticAccount = self.AnalyticAccountObject.create(
-            {'name': 'AnalyticAccount for Test',
-             'state': 'draft'})
+            {'name': 'AnalyticAccount for Test'})
 
         self.projectA = self.ProjectObj.\
-            create({'name': 'Test Project A', 'partner_id': 1, 'parent_id': 1,
+            create({'name': 'Test Project A', 'partner_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
         self.projectB = self.ProjectObj.\
-            create({'name': 'Test Project B', 'partner_id': 1, 'parent_id': 1,
+            create({'name': 'Test Project B', 'partner_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
 
         # Configure unit of measure.
@@ -115,9 +114,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         'unit_price': 1500, 'uom_id': 1,
                         })
             ]})
-
         self.brA._compute_hour()
         self.brA._compute_planned_hour()
+        vals = {
+            'description': 'test',
+            'project_id': self.projectA.id,
+            'task_ids': [(0, 0, {'name': 'Test Task'}),
+                         (0, 0, {'name': 'Test Task2'})],
+            'partner_id': br_obj.partner_id.id
+        }
 
         self.brB = self.env['business.requirement'].create(vals)
         self.brB.write({
@@ -150,6 +155,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
                         'business_requirement_id': self.brB.id,
                         'unit_price': 1500, 'uom_id': 1})]})
+
+        vals = {
+            'description': 'test',
+            'project_id': self.projectA.id,
+            'task_ids': [(0, 0, {'name': 'Test Task'}),
+                         (0, 0, {'name': 'Test Task2'})],
+            'partner_id': br_obj.partner_id.id
+        }
 
         self.brC = self.env['business.requirement'].create(vals)
         self.brC.write({
@@ -244,6 +257,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
             self.wizard.for_br = True
             res = self.wizard.apply()
             self.assertEqual(res.get('type', True), 'ir.actions.act_window')
+        self.brA.deliverable_lines[0]._compute_linked_project_count()
+
+    def test_action_open_linked_project_for_br_dl(self):
+        self.brA.action_open_linked_project()
+        self.brA.deliverable_lines[0].action_open_linked_project()
 
     def test_br_generate_projects_wizard(self):
         self.brA.state = 'stakeholder_approval'
@@ -261,9 +279,8 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.brB.state = 'approved'
         self.brC.state = 'stakeholder_approval'
 
-        default_uom = self.env[
-            'project.config.settings'
-        ].get_default_time_unit('time_unit').get('time_unit', False)
+        default_uom = self.env.user and self.env.user.company_id \
+            and self.env.user.company_id.project_time_mode_id.id
 
         with self.assertRaises(ValidationError):
             action = self.brA.project_id.generate_project_wizard()
