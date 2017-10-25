@@ -12,9 +12,9 @@
                             </t>
                         </div>
                         <t t-if="o.deliverable_lines">
-                            <t t-foreach="o.deliverable_lines" t-as='deliverable'>
+                            <t t-foreach="o.deliverable_lines.sorted(key=lambda b: b.sequence)" t-as='deliverable'>
                                 <div style="page-break-after: always;">
-                                    <h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                    <u><h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -41,7 +41,7 @@
                                         </tbody>
                                     </table>
                                     <t t-if="deliverable.resource_ids">
-                                        <h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3>
+                                        <u><h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
@@ -53,7 +53,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <t t-foreach="deliverable.resource_ids" t-as="resource">
+                                                <t t-foreach="deliverable.resource_ids.sorted(key=lambda b: b.sequence)" t-as="resource">
                                                     <tr>
                                                         <td  class="resource_type"><span t-esc="resource.resource_type.capitalize()[:4]"/></td>
                                                         <td><span t-field="resource.name"/></td>
@@ -74,7 +74,7 @@
                         <div style="page-break-after: always;">
                             <t t-if="o.resource_lines">
                                 <t t-set="resources" t-value="0" />
-                                <t t-foreach="o.resource_lines" t-as="resource">
+                                <t t-foreach="o.resource_lines.sorted(key=lambda b: b.sequence)" t-as="resource">
                                     <t t-if="not resource.business_requirement_deliverable_id">
                                         <span t-set="resources" t-value="resources + 1"/>
                                     </t>
@@ -93,7 +93,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <t t-foreach="o.resource_lines" t-as="resource">
+                                        <t t-foreach="o.resource_lines.sorted(key=lambda b: b.sequence)" t-as="resource">
                                             <t t-if="not resource.business_requirement_deliverable_id">
                                                 <tr>
                                                     <td class="resource_type"><span t-esc="resource.resource_type.capitalize()[:4]"/></td>
