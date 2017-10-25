@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.exceptions import ValidationError
-from openerp.tools.translate import _
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -12,11 +11,12 @@ class BusinessRequirementDeliverable(models.Model):
     def _prepare_resource_lines(self):
         rl_data = self.env['business.requirement.resource.template'].search(
             [('product_template_id', '=', self.product_id.product_tmpl_id.id)],
-            order='sequence'
-        ).copy_data()
-        return [(0, 0, item) for index, item in enumerate(rl_data)]
+            order='sequence')
+        data = []
+        for rec in rl_data:
+            data.append(rec.copy_data()[0])
+        return [(0, 0, item) for index, item in enumerate(data)]
 
-    @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
         super(BusinessRequirementDeliverable, self).product_id_change()
@@ -62,7 +62,6 @@ class BusinessRequirementResourceTemplate(models.Model):
         default='task'
     )
 
-    @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
         description = ''

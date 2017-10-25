@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
-from openerp.exceptions import Warning as UserError
+from odoo.tests import common
+from odoo.exceptions import UserError
 
 
 @common.at_install(False)
@@ -55,9 +55,19 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'name': 'Your user test',
             'login': 'your.user@your-user.com'
         })
+        self.currency_usd_id = self.env.ref("base.USD")
+        self.currency_eur_id = self.env.ref("base.EUR")
 
+        self.pricelist_id = self.env['product.pricelist'].create({
+            'name': 'United States',
+            'sequence': 10,
+            'currency_id': self.currency_eur_id.id
+        })
+        self.partner1 = self.env.ref('base.res_partner_1')
         vals = {
             'description': ' test',
+            'partner_id': self.partner1.id,
+            'pricelist_id': self.pricelist_id.id
         }
         self.br = self.env['business.requirement'].create(vals)
         self.br.write({
@@ -95,10 +105,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
                         }),
             ]})
 
+    def test_commercial_fields(self):
+        self.br.partner_id._commercial_fields()
+
     def test_get_cost_total(self):
         cost_total = self.br.total_revenue
-        self.assertEqual(
-            cost_total, 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1)
+        total_cost = 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1
+        self.assertEqual(cost_total, total_cost)
 
     def test_compute_get_price_total(self):
         for line in self.br.deliverable_lines:
@@ -176,8 +189,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         })
         self.br.write({'partner_id': self.partner.id})
         self.br._compute_get_currency()
-        partner_id = self.br.partner_id
-        currency_id = partner_id.property_product_pricelist.currency_id
+        currency_id = self.pricelist_id.currency_id
         self.assertEqual(
             self.br.currency_id, currency_id)
 
@@ -190,8 +202,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'customer': True,
         })
         self.br.write({'partner_id': self.partner.id})
-        partner_id = self.br.partner_id
-        currency_id = partner_id.property_product_pricelist.currency_id
+        currency_id = self.br.pricelist_id.currency_id
         for line in self.br.deliverable_lines:
             line._compute_get_currency()
             self.assertEqual(line.currency_id, currency_id)
@@ -210,19 +221,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 resource.write({'resource_type': 'task'})
                 resource.resource_type_change()
 
-    def test_get_pricelist(self):
-        self.partner = self.env['res.partner'].create({
-            'name': 'Your company test',
-            'email': 'your.company@your-company.com',
-            'customer': True,
-        })
-        self.br.write({'partner_id': self.partner.id})
-        for line in self.br.deliverable_lines:
-            price_list = line._get_pricelist()
-            self.assertEqual(
-                price_list.id,
-                self.partner.property_product_pricelist.id)
-
     def test_product_id_change(self):
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id, 'name': ''})
@@ -238,14 +236,15 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 description += '\n' + product.description_sale
 
             sale_price_unit = line.product_id.list_price
-            pricelist = line._get_pricelist()
+            line.business_requirement_id.onchange_partner_id()
 
-            if pricelist:
+            if line.business_requirement_id and \
+                    line.business_requirement_id.pricelist_id:
                 product = line.product_id.with_context(
                     lang=line.business_requirement_id.partner_id.lang,
                     partner=line.business_requirement_id.partner_id.id,
                     quantity=line.qty,
-                    pricelist=pricelist.id,
+                    pricelist=line.business_requirement_id.pricelist_id.id,
                     uom=line.uom_id.id,
                 )
                 sale_price_unit = product.price
@@ -276,14 +275,16 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 description += '\n' + product.description_sale
 
             sale_price_unit = line.product_id.list_price
-            pricelist = line._get_pricelist()
 
-            if pricelist:
+            line.business_requirement_id.onchange_partner_id()
+
+            if line.business_requirement_id and \
+                    line.business_requirement_id.pricelist_id:
                 product = line.product_id.with_context(
                     lang=line.business_requirement_id.partner_id.lang,
                     partner=line.business_requirement_id.partner_id.id,
                     quantity=line.qty,
-                    pricelist=pricelist.id,
+                    pricelist=line.business_requirement_id.pricelist_id.id,
                     uom=line.uom_id.id,
                 )
                 sale_price_unit = product.price
@@ -309,8 +310,14 @@ class BusinessRequirementTestCase(common.TransactionCase):
             line.write({'uom_id': self.uom_days.id})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
-
-            self.assertEqual(line.sale_price_unit, self.sale_price_unit)
+            product = self.productA.with_context(
+                lang=self.br.partner_id.lang,
+                partner=self.br.partner_id.id,
+                quantity=line.qty,
+                pricelist=line.business_requirement_id.pricelist_id.id,
+                uom=line.uom_id.id,
+            )
+            self.assertEqual(line.sale_price_unit, product.price)
 
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models, _
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models, _
 
 
 class BusinessRequirement(models.Model):
@@ -14,12 +13,12 @@ class BusinessRequirement(models.Model):
             br_ids=self).generate_project_wizard()
         return res
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
+        inverse_name='business_requirement_id',
         groups='project.group_project_user',
         readonly=True,
-        copy=False
+        string='Projects'
     )
 
     task_ids = fields.One2many(
@@ -44,12 +43,17 @@ class BusinessRequirement(models.Model):
         compute='_compute_planned_hour'
     )
     linked_project_count = fields.Integer(
-        compute='action_open_linked_br_dl',
+        compute='_compute_linked_project_count',
         string="Number of Business Requirements"
     )
 
+    @api.depends('project_ids', 'deliverable_lines')
+    def _compute_linked_project_count(self):
+        for rec in self:
+            rec.linked_project_count = len(rec.project_ids.ids)
+
     @api.multi
-    def action_open_linked_br_dl(self):
+    def action_open_linked_project(self):
         for rec in self:
             domain = ['|',
                       ('business_requirement_id', '=', rec.id),
@@ -70,86 +74,20 @@ class BusinessRequirement(models.Model):
     )
 
     @api.depends('business_requirement_ids',
-                 'business_requirement_ids.linked_project')
+                 'business_requirement_ids.project_ids')
     def compute_all_project_generated(self):
         for rec in self:
+            rec.all_project_generated = True
             if rec.business_requirement_ids:
-                if all(rec.mapped('business_requirement_ids.linked_project')):
-                    rec.all_project_generated = True
-                else:
-                    rec.all_project_generated = False
-            elif rec.linked_project:
+                if rec.business_requirement_ids:
+                    for subbr in rec.business_requirement_ids:
+                        if not subbr.project_ids and subbr.state == \
+                                "stakeholder_approval":
+                            rec.all_project_generated = False
+            elif rec.project_ids:
                 rec.all_project_generated = True
             else:
                 rec.all_project_generated = False
-
-    @api.model
-    def read_group(self, domain, fields, groupby, offset=0,
-                   limit=None, orderby=False, lazy=True):
-        if groupby and groupby[0] == "state":
-            states = self.env['business.requirement'].\
-                fields_get(['state']).get('state').get('selection')
-            read_group_all_states = [{'__context': {'group_by': groupby[1:]},
-                                      '__domain': domain + [('state', '=',
-                                                             state_value)],
-                                      'state': state_value,
-                                      'state_count': 0}
-                                     for state_value, state_name in states]
-            # Get standard results
-            read_group_res = super(BusinessRequirement, self).\
-                read_group(domain, fields, groupby, offset=offset,
-                           limit=limit, orderby=orderby)
-            # Update standard results with default results
-            result = []
-            for state_value, state_name in states:
-                res = filter(lambda x: x['state'] == state_value,
-                             read_group_res)
-                if not res:
-                    res = filter(lambda x: x['state'] == state_value,
-                                 read_group_all_states)
-                res[0]['state'] = [state_value, state_name]
-                result.append(res[0])
-            return result
-        else:
-            return super(BusinessRequirement, self).\
-                read_group(domain, fields, groupby,
-                           offset=offset, limit=limit, orderby=orderby)
-
-    @api.multi
-    def write(self, vals):
-        for r in self:
-            if vals.get('state'):
-                ir_obj = self.env['ir.model.data']
-                br_xml_id = ir_obj.\
-                    get_object('business_requirement',
-                               'group_business_requirement_manager')
-                user = self.env['res.users']
-                grps = [grp.id for grp in user.browse(self._uid).groups_id]
-                date = fields.Datetime.now()
-                if vals['state'] == 'confirmed':
-                    vals.update({'confirmed_id': user,
-                                 'confirmation_date': date})
-                if vals['state'] == 'draft':
-                    vals.update({'confirmed_id': False,
-                                 'approved_id': False,
-                                 'confirmation_date': False,
-                                 'approval_date': False
-                                 })
-                if vals['state'] == 'approved':
-                    if br_xml_id.id in grps:
-                        vals.update({'approved_id': user,
-                                     'approval_date': date})
-                    else:
-                        raise UserError(_('You can only move to the '
-                                          'following stage: draft/confirmed'
-                                          '/cancel/drop.'))
-                if vals['state'] in ('stakeholder_approval', 'in_progress',
-                                     'done'):
-                    if br_xml_id.id not in grps:
-                        raise UserError(_('You can only move to the'
-                                          'following stage: draft/'
-                                          'confirmed/cancel/drop.'))
-            return super(BusinessRequirement, self).write(vals)
 
     @api.multi
     @api.depends('task_ids')
@@ -181,9 +119,33 @@ class BusinessRequirement(models.Model):
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
+        inverse_name='business_requirement_deliverable_id',
         groups='project.group_project_user',
         readonly=True,
-        )
+        string='Projects'
+    )
+    linked_project_count = fields.Integer(
+        compute='_compute_linked_project_count',
+        string="Number of Business Requirements"
+    )
+
+    @api.depends('project_ids')
+    def _compute_linked_project_count(self):
+        for rec in self:
+            rec.linked_project_count = len(rec.project_ids.ids)
+
+    @api.multi
+    def action_open_linked_project(self):
+        for rec in self:
+            domain = [('business_requirement_deliverable_id', '=', rec.id)]
+            return {
+                'name': _('Projects'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'project.project',
+                'target': 'current',
+                'domain': domain
+            }

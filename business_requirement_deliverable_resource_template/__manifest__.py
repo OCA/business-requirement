@@ -6,7 +6,7 @@
     'category': 'Business Requirements Management',
     'summary': """Manage default resource lines in your
                deliverable sales package from product template""",
-    'version': '8.0.1.0.1',
+    'version': '10.0.1.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
@@ -22,8 +22,8 @@
         "views/business_requirement_deliverable_default.xml",
     ],
     'demo': [
-        'data/business_requirement_deliverable_resource_template_demo.xml'
+        'demo/business_requirement_deliverable_resource_template_demo.xml'
     ],
     'license': 'AGPL-3',
-    'installable': False,
+    'installable': True,
 }

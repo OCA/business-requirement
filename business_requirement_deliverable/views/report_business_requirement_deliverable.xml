@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="br_deliverable_report">
+        <t t-call="report.html_container">
+            <t t-call="business_requirement.internal_layout_br_header">
+                <div class="page" name="page">
+                    <h2 class="text-center">Business Requirement Document</h2><br/>
+                    <t t-foreach="docs" t-as="o">
+                        <div style="page-break-after: always;">
+                            <t t-call="business_requirement.layout_br_base">
+                            </t>
+                            <t t-if="o.deliverable_lines">
+                                <u><h3>Deliverable lines:</h3></u>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Product</th>
+                                            <th class="text-right">Qty</th>
+                                            <th class="text-right">UoM</th>
+                                            <th class="text-right">Price</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.deliverable_lines.sorted(key=lambda b: b.sequence)" t-as="deliverable">
+                                            <tr>
+                                                <td><span t-field="deliverable.name"/></td>
+                                                <td>
+                                                    [<span t-field="deliverable.product_id.default_code"/>]
+                                                    <span t-field="deliverable.product_id.product_tmpl_id.name"/>
+                                                </td>
+                                                <td class="text-right"><span t-field="deliverable.qty"/></td>
+                                                <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
+                                                <td class="text-right"><span t-field="deliverable.sale_price_unit" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
+                                                <td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                                <td class="text-right"><strong><span t-field="o.total_revenue" t-options='{"widget": "monetary", "display_currency": o.partner_id.property_product_pricelist.currency_id}'/></strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

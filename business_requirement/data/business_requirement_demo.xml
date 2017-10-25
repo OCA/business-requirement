@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
         <!--Business Requirement Category -->
         <record id="business_requirement_category_1"
@@ -33,92 +33,10 @@
             <field name="partner_id" ref="base.res_partner_12"/>
         </record>
 
-        <!-- Products -->
-        <record id="product_template_1" model="product.template">
-            <field name="name">Developer</field>
-            <field name="default_code">SER01</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
-            <field name="type">service</field>
-            <field name="standard_price">25.0</field>
-            <field name="list_price">35.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_1" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_1"/>
-            <field name="default_code">SER01</field>
-        </record>
-        <record id="product_template_2" model="product.template">
-            <field name="name">Designer</field>
-            <field name="default_code">SER02</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
-            <field name="type">service</field>
-            <field name="standard_price">35.0</field>
-            <field name="list_price">60.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_2" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_2"/>
-            <field name="default_code">SER02</field>
-        </record>
-        <record id="product_template_3" model="product.template">
-            <field name="name">Consultant</field>
-            <field name="default_code">SER03</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
-            <field name="type">service</field>
-            <field name="standard_price">30.0</field>
-            <field name="list_price">50.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_3" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_3"/>
-            <field name="default_code">SER03</field>
-        </record>
-        <record id="product_template_4" model="product.template">
-            <field name="name">Website Template</field>
-            <field name="default_code">WEB01</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
-            <field name="uom_po_id" ref="product.product_uom_unit"/>
-            <field name="type">service</field>
-            <field name="standard_price">100.0</field>
-            <field name="list_price">150.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_4" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_4"/>
-            <field name="default_code">WEB01</field>
-        </record>
-        <record id="product_template_5" model="product.template">
-            <field name="name">Website Design</field>
-            <field name="default_code">WEB02</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
-            <field name="uom_po_id" ref="product.product_uom_unit"/>
-            <field name="type">service</field>
-            <field name="standard_price">3500.0</field>
-            <field name="list_price">5200.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_5" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_5"/>
-            <field name="default_code">WEB02</field>
-        </record>
-        <record id="product_template_6" model="product.template">
-            <field name="name">Odoo Quick Start Package</field>
-            <field name="default_code">OD01</field>
-            <field name="type">service</field>
-            <field name="standard_price">1500.0</field>
-            <field name="list_price">4000.0</field>
-            <field name="categ_id" ref="product.product_category_5"/>
-        </record>
-        <record id="product_product_6" model="product.product">
-            <field name="product_tmpl_id" ref="product_template_6"/>
-            <field name="default_code">OD01</field>
-        </record>
         <record id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
             <field name="responsible_id" ref="base.user_root"/>
+            <field name="project_id" ref="project_1"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"/>
@@ -209,6 +127,7 @@ pulvinar et, cursus sed purus.
         <record id="business_requirement_2_1" model="business.requirement">
             <field name="description">ERP Implementation</field>
             <field name="responsible_id" ref="base.user_demo"/>
+            <field name="project_id" ref="project_2"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
@@ -221,6 +140,7 @@ pulvinar et, cursus sed purus.
         <record id="business_requirement_2_2" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">ERP Setup</field>
+            <field name="project_id" ref="project_2"/>
             <field name="responsible_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
@@ -313,6 +233,7 @@ pulvinar et, cursus sed purus.
             <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">Server Set up</field>
             <field name="responsible_id" ref="base.user_demo"/>
+            <field name="project_id" ref="project_2"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"/>
@@ -584,4 +505,4 @@ pulvinar et, cursus sed purus.
         </record>
 
     </data>
-</openerp>
+</odoo>

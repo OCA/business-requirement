@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="br_deliverable_resource_report">
+        <t t-call="report.html_container">
+            <t t-call="business_requirement.internal_layout_br_header">
+                <div class="page" name="page">
+                    <h2 class="text-center">Business Requirement Document</h2><br/>
+                    <t t-foreach="docs" t-as="o">
+                        <div style="page-break-after: always;">
+                            <t t-call="business_requirement.layout_br_base">
+                            </t>
+                        </div>
+                        <t t-if="o.deliverable_lines">
+                            <t t-foreach="o.deliverable_lines" t-as='deliverable'>
+                                <div style="page-break-after: always;">
+                                    <u><h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Product</th>
+                                                <th class="text-right">Qty</th>
+                                                <th class="text-right">UoM</th>
+                                                <th class="text-right">Price</th>
+                                                <th class="text-right">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span t-field="deliverable.name"/></td>
+                                                <td>
+                                                    [<span t-field="deliverable.product_id.default_code"/>]
+                                                    <span t-field="deliverable.product_id.product_tmpl_id.name"/>
+                                                </td>
+                                                <td class="text-right"><span t-field="deliverable.qty"/></td>
+                                                <td class="text-right"><span t-field="deliverable.uom_id.name"/></td>
+                                                <td class="text-right"><span t-field="deliverable.sale_price_unit" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
+                                                <td class="text-right"><span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <t t-if="deliverable.resource_ids">
+                                        <u><h3>Resource lines for deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Type</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Product</th>
+                                                    <th class="text-right">Qty</th>
+                                                    <th class="text-right">UoM</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="deliverable.resource_ids.sorted(key=lambda b: b.sequence)" t-as="resource">
+                                                    <tr>
+                                                        <td  class="resource_type"><span t-esc="resource.resource_type.capitalize()[:4]"/></td>
+                                                        <td><span t-field="resource.name"/></td>
+                                                        <td>
+                                                            [<span t-field="resource.product_id.default_code"/>]
+                                                            <span t-field="resource.product_id.product_tmpl_id.name"/>
+                                                        </td>
+                                                        <td class="text-right"><span t-field="resource.qty"/></td>
+                                                        <td class="text-right"><span t-field="resource.uom_id.name"/></td>
+                                                    </tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
+                                    </t>
+                                </div>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
