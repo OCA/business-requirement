@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp (https://www.elico-corp.com).
+# © 2016-2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models, _
 
 
 class BusinessRequirement(models.Model):
@@ -13,12 +13,12 @@ class BusinessRequirement(models.Model):
             br_ids=self).generate_project_wizard()
         return res
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
+        inverse_name='business_requirement_id',
         groups='project.group_project_user',
         readonly=True,
-        copy=False
+        string='Projects'
     )
 
     task_ids = fields.One2many(
@@ -47,15 +47,10 @@ class BusinessRequirement(models.Model):
         string="Number of Business Requirements"
     )
 
-    @api.depends('linked_project', 'deliverable_lines')
+    @api.depends('project_ids', 'deliverable_lines')
     def _compute_linked_project_count(self):
         for rec in self:
-            domain = ['|',
-                      ('business_requirement_id', '=', rec.id),
-                      ('business_requirement_deliverable_id', 'in',
-                       rec.deliverable_lines.ids)]
-            rec.linked_project_count = self.env['project.project']. \
-                search_count(domain)
+            rec.linked_project_count = len(rec.project_ids.ids)
 
     @api.multi
     def action_open_linked_project(self):
@@ -79,15 +74,17 @@ class BusinessRequirement(models.Model):
     )
 
     @api.depends('business_requirement_ids',
-                 'business_requirement_ids.linked_project')
+                 'business_requirement_ids.project_ids')
     def compute_all_project_generated(self):
         for rec in self:
+            rec.all_project_generated = True
             if rec.business_requirement_ids:
-                if all(rec.mapped('business_requirement_ids.linked_project')):
-                    rec.all_project_generated = True
-                else:
-                    rec.all_project_generated = False
-            elif rec.linked_project:
+                if rec.business_requirement_ids:
+                    for subbr in rec.business_requirement_ids:
+                        if not subbr.project_ids and subbr.state == \
+                                "stakeholder_approval":
+                            rec.all_project_generated = False
+            elif rec.project_ids:
                 rec.all_project_generated = True
             else:
                 rec.all_project_generated = False
@@ -122,9 +119,33 @@ class BusinessRequirement(models.Model):
 class BusinessRequirementDeliverable(models.Model):
     _inherit = "business.requirement.deliverable"
 
-    linked_project = fields.Many2one(
-        string='Linked project',
+    project_ids = fields.One2many(
         comodel_name='project.project',
+        inverse_name='business_requirement_deliverable_id',
         groups='project.group_project_user',
         readonly=True,
-        )
+        string='Projects'
+    )
+    linked_project_count = fields.Integer(
+        compute='_compute_linked_project_count',
+        string="Number of Business Requirements"
+    )
+
+    @api.depends('project_ids')
+    def _compute_linked_project_count(self):
+        for rec in self:
+            rec.linked_project_count = len(rec.project_ids.ids)
+
+    @api.multi
+    def action_open_linked_project(self):
+        for rec in self:
+            domain = [('business_requirement_deliverable_id', '=', rec.id)]
+            return {
+                'name': _('Projects'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'project.project',
+                'target': 'current',
+                'domain': domain
+            }
