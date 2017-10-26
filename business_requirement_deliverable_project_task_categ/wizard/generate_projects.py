@@ -13,6 +13,6 @@ class BrGenerateProjects(models.TransientModel):
             ._prepare_project_task(line, project_id)
         if line.categ_id:
             vals.update({
-                'tag_ids': [(6, 0, [line.categ_id.id])]
+                'categ_id': line.categ_id.id
             })
         return vals

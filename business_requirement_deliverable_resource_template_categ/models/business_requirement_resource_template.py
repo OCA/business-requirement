@@ -8,6 +8,6 @@ class BusinessRequirementResourceTemplate(models.Model):
     _inherit = "business.requirement.resource.template"
 
     categ_id = fields.Many2one(
-        'project.category.main',
+        'project.task',
         string="Task Category"
     )

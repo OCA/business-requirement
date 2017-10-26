@@ -9,7 +9,7 @@ class BusinessRequirementDeliverableCateg(models.Model):
     _inherit = "business.requirement.resource"
 
     categ_id = fields.Many2one(
-        'project.tags',
+        'project.category',
         string="Task Category"
     )
 

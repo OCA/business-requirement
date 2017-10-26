@@ -14,6 +14,7 @@
     "depends": [
         "hr_timesheet",
         "business_requirement_deliverable_project",
+        "project_task_category"
     ],
     'image': [
         'static/description/icon.png',
