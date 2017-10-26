@@ -193,7 +193,7 @@ class BrGenerateProjects(models.TransientModel):
     @api.multi
     def _prepare_project_task(self, line, project_id):
         default_uom = self.env.user and self.env.user.company_id \
-                      and self.env.user.company_id.project_time_mode_id
+            and self.env.user.company_id.project_time_mode_id.id
         qty = default_uom._compute_quantity(
             line.qty, default_uom
         )
