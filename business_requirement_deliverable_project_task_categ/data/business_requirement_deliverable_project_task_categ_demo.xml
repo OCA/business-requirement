@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
 
         <!-- Task Categories -->
-        <record id="project_category_main_1" model="project.category.main">
+        <record id="project_category_main_1" model="project.category">
             <field name="name">Design</field>
         </record>
-        <record id="project_category_main_2" model="project.category.main">
-            <field name="name">Development</field>
-        </record>
-        <record id="project_category_main_3" model="project.category.main">
+        <record id="project_category_main_3" model="project.category">
             <field name="name">Analysis</field>
         </record>
-        <record id="project_category_main_4" model="project.category.main">
+        <record id="project_category_main_4" model="project.category">
             <field name="name">PM</field>
         </record>
 
@@ -24,7 +21,7 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
 
         </record>
@@ -35,7 +32,7 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
         </record>
         <record id="project_task_3" model="project.task">
@@ -45,7 +42,7 @@
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
             <field name="name">Module Stack</field>
-            <field name="stage_id" ref="project.project_tt_analysis"/>
+            <field name="stage_id" ref="project.project_stage_0"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
         </record>
 
@@ -55,7 +52,7 @@
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_1_4" model="business.requirement.resource">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+                   ref="project_task_category.project_category_02" />
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_2_1" model="business.requirement.resource">
             <field name="categ_id"
@@ -63,7 +60,7 @@
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_2_2" model="business.requirement.resource">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+                   ref="project_task_category.project_category_02" />
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_2_3" model="business.requirement.resource">
             <field name="categ_id"
@@ -71,7 +68,7 @@
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_3" model="business.requirement.resource">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2" />
+                   ref="project_task_category.project_category_02" />
         </record>
         <record id="business_requirement_deliverable.business_requirement_resource_4_1_1" model="business.requirement.resource">
             <field name="categ_id"
@@ -95,4 +92,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
