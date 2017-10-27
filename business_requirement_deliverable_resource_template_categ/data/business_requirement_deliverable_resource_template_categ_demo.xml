@@ -10,7 +10,7 @@
         <record id="business_requirement_deliverable_resource_template.resource_template_07"
                 model="business.requirement.resource.template">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2"/>
+                   ref="project_task_category.project_category_02"/>
         </record>
         <record id="business_requirement_deliverable_resource_template.resource_template_08"
                 model="business.requirement.resource.template">
@@ -20,7 +20,7 @@
         <record id="business_requirement_deliverable_resource_template.resource_template_09"
                 model="business.requirement.resource.template">
             <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_2"/>
+                   ref="project_task_category.project_category_02"/>
         </record>
 
     </data>
