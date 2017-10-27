@@ -47,7 +47,6 @@ class BrGenerateProjects(models.TransientModel):
         view = self.env['ir.model.data'].get_object_reference(
             'business_requirement_deliverable_project',
             'view_br_generate_projects_form')
-
         action = {
             'name': _('Generate Projects'),
             'type': 'ir.actions.act_window',
@@ -193,10 +192,9 @@ class BrGenerateProjects(models.TransientModel):
 
     @api.multi
     def _prepare_project_task(self, line, project_id):
-        context = self.env.context
-        default_uom = context and context.get('default_uom', False)
-        product_uom_obj = self.env['product.uom']
-        qty = product_uom_obj._compute_quantity(
+        default_uom = self.env.user and self.env.user.company_id \
+            and self.env.user.company_id.project_time_mode_id
+        qty = default_uom._compute_quantity(
             line.qty, default_uom
         )
         br_id = False
