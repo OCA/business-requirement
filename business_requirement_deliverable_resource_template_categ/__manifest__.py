@@ -6,7 +6,7 @@
     'category': 'Business Requirements Management',
     'summary': """Manage default resource lines categories in your
                deliverable templates""",
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
@@ -26,5 +26,5 @@
         "business_requirement_deliverable_resource_template_categ_demo.xml",
     ],
     'license': 'AGPL-3',
-    'installable': False,
+    'installable': True,
 }

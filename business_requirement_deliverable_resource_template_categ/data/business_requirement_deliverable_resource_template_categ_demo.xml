@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
 
         <record id="business_requirement_deliverable_resource_template.resource_template_06"
@@ -24,4 +24,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
