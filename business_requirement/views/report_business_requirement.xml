@@ -167,6 +167,20 @@
                 </tbody>
             </table>
         </t>
+
+        <t t-if="o.terms_and_conditions">
+            <u><h3>Terms and conditions:</h3></u>
+            <table class="table table-responsive">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.terms_and_conditions"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
     </template>
 
     <template id="br_report">

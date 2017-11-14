@@ -67,6 +67,12 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', False)]}
     )
+    terms_and_conditions = fields.Html(
+        'Terms and Conditions',
+        read_only=True,
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', False)]}
+    )
     category_ids = fields.Many2many(
         'business.requirement.category',
         string='Categories',
