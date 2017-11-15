@@ -122,6 +122,7 @@
             </t>
 
             <t t-if="o.test_case">
+                <h3 style="width: 210mm; word-wrap: break-word;">Test Case:</h3>
                 <span t-field="o.test_case" style="width: 210mm; word-wrap: break-word; height: 100%;"/>
             </t>
         </template>
