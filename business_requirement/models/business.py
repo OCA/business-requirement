@@ -69,7 +69,7 @@ class BusinessRequirement(models.Model):
     )
     terms_and_conditions = fields.Html(
         'Terms and Conditions',
-        read_only=True,
+        readonly=True,
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', False)]}
     )
