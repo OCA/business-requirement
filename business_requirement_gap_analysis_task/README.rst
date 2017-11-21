@@ -7,57 +7,51 @@ Business Requirement Gap Analysis Task
 ======================================
 
 This module extends the functionality of Business Requirement to support gap
-analysis and to allow you to find gap analysis task easily and create it
-automatically.
+analysis and to allow you to create gap analysis task and easily find it.
+
+Usage
+=====
+
+#. Create a new BR with a master project
+#. The button `Generate the Gap Analysis Task` will show
+#. Click the button and the gap analysis task will be created
+#. A new field `Gap Analysis Task` is added in the form view of the BR
+
+.. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/222/10.0
+
 
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues
-<https://github.com/Elico-Corp/{project_repo}/issues>`_. In case of trouble, please
-check there if your issue has already been reported. If you spotted it first,
-help us smash it by providing detailed and welcomed feedback.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
 
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
-
-.. only if the OCA logo is used, else remove
-
 Contributors
 ------------
 
-* Firstname Lastname <email.address@example.org>
-* Second Person <second.person@example.org>
+* Eric Caudal <eric.caudal@elico-corp.com>
+* Sébastien Maillard <sebastien.maillard@elico-corp.com>
+* Hulk Liu <hulk.liu@elico-corp.com>
+* Joseph Wang <joseph.wang@elico-corp.com>
 
 Maintainer
 ----------
 
-.. image:: https://www.elico-corp.com/logo.png
-   :alt: Elico Corp
-   :target: https://www.elico-corp.com
+.. figure:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
 
-This module is maintained by Elico Corporation.
+This module is maintained by the OCA.
 
-Elico Corp is an innovative actor in China, Hong-Kong and Singapore servicing
-well known international companies and as well as local mid-sized businesses.
-Since 2010, our seasoned Sino-European consultants have been providing full
-range Odoo services:
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
-* Business consultancy for Gap analysis, BPM, operational work-flows review. 
-* Ready-to-use ERP packages aimed at starting businesses.
-* Odoo implementation for manufacturing, international trading, service industry
-  and e-commerce. 
-* Connectors and integration with 3rd party software (Magento, Taobao, Coswin,
-  Joomla, Prestashop, Tradevine etc...).
-* Odoo Support services such as developments, training, maintenance and hosting.
-
-Our headquarters are located in Shanghai with branch in Singapore servicing
-customers from all over Asia Pacific.
-
-Contact information: `Sales <contact@elico-corp.com>`__
+To contribute to this module, please visit https://odoo-community.org.

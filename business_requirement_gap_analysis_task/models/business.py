@@ -12,8 +12,8 @@ class BusinessRequirementGapAnalysis(models.Model):
         comodel_name='project.task',
         inverse_name='business_requirement_id',
         string='Gap Analysis Task',
-        help='Use this task to input all the timesheets for the preparation of \
-             this BR (meetings, solution design, estimation, etc.)'
+        help='Use this task to input all the timesheets for the preparation of'
+             ' this BR (meetings, solution design, estimation, etc.)'
     )
 
     @api.multi

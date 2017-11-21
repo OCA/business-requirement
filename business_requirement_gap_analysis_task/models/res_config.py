@@ -36,4 +36,4 @@ class BusinessRequirementConfigSettings(models.TransientModel):
                 'gap_task_category',
                 company_id=self.env.user.company_id.id
             )
-        return {'gap_task_category':gap_task_category}
+        return {'gap_task_category': gap_task_category}
