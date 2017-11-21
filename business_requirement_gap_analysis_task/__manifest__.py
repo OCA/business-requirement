@@ -15,6 +15,8 @@
         'views/business_requirement_gap_analysis_task.xml',
         'views/res_config.xml',
     ],
+    'demo': ['data/gap_analysis_task_demo.xml',
+             'data/business_requirement_demo.xml'],
     'license': 'AGPL-3',
     'installable': True,
     'application': False,
