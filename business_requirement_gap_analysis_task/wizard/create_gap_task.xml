@@ -5,7 +5,7 @@
     <record id="estimated_time_form" model="ir.ui.view">
         <field name="name">Estimated time to prepare the BR</field>
         <field name="model">br.gap_analysis_task</field>
-        <field name="view_type">form</field>
+        <field name="type">form</field>
         <field name="priority">20</field>
         <field name="arch" type="xml">
             <form>
