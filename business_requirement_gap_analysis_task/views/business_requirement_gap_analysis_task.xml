@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_business_requirement_form">
+            <field name="name">business.requirement.form</field>
+            <field name="model">business.requirement</field>
+            <field name="inherit_id"
+                   ref="business_requirement.view_business_requirement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='priority']"
+                       position="after">
+                    <field name="gap_analysis_task"/>
+                </xpath>
+                <xpath expr="//header/field[@name='state']"
+                       position="before">
+                    <button name="%(launch_wizard_gap)d"
+                            string="Generate the Gap Analysis Task"
+                            type="action"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('gap_analysis_task', '!=', False),('project_id', '==', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_on_change_of_master_project">
+            <field name="name">warning view</field>
+            <field name="model">business.requirement</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <form string="Warning">
+                    <header>
+                        Waning:changing master project
+                    </header>
+                    <sheet>
+                        Do you also want to change the Project of the Gap
+                        Analysis task?
+                    </sheet>
+                    <footer>
+                        <button name='confirm' string="Yes" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="No" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="project_id_on_change_action">
+            <field name="name">master project change action</field>
+            <field name="res_model">business.requirement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_on_change_of_master_project"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
