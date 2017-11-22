@@ -61,7 +61,10 @@
                                 <field name="gap" nolabel="1"/>
                             </group>
                             <group string="Test Case">
-                                <field name="test_case" nolabel="1" default_focus="0"/>
+                                <field name="test_case" nolabel="1"/>
+                            </group>
+                            <group string="Terms and Conditions">
+                                <field name="terms_and_conditions" nolabel="1"/>
                             </group>
                         </page>
                         <page string="Logs" name="logs">
