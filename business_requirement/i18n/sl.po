@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-16 02:38+0000\n"
-"PO-Revision-Date: 2017-08-16 02:38+0000\n"
+"POT-Creation-Date: 2017-11-23 01:40+0000\n"
+"PO-Revision-Date: 2017-11-23 01:40+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.action_view_tasks_business_requirement
+msgid "Action Tasks Related BR"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
@@ -131,13 +136,6 @@ msgid "Confirmed by"
 msgstr "Potrdil"
 
 #. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_3
-#: model:product.template,name:business_requirement.product_product_3_product_template
-#: model:product.template,name:business_requirement.product_template_3
-msgid "Consultant"
-msgstr "Svetovalec"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_sub_br_count
 msgid "Count"
 msgstr "Seštevek"
@@ -165,21 +163,9 @@ msgid "Creation Date"
 msgstr "Datum nastanka"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
-msgid "Customer"
-msgstr "Kupec"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Customer Story"
 msgstr "Kupčeva zgodba"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-msgid "Customer Story:"
-msgstr ""
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
@@ -190,20 +176,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_description
 msgid "Description"
 msgstr "Opis"
-
-#. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_2
-#: model:product.template,name:business_requirement.product_product_2_product_template
-#: model:product.template,name:business_requirement.product_template_2
-msgid "Designer"
-msgstr "Oblikovalec"
-
-#. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_1
-#: model:product.template,name:business_requirement.product_product_1_product_template
-#: model:product.template,name:business_requirement.product_template_1
-msgid "Developer"
-msgstr "Razvijalec"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_display_name
@@ -283,6 +255,7 @@ msgstr "Nizka"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_project_id
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Master Project"
 msgstr "Nosilni projekt"
 
@@ -304,17 +277,10 @@ msgid "Normal"
 msgstr "Običajna"
 
 #. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_6
-#: model:product.template,name:business_requirement.product_product_6_product_template
-#: model:product.template,name:business_requirement.product_template_6
-msgid "Odoo Quick Start Package"
-msgstr "Paket Odoo hitri start"
-
-#. module: business_requirement
 #: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
 msgid ""
 "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a customer for efficient follow up. You can\n"
+"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 
@@ -351,7 +317,6 @@ msgstr "Proizvodi"
 
 #. module: business_requirement
 #: model:ir.model,name:business_requirement.model_project_project
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Project"
 msgstr "Projekt"
@@ -373,6 +338,7 @@ msgstr "Zahteval"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_id
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Responsible"
 msgstr "Odgovorni"
@@ -400,14 +366,27 @@ msgstr "Zaporedje"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_origin
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Source"
 msgstr "Vir"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_partner_id
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Stakeholder"
 msgstr "Deležnik"
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Stakeholder Story"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+msgid "Stakeholder Story:"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_state
@@ -424,6 +403,17 @@ msgstr "Podr. posl. zaht."
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_business_requirement_ids
 msgid "Sub Business Requirement"
 msgstr "Podr. posl. zahteva"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_terms_and_conditions
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Terms and Conditions"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+msgid "Terms and Conditions:"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_test_case
@@ -455,22 +445,9 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_ref
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "WBS"
 msgstr "Členitev"
-
-#. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_5
-#: model:product.template,name:business_requirement.product_product_5_product_template
-#: model:product.template,name:business_requirement.product_template_5
-msgid "Website Design"
-msgstr "Oblikovanje spletne strani"
-
-#. module: business_requirement
-#: model:product.product,name:business_requirement.product_product_4
-#: model:product.template,name:business_requirement.product_product_4_product_template
-#: model:product.template,name:business_requirement.product_template_4
-msgid "Website Template"
-msgstr "Predloga spletne strani"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
@@ -478,14 +455,20 @@ msgid "Yes"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:290
+#: code:addons/business_requirement/models/business.py:296
+#: code:addons/business_requirement/models/business.py:306
 #, python-format
 msgid ""
 "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:296
+#: code:addons/business_requirement/models/business.py:313
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
+msgid "]&amp;nbsp;"
 msgstr ""
