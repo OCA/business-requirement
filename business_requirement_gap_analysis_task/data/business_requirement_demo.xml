@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-    <data noupdate="1">
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo noupdate="1">
+    <data>
         <record id="business_requirement.business_requirement_1" model="business.requirement">
             <field name="gap_analysis_task" ref="gap_analysis_task_1"/>
         </record>

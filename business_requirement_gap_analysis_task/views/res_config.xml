@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- © 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
 <!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
     <record id="gap_task_category" model="ir.ui.view">

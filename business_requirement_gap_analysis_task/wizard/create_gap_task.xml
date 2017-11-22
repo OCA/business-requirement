@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- © 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
 <!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
     <record id="estimated_time_form" model="ir.ui.view">
@@ -15,7 +15,6 @@
                 <footer>
                 <button name="apply" string="OK" type="object"
                         class="oe_highlight"/>
-                or
                 <button string="_Cancel" class="oe_link" special="cancel"/>
                 </footer>
 
