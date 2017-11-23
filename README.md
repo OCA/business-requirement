@@ -18,7 +18,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[business_requirement](business_requirement/) | 10.0.1.0.0 | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
+[business_requirement](business_requirement/) | 10.0.1.1.0 | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
 [business_requirement_deliverable](business_requirement_deliverable/) | 10.0.1.0.0 | Manage the Business Requirement Deliverables and Resources for your customers
 [business_requirement_deliverable_cost](business_requirement_deliverable_cost/) | 10.0.1.0.0 | Control the cost of your Business Requirements
 [business_requirement_deliverable_crm](business_requirement_deliverable_crm/) | 10.0.1.0.0 | Create your sales quotations directly from the Business Requirements deliverables
