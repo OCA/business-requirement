@@ -4,14 +4,13 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 11:49+0000\n"
-"PO-Revision-Date: 2017-07-27 11:49+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"POT-Creation-Date: 2017-11-23 01:40+0000\n"
+"PO-Revision-Date: 2017-11-23 01:40+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,101 +21,107 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_deliverable
 msgid "Business Requirement Deliverable"
-msgstr "Dobava iz poslovne zahteve"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:product.template,resource_lines:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_product_product_resource_lines
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_product_template_resource_lines
 msgid "Business Requirement Resources"
-msgstr "Viri poslovne zahteve"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,create_uid:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_uid
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,create_date:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_date
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: business_requirement_deliverable_resource_template
-#: view:product.template:business_requirement_deliverable_resource_template.product_template_only_form_view
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_resource_template.product_template_only_form_view
 msgid "Default Resource Template Lines"
-msgstr "Privzete postavke predloge virov"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,display_name:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_display_name
 msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_id
 msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,__last_update:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template___last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,write_uid:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_uid
 msgid "Last Updated by"
 msgstr "Zadnji posodobil"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,write_date:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_date
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,name:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_name
 msgid "Name"
 msgstr "Naziv"
 
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
 msgid "Procurement"
-msgstr "Oskrbovanje"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,product_id:0
-#: field:business.requirement.resource.template,product_template_id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_template_id
 msgid "Product"
-msgstr "Proizvod"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model,name:business_requirement_deliverable_resource_template.model_product_template
 msgid "Product Template"
-msgstr "Predloga proizvoda"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,qty:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_qty
 msgid "Quantity"
-msgstr "Količina"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,sequence:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_sequence
 msgid "Sequence"
 msgstr "Zaporedje"
 
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
 msgid "Task"
-msgstr "Opravilo"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,resource_type:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_resource_type
 msgid "Type"
-msgstr "Tip"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: field:business.requirement.resource.template,uom_id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_uom_id
 msgid "UoM"
-msgstr "EM"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
-#: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:87
+#: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:86
 #, python-format
 msgid "When resource type is task, the UoM category should be time"
-msgstr "Če je tip vira opravilo, bi kategorija EM morala biti čas"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_resource_template
+msgid "business.requirement.resource.template"
+msgstr ""
