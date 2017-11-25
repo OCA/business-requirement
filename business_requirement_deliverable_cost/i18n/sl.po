@@ -3,14 +3,13 @@
 # * business_requirement_deliverable_cost
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 12:10+0000\n"
-"PO-Revision-Date: 2017-07-21 12:10+0000\n"
+"POT-Creation-Date: 2017-11-23 01:40+0000\n"
+"PO-Revision-Date: 2017-11-23 01:40+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -20,9 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,br_count:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_br_count
 msgid "BR Count"
-msgstr "Števec PZ"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement
@@ -30,101 +29,144 @@ msgid "Business Requirement"
 msgstr "Poslovna zahteva"
 
 #. module: business_requirement_deliverable_cost
+#: model:ir.module.category,name:business_requirement_deliverable_cost.module_category_business_requirement_cost
+msgid "Business Requirement Cost"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
 #: model:res.groups,name:business_requirement_deliverable_cost.group_business_requirement_cost_control
 msgid "Business Requirement Cost control"
-msgstr "Nadzor stroškov poslovnih zahtev"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_deliverable
 msgid "Business Requirement Deliverable"
-msgstr "Dobava iz poslovne zahteve"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_cost.business_requirement_other_resources_report
+msgid "Business Requirement Deliverable Other Resources Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Business Requirement Document"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:res.groups,name:business_requirement_deliverable_cost.group_business_requirement_estimation
+msgid "Business Requirement Estimation"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_resource
 msgid "Business Requirement Resource"
-msgstr "Vir poslovne zahteve"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,change_request:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_change_request
 msgid "Change Request?"
 msgstr "Zahteva po spremembi?"
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement.deliverable.cost.report:business_requirement_deliverable_cost.view_deliverable_cost_graph
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_currency_status
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_currency_status
+msgid "Company Currency"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,help:business_requirement_deliverable_cost.field_business_requirement_company_currency_id
+#: model:ir.model.fields,help:business_requirement_deliverable_cost.field_business_requirement_deliverable_company_currency_id
+msgid "Company Currency Id"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_deliverable_cost_graph
 msgid "Cost Analysis"
-msgstr "Stroškovna analiza"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.resource,unit_price:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_unit_price
 msgid "Cost Price"
-msgstr "Nabavna cena"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement:business_requirement_deliverable_cost.view_business_requirement_form_inherit
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_form_inherit
 msgid "Cost control"
-msgstr "Nadzor stroškov"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,cost_price:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_cost_price
 msgid "Cost price"
-msgstr "Nabavna cena"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,partner_id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_company_currency_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_company_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_partner_id
 msgid "Customer"
 msgstr "Kupec"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Deliverable"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.actions.act_window,name:business_requirement_deliverable_cost.action_deliverable_cost_report
 #: model:ir.ui.menu,name:business_requirement_deliverable_cost.menu_action_deliverable_cost_report
 msgid "Deliverable Cost Analysis"
-msgstr "Stroškovna analiza dobav"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_deliverable_cost_report
 msgid "Deliverable Cost Report"
-msgstr "Poročilo o stroških dobav"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,dlv_count:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_count
 msgid "Deliverable Count"
-msgstr "Števec dobav"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,dlv_description:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_description
 msgid "Deliverable Description"
-msgstr "Opis dobav"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,dlv_qty:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_qty
 msgid "Deliverable Qty"
-msgstr "Kol. dobav"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,description:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_description
 msgid "Description"
 msgstr "Opis"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,display_name:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_display_name
 msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,dlv_product:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_product
 msgid "Dlv Product"
-msgstr "Dobavljen proizvod"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement,gross_profit:0
-#: field:business.requirement.deliverable,gross_profit:0
-msgid "Estimated Gross Profit"
-msgstr "Ocenjeni bruto dobiček"
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_gross_profit
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_gross_profit
+msgid "Est. Gross Profit"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,gross_profit:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_gross_profit
 msgid "Gross Profit"
-msgstr "Bruto dobiček"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
 #: selection:business.requirement.deliverable.cost.report,priority:0
@@ -132,12 +174,12 @@ msgid "High"
 msgstr "Visoka"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_id
 msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,__last_update:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report___last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
 
@@ -147,12 +189,13 @@ msgid "Low"
 msgstr "Nizka"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,project_id:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_project_id
 msgid "Master Project"
 msgstr "Nosilni projekt"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,name:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_name
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Name"
 msgstr "Naziv"
 
@@ -162,104 +205,146 @@ msgid "Normal"
 msgstr "Običajna"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.resource,partner_id:0
-msgid "Parter ID Related"
-msgstr "Povezani ID partnerja"
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Other Resources :"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,priority:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_partner_id
+msgid "Parter ID Related"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_priority
 msgid "Priority"
 msgstr "Prioriteta"
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement,rl_total_cost:0
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_rl_total_cost
 msgid "RL Total Cost"
-msgstr "Skupaj stroški postavk virov"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,res_product:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_product
 msgid "Res Product"
-msgstr "Proizvod vira"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,res_count:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_count
 msgid "Resource Count"
-msgstr "Števec virov"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,res_description:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_description
 msgid "Resource Description"
-msgstr "Opis vira"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,res_qty:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_qty
 msgid "Resource Qty"
-msgstr "Kol. virov"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,sale_price:0
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Resource lines for deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_sale_price
 msgid "Sale Price"
-msgstr "Prodajna cena"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.resource,sale_price_unit:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_sale_price_unit
 msgid "Sales Price"
-msgstr "Prodajna cena"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.resource,price_total:0
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Total"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_price_total
 msgid "Total Cost"
-msgstr "Skupaj stroški"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
-#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_pivot
-#: view:business.requirement.resource:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
-#: view:business.requirement.resource:business_requirement_deliverable_cost.view_business_requirement_resource_tree
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_tree
 msgid "Total Price"
-msgstr "Skupaj cena"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,total_revenue:0
-#: field:business.requirement.resource,sale_price_total:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_resource_procurement_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_procurement_total
+msgid "Total Procurement"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_total_revenue
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_total_revenue_ci
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_sale_price_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_total_revenue_ci
 msgid "Total Revenue"
-msgstr "Skupni prihodki"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
-#: view:business.requirement.resource:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
-#: view:business.requirement.resource:business_requirement_deliverable_cost.view_business_requirement_resource_tree
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_tree
 msgid "Total Sale"
-msgstr "Skupaj prodaja"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable.cost.report,total_cost:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_resource_task_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_task_total
+msgid "Total Tasks"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_total_cost
 msgid "Total cost"
-msgstr "Skupaj stroški"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement,resource_procurement_total:0
-#: field:business.requirement.deliverable,resource_procurement_total:0
-msgid "Total procurement"
-msgstr "Skupaj oskrbovanje"
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Type"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: field:business.requirement,resource_task_total:0
-#: field:business.requirement.deliverable,resource_task_total:0
-msgid "Total tasks"
-msgstr "Skupaj opravil"
-
-#. module: business_requirement_deliverable_cost
-#: field:business.requirement.deliverable,unit_price:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_unit_price
 msgid "Unit price"
-msgstr "Cena enote"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "UoM"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
 msgid "Update Prices on Resource Lines"
-msgstr "Posodobi cene na postavkah virov"
+msgstr ""
 
 #. module: business_requirement_deliverable_cost
-#: view:business.requirement.deliverable:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
 msgid "Update Total Revenue"
-msgstr "Posodobi skupni prihodek"
+msgstr ""
