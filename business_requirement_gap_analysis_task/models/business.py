@@ -8,7 +8,7 @@ from odoo import models, fields, api
 class BusinessRequirementGapAnalysis(models.Model):
     _inherit = 'business.requirement'
 
-    gap_analysis_task = fields.Many2one(
+    gap_analysis_task_id = fields.Many2one(
         comodel_name='project.task',
         inverse_name='business_requirement_id',
         string='Gap Analysis Task',
@@ -20,7 +20,7 @@ class BusinessRequirementGapAnalysis(models.Model):
     @api.onchange('project_id')
     def master_project_change(self):
         for rec in self:
-            if rec.gap_analysis_task:
+            if rec.gap_analysis_task_id:
                 return {
                     'warning': {
                         'title': 'Master Project Changed',

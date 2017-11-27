@@ -4,19 +4,19 @@
 <odoo noupdate="1">
     <data>
         <record id="business_requirement.business_requirement_1" model="business.requirement">
-            <field name="gap_analysis_task" ref="gap_analysis_task_1"/>
+            <field name="gap_analysis_task_id" ref="gap_analysis_task_1"/>
         </record>
         <record id="business_requirement.business_requirement_2_1" model="business.requirement">
-            <field name="gap_analysis_task" ref="gap_analysis_task_2"/>
+            <field name="gap_analysis_task_id" ref="gap_analysis_task_2"/>
         </record>
         <record id="business_requirement.business_requirement_2_2" model="business.requirement">
-            <field name="gap_analysis_task" ref="gap_analysis_task_3"/>
+            <field name="gap_analysis_task_id" ref="gap_analysis_task_3"/>
         </record>
         <record id="business_requirement.business_requirement_3" model="business.requirement">
-            <field name="gap_analysis_task" ref="gap_analysis_task_4"/>
+            <field name="gap_analysis_task_id" ref="gap_analysis_task_4"/>
         </record>
         <record id="business_requirement.business_requirement_4" model="business.requirement">
-            <field name="gap_analysis_task" ref="gap_analysis_task_5"/>
+            <field name="gap_analysis_task_id" ref="gap_analysis_task_5"/>
         </record>
     </data>
 </odoo>

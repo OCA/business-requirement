@@ -34,13 +34,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
         }
         self.brA = self.env['business.requirement'].create(vals)
 
-        self.WizardObj = self.env['br.gap_analysis_task']
+        self.WizardObj = self.env['br.gap_analysis_task_id']
         self.ProjectTaskObj = self.env['project.task']
 
         self.GapConfigObj = self.env[
             'business.requirement.gap.task.config.setting']
         self.gap_category = self.GapConfigObj.create(
-            {'gap_task_category': self.category.id}
+            {'gap_task_category_id': self.category.id}
         )
         self.gap_category.set_business_requirement_gap_task_category_default()
 
@@ -48,22 +48,22 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.WizardObj.create({'estimated_time': 40})
         self.WizardObj.with_context({'active_id': self.brA.id}).apply()
         self.assertEqual(
-            self.brA.gap_analysis_task.name,
+            self.brA.gap_analysis_task_id.name,
             'Gap Analysis for {}'.format(self.brA.name))
         self.assertEqual(
-            self.brA.gap_analysis_task.categ_id.id, self.category.id
+            self.brA.gap_analysis_task_id.categ_id.id, self.category.id
         )
         self.assertEqual(
-            self.brA.gap_analysis_task.user_id.id, self.env.user.id
+            self.brA.gap_analysis_task_id.user_id.id, self.env.user.id
         )
         self.assertEqual(
-            self.brA.gap_analysis_task.project_id.id, self.brA.project_id.id
+            self.brA.gap_analysis_task_id.project_id.id, self.brA.project_id.id
         )
         self.assertEqual(
-            self.brA.gap_analysis_task.planned_hours,
+            self.brA.gap_analysis_task_id.planned_hours,
             self.WizardObj.estimated_time
         )
         self.assertEqual(
-            self.brA.gap_analysis_task.id,
+            self.brA.gap_analysis_task_id.id,
             self.ProjectTaskObj.search([]).sorted('create_date')[-1].id
         )

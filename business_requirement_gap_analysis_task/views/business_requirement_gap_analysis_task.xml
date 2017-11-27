@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='priority']"
                    position="after">
-                <field name="gap_analysis_task"/>
+                <field name="gap_analysis_task_id"/>
             </xpath>
             <xpath expr="//header/field[@name='state']"
                    position="before">
@@ -18,7 +18,7 @@
                         string="Generate the Gap Analysis Task"
                         type="action"
                         class="oe_highlight"
-                        attrs="{'invisible': ['|',('gap_analysis_task', '!=', False),('project_id', '==', False)]}"/>
+                        attrs="{'invisible': ['|',('gap_analysis_task_id', '!=', False),('project_id', '==', False)]}"/>
             </xpath>
         </field>
     </record>

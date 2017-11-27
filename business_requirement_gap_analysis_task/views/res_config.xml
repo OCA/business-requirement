@@ -2,7 +2,7 @@
 <!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
 <!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
-    <record id="gap_task_category" model="ir.ui.view">
+    <record id="gap_task_category_id" model="ir.ui.view">
         <field name="name">Gap Task Config</field>
         <field name="model">business.requirement.gap.task.config.setting</field>
         <field name="priority" eval="20"/>
@@ -15,8 +15,8 @@
                             class="oe_highlight"/>
                 </header>
                 <separator string="Gap Analysis Task Config Setting"/>
-                <label for="gap_task_category"/>
-                <field name="gap_task_category" class="oe_inline"/>
+                <label for="gap_task_category_id"/>
+                <field name="gap_task_category_id" class="oe_inline"/>
             </form>
         </field>
     </record>

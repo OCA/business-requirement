@@ -6,7 +6,7 @@ from odoo import models, fields, api
 
 
 class Wizard(models.TransientModel):
-    _name = 'br.gap_analysis_task'
+    _name = 'br.gap_analysis_task_id'
 
     estimated_time = fields.Float(string='estimated hours',
                                   widget='float_time')
@@ -22,7 +22,7 @@ class Wizard(models.TransientModel):
         category = self.env[
             'business.requirement.gap.task.config.setting'
         ].get_default_gap_task_category(
-            ['gap_task_category'])['gap_task_category']
+            ['gap_task_category_id'])['gap_task_category_id']
         category_id = category[0] if category else None
         project_id = br.project_id
         assigned_to = self.env.user
@@ -41,4 +41,4 @@ class Wizard(models.TransientModel):
         task = self.env['project.task'].create(vals)
         br = self.env['business.requirement'].browse(
             vals.get('business_requirement_id'))
-        br.write({'gap_analysis_task': task.id})
+        br.write({'gap_analysis_task_id': task.id})
