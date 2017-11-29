@@ -19,14 +19,13 @@ class BusinessRequirementGapAnalysis(models.Model):
     @api.multi
     @api.onchange('project_id')
     def master_project_change(self):
-        for rec in self:
-            if rec.gap_analysis_task_id:
-                return {
-                    'warning': {
-                        'title': 'Master Project Changed',
-                        'message': 'The master project has been changed,'
-                                   ' if you want to change the '
-                                   'master project of gap analysis task, '
-                                   'you have to change it manually.'
+        for rec in self.mapped('gap_analysis_task_id'):
+            return {
+                'warning': {
+                    'title': 'Master Project Changed',
+                    'message': 'The master project has been changed,'
+                               ' if you want to change the '
+                               'master project of gap analysis task, '
+                               'you have to change it manually.'
                     }
                 }
