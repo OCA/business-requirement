@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo noupdate="1">
+    <record id="gap_analysis_task_1" model="project.task">
+        <field name="name">Gap Analysis For BR000001</field>
+        <field name="project_id" ref="business_requirement.project_2"/>
+        <field name="categ_id" ref="project_task_category.project_category_03"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="planned_hours">10</field>
+        <field name="business_requirement_id"
+               ref="business_requirement.business_requirement_1"/>
+    </record>
+    <record id="gap_analysis_task_2" model="project.task">
+        <field name="name">Gap Analysis For BR000002</field>
+        <field name="project_id" ref="business_requirement.project_2"/>
+        <field name="categ_id" ref="project_task_category.project_category_03"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="planned_hours">20</field>
+        <field name="business_requirement_id"
+               ref="business_requirement.business_requirement_2_1"/>
+    </record>
+    <record id="gap_analysis_task_3" model="project.task">
+        <field name="name">Gap Analysis For BR000003</field>
+        <field name="project_id" ref="business_requirement.project_3"/>
+        <field name="categ_id" ref="project_task_category.project_category_03"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="planned_hours">30</field>
+        <field name="business_requirement_id"
+               ref="business_requirement.business_requirement_2_2"/>
+    </record>
+    <record id="gap_analysis_task_4" model="project.task">
+        <field name="name">Gap Analysis For BR000004</field>
+        <field name="project_id" ref="business_requirement.project_3"/>
+        <field name="categ_id" ref="project_task_category.project_category_03"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="planned_hours">40</field>
+        <field name="business_requirement_id"
+               ref="business_requirement.business_requirement_3"/>
+    </record>
+    <record id="gap_analysis_task_5" model="project.task">
+        <field name="name">Gap Analysis For BR000005</field>
+        <field name="project_id" ref="business_requirement.project_2"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="planned_hours">100</field>
+        <field name="business_requirement_id"
+               ref="business_requirement.business_requirement_5"/>
+    </record>
+</odoo>

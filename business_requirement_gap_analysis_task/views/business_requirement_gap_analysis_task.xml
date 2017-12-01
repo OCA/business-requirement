@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record model="ir.ui.view" id="view_business_requirement_form">
+        <field name="name">business.requirement.form</field>
+        <field name="model">business.requirement</field>
+        <field name="inherit_id"
+               ref="business_requirement.view_business_requirement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='priority']"
+                   position="after">
+                <field name="gap_analysis_task_id"/>
+            </xpath>
+            <xpath expr="//header/field[@name='state']"
+                   position="before">
+                <button name="%(launch_wizard_gap)d"
+                        string="Generate the Gap Analysis Task"
+                        type="action"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|',('gap_analysis_task_id', '!=', False),('project_id', '==', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

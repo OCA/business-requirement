@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="gap_task_category_id" model="ir.ui.view">
+        <field name="name">Gap Task Config</field>
+        <field name="model">business.requirement.gap.task.config.setting</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <form string="Gap Analysis Task Config"
+                  class="oe_form_configuration">
+                <header>
+                    <button string="Apply" type="object"
+                            name="set_business_requirement_gap_task_category_default"
+                            class="oe_highlight"/>
+                </header>
+                <separator string="Gap Analysis Task Config Setting"/>
+                <label for="gap_task_category_id"/>
+                <field name="gap_task_category_id" class="oe_inline"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="gap_task_config_action" model="ir.actions.act_window">
+        <field name="name">Gap Task Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">business.requirement.gap.task.config.setting</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="gap_task_config_menu"
+              action="gap_task_config_action"
+              name="Gap Task Category"
+              parent="business_requirement.menu_business_configuration"/>
+</odoo>

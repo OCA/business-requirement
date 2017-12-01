@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="estimated_time_form" model="ir.ui.view">
+        <field name="name">Estimated time to prepare the BR</field>
+        <field name="model">br.gap_analysis_task_id</field>
+        <field name="type">form</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="estimated_time"/>
+                </group>
+                <footer>
+                <button name="apply" string="OK" type="object"
+                        class="oe_highlight"/>
+                <button string="_Cancel" class="oe_link" special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+    <record id="launch_wizard_gap" model="ir.actions.act_window">
+        <field name="name">Gap Analysis</field>
+        <field name="res_model">br.gap_analysis_task_id</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

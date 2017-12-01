@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo noupdate="1">
+    <record id="business_requirement.business_requirement_1"
+            model="business.requirement">
+        <field name="gap_analysis_task_id" ref="gap_analysis_task_1"/>
+    </record>
+    <record id="business_requirement.business_requirement_2_1"
+            model="business.requirement">
+        <field name="gap_analysis_task_id" ref="gap_analysis_task_2"/>
+    </record>
+    <record id="business_requirement.business_requirement_2_2"
+            model="business.requirement">
+        <field name="gap_analysis_task_id" ref="gap_analysis_task_3"/>
+    </record>
+    <record id="business_requirement.business_requirement_3"
+            model="business.requirement">
+        <field name="gap_analysis_task_id" ref="gap_analysis_task_4"/>
+    </record>
+    <record id="business_requirement.business_requirement_4"
+            model="business.requirement">
+        <field name="gap_analysis_task_id" ref="gap_analysis_task_5"/>
+    </record>
+</odoo>
