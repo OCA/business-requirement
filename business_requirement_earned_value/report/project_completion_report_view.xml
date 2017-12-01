@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="action_project_completion_tree" model="ir.ui.view">
+            <field name="name">Project Completion Tree</field>
+            <field name="model">project.completion.report</field>
+            <field name="arch" type="xml">
+                <tree string="Project Completion Tree">
+                    <field name="partner_id"/>
+                    <field name="account_id"/>
+                    <field name="project_categ_id"/>                    
+                    <field name="project_id"/>
+                    <field name="project_state"/>
+                    <field name="br_id"/>
+                    <field name="activity_id" string="ID"/>
+                    <field name="activity_type"/>
+                    <field name="activity_name"/>
+                    <field name="activity_stage_id"/>
+                    <field name="user_id"/>
+                    <field name="planned_hours"/>
+                    <field name="hours"/>
+                    <field name="remaining_hours"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_project_completion_pivot" model="ir.ui.view">
+            <field name="name">Project Completion Pivot Table</field>
+            <field name="model">project.completion.report</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="project_id"/>
+                    <field name="user_id"/>
+                    <field name="hours" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="action_project_completion_report" model="ir.actions.act_window">
+            <field name="name">Project Completion Analysis</field>
+            <field name="res_model">project.completion.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <record model="ir.ui.view" id="project_completion_search">
+            <field name="name">Project Completion Search</field>
+            <field name="model">project.completion.report</field>
+            <field name="arch" type="xml">
+                <search string="Project Completion search">
+                    <field name="activity_id"/>
+                    <field name="account_id"/>
+                    <field name="project_id"/>
+                    <field name="project_state"/>
+                    <field name="user_id"/>
+                    <field name="br_id"/>
+                    <field name="partner_id"/>
+                    <field name="activity_stage_id"/>
+                    <field name="project_categ_id"/>
+                    <!--filter string="Current Month" domain="[('date','&gt;=', datetime.datetime.now().strftime('%%Y-%%m-01'))]"/>
+                    <filter string="Previous Month" name="previous_month" domain="[('date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('date','&lt;',time.strftime('%%Y-%%m-01'))]"/-->
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Analytic Account" domain="[]" context="{'group_by': 'account_id'}"/>
+                        <filter string="Project" domain="[]" context="{'group_by': 'project_id'}"/>
+                        <filter string="State" domain="[]" context="{'group_by': 'project_state'}"/>
+                        <filter string="User" domain="[]" context="{'group_by': 'user_id'}"/>
+                        <filter string="Business Requirement" domain="[]" context="{'group_by': 'br_id'}"/>
+                        <filter string="Customer" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Activity stage" domain="[]" context="{'group_by': 'activity_stage_id'}"/>
+                        <filter string="Project category" domain="[]" context="{'group_by': 'project_categ_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <menuitem name="Project Completion Analysis" id="menu_project_completion_report_tree"
+            parent="hr.menu_hr_reporting" action="action_project_completion_report" sequence="1"/>
+
+    </data>
+</openerp>
