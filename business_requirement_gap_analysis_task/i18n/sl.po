@@ -1,0 +1,143 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_gap_analysis_task
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-01 03:45+0000\n"
+"PO-Revision-Date: 2017-12-01 03:45+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.gap_task_category_id
+msgid "Apply"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model,name:business_requirement_gap_analysis_task.model_business_requirement
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_create_uid
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_create_date
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_display_name
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_display_name
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.actions.act_window,name:business_requirement_gap_analysis_task.launch_wizard_gap
+msgid "Gap Analysis"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_analysis_task_id
+msgid "Gap Analysis Task"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_gap_task_category_id
+msgid "Gap Analysis Task Category"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.gap_task_category_id
+msgid "Gap Analysis Task Config"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.gap_task_category_id
+msgid "Gap Analysis Task Config Setting"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.menu,name:business_requirement_gap_analysis_task.gap_task_config_menu
+msgid "Gap Task Category"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.actions.act_window,name:business_requirement_gap_analysis_task.gap_task_config_action
+msgid "Gap Task Config"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.view_business_requirement_form
+msgid "Generate the Gap Analysis Task"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_id
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id___last_update
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting___last_update
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_write_uid
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_write_uid
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_write_date
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.estimated_time_form
+msgid "OK"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,help:business_requirement_gap_analysis_task.field_business_requirement_gap_analysis_task_id
+msgid ""
+"Use this task to input all the timesheets for the preparation of this BR "
+"(meetings, solution design, estimation, etc.)"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.estimated_time_form
+msgid "_Cancel"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model,name:business_requirement_gap_analysis_task.model_br_gap_analysis_task_id
+msgid "br.gap_analysis_task_id"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model,name:business_requirement_gap_analysis_task.model_business_requirement_gap_task_config_setting
+msgid "business.requirement.gap.task.config.setting"
+msgstr ""
+
+#. module: business_requirement_gap_analysis_task
+#: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_estimated_time
+msgid "estimated hours"
+msgstr ""
