@@ -2,11 +2,11 @@
 # © 2016 - Elico Corp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Business_Requirement_Earned_Value",
+    "name": "Business Requirement Earned Value",
     "summary": "Follow-up project completion (estimated / consumed)",
     "version": "10.0.1.0.0",
     "category": "Project",
-    'website': 'https://www.elico-corp.com',
+    'website': 'https://github.com/OCA/business-requirement/',
     'support': 'support@elico-corp.com',
     "author": "Elico Corp",
     "license": "AGPL-3",
