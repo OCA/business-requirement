@@ -1,5 +1,5 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 =================================
@@ -41,6 +41,7 @@ Images
 Contributors
 ------------
 
+* Eric Caudal <eric.caudal@elico-corp.com>
 * Sebastien Maillard <sebastien.maillard@elico-corp.com>
 
 Maintainer
