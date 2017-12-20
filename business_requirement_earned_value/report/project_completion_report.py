@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, api, fields, tools
@@ -29,9 +29,6 @@ class ProjectCompletionReport(models.Model):
         'project.project', 'Project', readonly=True)
     account_id = fields.Many2one(
         'account.analytic.account', 'Analytic Account', readonly=True)
-    # project_categ_id = fields.Many2one(
-    #     'project.project.category',
-    #     'Project Cat.', readonly=True, help="Project Category")
     activity_type = fields.Selection(
         [
             ('task', 'Task'),
@@ -113,26 +110,25 @@ class ProjectCompletionReport(models.Model):
         tools.drop_view_if_exists(self._cr, 'project_completion_report')
         self._cr.execute("""
                 CREATE OR REPLACE VIEW project_completion_report AS (
-                    -- Since Odoo requires a unique ID for each line and since 
-                    -- some issues and tasks might share the same ID, use the 
+                    -- Since Odoo requires a unique ID for each line and since
+                    -- some issues and tasks might share the same ID, use the
                     -- row number to ensure each row has a unique ID
                     SELECT
                         row_number() OVER (ORDER BY q.activity_id) AS id, q.*
                     FROM
                     (
                         (
-                            SELECT     
+                            SELECT
                                 a.partner_id,
                                 b.project_id AS master_project_id,
                                 b.id AS br_id,
                                 b.state AS br_status,
                                 t.categ_id AS task_category_id,
                                 CASE WHEN p.active = True THEN 'Active'
-                                WHEN p.active=False THEN 'Archived' 
+                                WHEN p.active=False THEN 'Archived'
                                 END AS project_state,
                                 p.id AS project_id,
                                 a.id AS account_id,
-                                -- p.project_categ_id,
                                 'task' AS activity_type,
                                 t.id AS activity_id,
                                 t.name AS activity_name,
@@ -157,7 +153,7 @@ class ProjectCompletionReport(models.Model):
                                 INNER JOIN account_analytic_account a
                                     ON a.id = p.analytic_account_id
                                 -- Link with the task
-                                INNER JOIN project_task t 
+                                INNER JOIN project_task t
                                 ON t.project_id = p.id
                                 -- Link with the timesheet
                                 LEFT OUTER JOIN account_analytic_line tw
@@ -180,16 +176,15 @@ class ProjectCompletionReport(models.Model):
                         (
                             SELECT
                                 a.partner_id,
-                                b.project_id AS master_project_id,                           
+                                b.project_id AS master_project_id,
                                 b.id AS br_id,
                                 b.state AS br_status,
                                 null as task_category_id,
                                 CASE WHEN p.active = True THEN 'Active'
-                                WHEN p.active=False THEN 'Archived' 
+                                WHEN p.active=False THEN 'Archived'
                                 END AS project_state,
                                 p.id AS project_id,
                                 a.id AS account_id,
-                                -- p.project_categ_id,
                                 'issue' AS activity_type,
                                 i.id AS activity_id,
                                 i.name AS activity_name,
@@ -211,7 +206,7 @@ class ProjectCompletionReport(models.Model):
                                 INNER JOIN account_analytic_account a
                                     ON a.id = p.analytic_account_id
                                 -- Link with the issue
-                                INNER JOIN project_issue i 
+                                INNER JOIN project_issue i
                                 ON i.project_id = p.id
                                 -- Link with the timesheet
                                 LEFT OUTER JOIN account_analytic_line ts

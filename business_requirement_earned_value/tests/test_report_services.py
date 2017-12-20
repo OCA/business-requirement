@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2016 Elico Corp
+# © 2017 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo.tests import common
 
@@ -9,9 +9,12 @@ class TestReportService(common.TransactionCase):
         super(TestReportService, self).setUp()
 
     def test_report(self):
-        ts1 = self.env.ref('project_completion_report.account_analytic_line_1')
-        ts2 = self.env.ref('project_completion_report.account_analytic_line_2')
-        ts3 = self.env.ref('project_completion_report.account_analytic_line_3')
+        ts1 = self.env.ref(
+            'business_requirement_earned_value.account_analytic_line_1')
+        ts2 = self.env.ref(
+            'business_requirement_earned_value.account_analytic_line_2')
+        ts3 = self.env.ref(
+            'business_requirement_earned_value.account_analytic_line_3')
         self.brA = self.env.ref('business_requirement.business_requirement_4')
         vals = {
             'for_br': True,
