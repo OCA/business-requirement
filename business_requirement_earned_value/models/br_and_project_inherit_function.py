@@ -13,7 +13,7 @@ class BusinessRequirementInherit(models.Model):
         for self in self:
             domain = [('br_id', '=', self.id)]
             return {
-                'name': _('BR_Project_completion_report'),
+                'name': _('BR Project completion report'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
                 'view_mode': 'graph',
@@ -31,7 +31,7 @@ class ProjectInherit(models.Model):
         for self in self:
             domain = [('project_id', '=', self.id)]
             return {
-                'name': _('Project_project_completion_report'),
+                'name': _('Project project completion report'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
                 'view_mode': 'graph',

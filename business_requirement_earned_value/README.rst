@@ -2,9 +2,9 @@
    :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
-=========================
-Project Completion Report
-=========================
+=================================
+Business Requirement Earned Value
+=================================
 
 This module creates a report that allows you to follow-up the
 completion of a project by comparing the estimated time and the

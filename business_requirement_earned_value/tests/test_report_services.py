@@ -7,34 +7,13 @@ from odoo.tests import common
 class TestReportService(common.TransactionCase):
     def setUp(self):
         super(TestReportService, self).setUp()
+        self.br = self.env.ref('business_requirement.business_requirement_4')
+        self.project = self.env.ref('project.project_project_4')
 
-    def test_report(self):
-        ts1 = self.env.ref(
-            'business_requirement_earned_value.account_analytic_line_1')
-        ts2 = self.env.ref(
-            'business_requirement_earned_value.account_analytic_line_2')
-        ts3 = self.env.ref(
-            'business_requirement_earned_value.account_analytic_line_3')
-        self.brA = self.env.ref('business_requirement.business_requirement_4')
-        vals = {
-            'for_br': True,
-            'for_deliverable': True,
-            'for_childs': True,
-        }
-        self.brA.state = 'stakeholder_approval'
-        action = self.brA.project_id.generate_project_wizard()
-        self.wizard = self.env['br.generate.projects'].browse(action['res_id'])
-        self.wizard.write(vals)
-        self.wizard.apply()
-        planned_hours = 0
-        remaining_hours = 0
-        for hours in self.brA.task_ids:
-            planned_hours += hours.planned_hours
-        remaining_hours += ts1.unit_amount + ts2.unit_amount + ts3.unit_amount
-        rl_hours = 0
-        for rl in self.brA.deliverable_lines:
-            for hours in rl.resource_ids:
-                rl_hours += hours.qty
-        extra_hours = rl_hours - remaining_hours
-        self.assertEqual(extra_hours, 14.0)
-        self.assertEqual(planned_hours, 64.0)
+    def test_br_open_project_completion_report(self):
+        res = self.br.br_open_project_completion_report()
+        self.assertTrue(res['name'], 'BR Project completion report')
+
+    def test_project_open_pro_com_trp(self):
+        res = self.project.project_open_pro_com_trp()
+        self.assertTrue(res['name'], 'Project project completion report')
