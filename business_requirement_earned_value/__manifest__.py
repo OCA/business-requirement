@@ -8,7 +8,7 @@
     "category": "Project",
     'website': 'https://github.com/OCA/business-requirement/',
     'support': 'support@elico-corp.com',
-    "author": "Odoo Community Association (OCA)",
+    "author": "Elico Corp,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
