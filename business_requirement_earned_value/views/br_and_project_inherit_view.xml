@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_business_requirement_form_improve" model="ir.ui.view">
+        <field name="name">business.requirement.form</field>
+        <field name="model">business.requirement</field>
+        <field name="inherit_id"
+               ref="business_requirement.view_business_requirement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr='//div[@name="buttons"]/button[1]' position='before'>
+                <button class="oe_inline oe_stat_button"
+                    type="object" name="br_open_project_completion_report"
+                        icon="fa-tasks" string="Pro. Com. Rep">
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_to_project_completion_report" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr='//button[@name="toggle_active"]' position='before'>
+                <button class="oe_inline oe_stat_button"
+                    type="object" name="project_open_pro_com_trp"
+                        icon="fa-tasks" string="Pro. Com. Rep" >
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
