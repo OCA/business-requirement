@@ -10,10 +10,8 @@ class ProjectCompletionReport(models.Model):
         Project Completion Report
     """
     _name = "project.completion.report"
-    # Database table should not be created, use init() instead
     _auto = False
     _description = "Project Completion Report"
-    # Field used for the Name
     _rec_name = 'activity_name'
 
     id = fields.Integer('ID', readonly=True)
