@@ -15,6 +15,7 @@
     "depends": [
         "hr_timesheet",
         "project_issue_sheet",
+        "project_task_category",
         "business_requirement_deliverable_project",
     ],
     "data": [
