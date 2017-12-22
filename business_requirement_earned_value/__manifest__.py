@@ -24,4 +24,7 @@
         "security/ir.model.access.csv",
         'views/br_and_project_inherit_view.xml',
     ],
+    'demo': [
+        'demo/project_completion_report_demo.xml'
+    ],
 }
