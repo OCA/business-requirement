@@ -106,9 +106,14 @@
         </field>
     </record>
 
+    <menuitem name="Report"
+              id="business_requirement_report"
+              parent="business_requirement.menu_business_root"
+              sequence="25"/>
+
     <menuitem id="menu_project_completion_report_tree"
               name="Project Completion Analysis"
-              parent="hr.menu_hr_reporting_timesheet"
+              parent="business_requirement_report"
               action="action_project_completion_report" sequence="1" />
 
 </odoo>
