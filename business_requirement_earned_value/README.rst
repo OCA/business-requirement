@@ -10,14 +10,15 @@ This module creates a report that allows you to follow-up the
 completion of a project by comparing the estimated time and the
 time actually spent in the timesheets.
 
-.. image:: ../business_requirement_earned_value/static/img/graph.png
+.. image:: ../business_requirement_earned_value/static/img/report.png
+   :width: 826 px
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Go to Reporting > Project > Project Completion Report
+#. Go to Business Requirement > Report > Project Completion Report
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
