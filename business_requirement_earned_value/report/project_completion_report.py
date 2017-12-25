@@ -132,7 +132,10 @@ class ProjectCompletionReport(models.Model):
                                 t.name AS activity_name,
                                 t.user_id,
                                 t.stage_id AS activity_stage_id,
-                                COALESCE(r.qty, 0) AS estimated_hours,
+                                CASE WHEN r.uom_id=5 THEN COALESCE(r.qty, 0)
+                                WHEN r.uom_id=6 THEN COALESCE(r.qty*8, 0)
+                                END AS estimated_hours,
+                                --COALESCE(r.qty, 0) AS estimated_hours,
                                 t.planned_hours,
                                 COALESCE(SUM(tw.unit_amount), 0) AS total_tms,
                                 t.remaining_hours,
