@@ -109,7 +109,7 @@
     <menuitem name="Report"
               id="business_requirement_report"
               parent="business_requirement.menu_business_root"
-              sequence="25"/>
+              sequence="7"/>
 
     <menuitem id="menu_project_completion_report_tree"
               name="Project Completion Analysis"

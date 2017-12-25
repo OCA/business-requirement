@@ -1,64 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Projects -->
-    <record id="business_requirement.project_1" model="project.project">
+
+    <record id="project.project_task_15" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
         <field name="business_requirement_id" ref="business_requirement.business_requirement_1"/>
-    </record>
-    <record id="business_requirement.project_2" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_2_1"/>
-    </record>
-    <record id="business_requirement.project_3" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
-    </record>
-    <record id="project.project_project_1" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_1"/>
-        <field name="partner_id" ref="base.main_partner"/>
-    </record>
-    <record id="project.project_project_2" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_1"/>
-        <field name="partner_id" ref="base.main_partner"/>
+        <field name="categ_id" ref="project_task_category.project_category_00"/>
+        <field name="timesheet_ids" eval="[(0, 0, {
+        'name': 'building a module',
+        'unit_amount': 2,
+        'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+        'account_id': ref('base.user_root')
+        }),
+        (0, 0, {
+        'name': 'fix bug',
+        'unit_amount': 2,
+        'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+        'account_id': ref('base.user_root')
+        }),
+        ]"/>
     </record>
     <record id="project.project_project_3" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_3"/>
-        <field name="partner_id" ref="base.main_partner"/>
-    </record>
-    <record id="project.project_project_4" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_5"/>
-        <field name="partner_id" ref="base.main_partner"/>
-    </record>
-    <record id="project.project_project_5" model="project.project">
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
-    </record>
-    <!--project task-->
-    <record id="project.project_task_1" model="project.task">
-        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
         <field name="business_requirement_id" ref="business_requirement.business_requirement_1"/>
-        <field name="categ_id" ref="project_task_category.project_category_00"/>
+        <field name="partner_id" ref="base.main_partner"/>
     </record>
-    <record id="project.project_task_2" model="project.task">
-        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
-        <field name="categ_id" ref="project_task_category.project_category_01"/>
-    </record>
-    <record id="project.project_task_3" model="project.task">
-        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_3"/>
-        <field name="categ_id" ref="project_task_category.project_category_02"/>
-    </record>
-    <record id="project.project_task_4" model="project.task">
-        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
-        <field name="categ_id" ref="project_task_category.project_category_03"/>
-    </record>
-    <record id="project.project_task_5" model="project.task">
-        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_5"/>
-        <field name="categ_id" ref="project_task_category.project_category_01"/>
-    </record>
+
     <record id="project.project_task_6" model="project.task">
         <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
-        <field name="business_requirement_id" ref="business_requirement.business_requirement_1"/>
-        <field name="categ_id" ref="project_task_category.project_category_00"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+        <field name="timesheet_ids" eval="[(0, 0, {
+            'name': 'code review',
+            'unit_amount': 1,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            }),
+            (0, 0, {
+            'name': 'personal skill building',
+            'unit_amount': 2,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            }),
+            ]"/>
+    </record>
+    <record id="project.project_project_1" model="project.project">
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+        <field name="partner_id" ref="base.main_partner"/>
+    </record>
+
+    <record id="project.project_task_7" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+
+    <record id="project.project_task_12" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_3"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+    <record id="project.project_project_2" model="project.project">
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_3"/>
+        <field name="partner_id" ref="base.main_partner"/>
+    </record>
+
+    <record id="project.project_task_11" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_3"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+
+    <record id="project.project_task_14" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_5"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+
+    <record id="project.project_task_18" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_5"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+
+    <record id="project.project_task_3" model="project.task">
+        <field name="date_deadline" eval="(DateTime.today() - timedelta(days=13)).strftime('%Y-%m-%d 00:00:00')"/>
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_5"/>
+        <field name="categ_id" ref="project_task_category.project_category_01"/>
+    </record>
+    <record id="project.project_project_1" model="project.project">
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+        <field name="partner_id" ref="base.main_partner"/>
     </record>
 
 </odoo>

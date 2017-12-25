@@ -134,15 +134,15 @@ class ProjectCompletionReport(models.Model):
                                 t.stage_id AS activity_stage_id,
                                 COALESCE(r.qty, 0) AS estimated_hours,
                                 t.planned_hours,
-                                COALESCE(SUM(al.unit_amount), 0) AS total_tms,
+                                COALESCE(SUM(tw.unit_amount), 0) AS total_tms,
                                 t.remaining_hours,
                                 b.kanban_state as br_kanban_state,
                                 t.kanban_state as task_kanban_state,
                                 t.priority as priority,
                                 t.date_deadline as date_deadline,
-                                COALESCE(SUM(al.unit_amount), 0)
+                                COALESCE(SUM(tw.unit_amount), 0)
                                     + t.remaining_hours AS total_hours,
-                                COALESCE(SUM(al.unit_amount), 0)
+                                COALESCE(SUM(tw.unit_amount), 0)
                                     + t.remaining_hours - COALESCE(r.qty, 0)
                                     AS variance
                             FROM
@@ -156,17 +156,12 @@ class ProjectCompletionReport(models.Model):
                                 -- Link with the timesheet
                                 LEFT OUTER JOIN account_analytic_line tw
                                     ON tw.task_id = t.id
-                                LEFT OUTER JOIN account_analytic_line tms
-                                    ON tms.id = tw.sheet_id
-                                LEFT OUTER JOIN account_analytic_line al
-                                    ON al.id = tms.account_id
-                                -- Link with the BR
                                 LEFT OUTER JOIN business_requirement b
                                     ON b.id = p.business_requirement_id
                                 -- Link with the BR resource
                                 LEFT OUTER JOIN business_requirement_resource r
                                     ON r.business_requirement_id = b.id
-                                    AND r.id = t.br_resource_id
+                                    -- AND r.id = t.br_resource_id
                             GROUP BY
                                 t.id, p.id, a.id, b.id, r.id
                         )

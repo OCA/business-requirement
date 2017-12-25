@@ -26,5 +26,5 @@
     ],
     'demo': [
         'demo/project_completion_report_demo.xml'
-    ],
+    ]
 }
