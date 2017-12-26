@@ -15,7 +15,7 @@
             </xpath>
             <xpath expr="//field[@name='reviewer_ids']" position="after">
                 <field name="source_id"/>
-                <field name="copy_from_id"/>
+                <field name="copy_from_id" readonly="1"/>
                 <field name="version" invisible="1"/>
             </xpath>
             <xpath expr='//div[@name="buttons"]' position='inside'>
