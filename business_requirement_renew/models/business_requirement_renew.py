@@ -9,12 +9,6 @@ from odoo import models, api, fields, _
 class BusinessRequirementRenew(models.Model):
     _inherit = 'business.requirement'
 
-    @api.multi
-    def _compute_br_children_count(self):
-        for record in self:
-            count = len(record.env['business.requirement'].search(
-                [('source_id', '=', record.id)]))
-            record.br_children_count = count + 1
 
     source_id = fields.Many2one(
         'business.requirement',
@@ -23,6 +17,14 @@ class BusinessRequirementRenew(models.Model):
     copy_from_id = fields.Many2one(
         'business.requirement', string="Renewed From")
     version = fields.Integer(string='Version', default=0)
+
+    @api.multi
+    def _compute_br_children_count(self):
+        for record in self:
+            count = len(record.env['business.requirement'].search(
+                [('source_id', '=', record.id)]))
+            record.br_children_count = count + 1
+
     br_children_count = fields.Integer(
         string='BR children', copy=False, store=False,
         compute='_compute_br_children_count'
