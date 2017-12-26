@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_business_requirement_form" model="ir.ui.view">
+        <field name="name">business.requirement.form</field>
+        <field name="model">business.requirement</field>
+        <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button string="Renew" name="renew_br"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('state','in',['draft', 'confirmed','renewed'])]}"
+                        group="business_requirement.group_business_requirement_manager"/>
+            </xpath>
+            <xpath expr="//field[@name='reviewer_ids']" position="after">
+                <field name="source_id"/>
+                <field name="copy_from_id"/>
+                <field name="version" invisible="1"/>
+            </xpath>
+            <xpath expr='//div[@name="buttons"]' position='inside'>
+                <button class="oe_inline oe_stat_button"
+                    type="object" name="child_br"
+                        icon="fa-tasks" >
+                    <field name="br_children_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
