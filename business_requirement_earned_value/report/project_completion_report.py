@@ -133,11 +133,11 @@ class ProjectCompletionReport(models.Model):
                                 t.user_id,
                                 t.stage_id AS activity_stage_id,
                                 CASE WHEN r.uom_id=(
-                                select res_id from ir_model_data 
-                                where name='product_uom_hour') 
+                                select res_id from ir_model_data
+                                where name='product_uom_hour')
                                 THEN COALESCE(r.qty, 0)
                                 WHEN r.uom_id=(
-                                select res_id from ir_model_data where 
+                                select res_id from ir_model_data where
                                 name='product_uom_day')
                                  THEN COALESCE(r.qty*8, 0)
                                 END AS estimated_hours,
