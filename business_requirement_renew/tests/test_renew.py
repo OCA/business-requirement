@@ -7,7 +7,8 @@ from odoo.tests import common
 class TestBusinessRequirementRenew(common.TransactionCase):
     def setUp(self):
         super(TestBusinessRequirementRenew, self).setUp()
-        self.source = self.env.ref("business_requirement.business_requirement_1")
+        self.source = self.env.ref(
+            "business_requirement.business_requirement_1")
         self.user = self.env.ref("base.user_demo")
         self.br = self.env['business.requirement'].create({
             'state': 'done',
@@ -15,6 +16,7 @@ class TestBusinessRequirementRenew(common.TransactionCase):
             'version': 1,
             'source_id': self.source.id,
             'copy_from_id': self.source.id,
+            'description': 'test'
         })
 
     def test_renew_br(self):

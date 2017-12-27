@@ -9,7 +9,6 @@ from odoo import models, api, fields, _
 class BusinessRequirementRenew(models.Model):
     _inherit = 'business.requirement'
 
-
     source_id = fields.Many2one(
         'business.requirement',
         string="Original Bus.Req",
