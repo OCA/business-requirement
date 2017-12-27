@@ -10,20 +10,30 @@ class TestBusinessRequirementRenew(common.TransactionCase):
         self.source = self.env.ref(
             "business_requirement.business_requirement_1")
         self.user = self.env.ref("base.user_demo")
-        self.br = self.env['business.requirement'].create({
+        self.br_1 = self.env['business.requirement'].create({
             'state': 'done',
             'responsible_id': self.user.id,
             'version': 1,
             'source_id': self.source.id,
             'copy_from_id': self.source.id,
-            'description': 'test'
+            'description': 'test_1',
+            'reviewer_ids': [(6, 0, [self.user.id])]
+        })
+        self.br_2 = self.env['business.requirement'].create({
+            'state': 'done',
+            'responsible_id': self.user.id,
+            'version': 0,
+            'description': 'test_2'
         })
 
     def test_renew_br(self):
-        res = self.br.renew_br()
-        self.assertTrue(self.br.state, 'renewed')
-        self.assertTrue(res['name'], 'New application')
+        res_1 = self.br_1.renew_br()
+        res_2 = self.br_2.renew_br()
+        self.assertTrue(self.res_1.state, 'renewed')
+        self.assertTrue(self.res_2.state, 'renewed')
+        self.assertTrue(res_1['name'], 'New application')
+        self.assertTrue(res_2['name'], 'New application')
 
     def test_child_br(self):
-        res = self.br.child_br()
+        res = self.br_1.child_br()
         self.assertTrue(res['name'], 'Business Requirement Children')
