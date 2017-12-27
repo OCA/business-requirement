@@ -29,8 +29,8 @@ class TestBusinessRequirementRenew(common.TransactionCase):
     def test_renew_br(self):
         res_1 = self.br_1.renew_br()
         res_2 = self.br_2.renew_br()
-        self.assertTrue(self.res_1.state, 'renewed')
-        self.assertTrue(self.res_2.state, 'renewed')
+        self.assertTrue(self.br_1.state, 'renewed')
+        self.assertTrue(self.br_2.state, 'renewed')
         self.assertTrue(res_1['name'], 'New application')
         self.assertTrue(res_2['name'], 'New application')
 
