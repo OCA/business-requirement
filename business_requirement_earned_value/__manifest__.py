@@ -19,7 +19,6 @@
         "business_requirement_deliverable_project",
     ],
     "data": [
-        'data/project_completion_report_data.xml',
         "report/project_completion_report_view.xml",
         "security/ir.model.access.csv",
         'views/br_and_project_inherit_view.xml',

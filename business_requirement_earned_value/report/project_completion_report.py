@@ -150,7 +150,7 @@ class ProjectCompletionReport(models.Model):
                                 t.priority as priority,
                                 t.date_deadline as date_deadline,
                                 COALESCE(SUM(tw.unit_amount), 0)
-                                    + t.remaining_hours AS total_hours,                                   
+                                    + t.remaining_hours AS total_hours,
                                 CASE WHEN r.uom_id=(
                                 select res_id from ir_model_data
                                 where name='product_uom_hour')
