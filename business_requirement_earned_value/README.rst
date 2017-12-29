@@ -6,6 +6,11 @@
 Business Requirement Earned Value
 =================================
 
+Introduction
+============
+
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/10.0/README.md>`_)
+
 This module creates a report that allows you to follow-up the
 completion of a project by comparing the estimated time and the
 time actually spent in the timesheets.
