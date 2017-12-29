@@ -6,32 +6,32 @@
 from odoo import models, api, fields, _
 
 
-class BusinessRequirementRenew(models.Model):
-    _inherit = 'business.requirement'
+class BusinessRequirementVersion(models.Model):
+    _inherit = "business.requirement"
+
 
     source_id = fields.Many2one(
         'business.requirement',
         string="Original Bus.Req",
-        readonly=True)
+        )
     copy_from_id = fields.Many2one(
         'business.requirement', string="Renewed From")
     version = fields.Integer(string='Version', default=0)
+    related_br_count = fields.Integer(
+        string='Related BR', copy=False, store=False,
+        compute='_compute_related_br_count'
+    )
 
     @api.multi
-    def _compute_br_children_count(self):
+    def _compute_related_br_count(self):
         for record in self:
             count = len(record.env['business.requirement'].search(
                 [('source_id', '=', record.id)]))
-            record.br_children_count = count + 1
-
-    br_children_count = fields.Integer(
-        string='BR children', copy=False, store=False,
-        compute='_compute_br_children_count'
-    )
+            record.related_br_count = count
 
     @api.model
     def _get_states(self):
-        res = super(BusinessRequirementRenew, self)._get_states()
+        res = super(BusinessRequirementVersion, self)._get_states()
         res.append(('renewed', 'Renewed'))
         return res
 
@@ -51,7 +51,7 @@ class BusinessRequirementRenew(models.Model):
                 reviewer_ids=self._context.get('reviewer_ids'),
                 version=self._context.get('version')
             )
-        return super(BusinessRequirementRenew, self).copy(vals)
+        return super(BusinessRequirementVersion, self).copy(vals)
 
     @api.multi
     def renew_br(self):
@@ -59,11 +59,11 @@ class BusinessRequirementRenew(models.Model):
             if rec.source_id:
                 source_id = rec.source_id.id
                 name = rec.source_id.name + '-' + str(
-                    rec.source_id.br_children_count)
-                count = rec.source_id.br_children_count
+                    rec.source_id.related_br_count + 1)
+                count = rec.source_id.related_br_count + 1
             else:
-                name = rec.name + '-' + str(rec.br_children_count)
-                count = rec.br_children_count
+                name = rec.name + '-' + str(rec.related_br_count + 1)
+                count = rec.related_br_count + 1
                 source_id = rec.id
             reviewer_list = []
             for reviews in rec.reviewer_ids:
@@ -92,11 +92,11 @@ class BusinessRequirementRenew(models.Model):
             }
 
     @api.multi
-    def child_br(self):
+    def related_br(self):
         for rec in self:
-            domain = ['|', ('source_id', '=', rec.id), ('id', '=', rec.id)]
+            domain = [('source_id', '=', rec.id)]
             return {
-                'name': _('Business Requirement Children'),
+                'name': _('Related Business Requirement'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
                 'view_mode': 'tree,form',
@@ -124,4 +124,4 @@ class BusinessRequirementRenew(models.Model):
                         msg_followers.append((0, 0, msg_vals))
                 if msg_followers:
                     vals['message_follower_ids'] = msg_followers
-        return super(BusinessRequirementRenew, self).create(vals)
+        return super(BusinessRequirementVersion, self).create(vals)

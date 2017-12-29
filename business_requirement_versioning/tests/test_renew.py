@@ -34,6 +34,6 @@ class TestBusinessRequirementRenew(common.TransactionCase):
         self.assertTrue(res_1['name'], 'New application')
         self.assertTrue(res_2['name'], 'New application')
 
-    def test_child_br(self):
-        res = self.br_1.child_br()
-        self.assertTrue(res['name'], 'Business Requirement Children')
+    def test_related_br(self):
+        res = self.br_1.related_br()
+        self.assertTrue(res['name'], 'Related Business Requirement')

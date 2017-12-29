@@ -13,16 +13,20 @@
                         attrs="{'invisible':[('state','in',['draft', 'confirmed','renewed'])]}"
                         group="business_requirement.group_business_requirement_manager"/>
             </xpath>
-            <xpath expr="//field[@name='reviewer_ids']" position="after">
-                <field name="source_id"/>
-                <field name="copy_from_id" readonly="1"/>
-                <field name="version" invisible="1"/>
+            <xpath expr="//page[@name='logs']" position="after">
+                <page string="Versioning information">
+                    <group col="4">
+                        <field name="source_id" readonly='1'/>
+                        <field name="copy_from_id" readonly="1"/>
+                        <field name="version" invisible="1"/>
+                    </group>
+                </page>
             </xpath>
             <xpath expr='//div[@name="buttons"]' position='inside'>
                 <button class="oe_inline oe_stat_button"
-                    type="object" name="child_br"
+                    type="object" name="related_br"
                         icon="fa-tasks" >
-                    <field name="br_children_count" widget="statinfo"/>
+                    <field name="related_br_count" widget="statinfo"/>
                 </button>
             </xpath>
         </field>

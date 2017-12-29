@@ -1,11 +1,18 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
-   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 
-==========================
-Business Requirement Renew
-==========================
+===============================
+Business Requirement Versioning
+===============================
+
+Introduction
+============
+
+This module is part of a set of modules (`Business Requirements <https://github.com/OCA/business-requirement/blob/10.0/README.md>`_)
+
+This module adds the following features:
 
 This module adds an renew button, and if you click on it you will get the
 same application as the current application.
