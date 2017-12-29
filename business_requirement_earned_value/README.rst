@@ -15,7 +15,7 @@ This module creates a report that allows you to follow-up the
 completion of a project by comparing the estimated time and the
 time actually spent in the timesheets.
 
-.. image:: ../business_requirement_earned_value/static/img/report.png
+.. image:: ../business_requirement_earned_value/static/img/completion_report.png
    :width: 826 px
 
 Usage
@@ -32,7 +32,7 @@ To use this module, you need to:
 Known issues / Roadmap
 ======================
 
-* if BR resource UoM is not hours, the 'qty' is incorrect (should be converted in the SQL view).
+* Current UoM conversion works only for Days and Hours (standard UoM): if other time UoM were to be added the SQL view would need to be made more generic.
 
 Bug Tracker
 ===========
