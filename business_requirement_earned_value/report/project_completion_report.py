@@ -150,10 +150,18 @@ class ProjectCompletionReport(models.Model):
                                 t.priority as priority,
                                 t.date_deadline as date_deadline,
                                 COALESCE(SUM(tw.unit_amount), 0)
-                                    + t.remaining_hours AS total_hours,
-                                COALESCE(SUM(tw.unit_amount), 0)
+                                    + t.remaining_hours AS total_hours,                                   
+                                CASE WHEN r.uom_id=(
+                                select res_id from ir_model_data
+                                where name='product_uom_hour')
+                                THEN COALESCE(SUM(tw.unit_amount), 0)
                                     + t.remaining_hours - COALESCE(r.qty, 0)
-                                    AS variance
+                                WHEN r.uom_id=(
+                                select res_id from ir_model_data where
+                                name='product_uom_day')
+                                THEN COALESCE(SUM(tw.unit_amount), 0)
+                                    + t.remaining_hours - COALESCE(r.qty*8, 0)
+                                END AS variance
                             FROM
                                 project_project p
                                 -- Link with the analytic account

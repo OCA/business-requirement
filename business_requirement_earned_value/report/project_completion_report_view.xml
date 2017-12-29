@@ -101,6 +101,10 @@
                             context="{'group_by': 'user_id'}" />
                     <filter string="Activity Stage" domain="[]"
                             context="{'group_by': 'activity_stage_id'}" />
+                    <filter string="ID" domain="[]"
+                            context="{'group_by': 'activity_id'}" />
+                    <filter string="Activity Name" domain="[]"
+                            context="{'group_by': 'activity_name'}" />
                 </group>
             </search>
         </field>
