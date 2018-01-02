@@ -141,7 +141,6 @@ class ProjectCompletionReport(models.Model):
                                 name='product_uom_day')
                                  THEN COALESCE(r.qty*8, 0)
                                 END AS estimated_hours,
-                                --COALESCE(r.qty, 0) AS estimated_hours,
                                 t.planned_hours,
                                 COALESCE(SUM(tw.unit_amount), 0) AS total_tms,
                                 t.remaining_hours,
@@ -176,9 +175,11 @@ class ProjectCompletionReport(models.Model):
                                 LEFT OUTER JOIN business_requirement b
                                     ON b.id = p.business_requirement_id
                                 -- Link with the BR resource
-                                LEFT OUTER JOIN business_requirement_resource r
+                                INNER JOIN business_requirement_resource r
                                     ON r.business_requirement_id = b.id
                                     -- AND r.id = t.br_resource_id
+                            WHERE
+                                t.name = r.name
                             GROUP BY
                                 t.id, p.id, a.id, b.id, r.id
                         )

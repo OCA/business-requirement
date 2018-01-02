@@ -15,7 +15,7 @@ This module creates a report that allows you to follow-up the
 completion of a project by comparing the estimated time and the
 time actually spent in the timesheets.
 
-.. image:: ../business_requirement_earned_value/static/img/completion_report.png
+.. image:: ../business_requirement_earned_value/static/img/report.png
    :width: 826 px
 
 Usage
