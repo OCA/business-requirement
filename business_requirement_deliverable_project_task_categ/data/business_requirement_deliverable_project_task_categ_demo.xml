@@ -21,8 +21,21 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_stage_0"/>
+            <field name="stage_id" ref="project.project_stage_1"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+            <field name="timesheet_ids" eval="[(0, 0, {
+            'name': 'building a module',
+            'unit_amount': 2,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            }),
+            (0, 0, {
+            'name': 'fix bug',
+            'unit_amount': 2,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            }),
+            ]"/>
 
         </record>
         <record id="project_task_2" model="project.task">
@@ -32,8 +45,15 @@
             <field name="priority">0</field>
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
-            <field name="stage_id" ref="project.project_stage_0"/>
+            <field name="stage_id" ref="project.project_stage_1"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+            <field name="timesheet_ids" eval="[(0, 0, {
+            'name': 'building a module',
+            'unit_amount': 2,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            })
+            ]"/>
         </record>
         <record id="project_task_3" model="project.task">
             <field name="user_id" ref="base.user_root"/>
@@ -42,9 +62,16 @@
             <field name="categ_id" ref="project_category_main_3"/>
             <field name="project_id" ref="business_requirement.project_3"/>
             <field name="name">Module Stack</field>
-            <field name="stage_id" ref="project.project_stage_0"/>
+            <field name="stage_id" ref="project.project_stage_1"/>
             <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
-        </record>
+            <field name="timesheet_ids" eval="[(0, 0, {
+            'name': 'building a module',
+            'unit_amount': 5,
+            'date': DateTime.today().strftime('%Y-%m-%d 00:00:00'),
+            'account_id': ref('base.user_root')
+            }),
+            ]"/>
+            </record>
 
         <record id="business_requirement_deliverable.business_requirement_resource_1_3" model="business.requirement.resource">
             <field name="categ_id"

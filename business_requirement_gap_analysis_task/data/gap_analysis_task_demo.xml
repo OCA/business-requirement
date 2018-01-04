@@ -4,7 +4,7 @@
 <odoo noupdate="1">
     <record id="gap_analysis_task_1" model="project.task">
         <field name="name">Gap Analysis For BR000001</field>
-        <field name="project_id" ref="business_requirement.project_2"/>
+        <field name="project_id" ref="business_requirement.project_1"/>
         <field name="categ_id" ref="project_task_category.project_category_03"/>
         <field name="user_id" ref="base.user_demo"/>
         <field name="planned_hours">10</field>
@@ -22,7 +22,7 @@
     </record>
     <record id="gap_analysis_task_3" model="project.task">
         <field name="name">Gap Analysis For BR000003</field>
-        <field name="project_id" ref="business_requirement.project_3"/>
+        <field name="project_id" ref="business_requirement.project_2"/>
         <field name="categ_id" ref="project_task_category.project_category_03"/>
         <field name="user_id" ref="base.user_demo"/>
         <field name="planned_hours">30</field>
@@ -31,7 +31,7 @@
     </record>
     <record id="gap_analysis_task_4" model="project.task">
         <field name="name">Gap Analysis For BR000004</field>
-        <field name="project_id" ref="business_requirement.project_3"/>
+        <field name="project_id" ref="business_requirement.project_2"/>
         <field name="categ_id" ref="project_task_category.project_category_03"/>
         <field name="user_id" ref="base.user_demo"/>
         <field name="planned_hours">40</field>
@@ -40,11 +40,11 @@
     </record>
     <record id="gap_analysis_task_5" model="project.task">
         <field name="name">Gap Analysis For BR000005</field>
-        <field name="project_id" ref="business_requirement.project_2"/>
+        <field name="project_id" ref="business_requirement.project_3"/>
         <field name="categ_id" ref="project_task_category.project_category_01"/>
         <field name="user_id" ref="base.user_demo"/>
         <field name="planned_hours">100</field>
         <field name="business_requirement_id"
-               ref="business_requirement.business_requirement_5"/>
+               ref="business_requirement.business_requirement_4"/>
     </record>
 </odoo>
