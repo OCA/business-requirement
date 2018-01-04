@@ -11,8 +11,9 @@ The Business Requirements features start as independent entities, and can be use
 Additional modules integrate them with other business areas, such as Sales, Procurement, Project or Analytic Accounting.
 So a Quotation can have an estimation supported by a BR analysis, and Project Tasks can be related to the BRs they implement or support.
 
-
-
+Contributing
+------------
+Do you want to contribute? Please read our [contributing guidelines](https://github.com/OCA/maintainer-tools/blob/master/CONTRIBUTING.md).
 
 Translation Status
 ------------------
