@@ -198,9 +198,6 @@ class BrGenerateProjects(models.TransientModel):
         qty = current_uom._compute_quantity(
             line.qty, default_uom
         )
-        # qty = default_uom._compute_quantity(
-        #     line.qty, default_uom
-        # )
         br_id = False
         if self.for_br:
             if line.business_requirement_id:
