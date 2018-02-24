@@ -1,0 +1,350 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_cost
+# 
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-05 01:16+0000\n"
+"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_br_count
+msgid "BR Count"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement
+msgid "Business Requirement"
+msgstr "Requisito de negocio"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.module.category,name:business_requirement_deliverable_cost.module_category_business_requirement_cost
+msgid "Business Requirement Cost"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:res.groups,name:business_requirement_deliverable_cost.group_business_requirement_cost_control
+msgid "Business Requirement Cost control"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_deliverable
+msgid "Business Requirement Deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.actions.report.xml,name:business_requirement_deliverable_cost.business_requirement_other_resources_report
+msgid "Business Requirement Deliverable Other Resources Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Business Requirement Document"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:res.groups,name:business_requirement_deliverable_cost.group_business_requirement_estimation
+msgid "Business Requirement Estimation"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_resource
+msgid "Business Requirement Resource"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_change_request
+msgid "Change Request?"
+msgstr "¿Solicitud de cambio?"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_currency_status
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_currency_status
+msgid "Company Currency"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,help:business_requirement_deliverable_cost.field_business_requirement_company_currency_id
+#: model:ir.model.fields,help:business_requirement_deliverable_cost.field_business_requirement_deliverable_company_currency_id
+msgid "Company Currency Id"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_deliverable_cost_graph
+msgid "Cost Analysis"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_unit_price
+msgid "Cost Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_form_inherit
+msgid "Cost control"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_cost_price
+msgid "Cost price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_company_currency_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_company_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.actions.act_window,name:business_requirement_deliverable_cost.action_deliverable_cost_report
+#: model:ir.ui.menu,name:business_requirement_deliverable_cost.menu_action_deliverable_cost_report
+msgid "Deliverable Cost Analysis"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model,name:business_requirement_deliverable_cost.model_business_requirement_deliverable_cost_report
+msgid "Deliverable Cost Report"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_count
+msgid "Deliverable Count"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_description
+msgid "Deliverable Description"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_qty
+msgid "Deliverable Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_product
+msgid "Dlv Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_gross_profit
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_gross_profit
+msgid "Est. Gross Profit"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_gross_profit
+msgid "Gross Profit"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: selection:business.requirement.deliverable.cost.report,priority:0
+msgid "High"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: business_requirement_deliverable_cost
+#: selection:business.requirement.deliverable.cost.report,priority:0
+msgid "Low"
+msgstr "Bajo"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_project_id
+msgid "Master Project"
+msgstr "Proyecto maestro"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_name
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Name"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: selection:business.requirement.deliverable.cost.report,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Other Resources :"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_partner_id
+msgid "Parter ID Related"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_rl_total_cost
+msgid "RL Total Cost"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_product
+msgid "Res Product"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_count
+msgid "Resource Count"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_description
+msgid "Resource Description"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_res_qty
+msgid "Resource Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Resource lines for deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_sale_price
+msgid "Sale Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_sale_price_unit
+msgid "Sales Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Total"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_price_total
+msgid "Total Cost"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_tree
+msgid "Total Price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_resource_procurement_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_procurement_total
+msgid "Total Procurement"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_total_revenue
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_total_revenue_ci
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_sale_price_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_total_revenue_ci
+msgid "Total Revenue"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_resource_tree
+msgid "Total Sale"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_resource_task_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_task_total
+msgid "Total Tasks"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_total_cost
+msgid "Total cost"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "Type"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_unit_price
+msgid "Unit price"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
+msgid "UoM"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+msgid "Update Prices on Resource Lines"
+msgstr ""
+
+#. module: business_requirement_deliverable_cost
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form
+msgid "Update Total Revenue"
+msgstr ""
