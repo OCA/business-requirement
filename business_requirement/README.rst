@@ -233,6 +233,7 @@ Contributors
 * Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
 * Victor M. Martin <victor.martin@elico-corp.com>
 * Evan Li <li.aiwen@elico-corp.com>
+* Reinhard Sheng <reinhard.sheng@elico-corp.com>
 
 Maintainer
 ----------
