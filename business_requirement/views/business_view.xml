@@ -180,6 +180,8 @@
                 <field name="partner_id" string="Stakeholder"/>
                 <field name="responsible_id" string="Responsible"/>
                 <field name="origin" string="Source"/>
+                <filter string="Unread Messages" name="message_needaction" 
+                        domain="[('message_needaction', '=', True)]"/>
                 <filter string="To be Reviewed" name="to_be_reviewed"
                         domain="[('to_be_reviewed', '!=', False)]"/>
                 <group expand="0" string="Group By">
