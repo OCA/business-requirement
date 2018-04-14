@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -88,7 +88,7 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_unit_price
 msgid "Cost Price"
-msgstr ""
+msgstr "Precio de coste"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_form_inherit
@@ -98,18 +98,18 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_cost_price
 msgid "Cost price"
-msgstr ""
+msgstr "Precio de coste"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_company_currency_id
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_company_currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Moneda"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
@@ -150,7 +150,7 @@ msgstr "Descripción"
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_dlv_product
@@ -171,7 +171,7 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: selection:business.requirement.deliverable.cost.report,priority:0
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_id
@@ -186,7 +186,7 @@ msgstr "Última modificación el"
 #. module: business_requirement_deliverable_cost
 #: selection:business.requirement.deliverable.cost.report,priority:0
 msgid "Low"
-msgstr "Bajo"
+msgstr "Baja"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_project_id
@@ -197,7 +197,7 @@ msgstr "Proyecto maestro"
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_name
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: business_requirement_deliverable_cost
 #: selection:business.requirement.deliverable.cost.report,priority:0
@@ -217,7 +217,7 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_cost_report_priority
@@ -227,12 +227,12 @@ msgstr "Prioridad"
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Qty"
-msgstr ""
+msgstr "Ctd"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_rl_total_cost
@@ -277,7 +277,7 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_resource_price_total
@@ -327,17 +327,17 @@ msgstr ""
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.model.fields,field_description:business_requirement_deliverable_cost.field_business_requirement_deliverable_unit_price
 msgid "Unit price"
-msgstr ""
+msgstr "Precio unitario"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.br_deliverable_other_resources_report
 msgid "UoM"
-msgstr ""
+msgstr "UdM"
 
 #. module: business_requirement_deliverable_cost
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_cost.view_business_requirement_deliverable_form

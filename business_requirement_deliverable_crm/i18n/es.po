@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -47,12 +47,12 @@ msgstr "Creado el"
 #. module: business_requirement_deliverable_crm
 #: model:ir.model.fields,field_description:business_requirement_deliverable_crm.field_br_crm_lead_partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.model.fields,field_description:business_requirement_deliverable_crm.field_br_crm_lead_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.model.fields,field_description:business_requirement_deliverable_crm.field_br_crm_lead_id
@@ -72,7 +72,7 @@ msgstr "Última modificación por"
 #. module: business_requirement_deliverable_crm
 #: model:ir.model.fields,field_description:business_requirement_deliverable_crm.field_br_crm_lead_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.model,name:business_requirement_deliverable_crm.model_crm_lead

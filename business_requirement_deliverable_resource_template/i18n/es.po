@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_id
@@ -67,12 +67,12 @@ msgstr "Última modificación por"
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
@@ -83,7 +83,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_id
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_template_id
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model,name:business_requirement_deliverable_resource_template.model_product_template
@@ -93,7 +93,7 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_sequence
@@ -103,17 +103,17 @@ msgstr "Secuencia"
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
 msgid "Task"
-msgstr ""
+msgstr "Tarea"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_resource_type
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_uom_id
 msgid "UoM"
-msgstr ""
+msgstr "UdM"
 
 #. module: business_requirement_deliverable_resource_template
 #: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:86
