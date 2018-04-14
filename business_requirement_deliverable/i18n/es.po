@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_user_id
 msgid "Assign To"
-msgstr ""
+msgstr "Asignar a"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_br_count
@@ -116,7 +116,7 @@ msgstr "Creado el"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_currency_id
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Moneda"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_partner_id
@@ -124,7 +124,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_dl_count
@@ -206,14 +206,14 @@ msgstr "Descripción"
 #: model:product.template,name:business_requirement_deliverable.product_product_2_product_template
 #: model:product.template,name:business_requirement_deliverable.product_template_2
 msgid "Designer"
-msgstr ""
+msgstr "Diseñador"
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_1
 #: model:product.template,name:business_requirement_deliverable.product_product_1_product_template
 #: model:product.template,name:business_requirement_deliverable.product_template_1
 msgid "Developer"
-msgstr ""
+msgstr "Desarrollador"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_display_name
@@ -221,7 +221,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_display_name
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_dlv_product
@@ -250,7 +250,7 @@ msgstr ""
 #: selection:business.requirement.deliverable.report,priority:0
 #: selection:business.requirement.deliverable.sale.report,priority:0
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_id
@@ -272,13 +272,13 @@ msgstr "Última modificación el"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_uid
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_write_uid
 msgid "Last Updated by"
-msgstr "Última modificación por"
+msgstr "Última actualización por"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_date
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: business_requirement_deliverable
 #: selection:business.requirement.deliverable.report,priority:0
@@ -300,7 +300,7 @@ msgstr "Proyecto maestro"
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: business_requirement_deliverable
 #: selection:business.requirement.deliverable.report,priority:0
@@ -324,12 +324,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_pricelist_id
 msgid "Pricelist"
-msgstr ""
+msgstr "Tarifa"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_res_partner_property_product_estimation_pricelist
@@ -343,7 +343,7 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.ui.menu,name:business_requirement_deliverable.menu_product_pricelist_action2
 msgid "Pricelists"
-msgstr ""
+msgstr "Tarifas"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_priority
@@ -364,7 +364,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_project_id
@@ -372,19 +372,19 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
 msgid "Project"
-msgstr "Proyeco"
+msgstr "Proyecto"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "Qty"
-msgstr ""
+msgstr "Ctd"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_qty
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_qty
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_rl_count
@@ -420,7 +420,7 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_form
 msgid "Resource"
-msgstr ""
+msgstr "Recurso"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_res_count
@@ -492,13 +492,13 @@ msgstr "Estado"
 #. module: business_requirement_deliverable
 #: selection:business.requirement.resource,resource_type:0
 msgid "Task"
-msgstr ""
+msgstr "Tarea"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_price_total
@@ -525,7 +525,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_resource_type
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_uom_id
@@ -533,7 +533,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
 msgid "UoM"
-msgstr ""
+msgstr "UdM"
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_5
