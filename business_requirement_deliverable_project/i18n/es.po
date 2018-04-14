@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -92,12 +92,12 @@ msgstr "Creado el"
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/wizard/generate_projects.py:51
@@ -130,7 +130,7 @@ msgstr "Última modificación por"
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,help:business_requirement_deliverable_project.field_project_project_business_requirement_id
@@ -206,7 +206,7 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_project_task
 msgid "Task"
-msgstr ""
+msgstr "Tarea"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.actions.act_window,name:business_requirement_deliverable_project.action_view_tasks_business_requirement
@@ -252,7 +252,7 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
