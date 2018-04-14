@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 01:16+0000\n"
-"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. module: business_requirement_gap_analysis_task
 #: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.gap_task_category_id
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.model,name:business_requirement_gap_analysis_task.model_business_requirement
@@ -44,7 +44,7 @@ msgstr "Creado el"
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_display_name
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.actions.act_window,name:business_requirement_gap_analysis_task.launch_wizard_gap
@@ -102,13 +102,13 @@ msgstr "Última modificación el"
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_write_uid
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_write_uid
 msgid "Last Updated by"
-msgstr "Última modificación por"
+msgstr "Última actualización por"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_write_date
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_business_requirement_gap_task_config_setting_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.estimated_time_form
@@ -125,19 +125,19 @@ msgstr ""
 #. module: business_requirement_gap_analysis_task
 #: model:ir.ui.view,arch_db:business_requirement_gap_analysis_task.estimated_time_form
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.model,name:business_requirement_gap_analysis_task.model_br_gap_analysis_task_id
 msgid "br.gap_analysis_task_id"
-msgstr ""
+msgstr "br.gap_analysis_task_id"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.model,name:business_requirement_gap_analysis_task.model_business_requirement_gap_task_config_setting
 msgid "business.requirement.gap.task.config.setting"
-msgstr ""
+msgstr "business.requirement.gap.task.config.setting"
 
 #. module: business_requirement_gap_analysis_task
 #: model:ir.model.fields,field_description:business_requirement_gap_analysis_task.field_br_gap_analysis_task_id_estimated_time
 msgid "estimated hours"
-msgstr ""
+msgstr "estimated hours"
