@@ -12,7 +12,6 @@ Introduction
 
 What is a Business Requirement?
 -------------------------------
-
 A **Business requirement** (BR) is the expression of a business need by a customer 
 or internal project user.
 
@@ -48,7 +47,6 @@ More information about business requirements management:
 
 Business Requirement set of modules
 -----------------------------------
-
 This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/8.0>`_).
 
 The base Business Requirements module creates the basic objects and 
@@ -89,13 +87,120 @@ This module only contains the standard base models for business requirement:
    :width: 600 px
    :alt: Business Requirement Form
 
+How to install the modules in Odoo
+==================================
+If you already have an Odoo instance up and running, your preferred way to install
+addons will work with `Business Requirement`.
+
+A reasonable knowledge of Odoo technical management is necessary to be able to
+install and run this modules. The 
+`standard installation how-to <https://www.odoo.com/documentation/11.0/setup/install.html>`_ 
+should be able to get you started.
+
+Using git
+---------
+The most common way to install the module is to clone the git repository in your
+server and add the directory to your `odoo.conf` file:
+
+#. Clone the git repository
+
+   .. code-block:: sh
+
+      cd your-addons-path
+      git clone https://github.com/OCA/business-requirement
+      cd business-requirement
+      git checkout 11.0 #for the version 11.0
+
+#. Update the addon path of `odoo.conf`
+#. Restart Odoo
+#. Update the addons list in your database (Menu `Apps > Update Apps List` in developer mode)
+#. Install the `Business Requirements` modules in menu `Apps`.
+
+Using pip
+---------
+An easy way to install it with all its dependencies is using pip:
+
+#. Recover the code from pip repository
+
+   .. code-block:: sh
+
+      pip install odoo10-addon-business_requirement odoo-autodiscover
+
+#. Restart Odoo
+#. Update the addons list in your database (Menu `Apps > Update Apps List` in developer mode)
+#. Install the `Business Requirements` modules in menu `Apps`.
+
+Fresh install with Docker
+-------------------------
+If you do not have any Odoo server installed, you can start your own Odoo in few
+minutes via Docker in command line.
+
+Here is the basic how-to (based on https://github.com/Elico-Corp/odoo-docker), valid
+for Ubuntu OS but could also easily be replicated in MacOS or Windows:
+
+#. Install docker and docker-compose in your system
+#. Create the directory structure (assuming the base directory is `odoo`)
+
+   .. code-block:: sh
+
+      mkdir odoo && cd odoo
+      mkdir -p ./volumes/postgres ./volumes/odoo/addons ./volumes/odoo/filestore \
+      ./volumes/odoo/sessions
+
+#. Create a `docker-compose.yml` file in `odoo` directory with following content:
+
+   .. code-block:: xml
+
+       version: '3.3'
+       services:
+
+         postgres:
+           image: postgres:9.5
+           volumes:
+             - ./volumes/postgres:/var/lib/postgresql/data
+           environment:
+             - POSTGRES_USER=odoo
+
+         odoo:
+           image: elicocorp/odoo:11.0
+           command: start
+           ports:
+             - 127.0.0.1:8069:8069
+           volumes:
+             - ./volumes/odoo/addons:/opt/odoo/additional_addons
+             - ./volumes/odoo/filestore:/opt/odoo/data/filestore
+             - ./volumes/odoo/sessions:/opt/odoo/data/sessions
+           links:
+             - postgres:db
+           environment:
+             - ADDONS_REPO=https://github.com/OCA/business-requirement.git
+             - ODOO_DB_USER=odoo
+
+#. Fire up your container (in `odoo` directory)
+
+   .. code-block:: sh
+
+      docker-compose up -d odoo
+
+#. Open a web browser and navigate the URL you have set up in your `docker-compose.yml`
+   file (http://127.0.0.1:8069 in this particular example)
+#. Create a new database
+#. Update the addons list in your database (Menu `Apps > Update Apps List` in developer mode)
+#. Install the `Business Requirements` modules in menu `Apps`.
+
+You can improve your new Odoo docker environment (add parameters, change default
+passwords etc.) following this `documentation <https://github.com/Elico-Corp/odoo-docker>`_
+
+Now what?
+---------
+Check the `Official Documentation <https://www.odoo.com/documentation/11.0>`_ 
+to start using Odoo and developing your own modules.
 
 Configuration
 =============
 
 Users
 -----
-
 * **Business Requirement User**: can create and confirm a BR
 * **Business Requirement Manager**: can create, confirm and approve a BR
 
@@ -113,7 +218,6 @@ BR like in tasks, issue or CRM leads.
 
 Sequences
 ---------
-
 Default numbering format: BR123456.
 
 You can modify the default numbering sequence in Settings/Technical/Sequences&Identifier/Sequences.
@@ -122,7 +226,6 @@ Search for Business Requirement sequence and alter it if necessary.
 
 Tags
 ----
-
 You can create and assign tags for your business requirements in Business Requirements/Configuration/Bus. Req. Category
 
 .. figure:: ../business_requirement/static/img/bus_req_tags.png
@@ -132,7 +235,6 @@ You can create and assign tags for your business requirements in Business Requir
 
 Master project
 --------------
-
 You can define a master project linked to the business requirement.
 
 Followers from the project will automatically be added to the business requirements.
@@ -142,7 +244,6 @@ Usage
 =====
 Simple BR
 ---------
-
 1. Define the header information
 
    * Master Project (Partner is the one related to the master project)
@@ -225,7 +326,6 @@ Credits
 
 Contributors
 ------------
-
 * Eric Caudal <eric.caudal@elico-corp.com>
 * Alex Duan <alex.duan@elico-corp.com>
 * Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
@@ -234,7 +334,6 @@ Contributors
 
 Maintainer
 ----------
-
 .. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
    :target: https://odoo-community.org
