@@ -74,6 +74,7 @@ Contributors
 
 * Eric Caudal <eric.caudal@elico-corp.com>
 * Victor M. Martin <victor.martin@elico-corp.com>
+* Joyce Lee <joyce.li@elico-corp.com>
 
 Maintainer
 ----------
