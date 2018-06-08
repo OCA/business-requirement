@@ -9,6 +9,11 @@
     "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
+    'external_dependencies': {
+        'python': [
+            'openupgradelib',
+        ]
+    },
     "application": False,
     "installable": True,
     "depends": [

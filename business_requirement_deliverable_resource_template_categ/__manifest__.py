@@ -9,6 +9,11 @@
     'version': '10.0.1.1.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
+    'external_dependencies': {
+        'python': [
+            'openupgradelib',
+        ]
+    },
     'depends': [
         'business_requirement_deliverable_project_task_categ',
         'business_requirement_deliverable_resource_template',
