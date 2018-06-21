@@ -69,13 +69,13 @@ class BusinessRequirement(models.Model):
             }
 
     all_project_generated = fields.Boolean(
-        compute='compute_all_project_generated',
+        compute='_compute_all_project_generated',
         string='All Project Generated'
     )
 
     @api.depends('business_requirement_ids',
                  'business_requirement_ids.project_ids')
-    def compute_all_project_generated(self):
+    def _compute_all_project_generated(self):
         for rec in self:
             rec.all_project_generated = True
             if rec.business_requirement_ids:
