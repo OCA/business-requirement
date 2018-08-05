@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_deliverable
+#	* business_requirement_deliverable
 #
-# Translators:
-# Quentin THEURET <odoo@kerpeo.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 02:27+0000\n"
-"PO-Revision-Date: 2017-08-29 02:27+0000\n"
-"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.resource,user_id:0
@@ -40,7 +35,7 @@ msgstr ""
 #: field:business.requirement.resource,business_requirement_project_id:0
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement
 msgid "Business Requirement"
-msgstr "Demande client"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_search
@@ -78,13 +73,13 @@ msgstr ""
 #: field:business.requirement.deliverable,create_uid:0
 #: field:business.requirement.resource,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,create_date:0
 #: field:business.requirement.resource,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,currency_id:0
@@ -98,7 +93,7 @@ msgstr ""
 #: field:business.requirement.deliverable.sale.report,partner_id:0
 #: view:business.requirement.resource:business_requirement_deliverable.view_business_requirement_resource_search
 msgid "Customer"
-msgstr "Client"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement,dl_count:0
@@ -175,7 +170,7 @@ msgstr ""
 #: field:business.requirement.deliverable.sale.report,display_name:0
 #: field:business.requirement.resource,display_name:0
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable.report,dlv_product:0
@@ -198,7 +193,7 @@ msgstr ""
 #: selection:business.requirement.deliverable.report,priority:0
 #: selection:business.requirement.deliverable.sale.report,priority:0
 msgid "High"
-msgstr "Élevée"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,id:0
@@ -206,7 +201,7 @@ msgstr "Élevée"
 #: field:business.requirement.deliverable.sale.report,id:0
 #: field:business.requirement.resource,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,__last_update:0
@@ -214,25 +209,25 @@ msgstr "ID"
 #: field:business.requirement.deliverable.sale.report,__last_update:0
 #: field:business.requirement.resource,__last_update:0
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,write_uid:0
 #: field:business.requirement.resource,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,write_date:0
 #: field:business.requirement.resource,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: selection:business.requirement.deliverable.report,priority:0
 #: selection:business.requirement.deliverable.sale.report,priority:0
 msgid "Low"
-msgstr "Basse"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable.report,project_id:0
@@ -246,13 +241,13 @@ msgstr ""
 #: field:business.requirement.deliverable.sale.report,name:0
 #: field:business.requirement.resource,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: selection:business.requirement.deliverable.report,priority:0
 #: selection:business.requirement.deliverable.sale.report,priority:0
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:ir.model,name:business_requirement_deliverable.model_res_partner
@@ -261,8 +256,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: help:res.partner,property_product_estimation_pricelist:0
-msgid ""
-"Pricelist used for the estimation of the Business Requirements\n"
+msgid "Pricelist used for the estimation of the Business Requirements\n"
 "        Deliverables linked to this Customer.\n"
 "        Currency of the Deliverables will be the one from the pricelist."
 msgstr ""
@@ -271,7 +265,7 @@ msgstr ""
 #: field:business.requirement.deliverable.report,priority:0
 #: field:business.requirement.deliverable.sale.report,priority:0
 msgid "Priority"
-msgstr "Priorité"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: selection:business.requirement.resource,resource_type:0
@@ -290,7 +284,7 @@ msgstr ""
 #: view:business.requirement.deliverable:business_requirement_deliverable.view_business_requirement_deliverable_search
 #: view:business.requirement.resource:business_requirement_deliverable.view_business_requirement_resource_search
 msgid "Project"
-msgstr "Projet"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: field:business.requirement.deliverable,qty:0
@@ -432,7 +426,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/models/business.py:414
 #, python-format
-msgid ""
-"You are changing customer, on a business requirementwhich already contains "
-"deliverable lines.Pricelist could be different."
+msgid "You are changing customer, on a business requirementwhich already contains deliverable lines.Pricelist could be different."
 msgstr ""
+
