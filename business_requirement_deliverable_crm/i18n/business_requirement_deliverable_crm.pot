@@ -1,33 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_deliverable_crm
+#	* business_requirement_deliverable_crm
 #
-# Translators:
-# Quentin THEURET <odoo@kerpeo.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 02:27+0000\n"
-"PO-Revision-Date: 2017-08-29 02:27+0000\n"
-"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.actions.act_window,help:business_requirement_deliverable_crm.act_view_lead_br_all
-msgid ""
-"<p>\n"
-"                    Odoo's project management allows you to manage the "
-"pipeline\n"
-"                    of tasks in order to get things done efficiently. You "
-"can\n"
-"                    track progress, discuss on tasks, attach documents, "
-"etc.\n"
+msgid "<p>\n"
+"                    Odoo's project management allows you to manage the pipeline\n"
+"                    of tasks in order to get things done efficiently. You can\n"
+"                    track progress, discuss on tasks, attach documents, etc.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -41,58 +32,57 @@ msgstr ""
 #: view:crm.lead:business_requirement_deliverable_crm.crm_case_form_view_oppor
 #: model:ir.actions.act_window,name:business_requirement_deliverable_crm.act_view_lead_br_all
 msgid "Business Requirement"
-msgstr "Demande client"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
 msgid "Cancel"
-msgstr "Annuler"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: help:br.crm.make.sale,close:0
-msgid ""
-"Check this to close the opportunity after having created the sales order."
+msgid "Check this to close the opportunity after having created the sales order."
 msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,partner_id:0
 msgid "Customer"
-msgstr "Client"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,display_name:0
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,__last_update:0
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: field:br.crm.make.sale,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.model,name:business_requirement_deliverable_crm.model_crm_lead
@@ -118,7 +108,7 @@ msgstr ""
 #. module: business_requirement_deliverable_crm
 #: field:crm.lead,project_id:0
 msgid "Project"
-msgstr "Projet"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
@@ -130,8 +120,7 @@ msgstr ""
 #. module: business_requirement_deliverable_crm
 #: code:addons/business_requirement_deliverable_crm/wizard/crm_make_sale.py:41
 #, python-format
-msgid ""
-"There is no available business requirement to\n"
+msgid "There is no available business requirement to\n"
 "                    make sale order!"
 msgstr ""
 
@@ -148,9 +137,10 @@ msgstr ""
 #. module: business_requirement_deliverable_crm
 #: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
 msgid "_Create"
-msgstr "_Create"
+msgstr ""
 
 #. module: business_requirement_deliverable_crm
 #: view:br.crm.make.sale:business_requirement_deliverable_crm.view_crm_make_sale
 msgid "or"
-msgstr "ou"
+msgstr ""
+

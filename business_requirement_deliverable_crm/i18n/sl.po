@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * business_requirement_deliverable_crm
-# 
+#
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
@@ -12,26 +12,31 @@ msgstr ""
 "PO-Revision-Date: 2017-04-28 10:07+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: business_requirement_deliverable_crm
 #: model:ir.actions.act_window,help:business_requirement_deliverable_crm.act_view_lead_br_all
 msgid ""
 "<p>\n"
-"                    Odoo's project management allows you to manage the pipeline\n"
-"                    of tasks in order to get things done efficiently. You can\n"
-"                    track progress, discuss on tasks, attach documents, etc.\n"
+"                    Odoo's project management allows you to manage the "
+"pipeline\n"
+"                    of tasks in order to get things done efficiently. You "
+"can\n"
+"                    track progress, discuss on tasks, attach documents, "
+"etc.\n"
 "                </p>\n"
 "            "
 msgstr ""
 "<p>\n"
 "                    Upravljanje projektov omogoči upravljanje sosledja\n"
 "                    opravil za učinkovito izvajanje del. Sledite lahko\n"
-"                    napredku, razpravljate o opravilih, pripenjate dokumente, ipd.\n"
+"                    napredku, razpravljate o opravilih, pripenjate "
+"dokumente, ipd.\n"
 "                </p>\n"
 "            "
 
