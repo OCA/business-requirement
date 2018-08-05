@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_earned_value
+#	* business_requirement_earned_value
 #
-# Translators:
-# Quentin THEURET <odoo@kerpeo.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 02:28+0000\n"
-"PO-Revision-Date: 2017-08-29 02:28+0000\n"
-"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,project_completion:0
@@ -51,7 +46,7 @@ msgstr ""
 #. module: business_requirement_earned_value
 #: selection:business.requirement.earned.value.report,state:0
 msgid "Cancel"
-msgstr "Annuler"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: selection:business.requirement.earned.value.report,state:0
@@ -61,12 +56,12 @@ msgstr ""
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,partner_id:0
 msgid "Customer"
-msgstr "Client"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,display_name:0
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: selection:business.requirement.earned.value.report,state:0
@@ -109,7 +104,7 @@ msgstr ""
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: selection:business.requirement.earned.value.report,state:0
@@ -119,7 +114,7 @@ msgstr ""
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,__last_update:0
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,project_id:0
@@ -129,7 +124,7 @@ msgstr ""
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: business_requirement_earned_value
 #: field:business.requirement.earned.value.report,planned_time_in_rl:0
@@ -175,3 +170,4 @@ msgstr ""
 #: field:business.requirement.earned.value.report,variance:0
 msgid "Variance"
 msgstr ""
+
