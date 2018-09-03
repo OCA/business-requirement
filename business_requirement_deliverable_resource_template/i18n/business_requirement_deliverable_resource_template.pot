@@ -1,23 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_deliverable_resource_template
+#	* business_requirement_deliverable_resource_template
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 01:40+0000\n"
-"PO-Revision-Date: 2017-11-23 01:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
-"Language: sl\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: \n"
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_deliverable
@@ -33,12 +27,12 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_uid
 msgid "Created by"
-msgstr "Ustvaril"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_date
 msgid "Created on"
-msgstr "Ustvarjeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_resource_template.product_template_only_form_view
@@ -48,32 +42,32 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template___last_update
 msgid "Last Modified on"
-msgstr "Zadnjič spremenjeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_uid
 msgid "Last Updated by"
-msgstr "Zadnji posodobil"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_date
 msgid "Last Updated on"
-msgstr "Zadnjič posodobljeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_name
 msgid "Name"
-msgstr "Naziv"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
@@ -99,7 +93,7 @@ msgstr ""
 #. module: business_requirement_deliverable_resource_template
 #: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_sequence
 msgid "Sequence"
-msgstr "Zaporedje"
+msgstr ""
 
 #. module: business_requirement_deliverable_resource_template
 #: selection:business.requirement.resource.template,resource_type:0
@@ -126,3 +120,4 @@ msgstr ""
 #: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_resource_template
 msgid "business.requirement.resource.template"
 msgstr ""
+
