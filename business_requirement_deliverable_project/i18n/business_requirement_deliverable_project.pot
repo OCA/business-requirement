@@ -1,23 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * business_requirement_deliverable_project
+#	* business_requirement_deliverable_project
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 01:40+0000\n"
-"PO-Revision-Date: 2017-11-23 01:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
-"Language: sl\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: \n"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_all_project_generated
@@ -27,9 +21,7 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:43
 #, python-format
-msgid ""
-"All business requirements of the project should be stakeholder_approval/"
-"canceled/done"
+msgid "All business requirements of the project should be stakeholder_approval/canceled/done"
 msgstr ""
 
 #. module: business_requirement_deliverable_project
@@ -37,7 +29,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_project_business_requirement_id
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task_business_requirement_id
 msgid "Business Requirement"
-msgstr "Poslovna zahteva"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement_deliverable
@@ -53,7 +45,7 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_search_form
 msgid "Business Requirements"
-msgstr "Poslovne zahteve"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_form2
@@ -83,22 +75,22 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_create_uid
 msgid "Created by"
-msgstr "Ustvaril"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_create_date
 msgid "Created on"
-msgstr "Ustvarjeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_partner_id
 msgid "Customer"
-msgstr "Kupec"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/wizard/generate_projects.py:51
@@ -116,22 +108,22 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects___last_update
 msgid "Last Modified on"
-msgstr "Zadnjič spremenjeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_write_uid
 msgid "Last Updated by"
-msgstr "Zadnji posodobil"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_write_date
 msgid "Last Updated on"
-msgstr "Zadnjič posodobljeno"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,help:business_requirement_deliverable_project.field_project_project_business_requirement_id
@@ -150,10 +142,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,help:business_requirement_deliverable_project.field_br_generate_projects_analytic_account_id
-msgid ""
-"Link this project to an analytic account if you need financial management on "
-"projects. It enables you to connect projects with budgets, planning, cost "
-"and revenue analysis, timesheets on projects, etc."
+msgid "Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc."
 msgstr ""
 
 #. module: business_requirement_deliverable_project
@@ -176,15 +165,14 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:37
 #, python-format
-msgid ""
-"Please set working time default unit in project\n"
+msgid "Please set working time default unit in project\n"
 "                    config settings"
 msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_project_project
 msgid "Project"
-msgstr "Projekt"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_project_id
@@ -197,7 +185,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_project_ids
 #, python-format
 msgid "Projects"
-msgstr "Projekti"
+msgstr ""
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_project_origin
@@ -220,8 +208,7 @@ msgstr ""
 #. module: business_requirement_deliverable_project
 #: code:addons/business_requirement_deliverable_project/models/project.py:77
 #, python-format
-msgid ""
-"There is no available business requirement resource line\n"
+msgid "There is no available business requirement resource line\n"
 "                    to generate task"
 msgstr ""
 
@@ -259,3 +246,4 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
 msgid "or"
 msgstr ""
+
