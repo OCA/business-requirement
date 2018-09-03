@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * business_requirement
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
@@ -12,11 +12,12 @@ msgstr ""
 "PO-Revision-Date: 2017-11-23 01:40+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: business_requirement
 #: model:ir.actions.act_window,name:business_requirement.action_view_tasks_business_requirement
@@ -280,7 +281,8 @@ msgstr "Običajna"
 #: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
 msgid ""
 "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 
@@ -416,6 +418,12 @@ msgid "Terms and Conditions:"
 msgstr ""
 
 #. module: business_requirement
+#: code:addons/business_requirement/tests/test_br.py:90
+#, python-format
+msgid "Test Body"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_test_case
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Test Case"
@@ -439,6 +447,11 @@ msgid "To be Reviewed"
 msgstr "Za revizijo"
 
 #. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Unread Messages"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "User"
 msgstr ""
@@ -458,8 +471,7 @@ msgstr ""
 #: code:addons/business_requirement/models/business.py:296
 #: code:addons/business_requirement/models/business.py:306
 #, python-format
-msgid ""
-"You can only move to the following stage: draft/confirmed /cancel/drop."
+msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 
 #. module: business_requirement
