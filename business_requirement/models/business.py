@@ -108,7 +108,7 @@ class BusinessRequirement(models.Model):
             'confirmed': [('readonly', False)]}
     )
     level = fields.Integer(
-        compute='_get_level',
+        compute='_compute_get_level',
         string='Level',
         store=True
     )
@@ -317,7 +317,7 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     @api.depends('parent_id')
-    def _get_level(self):
+    def _compute_get_level(self):
         for br in self:
             level = br.parent_id and br.parent_id.level + 1 or 1
             br.level = level
