@@ -15,6 +15,9 @@
     'data': [
         'views/business_view.xml',
     ],
+    'demo': [
+        'data/pad_demo.xml',
+    ],
     'license': 'AGPL-3',
     'installable': True,
 }

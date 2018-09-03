@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo.tests import common
 from openerp.exceptions import ValidationError
+from odoo import _
 
 
 @common.at_install(False)
@@ -86,7 +87,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'default_model': 'business.requirement',
             'default_res_id': self.brA.id
         }).message_post(
-            body='Test Body',
+            body=_('Test Body'),
             message_type='notification',
             subtype='mt_notification',
             parent_id=False,
@@ -109,7 +110,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'parent_id': False,
         }
         br1 = self.br.create(br_vals1)
-        br1._get_level()
+        br1._compute_get_level()
         level1 = br1.level
         self.assertEqual(level1, 1)
 
@@ -119,7 +120,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'parent_id': br1.id,
         }
         br2 = self.br.create(br_vals2)
-        br2._get_level()
+        br2._compute_get_level()
         level2 = br2.level
         self.assertEqual(level2, 2)
 
@@ -129,7 +130,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'parent_id': br2.id,
         }
         br3 = self.br.create(br_vals3)
-        br3._get_level()
+        br3._compute_get_level()
         level3 = br3.level
         self.assertEqual(level3, 3)
 
