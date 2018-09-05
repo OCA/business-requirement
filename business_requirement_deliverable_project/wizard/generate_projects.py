@@ -184,7 +184,11 @@ class BrGenerateProjects(models.TransientModel):
             'name': description,
             'partner_id': parent.partner_id.id,
             'favorite_user_ids': [(6, 0, parent.favorite_user_ids.ids)],
-            'message_follower_ids': parent.message_follower_ids.ids,
+            'message_follower_ids':
+                [(0, 0, {
+                    'res_model': 'project.project',
+                    'partner_id': follower.partner_id.id
+                }) for follower in parent.message_follower_ids],
             'user_id': parent.user_id.id,
             'origin': '%s.%s' % (br._name, br.id),
         })
