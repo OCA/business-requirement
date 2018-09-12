@@ -102,5 +102,6 @@ class ProjectTask(models.Model):
     br_resource_id = fields.Many2one(
         comodel_name='business.requirement.resource',
         string='Business Requirement Resource',
-        ondelete='set null'
+        ondelete='set null',
+        copy=False
     )
