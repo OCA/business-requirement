@@ -51,13 +51,14 @@ class BusinessRequirementResource(models.Model):
     @api.multi
     def _set_cost_price(self):
         for resource in self:
+            if not resource.product_id:
+                continue
             qty_uom = 0
-            product_uom = self.env['product.uom']
             if resource.qty != 0:
-                qty_uom = product_uom._compute_quantity(
+                qty_uom = resource.uom_id._compute_quantity(
                     resource.qty,
-                    resource.product_id.uom_id.id
-                ) / resource.qty
+                    resource.product_id.uom_id
+                )
             resource.unit_price = resource.product_id.standard_price * qty_uom
 
     @api.multi
