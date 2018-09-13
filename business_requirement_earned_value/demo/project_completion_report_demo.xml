@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--business requirement-->
+
+    <record id="business_requirement.business_requirement_4" model="business.requirement">
+        <field name="state">in_progress</field>
+    </record>
+
+    <record id="business_requirement.project_3" model="project.project">
+        <field name="business_requirement_id" ref="business_requirement.business_requirement_4"/>
+    </record>
+
+</odoo>
