@@ -293,11 +293,11 @@
 
     <menuitem id="menu_business_requirement" name="Business Requirement"
               groups="business_requirement.group_business_requirement_user"
-              parent="menu_business_root" sequence="8"/>
+              parent="menu_business_root" sequence="6"/>
 
     <menuitem id="menu_business_configuration" name="Configuration"
               groups="business_requirement.group_business_requirement_user"
-              parent="menu_business_root" sequence="8"/>
+              parent="menu_business_root" sequence="10"/>
 
     <menuitem id="menu_business_requirement1"
               groups="business_requirement.group_business_requirement_user"
