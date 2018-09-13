@@ -19,6 +19,13 @@ msgid "Business Requirement Resource"
 msgstr ""
 
 #. module: business_requirement_deliverable_project_task_categ
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_1
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_2
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_3
+msgid "Buzz or set as done"
+msgstr ""
+
+#. module: business_requirement_deliverable_project_task_categ
 #: model:ir.ui.view,arch_db:business_requirement_deliverable_project_task_categ.view_business_requirement_resource_search
 msgid "Category"
 msgstr ""
@@ -32,7 +39,7 @@ msgstr ""
 #: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_1
 #: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_2
 #: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_3
-msgid "Not validated"
+msgid "Need functional or technical help"
 msgstr ""
 
 #. module: business_requirement_deliverable_project_task_categ
