@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo10-addon-business_requirement_deliverable_project_task_categ',
         'odoo10-addon-business_requirement_deliverable_resource_template',
         'odoo10-addon-business_requirement_deliverable_resource_template_categ',
+        'odoo10-addon-business_requirement_earned_value',
         'odoo10-addon-business_requirement_etherpad',
         'odoo10-addon-business_requirement_gap_analysis_task',
     ],
