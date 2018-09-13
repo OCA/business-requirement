@@ -1,0 +1,362 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* business_requirement_earned_value
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_activity_id
+msgid "Activity ID"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_task_kanban_state
+msgid "Activity Kanban State"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_activity_name
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Activity Name"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_activity_stage_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Activity Stage"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_activity_stage_id
+msgid "Activity stage"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_account_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Analytic Account"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Approved"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_user_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Assignee"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_user_id
+msgid "Assignee is not necessarily the one who input the Timesheets"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_br_kanban_state
+msgid "BR Kanban State"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: code:addons/business_requirement_earned_value/models/br_and_project_inherit_function.py:16
+#, python-format
+msgid "BR Project completion report"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_br_status
+msgid "BR status"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,task_kanban_state:0
+msgid "Blocked"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_br_id
+msgid "Bus. Req."
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model,name:business_requirement_earned_value.model_business_requirement
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_br_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Business Requirement"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Cancel"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Customer"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_date_deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Done"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Draft"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Drop"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_estimated_hours
+msgid "Est. time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_estimated_hours
+msgid "Estimated time (from BR)"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Group By"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,priority:0
+msgid "High"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.action_project_completion_tree
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "ID"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_kanban_state:0
+#: selection:project.completion.report,task_kanban_state:0
+msgid "In Progress"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "In progress"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_planned_hours
+msgid "Init. time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_planned_hours
+msgid "Initial time (from Task)"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,activity_type:0
+msgid "Issue"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,priority:0
+msgid "Low"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_master_project_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Master Project"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_master_project_id
+msgid "Master Project of the Business Requirement"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,priority:0
+msgid "Normal"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_kanban_state:0
+msgid "On Hold"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_priority
+msgid "Priority"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_to_project_completion_report
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.view_business_requirement_form_improve
+msgid "Pro. Com. Rep"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model,name:business_requirement_earned_value.model_project_project
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_project_id
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Project"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.actions.act_window,name:business_requirement_earned_value.action_project_completion_report
+#: model:ir.ui.menu,name:business_requirement_earned_value.menu_project_completion_report_tree
+msgid "Project Completion Analysis"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model,name:business_requirement_earned_value.model_project_completion_report
+msgid "Project Completion Report"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.action_project_completion_tree
+msgid "Project Completion Tree"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.view,arch_db:business_requirement_earned_value.project_completion_search
+msgid "Project Completion search"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_project_state
+msgid "Project State"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: code:addons/business_requirement_earned_value/models/br_and_project_inherit_function.py:34
+#, python-format
+msgid "Project project completion report"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_project_state
+msgid "Project state"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_kanban_state:0
+#: selection:project.completion.report,task_kanban_state:0
+msgid "Ready for next stage"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_remaining_hours
+msgid "Remain. time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_remaining_hours
+msgid "Remaining time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.ui.menu,name:business_requirement_earned_value.business_requirement_report
+msgid "Report"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_partner_id
+msgid "Stakeholder"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,br_status:0
+msgid "Stakeholder Approval"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: selection:project.completion.report,activity_type:0
+msgid "Task"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_task_category_id
+msgid "Task Category"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_activity_id
+msgid "Task ID or Issue ID"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_activity_name
+msgid "Task name or Issue name"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_total_tms
+msgid "Time spent"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_total_tms
+msgid "Time spent on timesheet"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_total_hours
+msgid "Total time"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_activity_type
+msgid "Type"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_activity_type
+msgid "Type is used to separate Tasks and Issues"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,field_description:business_requirement_earned_value.field_project_completion_report_variance
+msgid "Variance"
+msgstr ""
+
+#. module: business_requirement_earned_value
+#: model:ir.model.fields,help:business_requirement_earned_value.field_project_completion_report_variance
+msgid "Variance between Estimated time (from BR) and Total time"
+msgstr ""
+
