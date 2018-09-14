@@ -103,5 +103,5 @@ class ProjectTask(models.Model):
         comodel_name='business.requirement.resource',
         string='Business Requirement Resource',
         ondelete='set null',
-        copy=False
+        copy=False,
     )
