@@ -26,15 +26,9 @@ addon | version | summary
 [business_requirement_deliverable_project_task_categ](business_requirement_deliverable_project_task_categ/) | 10.0.1.0.1 | Adds Task Categories to your Business Requirement Resources
 [business_requirement_deliverable_resource_template](business_requirement_deliverable_resource_template/) | 10.0.1.0.0 | Manage default resource lines in your deliverable sales package from product template
 [business_requirement_deliverable_resource_template_categ](business_requirement_deliverable_resource_template_categ/) | 10.0.1.1.0 | Manage default resource lines categories in your deliverable templates
+[business_requirement_earned_value](business_requirement_earned_value/) | 10.0.1.0.0 | Follow-up project completion (estimated / consumed)
 [business_requirement_etherpad](business_requirement_etherpad/) | 10.0.1.0.0 | Manage the Business Requirements Notes via Etherpad
 [business_requirement_gap_analysis_task](business_requirement_gap_analysis_task/) | 10.0.1.0.0 | Add Gap Analysis Task to your Business Requirement
-
-
-Unported addons
----------------
-addon | version | summary
---- | --- | ---
-[business_requirement_earned_value](business_requirement_earned_value/) | 8.0.1.0.0 (unported) | Manage the Earned Value for your customers
 
 [//]: # (end addons)
 
