@@ -1,6 +1,6 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
-   :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
+   :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+   :alt: License: LGPL-3
 
 
 ====================
@@ -95,7 +95,7 @@ If you already have an Odoo instance up and running, your preferred way to insta
 addons will work with `Business Requirement`.
 
 A reasonable knowledge of Odoo technical management is necessary to be able to
-install and run this modules. The 
+install and run this modules. The
 `standard installation how-to <https://www.odoo.com/documentation/12.0/setup/install.html>`_
 should be able to get you started.
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="open_view_subproject_all" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,gantt</field>
+        <field name="search_view_id" ref="project.view_project_project_filter"/>
+        <field name="context">{'search_default_parent_id': context.get('analytic_account_id', False)}
+        </field>
+    </record>
+</odoo>

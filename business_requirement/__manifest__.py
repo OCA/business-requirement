@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 # © 2019 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Business Requirement',
     'category': 'Business Requirements Management',
@@ -40,7 +39,7 @@
         'static/img/bus_req_workflow.png'
     ],
     'demo': ['data/business_requirement_demo.xml'],
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
 }

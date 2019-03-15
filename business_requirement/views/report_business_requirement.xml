@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="internal_layout_br_header">
+        <!-- Multicompany -->
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"></t>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"></t>
+        </t>
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-3">
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                </div>
+                <div class="col-xs-6 text-center">
+                    <span t-esc="company.name"/>
+                </div>
+                <div class="col-xs-2 col-xs-offset-1 text-right">
+                    <ul class="list-inline">
+                        <li>
+                            <span class="page"/>
+                        </li>
+                        <li>/</li>
+                        <li>
+                            <span class="topage"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <t t-raw="0"/>
+    </template>
+
+    <template id="layout_br_base">
+        <center>
+        <h3 style="margin-top:-10px;"><span
+                t-field="o.name"/>-
+            <span t-field="o.description"/>
+        </h3>
+        </center>
+        <table class="table table-bordered"
+               style="table-collapse: collapse; table-layout:fixed">
+            <tbody>
+                <tr>
+                    <th colspan="2">Stakeholder</th>
+                    <th colspan="2">Master Project</th>
+                    <th colspan="2">Source</th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                    <td colspan="2">
+                        <span t-field="o.project_id.name"/>
+                    </td>
+                    <td colspan="2">
+                        <span t-field="o.origin"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>WBS</th>
+                    <th colspan="2">Category</th>
+                    <th colspan="2">Responsible</th>
+                    <th>Change Request</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span t-field="o.ref"/>
+                    </td>
+                    <td colspan="2">
+                        <span t-esc="', '.join([cate.name for cate in o.category_ids])"/>
+                    </td>
+                    <td colspan="2">
+                        <span t-field="o.responsible_id.name"/>
+                    </td>
+                    <td>
+                        <t t-if="o.change_request">Yes</t>
+                        <t t-if="not o.change_request">No</t>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th class="text-center" colspan="2">Creation</th>
+                    <th class="text-center" colspan="2">Confirmation</th>
+                    <th class="text-center" colspan="2">Approval</th>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>User</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span t-field="o.create_date" t-field-options='{"widget": "date"}'/>
+                    </td>
+                    <td>
+                        <span t-field="o.create_uid.name"/>
+                    </td>
+                    <td>
+                        <span t-field="o.confirmation_date" t-field-options='{"widget": "date"}'/>
+                    </td>
+                    <td>
+                        <span t-field="o.confirmed_id.name"/>
+                    </td>
+                    <td>
+                        <span t-field="o.approval_date" t-field-options='{"widget": "date"}'/>
+                    </td>
+                    <td>
+                        <span t-field="o.approved_id.name"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- when create a business requirement in web page, '<p><br></p>' will be add automatically in the field -->
+        <t t-if="o.business_requirement and o.business_requirement != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <u><h3>Stakeholder Story:</h3></u>
+            <table class="table table-responsive">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.business_requirement"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+        <t t-if="o.scenario and o.scenario != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <u><h3>Scenario:</h3></u>
+            <table class="table .table-striped">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.scenario"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+        <t t-if="o.gap and o.gap != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <u><h3>Gap:</h3></u>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.gap"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+        <t t-if="o.test_case and o.test_case != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <u><h3>Test Case:</h3></u>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <t t-raw="o.test_case"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+        <t t-if="o.terms_and_conditions and o.terms_and_conditions != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <u><h3>Terms and Conditions:</h3></u>
+            <table class="table table-responsive">
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 30px;">
+                            <span t-field="o.terms_and_conditions"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+    </template>
+
+    <template id="br_report">
+        <t t-call="report.html_container">
+            <t t-call="business_requirement.internal_layout_br_header">
+                <div class="page" name="page">
+                    <h2 class="text-center">Business Requirement Document
+                    </h2>
+                    <br/>
+                    <t t-foreach="docs" t-as="o">
+                        <div style="page-break-after: always;">
+                            <t t-call="business_requirement.layout_br_base">
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
