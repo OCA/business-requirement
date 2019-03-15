@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
         <!--Business Requirement Category -->
         <record id="business_requirement_category_1"
                 model="business.requirement.category">
@@ -531,5 +530,4 @@ pulvinar et, cursus sed purus.
             ]]></field>
         </record>
 
-    </data>
 </odoo>

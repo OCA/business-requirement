@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
 
         <record id="seq_business_requirement" model="ir.sequence">
             <field name="name">Business Requirement</field>
@@ -16,5 +15,4 @@
             <field name="sequence">9</field>
         </record>
 
-    </data>
 </odoo>
