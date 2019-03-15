@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Business Requirement',
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers',
-    'version': '10.0.1.2.0',
+    'version': '12.0.1.0.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
+        'hr_timesheet',
         'product',
         'project',
     ],
@@ -39,7 +39,7 @@
         'static/img/bus_req_workflow.png'
     ],
     'demo': ['data/business_requirement_demo.xml'],
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
 }

@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo.tests import common
-from openerp.exceptions import ValidationError
+from odoo.exceptions import ValidationError
 from odoo import _
 
 
@@ -15,26 +14,13 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         self.AnalyticAccountObject = self.env['account.analytic.account']
         # Configure unit of measure.
-        self.categ_wtime = self.ref('product.uom_categ_wtime')
-        self.categ_kgm = self.ref('product.product_uom_categ_kgm')
+        self.categ_wtime = self.ref('uom.uom_categ_wtime')
+        self.categ_kgm = self.ref('uom.product_uom_categ_kgm')
         self.partner1 = self.ref('base.res_partner_1')
-        self.UomObj = self.env['product.uom']
-        self.uom_hours = self.UomObj.create({
-            'name': 'Test-Hours',
-            'category_id': self.categ_wtime,
-            'factor': 8,
-            'uom_type': 'smaller'})
-        self.uom_days = self.UomObj.create({
-            'name': 'Test-Days',
-            'category_id': self.categ_wtime,
-            'factor': 1})
-        self.uom_kg = self.UomObj.create({
-            'name': 'Test-KG',
-            'category_id': self.categ_kgm,
-            'factor_inv': 1,
-            'factor': 1,
-            'uom_type': 'reference',
-            'rounding': 0.000001})
+        self.UomObj = self.env['uom.uom']
+        self.uom_hours = self.ref('uom.product_uom_hour')
+        self.uom_days = self.ref('uom.product_uom_day')
+        self.uom_kg = self.ref('uom.product_uom_kgm')
 
         self.AnalyticAccount = self.AnalyticAccountObject.create(
             {'name': 'AnalyticAccount for Test'})
@@ -53,12 +39,12 @@ class BusinessRequirementTestCase(common.TransactionCase):
         # Product Created A, B, C, D
         self.ProductObj = self.env['product.product']
         self.productA = self.ProductObj.create(
-            {'name': 'Product A', 'uom_id': self.uom_hours.id,
-             'uom_po_id': self.uom_hours.id,
+            {'name': 'Product A', 'uom_id': self.uom_hours,
+             'uom_po_id': self.uom_hours,
              'standard_price': 450})
         self.productB = self.ProductObj. \
-            create({'name': 'Product B', 'uom_id': self.uom_hours.id,
-                    'uom_po_id': self.uom_hours.id,
+            create({'name': 'Product B', 'uom_id': self.uom_hours,
+                    'uom_po_id': self.uom_hours,
                     'standard_price': 550})
 
         vals1 = vals.copy()

@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
 class BusinessRequirement(models.Model):
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = ['mail.thread']
     _name = "business.requirement"
     _description = "Business Requirement"
     _order = 'name desc'
@@ -419,11 +418,11 @@ class BusinessRequirement(models.Model):
             # Update standard results with default results
             result = []
             for state_value, state_name in states:
-                res = filter(lambda x: x['state'] == state_value,
-                             read_group_res)
+                res = list(filter(lambda x: x['state'] == state_value,
+                                  read_group_res))
                 if not res:
-                    res = filter(lambda x: x['state'] == state_value,
-                                 read_group_all_states)
+                    res = list(filter(lambda x: x['state'] == state_value,
+                                      read_group_all_states))
                 res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result

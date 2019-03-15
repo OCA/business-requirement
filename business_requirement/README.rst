@@ -1,6 +1,6 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
-   :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
+   :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+   :alt: License: LGPL-3
 
 
 ====================
@@ -95,8 +95,8 @@ If you already have an Odoo instance up and running, your preferred way to insta
 addons will work with `Business Requirement`.
 
 A reasonable knowledge of Odoo technical management is necessary to be able to
-install and run this modules. The 
-`standard installation how-to <https://www.odoo.com/documentation/11.0/setup/install.html>`_ 
+install and run this modules. The
+`standard installation how-to <https://www.odoo.com/documentation/12.0/setup/install.html>`_
 should be able to get you started.
 
 Using git
@@ -111,7 +111,7 @@ server and add the directory to your `odoo.conf` file:
       cd your-addons-path
       git clone https://github.com/OCA/business-requirement
       cd business-requirement
-      git checkout 10.0 #for the version 10.0
+      git checkout 12.0 #for the version 12.0
 
 #. Update the addon path of `odoo.conf`
 #. Restart Odoo
@@ -164,7 +164,7 @@ for Ubuntu OS but could also easily be replicated in MacOS or Windows:
              - POSTGRES_USER=odoo
 
          odoo:
-           image: elicocorp/odoo:11.0
+           image: elicocorp/odoo:12.0
            command: start
            ports:
              - 127.0.0.1:8069:8069
@@ -195,7 +195,7 @@ passwords etc.) following this `documentation <https://github.com/Elico-Corp/odo
 
 Now what?
 ---------
-Check the `Official Documentation <https://www.odoo.com/documentation/11.0>`_ to start using Odoo and developing your own modules.
+Check the `Official Documentation <https://www.odoo.com/documentation/12.0>`_ to start using Odoo and developing your own modules.
 
 Configuration
 =============
@@ -330,6 +330,7 @@ Contributors
 * Victor M. Martin <victor.martin@elico-corp.com>
 * Evan Li <li.aiwen@elico-corp.com>
 * Reinhard Sheng <reinhard.sheng@elico-corp.com>
+* Ruter Lü <ruter.lv@elico-corp.com>
 
 Maintainer
 ----------
