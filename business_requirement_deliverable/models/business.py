@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from odoo.addons import decimal_precision as dp
@@ -24,6 +23,7 @@ class BusinessRequirementResource(models.Model):
                    ('drop', 'Drop'),
                    ],
         store=True,
+        readonly=True
     )
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
@@ -32,7 +32,7 @@ class BusinessRequirementResource(models.Model):
         required=False
     )
     uom_id = fields.Many2one(
-        comodel_name='product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         required=True
     )
@@ -79,8 +79,6 @@ class BusinessRequirementResource(models.Model):
         string='Project',
         store=True
     )
-    state = fields.Selection(related='business_requirement_id.state',
-                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('product_id')
@@ -102,9 +100,9 @@ class BusinessRequirementResource(models.Model):
     def resource_type_change(self):
         if self.resource_type == 'procurement':
             self.user_id = False
-            self.uom_id = self.env.ref('product.product_uom_unit').id
+            self.uom_id = self.env.ref('uom.product_uom_unit').id
         else:
-            self.uom_id = self.env.ref('product.product_uom_hour').id
+            self.uom_id = self.env.ref('uom.product_uom_hour').id
 
     @api.multi
     @api.constrains('resource_type', 'uom_id')
@@ -112,7 +110,7 @@ class BusinessRequirementResource(models.Model):
         for resource in self:
             if resource.resource_type == 'task' and (
                     resource.uom_id.category_id != (
-                        self.env.ref('product.uom_categ_wtime'))):
+                        self.env.ref('uom.uom_categ_wtime'))):
                 raise ValidationError(_(
                     "When resource type is task, "
                     "the uom category should be time"))
@@ -141,6 +139,7 @@ class BusinessRequirementDeliverable(models.Model):
                    ('drop', 'Drop'),
                    ],
         store=True,
+        readonly=True
     )
     name = fields.Text('Name', required=True)
     product_id = fields.Many2one(
@@ -150,10 +149,10 @@ class BusinessRequirementDeliverable(models.Model):
         required=False
     )
     uom_id = fields.Many2one(
-        comodel_name='product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         required=True,
-        default=lambda self: self.env.ref('product.product_uom_unit')
+        default=lambda self: self.env.ref('uom.product_uom_unit')
     )
     qty = fields.Float(
         string='Quantity',
@@ -200,8 +199,6 @@ class BusinessRequirementDeliverable(models.Model):
         string='Project',
         store=True
     )
-    state = fields.Selection(related='business_requirement_id.state',
-                             string='State', store=True, readonly=True)
 
     @api.multi
     @api.onchange('business_requirement_id')
@@ -234,13 +231,11 @@ class BusinessRequirementDeliverable(models.Model):
     def product_id_change(self):
         description = ''
         uom_id = False
-        sale_price_unit = 0
         product = self.product_id
 
         if product:
             description = product.name_get()[0][1]
             uom_id = product.uom_id.id
-            sale_price_unit = product.list_price
 
         if product.description_sale:
             description += '\n' + product.description_sale
@@ -266,7 +261,7 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.onchange('uom_id', 'qty')
     def product_uom_change(self):
-        product_uom = self.env['product.uom']
+        product_uom = self.env['uom.uom']
 
         if self.qty != 0:
             product_uom._compute_quantity(
@@ -443,7 +438,11 @@ class BusinessRequirement(models.Model):
                 if br.partner_id.property_product_pricelist.currency_id:
                     br.total_revenue = \
                         br.partner_id.property_product_pricelist.currency_id\
-                        .compute(
-                            total_revenue_origin, br.company_id.currency_id)
+                        ._convert(
+                            total_revenue_origin,
+                            br.company_id.currency_id,
+                            br.company_id,
+                            fields.Date.today()
+                        )
                 else:
                     br.total_revenue = total_revenue_origin

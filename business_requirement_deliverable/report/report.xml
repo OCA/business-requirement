@@ -20,12 +20,12 @@
     />
 
 
-    <record id="business_requirement_deliverable" model="ir.actions.report.xml">
+    <record id="business_requirement_deliverable" model="ir.actions.report">
         <field name="paperformat_id"
                ref="business_requirement_deliverable.br_report_paperformat_eu"/>
     </record>
 
-    <record id="business_requirement_deliverable_resource_report" model="ir.actions.report.xml">
+    <record id="business_requirement_deliverable_resource_report" model="ir.actions.report">
         <field name="paperformat_id"
                ref="business_requirement_deliverable.br_report_paperformat_eu"/>
     </record>

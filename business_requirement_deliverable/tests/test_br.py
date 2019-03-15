@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo.tests import common
 from odoo.exceptions import UserError
 
@@ -14,42 +13,28 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         # Configure unit of measure.
         self.categ_wtime = self.ModelDataObj.xmlid_to_res_id(
-            'product.uom_categ_wtime')
+            'uom.uom_categ_wtime')
         self.categ_kgm = self.ModelDataObj.xmlid_to_res_id(
-            'product.product_uom_categ_kgm')
+            'uom.product_uom_categ_kgm')
 
-        self.UomObj = self.env['product.uom']
-        self.uom_hours = self.UomObj.create({
-            'name': 'Test-Hours',
-            'category_id': self.categ_wtime,
-            'factor': 8,
-            'uom_type': 'smaller'})
-        self.uom_days = self.UomObj.create({
-            'name': 'Test-Days',
-            'category_id': self.categ_wtime,
-            'factor': 1})
-        self.uom_kg = self.UomObj.create({
-            'name': 'Test-KG',
-            'category_id': self.categ_kgm,
-            'factor_inv': 1,
-            'factor': 1,
-            'uom_type': 'reference',
-            'rounding': 0.000001})
+        self.uom_hours = self.ref('uom.product_uom_hour')
+        self.uom_days = self.ref('uom.product_uom_day')
+        self.uom_kg = self.ref('uom.product_uom_kgm')
 
         # Product Created A, B, C, D
         self.ProductObj = self.env['product.product']
         self.productA = self.ProductObj.create(
-            {'name': 'Product A', 'uom_id': self.uom_hours.id,
-                'uom_po_id': self.uom_hours.id})
+            {'name': 'Product A', 'uom_id': self.uom_hours,
+                'uom_po_id': self.uom_hours})
         self.productB = self.ProductObj.create(
-            {'name': 'Product B', 'uom_id': self.uom_hours.id,
-                'uom_po_id': self.uom_hours.id})
+            {'name': 'Product B', 'uom_id': self.uom_hours,
+                'uom_po_id': self.uom_hours})
         self.productC = self.ProductObj.create(
-            {'name': 'Product C', 'uom_id': self.uom_days.id,
-                'uom_po_id': self.uom_days.id})
+            {'name': 'Product C', 'uom_id': self.uom_days,
+                'uom_po_id': self.uom_days})
         self.productD = self.ProductObj.create(
-            {'name': 'Product D', 'uom_id': self.uom_kg.id,
-                'uom_po_id': self.uom_kg.id})
+            {'name': 'Product D', 'uom_id': self.uom_kg,
+                'uom_po_id': self.uom_kg})
 
         self.user = self.env['res.users'].sudo().create({
             'name': 'Your user test',
@@ -80,7 +65,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'name': 'Resource Line1',
                                 'product_id': self.productA.id,
                                 'qty': 100,
-                                'uom_id': self.uom_hours.id,
+                                'uom_id': self.uom_hours,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
                                 'business_requirement_id': self.br.id
@@ -89,7 +74,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'name': 'Resource Line1',
                                 'product_id': self.productC.id,
                                 'qty': 100,
-                                'uom_id': self.uom_hours.id,
+                                'uom_id': self.uom_hours,
                                 'resource_type': 'task',
                                 'user_id': self.user.id,
                                 'business_requirement_id': self.br.id
@@ -129,7 +114,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
             for resource in line.resource_ids:
                 if resource and resource.resource_type == 'task':
                     try:
-                        res = resource.write({'uom_id': self.uom_kg.id})
+                        res = resource.write({'uom_id': self.uom_kg})
                     except:
                         res = False
                     self.assertEqual(res, False)
@@ -225,12 +210,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id, 'name': ''})
             description = ''
-            sale_price_unit = 0
             product = self.productA
 
             if product:
                 description = product.name_get()[0][1]
-                sale_price_unit = product.list_price
 
             if product.description_sale:
                 description += '\n' + product.description_sale
@@ -264,12 +247,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id})
             description = ''
-            sale_price_unit = 0
             product = self.productA
 
             if product:
                 description = product.name_get()[0][1]
-                sale_price_unit = product.list_price
 
             if product.description_sale:
                 description += '\n' + product.description_sale
@@ -307,7 +288,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line.write({'product_id': self.productA.id})
             line.product_id_change()
-            line.write({'uom_id': self.uom_days.id})
+            line.write({'uom_id': self.uom_days})
             self.sale_price_unit = line.sale_price_unit
             line.product_uom_change()
             product = self.productA.with_context(
@@ -328,7 +309,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.write({'partner_id': self.partner.id})
         try:
             self.br.partner_id_change()
-        except UserError, e:
+        except UserError as e:
             self.assertEqual(type(e), UserError)
 
     def test_business_requirement_id_change(self):
