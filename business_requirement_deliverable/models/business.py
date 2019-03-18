@@ -4,6 +4,11 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from odoo.addons import decimal_precision as dp
 
+import logging
+
+
+_logger = logging.getLogger(__name__)
+
 
 class BusinessRequirementResource(models.Model):
     _name = "business.requirement.resource"
@@ -251,14 +256,8 @@ class BusinessRequirementDeliverable(models.Model):
             self.uom_id = uom_id
         self.sale_price_unit = sale_price_unit
 
-    @api.onchange('uom_id', 'qty')
-    def product_uom_change(self):
-        product_uom = self.env['uom.uom']
-
-        if self.qty != 0:
-            product_uom._compute_quantity(
-                self.uom_id.id, self.qty, self.product_id.uom_id.id) / self.qty
-
+    @api.onchange('qty')
+    def qty_change(self):
         if self.business_requirement_id and \
                 self.business_requirement_id.pricelist_id:
             product = self.product_id.with_context(
@@ -269,6 +268,15 @@ class BusinessRequirementDeliverable(models.Model):
                 uom=self.uom_id.id,
             )
             self.sale_price_unit = product.price
+
+    @api.onchange('uom_id')
+    def product_uom_change(self):
+        if self.qty != 0:
+            if self.uom_id.id == self._origin.uom_id.id:
+                self.qty = self._origin.qty
+            else:
+                self.qty = self.product_id.uom_id._compute_quantity(
+                    self.qty, self.uom_id)
 
 
 class BusinessRequirement(models.Model):
