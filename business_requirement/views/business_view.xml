@@ -295,6 +295,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
     <!-- Top menu item -->
     <menuitem id="menu_business_root"  name="Business Requirement"
               groups="business_requirement.group_business_requirement_user"
+              web_icon="business_requirement,static/description/icon.png"
               sequence="30"/>
 
     <menuitem id="menu_business_requirement" name="Business Requirement"

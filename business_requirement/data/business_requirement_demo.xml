@@ -153,6 +153,98 @@ pulvinar et, cursus sed purus.
             <field name="to_be_reviewed" eval="0"/>
             <field name="state">stakeholder_approval</field>
             <field name="partner_id" ref="base.main_partner"/>
+            <field name="business_requirement"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Donec sagittis sem non pretium tincidunt.</li></ul>
+
+<p>
+</p><ul><li>Nulla iaculis mi at luctus pellentesque.</li><li>Aliquam vel diam sit amet justo ultrices fermentum a non mauris.</li><li>Pellentesque eleifend lorem eu dui dapibus, at vulputate leo consectetur.</li><li>Sed pulvinar mi non viverra vulputate.</li><li>Ut sed neque quis diam venenatis viverra.</li><li>In molestie sem eu dolor bibendum, id vestibulum augue imperdiet.</li></ul>
+
+<p>
+</p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
+            ]]></field>
+            <field name="scenario"><![CDATA[
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
+dictum mollis.
+</p>
+<p>
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
+pulvinar et, cursus sed purus.
+</p>
+
+<img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
+            ]]></field>
+            <field name="gap"><![CDATA[
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
+ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
+at felis. Pellentesque in tempus eros. Nam suscipit urna eu dignissim
+imperdiet. Donec eget sem quis felis ultrices congue id et magna.
+Praesent pulvinar mollis sem, eu blandit leo finibus pellentesque.
+Pellentesque vehicula, ex quis faucibus dictum, metus diam hendrerit
+magna, in iaculis magna felis fermentum velit. Cras consectetur ante
+auctor sem imperdiet scelerisque. Fusce rutrum lacus ac neque
+pellentesque posuere. Aenean ut risus gravida, suscipit urna a,
+convallis dui. Nullam elementum ante quam. Cras egestas tincidunt dui
+dictum mollis.
+</p>
+<p>
+Vivamus in purus sed enim eleifend lacinia. Suspendisse id odio sem.
+Suspendisse ac sem vel lorem porta ullamcorper sit amet ut ipsum.
+Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
+auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
+pulvinar et, cursus sed purus.
+</p>
+            ]]></field>
+            <field name="test_case"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
+            ]]></field>
+            <field name="terms_and_conditions"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
+            ]]>
+            </field>
         </record>
         <record id="business_requirement_2_2" model="business.requirement">
             <field name="parent_id" ref="business_requirement_2_1"/>
@@ -350,6 +442,19 @@ pulvinar et, cursus sed purus.
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
+            <field name="terms_and_conditions"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
+            ]]></field>
         </record>
         <record id="business_requirement_4" model="business.requirement">
             <field name="description">Business Analysis</field>
@@ -429,6 +534,19 @@ pulvinar et, cursus sed purus.
 </p>
             ]]></field>
             <field name="test_case"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
+            ]]></field>
+            <field name="terms_and_conditions"><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -532,6 +650,25 @@ pulvinar et, cursus sed purus.
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
             ]]></field>
+            <field name="terms_and_conditions"><![CDATA[
+<h1>Lorem Ipsum</h1>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
+
+
+<hr>
+
+
+
+<p>
+</p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
+            ]]></field>
+        </record>
+
+        <!-- User groups -->
+        <record id="base.user_demo" model="res.users">
+            <field name="groups_id"
+                   eval="[(4,ref('business_requirement.group_business_requirement_user'))]"/>
         </record>
 
 </odoo>
