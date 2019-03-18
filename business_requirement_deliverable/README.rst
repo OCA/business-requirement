@@ -1,10 +1,21 @@
-.. figure:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
+.. |badge1| image:: https://img.shields.io/badge/maturity-Stable-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Stable
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
    :alt: License: LGPL-3
+
+|badge1| |badge2|
+
 
 ================================
 Business Requirement Deliverable
 ================================
+
+**Table of contents**
+
+.. contents::
+   :local:
 
 Introduction
 ============
@@ -100,7 +111,6 @@ No specific steps required
 
 Configuration
 =============
-
 Users
 -----
 
@@ -149,6 +159,19 @@ Usage
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/222/10.0
 
+Known issues / Roadmap
+======================
+* As of version 10.0.1.0.0, the estimation pricelist has been moved from Project to
+  Partner object. There is no migration script for the change and the data will
+  have to be migrated manually.
+
+Changelog
+=========
+12.0.1.0.0 (2019-03-15)
+-----------------------
+
+- [MIG] migrate from 10.0 to 12.0
+
 Bug Tracker
 ===========
 
@@ -156,15 +179,8 @@ Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
-Known issues / Roadmap
-======================
-* As of version 10.0.1.0.0, the estimation pricelist has been moved from Project to
-  Partner object. There is no migration script for the change and the data will 
-  have to be migrated manually.
-
 Credits
 =======
-
 Contributors
 ------------
 
@@ -172,6 +188,7 @@ Contributors
 * Alex Duan <alex.duan@elico-corp.com>
 * Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
 * Victor M. Martin <victor.martin@elico-corp.com>
+* Ruter Lü <ruter.lv@elico-corp.com>
 
 Maintainer
 ----------
