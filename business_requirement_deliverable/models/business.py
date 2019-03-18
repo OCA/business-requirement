@@ -22,14 +22,12 @@ class BusinessRequirementResource(models.Model):
                    ('cancel', 'Cancel'),
                    ('drop', 'Drop'),
                    ],
-        store=True,
-        readonly=True
+        store=True
     )
     name = fields.Char('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
-        string='Product',
-        required=False
+        string='Product'
     )
     uom_id = fields.Many2one(
         comodel_name='uom.uom',
@@ -38,7 +36,7 @@ class BusinessRequirementResource(models.Model):
     )
     qty = fields.Float(
         string='Quantity',
-        default=1,
+        default=1
     )
     resource_type = fields.Selection(
         selection=[('task', 'Task'), ('procurement', 'Procurement')],
@@ -98,11 +96,10 @@ class BusinessRequirementResource(models.Model):
 
     @api.onchange('resource_type')
     def resource_type_change(self):
+        self.uom_id = self.env.ref('uom.product_uom_hour').id
         if self.resource_type == 'procurement':
             self.user_id = False
             self.uom_id = self.env.ref('uom.product_uom_unit').id
-        else:
-            self.uom_id = self.env.ref('uom.product_uom_hour').id
 
     @api.multi
     @api.constrains('resource_type', 'uom_id')
@@ -113,7 +110,7 @@ class BusinessRequirementResource(models.Model):
                         self.env.ref('uom.uom_categ_wtime'))):
                 raise ValidationError(_(
                     "When resource type is task, "
-                    "the uom category should be time"))
+                    "the UoM category should be time"))
 
     @api.multi
     def write(self, vals):
@@ -138,15 +135,13 @@ class BusinessRequirementDeliverable(models.Model):
                    ('cancel', 'Cancel'),
                    ('drop', 'Drop'),
                    ],
-        store=True,
-        readonly=True
+        store=True
     )
     name = fields.Text('Name', required=True)
     product_id = fields.Many2one(
         comodel_name='product.product',
         string='Product',
-        domain=[('sale_ok', '=', True)],
-        required=False
+        domain=[('sale_ok', '=', True)]
     )
     uom_id = fields.Many2one(
         comodel_name='uom.uom',
@@ -156,14 +151,13 @@ class BusinessRequirementDeliverable(models.Model):
     )
     qty = fields.Float(
         string='Quantity',
-        store=True,
-        default=1,
+        default=1
     )
     resource_ids = fields.One2many(
         comodel_name='business.requirement.resource',
         inverse_name='business_requirement_deliverable_id',
         string='Business Requirement Resource',
-        copy=True,
+        copy=True
     )
     business_requirement_id = fields.Many2one(
         comodel_name='business.requirement',
@@ -178,13 +172,11 @@ class BusinessRequirementDeliverable(models.Model):
     price_total = fields.Float(
         compute='_compute_get_price_total',
         string='Total Deliverable',
-        store=True,
-        readonly=True
+        store=True
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
-        readonly=True,
         compute='_compute_get_currency',
     )
     business_requirement_partner_id = fields.Many2one(
@@ -310,7 +302,6 @@ class BusinessRequirement(models.Model):
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',
-        readonly=True,
         compute='_compute_get_currency'
     )
     dl_total_revenue = fields.Float(
@@ -324,7 +315,7 @@ class BusinessRequirement(models.Model):
         comodel_name='product.pricelist',
         string='Pricelist',
         readonly=True,
-        states={'draft': [('readonly', False)]},
+        states={'draft': [('readonly', False)]}
     )
 
     @api.multi
@@ -437,12 +428,12 @@ class BusinessRequirement(models.Model):
                 )
                 if br.partner_id.property_product_pricelist.currency_id:
                     br.total_revenue = \
-                        br.partner_id.property_product_pricelist.currency_id\
-                        ._convert(
-                            total_revenue_origin,
-                            br.company_id.currency_id,
-                            br.company_id,
-                            fields.Date.today()
-                        )
+                        br.partner_id.property_product_pricelist.currency_id.\
+                            _convert(
+                                total_revenue_origin,
+                                br.company_id.currency_id,
+                                br.company_id,
+                                fields.Date.today()
+                            )
                 else:
                     br.total_revenue = total_revenue_origin

@@ -5,7 +5,8 @@
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirement Deliverables and \
                 Resources for your customers',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
+    'maturity': 'stable',
     'website': 'https://github.com/OCA/business-requirement',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [

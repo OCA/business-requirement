@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -544,9 +544,9 @@ msgid "Website Template"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:116
+#: code:addons/business_requirement_deliverable/models/business.py:113
 #, python-format
-msgid "When resource type is task, the uom category should be time"
+msgid "When resource type is task, the UoM category should be time"
 msgstr ""
 
 #. module: business_requirement_deliverable
