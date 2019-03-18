@@ -196,7 +196,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
                     </h2>
                     <br/>
                     <t t-foreach="docs" t-as="o">
-                        <div style="page-break-after: always;">
+                        <div class="article o_report_layout_standard" style="page-break-after: always;">
                             <t t-call="business_requirement.layout_br_base">
                             </t>
                         </div>
