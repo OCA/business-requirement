@@ -272,11 +272,10 @@ class BusinessRequirementDeliverable(models.Model):
     @api.onchange('uom_id')
     def product_uom_change(self):
         if self.qty != 0:
-            if self.uom_id.id == self._origin.uom_id.id:
-                self.qty = self._origin.qty
-            else:
-                self.qty = self.product_id.uom_id._compute_quantity(
-                    self.qty, self.uom_id)
+            self.qty = self._origin.uom_id._compute_quantity(
+                self._origin.qty,
+                self.uom_id
+            )
 
 
 class BusinessRequirement(models.Model):
