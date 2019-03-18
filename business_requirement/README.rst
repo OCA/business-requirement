@@ -1,11 +1,21 @@
-.. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
+.. |badge1| image:: https://img.shields.io/badge/maturity-Stable-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Stable
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
    :alt: License: LGPL-3
+
+|badge1| |badge2|
 
 
 ====================
 Business Requirement
 ====================
+
+**Table of contents**
+
+.. contents::
+   :local:
 
 Introduction
 ============
@@ -312,6 +322,13 @@ Known issues / Roadmap
 * Improve the followers details (eg: depending on the stages)
 * Focus should be on description field (When BR form open it direct focus on use-case field).
 
+Changelog
+=========
+
+12.0.1.0.0 (2019-03-15)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- [MIG] migrate from 10.0 to 12.0
 
 Bug Tracker
 ===========

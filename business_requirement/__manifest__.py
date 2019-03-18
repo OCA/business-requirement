@@ -1,4 +1,4 @@
-# © 2019 Elico Corp (https://www.elico-corp.com).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Business Requirement',
@@ -6,6 +6,7 @@
     'summary': 'Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers',
     'version': '12.0.1.0.0',
+    'maturity': 'stable',
     'website': 'https://github.com/OCA/business-requirement',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [

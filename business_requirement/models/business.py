@@ -1,4 +1,4 @@
-# © 2019 Elico Corp (https://www.elico-corp.com).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 from odoo import api, fields, models, _
@@ -15,7 +15,7 @@ class BusinessRequirement(models.Model):
     def _get_default_company(self):
         if not self.env.user.company_id:
             raise ValidationError(
-                _('There is no default company for the current user!'))
+                _('There is no default company for the current user'))
         return self.env.user.company_id.id
 
     sequence = fields.Char(
@@ -271,15 +271,12 @@ class BusinessRequirement(models.Model):
                 if msg_followers:
                     vals['message_follower_ids'] = msg_followers
         if vals.get('state'):
-            ir_obj = self.env['ir.model.data']
-            br_xml_id = ir_obj.\
-                get_object('business_requirement',
-                           'group_business_requirement_manager')
-            user = self.env['res.users']
-            grps = [grp.id for grp in user.browse(self._uid).groups_id]
+            user_id = self.env.user
+            has_group_br_manager = user_id.has_group(
+                'business_requirement.group_business_requirement_manager')
             date = fields.Datetime.now()
             if vals['state'] == 'confirmed':
-                vals.update({'confirmed_id': user,
+                vals.update({'confirmed_id': user_id.id,
                              'confirmation_date': date})
             if vals['state'] == 'draft':
                 vals.update({'confirmed_id': False,
@@ -288,17 +285,17 @@ class BusinessRequirement(models.Model):
                              'approval_date': False
                              })
             if vals['state'] == 'approved':
-                if br_xml_id.id in grps:
-                    vals.update({'approved_id': user,
+                if has_group_br_manager:
+                    vals.update({'approved_id': user_id.id,
                                  'approval_date': date})
                 else:
                     raise ValidationError(_(
                         'You can only move to the following stage: '
                         'draft/confirmed /cancel/drop.'))
             if vals['state'] == 'stakeholder_approval':
-                if br_xml_id.id in grps:
+                if has_group_br_manager:
                     vals.update({
-                        'approved_id': user,
+                        'approved_id': user_id.id,
                         'approval_date': date
                     })
                 else:
@@ -308,7 +305,7 @@ class BusinessRequirement(models.Model):
 
             if vals['state'] in ('stakeholder_approval', 'in_progress',
                                  'done'):
-                if br_xml_id.id not in grps:
+                if has_group_br_manager:
                     raise ValidationError(_(
                         'You can only move to the following stage: '
                         'draft/confirmed/cancel/drop.'))

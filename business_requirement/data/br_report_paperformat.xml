@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
 <odoo>
     <record id="br_report_paperformat_eu" model="report.paperformat">
         <field name="name">European A4</field>

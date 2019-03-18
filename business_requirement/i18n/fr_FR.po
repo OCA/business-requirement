@@ -6,7 +6,7 @@
 # Pascal GOUHIER <pascal.gouhier@copagex.fr>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 06:12+0000\n"
 "PO-Revision-Date: 2018-12-23 10:58+0000\n"
@@ -439,10 +439,10 @@ msgid "Test Case:"
 msgstr "Scénario test :"
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:19
+#: code:addons/business_requirement/models/business.py:18
 #, python-format
-msgid "There is no default company for the current user!"
-msgstr "Il n'y a pas de société par défaut pour l'utilisateur actuel !"
+msgid "There is no default company for the current user"
+msgstr "Il n'y a pas de société par défaut pour l'utilisateur actuel"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_to_be_reviewed

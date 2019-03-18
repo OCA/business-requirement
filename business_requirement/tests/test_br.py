@@ -1,4 +1,4 @@
-# © 2019 Elico Corp (https://www.elico-corp.com).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo.tests import common
 from odoo.exceptions import ValidationError
@@ -154,39 +154,3 @@ class BusinessRequirementTestCase(common.TransactionCase):
         }
         res.write(br_vals1)
         self.assertEqual(res.project_id.id, self.pr_2.id)
-
-    def test_br_read_group(self):
-        self.env['business.requirement'].read_group(
-            [],
-            ['state'], ['state'])[0]
-        self.env['business.requirement'].read_group(
-            [],
-            [], [])[0]
-
-    def test_br_state_generate_project_wizard(self):
-        # test when state=draft
-        self.brA.state = 'draft'
-        self.brB.state = 'draft'
-        self.brC.state = 'draft'
-
-        # test when state=confirmed
-        self.brA.state = 'confirmed'
-        self.brB.state = 'confirmed'
-        self.brC.state = 'confirmed'
-
-        self.brB.state = 'confirmed'
-        self.brC.state = 'draft'
-
-        # test when state=stakeholder_approval
-        self.brA.state = 'stakeholder_approval'
-        self.brB.state = 'approved'
-        self.brC.state = 'approved'
-
-        # test when state=done
-        self.brA.state = 'done'
-        self.brB.state = 'approved'
-        self.brC.state = 'approved'
-
-        # test when state=cancel
-        self.brB.state = 'approved'
-        self.brC.state = 'approved'
