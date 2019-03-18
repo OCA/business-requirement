@@ -7,13 +7,13 @@
                 <div class="page" name="page">
                     <h2 class="text-center">Business Requirement Document</h2><br/>
                     <t t-foreach="docs" t-as="o">
-                        <div style="page-break-after: always;">
+                        <div class="article o_report_layout_standard" style="page-break-after: always;">
                             <t t-call="business_requirement.layout_br_base">
                             </t>
                         </div>
                         <t t-if="o.deliverable_lines">
                             <t t-foreach="o.deliverable_lines" t-as='deliverable'>
-                                <div style="page-break-after: always;">
+                                <div class="article o_report_layout_standard" style="page-break-after: always;">
                                     <u><h3>Deliverable <span t-esc="deliverable_index + 1"/>:</h3></u>
                                     <table class="table table-bordered">
                                         <thead>
