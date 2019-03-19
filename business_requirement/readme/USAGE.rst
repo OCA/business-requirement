@@ -1,5 +1,5 @@
 Simple BR
----------
+~~~~~~~~~
 1. Define the header information
 
    * Master Project (Partner is the one related to the master project)
@@ -12,7 +12,7 @@ Simple BR
       :width: 600 px
       :alt: Input header information
 
-2. Input the customer story, scenario gap and test case(simple html editor with image and text)
+2. Input the Stakeholder story, scenario gap and test case(simple html editor with image and text)
 
    .. figure:: ../static/img/bus_req_cust_story.png
       :width: 600 px
@@ -49,11 +49,11 @@ Simple BR
       :alt: Drop your business requirement
 
 Sub-business requirements
--------------------------
-User can create sub business requirements for a given BR for complex cases.
+~~~~~~~~~~~~~~~~~~~~~~~~~
+User can create sub-business requirements for a given BR for complex cases.
 
 This is a simple parent/child relation (see roadmap).
 
 .. figure:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/222/10.0
+   :target: https://runbot.odoo-community.org/runbot/222/12.0
