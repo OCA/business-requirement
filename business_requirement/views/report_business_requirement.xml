@@ -159,13 +159,12 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
     <template id="br_report">
         <t t-call="web.html_container">
             <t t-call="web.internal_layout">
-                <div class="page" name="page">
+                <div class="page">
                     <h3 class="text-center">Business Requirement Document</h3>
                     <br/>
                     <t t-foreach="docs" t-as="o">
-                        <div class="article o_report_layout_standard" style="page-break-after: always;">
-                            <t t-call="business_requirement.layout_br_base">
-                            </t>
+                        <div style="page-break-after: always;">
+                            <t t-call="business_requirement.layout_br_base"/>
                         </div>
                     </t>
                 </div>
