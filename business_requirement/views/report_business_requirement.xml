@@ -4,38 +4,6 @@
 License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 -->
 <odoo>
-    <template id="internal_layout_br_header">
-        <!-- Multicompany -->
-        <t t-if="o and 'company_id' in o">
-            <t t-set="company" t-value="o.company_id"></t>
-        </t>
-        <t t-if="not o or not 'company_id' in o">
-            <t t-set="company" t-value="res_company"></t>
-        </t>
-        <div class="header">
-            <div class="row">
-                <div class="col-xs-3">
-                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
-                </div>
-                <div class="col-xs-6 text-center">
-                    <span t-esc="company.name"/>
-                </div>
-                <div class="col-xs-2 col-xs-offset-1 text-right">
-                    <ul class="list-inline">
-                        <li>
-                            <span class="page"/>
-                        </li>
-                        <li>/</li>
-                        <li>
-                            <span class="topage"/>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <t t-raw="0"/>
-    </template>
-
     <template id="layout_br_base">
         <center>
         <h3 style="margin-top:-10px;"><span
@@ -66,7 +34,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
                     <th>WBS</th>
                     <th colspan="2">Category</th>
                     <th colspan="2">Responsible</th>
-                    <th>Change Request</th>
+                    <th>Change Req.</th>
                 </tr>
                 <tr>
                     <td>
@@ -136,7 +104,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
         <t t-if="o.scenario and o.scenario != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
             <u><h3>Scenario:</h3></u>
-            <table class="table .table-striped">
+            <table class="table table-striped">
                 <tbody>
                     <tr>
                         <td style="padding-left: 30px;">
@@ -190,10 +158,9 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
     <template id="br_report">
         <t t-call="web.html_container">
-            <t t-call="business_requirement.internal_layout_br_header">
+            <t t-call="web.internal_layout">
                 <div class="page" name="page">
-                    <h2 class="text-center">Business Requirement Document
-                    </h2>
+                    <h3 class="text-center">Business Requirement Document</h3>
                     <br/>
                     <t t-foreach="docs" t-as="o">
                         <div class="article o_report_layout_standard" style="page-break-after: always;">

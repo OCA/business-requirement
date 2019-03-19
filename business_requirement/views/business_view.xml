@@ -316,8 +316,4 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
               action="action_business_requirement_category_tree"
               parent="menu_business_configuration" sequence="10"/>
 
-    <menuitem action="product.product_template_action"
-              id="menu_product_template_action"
-              parent="menu_business_configuration" sequence="11" />
-
 </odoo>
