@@ -6,7 +6,6 @@
     'summary': 'Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers',
     'version': '12.0.1.0.0',
-    'maturity': 'stable',
     'website': 'https://github.com/OCA/business-requirement',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
@@ -43,4 +42,7 @@
     'license': 'LGPL-3',
     'installable': True,
     'application': True,
+    'development_status': 'Production/Stable',
+    'maintainers': ['elicoidal'],
+
 }

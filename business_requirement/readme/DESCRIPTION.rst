@@ -1,6 +1,3 @@
-What is a Business Requirement?
--------------------------------
-
 A **Business requirement** (BR) is the expression of a business need by a customer
 or internal project user.
 
@@ -35,9 +32,9 @@ More information about business requirements management:
 * `Six Sigma <https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
 
 Business Requirement set of modules
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/10.0>`_).
+This module is part of a set (`Business Requirements repo <https://github.com/OCA/business-requirement/tree/12.0>`_).
 
 The base Business Requirements module creates the basic objects and
 can be used as a standalone module.
@@ -65,9 +62,9 @@ The following workflow explains the business workflow between the BR modules and
 
 
 How to use this module?
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
-This module only contains the standard base models for business requirement:
+The current module only contains the standard base models for business requirement:
 
 * BR model definition
 * Standard setup and views

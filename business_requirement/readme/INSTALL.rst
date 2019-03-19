@@ -7,7 +7,7 @@ install and run this modules. The
 should be able to get you started.
 
 Using git
----------
+~~~~~~~~~
 The most common way to install the module is to clone the git repository in your
 server and add the directory to your `odoo.conf` file:
 
@@ -26,7 +26,7 @@ server and add the directory to your `odoo.conf` file:
 #. Install the `Business Requirements` modules in menu `Apps`.
 
 Using pip
----------
+~~~~~~~~~
 An easy way to install it with all its dependencies is using pip:
 
 #. Recover the code from pip repository
@@ -40,7 +40,7 @@ An easy way to install it with all its dependencies is using pip:
 #. Install the `Business Requirements` modules in menu `Apps`.
 
 Fresh install with Docker
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 If you do not have any Odoo server installed, you can start your own Odoo in few
 minutes via Docker in command line.
 
@@ -101,5 +101,5 @@ You can improve your new Odoo docker environment (add parameters, change default
 passwords etc.) following this `documentation <https://github.com/Elico-Corp/odoo-docker>`_
 
 Now what?
----------
+~~~~~~~~~
 Check the `Official Documentation <https://www.odoo.com/documentation/12.0>`_ to start using Odoo and developing your own modules.
