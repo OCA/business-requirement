@@ -25,6 +25,10 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.AnalyticAccount = self.AnalyticAccountObject.create(
             {'name': 'AnalyticAccount for Test'})
 
+        groups_id = self.ref(
+            'business_requirement.group_business_requirement_manager')
+        self.env.user.write({'groups_id': [(4, groups_id)]})
+
         self.projectA = self.ProjectObj. \
             create({'name': 'Test Project A', 'partner_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
@@ -154,3 +158,84 @@ class BusinessRequirementTestCase(common.TransactionCase):
         }
         res.write(br_vals1)
         self.assertEqual(res.project_id.id, self.pr_2.id)
+
+    def test_br_read_group(self):
+        states = self.br._get_states()
+        br_vals = {
+            'name': 'test',
+            'description': 'test',
+            'project_id': self.pr_1.id
+        }
+        res = self.br.create(br_vals)
+        groups_1 = self.br.read_group([('id', '=', res.id)], [], ['state'])
+        self.assertEqual(len(groups_1), len(states))
+
+        groups_2 = self.br.read_group(
+            [('id', '=', res.id)],
+            [],
+            ['project_id'])
+        self.assertEqual(len(groups_2), 1)
+
+        groups_3 = self.br.read_group([], [], [])
+        self.assertEqual(len(groups_3), 1)
+
+        br_count = self.br.search_count([])
+        self.assertEqual(groups_3[0]['__count'], br_count)
+
+    def test_check_state_workflow(self):
+        br_vals = {
+            'name': 'test',
+            'description': 'test'
+        }
+        br = self.br.create(br_vals)
+
+        self.assertTrue(br._check_state_workflow('cancel'))
+        self.assertTrue(br._check_state_workflow('drop'))
+        self.assertTrue(br._check_state_workflow('confirmed'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('approved')
+
+        br.state = 'confirmed'
+        self.assertTrue(br._check_state_workflow('draft'))
+        self.assertTrue(br._check_state_workflow('approved'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('stakeholder_approval')
+
+        br.state = 'approved'
+        self.assertTrue(br._check_state_workflow('confirmed'))
+        self.assertTrue(br._check_state_workflow('stakeholder_approval'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('in_progress')
+
+        br.state = 'stakeholder_approval'
+        self.assertTrue(br._check_state_workflow('approved'))
+        self.assertTrue(br._check_state_workflow('in_progress'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('done')
+
+        br.state = 'in_progress'
+        self.assertTrue(br._check_state_workflow('stakeholder_approval'))
+        self.assertTrue(br._check_state_workflow('done'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('approved')
+
+        br.state = 'done'
+        self.assertTrue(br._check_state_workflow('draft'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('confirmed')
+
+    def test_br_state_change(self):
+        self.brA.state = 'draft'
+        self.assertFalse(self.brA.confirmed_id)
+        self.assertFalse(self.brA.approved_id)
+        self.assertFalse(self.brA.confirmation_date)
+        self.assertFalse(self.brA.approval_date)
+
+        self.brA.state = 'confirmed'
+        self.assertEqual(self.brA.confirmed_id.id, self.env.uid)
+
+        self.brA.state = 'approved'
+        self.assertEqual(self.brA.confirmed_id.id, self.env.uid)
+
+        self.brA.state = 'stakeholder_approval'
+        self.assertEqual(self.brA.confirmed_id.id, self.env.uid)
