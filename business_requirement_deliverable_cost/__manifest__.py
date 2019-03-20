@@ -6,9 +6,9 @@
     'version': '12.0.1.0.0',
     'maturity': 'stable',
     'category': 'Business Requirements Management',
-    'website': 'https://www.elico-corp.com/',
+    'website': 'https://github.com/OCA/business-requirement',
     'author': 'Elico Corp, Odoo Community Association (OCA)',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'application': False,
     'installable': True,
     'depends': [
