@@ -75,9 +75,14 @@ class BusinessRequirementDeliverableSaleReport(models.Model):
     @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
-        self.env.cr.execute("""CREATE or REPLACE VIEW %s as (
+        query = """
+            CREATE or REPLACE VIEW %s as (
             %s
             FROM ( %s )
             %s
-            )""" % (self._table, self._select(), self._from(),
-                    self._group_by()))
+            )
+        """
+        self.env.cr.execute(
+            query,
+            (self._table, self._select(), self._from(), self._group_by(),)
+        )

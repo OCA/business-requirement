@@ -284,22 +284,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 self.assertTrue(
                     self.productA.description_sale in line.name)
 
-    def test_product_uom_change(self):
-        for line in self.br.deliverable_lines:
-            line.write({'product_id': self.productA.id})
-            line.product_id_change()
-            line.write({'uom_id': self.uom_days})
-            self.sale_price_unit = line.sale_price_unit
-            line.product_uom_change()
-            product = self.productA.with_context(
-                lang=self.br.partner_id.lang,
-                partner=self.br.partner_id.id,
-                quantity=line.qty,
-                pricelist=line.business_requirement_id.pricelist_id.id,
-                uom=line.uom_id.id,
-            )
-            self.assertEqual(line.sale_price_unit, product.price)
-
     def test_partner_id_change(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
