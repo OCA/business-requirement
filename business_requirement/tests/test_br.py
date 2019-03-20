@@ -25,10 +25,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.AnalyticAccount = self.AnalyticAccountObject.create(
             {'name': 'AnalyticAccount for Test'})
 
-        groups_id = self.ref(
-            'business_requirement.group_business_requirement_manager')
-        self.env.user.write({'groups_id': [(4, groups_id)]})
-
         self.projectA = self.ProjectObj. \
             create({'name': 'Test Project A', 'partner_id': 1,
                     'analytic_account_id': self.AnalyticAccount.id})
@@ -241,6 +237,20 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.assertTrue(br._check_state_workflow('draft'))
         with self.assertRaises(ValidationError):
             br._check_state_workflow('confirmed')
+
+        br_vals2 = {
+            'name': 'test',
+            'description': 'test'
+        }
+        br2 = self.br.sudo(self.ref('base.user_demo')).create(br_vals2)
+        br2 = br2.sudo(self.ref('base.user_demo'))
+        br2.state = 'confirmed'
+        with self.assertRaises(ValidationError):
+            br2._check_state_workflow('approved')
+
+        br2.sudo().state = 'approved'
+        with self.assertRaises(ValidationError):
+            br2._check_state_workflow('confirmed')
 
     def test_br_state_change(self):
         self.brA.state = 'draft'
