@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
 <odoo>
     <record id="act_view_lead_br_all" model="ir.actions.act_window">
         <field name="name">Business Requirement</field>

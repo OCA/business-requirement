@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo noupdate="1">
 
         <record id="crm_sale_order_1" model="sale.order">
             <field name="origin">Opportunity: crm_lead_1</field>
@@ -38,5 +41,4 @@
             <field name="project_id" ref="business_requirement.project_3"/>
         </record>
 
-    </data>
-</openerp>
+</odoo>
