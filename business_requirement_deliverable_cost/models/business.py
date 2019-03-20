@@ -27,8 +27,7 @@ class BusinessRequirementResource(models.Model):
         'res.partner',
         related='business_requirement_deliverable_id.'
         'business_requirement_id.partner_id',
-        string='Parter ID Related',
-        readonly=True,
+        string='Parter ID Related'
     )
 
     @api.multi
