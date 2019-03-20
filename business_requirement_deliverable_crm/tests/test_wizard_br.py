@@ -11,41 +11,26 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.ModelDataObj = self.env['ir.model.data']
 
         # Configure unit of measure.
-        self.categ_wtime = self.ModelDataObj.xmlid_to_res_id(
-            'product.uom_categ_wtime')
-        self.categ_kgm = self.ModelDataObj.xmlid_to_res_id(
-            'product.product_uom_categ_kgm')
-        self.UomObj = self.env['product.uom']
-        self.uom_hours = self.UomObj.create({
-            'name': 'Test-Hours',
-            'category_id': self.categ_wtime,
-            'factor': 8,
-            'uom_type': 'smaller'})
-        self.uom_days = self.UomObj.create({
-            'name': 'Test-Days',
-            'category_id': self.categ_wtime,
-            'factor': 1})
-        self.uom_kg = self.UomObj.create({
-            'name': 'Test-KG',
-            'category_id': self.categ_kgm,
-            'factor_inv': 1,
-            'factor': 1,
-            'uom_type': 'reference',
-            'rounding': 0.000001})
+        self.categ_wtime = self.ref('uom.uom_categ_wtime')
+        self.categ_kgm = self.ref('uom.product_uom_categ_kgm')
+        self.UomObj = self.env['uom.uom']
+        self.uom_hours = self.ref('uom.product_uom_hour')
+        self.uom_days = self.ref('uom.product_uom_day')
+        self.uom_kg = self.ref('uom.product_uom_kgm')
         # Product Created A, B, C, D
         self.ProductObj = self.env['product.product']
         self.productA = self.ProductObj.create(
-            {'name': 'Product A', 'uom_id': self.uom_hours.id,
-                'lst_price': 1000, 'uom_po_id': self.uom_hours.id})
+            {'name': 'Product A', 'uom_id': self.uom_hours,
+                'lst_price': 1000, 'uom_po_id': self.uom_hours})
         self.productB = self.ProductObj.create(
-            {'name': 'Product B', 'uom_id': self.uom_hours.id,
-                'lst_price': 3000, 'uom_po_id': self.uom_hours.id})
+            {'name': 'Product B', 'uom_id': self.uom_hours,
+                'lst_price': 3000, 'uom_po_id': self.uom_hours})
         self.productC = self.ProductObj.create(
-            {'name': 'Product C', 'uom_id': self.uom_days.id,
-                'uom_po_id': self.uom_days.id})
+            {'name': 'Product C', 'uom_id': self.uom_days,
+                'uom_po_id': self.uom_days})
         self.productD = self.ProductObj.create(
-            {'name': 'Product D', 'uom_id': self.uom_kg.id,
-                'uom_po_id': self.uom_kg.id})
+            {'name': 'Product D', 'uom_id': self.uom_kg,
+                'uom_po_id': self.uom_kg})
 
         self.pricelistA = self.env['product.pricelist'].create({
             'name': 'Pricelist A',
@@ -77,7 +62,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'name': 'Resource Line2',
                                 'product_id': self.productA.id,
                                 'qty': 100,
-                                'uom_id': self.uom_hours.id,
+                                'uom_id': self.uom_hours,
                                 'unit_price': 500,
                                 'resource_type': 'task',
                                 'business_requirement_id': self.br.id
@@ -86,7 +71,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'name': 'Resource Line1',
                                 'product_id': self.productA.id,
                                 'qty': 100,
-                                'uom_id': self.uom_hours.id,
+                                'uom_id': self.uom_hours,
                                 'unit_price': 500,
                                 'resource_type': 'task',
                                 'sale_price_unit': 400,
@@ -96,7 +81,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                 'name': 'Resource Line3',
                                 'product_id': self.productA.id,
                                 'qty': 100,
-                                'uom_id': self.uom_hours.id,
+                                'uom_id': self.uom_hours,
                                 'unit_price': 500,
                                 'resource_type': 'procurement',
                                 'sale_price_unit': 100,

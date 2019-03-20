@@ -12,9 +12,9 @@ class BusinessRequirementTestCase(common.TransactionCase):
 
         # Configure unit of measure.
         self.categ_wtime = self.ModelDataObj.xmlid_to_res_id(
-            'product.uom_categ_wtime')
+            'uom.uom_categ_wtime')
         self.categ_kgm = self.ModelDataObj.xmlid_to_res_id(
-            'product.product_uom_categ_kgm')
+            'uom.product_uom_categ_kgm')
         self.UomObj = self.env['product.uom']
         self.uom_hours = self.UomObj.create({
             'name': 'Test-Hours',

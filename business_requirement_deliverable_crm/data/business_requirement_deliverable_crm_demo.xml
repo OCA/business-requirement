@@ -20,7 +20,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             <field name="product_id"
                    ref="business_requirement_deliverable.product_product_3"/>
             <field name="product_uom_qty">16</field>
-            <field name="product_uom" ref="product.product_uom_hour"/>
+            <field name="product_uom" ref="uom.product_uom_hour"/>
             <field name="price_unit">50.00</field>
         </record>
 
@@ -30,7 +30,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             <field name="product_id"
                    ref="business_requirement_deliverable.product_product_3"/>
             <field name="product_uom_qty">48</field>
-            <field name="product_uom" ref="product.product_uom_hour"/>
+            <field name="product_uom" ref="uom.product_uom_hour"/>
                 <field name="price_unit">45.00</field>
         </record>
 
