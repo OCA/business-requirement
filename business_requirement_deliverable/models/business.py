@@ -434,13 +434,12 @@ class BusinessRequirement(models.Model):
                     for line in br.deliverable_lines
                 )
                 if br.partner_id.property_product_pricelist.currency_id:
-                    br.total_revenue = \
-                        br.partner_id.property_product_pricelist.currency_id.\
-                            _convert(
-                                total_revenue_origin,
-                                br.company_id.currency_id,
-                                br.company_id,
-                                fields.Date.today()
-                            )
+                    c_id = br.partner_id.property_product_pricelist.currency_id
+                    br.total_revenue = c_id._convert(
+                        total_revenue_origin,
+                        br.company_id.currency_id,
+                        br.company_id,
+                        fields.Date.today()
+                    )
                 else:
                     br.total_revenue = total_revenue_origin
