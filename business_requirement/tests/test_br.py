@@ -124,6 +124,24 @@ class BusinessRequirementTestCase(common.TransactionCase):
         level3 = br3.level
         self.assertEqual(level3, 3)
 
+    def test_br_name_get(self):
+        vals = {
+            'name': 'test',
+            'description': 'test',
+            'ref': 'test'
+        }
+        br = self.br.create(vals)
+        res = br.name_get()
+        self.assertEqual('[test][test] test', res[0][1])
+
+        vals_2 = {
+            'name': 'test2',
+            'description': 'test2'
+        }
+        br2 = self.br.create(vals_2)
+        res2 = br2.name_get()
+        self.assertEqual('[test2] test2', res2[0][1])
+
     def test_br_name_search(self):
         br_vals = {
             'name': ' test',
