@@ -32,8 +32,9 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
         <field name="view_id" ref="view_deliverable_cost_graph"/>
     </record>
 
-    <menuitem action="action_deliverable_cost_report" id="menu_action_deliverable_cost_report"
-        parent="project.menu_project_report"
+    <menuitem action="action_deliverable_cost_report"
+              id="menu_action_deliverable_cost_report"
+              parent="project.menu_project_report"
               groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
 
 </odoo>

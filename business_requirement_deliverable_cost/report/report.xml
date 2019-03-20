@@ -14,7 +14,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
         file="business_requirement_deliverable_cost.br_deliverable_other_resources_report"
     />
 
-    <record id="business_requirement_other_resources_report" model="ir.actions.report.xml">
+    <record id="business_requirement_other_resources_report" model="ir.actions.report">
         <field name="paperformat_id"
                ref="business_requirement_deliverable.br_report_paperformat_eu"/>
     </record>
