@@ -27,10 +27,6 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
                            statusbar_visible="draft,confirmed,approved,stakeholder_approval,in_progress,done,cancel,drop"/>
                 </header>
                 <sheet>
-                    <div class="oe_left">
-                        <field name="kanban_state" class="oe_inline"
-                               widget="kanban_state_selection"/>
-                    </div>
                     <div class="oe_right oe_button_box"
                          name="buttons" groups="base.group_user">
                         <button class="oe_inline oe_stat_button"
