@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
 <odoo>
-    <data>
         <record id="group_business_requirement_estimation" model="res.groups">
             <field name="name">Business Requirement Estimation</field>
             <field name="implied_ids" eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
@@ -15,5 +18,5 @@
             <field name="category_id" ref="business_requirement_deliverable_cost.module_category_business_requirement_cost"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
-    </data>
+
 </odoo>

@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
 
@@ -180,9 +179,12 @@ class BusinessRequirementDeliverable(models.Model):
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):
         for rec in self:
-            total_revenue_ci = self.env['res.currency']._compute(
-                rec.currency_id, rec.company_currency_id,
-                rec.price_total)
+            total_revenue_ci = rec.currency_id._convert(
+                rec.price_total,
+                rec.company_currency_id,
+                rec.business_requirement_id.company_id,
+                fields.Date.today()
+            )
             rec.total_revenue_ci = total_revenue_ci
 
     @api.multi
@@ -193,9 +195,12 @@ class BusinessRequirementDeliverable(models.Model):
                 rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'task').mapped(
                     'price_total'))
-            rec.resource_task_total = self.env['res.currency']._compute(
-                rec.currency_id, rec.company_currency_id,
-                resource_task_total)
+            rec.resource_task_total = rec.currency_id._convert(
+                resource_task_total,
+                rec.company_currency_id,
+                rec.business_requirement_id.company_id,
+                fields.Date.today()
+            )
 
     @api.multi
     @api.depends('resource_ids', 'resource_ids.price_total')
@@ -205,10 +210,12 @@ class BusinessRequirementDeliverable(models.Model):
                 rec.mapped('resource_ids').filtered(
                     lambda r: r.resource_type == 'procurement').mapped(
                     'price_total'))
-            rec.resource_procurement_total = self.env['res.currency'].\
-                _compute(rec.currency_id,
-                         rec.company_currency_id,
-                         resource_procurement_total)
+            rec.resource_procurement_total = rec.currency_id._convert(
+                resource_procurement_total,
+                rec.company_currency_id,
+                rec.business_requirement_id.company_id,
+                fields.Date.today()
+            )
 
     @api.multi
     @api.depends(
@@ -219,9 +226,12 @@ class BusinessRequirementDeliverable(models.Model):
         for rec in self:
             gross_profit = rec.price_total - \
                 rec.resource_task_total - rec.resource_procurement_total
-            rec.gross_profit = self.env['res.currency']._compute(
-                rec.currency_id, rec.company_currency_id,
-                gross_profit)
+            rec.gross_profit = rec.currency_id._convert(
+                gross_profit,
+                rec.company_currency_id,
+                rec.business_requirement_id.company_id,
+                fields.Date.today()
+            )
 
     @api.multi
     def action_button_update_estimation(self):
@@ -290,9 +300,12 @@ class BusinessRequirement(models.Model):
     @api.depends('currency_id')
     def _compute_total_revenue_in_ci(self):
         for rec in self:
-            total_revenue_ci = self.env['res.currency']._compute(
-                rec.currency_id, rec.company_currency_id,
-                rec.total_revenue)
+            total_revenue_ci = rec.currency_id._convert(
+                rec.total_revenue,
+                rec.company_currency_id,
+                rec.company_id,
+                fields.Date.today()
+            )
             rec.total_revenue_ci = total_revenue_ci
 
     @api.multi
@@ -313,9 +326,12 @@ class BusinessRequirement(models.Model):
                     sum(br.mapped('deliverable_lines').mapped('resource_ids')
                         .filtered(lambda r: r.resource_type == 'task')
                         .mapped('price_total'))
-                br.resource_task_total = self.env['res.currency']._compute(
-                    br.currency_id, br.company_currency_id,
-                    resource_task_total)
+                br.resource_task_total = br.currency_id._convert(
+                    resource_task_total,
+                    br.company_currency_id,
+                    br.company_id,
+                    fields.Date.today()
+                )
 
     @api.multi
     @api.depends('deliverable_lines', 'deliverable_lines.resource_ids',
@@ -327,10 +343,12 @@ class BusinessRequirement(models.Model):
                     sum(br.mapped('deliverable_lines').mapped('resource_ids')
                         .filtered(lambda r: r.resource_type == 'procurement')
                         .mapped('price_total'))
-                br.resource_procurement_total = self.env['res.currency']\
-                    ._compute(br.currency_id,
-                              br.company_currency_id,
-                              resource_procurement_total)
+                br.resource_procurement_total = br.currency_id._convert(
+                    resource_procurement_total,
+                    br.company_currency_id,
+                    br.company_id,
+                    fields.Date.today()
+                )
 
     @api.multi
     @api.depends(
@@ -343,6 +361,9 @@ class BusinessRequirement(models.Model):
                 br.total_revenue -
                 br.resource_task_total -
                 br.resource_procurement_total)
-            br.gross_profit = self.env['res.currency']._compute(
-                br.currency_id, br.company_currency_id,
-                gross_profit)
+            br.gross_profit = br.currency_id._convert(
+                    gross_profit,
+                    br.company_currency_id,
+                    br.company_id,
+                    fields.Date.today()
+                )

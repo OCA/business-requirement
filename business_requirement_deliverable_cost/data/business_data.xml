@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo noupdate="1">
         <!-- Security Group Category -->
         <record model="ir.module.category" id="module_category_business_requirement_cost">
             <field name="name">Business Requirement Cost</field>
             <field name="description"></field>
             <field name="sequence">10</field>
         </record>
-
-    </data>
 </odoo>
