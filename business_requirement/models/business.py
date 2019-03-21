@@ -272,9 +272,8 @@ class BusinessRequirement(models.Model):
                     vals['message_follower_ids'] = msg_followers
         if vals.get('state'):
             user_id = self.env.user
-            has_group_br_manager = user_id.has_group(
-                'business_requirement.group_business_requirement_manager')
             date = fields.Datetime.now()
+            self._check_state_workflow(vals['state'])
             if vals['state'] == 'confirmed':
                 vals.update({'confirmed_id': user_id.id,
                              'confirmation_date': date})
@@ -285,30 +284,13 @@ class BusinessRequirement(models.Model):
                              'approval_date': False
                              })
             if vals['state'] == 'approved':
-                if has_group_br_manager:
-                    vals.update({'approved_id': user_id.id,
-                                 'approval_date': date})
-                else:
-                    raise ValidationError(_(
-                        'You can only move to the following stage: '
-                        'draft/confirmed /cancel/drop.'))
+                vals.update({'approved_id': user_id.id,
+                             'approval_date': date})
             if vals['state'] == 'stakeholder_approval':
-                if has_group_br_manager:
-                    vals.update({
-                        'approved_id': user_id.id,
-                        'approval_date': date
-                    })
-                else:
-                    raise ValidationError(_(
-                        'You can only move to the following stage: '
-                        'draft/confirmed /cancel/drop.'))
-
-            if vals['state'] in ('stakeholder_approval', 'in_progress',
-                                 'done'):
-                if has_group_br_manager:
-                    raise ValidationError(_(
-                        'You can only move to the following stage: '
-                        'draft/confirmed/cancel/drop.'))
+                vals.update({
+                    'approved_id': user_id.id,
+                    'approval_date': date
+                })
         return super(BusinessRequirement, self).write(vals)
 
     @api.multi
@@ -337,6 +319,50 @@ class BusinessRequirement(models.Model):
             ('drop', 'Drop'),
         ]
         return states
+
+    @api.multi
+    def _check_state_workflow(self, dest_state):
+        has_group_br_manager = self.env.user.has_group(
+            'business_requirement.group_business_requirement_manager')
+        if self.state == dest_state or dest_state in ['cancel', 'drop']:
+            return True
+        if self.state in ['done', 'cancel', 'drop'] and dest_state != 'draft':
+            raise ValidationError(_('You can only move to the Draft stage.'))
+        if self.state == 'draft' and dest_state != 'confirmed':
+            raise ValidationError(_(
+                'You can only move to the following stage: '
+                'Confirmed/Cancel/Drop.'))
+        if self.state == 'confirmed':
+            if has_group_br_manager:
+                if dest_state not in ['draft', 'approved']:
+                    raise ValidationError(_(
+                        'You can only move to the following stage: '
+                        'Draft/Approved/Cancel/Drop.'))
+            elif dest_state != 'draft':
+                raise ValidationError(_(
+                    'You can only move to the following stage: '
+                    'Draft/Cancel/Drop.'))
+        if has_group_br_manager:
+            if self.state == 'approved' and \
+                    dest_state not in ['confirmed', 'stakeholder_approval']:
+                raise ValidationError(_(
+                    'You can only move to the following stage: '
+                    'Confirmed/Stakeholder Approval/Cancel/Drop.'))
+            if self.state == 'stakeholder_approval' and \
+                    dest_state not in ['approved', 'in_progress']:
+                raise ValidationError(_(
+                    'You can only move to the following stage: '
+                    'Approved/In progress/Cancel/Drop.'))
+            if self.state == 'in_progress' and \
+                    dest_state not in ['stakeholder_approval', 'done']:
+                raise ValidationError(_(
+                    'You can only move to the following stage: '
+                    'Stakeholder Approval/Done/Cancel/Drop.'))
+        elif self.state in ['approved', 'stakeholder_approval', 'in_progress']:
+            raise ValidationError(_(
+                'You can only move to the following stage: '
+                'Cancel/Drop.'))
+        return True
 
     @api.multi
     def name_get(self):
@@ -420,7 +446,6 @@ class BusinessRequirement(models.Model):
                 if not res:
                     res = list(filter(lambda x: x['state'] == state_value,
                                       read_group_all_states))
-                res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result
         return super(BusinessRequirement, self).\

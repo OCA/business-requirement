@@ -147,20 +147,22 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_card oe_kanban_global_click">
                             <div class="oe_kanban_content">
-                                <h4 class="text-center">
+                                <h4>
                                     <strong>[<field name="name"/>]<![CDATA[&nbsp;]]>
                                         <field name="description"/></strong>
                                 </h4>
-                                <field name="responsible_id"/><br/>
                                 <field name="project_id"/><br/>
                                 <field name="category_ids"/>
                                 <div class="oe_kanban_bottom_right">
                                     <div class="pull-left" groups="base.group_user">
+                                        <field name="priority" widget="priority"/>
+                                    </div>
+                                    <div class="pull-right" groups="base.group_user">
                                         <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_id.raw_value)"
                                              t-att-alt="record.responsible_id.value"
                                             t-att-title="record.responsible_id.value" width="24" height="24"
-                                            class="oe_kanban_avatar pull-right"/>
-                                        <field name="priority" widget="priority"/>
+                                            class="oe_kanban_avatar pull-right ml8"/>
+                                        <field name="kanban_state" widget="kanban_state_selection"/>
                                     </div>
                                 </div>
                             </div>
@@ -315,9 +317,5 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
               groups="business_requirement.group_business_requirement_user"
               action="action_business_requirement_category_tree"
               parent="menu_business_configuration" sequence="10"/>
-
-    <menuitem action="product.product_template_action"
-              id="menu_product_template_action"
-              parent="menu_business_configuration" sequence="11" />
 
 </odoo>
