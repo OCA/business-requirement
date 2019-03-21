@@ -331,10 +331,13 @@ class BusinessRequirement(models.Model):
         if self.state == dest_state or \
                 dest_state in ['draft', 'cancel', 'drop']:
             return True
-        if self.state == 'draft' and dest_state != 'confirmed':
-            raise ValidationError(_(
-                'You can only move to the following stage: '
-                'Confirmed/Cancel/Drop.'))
+        if self.state == 'draft':
+            if dest_state != 'confirmed':
+                raise ValidationError(_(
+                    'You can only move to the following stage: '
+                    'Confirmed/Cancel/Drop.'))
+            else:
+                return True
         if has_group_br_manager:
             if self.state == 'confirmed' and dest_state != 'approved':
                 raise ValidationError(_(
