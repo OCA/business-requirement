@@ -5,5 +5,5 @@ Two new concepts complement the main business requirements model:
 * Deliverable lines
 * Resource lines
 
-A field for pricelist estimation is available in the partner to be used in Deliverable
-and Resources lines valuation to customers.
+Besides, a pricelist estimation is now available in the partner to be used instead of the standard
+pricelist in Deliverable and Resources lines valuation to customers.
