@@ -1,7 +1,6 @@
 # © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
 from odoo.addons import decimal_precision as dp
 
 
@@ -51,21 +50,6 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-
-    @api.multi
-    @api.onchange('partner_id')
-    def onchange_partner_id(self):
-        """
-        Update the following fields when the partner is changed:
-        - Pricelist
-        """
-        if self.partner_id:
-            values = {
-                'pricelist_id':
-                    self.partner_id.property_product_estimation_pricelist or
-                    self.partner_id.property_product_pricelist or False,
-            }
-            self.update(values)
 
     @api.multi
     def _compute_dl_total_revenue(self):
@@ -140,12 +124,23 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.onchange('partner_id')
     def partner_id_change(self):
-        for record in self:
-            if record.deliverable_lines:
-                raise UserError(_(
-                    'You are changing customer, on a business requirement'
-                    'which already contains deliverable lines.'
-                    'Pricelist could be different.'))
+        """
+        Update the following fields when the partner is changed:
+        - Pricelist
+        """
+        pricelist = self.partner_id.property_product_estimation_pricelist or \
+                    self.partner_id.property_product_pricelist or False
+        if self.partner_id:
+            self.update({'pricelist_id': pricelist})
+        msg = _(
+            'You are changing customer, on a business requirement'
+            'which already contains deliverable lines.'
+            'Pricelist could be different.'
+        )
+        if self.deliverable_lines:
+            return {
+                'warning': {'message': msg}
+            }
 
     @api.multi
     @api.depends(

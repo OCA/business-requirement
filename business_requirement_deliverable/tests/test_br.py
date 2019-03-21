@@ -284,18 +284,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
                 self.assertTrue(
                     self.productA.description_sale in line.name)
 
-    def test_partner_id_change(self):
-        self.partner = self.env['res.partner'].create({
-            'name': 'Your company test',
-            'email': 'your.company@your-company.com',
-            'customer': True,
-        })
-        self.br.write({'partner_id': self.partner.id})
-        try:
-            self.br.partner_id_change()
-        except UserError as e:
-            self.assertEqual(type(e), UserError)
-
     def test_business_requirement_id_change(self):
         for line in self.br.deliverable_lines:
             line.business_requirement_id_change()
