@@ -216,20 +216,23 @@ class BusinessRequirementTestCase(common.TransactionCase):
             br._check_state_workflow('stakeholder_approval')
 
         br.state = 'approved'
-        self.assertTrue(br._check_state_workflow('confirmed'))
         self.assertTrue(br._check_state_workflow('stakeholder_approval'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('confirmed')
         with self.assertRaises(ValidationError):
             br._check_state_workflow('in_progress')
 
         br.state = 'stakeholder_approval'
-        self.assertTrue(br._check_state_workflow('approved'))
         self.assertTrue(br._check_state_workflow('in_progress'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('approved')
         with self.assertRaises(ValidationError):
             br._check_state_workflow('done')
 
         br.state = 'in_progress'
-        self.assertTrue(br._check_state_workflow('stakeholder_approval'))
         self.assertTrue(br._check_state_workflow('done'))
+        with self.assertRaises(ValidationError):
+            br._check_state_workflow('stakeholder_approval')
         with self.assertRaises(ValidationError):
             br._check_state_workflow('approved')
 
