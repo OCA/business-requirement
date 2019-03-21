@@ -4,6 +4,7 @@
 License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 -->
 <odoo>
+
     <record id="act_view_lead_br_all" model="ir.actions.act_window">
         <field name="name">Business Requirement</field>
         <field name="res_model">business.requirement</field>
@@ -21,10 +22,12 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
         <field name="priority">17</field>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='action_set_won_rainbowman']" position='before'>
-                <button attrs="{'invisible': [('project_id', '=', False)]}" string="Quotation (Bus. Req.)" name="%(action_crm_make_sale)d" type="action" class="oe_highlight"/>
-
-            </xpath>
+            <button name="action_set_won_rainbowman" position="before">
+                <button attrs="{'invisible': [('project_id', '=', False)]}"
+                        string="Quotation (Bus. Req.)"
+                        name="%(action_crm_make_sale)d"
+                        type="action" class="oe_highlight"/>
+            </button>
             <button name="toggle_active" position="after">
                 <button type="action" name="%(act_view_lead_br_all)d" class="oe_stat_button"
                         icon="fa-tasks" context="{'project_id':project_id}">
@@ -42,4 +45,5 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             </xpath>
         </field>
     </record>
+
 </odoo>
