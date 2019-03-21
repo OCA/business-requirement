@@ -74,13 +74,16 @@ class BusinessRequirementDeliverableReport(models.Model):
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         query = """
-            CREATE or REPLACE VIEW %s as (
-            %s
-            FROM ( %s )
-            %s
+            CREATE or REPLACE VIEW "%s" as (
+            {select_str}
+            FROM ( {from_str} )
+            {group_by}
             )
-        """
+        """.format(
+            select_str=self._select(),
+            from_str=self._from(),
+            group_by=self._group_by())
         self.env.cr.execute(
             query,
-            (self._table, self._select(), self._from(), self._group_by(),)
+            (self._table,)
         )
