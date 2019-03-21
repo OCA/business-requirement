@@ -6,7 +6,7 @@
         <field name="type">tree</field>
         <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_resource_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//tree/field[@name='uom_id']" position="after">
+            <field name="uom_id" position="after">
                 <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
                 <field name="price_total"
@@ -17,7 +17,7 @@
                 <field name="sale_price_total"  attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                        sum="Total Sale"
                        groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-            </xpath>
+            </field>
         </field>
     </record>
 
@@ -65,14 +65,20 @@
                             class="oe_highlight"/>
                 </group>
             </xpath>
-            <xpath expr="//field[@name='price_total']" position="after">
+            <field name="price_total" position="after">
                 <field name="currency_status" invisible="1"/>
-                <field name="company_currency_id" invisible="1" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                <field name="total_revenue_ci" attrs="{'invisible': [('currency_status', '=', True)]}" widget='monetary' options="{'currency_field': 'company_currency_id'}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                <field name="resource_procurement_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                <field name="gross_profit" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-            </xpath>
+                <field name="company_currency_id" invisible="1"
+                       groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                <field name="total_revenue_ci" attrs="{'invisible': [('currency_status', '=', True)]}"
+                       widget='monetary' options="{'currency_field': 'company_currency_id'}"
+                       groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                <field name="resource_procurement_total" widget='monetary' options="{'currency_field': 'company_currency_id'}"
+                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" />
+                <field name="resource_task_total" widget='monetary' options="{'currency_field': 'company_currency_id'}"
+                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" />
+                <field name="gross_profit" widget='monetary' options="{'currency_field': 'company_currency_id'}"
+                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" />
+            </field>
             <xpath expr="//field[@name='resource_ids']/tree/field[@name='uom_id']" position="after">
                 <field name="unit_price" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"
                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
@@ -116,22 +122,32 @@
         <field name="inherit_id" ref="business_requirement.view_business_requirement_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook[1]" position="inside">
-                    <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
+                <page string="Cost control" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control">
+                    <group>
                         <group>
-                            <group>
-                                <field name="currency_id" invisible="1"
-                                       groups="business_requirement_deliverable.group_business_requirement_estimation"/>
-                                <field name="company_currency_id"
-                                       invisible="1"/>
-                                <field name="currency_status" invisible="1"/>
-                                <field name="total_revenue" groups="business_requirement_deliverable.group_business_requirement_estimation" widget='monetary' options="{'currency_field': 'currency_id'}"/>
-                                <field name="total_revenue_ci" attrs="{'invisible': [('currency_status', '=', True)]}" groups="business_requirement_deliverable.group_business_requirement_estimation"  widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                                <field name="resource_procurement_total" groups="business_requirement_deliverable.group_business_requirement_estimation" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                                <field name="resource_task_total" groups="business_requirement_deliverable_cost.group_business_requirement_cost_control" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                                <field name="gross_profit" groups="business_requirement_deliverable.group_business_requirement_estimation" widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
-                            </group>
+                            <field name="currency_id" invisible="1"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"/>
+                            <field name="company_currency_id"
+                                   invisible="1"/>
+                            <field name="currency_status" invisible="1"/>
+                            <field name="total_revenue"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"
+                                   widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="total_revenue_ci" attrs="{'invisible': [('currency_status', '=', True)]}"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"
+                                   widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
+                            <field name="resource_procurement_total"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"
+                                   widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
+                            <field name="resource_task_total"
+                                   groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"
+                                   widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
+                            <field name="gross_profit"
+                                   groups="business_requirement_deliverable.group_business_requirement_estimation"
+                                   widget='monetary' options="{'currency_field': 'company_currency_id'}"/>
                         </group>
-                    </page>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
@@ -141,7 +157,7 @@
         <field name="model">business.requirement</field>
         <field name="inherit_id" ref="business_requirement.view_business_requirement_graph"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="partner_id" position="after">
                 <field name="total_revenue" type="measure"/>
                 <field name="gross_profit" type="measure"/>
                 <field name="resource_task_total"
@@ -150,7 +166,7 @@
                 <field name="resource_procurement_total"
                        type="measure"
                        groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
-            </xpath>
+            </field>
         </field>
     </record>
 
@@ -160,14 +176,13 @@
         <field name="inherit_id"
                ref="business_requirement_deliverable.view_business_requirement_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='rl_count']" position="after">
+            <field name="rl_count" position="after">
                 <field name="rl_total_cost"
                        class="oe_inline badge"
                        nolabel="1"
                        modifiers="{'readonly': true}"
-                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"
-                />
-            </xpath>
+                       groups="business_requirement_deliverable_cost.group_business_requirement_cost_control"/>
+            </field>
         </field>
     </record>
 </odoo>
