@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     "name": "Business Requirement Deliverable Project Task Categ",
     'category': 'Business Requirements Management',
@@ -8,12 +7,7 @@
     "version": "10.0.1.0.1",
     "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, Odoo Community Association (OCA)",
-    "license": "AGPL-3",
-    'external_dependencies': {
-        'python': [
-            'openupgradelib',
-        ]
-    },
+    "license": "LGPL-3",
     "application": False,
     "installable": True,
     "depends": [
