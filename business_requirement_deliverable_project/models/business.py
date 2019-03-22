@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 from odoo import api, fields, models, _
 
 
@@ -29,7 +28,6 @@ class BusinessRequirement(models.Model):
     task_count = fields.Integer(
         string='Total number of tasks related to a business requirement',
         store=True,
-        readonly=True,
         compute='_compute_task_count'
     )
 

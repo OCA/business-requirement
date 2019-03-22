@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     'name': 'Business Requirement Deliverable - Project',
     'category': 'Business Requirements Management',
     'summary': 'Create projects and tasks directly from'
             ' the Business Requirement and Resources lines',
-    'version': '10.0.1.0.0',
-    'website': 'https://www.elico-corp.com/',
+    'version': '12.0.1.0.0',
+    'website': 'https://github.com/OCA/business-requirement',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
         'business_requirement_deliverable',
@@ -24,7 +23,7 @@
         'static/description/icon.png',
         'static/img/bus_req_project.png'
     ],
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'application': True,
     'installable': True,
 }
