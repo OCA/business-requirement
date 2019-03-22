@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2017 Elico Corp (https://www.elico-corp.com). -->
-<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
 <odoo noupdate="1">
     <record id="business_requirement.business_requirement_1"
             model="business.requirement">
