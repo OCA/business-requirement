@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
-from openerp import models, api, fields, tools
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+from odoo import models, api, fields, tools
 
 
 class ProjectCompletionReport(models.Model):
