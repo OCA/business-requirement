@@ -89,7 +89,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
         </table>
 
         <!-- when create a business requirement in web page, '<p><br></p>' will be add automatically in the field -->
-        <t t-if="o.business_requirement and o.business_requirement not in ['&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&#xA0;&lt;/p&gt;']">
+        <t t-if="o.business_requirement">
             <u><h3>Stakeholder Story:</h3></u>
             <table class="table table-responsive">
                 <tbody>
@@ -102,7 +102,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             </table>
         </t>
 
-        <t t-if="o.scenario and o.scenario not in ['&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&#xA0;&lt;/p&gt;']">
+        <t t-if="o.scenario">
             <u><h3>Scenario:</h3></u>
             <table class="table table-striped">
                 <tbody>
@@ -115,7 +115,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             </table>
         </t>
 
-        <t t-if="o.gap and o.gap not in ['&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&#xA0;&lt;/p&gt;']">
+        <t t-if="o.gap">
             <u><h3>Gap:</h3></u>
             <table class="table table-bordered">
                 <tbody>
@@ -128,7 +128,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             </table>
         </t>
 
-        <t t-if="o.test_case and o.test_case not in ['&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&#xA0;&lt;/p&gt;']">
+        <t t-if="o.test_case and o.test_case">
             <u><h3>Test Case:</h3></u>
             <table class="table table-bordered">
                 <tbody>
@@ -141,7 +141,7 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             </table>
         </t>
 
-        <t t-if="o.terms_and_conditions and o.terms_and_conditions not in ['&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&#xA0;&lt;/p&gt;']">
+        <t t-if="o.terms_and_conditions">
             <u><h3>Terms and Conditions:</h3></u>
             <table class="table table-responsive">
                 <tbody>

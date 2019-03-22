@@ -1,5 +1,6 @@
 # © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+import re
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
@@ -248,6 +249,7 @@ class BusinessRequirement(models.Model):
                     msg_followers.append((0, 0, msg_vals))
                 if msg_followers:
                     vals['message_follower_ids'] = msg_followers
+        self._clean_html_field(vals)
         return super(BusinessRequirement, self).create(vals)
 
     @api.multi
@@ -291,6 +293,7 @@ class BusinessRequirement(models.Model):
                     'approved_id': user_id.id,
                     'approval_date': date
                 })
+        self._clean_html_field(vals)
         return super(BusinessRequirement, self).write(vals)
 
     @api.multi
@@ -319,6 +322,22 @@ class BusinessRequirement(models.Model):
             ('drop', 'Drop'),
         ]
         return states
+
+    @api.model
+    def _clean_html_field(self, vals):
+        """
+        Clean the empty HTML field to avoid it be printed
+        :param vals: create or write vals
+        :return:
+        """
+        re_tag = re.compile(r'</?\w+[^>]*>')
+        field_list = ['business_requirement', 'scenario', 'gap',
+                      'test_case', 'terms_and_conditions']
+        for f in field_list:
+            if vals.get(f):
+                content = re_tag.sub('', vals[f]).replace('&nbsp;', '').strip()
+                if not content:
+                    vals[f] = ''
 
     @api.multi
     def _check_state_workflow(self, dest_state):
