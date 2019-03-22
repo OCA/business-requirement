@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
 <odoo>
     <record id="view_business_requirement_form" model="ir.ui.view">
-            <field name="name">business.requirement.form</field>
-            <field name="model">business.requirement</field>
-            <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//page[@name='logs']" position="before">
-                    <page string="Notes" name="notes">
-                        <field name="notes" widget="pad"/>
-                    </page>
-                </xpath>
-            </field>
+        <field name="name">business.requirement.form</field>
+        <field name="model">business.requirement</field>
+        <field name="inherit_id" ref="business_requirement.view_business_requirement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='logs']" position="before">
+                <page string="Notes" name="notes">
+                    <field name="notes" widget="pad"/>
+                </page>
+            </xpath>
+        </field>
     </record>
 </odoo>
