@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo noupdate="1">
 
-        <record id="business_requirement_deliverable_resource_template.resource_template_06"
-                model="business.requirement.resource.template">
-            <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_1"/>
-        </record>
-        <record id="business_requirement_deliverable_resource_template.resource_template_07"
-                model="business.requirement.resource.template">
-            <field name="categ_id"
-                   ref="project_task_category.project_category_02"/>
-        </record>
-        <record id="business_requirement_deliverable_resource_template.resource_template_08"
-                model="business.requirement.resource.template">
-            <field name="categ_id"
-                   ref="business_requirement_deliverable_project_task_categ.project_category_main_3"/>
-        </record>
-        <record id="business_requirement_deliverable_resource_template.resource_template_09"
-                model="business.requirement.resource.template">
-            <field name="categ_id"
-                   ref="project_task_category.project_category_02"/>
-        </record>
+    <record id="business_requirement_deliverable_resource_template.resource_template_06"
+            model="business.requirement.resource.template">
+        <field name="categ_id"
+               ref="business_requirement_deliverable_project_task_categ.project_category_main_1"/>
+    </record>
+    <record id="business_requirement_deliverable_resource_template.resource_template_07"
+            model="business.requirement.resource.template">
+        <field name="categ_id"
+               ref="project_task_category.project_category_02"/>
+    </record>
+    <record id="business_requirement_deliverable_resource_template.resource_template_08"
+            model="business.requirement.resource.template">
+        <field name="categ_id"
+               ref="business_requirement_deliverable_project_task_categ.project_category_main_3"/>
+    </record>
+    <record id="business_requirement_deliverable_resource_template.resource_template_09"
+            model="business.requirement.resource.template">
+        <field name="categ_id"
+               ref="project_task_category.project_category_02"/>
+    </record>
 
-    </data>
 </odoo>
