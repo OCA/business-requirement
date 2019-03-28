@@ -195,17 +195,17 @@ class ProjectCompletionReport(models.Model):
                                 p.id AS project_id,
                                 a.id AS account_id,
                                 'issue' AS activity_type,
-                                i.id AS activity_id,
-                                i.name AS activity_name,
-                                i.user_id,
-                                i.stage_id AS activity_stage_id,
+                                t.id AS activity_id,
+                                t.name AS activity_name,
+                                t.user_id,
+                                t.stage_id AS activity_stage_id,
                                 0 AS estimated_hours,
                                 0 AS planned_hours,
                                 SUM(al.unit_amount) AS total_tms,
                                 0 AS remaining_hours,
                                 b.kanban_state as br_kanban_state,
                                 null as task_kanban_state,
-                                i.priority as priority,
+                                t.priority as priority,
                                 null as date_deadline,
                                 SUM(al.unit_amount) AS total_hours,
                                 SUM(al.unit_amount) AS variance
@@ -215,17 +215,14 @@ class ProjectCompletionReport(models.Model):
                                 INNER JOIN account_analytic_account a
                                     ON a.id = p.analytic_account_id
                                 -- Link with the issue
-                                INNER JOIN project_issue i
-                                ON i.project_id = p.id
-                                -- Link with the timesheet
-                                LEFT OUTER JOIN account_analytic_line ts
-                                    ON ts.issue_id = i.id
+                                INNER JOIN helpdesk_ticket t
+                                    ON t.project_id = p.id
                                 LEFT OUTER JOIN account_analytic_line al
-                                    ON al.id = ts.sheet_id
+                                    ON al.helpdesk_ticket_id = t.id
                                 -- Link with the BR
                                 LEFT OUTER JOIN business_requirement b
                                     ON b.id = p.business_requirement_id
                             GROUP BY
-                                i.id, p.id, a.id, b.id
+                                h.id, p.id, a.id, b.id
                         )
                     ) AS q)""")
