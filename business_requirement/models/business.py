@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError
 
 
 class BusinessRequirement(models.Model):
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = 'mail.thread'
     _name = "business.requirement"
     _description = "Business Requirement"
     _order = 'name desc'
@@ -360,9 +360,7 @@ class BusinessRequirement(models.Model):
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
-        """
-        Search BR based on Name or Description
-        """
+        """Search BR based on Name or Description"""
         # Make a search with default criteria
         names = super(BusinessRequirement, self).name_search(
             name=name, args=args, operator=operator, limit=limit)
@@ -400,8 +398,8 @@ class BusinessRequirement(models.Model):
     @api.model
     def read_group(self, domain, fields, groupby, offset=0,
                    limit=None, orderby=False, lazy=True):
-        """ Read group customization in order to display all the stages in the
-            kanban view. if the stages values are there it will group by state.
+        """Read group customization in order to display all the stages in the
+        kanban view. if the stages values are there it will group by state.
         """
         if groupby and groupby[0] == "state":
             states = self.env['business.requirement'].\
@@ -419,11 +417,15 @@ class BusinessRequirement(models.Model):
             # Update standard results with default results
             result = []
             for state_value, state_name in states:
-                res = filter(lambda x: x['state'] == state_value,
-                             read_group_res)
+                res = list(
+                    filter(
+                        lambda x: x['state'] == state_value,
+                        read_group_res))
                 if not res:
-                    res = filter(lambda x: x['state'] == state_value,
-                                 read_group_all_states)
+                    res = list(
+                        filter(
+                            lambda x: x['state'] == state_value,
+                            read_group_all_states))
                 res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result
