@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-# © 2017 Elico Corp (https://www.elico-corp.com).
+# Copyright 2017 Elico Corp (https://www.elico-corp.com).
+# Copyright 2019 Tecnativa - Alexandre Díaz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models, _
@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError
 
 
 class BusinessRequirement(models.Model):
-    _inherit = 'mail.thread'
+    _inherit = ['mail.thread', 'portal.mixin']
     _name = "business.requirement"
     _description = "Business Requirement"
     _order = 'name desc'
@@ -221,6 +221,13 @@ class BusinessRequirement(models.Model):
             'confirmed': [('readonly', True)]
         }
     )
+    portal_published = fields.Boolean('In Portal', default=False)
+    user_id = fields.Many2one('res.users', string='Owner',
+                              default=lambda self: self.env.user,
+                              required=True)
+    date = fields.Date('Date', default=lambda self: self._context.get(
+                           'date', fields.Date.context_today(self)),
+                       required=True)
 
     @api.multi
     @api.onchange('project_id')
@@ -432,6 +439,21 @@ class BusinessRequirement(models.Model):
         return super(BusinessRequirement, self).\
             read_group(domain, fields, groupby,
                        offset=offset, limit=limit, orderby=orderby, lazy=lazy)
+
+    def get_portal_confirmation_action(self):
+        return self.env['ir.config_parameter'].sudo().get_param(
+            'business_requirement.br_portal_confirmation_options',
+            default='none')
+
+    def _compute_portal_url(self):
+        super(BusinessRequirement, self)._compute_portal_url()
+        for br in self:
+            br.portal_url = '/my/business_requirement/%s' % br.id
+
+    @api.multi
+    def portal_publish_button(self):
+        self.ensure_one()
+        return self.write({'portal_published': not self.portal_published})
 
 
 class BusinessRequirementCategory(models.Model):

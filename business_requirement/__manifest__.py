@@ -15,11 +15,13 @@
     ],
     "data": [
         "data/business_data.xml",
-        "data/br_report_paperformat.xml",
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/business_view.xml",
         "views/project.xml",
+        "views/br_report.xml",
+        "views/br_portal_templates.xml",
+        "report/report.xml"
     ],
     "image": [
         "static/description/icon.png",
