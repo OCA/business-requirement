@@ -33,6 +33,11 @@
                                 type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
                             <field name="sub_br_count" string="Sub Bus. Req." widget="statinfo"/>
                         </button>
+                        <button class="oe_inline oe_stat_button" name="portal_publish_button"
+                             type="object" icon="fa-globe">
+                             <label for="portal_published" />
+                             <field name="portal_published" widget="toggle_button"/>
+                         </button>
                     </div>
                     <h1>
                         <field name="name" class="oe_inline" readonly="1"/> -
@@ -70,6 +75,8 @@
                         <page string="Logs" name="logs">
                             <field name="level" invisible="1"/>
                             <group col="4">
+                                <field name="user_id" />
+                                <field name="date" />
                                 <field name="create_uid" readonly="1"/>
                                 <field name="create_date" string="Creation Date" readonly="1"/>
                                 <field name="confirmed_id"/>
@@ -180,7 +187,7 @@
                 <field name="partner_id" string="Stakeholder"/>
                 <field name="responsible_id" string="Responsible"/>
                 <field name="origin" string="Source"/>
-                <filter string="Unread Messages" name="message_needaction" 
+                <filter string="Unread Messages" name="message_needaction"
                         domain="[('message_needaction', '=', True)]"/>
                 <filter string="To be Reviewed" name="to_be_reviewed"
                         domain="[('to_be_reviewed', '!=', False)]"/>
