@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# © 2016-2017 Elico Corp (https://www.elico-corp.com).
+# © 2016-2019 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo.tests import common
 from odoo.exceptions import UserError
@@ -72,35 +71,27 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br = self.env['business.requirement'].create(vals)
         self.br.write({
             'deliverable_lines': [
-                (0, 0, {'name': 'deliverable line1', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line1',
+                        'user_case': 'mock case',
+                        'proposed_solution': 'mock proposed_solution',
+                        'qty': 1.0,
                         'sale_price_unit': 900, 'uom_id': 1,
                         'business_requirement_id': self.br.id,
-                        'resource_ids': [
-                            (0, 0, {
-                                'name': 'Resource Line1',
-                                'product_id': self.productA.id,
-                                'qty': 100,
-                                'uom_id': self.uom_hours.id,
-                                'resource_type': 'task',
-                                'user_id': self.user.id,
-                                'business_requirement_id': self.br.id
-                            }),
-                            (0, 0, {
-                                'name': 'Resource Line1',
-                                'product_id': self.productC.id,
-                                'qty': 100,
-                                'uom_id': self.uom_hours.id,
-                                'resource_type': 'task',
-                                'user_id': self.user.id,
-                                'business_requirement_id': self.br.id
-                            })
-                        ]
                         }),
-                (0, 0, {'name': 'deliverable line2', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line2',
+                        'user_case': 'mock case',
+                        'proposed_solution': 'mock proposed_solution',
+                        'qty': 1.0,
                         'sale_price_unit': 1100, 'uom_id': 1}),
-                (0, 0, {'name': 'deliverable line3', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line3',
+                        'user_case': 'mock case',
+                        'proposed_solution': 'mock proposed_solution',
+                        'qty': 1.0,
                         'sale_price_unit': 1300, 'uom_id': 1}),
-                (0, 0, {'name': 'deliverable line4', 'qty': 1.0,
+                (0, 0, {'name': 'deliverable line4',
+                        'user_case': 'mock case',
+                        'proposed_solution': 'mock proposed_solution',
+                        'qty': 1.0,
                         'sale_price_unit': 1500, 'uom_id': 1,
                         }),
             ]})
@@ -124,52 +115,11 @@ class BusinessRequirementTestCase(common.TransactionCase):
             elif line.name == 'deliverable line4':
                 self.assertEqual(line.price_total, 1500.0 * 1)
 
-    def test_resource_uom_change(self):
-        for line in self.br.deliverable_lines:
-            for resource in line.resource_ids:
-                if resource and resource.resource_type == 'task':
-                    try:
-                        res = resource.write({'uom_id': self.uom_kg.id})
-                    except:
-                        res = False
-                    self.assertEqual(res, False)
-                    break
-
-    def test_resource_product_id_change(self):
-        resource = self.env['business.requirement.resource'].search([
-            ('product_id', '=', self.productA.id)])[0]
-        resource.write({'product_id': self.productB.id, 'name': ''})
-        resource.product_id_change()
-
-        self.assertEqual(
-            resource.name, self.productB.name)
-        self.assertEqual(
-            resource.product_id.id, self.productB.id)
-        self.assertEqual(
-            resource.uom_id.id, self.productB.uom_id.id)
-
-    def test_resource_product_id_change_description_sale(self):
-        resource = self.env['business.requirement.resource'].search([
-            ('product_id', '=', self.productA.id)])[0]
-        self.productB.write({
-            'description_sale': 'Sales Description Product B'})
-        resource.write({'product_id': self.productB.id, 'name': ''})
-        resource.product_id_change()
-        self.assertTrue(self.productB.description_sale in resource.name)
-
-    def test_resource_fields_view_get(self):
-        resource = self.env['business.requirement.resource'].search([
-            ('product_id', '=', self.productA.id)])[0]
-        resource.fields_view_get(False, 'tree')
-        self.br.deliverable_lines[0].fields_view_get(False, 'form')
-
     def test_compute_business_requirement_dl_rl(self):
         self.br._compute_dl_count()
-        self.br._compute_rl_count()
 
-    def test_open_business_requirement_dl_rl(self):
+    def test_open_business_requirement_dl(self):
         self.br.open_deliverable_line()
-        self.br.open_resource_line()
 
     def test_compute_dl_total_revenue(self):
         for r in self.br:
@@ -206,20 +156,6 @@ class BusinessRequirementTestCase(common.TransactionCase):
         for line in self.br.deliverable_lines:
             line._compute_get_currency()
             self.assertEqual(line.currency_id, currency_id)
-
-    def test_resource_type_change(self):
-        for line in self.br.deliverable_lines:
-            for resource in line.resource_ids:
-                if resource and resource.resource_type == 'task':
-                    resource.write({'resource_type': 'procurement'})
-                    resource.resource_type_change()
-                    self.assertEqual(resource.user_id.id, False)
-
-    def test_uom_resource_type_change(self):
-        for line in self.br.deliverable_lines:
-            for resource in line.resource_ids:
-                resource.write({'resource_type': 'task'})
-                resource.resource_type_change()
 
     def test_product_id_change(self):
         for line in self.br.deliverable_lines:
@@ -326,14 +262,5 @@ class BusinessRequirementTestCase(common.TransactionCase):
             'customer': True,
         })
         self.br.write({'partner_id': self.partner.id})
-        try:
+        with self.assertRaises(UserError):
             self.br.partner_id_change()
-        except UserError, e:
-            self.assertEqual(type(e), UserError)
-
-    def test_business_requirement_id_change(self):
-        for line in self.br.deliverable_lines:
-            line.business_requirement_id_change()
-            for resource in line.resource_ids:
-                self.assertEqual(line.business_requirement_id,
-                                 resource.business_requirement_id)
