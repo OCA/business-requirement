@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr='//group[@name="sales_person"]' position='inside'>
+                <field name="business_requirement_id"/>
+            </xpath>
+
+            <xpath expr='//field[@name="order_line"]/form/group' position='after'>
+                <group>
+                    <field name="business_requirement_deliverable_id" class="oe_inline"/>
+                    <field name="line_section_id" class="oe_inline"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_action_quotations" model="ir.actions.act_window">
+        <field name="name">Quotations</field>
+        <field name="res_model">sale.order</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="domain">[('business_requirement_id', '=', active_id)]</field>
+        <field name="context">{'search_default_business_requirement_id': [active_id], 'default_business_requirement_id': active_id}</field>
+    </record>
+
+    <record id="sale_action_orders" model="ir.actions.act_window">
+        <field name="name">Sale orders</field>
+        <field name="res_model">sale.order</field>
+        <field name="domain">[('business_requirement_id', '=', active_id), ('state', 'not in', ('draft', 'sent', 'cancel'))]</field>
+        <field name="context">{'search_default_business_requirement_id': [active_id], 'default_business_requirement_id': active_id}</field>
+    </record>
+
+    <!-- This menu is display in CRM app when sale is installed-->
+    <menuitem
+        id="sale_order_menu_quotations_br"
+        action="sale.action_quotations"
+        parent="business_requirement.menu_business_requirement"
+        sequence="10"/>
+
+</odoo>
