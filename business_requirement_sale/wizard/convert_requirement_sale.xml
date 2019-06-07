@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_convert_requirement_sale" model="ir.ui.view">
+        <field name="name">business.convert.requirement.sale.form</field>
+        <field name="model">business.convert.requirement.sale</field>
+        <field name="type">form</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <form string="Create Quotation">
+                    <group>
+                        <field name="br_id" readonly="1" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="totaled_method" widget="selection"/>
+                    </group>
+                    <group string="Deliverables">
+                        <field name="brd_ids"
+                               mode="tree"
+                               context="{'default_business_requirement_id': br_id}"
+                               domain="[('business_requirement_id', '=', br_id)]"
+                               widget="many2many_checkboxes">
+                        </field>
+                    </group>
+            </form>
+            <footer>
+                <button name="apply" string="_Apply" type="object"
+                        class="oe_highlight"/>
+                <button string="_Cancel" class="oe_link" special="cancel"/>
+            </footer>
+
+        </field>
+    </record>
+
+</odoo>
