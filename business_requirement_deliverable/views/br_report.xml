@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="layout_br_report_body" inherit_id="business_requirement.layout_br_report">
+        <xpath expr=".">
+            <div t-if="any(o.deliverable_lines)" style="page-break-inside: avoid;">
+                <u><h1>Deliverable items:</h1></u>
+                <t t-foreach="o.deliverable_lines.sorted(key=lambda b: b.sequence)" t-as="deliverable" style="page-break-inside: avoid;">
+                    <div class="panel-body">
+                        <div class='row'>
+                            <div class="col-md-12">
+                                <h2 t-field="deliverable.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="ml8" t-if="deliverable.user_case">
+                                    <div>
+                                        <h3>User Case</h3>
+                                    </div>
+                                    <div>
+                                        <span t-field="deliverable.user_case"/>
+                                    </div>
+                                </div>
+                                <div class="ml8" t-if="deliverable.proposed_solution">
+                                    <div>
+                                        <h3>Proposed Solution</h3>
+                                    </div>
+                                    <div>
+                                        <span t-field="deliverable.proposed_solution"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-right col-md-12">
+                                <h2>Amount: <span t-field="deliverable.price_total" t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'/></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                </t>
+                <div>
+                    <h1 class="text-right">
+                        <strong>Total: <span t-field="o.total_revenue" t-options='{"widget": "monetary", "display_currency": o.partner_id.property_product_pricelist.currency_id}'/></strong>
+                    </h1>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
