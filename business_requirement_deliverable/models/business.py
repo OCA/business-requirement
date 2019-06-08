@@ -1,4 +1,5 @@
-# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# Copyright 2016-2019 Elico Corp (https://www.elico-corp.com).
+# Copyright 2019 Tecnativa - Alexandre Díaz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
@@ -7,7 +8,7 @@ from odoo.addons import decimal_precision as dp
 
 class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin", "portal.mixin"]
     _description = "Business Requirement Deliverable"
     _order = "sequence, id"
 
@@ -82,6 +83,12 @@ class BusinessRequirementDeliverable(models.Model):
     )
     state = fields.Selection(related='business_requirement_id.state',
                              string='State', store=True, readonly=True)
+    portal_published = fields.Boolean('In Portal', default=True)
+
+    def _compute_portal_url(self):
+        super(BusinessRequirementDeliverable, self)._compute_portal_url()
+        for brd in self:
+            brd.portal_url = '/my/brd/%s' % brd.id
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
@@ -153,6 +160,11 @@ class BusinessRequirementDeliverable(models.Model):
                 uom=self.uom_id.id,
             )
             self.sale_price_unit = product.price
+
+    @api.multi
+    def portal_publish_button(self):
+        self.ensure_one()
+        return self.write({'portal_published': not self.portal_published})
 
 
 class BusinessRequirement(models.Model):

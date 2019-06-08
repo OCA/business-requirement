@@ -1,15 +1,14 @@
 <odoo>
 
-    <template id="portal_my_br" name="My Business Requirements" inherit_id="business_requirement.portal_my_br">
-        <xpath expr="//table[hasclass('o_portal_my_doc_table')]/thead/tr" position="inside">
-            <th></th>
-            <th>Total Deliverable</th>
-        </xpath>
-        <xpath expr="//table[hasclass('o_portal_my_doc_table')]/tbody/t/tr" position="inside">
-            <td></td>
-            <td>
-                <span t-field="br.total_revenue" t-options='{"widget": "monetary", "display_currency": br.pricelist_id.currency_id}'/>
-            </td>
+    <template id="portal_my_home_menu_brd" name="Portal layout : business requirement deliverable menu entries" inherit_id="portal.portal_layout" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'business_requirement_deliverable'">
+                <a t-if="brd" t-attf-href="/my/brd?{{ keep_query() }}">Business Requirement Deliverable</a>
+                <t t-else="">Business Requirement Deliverable</t>
+            </li>
+            <li t-if="brd">
+                <t t-esc="brd.name"/>
+            </li>
         </xpath>
     </template>
 
@@ -19,7 +18,7 @@
                 <div class="pull-right">
                     <a t-attf-href="/my/brd?filterby=#{br.id}" class="btn btn-default btn-lg">
                         <span class="fa fa-tasks" />
-                        <span t-esc="len(br.deliverable_lines)" />
+                        <span t-esc="brd_count" />
                         <span>Deliverable</span>
                     </a>
                 </div>
@@ -43,25 +42,21 @@
                         <t t-foreach="grouped_brd" t-as="brd">
                             <thead>
                                 <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
-                                    <th t-if="groupby == 'none'">Name</th>
-                                    <th t-else="">
-                                        <em class="font-weight-normal text-muted"><span t-field="brd[0].sudo().name"/> for business requirement:</em>
+                                    <th class="text-left" t-if="groupby == 'none'">Name</th>
+                                    <th class="text-left" t-else="">
+                                        <em class="font-weight-normal text-muted">Deliverables for business requirement:</em>
                                         <span t-field="brd[0].sudo().business_requirement_id.name"/></th>
-                                    <th class="text-center">State</th>
-                                    <th class="text-left">Ref</th>
+                                    <th class="text-left col-md-1">Ref.</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <t t-foreach="brd" t-as="rec">
                                     <tr>
-                                        <td>
+                                        <td class="text-left">
                                             <a t-attf-href="/my/brd/#{rec.id}?{{ keep_query() }}"><span t-field="rec.name"/></a>
                                         </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill badge-info" title="Current stage of the brd" t-field="rec.state" />
-                                        </td>
                                         <td class="text-left">
-                                            #<span t-esc="rec.id"/>
+                                            <span t-esc="rec.sequence"/>
                                         </td>
                                     </tr>
                                 </t>
@@ -69,6 +64,9 @@
                         </t>
                     </table>
                 </div>
+            </div>
+            <div t-if="pager" class="o_portal_pager text-center">
+                <t t-call="portal.pager"/>
             </div>
         </t>
     </template>
@@ -82,36 +80,21 @@
                             <h4>
                                 <t t-call='portal.record_pager'/>
                                 Business Requirement Deliverable - <span t-field="brd.name"/> (#<span t-esc="brd.id"/>)
-                                <span t-field="brd.state" class="pull-right label label-info" title="Current state of this business requirement deliverable"/>
                                 <a class="btn btn-info" t-att-href="'/web#return_label=Website&amp;model=business.requirement.deliverable&amp;id=%s&amp;view_type=form' % (brd.id)" groups="business_requirement.group_business_requirement_manager">Edit Business Requirement Deliverable</a>
                             </h4>
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="mb8" t-if="user.partner_id.id in brd.sudo().message_partner_ids.ids">
-                        <strong>Product:</strong> <span t-field="brd.product_id.name"/>
-                    </div>
-
                     <div class='row'>
                         <div class="col-md-6">
-                            <div class="mb8">
-                                <strong>Date:</strong> <span t-field="brd.create_date" t-field-options='{"widget": "date"}'/>
-                            </div>
-
                             <div class="mb8">
                                 <strong>Business Requirement:</strong> <a t-attf-href="/my/business_requirement/#{brd.business_requirement_id.id}" t-field="brd.business_requirement_id.name"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb8">
-                                <strong>Quantity:</strong> <span t-field="brd.qty" /> <span t-field="brd.uom_id.name" />
-                            </div>
-                            <div class="mb8">
-                                <strong>Sales Price:</strong> <span t-field="brd.sale_price_unit" t-field-options='{"widget": "monetary", "display_currency": brd.business_requirement_id.pricelist_id.currency_id}'/>
-                            </div>
-                            <div class="mb8">
-                                <strong>Total Deliverable:</strong> <span t-field="brd.price_total" t-field-options='{"widget": "monetary", "display_currency": brd.business_requirement_id.pricelist_id.currency_id}'/>
+                                <strong>Amount:</strong> <span t-field="brd.price_total" t-field-options='{"widget": "monetary", "display_currency": brd.sudo().currency_id}'/>
                             </div>
                         </div>
                     </div>
