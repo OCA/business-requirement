@@ -118,6 +118,14 @@
         <field name="arch" type="xml">
             <form string="Business Requirement Task Type">
                 <sheet>
+                    <div class="oe_right oe_button_box"
+                         name="buttons" groups="base.group_user">
+                         <button class="oe_inline oe_stat_button" name="portal_publish_button"
+                             type="object" icon="fa-globe">
+                             <label for="portal_published" />
+                             <field name="portal_published" widget="toggle_button"/>
+                         </button>
+                    </div>
                     <div class="oe_title">
                         <h1 class="o_row">
                             <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
@@ -125,6 +133,7 @@
                     </div>
                     <group>
                         <group>
+                            <field name="sequence"/>
                             <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="state" invisible="1"/>
                             <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
@@ -140,16 +149,12 @@
                             <field name="currency_id" invisible="1" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}" groups="business_requirement_deliverable.group_business_requirement_estimation"/>
                         </group>
                     </group>
-                      <notebook>
-                        <page name="user_case" string="User Case">
-                            <field name="user_case"/>
-                            <div class="oe_clear"/>
-                        </page>
-                        <page name="proposed_solution" string="proposed_solution">
-                            <field name="proposed_solution"/>
-                            <div class="oe_clear"/>
-                        </page>
-                      </notebook>
+                    <group name="user_case" string="User Case">
+                        <field name="user_case" nolabel="1"/>
+                    </group>
+                    <group name="proposed_solution" string="Proposed Solution">
+                        <field name="proposed_solution" nolabel="1"/>
+                    </group>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>

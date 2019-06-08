@@ -1,4 +1,5 @@
-# © 2016-2019 Elico Corp (https://www.elico-corp.com).
+# Copyright 2016-2019 Elico Corp (https://www.elico-corp.com).
+# Copyright 2019 Tecnativa - Alexandre Díaz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Business Requirement Deliverable',
@@ -14,15 +15,13 @@
     ],
     'data': [
         'data/business_data.xml',
-        'data/brd_report_paperformat.xml',
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
         'views/res_partner.xml',
-        'views/report_business_requirement_deliverable.xml',
+        'views/br_report.xml',
         'views/brd_portal_templates.xml',
         'views/assets.xml',
-        'report/report.xml',
     ],
     'image': [
         'static/description/icon.png',
