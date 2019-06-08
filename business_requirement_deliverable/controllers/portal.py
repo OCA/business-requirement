@@ -1,33 +1,40 @@
-
+# Copyright 2019 Tecnativa - Alexandre Díaz
 from collections import OrderedDict
 from operator import itemgetter
 
 from odoo import http, _
 from odoo.http import request
 from odoo.tools import groupby as groupbyelem
+from odoo.exceptions import AccessError
 from odoo.addons.portal.controllers.portal import (
     CustomerPortal,
-    pager as portal_pager, get_records_pager)
+    pager as portal_pager,
+    get_records_pager)
 from odoo.osv.expression import OR
 
 
 class CustomerPortal(CustomerPortal):
 
-    def _get_br_report_name(self):
-        return ('business_requirement_deliverable.'
-                'business_requirement_deliverable')
+    def _prepare_brd_base_domain(self, business_requirements):
+        partner = request.env.user.partner_id
+        return [
+            ('message_partner_ids', 'child_of', [
+                partner.commercial_partner_id.id]),
+            ('portal_published', '=', True),
+            ('business_requirement_id', 'in', business_requirements.ids)
+        ]
 
     @http.route(['/my/brd', '/my/brd/page/<int:page>'],
                 type='http', auth="user", website=True)
-    def portal_my_brd(self, page=1, date_begin=None, date_end=None,
-                      sortby=None, filterby=None, search=None,
-                      search_in='content', groupby='business_requirement',
-                      **kw):
+    def portal_my_brd_list(self, page=1, date_begin=None, date_end=None,
+                           sortby=None, filterby=None, search=None,
+                           search_in='content', groupby='business_requirement',
+                           **kw):
         values = self._prepare_portal_layout_values()
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
             'name': {'label': _('Title'), 'order': 'name'},
-            'stage': {'label': _('Stage'), 'order': 'state'},
+            'ref': {'label': _('Reference'), 'order': 'sequence'},
         }
         searchbar_filters = {
             'all': {'label': _('All'), 'domain': []},
@@ -40,7 +47,6 @@ class CustomerPortal(CustomerPortal):
             'message': {'input': 'message', 'label': _('Search in Messages')},
             'stakeholder': {'input': 'stakeholder',
                             'label': _('Search in Stakeholder')},
-            'state': {'input': 'state', 'label': _('Search in States')},
             'all': {'input': 'all', 'label': _('Search in All')},
         }
         searchbar_groupby = {
@@ -50,7 +56,9 @@ class CustomerPortal(CustomerPortal):
         }
 
         # extends filterby criteria with br the customer has access to
-        business_requirements = request.env['business.requirement'].search([])
+        business_requirements = request.env['business.requirement'].search(
+            self._prepare_br_base_domain())
+        domain = self._prepare_brd_base_domain(business_requirements)
         for br in business_requirements:
             searchbar_filters.update({
                 str(br.id): {
@@ -59,38 +67,16 @@ class CustomerPortal(CustomerPortal):
                 }
             })
 
-        BRDObj = request.env['business.requirement.deliverable']
-
-        # extends filterby criteria with br (criteria name is the br id)
-        # Note: portal users can't view brd they don't follow
-        brd_groups = BRDObj.read_group(
-                [('business_requirement_id', 'not in',
-                  business_requirements.ids)],
-                ['business_requirement_id'],
-                ['business_requirement_id']
-            )
-        for group in brd_groups:
-            br_id = group['business_requirement_id'][0] \
-                if group['business_requirement_id'] else False
-            br_name = group['business_requirement_id'][1] \
-                if group['business_requirement_id'] else _('Others')
-            searchbar_filters.update({
-                str(br_id): {
-                    'label': br_name,
-                    'domain': [('business_requirement_id', '=', br_id)]
-                }
-            })
-
         # default sort by value
         if not sortby:
-            sortby = 'date'
+            sortby = 'ref'
         order = searchbar_sortings[sortby]['order']
         # default filter by value
         if not filterby:
             filterby = 'all'
-        domain = searchbar_filters[filterby]['domain']
+        domain += searchbar_filters[filterby]['domain']
 
-        # archive groups - Default Group By 'create_date'
+        # archive groups - Default Group By 'sequence'
         archive_groups = self._get_archive_groups(
             'business.requirement.deliverable', domain)
         if date_begin and date_end:
@@ -109,10 +95,9 @@ class CustomerPortal(CustomerPortal):
             if search_in in ('message', 'all'):
                 search_domain = OR([search_domain,
                                     [('message_ids.body', 'ilike', search)]])
-            if search_in in ('state', 'all'):
-                search_domain = OR([search_domain,
-                                    [('state', 'ilike', search)]])
             domain += search_domain
+
+        BRDObj = request.env['business.requirement.deliverable']
 
         # brd count
         brd_count = BRDObj.search_count(domain)
@@ -165,16 +150,36 @@ class CustomerPortal(CustomerPortal):
 
     @http.route(['/my/brd/<int:brd_id>'],
                 type='http', auth="user", website=True)
-    def portal_my_task(self, brd_id=None, **kw):
+    def portal_my_brd(self, brd_id=None, **kw):
         brd = request.env['business.requirement.deliverable'].browse(brd_id)
+
         brd.check_access_rights('read')
         brd.check_access_rule('read')
 
+        if not brd.portal_published:
+            raise AccessError(
+                "Can't access to this business requirement deliverable")
+
         vals = {
             'brd': brd,
-            'user': request.env.user
+            'user': request.env.user,
+            'page_name': 'business_requirement_deliverable',
         }
         history = request.session.get('my_brd_history', [])
         vals.update(get_records_pager(history, brd))
         return request.render("business_requirement_deliverable.portal_my_brd",
                               vals)
+
+    def _br_get_page_view_values(self, br, access_token, **kwargs):
+        vals = super(CustomerPortal, self)._br_get_page_view_values(
+            br, access_token, **kwargs)
+
+        business_requirements = request.env['business.requirement'].search(
+            self._prepare_br_base_domain())
+        domain = self._prepare_brd_base_domain(business_requirements)
+        BRDObj = request.env['business.requirement.deliverable']
+        brd_count = BRDObj.search_count(domain)
+        vals.update({
+            'brd_count': brd_count,
+        })
+        return vals
