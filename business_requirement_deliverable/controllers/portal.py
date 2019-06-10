@@ -28,7 +28,7 @@ class CustomerPortal(CustomerPortal):
                 type='http', auth="user", website=True)
     def portal_my_brd_list(self, page=1, date_begin=None, date_end=None,
                            sortby=None, filterby=None, search=None,
-                           search_in='content', groupby='business_requirement',
+                           search_in='content', groupby='section',
                            **kw):
         values = self._prepare_portal_layout_values()
         searchbar_sortings = {
@@ -53,6 +53,8 @@ class CustomerPortal(CustomerPortal):
             'none': {'input': 'none', 'label': _('None')},
             'business_requirement': {'input': 'br',
                                      'label': _('Business Requirement')},
+            'section': {'input': 'section',
+                        'label': _('Section')},
         }
 
         # extends filterby criteria with br the customer has access to
@@ -116,6 +118,8 @@ class CustomerPortal(CustomerPortal):
         if groupby == 'business_requirement':
             # Force sort on br first to group by br in view
             order = "business_requirement_id, %s" % order
+        elif groupby == 'section':
+            order = "business_requirement_deliverable_section_id, %s" % order
         brd_recs = BRDObj.search(domain, order=order,
                                  limit=self._items_per_page,
                                  offset=(page - 1) * self._items_per_page)
@@ -124,6 +128,11 @@ class CustomerPortal(CustomerPortal):
             grouped_brd = [
                 BRDObj.concat(*g) for k, g in groupbyelem(
                     brd_recs, itemgetter('business_requirement_id'))]
+        elif groupby == 'section':
+            grouped_brd = [
+                BRDObj.concat(*g) for k, g in groupbyelem(
+                    brd_recs, itemgetter(
+                        'business_requirement_deliverable_section_id'))]
         else:
             grouped_brd = [brd_recs]
 
@@ -174,11 +183,9 @@ class CustomerPortal(CustomerPortal):
         vals = super(CustomerPortal, self)._br_get_page_view_values(
             br, access_token, **kwargs)
 
-        business_requirements = request.env['business.requirement'].search(
-            self._prepare_br_base_domain())
-        domain = self._prepare_brd_base_domain(business_requirements)
         BRDObj = request.env['business.requirement.deliverable']
-        brd_count = BRDObj.search_count(domain)
+        brd_count = BRDObj.search_count(
+            self._prepare_brd_base_domain(br))
         vals.update({
             'brd_count': brd_count,
         })

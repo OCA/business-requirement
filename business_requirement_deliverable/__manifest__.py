@@ -18,6 +18,7 @@
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
+        'views/brd_section.xml',
         'views/res_partner.xml',
         'views/br_report.xml',
         'views/brd_portal_templates.xml',

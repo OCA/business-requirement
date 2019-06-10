@@ -18,10 +18,20 @@
                 <div class="pull-right">
                     <a t-attf-href="/my/brd?filterby=#{br.id}" class="btn btn-default btn-lg">
                         <span class="fa fa-tasks" />
-                        <span t-esc="brd_count" />
+                        <span t-esc="brd_count or '0'" />
                         <span>Deliverable</span>
                     </a>
                 </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('panel-body')]/div[hasclass('row')]/div[hasclass('col-md-6')]" position="after">
+            <div class="col-md-6">
+                <t t-set="section_totals" t-value="br.get_total_by_section()" />
+                <div class="mb8"><strong>Deliverable Subtotals</strong></div>
+                <t t-foreach="section_totals" t-as="section_total">
+                    <span class="ml8"><t t-esc="section_total[0]"/>: <t t-esc="section_total[1]" t-options='{"widget": "monetary", "display_currency": br.currency_id}'/></span>
+                    <br/>
+                </t>
             </div>
         </xpath>
     </template>
@@ -43,9 +53,19 @@
                             <thead>
                                 <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
                                     <th class="text-left" t-if="groupby == 'none'">Name</th>
+                                    <th class="text-left" t-elif="groupby == 'section'">
+                                        <em class="font-weight-normal text-muted">Deliverables for section:</em>
+                                        <t t-if="brd[0].sudo().business_requirement_deliverable_section_id">
+                                            <span t-field="brd[0].sudo().business_requirement_deliverable_section_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span><i>Others</i></span>
+                                        </t>
+                                    </th>
                                     <th class="text-left" t-else="">
                                         <em class="font-weight-normal text-muted">Deliverables for business requirement:</em>
-                                        <span t-field="brd[0].sudo().business_requirement_id.name"/></th>
+                                        <span t-field="brd[0].sudo().business_requirement_id.name"/>
+                                    </th>
                                     <th class="text-left col-md-1">Ref.</th>
                                 </tr>
                             </thead>
@@ -79,8 +99,14 @@
                         <div class="col-md-12">
                             <h4>
                                 <t t-call='portal.record_pager'/>
-                                Business Requirement Deliverable - <span t-field="brd.name"/> (#<span t-esc="brd.id"/>)
+                                Business Requirement Deliverable - <span t-field="brd.name"/> (#<span t-esc="brd.sequence"/>)
                                 <a class="btn btn-info" t-att-href="'/web#return_label=Website&amp;model=business.requirement.deliverable&amp;id=%s&amp;view_type=form' % (brd.id)" groups="business_requirement.group_business_requirement_manager">Edit Business Requirement Deliverable</a>
+                                <t t-if="brd.business_requirement_deliverable_section_id">
+                                    <span class="label label-default" t-field="brd.business_requirement_deliverable_section_id.name" />
+                                </t>
+                                <t t-else="">
+                                    <span class="label label-default">Others</span>
+                                </t>
                             </h4>
                         </div>
                     </div>

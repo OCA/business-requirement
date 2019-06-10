@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-10 12:11+0000\n"
-"PO-Revision-Date: 2019-06-10 14:20+0200\n"
+"POT-Creation-Date: 2019-06-10 19:40+0000\n"
+"PO-Revision-Date: 2019-06-10 21:41+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,9 +23,24 @@ msgid "<em class=\"font-weight-normal text-muted\">Deliverables for business req
 msgstr "<em class=\"font-weight-normal text-muted\">Entregables para el requerimiento de negocio</em>"
 
 #. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid "<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
+msgstr "<em class=\"font-weight-normal text-muted\">Entregrables para la sección:</em>"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid "<span><i>Others</i></span>"
+msgstr "<span><i>Otros</i></span>"
+
+#. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
 msgid "<span>Deliverable</span>"
 msgstr "<span>Entregable</span>"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Amount:</strong>"
+msgstr "<strong>Importe:</strong>"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
@@ -33,9 +48,9 @@ msgid "<strong>Business Requirement:</strong>"
 msgstr "<strong>Requerimiento de Negocio:</strong>"
 
 #. module: business_requirement_deliverable
-#: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "<strong>Importe:</strong>"
-msgstr "<strong>Importe:</strong>"
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid "<strong>Deliverable Subtotals</strong>"
+msgstr "<strong>Deliverable Subtotals</strong>"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
@@ -53,7 +68,7 @@ msgid "<strong>User Case</strong>"
 msgstr "<strong>Caso de Usuario</strong>"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:31
+#: code:addons/business_requirement_deliverable/controllers/portal.py:43
 #, python-format
 msgid "All"
 msgstr "Todos"
@@ -64,7 +79,7 @@ msgid "Amount:"
 msgstr "Importe:"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:46
+#: code:addons/business_requirement_deliverable/controllers/portal.py:58
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_id
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_pivot
@@ -116,13 +131,15 @@ msgstr "Contacto"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_create_uid
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_create_date
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr "Creado en"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_currency_id
@@ -151,7 +168,7 @@ msgid "Deliverable"
 msgstr "Entregable"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:240
+#: code:addons/business_requirement_deliverable/models/business.py:236
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_lines
 #, python-format
 msgid "Deliverable Lines"
@@ -178,8 +195,9 @@ msgstr "Desarrollador"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_display_name
 msgid "Display Name"
-msgstr "Nombre a Mostrar"
+msgstr "Nombre mostrado"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
@@ -195,7 +213,7 @@ msgstr "Estimación por lista de precios"
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 msgid "Group By"
-msgstr "Agrupar Por"
+msgstr "Agrupar por"
 
 #. module: business_requirement_deliverable
 #: model:product.pricelist,name:business_requirement_deliverable.brpricelist0
@@ -204,8 +222,9 @@ msgstr "Listado de precios HKD"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_id
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_portal_published
@@ -214,33 +233,37 @@ msgstr "En el portal"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable___last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section___last_update
 msgid "Last Modified on"
-msgstr "Última Modificación en"
+msgstr "Última modificación en"
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_write_uid
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_uid
 msgid "Last Updated by"
-msgstr "Última Actualización por"
+msgstr "Última actualización de"
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_write_date
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_name
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
 msgid "Name"
 msgstr "Nombre"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:26
+#: code:addons/business_requirement_deliverable/controllers/portal.py:38
 #, python-format
 msgid "Newest"
 msgstr "Más nuevo"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:44
+#: code:addons/business_requirement_deliverable/controllers/portal.py:56
 #, python-format
 msgid "None"
 msgstr "Ninguno"
@@ -251,6 +274,12 @@ msgstr "Ninguno"
 #: model:product.template,name:business_requirement_deliverable.product_template_6
 msgid "Odoo Quick Start Package"
 msgstr "Paquete de inicio rápido de Odoo"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:305
+#, python-format
+msgid "Others"
+msgstr "Others"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_pricelist_id
@@ -281,12 +310,6 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: business_requirement_deliverable
-#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_project_id
-#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
-msgid "Project"
-msgstr "Proyecto"
-
-#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_proposed_solution
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
@@ -300,11 +323,11 @@ msgstr "Cantidad"
 
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
-msgid "Ref"
-msgstr "Ref"
+msgid "Ref."
+msgstr "Ref."
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:28
+#: code:addons/business_requirement_deliverable/controllers/portal.py:40
 #, python-format
 msgid "Reference"
 msgstr "Referencia"
@@ -318,33 +341,46 @@ msgid "Requirement Deliverable"
 msgstr "Requisitos entregables"
 
 #. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_menu_deliverable_sections
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_sections
+msgid "Requirement Deliverable Section"
+msgstr "Requirement Deliverable Section"
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_price_unit
 msgid "Sales Price"
 msgstr "Precio de venta"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:36
+#: code:addons/business_requirement_deliverable/controllers/portal.py:48
 #, python-format
 msgid "Search <span class=\"nolabel\"> (in Content)</span>"
 msgstr "Buscar <span class=\"nolabel\"> (en Contenido)</span>"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:41
+#: code:addons/business_requirement_deliverable/controllers/portal.py:53
 #, python-format
 msgid "Search in All"
 msgstr "Buscar en Todo"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:38
+#: code:addons/business_requirement_deliverable/controllers/portal.py:50
 #, python-format
 msgid "Search in Messages"
 msgstr "Buscar en Mensajes"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:40
+#: code:addons/business_requirement_deliverable/controllers/portal.py:52
 #, python-format
 msgid "Search in Stakeholder"
 msgstr "Buscar en Entidad Interesada"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:60
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_deliverable_section_id
+#, python-format
+msgid "Section"
+msgstr "Section"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sequence
@@ -364,12 +400,17 @@ msgid "State"
 msgstr "Estado"
 
 #. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+msgid "Subtotals"
+msgstr "Subtotals"
+
+#. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
 msgid "There are no business requirement deliverable."
 msgstr "No existe un requerimientos de negocio entregable."
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:27
+#: code:addons/business_requirement_deliverable/controllers/portal.py:39
 #, python-format
 msgid "Title"
 msgstr "Title"
@@ -389,11 +430,6 @@ msgstr "Precio total"
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_tree
 msgid "Total revenue"
 msgstr "Total beneficio"
-
-#. module: business_requirement_deliverable
-#: model:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
-msgid "Total:"
-msgstr "Total:"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_uom_id
@@ -422,7 +458,12 @@ msgid "Website Template"
 msgstr "Plantillas del sitio web"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:269
+#: code:addons/business_requirement_deliverable/models/business.py:265
 #, python-format
 msgid "You are changing customer, on a business requirementwhich already contains deliverable lines.Pricelist could be different."
 msgstr "Cambiar el usuario, en un requisito de negocio que actualmente contiene un listado de entregables, puede alterar el listado de precios."
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_section
+msgid "business.requirement.deliverable.section"
+msgstr "business.requirement.deliverable.section"

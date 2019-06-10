@@ -10,6 +10,7 @@
                         <div class='row'>
                             <div class="col-md-12">
                                 <h2 t-field="deliverable.name"/>
+                                <h4 t-field="deliverable.business_requirement_deliverable_section_id"/>
                             </div>
                         </div>
                         <div class="row">
@@ -41,9 +42,11 @@
                     <hr/>
                 </t>
                 <div>
-                    <h1 class="text-right">
-                        <strong>Total: <span t-field="o.total_revenue" t-options='{"widget": "monetary", "display_currency": o.partner_id.property_product_pricelist.currency_id}'/></strong>
-                    </h1>
+                    <t t-set="section_totals" t-value="o.get_total_by_section()" />
+                    <h2 class="text-right">Subtotals</h2>
+                    <t t-foreach="section_totals" t-as="section_total">
+                        <h3 class="text-right"><t t-esc="section_total[0]"/>:  <span t-esc="section_total[1]" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></h3>
+                    </t>
                 </div>
             </div>
         </xpath>
