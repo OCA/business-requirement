@@ -19,24 +19,9 @@
             <field name="name">Infra</field>
         </record>
 
-        <!-- Projects -->
-        <record id="project_1" model="project.project">
-            <field name="name">Corporate Website</field>
-            <field name="partner_id" ref="base.res_partner_2"/>
-        </record>
-        <record id="project_2" model="project.project">
-            <field name="name">ERP improvements</field>
-            <field name="partner_id" ref="base.main_partner"/>
-        </record>
-        <record id="project_3" model="project.project">
-            <field name="name">Business Analysis</field>
-            <field name="partner_id" ref="base.res_partner_12"/>
-        </record>
-
         <record id="business_requirement_1" model="business.requirement">
             <field name="description">Corporate Website</field>
-            <field name="responsible_id" ref="base.user_root"/>
-            <field name="project_id" ref="project_1"/>
+            <field name="responsible_user_id" ref="base.user_root"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"/>
@@ -140,22 +125,19 @@ pulvinar et, cursus sed purus.
         </record>
         <record id="business_requirement_2_1" model="business.requirement">
             <field name="description">ERP Implementation</field>
-            <field name="responsible_id" ref="base.user_demo"/>
-            <field name="project_id" ref="project_2"/>
+            <field name="responsible_user_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
             <field name="reviewer_ids"
                    eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
-            <field name="state">stakeholder_approval</field>
+            <field name="state">approved</field>
             <field name="partner_id" ref="base.main_partner"/>
         </record>
         <record id="business_requirement_2_2" model="business.requirement">
-            <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">ERP Setup</field>
-            <field name="project_id" ref="project_2"/>
-            <field name="responsible_id" ref="base.user_demo"/>
+            <field name="responsible_user_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
@@ -257,17 +239,15 @@ pulvinar et, cursus sed purus.
             ]]></field>
         </record>
         <record id="business_requirement_3" model="business.requirement">
-            <field name="parent_id" ref="business_requirement_2_1"/>
             <field name="description">Server Set up</field>
-            <field name="responsible_id" ref="base.user_demo"/>
-            <field name="project_id" ref="project_2"/>
+            <field name="responsible_user_id" ref="base.user_demo"/>
             <field name="priority">2</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"/>
             <field name="reviewer_ids"
                    eval="[(6, 0, [ref('base.user_root')])]"/>
             <field name="to_be_reviewed" eval="0"/>
-            <field name="state">stakeholder_approval</field>
+            <field name="state">approved</field>
             <field name="partner_id" ref="base.main_partner"/>
             <field name="business_requirement"><![CDATA[
 <h1>Lorem Ipsum</h1>
@@ -350,8 +330,7 @@ pulvinar et, cursus sed purus.
         </record>
         <record id="business_requirement_4" model="business.requirement">
             <field name="description">Business Analysis</field>
-            <field name="project_id" ref="project_3"/>
-            <field name="responsible_id" ref="base.user_demo"/>
+            <field name="responsible_user_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
@@ -441,8 +420,7 @@ pulvinar et, cursus sed purus.
         </record>
         <record id="business_requirement_5" model="business.requirement">
             <field name="description">Gap Analysis</field>
-            <field name="project_id" ref="project_2"/>
-            <field name="responsible_id" ref="base.user_demo"/>
+            <field name="responsible_user_id" ref="base.user_demo"/>
             <field name="priority">1</field>
             <field name="category_ids"
                    eval="[(6, 0, [ref('business_requirement_category_2')])]"/>
