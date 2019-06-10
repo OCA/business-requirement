@@ -6,19 +6,18 @@
     "summary": "Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers",
     "version": "11.0.1.0.0",
-    "website": "https://www.elico-corp.com",
+    "website": "https://github.com/OCA/business-requirement",
     "author": "Elico Corp, "
               "Odoo Community Association (OCA)",
     "depends": [
         "product",
-        "project",
+        "portal",
     ],
     "data": [
         "data/business_data.xml",
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/business_view.xml",
-        "views/project.xml",
         "views/br_report.xml",
         "views/br_portal_templates.xml",
         "report/report.xml"

@@ -86,27 +86,21 @@
                             <strong>Date:</strong> <span t-field="br.date" t-options='{"widget": "date"}'/> <t t-if="br.user_id">(<span t-field="br.user_id.name"/>)</t>
                         </div>
                         <div class="mb8" t-if="br.confirmation_date">
-                            <strong>Confirmation Date:</strong> <span t-field="br.confirmation_date" t-options='{"widget": "date"}'/> <t t-if="br.confirmed_id">(<span t-field="br.confirmed_id.name"/>)</t>
+                            <strong>Confirmation Date:</strong> <span t-field="br.confirmation_date" t-options='{"widget": "date"}'/> <t t-if="br.confirmed_user_id">(<span t-field="br.confirmed_user_id.name"/>)</t>
                         </div>
                         <div class="mb8" t-if="br.approval_date">
                             <strong>Approval Date:</strong> <span t-field="br.approval_date" t-options='{"widget": "date"}'/> <t t-if="br.approved_id">(<span t-field="br.approved_id.name"/>)</t>
                         </div>
                         <div class='row'>
                             <div class="col-md-6">
-                                <div class="mb8" t-if="br.project_id">
-                                    <strong>Master Project:</strong> <a t-attf-href="/my/project/#{br.project_id.id}" t-field="br.project_id.name"/>
-                                </div>
                                 <div class="mb8" t-if="br.origin">
                                     <strong>Source:</strong> <span t-field="br.origin"/>
-                                </div>
-                                <div class="mb8" t-if="br.ref">
-                                    <strong>WBS:</strong> <span t-field="br.ref"/>
                                 </div>
                                 <div class="mb8" t-if="any(br.category_ids)">
                                     <strong>Category:</strong> <span t-esc="', '.join([cate.name for cate in br.category_ids])"/>
                                 </div>
-                                <div class="mb8" t-if="br.responsible_id">
-                                    <strong>Responsible:</strong> <span t-field="br.responsible_id.name"/>
+                                <div class="mb8" t-if="br.responsible_user_id">
+                                    <strong>Responsible:</strong> <span t-field="br.responsible_user_id.name"/>
                                 </div>
                                 <div class="mb8">
                                     <strong>Change Request:</strong>
