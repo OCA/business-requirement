@@ -104,7 +104,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         total_cost = 900.0 * 1 + 1100.0 * 1 + 1300.0 * 1 + 1500.0 * 1
         self.assertEqual(cost_total, total_cost)
 
-    def test_compute_get_price_total(self):
+    def test_compute_price_total(self):
         for line in self.br.deliverable_lines:
             if line.name == 'deliverable line1':
                 self.assertEqual(line.price_total, 900.0 * 1)
@@ -127,25 +127,25 @@ class BusinessRequirementTestCase(common.TransactionCase):
                                    r.deliverable_lines)
         self.assertEqual(dl_total_revenue, r.dl_total_revenue)
 
-    def test_compute_get_currency(self):
+    def test_compute_currency_id(self):
         self.br.partner_id = False
-        self.br._compute_get_currency()
+        self.br._compute_currency_id()
         if not self.br.partner_id:
-            self.br.deliverable_lines[0]._compute_get_currency()
+            self.br.deliverable_lines[0]._compute_currency_id()
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
             'customer': True,
         })
         self.br.write({'partner_id': self.partner.id})
-        self.br._compute_get_currency()
+        self.br._compute_currency_id()
         currency_id = self.pricelist_id.currency_id
         self.assertEqual(
             self.br.currency_id, currency_id)
 
-    def test_deliverable_compute_get_currency(self):
+    def test_deliverable_compute_currency_id(self):
         if not self.br.partner_id:
-            self.br.deliverable_lines[0]._compute_get_currency()
+            self.br.deliverable_lines[0]._compute_currency_id()
         self.partner = self.env['res.partner'].create({
             'name': 'Your company test',
             'email': 'your.company@your-company.com',
@@ -154,7 +154,7 @@ class BusinessRequirementTestCase(common.TransactionCase):
         self.br.write({'partner_id': self.partner.id})
         currency_id = self.br.pricelist_id.currency_id
         for line in self.br.deliverable_lines:
-            line._compute_get_currency()
+            line._compute_currency_id()
             self.assertEqual(line.currency_id, currency_id)
 
     def test_product_id_change(self):

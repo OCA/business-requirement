@@ -55,12 +55,19 @@ class BusinessRequirementDeliverable(models.Model):
         ondelete='cascade',
         required=True
     )
+    dependency_ids = fields.Many2many(
+        comodel_name='business.requirement.deliverable',
+        relation='business_requirement_deliverable_dependency_rel',
+        column1='parent_id',
+        column2='dependency_id',
+        string='Dependencies',
+    )
     sale_price_unit = fields.Float(
         string='Sales Price',
         oldname='unit_price'
     )
     price_total = fields.Float(
-        compute='_compute_get_price_total',
+        compute='_compute_price_total',
         string='Total Deliverable',
         store=True,
         readonly=True
@@ -69,7 +76,7 @@ class BusinessRequirementDeliverable(models.Model):
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_compute_get_currency',
+        compute='_compute_currency_id',
     )
     business_requirement_partner_id = fields.Many2one(
         comodel_name='res.partner',
@@ -91,7 +98,7 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
-    def _compute_get_currency(self):
+    def _compute_currency_id(self):
         for brd in self:
             currency_id = brd.business_requirement_id.\
                 pricelist_id.currency_id.id
@@ -102,7 +109,7 @@ class BusinessRequirementDeliverable(models.Model):
 
     @api.multi
     @api.depends('sale_price_unit', 'qty')
-    def _compute_get_price_total(self):
+    def _compute_price_total(self):
         for brd in self:
             brd.price_total = brd.sale_price_unit * brd.qty
 
@@ -187,7 +194,7 @@ class BusinessRequirement(models.Model):
         comodel_name='res.currency',
         string='Currency',
         readonly=True,
-        compute='_compute_get_currency'
+        compute='_compute_currency_id'
     )
     dl_total_revenue = fields.Float(
         string='DL Total Revenue',
@@ -253,7 +260,7 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     @api.depends('pricelist_id')
-    def _compute_get_currency(self):
+    def _compute_currency_id(self):
         for br in self:
             if br.partner_id and br.pricelist_id.currency_id:
                 br.currency_id = br.pricelist_id.currency_id.id
@@ -313,3 +320,86 @@ class BusinessRequirement(models.Model):
             brd_section_total = sum(brd_lines.mapped('price_total'))
             sections_total.append((_('Others'), brd_section_total))
         return sections_total
+
+    @api.multi
+    def map_deliverable(self, new_br_id):
+        """ copy and map deliverable from old to new requirement """
+        deliverables = self.env['business.requirement.deliverable']
+        deliverable_ids = self.env[
+            'business.requirement.deliverable'].search(
+                [('business_requirement_id', '=', self.id)]).ids
+        for deliverable in self.env[
+                'business.requirement.deliverable'].browse(deliverable_ids):
+            # preserve deliverable name, normally altered during copy
+            defaults = {'name': deliverable.name}
+            deliverables += deliverable.copy(defaults)
+        return self.browse(
+            new_br_id).write(
+            {'deliverable_lines': [(6, 0, deliverables.ids)]})
+
+    @api.multi
+    def copy(self, default=None):
+        if default is None:
+            default = {}
+        if not default.get('name'):
+            default['name'] = _("%s (copy)") % (self.name)
+        br = super(BusinessRequirement, self).copy(default)
+        for follower in self.message_follower_ids:
+            br.message_subscribe(
+                partner_ids=follower.partner_id.ids,
+                subtype_ids=follower.subtype_ids.ids)
+        if 'deliverable_lines' not in default:
+            self.map_deliverable(br.id)
+        return br
+
+    @api.multi
+    def message_subscribe(
+        self,
+        partner_ids=None,
+        channel_ids=None,
+        subtype_ids=None,
+        force=True
+    ):
+        """Subscribe to all existing active deliverables when subscribing
+        to a requirement
+        """
+        res = super(BusinessRequirement, self).message_subscribe(
+            partner_ids=partner_ids,
+            channel_ids=channel_ids,
+            subtype_ids=subtype_ids,
+            force=force)
+
+        if not subtype_ids or any(subtype.parent_id.res_model == '\
+                business.requirement.deliverable' for subtype in self.env['\
+                mail.message.subtype'].browse(subtype_ids)):
+            for partner_id in partner_ids or []:
+                self.mapped('deliverable_lines').filtered(
+                    lambda deliver: (
+                        partner_id not in deliver.message_partner_ids.ids)
+                ).message_subscribe(
+                    partner_ids=[partner_id],
+                    channel_ids=None,
+                    subtype_ids=None,
+                    force=False)
+            for channel_id in channel_ids or []:
+                self.mapped('deliverable_lines').filtered(
+                    lambda deliver: (
+                        channel_id not in deliver.message_channel_ids.ids)
+                ).message_subscribe(
+                    partner_ids=None,
+                    channel_ids=[channel_id],
+                    subtype_ids=None,
+                    force=False)
+        return res
+
+    @api.multi
+    def message_unsubscribe(self, partner_ids=None, channel_ids=None):
+        """Unsubscribe from all deliverables
+        when unsubscribing from a requirement
+        """
+        self.mapped('deliverable_lines').message_unsubscribe(
+            partner_ids=partner_ids,
+            channel_ids=channel_ids)
+        return super(BusinessRequirement, self).message_unsubscribe(
+            partner_ids=partner_ids,
+            channel_ids=channel_ids)
