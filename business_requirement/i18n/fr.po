@@ -129,14 +129,9 @@ msgid "Confirmation Date"
 msgstr "Date de confirmation"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_confirmed_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_confirmed_user_id
 msgid "Confirmed by"
 msgstr "Confirmé par"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_sub_br_count
-msgid "Count"
-msgstr "Nombre"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_create_uid
@@ -252,12 +247,6 @@ msgid "Low"
 msgstr "Basse"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_project_id
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-msgid "Master Project"
-msgstr "Projet principal"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_name
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_name
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
@@ -295,11 +284,6 @@ msgid "Other"
 msgstr "Autre"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_parent_id
-msgid "Parent"
-msgstr "Parent"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_parent_id
 msgid "Parent Category"
 msgstr "Catégorie mère"
@@ -332,12 +316,12 @@ msgid "Ready for next stage"
 msgstr "Prêt pour l'étape suivante"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_requested_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_requested_user_id
 msgid "Requested by"
 msgstr "Demandé par"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_user_id
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Responsible"
@@ -400,11 +384,6 @@ msgid "Sub Bus. Req."
 msgstr "Sous-besoin"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_business_requirement_ids
-msgid "Sub Business Requirement"
-msgstr "Sous-besoin professionnel"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_terms_and_conditions
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Terms and Conditions"
@@ -453,12 +432,6 @@ msgstr "Messages non lus"
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "User"
 msgstr "Utilisateur"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_ref
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-msgid "WBS"
-msgstr "WBS"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
