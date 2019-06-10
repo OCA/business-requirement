@@ -4,11 +4,6 @@
         <field name="name">Business Requirement</field>
         <field name="res_model">business.requirement</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('parent_id', '=', active_id)]</field>
-        <field name="context">{
-            'search_default_parent_id': [active_id],
-            'default_parent_id': active_id,
-        }</field>
     </record>
 
     <record id="view_business_requirement_form" model="ir.ui.view">
@@ -20,7 +15,7 @@
             <form string="Business Requirement">
                 <header>
                     <field name="state" widget="statusbar" clickable="True"
-                           statusbar_visible="draft,confirmed,approved,stakeholder_approval,in_progress,done,cancel,drop"/>
+                           statusbar_visible="draft,confirmed,approved,in_progress,done,cancel,drop"/>
                 </header>
                 <sheet>
                     <div class="oe_left">
@@ -29,10 +24,6 @@
                     </div>
                     <div class="oe_right oe_button_box"
                          name="buttons" groups="base.group_user">
-                        <button class="oe_inline oe_stat_button"
-                                type="action" name="%(act_view_sub_br_all)d" icon="fa-tasks">
-                            <field name="sub_br_count" string="Sub Bus. Req." widget="statinfo"/>
-                        </button>
                         <button class="oe_inline oe_stat_button" name="portal_publish_button"
                              type="object" icon="fa-globe">
                              <label for="portal_published" />
@@ -44,10 +35,8 @@
                         <field name="description" default_focus="1"/>
                     </h1>
                     <group col="4">
-                        <field name="responsible_id" required="1"/>
-                        <field name="project_id"/>
+                        <field name="responsible_user_id" required="1"/>
                         <field name="partner_id"/>
-                        <field name="ref"/>
                         <field name="origin"/>
                         <field name="category_ids" widget="many2many_tags"/>
                         <field name="to_be_reviewed"/>
@@ -73,13 +62,12 @@
                             </group>
                         </page>
                         <page string="Logs" name="logs">
-                            <field name="level" invisible="1"/>
                             <group col="4">
                                 <field name="user_id" />
                                 <field name="date" />
                                 <field name="create_uid" readonly="1"/>
                                 <field name="create_date" string="Creation Date" readonly="1"/>
-                                <field name="confirmed_id"/>
+                                <field name="confirmed_user_id"/>
                                 <field name="confirmation_date"/>
                                 <field name="approved_id"/>
                                 <field name="approval_date"/>
@@ -87,20 +75,18 @@
                         </page>
                         <page string="Other" name="other">
                             <group col="4">
-                                <field name="parent_id"/>
-                                <field name="requested_id"/>
+                                <field name="requested_user_id"/>
                                 <field name="change_request"/>
                                 <field name="company_id" groups="base.group_multi_company"/>
                             </group>
                         </page>
                     </notebook>
                 </sheet>
-                <footer>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
-                </footer>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -110,27 +96,15 @@
         <field name="model">business.requirement</field>
         <field name="arch" type="xml">
             <tree string="Business Requirement">
-                <field name="responsible_id"/>
+                <field name="responsible_user_id"/>
                 <field name="partner_id"/>
                 <field name="name"/>
                 <field name="description"/>
-                <field name="ref"/>
-                <field name="project_id"/>
                 <field name="category_ids"/>
                 <field name="priority"/>
                 <field name="state"/>
             </tree>
         </field>
-    </record>
-    <record id="action_view_tasks_business_requirement" model="ir.actions.act_window">
-        <field name="res_model">project.task</field>
-        <field name="view_type">form</field>
-        <field name="name">Action Tasks Related BR</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-            'search_default_business_requirement_id': [active_id],
-            'default_business_requirement_id': active_id
-        }</field>
     </record>
 
     <record model="ir.ui.view" id="view_business_requirement_kanban_project">
@@ -141,8 +115,7 @@
                 <field name="state"/>
                 <field name="name"/>
                 <field name="description"/>
-                <field name="responsible_id"/>
-                <field name="project_id"/>
+                <field name="responsible_user_id"/>
                 <field name="category_ids"/>
                 <field name="priority"/>
                 <field name="kanban_state"/>
@@ -154,13 +127,12 @@
                                     <strong>[<field name="name"/>]<![CDATA[&nbsp;]]>
                                         <field name="description"/></strong>
                                 </h4>
-                                <field name="responsible_id"/><br/>
-                                <field name="project_id"/><br/>
+                                <field name="responsible_user_id"/><br/>
                                 <field name="category_ids"/>
                                 <div class="oe_kanban_bottom_right">
                                     <div class="pull-left" groups="base.group_user">
-                                        <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_id.raw_value)"
-                                            t-att-title="record.responsible_id.value" width="24" height="24"
+                                        <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_user_id.raw_value)"
+                                            t-att-title="record.responsible_user_id.value" width="24" height="24"
                                             class="oe_kanban_avatar pull-right"/>
                                         <field name="priority" widget="priority"/>
                                     </div>
@@ -183,24 +155,21 @@
                        filter_domain="['|',
                        ('name', 'ilike', self),
                        ('description', 'ilike', self)]"/>
-                <field name="project_id" string="Project"/>
                 <field name="partner_id" string="Stakeholder"/>
-                <field name="responsible_id" string="Responsible"/>
+                <field name="responsible_user_id" string="Responsible"/>
                 <field name="origin" string="Source"/>
                 <filter string="Unread Messages" name="message_needaction"
                         domain="[('message_needaction', '=', True)]"/>
                 <filter string="To be Reviewed" name="to_be_reviewed"
                         domain="[('to_be_reviewed', '!=', False)]"/>
                 <group expand="0" string="Group By">
-                    <filter string="Project"
-                            context="{'group_by': 'project_id'}"/>
                     <filter string="Stakeholder"
                             context="{'group_by': 'partner_id'}"/>
                     <filter string="State" context="{'group_by': 'state'}"/>
                     <filter string="Priority"
                             context="{'group_by': 'priority'}"/>
                     <filter string="Responsible"
-                            context="{'group_by': 'responsible_id'}"/>
+                            context="{'group_by': 'responsible_user_id'}"/>
                 </group>
             </search>
         </field>
@@ -216,7 +185,6 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="parent_id"/>
                     </group>
                 </sheet>
             </form>
@@ -243,8 +211,6 @@
         <field name="search_view_id"
                ref="business_requirement.view_business_requirement_search"/>
         <field name="context">{
-            'search_default_project_id': [active_id],
-            'default_project_id': active_id,
             'active_test': False,
         }</field>
         <field name="help" type="html">
@@ -262,7 +228,6 @@
         <field name="arch" type="xml">
             <graph string="Business Requirement" stacked="True">
                 <field name="partner_id"/>
-                <field name="project_id"/>
             </graph>
         </field>
     </record>

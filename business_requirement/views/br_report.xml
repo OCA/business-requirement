@@ -12,26 +12,17 @@
                     <td><strong>Stakeholder</strong></td>
                     <td><span t-field="o.partner_id.name"/></td>
                 </tr>
-                <tr t-if="o.project_id">
-                    <td><strong>Master Project</strong></td>
-                    <td><span t-field="o.project_id.name"/></td>
-                </tr>
                 <tr t-if="o.origin">
                     <td><strong>Source</strong></td>
                     <td><span t-field="o.origin"/></td>
-                </tr>
-
-                <tr t-if="o.ref">
-                    <td><strong>WBS</strong></td>
-                    <td><span t-field="o.ref"/></td>
                 </tr>
                 <tr t-if="any(o.category_ids)">
                     <td><strong>Category</strong></td>
                     <td><span t-esc="', '.join([cate.name for cate in o.category_ids])"/></td>
                 </tr>
-                <tr t-if="o.responsible_id">
+                <tr t-if="o.responsible_user_id">
                     <td><strong>Responsible</strong></td>
-                    <td><span t-field="o.responsible_id.name"/></td>
+                    <td><span t-field="o.responsible_user_id.name"/></td>
                 </tr>
                 <tr>
                     <td><strong>Change Request</strong></td>
@@ -47,7 +38,7 @@
                 </tr>
                 <tr t-if="o.confirmation_date">
                     <td><strong>Confirmation Date</strong></td>
-                    <td><span t-field="o.confirmation_date" t-field-options='{"widget": "date"}'/> <t t-if="o.confirmed_id">(<span t-field="o.confirmed_id.name"/>)</t></td>
+                    <td><span t-field="o.confirmation_date" t-field-options='{"widget": "date"}'/> <t t-if="o.confirmed_user_id">(<span t-field="o.confirmed_user_id.name"/>)</t></td>
                 </tr>
                 <tr t-if="o.approval_date">
                     <td><strong>Approval Date</strong></td>

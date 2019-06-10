@@ -132,14 +132,9 @@ msgid "Confirmation Date"
 msgstr "Datum potrditve"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_confirmed_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_confirmed_user_id
 msgid "Confirmed by"
 msgstr "Potrdil"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_sub_br_count
-msgid "Count"
-msgstr "Seštevek"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_create_uid
@@ -255,12 +250,6 @@ msgid "Low"
 msgstr "Nizka"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_project_id
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-msgid "Master Project"
-msgstr "Nosilni projekt"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_name
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_name
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
@@ -334,12 +323,12 @@ msgid "Ready for next stage"
 msgstr "Pripravljeno na naslednjo stopnjo"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_requested_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_requested_user_id
 msgid "Requested by"
 msgstr "Zahteval"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_user_id
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Responsible"
@@ -402,11 +391,6 @@ msgid "Sub Bus. Req."
 msgstr "Podr. posl. zaht."
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_business_requirement_ids
-msgid "Sub Business Requirement"
-msgstr "Podr. posl. zahteva"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_terms_and_conditions
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Terms and Conditions"
@@ -455,12 +439,6 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "User"
 msgstr ""
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_ref
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
-msgid "WBS"
-msgstr "Členitev"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_base
