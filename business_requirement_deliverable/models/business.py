@@ -5,6 +5,9 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.addons import decimal_precision as dp
 
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
@@ -18,7 +21,6 @@ class BusinessRequirementDeliverable(models.Model):
         selection=[('draft', 'Draft'),
                    ('confirmed', 'Confirmed'),
                    ('approved', 'Approved'),
-                   ('stakeholder_approval', 'Stakeholder Approval'),
                    ('in_progress', 'In progress'),
                    ('done', 'Done'),
                    ('cancel', 'Cancel'),
@@ -75,15 +77,12 @@ class BusinessRequirementDeliverable(models.Model):
         string='Stakeholder',
         store=True
     )
-    business_requirement_project_id = fields.Many2one(
-        comodel_name='project.project',
-        related='business_requirement_id.project_id',
-        string='Project',
-        store=True
-    )
     state = fields.Selection(related='business_requirement_id.state',
                              string='State', store=True, readonly=True)
     portal_published = fields.Boolean('In Portal', default=True)
+    business_requirement_deliverable_section_id = fields.Many2one(
+        comodel_name='business.requirement.deliverable.section',
+        string='Section')
 
     def _compute_portal_url(self):
         super(BusinessRequirementDeliverable, self)._compute_portal_url()
@@ -296,3 +295,21 @@ class BusinessRequirement(models.Model):
         return self.env['ir.config_parameter'].sudo().get_param(
             'business_requirement_deliverable.br_portal_confirmation_options',
             default='none')
+
+    def get_total_by_section(self):
+        sections_total = []
+        sections = self.deliverable_lines.mapped(
+            'business_requirement_deliverable_section_id')
+        for section in sections:
+            brd_lines = self.deliverable_lines.filtered(
+                lambda x: x.business_requirement_deliverable_section_id.id
+                == section.id)
+            brd_section_total = sum(brd_lines.mapped('price_total'))
+            sections_total.append((section.name, brd_section_total))
+        # No Section
+        brd_lines = self.deliverable_lines.filtered(
+            lambda x: not x.business_requirement_deliverable_section_id)
+        if any(brd_lines):
+            brd_section_total = sum(brd_lines.mapped('price_total'))
+            sections_total.append((_('Others'), brd_section_total))
+        return sections_total
