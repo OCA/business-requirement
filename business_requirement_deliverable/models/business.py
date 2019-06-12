@@ -368,10 +368,14 @@ class BusinessRequirement(models.Model):
             channel_ids=channel_ids,
             subtype_ids=subtype_ids,
             force=force)
-
-        if not subtype_ids or any(subtype.parent_id.res_model == '\
-                business.requirement.deliverable' for subtype in self.env['\
-                mail.message.subtype'].browse(subtype_ids)):
+        has_subtype = False
+        for subtype in self.env['mail.message.subtype'].browse(subtype_ids):
+            subtype_ids.append(subtype.id)
+            if subtype.parent_id.res_model == (
+                    'business.requirement.deliverable'):
+                has_subtype = True
+                continue
+        if not subtype_ids or has_subtype:
             for partner_id in partner_ids or []:
                 self.mapped('deliverable_lines').filtered(
                     lambda deliver: (
