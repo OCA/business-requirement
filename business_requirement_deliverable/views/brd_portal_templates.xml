@@ -117,6 +117,12 @@
                             <div class="mb8">
                                 <strong>Business Requirement:</strong> <a t-attf-href="/my/business_requirement/#{brd.business_requirement_id.id}" t-field="brd.business_requirement_id.name"/>
                             </div>
+                            <div t-if="any(brd.dependency_ids)" class="mb8">
+                                <strong>Depends On:</strong>
+                                <t t-foreach="brd.dependency_ids" t-as="brd_dep">
+                                    <a t-attf-href="/my/brd/#{brd_dep.id}" t-field="brd_dep.name"/> <span t-if="brd_dep != brd.dependency_ids[-1]">-</span>
+                                </t>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb8">

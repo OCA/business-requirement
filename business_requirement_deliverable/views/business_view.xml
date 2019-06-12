@@ -131,7 +131,7 @@
                             <field name="business_requirement_deliverable_section_id"/>
                             <field name="product_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="state" invisible="1"/>
-                            <field name="business_requirement_id" domain="[('state', 'in', ('draft', 'confirmed'))]" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                            <field name="business_requirement_id" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
                             <field name="dependency_ids" widget="many2many_tags"
                                    domain="[('id', '!=', id), ('business_requirement_id', '=', business_requirement_id)]"/>
                         </group>
