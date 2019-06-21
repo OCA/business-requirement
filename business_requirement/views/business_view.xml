@@ -259,9 +259,11 @@
     </record>
 
     <!-- Top menu item -->
-    <menuitem id="menu_business_root"  name="Business Requirement"
+    <menuitem id="menu_business_root" name="Business Requirement"
               groups="business_requirement.group_business_requirement_user"
-              sequence="30"/>
+              sequence="30"
+              web_icon="business_requirement,static/description/icon.png"
+    />
 
     <menuitem id="menu_business_requirement" name="Business Requirement"
               groups="business_requirement.group_business_requirement_user"
