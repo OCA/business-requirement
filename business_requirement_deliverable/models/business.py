@@ -70,7 +70,8 @@ class BusinessRequirementDeliverable(models.Model):
         compute='_compute_price_total',
         string='Total Deliverable',
         store=True,
-        readonly=True
+        readonly=True,
+        track_visibility='onchange'
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
