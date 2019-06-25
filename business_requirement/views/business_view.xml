@@ -79,6 +79,9 @@
                                 <field name="change_request"/>
                                 <field name="company_id" groups="base.group_multi_company"/>
                             </group>
+                            <group string="Internal comment">
+                                <field name="internal_comment" nolabel="1"/>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
