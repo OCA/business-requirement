@@ -11,7 +11,7 @@ from odoo.addons.portal.controllers.portal import (
 class CustomerPortal(CustomerPortal):
 
     def _prepare_portal_layout_values(self):
-        values = super(CustomerPortal, self)._prepare_portal_layout_values()
+        values = super()._prepare_portal_layout_values()
         br_count = request.env['business.requirement'].search_count(
             self._prepare_br_base_domain())
         values.update({
