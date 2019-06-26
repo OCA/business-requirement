@@ -73,7 +73,15 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)]}
     )
     state = fields.Selection(
-        selection=lambda self: self._selection_get_states(),
+        selection=[
+            ('draft', 'Draft'),
+            ('confirmed', 'Confirmed'),
+            ('approved', 'Approved'),
+            ('in_progress', 'In progress'),
+            ('done', 'Done'),
+            ('cancel', 'Cancel'),
+            ('drop', 'Drop'),
+        ],
         string='State',
         default='draft',
         copy=False,
@@ -191,18 +199,17 @@ class BusinessRequirement(models.Model):
         if vals.get('name', '/') == '/':
             vals['name'] = self.env['ir.sequence'].next_by_code(
                 'business.requirement')
-        return super(BusinessRequirement, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
         if vals.get('state'):
-            br_xml_id = self.env.ref(
+            user = self.env.user
+            user_manager = user.has_group(
                 'business_requirement.group_business_requirement_manager')
-            user = self.env['res.users']
-            grps = self.env.user.groups_id.ids
             date = fields.Datetime.now()
             if vals['state'] == 'confirmed':
-                vals.update({'confirmed_user_id': user,
+                vals.update({'confirmed_user_id': user.id,
                              'confirmation_date': date})
             if vals['state'] == 'draft':
                 vals.update({'confirmed_user_id': False,
@@ -211,33 +218,20 @@ class BusinessRequirement(models.Model):
                              'approval_date': False
                              })
             if vals['state'] == 'approved':
-                if br_xml_id.id in grps:
-                    vals.update({'approved_id': user,
-                                 'approval_date': date})
+                if user_manager:
+                    vals.update({
+                        'approved_id': user.id, 'approval_date': date})
                 else:
                     raise ValidationError(_(
                         'You can only move to the following stage: '
                         'draft/confirmed /cancel/drop.'))
-            if vals['state'] in ('approved', 'in_progress',
-                                 'done'):
-                if br_xml_id.id not in grps:
+            if vals['state'] in {'approved', 'in_progress',
+                                 'done'}:
+                if not user_manager:
                     raise ValidationError(_(
                         'You can only move to the following stage: '
                         'draft/confirmed/cancel/drop.'))
-        return super(BusinessRequirement, self).write(vals)
-
-    @api.model
-    def _selection_get_states(self):
-        states = [
-            ('draft', 'Draft'),
-            ('confirmed', 'Confirmed'),
-            ('approved', 'Approved'),
-            ('in_progress', 'In progress'),
-            ('done', 'Done'),
-            ('cancel', 'Cancel'),
-            ('drop', 'Drop'),
-        ]
-        return states
+        return super().write(vals)
 
     @api.multi
     def name_get(self):
@@ -254,7 +248,7 @@ class BusinessRequirement(models.Model):
     def name_search(self, name, args=None, operator='ilike', limit=100):
         """Search BR based on Name or Description"""
         # Make a search with default criteria
-        names = super(BusinessRequirement, self).name_search(
+        names = super().name_search(
             name=name, args=args, operator=operator, limit=limit)
         # Make the other search
         descriptions = []
@@ -265,7 +259,7 @@ class BusinessRequirement(models.Model):
         return list(set(names) | set(descriptions))[:limit]
 
     @api.multi
-    @api.returns('self', lambda value: value.id)
+    @api.returns('mail.message', lambda value: value.id)
     def message_post(self, body='', subject=None, message_type='notification',
                      subtype=None, parent_id=False, attachments=None,
                      content_subtype='html', **kwargs):
@@ -303,7 +297,7 @@ class BusinessRequirement(models.Model):
                                       'state_count': 0}
                                      for state_value, state_name in states]
             # Get standard results
-            read_group_res = super(BusinessRequirement, self).\
+            read_group_res = super().\
                 read_group(domain, fields, groupby, offset=offset,
                            limit=limit, orderby=orderby)
             # Update standard results with default results
@@ -321,7 +315,7 @@ class BusinessRequirement(models.Model):
                 res[0]['state'] = [state_value, state_name]
                 result.append(res[0])
             return result
-        return super(BusinessRequirement, self).\
+        return super().\
             read_group(domain, fields, groupby,
                        offset=offset, limit=limit, orderby=orderby, lazy=lazy)
 
@@ -331,7 +325,7 @@ class BusinessRequirement(models.Model):
             default='none')
 
     def _compute_portal_url(self):
-        super(BusinessRequirement, self)._compute_portal_url()
+        super()._compute_portal_url()
         for br in self:
             br.portal_url = '/my/business_requirement/%s' % br.id
 
