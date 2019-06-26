@@ -133,6 +133,7 @@
                                     <div class="pull-left" groups="base.group_user">
                                         <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_user_id.raw_value)"
                                             t-att-title="record.responsible_user_id.value" width="24" height="24"
+                                            t-att-alt="record.responsible_user_id.raw_value"
                                             class="oe_kanban_avatar pull-right"/>
                                         <field name="priority" widget="priority"/>
                                     </div>
@@ -162,13 +163,18 @@
                         domain="[('message_needaction', '=', True)]"/>
                 <filter string="To be Reviewed" name="to_be_reviewed"
                         domain="[('to_be_reviewed', '!=', False)]"/>
-                <group expand="0" string="Group By">
+                <group expand="0" string="Group by">
                     <filter string="Stakeholder"
+                            name= "stakeholder"
                             context="{'group_by': 'partner_id'}"/>
-                    <filter string="State" context="{'group_by': 'state'}"/>
+                    <filter string="State"
+                            name= "state"
+                            context="{'group_by': 'state'}"/>
                     <filter string="Priority"
+                            name= "priority"
                             context="{'group_by': 'priority'}"/>
                     <filter string="Responsible"
+                            name= "responsible"
                             context="{'group_by': 'responsible_user_id'}"/>
                 </group>
             </search>
