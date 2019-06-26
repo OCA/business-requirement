@@ -1,5 +1,5 @@
 <odoo>
-    <template id="portal_my_home_menu_br" name="Portal layout : business requirement menu entries" inherit_id="portal.portal_layout" priority="20">
+    <template id="portal_my_home_menu_br" name="Portal layout : business requirement menu entries" inherit_id="portal.portal_breadcrumbs" priority="20">
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
             <li t-if="page_name == 'business_requirement'">
                 <a t-if="business_requirement" t-attf-href="/my/business_requirements?{{ keep_query() }}">Business Requirements</a>
@@ -12,7 +12,7 @@
     </template>
 
     <template id="portal_my_home_br" name="Portal My Home : business requirement entries" inherit_id="portal.portal_my_home" priority="20">
-        <xpath expr="//ul[hasclass('o_portal_docs')]" position="inside">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <li t-if="business_requirement_count" class="list-group-item">
                 <span class="badge" t-esc="business_requirement_count"/>
                 <a href="/my/business_requirements">Business Requirements</a>
