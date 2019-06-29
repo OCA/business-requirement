@@ -10,92 +10,24 @@ msgstr ""
 "PO-Revision-Date: 2019-06-11 17:24+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: es\n"
 "X-Generator: Poedit 2.2.3\n"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Approval Date:</strong>"
-msgstr "<strong>Fecha de aprobación:</strong>"
+#: model:ir.actions.act_window,name:business_requirement.action_view_tasks_business_requirement
+msgid "Action Tasks Related BR"
+msgstr ""
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Approval Date</strong>"
-msgstr "<strong>Fecha de aprobación</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Category:</strong>"
-msgstr "<strong>Fecha de aprobación:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Category</strong>"
-msgstr "<strong>Categoría</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Change Request:</strong>"
-msgstr "<strong>Solicitud de cambio:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Change Request</strong>"
-msgstr "<strong>Solicitud de cambio</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Confirmation Date:</strong>"
-msgstr "<strong>Fecha de confirmación:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Confirmation Date</strong>"
-msgstr "<strong>Fecha de confirmación</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Date:</strong>"
-msgstr "<strong>Fecha:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Date</strong>"
-msgstr "<strong>Fecha</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Responsible:</strong>"
-msgstr "<strong>Responsable:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Responsible</strong>"
-msgstr "<strong>Responsable</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Source:</strong>"
-msgstr "<strong>Origen:</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Source</strong>"
-msgstr "<strong>Origen</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<strong>Stakeholder Address</strong>"
-msgstr "<strong>Dirección del Interesado</strong>"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-msgid "<strong>Stakeholder</strong>"
-msgstr "<strong>Interesado</strong>"
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#, fuzzy
+#| msgid "Approval Date"
+msgid "Approval"
+msgstr "Fecha de aprobación"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_approval_date
@@ -112,12 +44,10 @@ msgstr "Aprobado por"
 #: model:ir.actions.act_window,name:business_requirement.act_view_sub_br_all
 #: model:ir.actions.act_window,name:business_requirement.action_business_requirement_tree
 #: model:ir.model,name:business_requirement.model_business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_business_requirement_id
 #: model:ir.module.category,name:business_requirement.module_category_business_requirement
 #: model:ir.ui.menu,name:business_requirement.menu_business_requirement
 #: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
 #: model:ir.ui.menu,name:business_requirement.menu_business_root
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_form
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_tree
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
@@ -127,11 +57,6 @@ msgstr "Aprobado por"
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_tree
 msgid "Business Requirement"
 msgstr "Requisito de negocio"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_br
-msgid "Business Requirement #"
-msgstr "Requisito de negocio #"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.br_report
@@ -144,8 +69,15 @@ msgid "Business Requirement Manager"
 msgstr "Administrador de requisito de negocio"
 
 #. module: business_requirement
-#: model:ir.actions.report,name:business_requirement.business_requirement_report
+#: model:ir.actions.report.xml,name:business_requirement.business_requirement_report
 msgid "Business Requirement Report"
+msgstr "Informes de Requisitos de Negocio"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_stakeholder
+#, fuzzy
+#| msgid "Business Requirement Report"
+msgid "Business Requirement Stakeholder"
 msgstr "Informes de Requisitos de Negocio"
 
 #. module: business_requirement
@@ -154,9 +86,7 @@ msgid "Business Requirement User"
 msgstr "Usuario de requisito de negocio"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_br
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_home_br
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_home_menu_br
+#: model:ir.model.fields,field_description:business_requirement.field_project_project_br_ids
 msgid "Business Requirements"
 msgstr "Requisitos de negocio"
 
@@ -167,6 +97,20 @@ msgstr "Requisitos de negocio"
 #: model:ir.ui.menu,name:business_requirement.menu_business_requirement_category
 msgid "Categories"
 msgstr "Categorías"
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#, fuzzy
+#| msgid "Categories"
+msgid "Category"
+msgstr "Categorías"
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#, fuzzy
+#| msgid "Change Request?"
+msgid "Change Request"
+msgstr "¿Solicitud de cambio?"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_change_request
@@ -181,6 +125,13 @@ msgstr "Compañía"
 #. module: business_requirement
 #: model:ir.ui.menu,name:business_requirement.menu_business_configuration
 msgid "Configuration"
+msgstr "Configuración"
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#, fuzzy
+#| msgid "Configuration"
+msgid "Confirmation"
 msgstr "Configuración"
 
 #. module: business_requirement
@@ -206,6 +157,13 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+#, fuzzy
+#| msgid "Created on"
+msgid "Creation"
+msgstr "Creado en"
+
+#. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Creation Date"
 msgstr "Fecha de creación"
@@ -216,15 +174,12 @@ msgid "Customer Story"
 msgstr "Historia del cliente"
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:73
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_date
-#, python-format
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Date"
 msgstr "Fecha"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_description
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_br
 msgid "Description"
 msgstr "Descripción"
 
@@ -235,18 +190,13 @@ msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "Download"
-msgstr "Descargas"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_gap
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Gap"
 msgstr "Gap"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Gap:"
 msgstr "Gap:"
 
@@ -265,11 +215,6 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_id
 msgid "ID"
 msgstr "ID"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_portal_published
-msgid "In Portal"
-msgstr "En el portal"
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -300,6 +245,11 @@ msgid "Last Updated on"
 msgstr "Última Actualización el"
 
 #. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_level
+msgid "Level"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Logs"
 msgstr "Registros"
@@ -317,8 +267,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "No"
 msgstr "No"
 
@@ -331,12 +280,15 @@ msgstr "Normal"
 #: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
 msgid ""
 "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
-"La gestión de requisitos de negocio de Odoo le permite manejar la lista de requisitos\n"
+"La gestión de requisitos de negocio de Odoo le permite manejar la lista de "
+"requisitos\n"
 "               de un interesado para el correcto seguimiento. Asi mismo\n"
-"                el seguimiento del progreso, debatir en tareas, adjuntar documentos, etc."
+"                el seguimiento del progreso, debatir en tareas, adjuntar "
+"documentos, etc."
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -347,16 +299,6 @@ msgstr "En espera"
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Other"
 msgstr "Otro"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_user_id
-msgid "Owner"
-msgstr "Propietario"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_parent_id
-msgid "Parent Category"
-msgstr "Categoría padre"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_priority
@@ -370,6 +312,17 @@ msgid "Products"
 msgstr "Productos"
 
 #. module: business_requirement
+#: model:ir.model,name:business_requirement.model_project_project
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Project"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.open_view_subproject_all
+msgid "Projects"
+msgstr ""
+
+#. module: business_requirement
 #: selection:business.requirement,kanban_state:0
 msgid "Ready for next stage"
 msgstr "Listo para la siguiente etapa"
@@ -381,6 +334,7 @@ msgstr "Solicitado por"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_responsible_user_id
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Responsible"
 msgstr "Responsable"
@@ -397,25 +351,25 @@ msgid "Scenario"
 msgstr "Situación"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Scenario:"
 msgstr "Escenario:"
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:74
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_sequence
-#, python-format
 msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_origin
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Source"
 msgstr "Origen"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_partner_id
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Stakeholder"
 msgstr "Interesado"
@@ -426,7 +380,7 @@ msgid "Stakeholder Story"
 msgstr "Historia del interesado"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Stakeholder Story:"
 msgstr "Historia del interesado:"
 
@@ -437,18 +391,23 @@ msgid "State"
 msgstr "Estado"
 
 #. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Sub Bus. Req."
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_terms_and_conditions
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Terms and Conditions"
 msgstr "Términos y Condiciones"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Terms and Conditions:"
 msgstr "Historia del interesado:"
 
 #. module: business_requirement
-#: code:addons/business_requirement/tests/test_br.py:63
+#: code:addons/business_requirement/tests/test_br.py:90
 #, python-format
 msgid "Test Body"
 msgstr "Test Body"
@@ -460,25 +419,15 @@ msgid "Test Case"
 msgstr "Caso de prueba"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Test Case:"
 msgstr "Test Case:"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_my_br
-msgid "There are currently no business requirements for your account."
-msgstr "Actualmente no existen requisitos de negocio hay para su cuenta."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:19
 #, python-format
 msgid "There is no default company for the current user!"
 msgstr "¡No existe compañía por defecto para el usuario actual!"
-
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_error
-msgid "There was an error processing this page."
-msgstr "There was an error processing this page."
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_to_be_reviewed
@@ -492,30 +441,105 @@ msgid "Unread Messages"
 msgstr "Mensajes sin leer"
 
 #. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_page
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
+msgid "User"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.ui.view,arch_db:business_requirement.layout_br_base
 msgid "Yes"
 msgstr "Si"
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:235
+#: code:addons/business_requirement/models/business.py:296
+#: code:addons/business_requirement/models/business.py:306
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
-msgstr "Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/desestimado."
+msgstr ""
+"Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
+"desestimado."
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:241
+#: code:addons/business_requirement/models/business.py:313
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
-msgstr "Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/desestimado."
+msgstr ""
+"Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
+"desestimado."
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
 msgid "]&amp;nbsp;"
 msgstr "]&amp;nbsp;"
 
-#. module: business_requirement
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_error
-#: model:ir.ui.view,arch_db:business_requirement.portal_br_success
-msgid "close"
-msgstr "cerrar"
+#~ msgid "<strong>Approval Date:</strong>"
+#~ msgstr "<strong>Fecha de aprobación:</strong>"
+
+#~ msgid "<strong>Approval Date</strong>"
+#~ msgstr "<strong>Fecha de aprobación</strong>"
+
+#~ msgid "<strong>Category:</strong>"
+#~ msgstr "<strong>Fecha de aprobación:</strong>"
+
+#~ msgid "<strong>Category</strong>"
+#~ msgstr "<strong>Categoría</strong>"
+
+#~ msgid "<strong>Change Request:</strong>"
+#~ msgstr "<strong>Solicitud de cambio:</strong>"
+
+#~ msgid "<strong>Change Request</strong>"
+#~ msgstr "<strong>Solicitud de cambio</strong>"
+
+#~ msgid "<strong>Confirmation Date:</strong>"
+#~ msgstr "<strong>Fecha de confirmación:</strong>"
+
+#~ msgid "<strong>Confirmation Date</strong>"
+#~ msgstr "<strong>Fecha de confirmación</strong>"
+
+#~ msgid "<strong>Date:</strong>"
+#~ msgstr "<strong>Fecha:</strong>"
+
+#~ msgid "<strong>Date</strong>"
+#~ msgstr "<strong>Fecha</strong>"
+
+#~ msgid "<strong>Responsible:</strong>"
+#~ msgstr "<strong>Responsable:</strong>"
+
+#~ msgid "<strong>Responsible</strong>"
+#~ msgstr "<strong>Responsable</strong>"
+
+#~ msgid "<strong>Source:</strong>"
+#~ msgstr "<strong>Origen:</strong>"
+
+#~ msgid "<strong>Source</strong>"
+#~ msgstr "<strong>Origen</strong>"
+
+#~ msgid "<strong>Stakeholder Address</strong>"
+#~ msgstr "<strong>Dirección del Interesado</strong>"
+
+#~ msgid "<strong>Stakeholder</strong>"
+#~ msgstr "<strong>Interesado</strong>"
+
+#~ msgid "Business Requirement #"
+#~ msgstr "Requisito de negocio #"
+
+#~ msgid "Download"
+#~ msgstr "Descargas"
+
+#~ msgid "In Portal"
+#~ msgstr "En el portal"
+
+#~ msgid "Owner"
+#~ msgstr "Propietario"
+
+#~ msgid "Parent Category"
+#~ msgstr "Categoría padre"
+
+#~ msgid "There are currently no business requirements for your account."
+#~ msgstr "Actualmente no existen requisitos de negocio hay para su cuenta."
+
+#~ msgid "There was an error processing this page."
+#~ msgstr "There was an error processing this page."
+
+#~ msgid "close"
+#~ msgstr "cerrar"

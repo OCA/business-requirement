@@ -290,11 +290,6 @@ msgid "Other"
 msgstr "Autre"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_parent_id
-msgid "Parent Category"
-msgstr "Catégorie mère"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_priority
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Priority"
@@ -450,18 +445,21 @@ msgstr "Oui"
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer le besoin que vers les étapes suivantes : brouillon /"
-" confirmé / annulé / abandonné."
+"Vous ne pouvez déplacer le besoin que vers les étapes suivantes : "
+"brouillon / confirmé / annulé / abandonné."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:313
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / confirmé "
-"/ annulé / abandonné."
+"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / "
+"confirmé / annulé / abandonné."
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
 msgid "]&amp;nbsp;"
 msgstr "]&amp;nbsp;"
+
+#~ msgid "Parent Category"
+#~ msgstr "Catégorie mère"

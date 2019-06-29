@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement
+# 	* business_requirement
 #
 msgid ""
 msgstr ""
@@ -265,8 +265,10 @@ msgstr "Normale"
 
 #. module: business_requirement
 #: model:ir.actions.act_window,help:business_requirement.act_view_project_br_all
-msgid "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
+msgid ""
+"Odoo's Business Requirement management allows you to manage the list\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 "La gestion des besoins métiers sur Odoo vous permet de gérer la liste\n"
@@ -282,11 +284,6 @@ msgstr "En suspens"
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Other"
 msgstr "Autre"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_parent_id
-msgid "Parent Category"
-msgstr "Catégorie mère"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_priority
@@ -444,18 +441,21 @@ msgstr "Oui"
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer le besoin que vers les étapes suivantes : brouillon /"
-" confirmé / annulé / abandonné."
+"Vous ne pouvez déplacer le besoin que vers les étapes suivantes : "
+"brouillon / confirmé / annulé / abandonné."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:313
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / confirmé "
-"/ annulé / abandonné."
+"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / "
+"confirmé / annulé / abandonné."
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
 msgid "]&amp;nbsp;"
 msgstr "]&amp;nbsp;"
+
+#~ msgid "Parent Category"
+#~ msgstr "Catégorie mère"

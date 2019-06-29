@@ -286,16 +286,6 @@ msgid "Other"
 msgstr "Drugo"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_parent_id
-msgid "Parent"
-msgstr "Nadrejena"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category_parent_id
-msgid "Parent Category"
-msgstr "Nadrejena kategorija"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_priority
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Priority"
@@ -462,3 +452,9 @@ msgstr ""
 #: model:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
 msgid "]&amp;nbsp;"
 msgstr ""
+
+#~ msgid "Parent"
+#~ msgstr "Nadrejena"
+
+#~ msgid "Parent Category"
+#~ msgstr "Nadrejena kategorija"
