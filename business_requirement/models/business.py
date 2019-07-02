@@ -199,11 +199,11 @@ class BusinessRequirement(models.Model):
         if vals.get('state'):
             br_xml_id = self.env.ref(
                 'business_requirement.group_business_requirement_manager')
-            user = self.env['res.users']
+            user = self.env.user
             grps = self.env.user.groups_id.ids
             date = fields.Datetime.now()
             if vals['state'] == 'confirmed':
-                vals.update({'confirmed_user_id': user,
+                vals.update({'confirmed_user_id': user.id,
                              'confirmation_date': date})
             if vals['state'] == 'draft':
                 vals.update({'confirmed_user_id': False,
@@ -213,7 +213,7 @@ class BusinessRequirement(models.Model):
                              })
             if vals['state'] == 'approved':
                 if br_xml_id.id in grps:
-                    vals.update({'approved_id': user,
+                    vals.update({'approved_id': user.id,
                                  'approval_date': date})
                 else:
                     raise ValidationError(_(
