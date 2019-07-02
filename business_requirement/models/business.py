@@ -65,6 +65,7 @@ class BusinessRequirement(models.Model):
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', False)]}
     )
+    internal_comment = fields.Html('Internal Comment')
     category_ids = fields.Many2many(
         'business.requirement.category',
         string='Categories',

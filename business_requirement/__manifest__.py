@@ -5,7 +5,7 @@
     "category": "Business Requirements Management",
     "summary": "Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers",
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.1.0",
     "website": "https://github.com/OCA/business-requirement",
     "author": "Elico Corp, "
               "Odoo Community Association (OCA)",
