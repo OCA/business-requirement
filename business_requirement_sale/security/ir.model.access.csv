@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sale_order_line_section_user,business.requirement.deliverable.section.user,model_sale_order_line_section,business_requirement.group_business_requirement_user,1,0,0,0
-access_sale_order_line_section_manager,business.requirement.deliverable.section.manager,model_sale_order_line_section,business_requirement.group_business_requirement_manager,1,1,1,1
