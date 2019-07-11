@@ -1,12 +1,14 @@
 # Copyright 2016-2019 Elico Corp (https://www.elico-corp.com).
 # Copyright 2019 Tecnativa - Alexandre Díaz
+# Copyright 2019 Tecnativa - Víctor M.M. Torres
+# Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Business Requirement Deliverable',
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirement Deliverables \
                 for your customers',
-    'version': '11.0.1.1.0',
+    'version': '11.0.1.2.0',
     'website': 'https://www.elico-corp.com/',
     "author": "Elico Corp, Odoo Community Association (OCA)",
     'depends': [
