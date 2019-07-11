@@ -119,7 +119,7 @@ class CustomerPortal(CustomerPortal):
             # Force sort on br first to group by br in view
             order = "business_requirement_id, %s" % order
         elif groupby == 'section':
-            order = "business_requirement_deliverable_section_id, %s" % order
+            order = "section_id, %s" % order
         brd_recs = BRDObj.search(domain, order=order,
                                  limit=self._items_per_page,
                                  offset=(page - 1) * self._items_per_page)
@@ -131,8 +131,7 @@ class CustomerPortal(CustomerPortal):
         elif groupby == 'section':
             grouped_brd = [
                 BRDObj.concat(*g) for k, g in groupbyelem(
-                    brd_recs, itemgetter(
-                        'business_requirement_deliverable_section_id'))]
+                    brd_recs, itemgetter('section_id'))]
         else:
             grouped_brd = [brd_recs]
 
