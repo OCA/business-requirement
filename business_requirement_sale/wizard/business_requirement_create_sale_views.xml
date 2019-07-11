@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_business_requirement_create_sale" model="ir.ui.view">
+        <field name="model">business.requirement.create.sale</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Create Quotation">
+                <field name="business_requirement_id" readonly="1" invisible="1"/>
+                <group>
+                    <field name="totaled_method" widget="selection"/>
+                </group>
+                <group string="Deliverables">
+                    <field name="deliverable_ids"
+                        nolabel="1"
+                        domain="[('business_requirement_id', '=', business_requirement_id)]"
+                        widget="many2many_checkboxes"
+                    >
+                    </field>
+                </group>
+            </form>
+            <footer>
+                <button name="button_create" string="Create" type="object"
+                        class="oe_highlight"/>
+                <button string="Cancel" class="oe_link" special="cancel"/>
+            </footer>
+
+        </field>
+    </record>
+
+    <record id="action_business_requirement_create_sale" model="ir.actions.act_window">
+        <field name="name">Create Quotation</field>
+        <field name="res_model">business.requirement.create.sale</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
