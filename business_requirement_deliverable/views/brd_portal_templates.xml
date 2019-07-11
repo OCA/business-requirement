@@ -55,8 +55,8 @@
                                     <th class="text-left" t-if="groupby == 'none'">Name</th>
                                     <th class="text-left" t-elif="groupby == 'section'">
                                         <em class="font-weight-normal text-muted">Deliverables for section:</em>
-                                        <t t-if="brd[0].sudo().business_requirement_deliverable_section_id">
-                                            <span t-field="brd[0].sudo().business_requirement_deliverable_section_id.name"/>
+                                        <t t-if="brd[0].sudo().section_id">
+                                            <span t-field="brd[0].sudo().section_id.name"/>
                                         </t>
                                         <t t-else="">
                                             <span><i>Others</i></span>
@@ -101,8 +101,8 @@
                                 <t t-call='portal.record_pager'/>
                                 Business Requirement Deliverable - <span t-field="brd.name"/> (#<span t-esc="brd.sequence"/>)
                                 <a class="btn btn-info" t-att-href="'/web#return_label=Website&amp;model=business.requirement.deliverable&amp;id=%s&amp;view_type=form' % (brd.id)" groups="business_requirement.group_business_requirement_manager">Edit Business Requirement Deliverable</a>
-                                <t t-if="brd.business_requirement_deliverable_section_id">
-                                    <span class="label label-default" t-field="brd.business_requirement_deliverable_section_id.name" />
+                                <t t-if="brd.section_id">
+                                    <span class="label label-default" t-field="brd.section_id.name" />
                                 </t>
                                 <t t-else="">
                                     <span class="label label-default">Others</span>
