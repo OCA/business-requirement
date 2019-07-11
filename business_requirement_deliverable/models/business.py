@@ -4,16 +4,14 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.addons import decimal_precision as dp
-
-import logging
-_logger = logging.getLogger(__name__)
+from odoo.tools.misc import formatLang
 
 
 class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
     _inherit = ["mail.thread", "mail.activity.mixin", "portal.mixin"]
     _description = "Business Requirement Deliverable"
-    _order = "sequence, id"
+    _order = "business_requirement_id, section_id, sequence, id"
 
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
@@ -88,9 +86,11 @@ class BusinessRequirementDeliverable(models.Model):
     state = fields.Selection(related='business_requirement_id.state',
                              string='State', store=True, readonly=True)
     portal_published = fields.Boolean('In Portal', default=True)
-    business_requirement_deliverable_section_id = fields.Many2one(
+    section_id = fields.Many2one(
         comodel_name='business.requirement.deliverable.section',
-        string='Section')
+        string='Section',
+        oldname='business_requirement_deliverable_section_id',
+    )
 
     def _compute_portal_url(self):
         super(BusinessRequirementDeliverable, self)._compute_portal_url()
@@ -172,6 +172,23 @@ class BusinessRequirementDeliverable(models.Model):
     def portal_publish_button(self):
         self.ensure_one()
         return self.write({'portal_published': not self.portal_published})
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = '#{0}: {1} ({2})'
+            args = [
+                rec.sequence,
+                rec.name,
+                formatLang(
+                    self.env, rec.price_total, currency_obj=rec.currency_id,
+                ),
+            ]
+            if rec.section_id:
+                name = '[{3}] #{0}: {1} ({2})'
+                args.append(rec.section_id.name)
+            result.append((rec.id, name.format(*args)))
+        return result
 
 
 class BusinessRequirement(models.Model):
@@ -306,17 +323,15 @@ class BusinessRequirement(models.Model):
 
     def get_total_by_section(self):
         sections_total = []
-        sections = self.deliverable_lines.mapped(
-            'business_requirement_deliverable_section_id')
+        sections = self.deliverable_lines.mapped('section_id')
         for section in sections:
             brd_lines = self.deliverable_lines.filtered(
-                lambda x: x.business_requirement_deliverable_section_id.id
-                == section.id)
+                lambda x: x.section_id == section
+            )
             brd_section_total = sum(brd_lines.mapped('price_total'))
             sections_total.append((section.name, brd_section_total))
         # No Section
-        brd_lines = self.deliverable_lines.filtered(
-            lambda x: not x.business_requirement_deliverable_section_id)
+        brd_lines = self.deliverable_lines.filtered(lambda x: not x.section_id)
         if any(brd_lines):
             brd_section_total = sum(brd_lines.mapped('price_total'))
             sections_total.append((_('Others'), brd_section_total))
