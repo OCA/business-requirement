@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo11-addon-business_requirement',
         'odoo11-addon-business_requirement_deliverable',
+        'odoo11-addon-business_requirement_sale',
     ],
     classifiers=[
         'Programming Language :: Python',
