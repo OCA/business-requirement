@@ -108,6 +108,14 @@
             <field name="default_code">OD01</field>
         </record>
 
+        <record id="business_requirement_deliverable_section_mandatory" model="business.requirement.deliverable.section">
+            <field name="name">Mandatory</field>
+        </record>
+
+        <record id="business_requirement_deliverable_section_optional" model="business.requirement.deliverable.section">
+            <field name="name">Optional</field>
+        </record>
+
         <record id="business_requirement_deliverable_1"
                 model="business.requirement.deliverable">
             <field name="business_requirement_id"
@@ -119,6 +127,8 @@
             <field name="name">Website Design</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
+            <field name="sequence" eval="1"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
         </record>
         <record id="business_requirement_deliverable_2"
                 model="business.requirement.deliverable">
@@ -132,7 +142,8 @@
             <field name="name">Odoo Quick Start Package</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
-
+            <field name="sequence" eval="1"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
         </record>
         <record id="business_requirement_deliverable_3"
                 model="business.requirement.deliverable">
@@ -146,6 +157,7 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="sale_price_unit">35.0</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="sequence" eval="1"/>
         </record>
         <record id="business_requirement_deliverable_4_1"
                 model="business.requirement.deliverable">
@@ -159,6 +171,8 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="sale_price_unit">50.0</field>
+            <field name="sequence" eval="1"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
         </record>
         <record id="business_requirement_deliverable_4_2"
                 model="business.requirement.deliverable">
@@ -172,6 +186,8 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="sale_price_unit">45.0</field>
+            <field name="sequence" eval="2"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_optional"/>
         </record>
         <record id="business_requirement_deliverable_5_1"
                 model="business.requirement.deliverable">
@@ -185,6 +201,8 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="sale_price_unit">50.0</field>
+            <field name="sequence" eval="1"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
         </record>
         <record id="business_requirement_deliverable_5_2"
                 model="business.requirement.deliverable">
@@ -198,6 +216,8 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="uom_id" ref="product.product_uom_hour"/>
             <field name="sale_price_unit">35.0</field>
+            <field name="sequence" eval="2"/>
+            <field name="section_id" ref="business_requirement_deliverable_section_optional"/>
         </record>
 
     </data>
