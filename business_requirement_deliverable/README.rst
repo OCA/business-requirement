@@ -121,6 +121,7 @@ Authors
 ~~~~~~~
 
 * Elico Corp
+* Tecnativa
 
 Contributors
 ~~~~~~~~~~~~
