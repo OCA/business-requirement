@@ -2,7 +2,7 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, models, fields, _
+from odoo import _, api, exceptions, fields, models
 
 
 class BusinessRequirementCreateSale(models.TransientModel):
@@ -23,6 +23,22 @@ class BusinessRequirementCreateSale(models.TransientModel):
         required=True,
         domain="[('business_requirement_id', '=', business_requirement_id)]",
     )
+    applicable_section_ids = fields.Many2many(
+        comodel_name='business.requirement.deliverable.section',
+        relation='br_create_sale_applicable_section_rel',
+        column1='wizard_id',
+        column2='section_id',
+        string='Existing Sections',
+    )
+    section_ids = fields.Many2many(
+        comodel_name='business.requirement.deliverable.section',
+        relation='br_create_sale_brd_section_rel',
+        column1='wizard_id',
+        column2='section_id',
+        string='Deliverables Sections',
+    )
+    has_undefined_section = fields.Boolean()
+    undefined_section = fields.Boolean()
     deliverable_ids = fields.Many2many(
         comodel_name='business.requirement.deliverable',
         relation='br_create_sale_brd_rel',
@@ -36,16 +52,45 @@ class BusinessRequirementCreateSale(models.TransientModel):
         res = super().default_get(fields)
         context = self.env.context
         if ('business_requirement_id' in fields and
-                not res.get('business_requirement_id') and
                 context.get('active_model') == 'business.requirement' and
                 context.get('active_id')):
             res['business_requirement_id'] = context['active_id']
             br = self.env['business.requirement'].browse(context['active_id'])
-            if ('deliverable_ids' in fields and
-                    not res.get('deliverable_ids') and
-                    res.get('business_requirement_id')):
-                res['deliverable_ids'] = [(6, 0, br.deliverable_lines.ids)]
+            if 'deliverable_ids' in fields:
+                if not br.deliverable_lines:
+                    raise exceptions.UserError(_(
+                        'No deliverables found for this business requirement.'
+                    ))
+            if 'has_undefined_section' in fields:
+                res['has_undefined_section'] = any(
+                    not x.section_id for x in br.deliverable_lines
+                )
+            if 'section_ids' in fields:
+                sections = br.mapped('deliverable_lines.section_id')
+                res['applicable_section_ids'] = [(6, 0, sections.ids)]
         return res
+
+    @api.onchange('section_ids')
+    def _onchange_section_ids(self):
+        self.ensure_one()
+        br = self.business_requirement_id
+        new_deliverable_ids = []
+        for section in self.applicable_section_ids:
+            deliverables = br.deliverable_lines.filtered(
+                lambda x: x.section_id == section
+            )
+            if section in self.section_ids:
+                new_deliverable_ids += deliverables.ids
+        self.deliverable_ids = [(6, 0, new_deliverable_ids)]
+
+    @api.onchange('undefined_section')
+    def _onchange_undefined_section(self):
+        self.ensure_one()
+        deliverables = self.business_requirement_id.deliverable_lines.filtered(
+            lambda x: not x.section_id
+        )
+        command = 4 if self.undefined_section else 3
+        self.deliverable_ids = [(command, x) for x in deliverables.ids]
 
     def _prepare_sale_layout_category_vals(self, deliverable, line_vals):
         return {
@@ -108,6 +153,12 @@ class BusinessRequirementCreateSale(models.TransientModel):
         return order
 
     def button_create(self):
+        self.ensure_one()
+        if not self.deliverable_ids:
+            raise exceptions.UserError(_(
+                'At least one deliverable must be selected to create the '
+                'quotation'
+            ))
         order = self._create_sale_order()
         action = self.env.ref('sale.action_quotations').read()[0]
         action.update({
