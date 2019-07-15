@@ -1,6 +1,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo.tests import common
+from odoo import exceptions
 
 
 class TestBusinessRequirementSale(common.SavepointCase):
@@ -48,7 +49,24 @@ class TestBusinessRequirementSale(common.SavepointCase):
             active_id=cls.business_requirement.id,
         ).create({})
 
+    def test_no_deliverables_selected(self):
+        with self.assertRaises(exceptions.UserError):
+            self.wizard.button_create()
+
     def test_full_flow(self):
+        self.assertEqual(
+            self.wizard.business_requirement_id, self.business_requirement,
+        )
+        self.assertTrue(self.wizard.has_undefined_section)
+        self.assertEqual(len(self.wizard.applicable_section_ids), 1)
+        self.assertFalse(self.wizard.deliverable_ids)
+        self.wizard.section_ids = self.wizard.applicable_section_ids
+        self.wizard._onchange_section_ids()
+        self.assertEqual(len(self.wizard.deliverable_ids), 1)
+        self.wizard.undefined_section = True
+        self.wizard._onchange_undefined_section()
+        self.assertEqual(len(self.wizard.deliverable_ids), 2)
+        self.assertTrue(self.wizard.has_undefined_section)
         action = self.wizard.button_create()
         # Sales order
         self.assertTrue(action['res_id'])
@@ -101,3 +119,14 @@ class TestBusinessRequirementSale(common.SavepointCase):
         self.assertEqual(len(order.order_line), 1)
         self.assertAlmostEqual(order.order_line.product_uom_qty, 3)
         self.assertAlmostEqual(order.order_line.price_unit, 80)
+
+    def test_no_deliverables_in_br(self):
+        br = self.br_model.create({
+            'name': 'Test BR no deliverables',
+            'description': 'Test BR',
+            'partner_id': self.partner.id,
+        })
+        with self.assertRaises(exceptions.UserError):
+            self.env['business.requirement.create.sale'].with_context(
+                active_model=br._name, active_id=br.id,
+            ).create({})
