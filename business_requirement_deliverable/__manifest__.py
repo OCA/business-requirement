@@ -8,9 +8,11 @@
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirement Deliverables \
                 for your customers',
-    'version': '11.0.1.2.0',
-    'website': 'https://www.elico-corp.com/',
-    "author": "Elico Corp, Odoo Community Association (OCA)",
+    'version': '11.0.1.3.0',
+    'website': 'https://github.com/OCA/business-requirement',
+    "author": "Elico Corp, "
+              "Tecnativa, "
+              "Odoo Community Association (OCA)",
     'depends': [
         'account',
         'business_requirement',
