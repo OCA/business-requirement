@@ -1,0 +1,160 @@
+<odoo>
+    <template id="portal_my_home_menu_br" name="Portal layout : business requirement menu entries" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'business_requirement'">
+                <a t-if="business_requirement" t-attf-href="/my/business_requirements?{{ keep_query() }}">Business Requirements</a>
+                <t t-else="">Business Requirements</t>
+            </li>
+            <li t-if="business_requirement">
+                <t t-esc="business_requirement.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_br" name="Portal My Home : business requirement entries" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <li t-if="business_requirement_count" class="list-group-item">
+                <span class="badge" t-esc="business_requirement_count"/>
+                <a href="/my/business_requirements">Business Requirements</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_br" name="My Business Requirements">
+        <t t-call="portal.portal_layout">
+            <h3>Business Requirements
+                <t t-call="portal.portal_searchbar"/>
+            </h3>
+            <t t-if="not business_requirements">
+                <p>There are currently no business requirements for your account.</p>
+            </t>
+            <div t-if="business_requirements" class="panel panel-default">
+                <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+                    <thead>
+                        <tr class="active">
+                            <th>Business Requirement #</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <t t-foreach="business_requirements" t-as="br">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/my/business_requirement/#{br.id}?#{keep_query()}"><t t-esc="br.name"/></a>
+                            </td>
+                            <td><span t-field="br.description"/></td>
+                        </tr>
+                    </t>
+                    </tbody>
+                </table></div>
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="portal.pager"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_br_page" name="Business Requirement">
+        <t t-call="portal.portal_layout">
+            <t t-set="br" t-value="business_requirement"/>
+            <div id="optional_placeholder"></div>
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-md-6 col-xs-9 col-sm-9">
+                            <h4>
+                                <t t-call='portal.record_pager'/>
+                                Business Requirement
+                                <span t-esc="br.name"/>
+                            </h4>
+                        </div>
+                        <div class="col-md-6 col-sm-3 col-xs-3 hidden-print" id="o_portal_br_actions">
+                            <a target="_blank" t-att-href="'/my/business_requirement/pdf/%s?%s' % (br.id, keep_query())" class="ml8 pull-right mt4 mr8" title="Download">
+                                <i class="fa fa-download fa-2x" aria-hidden="true"/>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                        <t t-if="error or warning" t-call="business_requirement.portal_br_error"/>
+                        <t t-if="success and (not error and not warning)" t-call="business_requirement.portal_br_success"/>
+                        <div class="mb8">
+                            <h2 t-field="br.description" />
+                        </div>
+                        <div class="mb8">
+                            <strong>Date:</strong> <span t-field="br.date" t-options='{"widget": "date"}'/> <t t-if="br.user_id">(<span t-field="br.user_id.name"/>)</t>
+                        </div>
+                        <div class="mb8" t-if="br.confirmation_date">
+                            <strong>Confirmation Date:</strong> <span t-field="br.confirmation_date" t-options='{"widget": "date"}'/> <t t-if="br.confirmed_user_id">(<span t-field="br.confirmed_user_id.name"/>)</t>
+                        </div>
+                        <div class="mb8" t-if="br.approval_date">
+                            <strong>Approval Date:</strong> <span t-field="br.approval_date" t-options='{"widget": "date"}'/> <t t-if="br.approved_id">(<span t-field="br.approved_id.name"/>)</t>
+                        </div>
+                        <div class='row'>
+                            <div class="col-md-6">
+                                <div class="mb8" t-if="br.origin">
+                                    <strong>Source:</strong> <span t-field="br.origin"/>
+                                </div>
+                                <div class="mb8" t-if="any(br.category_ids)">
+                                    <strong>Category:</strong> <span t-esc="', '.join([cate.name for cate in br.category_ids])"/>
+                                </div>
+                                <div class="mb8" t-if="br.responsible_user_id">
+                                    <strong>Responsible:</strong> <span t-field="br.responsible_user_id.name"/>
+                                </div>
+                                <div class="mb8">
+                                    <strong>Change Request:</strong>
+                                    <span t-if="br.change_request">Yes</span>
+                                    <span t-if="not br.change_request">No</span>
+                                </div>
+                                <div>
+                                    <strong>Stakeholder Address</strong>
+                                </div>
+                                <div>
+                                    <address t-field="br.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <t t-set="lang" t-value="br.partner_id.lang"/>
+                        <t t-set="o" t-value="br.with_context(lang=lang)" />
+                        <t t-call="business_requirement.layout_br_report_body" />
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-12">
+                        <h4><strong>Message and communication history</strong></h4>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1 mt16">
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="br"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="oe_structure mb32"/>
+        </t>
+    </template>
+
+    <template id="portal_br_error" name="Business requirement error/warning display">
+        <div class="row mr16">
+            <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                <t t-if="error == 'generic'" name="generic">
+                    There was an error processing this page.
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="portal_br_success" name="Business requirement success display">
+        <div class="row mr16">
+            <div class="col-md-12 mr16 ml16 alert alert-dismissable alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            </div>
+        </div>
+    </template>
+
+</odoo>
