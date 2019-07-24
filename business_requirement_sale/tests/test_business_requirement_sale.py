@@ -4,7 +4,7 @@ from odoo.tests import common
 from odoo import exceptions
 
 
-class TestBusinessRequirementSale(common.SavepointCase):
+class TestBusinessRequirementSaleBase(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -49,6 +49,8 @@ class TestBusinessRequirementSale(common.SavepointCase):
             active_id=cls.business_requirement.id,
         ).create({})
 
+
+class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
     def test_no_deliverables_selected(self):
         with self.assertRaises(exceptions.UserError):
             self.wizard.button_create()
