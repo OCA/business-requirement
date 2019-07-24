@@ -15,7 +15,7 @@ class ProjectTask(models.Model):
     )
 
     @api.multi
-    def action_view_deliverable_id(self):
+    def action_view_deliverable(self):
         action = self.env.ref(
             'business_requirement_deliverable.action_deliverable_lines'
         ).read()[0]
