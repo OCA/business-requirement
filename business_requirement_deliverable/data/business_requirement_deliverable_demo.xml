@@ -23,8 +23,8 @@
         <record id="product_template_1" model="product.template" context="{'create_product_product': True}">
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
             <field name="type">service</field>
             <field name="standard_price">25.0</field>
             <field name="list_price">35.0</field>
@@ -38,8 +38,8 @@
         <record id="product_template_2" model="product.template" context="{'create_product_product': True}">
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
             <field name="type">service</field>
             <field name="standard_price">35.0</field>
             <field name="list_price">60.0</field>
@@ -53,8 +53,8 @@
         <record id="product_template_3" model="product.template" context="{'create_product_product': True}">
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
-            <field name="uom_po_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
             <field name="type">service</field>
             <field name="standard_price">30.0</field>
             <field name="list_price">50.0</field>
@@ -68,8 +68,8 @@
         <record id="product_template_4" model="product.template" context="{'create_product_product': True}">
             <field name="name">Website Template</field>
             <field name="default_code">WEB01</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
-            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="type">service</field>
             <field name="standard_price">100.0</field>
             <field name="list_price">150.0</field>
@@ -83,8 +83,8 @@
         <record id="product_template_5" model="product.template" context="{'create_product_product': True}">
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
-            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="type">service</field>
             <field name="standard_price">3500.0</field>
             <field name="list_price">5200.0</field>
@@ -122,7 +122,7 @@
                    ref="business_requirement.business_requirement_1"/>
             <field name="qty">1.0</field>
             <field name="sale_price_unit">5200.0</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="product_id" ref="product_product_5"/>
             <field name="name">Website Design</field>
             <field name="user_case">Need a Website</field>
@@ -136,7 +136,7 @@
                    ref="business_requirement.business_requirement_2_2"/>
             <field name="qty">1.0</field>
             <field name="sale_price_unit">4000.0</field>
-            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="product_id"
                    ref="product_product_6"/>
             <field name="name">Odoo Quick Start Package</field>
@@ -156,7 +156,7 @@
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
             <field name="sale_price_unit">35.0</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
             <field name="sequence" eval="1"/>
         </record>
         <record id="business_requirement_deliverable_4_1"
@@ -169,7 +169,7 @@
             <field name="name">Functional Analysis</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
             <field name="sale_price_unit">50.0</field>
             <field name="sequence" eval="1"/>
             <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
@@ -184,7 +184,7 @@
             <field name="name">Technical Architecture</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
             <field name="sale_price_unit">45.0</field>
             <field name="sequence" eval="2"/>
             <field name="section_id" ref="business_requirement_deliverable_section_optional"/>
@@ -199,7 +199,7 @@
             <field name="name">Functional Gap Analysis</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
             <field name="sale_price_unit">50.0</field>
             <field name="sequence" eval="1"/>
             <field name="section_id" ref="business_requirement_deliverable_section_mandatory"/>
@@ -214,7 +214,7 @@
             <field name="name">Prototype</field>
             <field name="user_case">Need a Website</field>
             <field name="proposed_solution">Responsive desing</field>
-            <field name="uom_id" ref="product.product_uom_hour"/>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
             <field name="sale_price_unit">35.0</field>
             <field name="sequence" eval="2"/>
             <field name="section_id" ref="business_requirement_deliverable_section_optional"/>

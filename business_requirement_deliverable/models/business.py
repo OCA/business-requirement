@@ -25,7 +25,6 @@ class BusinessRequirementDeliverable(models.Model):
                    ('drop', 'Drop'),
                    ],
         store=True,
-        readonly=True,
     )
     name = fields.Text('Name', required=True)
     user_case = fields.Html()
@@ -37,10 +36,10 @@ class BusinessRequirementDeliverable(models.Model):
         required=False
     )
     uom_id = fields.Many2one(
-        comodel_name='product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         required=True,
-        default=lambda self: self.env.ref('product.product_uom_unit')
+        default=lambda self: self.env.ref('uom.product_uom_unit')
     )
     qty = fields.Float(
         string='Quantity',
@@ -81,10 +80,14 @@ class BusinessRequirementDeliverable(models.Model):
         comodel_name='res.partner',
         related='business_requirement_id.partner_id',
         string='Stakeholder',
-        store=True
+        readonly=False,
+        store=True,
     )
-    state = fields.Selection(related='business_requirement_id.state',
-                             string='State', store=True, readonly=True)
+    state = fields.Selection(
+        related='business_requirement_id.state',
+        string='State',
+        store=True,
+    )
     portal_published = fields.Boolean('In Portal', default=True)
     section_id = fields.Many2one(
         comodel_name='business.requirement.deliverable.section',
@@ -92,10 +95,10 @@ class BusinessRequirementDeliverable(models.Model):
         oldname='business_requirement_deliverable_section_id',
     )
 
-    def _compute_portal_url(self):
-        super(BusinessRequirementDeliverable, self)._compute_portal_url()
+    def _compute_access_url(self):
+        super(BusinessRequirementDeliverable, self)._compute_access_url()
         for brd in self:
-            brd.portal_url = '/my/brd/%s' % brd.id
+            brd.access_url = '/my/brd/%s' % brd.id
 
     @api.multi
     @api.depends('business_requirement_id.partner_id')
@@ -114,51 +117,17 @@ class BusinessRequirementDeliverable(models.Model):
         for brd in self:
             brd.price_total = brd.sale_price_unit * brd.qty
 
-    @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
         description = ''
-        uom_id = False
-        sale_price_unit = 0
-        product = self.product_id
-
-        if product:
-            description = product.name_get()[0][1]
-            uom_id = product.uom_id.id
-            sale_price_unit = product.list_price
-
-        if product.description_sale:
-            description += '\n' + product.description_sale
-
-        sale_price_unit = self.product_id.list_price
-
-        if self.business_requirement_id and \
-                self.business_requirement_id.pricelist_id:
-            product = self.product_id.with_context(
-                lang=self.business_requirement_id.partner_id.lang,
-                partner=self.business_requirement_id.partner_id.id,
-                quantity=self.qty,
-                pricelist=self.business_requirement_id.pricelist_id.id,
-                uom=self.uom_id.id,
-            )
-            sale_price_unit = product.price
-
+        if self.product_id:
+            description = self.product_id.name_get()[0][1]
+            self.uom_id = self.product_id.uom_id.id
+        if self.product_id.description_sale:
+            description += '\n' + self.product_id.description_sale
         if not self.name:
             self.name = description
-        if uom_id:
-            self.uom_id = uom_id
-        self.sale_price_unit = sale_price_unit
-
-    @api.onchange('uom_id', 'qty')
-    def product_uom_change(self):
-        product_uom = self.env['product.uom']
-
-        if self.qty != 0:
-            product_uom._compute_quantity(
-                self.uom_id.id, self.qty, self.product_id.uom_id.id) / self.qty
-
-        if self.business_requirement_id and \
-                self.business_requirement_id.pricelist_id:
+        if self.product_id and self.business_requirement_id.pricelist_id:
             product = self.product_id.with_context(
                 lang=self.business_requirement_id.partner_id.lang,
                 partner=self.business_requirement_id.partner_id.id,
@@ -167,6 +136,24 @@ class BusinessRequirementDeliverable(models.Model):
                 uom=self.uom_id.id,
             )
             self.sale_price_unit = product.price
+        elif self.product_id :
+            self.sale_price_unit = self.product_id.uom_id._compute_price(
+                self.product_id.lst_price, self.uom_id)
+
+    @api.onchange('product_id', 'uom_id', 'qty')
+    def product_uom_change(self):
+        if self.product_id and self.business_requirement_id.pricelist_id:
+            product = self.product_id.with_context(
+                lang=self.business_requirement_id.partner_id.lang,
+                partner=self.business_requirement_id.partner_id.id,
+                quantity=self.qty,
+                pricelist=self.business_requirement_id.pricelist_id.id,
+                uom=self.uom_id.id,
+            )
+            self.sale_price_unit = product.price
+        elif self.product_id:
+            self.sale_price_unit = self.product_id.uom_id._compute_price(
+                self.product_id.lst_price, self.uom_id)
 
     @api.multi
     def portal_publish_button(self):
@@ -311,8 +298,11 @@ class BusinessRequirement(models.Model):
                 if br.partner_id.property_product_pricelist.currency_id:
                     br.total_revenue = \
                         br.partner_id.property_product_pricelist.currency_id\
-                        .compute(
-                            total_revenue_origin, br.company_id.currency_id)
+                        ._convert(
+                            total_revenue_origin,
+                            br.company_id.currency_id,
+                            br.company_id,
+                            br.confirmation_date or fields.Datetime.today())
                 else:
                     br.total_revenue = total_revenue_origin
 
@@ -373,8 +363,7 @@ class BusinessRequirement(models.Model):
         self,
         partner_ids=None,
         channel_ids=None,
-        subtype_ids=None,
-        force=True
+        subtype_ids=None
     ):
         """Subscribe to all existing active deliverables when subscribing
         to a requirement
@@ -382,8 +371,8 @@ class BusinessRequirement(models.Model):
         res = super(BusinessRequirement, self).message_subscribe(
             partner_ids=partner_ids,
             channel_ids=channel_ids,
-            subtype_ids=subtype_ids,
-            force=force)
+            subtype_ids=subtype_ids
+        )
         has_subtype = False
         for subtype in self.env['mail.message.subtype'].browse(subtype_ids):
             subtype_ids.append(subtype.id)
@@ -399,8 +388,7 @@ class BusinessRequirement(models.Model):
                 ).message_subscribe(
                     partner_ids=[partner_id],
                     channel_ids=None,
-                    subtype_ids=None,
-                    force=False)
+                    subtype_ids=None)
             for channel_id in channel_ids or []:
                 self.mapped('deliverable_lines').filtered(
                     lambda deliver: (
@@ -408,8 +396,7 @@ class BusinessRequirement(models.Model):
                 ).message_subscribe(
                     partner_ids=None,
                     channel_ids=[channel_id],
-                    subtype_ids=None,
-                    force=False)
+                    subtype_ids=None)
         return res
 
     @api.multi
