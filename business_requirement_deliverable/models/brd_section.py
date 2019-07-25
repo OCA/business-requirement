@@ -5,5 +5,6 @@ from odoo import fields, models
 
 class BusinessRequirementDeliverableSection(models.Model):
     _name = "business.requirement.deliverable.section"
+    _description = "Deliverable Section"
 
     name = fields.Char('Name', required=True)
