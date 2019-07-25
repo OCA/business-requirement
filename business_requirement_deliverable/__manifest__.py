@@ -8,7 +8,7 @@
     'category': 'Business Requirements Management',
     'summary': 'Manage the Business Requirement Deliverables \
                 for your customers',
-    'version': '11.0.1.3.0',
+    'version': '12.0.1.0.0',
     'website': 'https://github.com/OCA/business-requirement',
     "author": "Elico Corp, "
               "Tecnativa, "

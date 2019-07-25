@@ -166,7 +166,7 @@ class CustomerPortal(CustomerPortal):
 
         if not brd.portal_published:
             raise AccessError(
-                "Can't access to this business requirement deliverable")
+                _("Can't access to this business requirement deliverable"))
 
         vals = {
             'brd': brd,

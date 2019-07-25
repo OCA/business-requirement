@@ -1,6 +1,9 @@
 <odoo>
 
-    <template id="portal_my_home_menu_brd" name="Portal layout : business requirement deliverable menu entries" inherit_id="portal.portal_layout" priority="20">
+    <template id="portal_my_home_menu_brd"
+              name="Portal layout : business requirement deliverable menu entries"
+              inherit_id="portal.portal_breadcrumbs"
+              priority="20">
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
             <li t-if="page_name == 'business_requirement_deliverable'">
                 <a t-if="brd" t-attf-href="/my/brd?{{ keep_query() }}">Business Requirement Deliverable</a>
