@@ -11,7 +11,7 @@ and Resources lines valuation to customers.
 What is a Deliverable Line?
 ---------------------------
 
-Deliverable Lines (DL) contains products and services that will be delivered to the 
+Deliverable Lines (DL) contains products and services that will be delivered to the
 customer. They are **customer oriented** and can be either physical or service products:
 
 * Servers and procured goods
