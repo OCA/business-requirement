@@ -3,7 +3,7 @@
 {
     "name": "Business Requirement Sale Timesheet",
     'category': 'Business Requirements Management',
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.1.0",
     "website": "https://github.com/OCA/business-requirement",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
