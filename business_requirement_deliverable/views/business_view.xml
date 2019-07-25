@@ -25,13 +25,13 @@
                 <field name="product_id" string="Product" />
                 <field name="state" string="State" />
                 <group expand="0" string="Group By">
-                    <filter string="Business Requirement" icon="terp-go-home"
+                    <filter name="filter_requirement" string="Business Requirement" icon="terp-go-home"
                         context="{'group_by':'business_requirement_id'}" />
-                    <filter string="Customer " icon="terp-go-home"
+                    <filter name="filter_partner" string="Customer " icon="terp-go-home"
                         context="{'group_by':'business_requirement_partner_id'}" />
-                    <filter string="Product" icon="terp-go-home" context="{'group_by':'product_id'}" />
-                    <filter string="Section" icon="terp-go-home" context="{'group_by':'section_id'}" />
-                    <filter string="State" icon="terp-go-home" context="{'group_by':'state'}" />
+                    <filter name="filter_product" string="Product" icon="terp-go-home" context="{'group_by':'product_id'}" />
+                    <filter name="filter_section" string="Section" icon="terp-go-home" context="{'group_by':'section_id'}" />
+                    <filter name="filter_state" string="State" icon="terp-go-home" context="{'group_by':'state'}" />
                 </group>
             </search>
         </field>

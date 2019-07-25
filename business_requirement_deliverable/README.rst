@@ -14,13 +14,13 @@ Business Requirement Deliverable
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fbusiness--requirement-lightgray.png?logo=github
-    :target: https://github.com/OCA/business-requirement/tree/11.0/business_requirement_deliverable
+    :target: https://github.com/OCA/business-requirement/tree/12.0/business_requirement_deliverable
     :alt: OCA/business-requirement
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/business-requirement-11-0/business-requirement-11-0-business_requirement_deliverable
+    :target: https://translation.odoo-community.org/projects/business-requirement-12-0/business-requirement-12-0-business_requirement_deliverable
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/222/11.0
+    :target: https://runbot.odoo-community.org/runbot/222/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -38,7 +38,7 @@ and Resources lines valuation to customers.
 What is a Deliverable Line?
 ---------------------------
 
-Deliverable Lines (DL) contains products and services that will be delivered to the 
+Deliverable Lines (DL) contains products and services that will be delivered to the
 customer. They are **customer oriented** and can be either physical or service products:
 
 * Servers and procured goods
@@ -48,7 +48,7 @@ customer. They are **customer oriented** and can be either physical or service p
 
 These are the products that will appear in the SO and that the customer/stakeholder will receive.
 
-.. figure:: https://raw.githubusercontent.com/OCA/business-requirement/11.0/business_requirement_deliverable/static/img/bus_req_deliverable.png
+.. figure:: https://raw.githubusercontent.com/OCA/business-requirement/12.0/business_requirement_deliverable/static/img/bus_req_deliverable.png
    :width: 600 px
    :alt: Business Requirement Deliverable lines
 
@@ -100,7 +100,7 @@ To use this module, you need to:
 
 #. in RL you can already assign the responsible of the task if necessary
 
-.. figure:: https://raw.githubusercontent.com/OCA/business-requirement/11.0/business_requirement_deliverable/static/img/bus_req_deliverable2.png
+.. figure:: https://raw.githubusercontent.com/OCA/business-requirement/12.0/business_requirement_deliverable/static/img/bus_req_deliverable2.png
    :width: 600 px
    :alt: Inputing the deliverables and resources lines
 
@@ -110,7 +110,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/business-requirement/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/business-requirement/issues/new?body=module:%20business_requirement_deliverable%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/business-requirement/issues/new?body=module:%20business_requirement_deliverable%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -152,6 +152,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/business-requirement <https://github.com/OCA/business-requirement/tree/11.0/business_requirement_deliverable>`_ project on GitHub.
+This module is part of the `OCA/business-requirement <https://github.com/OCA/business-requirement/tree/12.0/business_requirement_deliverable>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
