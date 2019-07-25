@@ -1,4 +1,5 @@
 # Copyright 2019 Tecnativa - Victor M.M. Torres
+# Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests import common
@@ -12,7 +13,7 @@ class TestBusinessRequirementCrm(common.SavepointCase):
         cls.lead_model = cls.env['crm.lead']
         cls.lead = cls.lead_model.create({
             'name': 'Test lead',
-            'description': 'Investigate and estimate'
+            'description': 'Investigate and estimate',
         })
         cls.wizard = cls.env['crm.lead.create.requirement'].with_context(
             active_model=cls.lead_model._name,
@@ -27,6 +28,10 @@ class TestBusinessRequirementCrm(common.SavepointCase):
         self.assertTrue(self.lead.business_requirement_ids)
         # count on lead of br linked
         self.assertEqual(self.lead.business_requirement_count, 1)
-        # br of a lead are linked
-        for br in self.lead.mapped("business_requirement_ids"):
-            self.assertEqual(br.lead_id, self.lead)
+        # br data
+        br = self.lead.business_requirement_ids
+        self.assertEqual(br.description, 'Test lead')
+        self.assertEqual(
+            br.business_requirement, '<p>Investigate and estimate</p>',
+        )
+        self.assertEqual(br.user_id, self.env.user)

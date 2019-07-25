@@ -1,4 +1,5 @@
 # Copyright 2019 Tecnativa - Victor M.M. Torres
+# Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models, _
@@ -32,15 +33,8 @@ class CrmLeadCreateRequirement(models.TransientModel):
             })
         return result
 
-    @api.multi
-    def action_lead_to_business_requirement(self):
-        """Procedure to allow create Business Requirement
-        for Leads with prefeched information such as
-        user, customer history, partner
-        """
-        self.ensure_one()
-        # Create new business.requirement
-        vals = {
+    def _prepare_business_requirement_vals(self):
+        return {
             "business_requirement": (
                 self.customer_history or self.lead_id.description
             ) or self.lead_id.name,
@@ -50,11 +44,20 @@ class CrmLeadCreateRequirement(models.TransientModel):
             "user_id": self.lead_id.user_id.id or self.lead_id.create_uid.id,
             "lead_id": self.lead_id.id,
         }
-        requirement = self.env['business.requirement'].create(vals)
 
+    @api.multi
+    def action_lead_to_business_requirement(self):
+        """Procedure to allow create Business Requirement
+        for Leads with prefeched information such as
+        user, customer history, partner
+        """
+        self.ensure_one()
+        requirement = self.env['business.requirement'].create(
+            self._prepare_business_requirement_vals()
+        )
         # Chatter reflects new Requierement on both ways
         msg_body = _(
-            "Requirement %s created "
+            "Requirement %s created"
         ) % (
             "<a href=# data-oe-model=business.requirement data-oe-id=%d>%s</a>"
             % (requirement.id, requirement.name)
@@ -67,7 +70,6 @@ class CrmLeadCreateRequirement(models.TransientModel):
             "<a href=# data-oe-model=crm.lead data-oe-id=%d>%s</a>"
         ) % (lead.id, lead.name)
         requirement.message_post(body=requirement_msg)
-
         return self.env[
             'business.requirement'
         ].browse(requirement.id).get_formview_action()
