@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo11-addon-business_requirement',
+        'odoo11-addon-business_requirement_crm',
         'odoo11-addon-business_requirement_deliverable',
         'odoo11-addon-business_requirement_sale',
         'odoo11-addon-business_requirement_sale_timesheet',
