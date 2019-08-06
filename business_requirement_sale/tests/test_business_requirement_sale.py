@@ -26,14 +26,14 @@ class TestBusinessRequirementSaleBase(common.SavepointCase):
         cls.product2 = cls.product_model.create({
             'name': 'Test product BR 2',
         })
-        cls.section = cls.brds_model.create({
-            'name': 'Test BRD section',
+        cls.brd_section1 = cls.brds_model.create({
+            'name': 'Test BRD section 1',
         })
         cls.deliverable1 = cls.brd_model.create({
             'name': 'Test deliverable 1',
             'business_requirement_id': cls.business_requirement.id,
             'product_id': cls.product1.id,
-            'section_id': cls.section.id,
+            'section_id': cls.brd_section1.id,
             'sale_price_unit': 80,
             'qty': 3,
         })
@@ -74,7 +74,7 @@ class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
         self.assertTrue(action['res_id'])
         order = self.env['sale.order'].browse(action['res_id'])
         self.assertEqual(order.partner_id, self.partner)
-        self.assertEqual(len(order.order_line), 2)
+        self.assertEqual(len(order.order_line), 3)
         self.assertEqual(self.business_requirement.sale_order_count, 1)
         self.assertEqual(
             order.business_requirement_id, self.business_requirement,
@@ -96,18 +96,18 @@ class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
             line1.business_requirement_deliverable_id, self.deliverable1,
         )
         # Section
-        self.assertTrue(self.section.sale_layout_category_id)
-        self.assertTrue(
-            self.section.sale_layout_category_id.name, self.section.name,
-        )
-        self.assertTrue(line1.layout_category_id)
+        self.assertTrue(order.order_line.filtered('br_deliverable_section_id'))
+        self.assertEqual(
+            len(order.order_line.filtered('br_deliverable_section_id')), 1)
+        self.assertEqual(
+            order.order_line.filtered('br_deliverable_section_id').name,
+            self.brd_section1.name)
         # Line 2
         line2 = order.order_line.filtered(
             lambda x: x.product_id == self.product2)
         self.assertTrue(line2)
         self.assertAlmostEqual(line2.product_uom_qty, 1)
         self.assertAlmostEqual(line2.price_unit, 100)
-        self.assertFalse(line2.layout_category_id)
         self.assertEqual(
             line2.business_requirement_deliverable_id, self.deliverable2,
         )
@@ -115,12 +115,16 @@ class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
     def test_flow_one_line_non_totaled(self):
         self.wizard.deliverable_ids = [(6, 0, self.deliverable1.ids)]
         self.wizard.totaled_method = 'standard'
+        self.wizard.section_ids = self.wizard.applicable_section_ids
+        self.wizard._onchange_section_ids()
         action = self.wizard.button_create()
         self.assertTrue(action['res_id'])
         order = self.env['sale.order'].browse(action['res_id'])
-        self.assertEqual(len(order.order_line), 1)
-        self.assertAlmostEqual(order.order_line.product_uom_qty, 3)
-        self.assertAlmostEqual(order.order_line.price_unit, 80)
+        self.assertEqual(len(order.order_line), 2)
+        self.assertAlmostEqual(
+            order.order_line.filtered('product_id').product_uom_qty, 3)
+        self.assertAlmostEqual(
+            order.order_line.filtered('product_id').price_unit, 80)
 
     def test_no_deliverables_in_br(self):
         br = self.br_model.create({

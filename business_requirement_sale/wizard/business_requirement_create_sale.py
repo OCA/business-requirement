@@ -92,16 +92,23 @@ class BusinessRequirementCreateSale(models.TransientModel):
         command = 4 if self.undefined_section else 3
         self.deliverable_ids = [(command, x) for x in deliverables.ids]
 
-    def _prepare_sale_layout_category_vals(self, deliverable, line_vals):
-        return {
-            'name': deliverable.section_id.name,
-        }
-
-    def _prepare_sale_order_line_vals(self, deliverable, order_vals):
+    def _prepare_sale_order_line_section_vals(
+            self, section, sequence):
         vals = {
+            'br_deliverable_section_id': section.id,
+            'display_type': 'line_section',
+            'name': section.name,
+            'sequence': sequence,
+        }
+        return vals
+
+    def _prepare_sale_order_line_vals(
+            self, deliverable, sequence):
+        vals = {
+            'business_requirement_deliverable_id': deliverable.id,
             'name': deliverable.name,
             'product_id': deliverable.product_id.id,
-            'business_requirement_deliverable_id': deliverable.id,
+            'sequence': sequence,
         }
         if self.totaled_method == 'standard':
             vals.update({
@@ -113,14 +120,6 @@ class BusinessRequirementCreateSale(models.TransientModel):
                 'price_unit': deliverable.price_total,
                 'product_uom_qty': 1,
             })
-        if deliverable.section_id:
-            if not deliverable.section_id.sale_layout_category_id:
-                layout_categ = self.env['sale.layout_category'].create(
-                    self._prepare_sale_layout_category_vals(deliverable, vals),
-                )
-                deliverable.section_id.sale_layout_category_id = layout_categ
-            vals['layout_category_id'] = (
-                deliverable.section_id.sale_layout_category_id.id)
         return vals
 
     def _prepare_sale_order_vals(self):
@@ -135,8 +134,19 @@ class BusinessRequirementCreateSale(models.TransientModel):
     def _create_sale_order(self):
         self.ensure_one()
         vals = self._prepare_sale_order_vals()
-        for deliverable in self.deliverable_ids:
-            line_vals = self._prepare_sale_order_line_vals(deliverable, vals)
+        previous_section = False
+        sequence = 0
+        for deliverable in self.deliverable_ids.sorted('section_id'):
+            if deliverable.section_id != previous_section:
+                if deliverable.section_id:
+                    sequence += 1
+                    line_vals = self._prepare_sale_order_line_section_vals(
+                        deliverable.section_id, sequence)
+                    vals['order_line'].append((0, 0, line_vals))
+                previous_section = deliverable.section_id
+            sequence += 1
+            line_vals = self._prepare_sale_order_line_vals(
+                deliverable, sequence)
             vals['order_line'].append((0, 0, line_vals))
         order = self.env['sale.order'].create(vals)
         msg_body = _("Quotation %s created ") % (
