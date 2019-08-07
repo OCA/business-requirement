@@ -26,9 +26,9 @@
             ['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]
         </field>
     </record>
-    
+
     <!-- Portal -->
-   <record id="br_rule_portal" model="ir.rule">
+    <record id="br_rule_portal" model="ir.rule">
        <field name="name">BR: portal users: portal and following</field>
        <field name="model_id" ref="business_requirement.model_business_requirement"/>
        <field name="domain_force">[
@@ -37,6 +37,15 @@
                ('message_partner_ids', 'child_of', [user.partner_id.commercial_partner_id.id]),
        ]</field>
        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-   </record>
+    </record>
+    <record id="base.group_user" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
+    </record>
+    <record id="base.group_public" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
+    </record>
+    <record id="base.group_portal" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
+    </record>
 
 </odoo>
