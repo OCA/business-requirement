@@ -13,7 +13,7 @@
 
     <template id="portal_my_home_br" name="Portal My Home : business requirement entries" inherit_id="portal.portal_my_home" priority="20">
         <xpath expr="//ul[hasclass('o_portal_docs')]" position="inside">
-            <li t-if="business_requirement_count" class="list-group-item">
+            <li t-if="business_requirement_count" class="list-group-item" groups="base.group_portal,business_requirement.group_business_requirement_user">
                 <span class="badge" t-esc="business_requirement_count"/>
                 <a href="/my/business_requirements">Business Requirements</a>
             </li>

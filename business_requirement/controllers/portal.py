@@ -12,11 +12,13 @@ class CustomerPortal(CustomerPortal):
 
     def _prepare_portal_layout_values(self):
         values = super(CustomerPortal, self)._prepare_portal_layout_values()
-        br_count = request.env['business.requirement'].search_count(
-            self._prepare_br_base_domain())
-        values.update({
-            'business_requirement_count': br_count,
-        })
+        br_obj = request.env['business.requirement']
+        if br_obj.check_access_rights("read", raise_exception=False):
+            br_count = br_obj.search_count(
+                self._prepare_br_base_domain())
+            values.update({
+                'business_requirement_count': br_count,
+            })
         return values
 
     def _prepare_br_base_domain(self):
@@ -67,7 +69,7 @@ class CustomerPortal(CustomerPortal):
     def portal_my_br(self, page=1, date_begin=None, date_end=None,
                      sortby=None, **kw):
         values = self._prepare_portal_layout_values()
-        BRObj = request.env['business.requirement']
+        br_obj = request.env['business.requirement']
 
         searchbar_sortings = {
             'date': {'label': _('Date'), 'order': 'date desc'},
@@ -87,7 +89,7 @@ class CustomerPortal(CustomerPortal):
                        ('date', '<=', date_end)]
 
         # count for pager
-        br_count = BRObj.search_count(domain)
+        br_count = br_obj.search_count(domain)
         # pager
         pager = portal_pager(
             url="/my/business_requirements",
@@ -99,9 +101,9 @@ class CustomerPortal(CustomerPortal):
             step=self._items_per_page
         )
         # content according to pager and archive selected
-        business_requirements = BRObj.search(domain, order=sort_br,
-                                             limit=self._items_per_page,
-                                             offset=pager['offset'])
+        business_requirements = br_obj.search(domain, order=sort_br,
+                                              limit=self._items_per_page,
+                                              offset=pager['offset'])
         request.session['my_br_history'] = business_requirements.ids[:100]
 
         values.update({
