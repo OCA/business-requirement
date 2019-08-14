@@ -26,10 +26,10 @@
             ['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]
         </field>
     </record>
-    
+
     <!-- Portal -->
    <record id="br_rule_portal" model="ir.rule">
-       <field name="name">BR: portal users: portal and following</field>
+       <field name="name">BR: portal users: published and following</field>
        <field name="model_id" ref="business_requirement.model_business_requirement"/>
        <field name="domain_force">[
            '&amp;',
