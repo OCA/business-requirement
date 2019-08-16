@@ -15,6 +15,16 @@ from odoo.osv.expression import OR
 
 class CustomerPortal(CustomerPortal):
 
+    def _prepare_portal_layout_values(self):
+        values = super()._prepare_portal_layout_values()
+        dl_count = request.env[
+            'business.requirement.deliverable'
+        ].search_count(self._prepare_br_base_domain())
+        values.update({
+            'dl_count': dl_count,
+        })
+        return values
+
     def _prepare_brd_base_domain(self, business_requirements):
         partner = request.env.user.partner_id
         return [
