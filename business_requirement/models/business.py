@@ -184,9 +184,13 @@ class BusinessRequirement(models.Model):
         }
     )
     portal_published = fields.Boolean('In Portal', default=False)
-    user_id = fields.Many2one('res.users', string='Owner',
-                              default=lambda self: self.env.user,
-                              required=True)
+    user_id = fields.Many2one(
+        'res.users',
+        string='Owner',
+        default=lambda self: self.env.user,
+        required=True,
+        track_visibility='always',
+    )
     date = fields.Date(
         'Date',
         default=lambda self: self._context.get(
@@ -260,9 +264,13 @@ class BusinessRequirement(models.Model):
 
     @api.multi
     @api.returns('mail.message', lambda value: value.id)
-    def message_post(self, body='', subject=None, message_type='notification',
-                     subtype=None, parent_id=False, attachments=None,
-                     content_subtype='html', **kwargs):
+    def message_post(
+        self, body='', subject=None,
+        message_type='notification', subtype=None,
+        parent_id=False, attachments=None,
+        notif_layout=False, add_sign=True, model_description=False,
+        mail_auto_delete=True, **kwargs
+    ):
         context = self._context or {}
         if context.get('default_model') ==\
                 'business.requirement' and context.get('default_res_id'):
@@ -277,7 +285,10 @@ class BusinessRequirement(models.Model):
             subtype=subtype,
             parent_id=parent_id,
             attachments=attachments,
-            content_subtype=content_subtype,
+            notif_layout=notif_layout,
+            add_sign=add_sign,
+            model_description=model_description,
+            mail_auto_delete=mail_auto_delete,
             **kwargs)
         return message
 
@@ -324,10 +335,10 @@ class BusinessRequirement(models.Model):
             'business_requirement.br_portal_confirmation_options',
             default='none')
 
-    def _compute_portal_url(self):
-        super()._compute_portal_url()
+    def _compute_access_url(self):
+        super()._compute_access_url()
         for br in self:
-            br.portal_url = '/my/business_requirement/%s' % br.id
+            br.access_url = '/my/business_requirement/%s' % br.id
 
     @api.multi
     def portal_publish_button(self):

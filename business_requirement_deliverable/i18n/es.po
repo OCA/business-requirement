@@ -1,0 +1,721 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_deliverable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-10 19:40+0000\n"
+"PO-Revision-Date: 2019-06-10 21:41+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_user_id
+msgid "Assign To"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_br_count
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_br_count
+#, fuzzy
+#| msgid "DL Count"
+msgid "BR Count"
+msgstr "Número de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_business_requirement_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_pivot
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+msgid "Business Requirement"
+msgstr "Requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:ir.module.category,name:business_requirement_deliverable.module_category_business_requirement_cost
+msgid "Business Requirement Cost"
+msgstr "Coste del requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_business_requirement_deliverable_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_tree
+msgid "Business Requirement Deliverable"
+msgstr "Requisitos de negocio entregable"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_deliverable
+#, fuzzy
+#| msgid "Business Requirement Deliverable -"
+msgid "Business Requirement Deliverable Report"
+msgstr "Requerimiento de Negocia Entregrable -"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.report.xml,name:business_requirement_deliverable.business_requirement_deliverable_resource_report
+#, fuzzy
+#| msgid "Business Requirement Deliverable -"
+msgid "Business Requirement Deliverable Resource Report"
+msgstr "Requerimiento de Negocia Entregrable -"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#, fuzzy
+#| msgid "Business Requirement Cost"
+msgid "Business Requirement Document"
+msgstr "Coste del requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:res.groups,name:business_requirement_deliverable.group_business_requirement_estimation
+msgid "Business Requirement Estimation"
+msgstr "Estimación del requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_resource
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_resource_ids
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_tree
+#, fuzzy
+#| msgid "Business Requirement"
+msgid "Business Requirement Resource"
+msgstr "Requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
+msgid "Business Requirement Task Type"
+msgstr "Tipo de tarea del requisito de negocio"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_change_request
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_change_request
+msgid "Change Request?"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_3
+#: model:product.template,name:business_requirement_deliverable.product_product_3_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_3
+msgid "Consultant"
+msgstr "Consultor"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_create_uid
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_create_date
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_currency_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_partner_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_partner_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_dl_count
+msgid "DL Count"
+msgstr "Número de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_dl_total_revenue
+msgid "DL Total Revenue"
+msgstr "Beneficio total del DL"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_form
+msgid "Deliverable"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_report
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_action_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_deliverable_graph
+#, fuzzy
+#| msgid "Deliverable Lines"
+msgid "Deliverable Analysis"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_dlv_count
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_dlv_count
+#, fuzzy
+#| msgid "Deliverable"
+msgid "Deliverable Count"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_dlv_description
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_dlv_description
+#, fuzzy
+#| msgid "Deliverable Lines"
+msgid "Deliverable Description"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:374
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_lines
+#, python-format
+msgid "Deliverable Lines"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_dlv_qty
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_dlv_qty
+#, fuzzy
+#| msgid "Deliverable"
+msgid "Deliverable Qty"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_report
+#, fuzzy
+#| msgid "Deliverable"
+msgid "Deliverable Report"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_sale_report
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_action_deliverable_sale_report
+#, fuzzy
+#| msgid "Deliverable Lines"
+msgid "Deliverable Sale Analysis"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_sale_report
+#, fuzzy
+#| msgid "Deliverable Lines"
+msgid "Deliverable Sales Report"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#, fuzzy
+#| msgid "Deliverable Lines"
+msgid "Deliverable lines:"
+msgstr "Listado de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_description
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_description
+#, fuzzy
+#| msgid "Section"
+msgid "Description"
+msgstr "Section"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_2
+#: model:product.template,name:business_requirement_deliverable.product_product_2_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_2
+msgid "Designer"
+msgstr "Diseñador"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_1
+#: model:product.template,name:business_requirement_deliverable.product_product_1_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_1
+msgid "Developer"
+msgstr "Desarrollador"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_dlv_product
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_dlv_product
+#, fuzzy
+#| msgid "Product"
+msgid "Dlv Product"
+msgstr "Producto"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner_property_product_estimation_pricelist
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_users_property_product_estimation_pricelist
+msgid "Estimation Pricelist"
+msgstr "Estimación por lista de precios"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: business_requirement_deliverable
+#: model:product.pricelist,name:business_requirement_deliverable.brpricelist0
+msgid "HKD Pricelist"
+msgstr "Listado de precios HKD"
+
+#. module: business_requirement_deliverable
+#: selection:business.requirement.deliverable.report,priority:0
+#: selection:business.requirement.deliverable.sale.report,priority:0
+msgid "High"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable___last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report___last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report___last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_uid
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_write_date
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: business_requirement_deliverable
+#: selection:business.requirement.deliverable.report,priority:0
+#: selection:business.requirement.deliverable.sale.report,priority:0
+msgid "Low"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_project_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_project_id
+msgid "Master Project"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_name
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Name"
+msgstr "Nombre"
+
+#. module: business_requirement_deliverable
+#: selection:business.requirement.deliverable.report,priority:0
+#: selection:business.requirement.deliverable.sale.report,priority:0
+msgid "Normal"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_6
+#: model:product.template,name:business_requirement_deliverable.product_product_6_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_6
+msgid "Odoo Quick Start Package"
+msgstr "Paquete de inicio rápido de Odoo"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#, fuzzy
+#| msgid "Pricelist"
+msgid "Price"
+msgstr "Tarifa"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_pricelist_id
+msgid "Pricelist"
+msgstr "Tarifa"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_res_partner_property_product_estimation_pricelist
+#: model:ir.model.fields,help:business_requirement_deliverable.field_res_users_property_product_estimation_pricelist
+msgid ""
+"Pricelist used for the estimation of the Business Requirements\n"
+"        Deliverables linked to this Customer.\n"
+"        Currency of the Deliverables will be the one from the pricelist."
+msgstr ""
+"El listado de precios usado para la estimación de los entregables del "
+"requisito de negocio\n"
+"        estan en funcion del cliente.\n"
+"        La divisa asociada a los entregables sera la misa que el del listado "
+"de precios."
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_product_pricelist_action2
+msgid "Pricelists"
+msgstr "Tarifas"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_priority
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_priority
+msgid "Priority"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: selection:business.requirement.resource,resource_type:0
+msgid "Procurement"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_product_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_product_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_project_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_business_requirement_project_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+msgid "Project"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_qty
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_rl_count
+#, fuzzy
+#| msgid "DL Count"
+msgid "RL Count"
+msgstr "Número de entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_lines
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_lines_noedit
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_lines
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_graph
+msgid "Requirement Deliverable"
+msgstr "Requisitos entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_requirement_resource_noedit
+#, fuzzy
+#| msgid "Requirement Deliverable"
+msgid "Requirement Resource"
+msgstr "Requisitos entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_requirement_resource
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_requirement_resource
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_graph
+#, fuzzy
+#| msgid "Requirement Deliverable"
+msgid "Requirement Resources"
+msgstr "Requisitos entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_res_product
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_res_product
+#, fuzzy
+#| msgid "Product"
+msgid "Res Product"
+msgstr "Producto"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_form
+msgid "Resource"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_res_count
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_res_count
+msgid "Resource Count"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_res_description
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_res_description
+msgid "Resource Description"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:398
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_lines
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
+#, python-format
+msgid "Resource Lines"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_report_res_qty
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_res_qty
+msgid "Resource Qty"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#, fuzzy
+#| msgid "Requirement Deliverable"
+msgid "Resource lines for deliverable"
+msgstr "Requisitos entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_sale_price
+#, fuzzy
+#| msgid "Sales Price"
+msgid "Sale Price"
+msgstr "Precio de venta"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_deliverable_sale_graph
+msgid "Sales Analysis"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_price_unit
+msgid "Sales Price"
+msgstr "Precio de venta"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sequence
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_business_requirement_partner_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_business_requirement_partner_id
+msgid "Stakeholder"
+msgstr "Entidad interesada"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_state
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_state
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_resource_search
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_search
+msgid "State"
+msgstr "Estado"
+
+#. module: business_requirement_deliverable
+#: selection:business.requirement.resource,resource_type:0
+msgid "Task"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+#, fuzzy
+#| msgid "Total price"
+msgid "Total"
+msgstr "Precio total"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_price_total
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_total_revenue
+msgid "Total Deliverable"
+msgstr "Total por entregables"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_sale_report_total_revenue
+#, fuzzy
+#| msgid "Total revenue"
+msgid "Total Revenue"
+msgstr "Total beneficio"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_tree
+msgid "Total price"
+msgstr "Precio total"
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_tree
+msgid "Total revenue"
+msgstr "Total beneficio"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_resource_type
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+msgid "Type"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_uom_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_resource_uom_id
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_report
+#: model:ir.ui.view,arch_db:business_requirement_deliverable.br_deliverable_resource_report
+msgid "UoM"
+msgstr "UdM"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_5
+#: model:product.template,name:business_requirement_deliverable.product_product_5_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_5
+msgid "Website Design"
+msgstr "Diseño Web"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_4
+#: model:product.template,name:business_requirement_deliverable.product_product_4_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_4
+msgid "Website Template"
+msgstr "Plantillas del sitio web"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:116
+#, python-format
+msgid "When resource type is task, the uom category should be time"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:425
+#, python-format
+msgid ""
+"You are changing customer, on a business requirementwhich already contains "
+"deliverable lines.Pricelist could be different."
+msgstr ""
+"Cambiar el usuario, en un requisito de negocio que actualmente contiene un "
+"listado de entregables, puede alterar el listado de precios."
+
+#~ msgid ""
+#~ "<em class=\"font-weight-normal text-muted\">Deliverables for business "
+#~ "requirement:</em>"
+#~ msgstr ""
+#~ "<em class=\"font-weight-normal text-muted\">Entregables para el "
+#~ "requerimiento de negocio</em>"
+
+#~ msgid ""
+#~ "<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
+#~ msgstr ""
+#~ "<em class=\"font-weight-normal text-muted\">Entregrables para la sección:"
+#~ "</em>"
+
+#~ msgid "<span><i>Others</i></span>"
+#~ msgstr "<span><i>Otros</i></span>"
+
+#~ msgid "<span>Deliverable</span>"
+#~ msgstr "<span>Entregable</span>"
+
+#~ msgid "<strong>Amount:</strong>"
+#~ msgstr "<strong>Importe:</strong>"
+
+#~ msgid "<strong>Business Requirement:</strong>"
+#~ msgstr "<strong>Requerimiento de Negocio:</strong>"
+
+#~ msgid "<strong>Deliverable Subtotals</strong>"
+#~ msgstr "<strong>Deliverable Subtotals</strong>"
+
+#~ msgid "<strong>Message and communication history</strong>"
+#~ msgstr "</strong>Historial de mensajes y comunicaciones</strong>"
+
+#~ msgid "<strong>Proposed Solution</strong>"
+#~ msgstr "<strong>Solución Propuesta</strong>"
+
+#~ msgid "<strong>User Case</strong>"
+#~ msgstr "<strong>Caso de Usuario</strong>"
+
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgid "Amount:"
+#~ msgstr "Importe:"
+
+#~ msgid "Contact"
+#~ msgstr "Contacto"
+
+#~ msgid "Deliverable items:"
+#~ msgstr "Deliverable items:"
+
+#~ msgid "Edit Business Requirement Deliverable"
+#~ msgstr "Edit Business Requirement Deliverable"
+
+#~ msgid "In Portal"
+#~ msgstr "En el portal"
+
+#~ msgid "Newest"
+#~ msgstr "Más nuevo"
+
+#~ msgid "None"
+#~ msgstr "Ninguno"
+
+#~ msgid "Others"
+#~ msgstr "Others"
+
+#~ msgid "Proposed Solution"
+#~ msgstr "Solución propuesta"
+
+#~ msgid "Ref."
+#~ msgstr "Ref."
+
+#~ msgid "Reference"
+#~ msgstr "Referencia"
+
+#~ msgid "Requirement Deliverable Section"
+#~ msgstr "Requirement Deliverable Section"
+
+#~ msgid "Search <span class=\"nolabel\"> (in Content)</span>"
+#~ msgstr "Buscar <span class=\"nolabel\"> (en Contenido)</span>"
+
+#~ msgid "Search in All"
+#~ msgstr "Buscar en Todo"
+
+#~ msgid "Search in Messages"
+#~ msgstr "Buscar en Mensajes"
+
+#~ msgid "Search in Stakeholder"
+#~ msgstr "Buscar en Entidad Interesada"
+
+#~ msgid "Subtotals"
+#~ msgstr "Subtotals"
+
+#~ msgid "There are no business requirement deliverable."
+#~ msgstr "No existe un requerimientos de negocio entregable."
+
+#~ msgid "Title"
+#~ msgstr "Title"
+
+#~ msgid "User Case"
+#~ msgstr "Necesidad del usuario"
+
+#~ msgid "business.requirement.deliverable.section"
+#~ msgstr "business.requirement.deliverable.section"
