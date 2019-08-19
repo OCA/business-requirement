@@ -103,7 +103,8 @@ class CustomerPortal(CustomerPortal):
                                     [('name', 'ilike', search)]])
             if search_in in ('stakeholder', 'all'):
                 search_domain = OR([search_domain,
-                                    [('partner_id', 'ilike', search)]])
+                                    [('business_requirement_id.partner_id',
+                                      'ilike', search)]])
             if search_in in ('message', 'all'):
                 search_domain = OR([search_domain,
                                     [('message_ids.body', 'ilike', search)]])
