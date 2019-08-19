@@ -279,6 +279,7 @@ class BusinessRequirement(models.Model):
             subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
         message = super(BusinessRequirement, self.with_context(
             mail_create_nosubscribe=True)).message_post(
+            body=body,
             subject=subject,
             message_type=message_type,
             subtype=subtype,
