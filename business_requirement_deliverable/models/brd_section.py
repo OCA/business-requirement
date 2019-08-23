@@ -9,4 +9,4 @@ class BusinessRequirementDeliverableSection(models.Model):
     _order = "sequence, id"
 
     name = fields.Char('Name', required=True)
-    sequence = fields.Integer('Sequence')
+    sequence = fields.Integer(string='Sequence', default=10)
