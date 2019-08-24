@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo12-addon-business_requirement',
         'odoo12-addon-business_requirement_crm',
         'odoo12-addon-business_requirement_deliverable',
+        'odoo12-addon-business_requirement_sale',
     ],
     classifiers=[
         'Programming Language :: Python',
