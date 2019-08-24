@@ -6,7 +6,7 @@
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         <field name="category_id"
                ref="business_requirement.module_category_business_requirement"/>
-        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin')), (4, ref('base.user_root'))]"/>
     </record>
 
     <record id="group_business_requirement_manager" model="res.groups">
@@ -15,7 +15,7 @@
                eval="[(4, ref('business_requirement.group_business_requirement_user'))]"/>
         <field name="category_id"
                ref="business_requirement.module_category_business_requirement"/>
-        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin')), (4, ref('base.user_root'))]"/>
     </record>
 
     <record id="rule_business_requirement" model="ir.rule">
@@ -26,7 +26,7 @@
             ['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]
         </field>
     </record>
-    
+
     <!-- Portal -->
    <record id="br_rule_portal" model="ir.rule">
        <field name="name">BR: portal users: portal and following</field>
