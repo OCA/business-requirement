@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: business_requirement_sale_timesheet
-#: model:ir.model.fields,field_description:business_requirement_sale_timesheet.field_project_task_business_requirement_deliverable_id
-#: model:ir.ui.view,arch_db:business_requirement_sale_timesheet.view_task_form2
+#: model:ir.model.fields,field_description:business_requirement_sale_timesheet.field_project_task__business_requirement_deliverable_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale_timesheet.view_task_form2
 msgid "Deliverable"
 msgstr ""
 
