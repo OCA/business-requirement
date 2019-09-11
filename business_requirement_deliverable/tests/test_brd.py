@@ -94,7 +94,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_compute_currency_id(self):
         if not self.br.pricelist_id:
             self.assertEqual(
-                self.br.currency_id.name, 'USD')
+                self.br.currency_id, self.env.user.company_id.currency_id)
         self.pricelist_id = self.env.ref(
             'business_requirement_deliverable.brpricelist0').id
         self.br.write({'pricelist_id': self.pricelist_id})
@@ -105,7 +105,8 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         if not self.br.pricelist_id:
             for line in self.br.deliverable_lines:
                 line._compute_currency_id()
-                self.assertEqual(line.currency_id.name, 'USD')
+                self.assertEqual(line.currency_id,
+                                 self.env.user.company_id.currency_id)
         self.pricelist_id = self.env.ref(
             'business_requirement_deliverable.brpricelist0').id
         self.br.write({'pricelist_id': self.pricelist_id})
