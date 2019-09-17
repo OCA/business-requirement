@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-10 21:24+0000\n"
-"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"PO-Revision-Date: 2019-09-17 14:24+0000\n"
+"Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgstr "<strong>Origem</strong>"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 msgid "<strong>Stakeholder</strong>"
-msgstr ""
+msgstr "<strong>Interessado</strong>"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_warning
@@ -309,7 +309,7 @@ msgstr "Gap"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
 msgid "Gap:"
-msgstr ""
+msgstr "Gap:"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
@@ -365,7 +365,7 @@ msgstr "É Seguidor"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__kanban_state
 msgid "Kanban State"
-msgstr ""
+msgstr "Estado Kanban"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement____last_update
@@ -388,7 +388,7 @@ msgstr "Última Atualização em"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #. module: business_requirement
 #: selection:business.requirement,priority:0
@@ -473,6 +473,11 @@ msgid "Odoo's Business Requirement management allows you to manage the list\n"
 "                of Business requirement from a Stakeholder for efficient follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
+"O gerenciamento de requisitos de negócios do Odoo permite gerenciar a lista\n"
+"                 requisito de negócios de uma parte interessada para um "
+"acompanhamento eficiente. Você pode\n"
+"                 acompanhar o progresso, discutir tarefas, anexar documentos "
+"etc."
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -605,6 +610,10 @@ msgid "Status based on activities\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Status baseado em atividades\n"
+"Vencido: a data de vencimento já passou\n"
+"Hoje: a data da atividade é hoje\n"
+"Planejado: Atividades futuras."
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__terms_and_conditions
@@ -621,7 +630,7 @@ msgstr "Termos e Condições:"
 #: code:addons/business_requirement/tests/test_br.py:27
 #, python-format
 msgid "Test Body"
-msgstr ""
+msgstr "Corpo de teste"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__test_case
@@ -706,7 +715,7 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
 msgid "]&amp;nbsp;"
-msgstr ""
+msgstr "]&amp;nbsp;"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_error
