@@ -49,6 +49,7 @@ Usage
 #. Prepare your deliverables in the Product menu and add the expected RL
 #. Create a new BR and add the deliverable product in the deliverable line
 #. Adapt the resources lines if necessary
+
 .. figure:: static/img/bus_req_default2.png
    :width: 600 px
    :alt: The default resource lines are automatically added to your BR
