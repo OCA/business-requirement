@@ -323,7 +323,7 @@ class BusinessRequirement(models.Model):
                         filter(
                             lambda x: x['state'] == state_value,
                             read_group_all_states))
-                res[0]['state'] = [state_value, state_name]
+                res[0]['state'] = state_value
                 result.append(res[0])
             return result
         return super().\
