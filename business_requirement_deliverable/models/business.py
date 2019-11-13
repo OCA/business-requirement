@@ -16,14 +16,6 @@ class BusinessRequirementDeliverable(models.Model):
     sequence = fields.Integer('Sequence')
     state = fields.Selection(
         related='business_requirement_id.state',
-        selection=[('draft', 'Draft'),
-                   ('confirmed', 'Confirmed'),
-                   ('approved', 'Approved'),
-                   ('in_progress', 'In progress'),
-                   ('done', 'Done'),
-                   ('cancel', 'Cancel'),
-                   ('drop', 'Drop'),
-                   ],
         store=True,
     )
     name = fields.Text('Name', required=True)
@@ -68,7 +60,6 @@ class BusinessRequirementDeliverable(models.Model):
         string='Total Deliverable',
         store=True,
         readonly=True,
-        track_visibility='onchange'
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
