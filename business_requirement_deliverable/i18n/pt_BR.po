@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement_deliverable
+# 	* business_requirement_deliverable
 #
 msgid ""
 msgstr ""
@@ -15,19 +15,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:351
+#: code:addons/business_requirement_deliverable/models/business.py:342
 #, python-format
 msgid "%s (copy)"
 msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
-msgid "<em class=\"font-weight-normal text-muted\">Deliverables for business requirement:</em>"
+msgid ""
+"<em class=\"font-weight-normal text-muted\">Deliverables for business "
+"requirement:</em>"
 msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
-msgid "<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
+msgid ""
+"<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -211,7 +214,7 @@ msgid "Deliverable"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:251
+#: code:addons/business_requirement_deliverable/models/business.py:242
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__deliverable_lines
 #, python-format
 msgid "Deliverable Lines"
@@ -427,7 +430,7 @@ msgid "Odoo Quick Start Package"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:327
+#: code:addons/business_requirement_deliverable/models/business.py:318
 #, python-format
 msgid "Others"
 msgstr ""
@@ -455,7 +458,8 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_res_partner__property_product_estimation_pricelist
 #: model:ir.model.fields,help:business_requirement_deliverable.field_res_users__property_product_estimation_pricelist
-msgid "Pricelist used for the estimation of the Business Requirements\n"
+msgid ""
+"Pricelist used for the estimation of the Business Requirements\n"
 "        Deliverables linked to this Customer.\n"
 "        Currency of the Deliverables will be the one from the pricelist."
 msgstr ""
@@ -575,7 +579,8 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -673,9 +678,11 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:280
+#: code:addons/business_requirement_deliverable/models/business.py:271
 #, python-format
-msgid "You are changing customer, on a business requirementwhich already contains deliverable lines.Pricelist could be different."
+msgid ""
+"You are changing customer, on a business requirementwhich already contains "
+"deliverable lines.Pricelist could be different."
 msgstr ""
 
 #. module: business_requirement_deliverable
