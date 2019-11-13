@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:351
+#: code:addons/business_requirement_deliverable/models/business.py:342
 #, python-format
 msgid "%s (copy)"
 msgstr ""
@@ -230,7 +230,7 @@ msgid "Deliverable"
 msgstr "Entregable"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:251
+#: code:addons/business_requirement_deliverable/models/business.py:242
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__deliverable_lines
 #, python-format
 msgid "Deliverable Lines"
@@ -450,7 +450,7 @@ msgid "Odoo Quick Start Package"
 msgstr "Paquete de inicio rápido de Odoo"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:327
+#: code:addons/business_requirement_deliverable/models/business.py:318
 #, python-format
 msgid "Others"
 msgstr "Others"
@@ -710,7 +710,7 @@ msgid "Website communication history"
 msgstr "</strong>Historial de mensajes y comunicaciones</strong>"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:280
+#: code:addons/business_requirement_deliverable/models/business.py:271
 #, python-format
 msgid ""
 "You are changing customer, on a business requirementwhich already contains "
