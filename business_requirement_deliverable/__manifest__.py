@@ -19,6 +19,7 @@
     ],
     'data': [
         'data/business_data.xml',
+        'data/mail_message_subtype_data.xml',
         'security/business_requirement_deliverable_security.xml',
         'security/ir.model.access.csv',
         'views/business_view.xml',
