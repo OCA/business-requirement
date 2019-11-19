@@ -4,7 +4,6 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.addons import decimal_precision as dp
-from odoo.tools.misc import formatLang
 
 
 class BusinessRequirementDeliverable(models.Model):
@@ -164,6 +163,7 @@ class BusinessRequirementDeliverable(models.Model):
                 args.append(rec.section_id.name)
             result.append((rec.id, name.format(*args)))
         return result
+
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
