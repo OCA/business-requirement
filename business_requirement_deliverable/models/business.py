@@ -154,20 +154,16 @@ class BusinessRequirementDeliverable(models.Model):
     def name_get(self):
         result = []
         for rec in self:
-            name = '#{0}: {1} ({2})'
+            name = '#{0}: {1}'
             args = [
                 rec.sequence,
                 rec.name,
-                formatLang(
-                    self.env, rec.price_total, currency_obj=rec.currency_id,
-                ),
             ]
             if rec.section_id:
-                name = '[{3}] #{0}: {1} ({2})'
+                name = '[{2}] #{0}: {1}'
                 args.append(rec.section_id.name)
             result.append((rec.id, name.format(*args)))
         return result
-
 
 class BusinessRequirement(models.Model):
     _inherit = "business.requirement"
