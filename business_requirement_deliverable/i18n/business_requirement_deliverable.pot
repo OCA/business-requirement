@@ -210,6 +210,13 @@ msgid "Deliverable"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:mail.message.subtype,description:business_requirement_deliverable.mt_brd_new
+#: model:mail.message.subtype,name:business_requirement_deliverable.mt_br_brd_new
+#: model:mail.message.subtype,name:business_requirement_deliverable.mt_brd_new
+msgid "Deliverable Created"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/models/business.py:238
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__deliverable_lines
 #, python-format
