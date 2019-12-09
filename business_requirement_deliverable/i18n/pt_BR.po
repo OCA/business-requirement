@@ -35,7 +35,14 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "<span class=\"label label-default\">Others</span>"
+msgid "<small class=\"text-right\">Section:</small>"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
+"title=\"Deliverables\"/>"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -134,11 +141,6 @@ msgid "Business Requirement Deliverable"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "Business Requirement Deliverable -"
-msgstr ""
-
-#. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
 msgid "Business Requirement Deliverables"
 msgstr ""
@@ -154,7 +156,7 @@ msgid "Business Requirement Task Type"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:180
+#: code:addons/business_requirement_deliverable/controllers/portal.py:203
 #, python-format
 msgid "Can't access to this business requirement deliverable"
 msgstr ""
@@ -186,6 +188,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__currency_id
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__currency_id
 msgid "Currency"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "Current section of this deliverable"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -238,6 +245,11 @@ msgid "Deliverable items:"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid "Deliverable(s)"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__dependency_ids
 msgid "Dependencies"
 msgstr ""
@@ -258,11 +270,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__display_name
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "Edit Business Requirement Deliverable"
 msgstr ""
 
 #. module: business_requirement_deliverable
