@@ -42,10 +42,15 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
-#| msgid "Search <span class=\"nolabel\"> (in Content)</span>"
-msgid "<span class=\"label label-default\">Others</span>"
-msgstr "Buscar <span class=\"nolabel\"> (en Contenido)</span>"
+msgid "<small class=\"text-right\">Section:</small>"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
+"title=\"Deliverables\"/>"
+msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
@@ -145,13 +150,6 @@ msgid "Business Requirement Deliverable"
 msgstr "Requisitos de negocio entregable"
 
 #. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
-#| msgid "Business Requirement Deliverable"
-msgid "Business Requirement Deliverable -"
-msgstr "Requisitos de negocio entregable"
-
-#. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
 #, fuzzy
 #| msgid "Business Requirement Deliverable"
@@ -169,7 +167,7 @@ msgid "Business Requirement Task Type"
 msgstr "Tipo de tarea del requisito de negocio"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:180
+#: code:addons/business_requirement_deliverable/controllers/portal.py:203
 #, fuzzy, python-format
 #| msgid "There are no business requirement deliverable."
 msgid "Can't access to this business requirement deliverable"
@@ -203,6 +201,13 @@ msgstr "Creado en"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__currency_id
 msgid "Currency"
 msgstr "Moneda"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+#, fuzzy
+#| msgid "Requirement Deliverable"
+msgid "Current section of this deliverable"
+msgstr "Requisitos entregables"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
@@ -256,6 +261,13 @@ msgid "Deliverable items:"
 msgstr "Listado de entregables:"
 
 #. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+#, fuzzy
+#| msgid "Deliverable"
+msgid "Deliverable(s)"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__dependency_ids
 msgid "Dependencies"
 msgstr "Dependencias"
@@ -277,11 +289,6 @@ msgstr "Desarrollador"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
-
-#. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "Edit Business Requirement Deliverable"
-msgstr "Edit Business Requirement Deliverable"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner__property_product_estimation_pricelist
@@ -743,6 +750,19 @@ msgid "kg"
 msgstr ""
 
 #, fuzzy
+#~| msgid "Search <span class=\"nolabel\"> (in Content)</span>"
+#~ msgid "<span class=\"label label-default\">Others</span>"
+#~ msgstr "Buscar <span class=\"nolabel\"> (en Contenido)</span>"
+
+#, fuzzy
+#~| msgid "Business Requirement Deliverable"
+#~ msgid "Business Requirement Deliverable -"
+#~ msgstr "Requisitos de negocio entregable"
+
+#~ msgid "Edit Business Requirement Deliverable"
+#~ msgstr "Edit Business Requirement Deliverable"
+
+#, fuzzy
 #~| msgid "DL Count"
 #~ msgid "BR Count"
 #~ msgstr "Número de entregables"
@@ -826,11 +846,6 @@ msgstr ""
 #~| msgid "Product"
 #~ msgid "Res Product"
 #~ msgstr "Producto"
-
-#, fuzzy
-#~| msgid "Requirement Deliverable"
-#~ msgid "Resource lines for deliverable"
-#~ msgstr "Requisitos entregables"
 
 #, fuzzy
 #~| msgid "Sales Price"
