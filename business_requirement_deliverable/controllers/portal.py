@@ -167,27 +167,44 @@ class CustomerPortal(CustomerPortal):
         return request.render(
             "business_requirement_deliverable.portal_my_brd_list", values)
 
+    def _brd_get_page_view_values(self, brd, access_token, **kwargs):
+        values = {
+            'brd': brd,
+            'page_name': 'business_requirement_deliverable',
+            'user': request.env.user,
+        }
+        if access_token:
+            values['no_breadcrumbs'] = True
+            values['access_token'] = access_token
+
+        if kwargs.get('error'):
+            values['error'] = kwargs['error']
+        if kwargs.get('warning'):
+            values['warning'] = kwargs['warning']
+        if kwargs.get('success'):
+            values['success'] = kwargs['success']
+
+        history = request.session.get('my_br_history', [])
+        values.update(get_records_pager(history, brd))
+
+        return values
+
     @http.route(['/my/brd/<int:brd_id>'],
                 type='http', auth="user", website=True)
-    def portal_my_brd(self, brd_id=None, **kw):
-        brd = request.env['business.requirement.deliverable'].browse(brd_id)
+    def portal_my_brd(self, brd_id=None, access_token=None, **kw):
+        try:
+            brd_sudo = self._document_check_access(
+                'business.requirement.deliverable', brd_id, access_token)
+        except AccessError:
+            return request.redirect('/my')
 
-        brd.check_access_rights('read')
-        brd.check_access_rule('read')
-
-        if not brd.portal_published:
+        if not brd_sudo.portal_published:
             raise AccessError(
                 _("Can't access to this business requirement deliverable"))
 
-        vals = {
-            'brd': brd,
-            'user': request.env.user,
-            'page_name': 'business_requirement_deliverable',
-        }
-        history = request.session.get('my_brd_history', [])
-        vals.update(get_records_pager(history, brd))
+        values = self._brd_get_page_view_values(brd_sudo, access_token, **kw)
         return request.render("business_requirement_deliverable.portal_my_brd",
-                              vals)
+                              values)
 
     def _br_get_page_view_values(self, br, access_token, **kwargs):
         vals = super(CustomerPortal, self)._br_get_page_view_values(
