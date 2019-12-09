@@ -37,7 +37,14 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-msgid "<span class=\"label label-default\">Others</span>"
+msgid "<small class=\"text-right\">Section:</small>"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
+"title=\"Deliverables\"/>"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -138,13 +145,6 @@ msgid "Business Requirement Deliverable"
 msgstr "Délivrable"
 
 #. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
-#| msgid "Business Requirement Deliverable"
-msgid "Business Requirement Deliverable -"
-msgstr "Délivrable"
-
-#. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
 #, fuzzy
 #| msgid "Business Requirement Deliverable"
@@ -162,7 +162,7 @@ msgid "Business Requirement Task Type"
 msgstr "Type de tâche pour le besoin"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:180
+#: code:addons/business_requirement_deliverable/controllers/portal.py:203
 #, fuzzy, python-format
 #| msgid "Business Requirement Deliverable"
 msgid "Can't access to this business requirement deliverable"
@@ -196,6 +196,13 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__currency_id
 msgid "Currency"
 msgstr "Devise"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+#, fuzzy
+#| msgid "Resource lines for deliverable"
+msgid "Current section of this deliverable"
+msgstr "Ressources pour le délivrable"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
@@ -253,6 +260,13 @@ msgid "Deliverable items:"
 msgstr "Déliverables :"
 
 #. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+#, fuzzy
+#| msgid "Deliverable"
+msgid "Deliverable(s)"
+msgstr "Délivrable"
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__dependency_ids
 msgid "Dependencies"
 msgstr ""
@@ -274,13 +288,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
-
-#. module: business_requirement_deliverable
-#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
-#| msgid "Business Requirement Deliverable"
-msgid "Edit Business Requirement Deliverable"
-msgstr "Délivrable"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner__property_product_estimation_pricelist
@@ -736,6 +743,16 @@ msgstr ""
 msgid "kg"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Business Requirement Deliverable"
+#~ msgid "Business Requirement Deliverable -"
+#~ msgstr "Délivrable"
+
+#, fuzzy
+#~| msgid "Business Requirement Deliverable"
+#~ msgid "Edit Business Requirement Deliverable"
+#~ msgstr "Délivrable"
+
 #~ msgid "Assign To"
 #~ msgstr "Assigner à"
 
@@ -831,9 +848,6 @@ msgstr ""
 
 #~ msgid "Resource Qty"
 #~ msgstr "Qté de Ressources"
-
-#~ msgid "Resource lines for deliverable"
-#~ msgstr "Ressources pour le délivrable"
 
 #~ msgid "Sale Price"
 #~ msgstr "Prix de vente"

@@ -12,6 +12,7 @@
             </xpath>
         </field>
     </record>
+
     <!-- Requirement Deliverable Line Noedit form view-->
     <record id="view_business_requirement_deliverable_search"
         model="ir.ui.view">
@@ -41,7 +42,7 @@
     <record model="ir.actions.act_window" id="action_deliverable_lines_noedit">
         <field name="name">Requirement Deliverable</field>
         <field name="res_model">business.requirement.deliverable</field>
-        <field name="view_mode">tree,form,graph</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
         <field name="view_type">form</field>
         <field name="context">{
             'search_default_business_requirement_id': [active_id],
@@ -118,13 +119,11 @@
                              <field name="portal_published" widget="toggle_button"/>
                          </button>
                     </div>
-                    <group>
-                        <div class="oe_title">
-                            <h1>
-                                <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
-                            </h1>
-                        </div>
-                    </group>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" attrs="{'readonly':[('state','not in',['draft', 'confirmed'])]}"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
                             <field name="sequence"/>
@@ -165,7 +164,7 @@
 
     <!-- Pivot view Requirement Deliverable Line-->
     <record model="ir.ui.view" id="view_business_requirement_deliverable_pivot">
-        <field name="name">Business requirement Deliverable</field>
+        <field name="name">business.requirement.deliverable.pivot</field>
         <field name="model">business.requirement.deliverable</field>
         <field name="arch" type="xml">
             <pivot string="Business Requirement" display_quantity="true" disable_linking="True">
@@ -185,11 +184,51 @@
          </field>
     </record>
 
+    <!-- Kanban view Requirement Deliverable -->
+    <record model="ir.ui.view" id="view_business_requirement_deliverable_kanban">
+        <field name="name">business.requirement.deliverable.kanban</field>
+        <field name="model">business.requirement.deliverable</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="business_requirement_id"/>
+                <field name="price_total"/>
+                <field name="portal_published"/>
+                <field name="section_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <h4 class="text-center">
+                                    <strong><field name="name"/></strong>
+                                </h4>
+                                <field name="business_requirement_id"/><br/>
+                                <field name="product_id"/><br/>
+                                <div class="oe_kanban_bottom_right">
+                                    <div class="pull-left" groups="base.group_user">
+                                        <field name="portal_published" widget="toggle_button"/>
+                                        <field name="section_id"/>
+                                    </div>
+                                    <div class="pull-right">
+                                        <field name="price_total"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Action Requirement Deliverable Line-->
     <record model="ir.actions.act_window" id="action_deliverable_lines">
         <field name="name">Requirement Deliverable</field>
         <field name="res_model">business.requirement.deliverable</field>
-        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="view_mode">tree,kanban,form,graph,pivot</field>
         <field name="view_type">form</field>
         <field name="context">{}</field>
     </record>
