@@ -2,7 +2,6 @@
 from odoo import http, _
 from odoo.exceptions import AccessError
 from odoo.http import request
-from odoo.tools import consteq
 from odoo.addons.portal.controllers.portal import (
     CustomerPortal,
     pager as portal_pager, get_records_pager)
@@ -26,18 +25,6 @@ class CustomerPortal(CustomerPortal):
                 partner.commercial_partner_id.id]),
             ('portal_published', '=', True)
         ]
-
-    def _br_check_access(self, br_id, access_token=None):
-        br = request.env['business.requirement'].browse([br_id])
-        br_sudo = br.sudo()
-        try:
-            br.check_access_rights('read')
-            br.check_access_rule('read')
-        except AccessError:
-            if not access_token or not consteq(br_sudo.access_token,
-                                               access_token):
-                raise
-        return br_sudo
 
     def _br_get_page_view_values(self, br, access_token, **kwargs):
         values = {
@@ -120,7 +107,8 @@ class CustomerPortal(CustomerPortal):
                 type='http', auth="public", website=True)
     def portal_br_page(self, br_id=None, access_token=None, **kw):
         try:
-            br_sudo = self._br_check_access(br_id, access_token=access_token)
+            br_sudo = self._document_check_access(
+                'business.requirement', br_id, access_token=access_token)
         except AccessError:
             return request.redirect('/my')
 
@@ -135,7 +123,8 @@ class CustomerPortal(CustomerPortal):
                 type='http', auth="public", website=True)
     def portal_br_report(self, br_id, access_token=None, **kw):
         try:
-            br_sudo = self._br_check_access(br_id, access_token)
+            br_sudo = self._document_check_access(
+                'business.requirement', br_id, access_token=access_token)
         except AccessError:
             return request.redirect('/my')
 
