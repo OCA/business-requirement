@@ -158,6 +158,13 @@ msgid "Business Requirement"
 msgstr "Besoin Professionnel"
 
 #. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
+#, fuzzy
+#| msgid "Business Requirement"
+msgid "Business Requirement #"
+msgstr "Besoin Professionnel"
+
+#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.br_report
 msgid "Business Requirement Document"
 msgstr "Document lié à un Besoin Professionnel"
@@ -269,8 +276,9 @@ msgid "Customer Story"
 msgstr "Expression client"
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:73
+#: code:addons/business_requirement/controllers/portal.py:60
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, python-format
 msgid "Date"
 msgstr "Date"
@@ -596,7 +604,7 @@ msgid "Security Token"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:74
+#: code:addons/business_requirement/controllers/portal.py:61
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
 #, python-format
 msgid "Sequence"
@@ -761,11 +769,6 @@ msgstr ""
 #~| msgid "Confirmation Date"
 #~ msgid "<strong>Confirmation Date:</strong>"
 #~ msgstr "Date de confirmation"
-
-#, fuzzy
-#~| msgid "Business Requirement"
-#~ msgid "Business Requirement #"
-#~ msgstr "Besoin Professionnel"
 
 #~ msgid "Action Tasks Related BR"
 #~ msgstr "Actions liées au besoin"
