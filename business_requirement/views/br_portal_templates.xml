@@ -3,7 +3,7 @@
               name="Portal layout : business requirement menu entries"
               inherit_id="portal.portal_breadcrumbs" priority="20">
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-            <li t-if="page_name == 'business_requirement'"
+            <li t-if="page_name == 'business_requirement' or business_requirement"
                 t-attf-class="breadcrumb-item #{'active ' if not business_requirement else ''}">
                 <a t-if="business_requirement"
                    t-attf-href="/my/business_requirements?{{ keep_query() }}">Business Requirements</a>
@@ -39,12 +39,21 @@
             </t>
 
             <t t-if="business_requirements" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Business Requirement #</th>
+                        <th class="text-right">Date</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr t-foreach="business_requirements" t-as="br">
                         <td>
                             <a t-attf-href="/my/business_requirement/#{br.id}?#{keep_query()}">
                                 <span t-field="br.name"/> - <span t-field="br.description"/>
                             </a>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="br.date" t-options='{"widget": "date"}'/>
                         </td>
                     </tr>
                 </tbody>
