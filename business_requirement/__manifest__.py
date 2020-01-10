@@ -5,7 +5,7 @@
     "category": "Business Requirements Management",
     "summary": "Manage the Business Requirements (stories, scenarios, gaps\
         and test cases) for your customers",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.2.0",
     "website": "https://github.com/OCA/business-requirement",
     "author": "Elico Corp, "
               "Tecnativa, "
