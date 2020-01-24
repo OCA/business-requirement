@@ -94,7 +94,7 @@
                             <strong>Assigned to</strong>
                             <div class="row">
                                 <div class="col flex-grow-0 pr-3">
-                                    <img t-if="br.responsible_user_id.image" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(br.responsible_user_id.image)" alt="Contact"/>
+                                    <img t-if="br.responsible_user_id.image_128" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(br.responsible_user_id.image_128)" alt="Contact"/>
                                     <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Contact"/>
                                 </div>
                                 <div class="col pl-md-0">
@@ -106,7 +106,7 @@
                             <strong>Requested by</strong>
                             <div class="row">
                                 <div class="col flex-grow-0 pr-3">
-                                    <img t-if="br.partner_id.image" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(br.partner_id.image)" alt="Stakeholder"/>
+                                    <img t-if="br.partner_id.image_128" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(br.partner_id.image_128)" alt="Stakeholder"/>
                                     <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Stakeholder"/>
                                 </div>
                                 <div class="col pl-md-0">

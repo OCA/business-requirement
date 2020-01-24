@@ -170,7 +170,6 @@ class BusinessRequirement(models.Model):
             vals["name"] = self.env["ir.sequence"].next_by_code("business.requirement")
         return super().create(vals)
 
-    @api.multi
     def write(self, vals):
         if vals.get("state"):
             user = self.env.user
@@ -209,7 +208,6 @@ class BusinessRequirement(models.Model):
                     )
         return super().write(vals)
 
-    @api.multi
     def name_get(self):
         """
         Display display [Name] Description
@@ -235,8 +233,7 @@ class BusinessRequirement(models.Model):
         # Merge both results
         return list(set(names) | set(descriptions))[:limit]
 
-    @api.multi
-    @api.returns('mail.message', lambda value: value.id)
+    @api.returns("mail.message", lambda value: value.id)
     def message_post(
         self,
         body="",
@@ -340,7 +337,6 @@ class BusinessRequirement(models.Model):
         for br in self:
             br.access_url = "/my/business_requirement/%s" % br.id
 
-    @api.multi
     def portal_publish_button(self):
         self.ensure_one()
         return self.write({"portal_published": not self.portal_published})
