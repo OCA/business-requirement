@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement
+# 	* business_requirement
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,6 +99,11 @@ msgid "Activities"
 msgstr ""
 
 #. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_state
 msgid "Activity State"
 msgstr ""
@@ -109,7 +114,7 @@ msgid "Approval Date"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__approved
 msgid "Approved"
 msgstr ""
 
@@ -175,7 +180,7 @@ msgid "Business Requirements"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__cancel
 msgid "Cancel"
 msgstr ""
 
@@ -208,7 +213,7 @@ msgid "Confirmation Date"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__confirmed
 msgid "Confirmed"
 msgstr ""
 
@@ -255,7 +260,7 @@ msgid "Customer Story"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:60
+#: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, python-format
@@ -274,17 +279,17 @@ msgid "Display Name"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__done
 msgid "Done"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__draft
 msgid "Draft"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__drop
 msgid "Drop"
 msgstr ""
 
@@ -320,7 +325,7 @@ msgid "Group by"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,priority:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__2
 msgid "High"
 msgstr ""
 
@@ -331,17 +336,24 @@ msgid "ID"
 msgstr ""
 
 #. module: business_requirement
-#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
-msgid "If checked new messages require your attention."
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_icon
+msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -351,12 +363,12 @@ msgid "In Portal"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,kanban_state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__normal
 msgid "In Progress"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__in_progress
 msgid "In progress"
 msgstr ""
 
@@ -394,7 +406,7 @@ msgid "Logs"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,priority:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__0
 msgid "Low"
 msgstr ""
 
@@ -441,7 +453,7 @@ msgid "No"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,priority:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__1
 msgid "Normal"
 msgstr ""
 
@@ -452,7 +464,7 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr ""
 
 #. module: business_requirement
@@ -472,24 +484,20 @@ msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.actions.act_window,help:business_requirement.act_view_project_br_all
-msgid "Odoo's Business Requirement management allows you to manage the list\n"
+msgid ""
+"Odoo's Business Requirement management allows you to manage the list\n"
 "                of Business requirement from a Stakeholder for efficient follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,kanban_state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__on_hold
 msgid "On Hold"
 msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Other"
-msgstr ""
-
-#. module: business_requirement
-#: selection:business.requirement,activity_state:0
-msgid "Overdue"
 msgstr ""
 
 #. module: business_requirement
@@ -500,11 +508,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__parent_id
 msgid "Parent Category"
-msgstr ""
-
-#. module: business_requirement
-#: selection:business.requirement,activity_state:0
-msgid "Planned"
 msgstr ""
 
 #. module: business_requirement
@@ -524,7 +527,7 @@ msgid "Products"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,kanban_state:0
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__done
 msgid "Ready for next stage"
 msgstr ""
 
@@ -550,6 +553,11 @@ msgid "Reviewers"
 msgstr ""
 
 #. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__scenario
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Scenario"
@@ -566,7 +574,7 @@ msgid "Security Token"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/controllers/portal.py:61
+#: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
 #, python-format
 msgid "Sequence"
@@ -603,7 +611,8 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -621,7 +630,7 @@ msgid "Terms and Conditions:"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/tests/test_br.py:27
+#: code:addons/business_requirement/tests/test_br.py:0
 #, python-format
 msgid "Test Body"
 msgstr ""
@@ -643,7 +652,7 @@ msgid "There are currently no business requirements for your account."
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:19
+#: code:addons/business_requirement/models/business.py:0
 #, python-format
 msgid "There is no default company for the current user!"
 msgstr ""
@@ -660,8 +669,8 @@ msgid "To be Reviewed"
 msgstr ""
 
 #. module: business_requirement
-#: selection:business.requirement,activity_state:0
-msgid "Today"
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_decoration
+msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: business_requirement
@@ -691,13 +700,14 @@ msgid "Yes"
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:229
+#: code:addons/business_requirement/models/business.py:0
 #, python-format
-msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
+msgid ""
+"You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 
 #. module: business_requirement
-#: code:addons/business_requirement/models/business.py:235
+#: code:addons/business_requirement/models/business.py:0
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr ""
@@ -712,4 +722,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr ""
-
