@@ -2,7 +2,7 @@
 # Copyright 2019 Tecnativa - Alexandre Díaz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -16,225 +16,197 @@ class BusinessRequirement(models.Model):
     def _get_default_company(self):
         if not self.env.user.company_id:
             raise ValidationError(
-                _('There is no default company for the current user!'))
+                _("There is no default company for the current user!")
+            )
         return self.env.user.company_id.id
 
-    sequence = fields.Char(
-        'Sequence',
-        readonly=True,
-        copy=False,
-        index=True,
-    )
+    sequence = fields.Char("Sequence", readonly=True, copy=False, index=True)
     name = fields.Char(
-        'Name',
-        readonly=True,
-        copy=False,
-        states={'draft': [('readonly', False)]}
+        "Name", readonly=True, copy=False, states={"draft": [("readonly", False)]}
     )
     description = fields.Char(
-        'Description', required=True,
+        "Description",
+        required=True,
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={"draft": [("readonly", False)]},
     )
     business_requirement = fields.Html(
-        'Customer Story',
-        readonly=True,
-        states={'draft': [('readonly', False)]}
+        "Customer Story", readonly=True, states={"draft": [("readonly", False)]}
     )
     scenario = fields.Html(
-        'Scenario',
+        "Scenario",
         readonly=True,
-        states={'draft': [('readonly', False)],
-                'confirmed': [('readonly', False)]}
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     gap = fields.Html(
-        'Gap',
+        "Gap",
         readonly=True,
-        states={'draft': [('readonly', False)],
-                'confirmed': [('readonly', False)]}
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     test_case = fields.Html(
-        'Test Case',
+        "Test Case",
         readonly=True,
-        states={'draft': [('readonly', False)],
-                'confirmed': [('readonly', False)]}
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     terms_and_conditions = fields.Html(
-        'Terms and Conditions',
+        "Terms and Conditions",
         readonly=True,
-        states={'draft': [('readonly', False)],
-                'confirmed': [('readonly', False)]}
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     category_ids = fields.Many2many(
-        'business.requirement.category',
-        string='Categories',
-        relation='business_requirement_category_rel',
+        "business.requirement.category",
+        string="Categories",
+        relation="business_requirement_category_rel",
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={"draft": [("readonly", False)]},
     )
     state = fields.Selection(
         selection=[
-            ('draft', 'Draft'),
-            ('confirmed', 'Confirmed'),
-            ('approved', 'Approved'),
-            ('in_progress', 'In progress'),
-            ('done', 'Done'),
-            ('cancel', 'Cancel'),
-            ('drop', 'Drop'),
+            ("draft", "Draft"),
+            ("confirmed", "Confirmed"),
+            ("approved", "Approved"),
+            ("in_progress", "In progress"),
+            ("done", "Done"),
+            ("cancel", "Cancel"),
+            ("drop", "Drop"),
         ],
-        string='State',
-        default='draft',
+        string="State",
+        default="draft",
         copy=False,
         readonly=False,
-        states={'draft': [('readonly', False)]},
-        track_visibility='onchange'
+        states={"draft": [("readonly", False)]},
+        track_visibility="onchange",
     )
     change_request = fields.Boolean(
-        string='Change Request?',
-        readonly=True,
-        states={'draft': [('readonly', False)]}
+        string="Change Request?", readonly=True, states={"draft": [("readonly", False)]}
     )
     partner_id = fields.Many2one(
-        comodel_name='res.partner',
-        string='Stakeholder',
+        comodel_name="res.partner",
+        string="Stakeholder",
         copy=False,
         readonly=True,
-        states={'draft': [('readonly', False)]}
+        states={"draft": [("readonly", False)]},
     )
     priority = fields.Selection(
-        [('0', 'Low'), ('1', 'Normal'), ('2', 'High')],
-        'Priority',
+        [("0", "Low"), ("1", "Normal"), ("2", "High")],
+        "Priority",
         required=True,
-        default='1'
+        default="1",
     )
     requested_user_id = fields.Many2one(
-        'res.users',
-        string='Requested by',
+        "res.users",
+        string="Requested by",
         required=True,
         readonly=True,
         default=lambda self: self.env.user,
-        states={
-            'draft': [('readonly', False)],
-            'confirmed': [('readonly', False)]}
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     confirmation_date = fields.Datetime(
-        string='Confirmation Date',
-        copy=False,
-        readonly=True
+        string="Confirmation Date", copy=False, readonly=True
     )
     confirmed_user_id = fields.Many2one(
-        'res.users', string='Confirmed by',
-        copy=False,
-        readonly=True
+        "res.users", string="Confirmed by", copy=False, readonly=True
     )
     responsible_user_id = fields.Many2one(
-        'res.users', string='Responsible',
+        "res.users",
+        string="Responsible",
         copy=False,
         readonly=True,
         default=lambda self: self.env.user,
-        states={
-            'draft': [('readonly', False)],
-            'confirmed': [('readonly', False)]
-        }
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     reviewer_ids = fields.Many2many(
-        'res.users', string='Reviewers',
+        "res.users",
+        string="Reviewers",
         copy=False,
         readonly=True,
-        states={
-            'draft': [('readonly', False)],
-            'confirmed': [('readonly', False)]
-        }
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
-    approval_date = fields.Datetime(
-        string='Approval Date',
-        copy=False,
-        readonly=True
-    )
+    approval_date = fields.Datetime(string="Approval Date", copy=False, readonly=True)
     approved_id = fields.Many2one(
-        'res.users',
-        string='Approved by',
-        copy=False,
-        readonly=True
+        "res.users", string="Approved by", copy=False, readonly=True
     )
     company_id = fields.Many2one(
-        'res.company', string='Company',
-        required=True, readonly=True, states={'draft': [('readonly', False)]},
+        "res.company",
+        string="Company",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
         default=_get_default_company,
     )
-    to_be_reviewed = fields.Boolean(
-        string='To be Reviewed'
-    )
+    to_be_reviewed = fields.Boolean(string="To be Reviewed")
     kanban_state = fields.Selection(
         [
-            ('normal', 'In Progress'),
-            ('on_hold', 'On Hold'),
-            ('done', 'Ready for next stage')
+            ("normal", "In Progress"),
+            ("on_hold", "On Hold"),
+            ("done", "Ready for next stage"),
         ],
-        'Kanban State',
-        track_visibility='onchange',
-        default='normal'
+        "Kanban State",
+        track_visibility="onchange",
+        default="normal",
     )
     origin = fields.Char(
-        string='Source',
+        string="Source",
         readonly=True,
-        states={
-            'draft': [('readonly', False)],
-            'confirmed': [('readonly', True)]
-        }
+        states={"draft": [("readonly", False)], "confirmed": [("readonly", True)]},
     )
-    portal_published = fields.Boolean('In Portal', default=False)
+    portal_published = fields.Boolean("In Portal", default=False)
     user_id = fields.Many2one(
-        'res.users',
-        string='Owner',
+        "res.users",
+        string="Owner",
         default=lambda self: self.env.user,
         required=True,
-        track_visibility='always',
+        track_visibility="always",
     )
     date = fields.Date(
-        'Date',
-        default=lambda self: self._context.get(
-            'date', fields.Date.context_today(self)),
-        required=True
+        "Date",
+        default=lambda self: self._context.get("date", fields.Date.context_today(self)),
+        required=True,
     )
 
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'business.requirement')
+        if vals.get("name", "/") == "/":
+            vals["name"] = self.env["ir.sequence"].next_by_code("business.requirement")
         return super().create(vals)
 
     @api.multi
     def write(self, vals):
-        if vals.get('state'):
+        if vals.get("state"):
             user = self.env.user
             user_manager = user.has_group(
-                'business_requirement.group_business_requirement_manager')
+                "business_requirement.group_business_requirement_manager"
+            )
             date = fields.Datetime.now()
-            if vals['state'] == 'confirmed':
-                vals.update({'confirmed_user_id': user.id,
-                             'confirmation_date': date})
-            if vals['state'] == 'draft':
-                vals.update({'confirmed_user_id': False,
-                             'approved_id': False,
-                             'confirmation_date': False,
-                             'approval_date': False
-                             })
-            if vals['state'] == 'approved':
+            if vals["state"] == "confirmed":
+                vals.update({"confirmed_user_id": user.id, "confirmation_date": date})
+            if vals["state"] == "draft":
+                vals.update(
+                    {
+                        "confirmed_user_id": False,
+                        "approved_id": False,
+                        "confirmation_date": False,
+                        "approval_date": False,
+                    }
+                )
+            if vals["state"] == "approved":
                 if user_manager:
-                    vals.update({
-                        'approved_id': user.id, 'approval_date': date})
+                    vals.update({"approved_id": user.id, "approval_date": date})
                 else:
-                    raise ValidationError(_(
-                        'You can only move to the following stage: '
-                        'draft/confirmed /cancel/drop.'))
-            if vals['state'] in {'approved', 'in_progress',
-                                 'done'}:
+                    raise ValidationError(
+                        _(
+                            "You can only move to the following stage: "
+                            "draft/confirmed /cancel/drop."
+                        )
+                    )
+            if vals["state"] in {"approved", "in_progress", "done"}:
                 if not user_manager:
-                    raise ValidationError(_(
-                        'You can only move to the following stage: '
-                        'draft/confirmed/cancel/drop.'))
+                    raise ValidationError(
+                        _(
+                            "You can only move to the following stage: "
+                            "draft/confirmed/cancel/drop."
+                        )
+                    )
         return super().write(vals)
 
     @api.multi
@@ -244,20 +216,21 @@ class BusinessRequirement(models.Model):
         """
         result = []
         for br in self:
-            formatted_name = u'[{}] {}'.format(br.name, br.description)
+            formatted_name = u"[{}] {}".format(br.name, br.description)
             result.append((br.id, formatted_name))
         return result
 
     @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
+    def name_search(self, name, args=None, operator="ilike", limit=100):
         """Search BR based on Name or Description"""
         # Make a search with default criteria
         names = super().name_search(
-            name=name, args=args, operator=operator, limit=limit)
+            name=name, args=args, operator=operator, limit=limit
+        )
         # Make the other search
         descriptions = []
         if name:
-            domain = [('description', '=ilike', name + '%')]
+            domain = [("description", "=ilike", name + "%")]
             descriptions = self.search(domain, limit=limit).name_get()
         # Merge both results
         return list(set(names) | set(descriptions))[:limit]
@@ -265,20 +238,30 @@ class BusinessRequirement(models.Model):
     @api.multi
     @api.returns('mail.message', lambda value: value.id)
     def message_post(
-        self, body='', subject=None,
-        message_type='notification', subtype=None,
-        parent_id=False, attachments=None,
-        notif_layout=False, add_sign=True, model_description=False,
-        mail_auto_delete=True, **kwargs
+        self,
+        body="",
+        subject=None,
+        message_type="notification",
+        subtype=None,
+        parent_id=False,
+        attachments=None,
+        notif_layout=False,
+        add_sign=True,
+        model_description=False,
+        mail_auto_delete=True,
+        **kwargs
     ):
         context = self._context or {}
-        if context.get('default_model') ==\
-                'business.requirement' and context.get('default_res_id'):
-            br_rec = self.env[context.get('default_model')]. \
-                browse(context['default_res_id'])
-            subject = 'Re: %s-%s' % (br_rec.name, br_rec.description)
-        message = super(BusinessRequirement, self.with_context(
-            mail_create_nosubscribe=True)).message_post(
+        if context.get("default_model") == "business.requirement" and context.get(
+            "default_res_id"
+        ):
+            br_rec = self.env[context.get("default_model")].browse(
+                context["default_res_id"]
+            )
+            subject = "Re: {}-{}".format(br_rec.name, br_rec.description)
+        message = super(
+            BusinessRequirement, self.with_context(mail_create_nosubscribe=True)
+        ).message_post(
             body=body,
             subject=subject,
             message_type=message_type,
@@ -289,70 +272,87 @@ class BusinessRequirement(models.Model):
             add_sign=add_sign,
             model_description=model_description,
             mail_auto_delete=mail_auto_delete,
-            **kwargs)
+            **kwargs
+        )
         return message
 
     @api.model
-    def read_group(self, domain, fields, groupby, offset=0,
-                   limit=None, orderby=False, lazy=True):
+    def read_group(
+        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
+    ):
         """Read group customization in order to display all the stages in the
         kanban view. if the stages values are there it will group by state.
         """
         if groupby and groupby[0] == "state":
-            states = self.env['business.requirement'].\
-                fields_get(['state']).get('state').get('selection')
-            read_group_all_states = [{'__context': {'group_by': groupby[1:]},
-                                      '__domain': domain + [('state', '=',
-                                                             state_value)],
-                                      'state': state_value,
-                                      'state_count': 0}
-                                     for state_value, state_name in states]
+            states = (
+                self.env["business.requirement"]
+                .fields_get(["state"])
+                .get("state")
+                .get("selection")
+            )
+            read_group_all_states = [
+                {
+                    "__context": {"group_by": groupby[1:]},
+                    "__domain": domain + [("state", "=", state_value)],
+                    "state": state_value,
+                    "state_count": 0,
+                }
+                for state_value, state_name in states
+            ]
             # Get standard results
-            read_group_res = super().\
-                read_group(domain, fields, groupby, offset=offset,
-                           limit=limit, orderby=orderby)
+            read_group_res = super().read_group(
+                domain, fields, groupby, offset=offset, limit=limit, orderby=orderby
+            )
             # Update standard results with default results
             result = []
-            for state_value, state_name in states:
-                res = list(
-                    filter(
-                        lambda x: x['state'] == state_value,
-                        read_group_res))
+            for state_value, _state_name in states:
+                res = list(filter(lambda x: x["state"] == state_value, read_group_res))
                 if not res:
                     res = list(
                         filter(
-                            lambda x: x['state'] == state_value,
-                            read_group_all_states))
-                res[0]['state'] = state_value
+                            lambda x: x["state"] == state_value, read_group_all_states
+                        )
+                    )
+                res[0]["state"] = state_value
                 result.append(res[0])
             return result
-        return super().\
-            read_group(domain, fields, groupby,
-                       offset=offset, limit=limit, orderby=orderby, lazy=lazy)
+        return super().read_group(
+            domain,
+            fields,
+            groupby,
+            offset=offset,
+            limit=limit,
+            orderby=orderby,
+            lazy=lazy,
+        )
 
     def get_portal_confirmation_action(self):
-        return self.env['ir.config_parameter'].sudo().get_param(
-            'business_requirement.br_portal_confirmation_options',
-            default='none')
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param(
+                "business_requirement.br_portal_confirmation_options", default="none"
+            )
+        )
 
     def _compute_access_url(self):
         super()._compute_access_url()
         for br in self:
-            br.access_url = '/my/business_requirement/%s' % br.id
+            br.access_url = "/my/business_requirement/%s" % br.id
 
     @api.multi
     def portal_publish_button(self):
         self.ensure_one()
-        return self.write({'portal_published': not self.portal_published})
+        return self.write({"portal_published": not self.portal_published})
 
 
 class BusinessRequirementCategory(models.Model):
     _name = "business.requirement.category"
     _description = "Categories"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string="Name", required=True)
     parent_id = fields.Many2one(
-        comodel_name='business.requirement.category',
-        string='Parent Category',
-        ondelete='restrict'
+        comodel_name="business.requirement.category",
+        string="Parent Category",
+        ondelete="restrict",
     )

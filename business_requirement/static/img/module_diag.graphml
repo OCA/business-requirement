@@ -216,7 +216,7 @@ Community module<y:LabelModel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="257.869140625" x="5.5654296875" y="1.5625">business_requirement_deliverable_default
 -
-Allows to create product with default 
+Allows to create product with default
 resources lines for quick data entry<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -236,7 +236,7 @@ resources lines for quick data entry<y:LabelModel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="252.560546875" x="8.2197265625" y="1.5625">business_requirement_deliverable_report
 -
-Report to print the BR content 
+Report to print the BR content
 to send to customer (3 levels of details)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -275,7 +275,7 @@ Community module<y:LabelModel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="242.376953125" x="13.3115234375" y="1.5625">business_requirement_crm_online
 -
-Allows to select the OQ template at SQ 
+Allows to select the OQ template at SQ
 creation (planned)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
