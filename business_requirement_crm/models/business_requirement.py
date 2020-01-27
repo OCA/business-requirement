@@ -6,10 +6,8 @@ from odoo import fields, models
 
 
 class BusinessRequirement(models.Model):
-    _inherit = 'business.requirement'
+    _inherit = "business.requirement"
 
     lead_id = fields.Many2one(
-        comodel_name='crm.lead',
-        string="Lead",
-        ondelete='restrict',
+        comodel_name="crm.lead", string="Lead", ondelete="restrict"
     )
