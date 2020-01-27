@@ -9,16 +9,16 @@ class TestBusinessRequirementCrm(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.br_model = cls.env['business.requirement']
-        cls.lead_model = cls.env['crm.lead']
-        cls.lead = cls.lead_model.create({
-            'name': 'Test lead',
-            'description': 'Investigate and estimate',
-        })
-        cls.wizard = cls.env['crm.lead.create.requirement'].with_context(
-            active_model=cls.lead_model._name,
-            active_id=cls.lead.id,
-        ).create({})
+        cls.br_model = cls.env["business.requirement"]
+        cls.lead_model = cls.env["crm.lead"]
+        cls.lead = cls.lead_model.create(
+            {"name": "Test lead", "description": "Investigate and estimate"}
+        )
+        cls.wizard = (
+            cls.env["crm.lead.create.requirement"]
+            .with_context(active_model=cls.lead_model._name, active_id=cls.lead.id)
+            .create({})
+        )
 
     def test_action_lead_to_business_requirement(self):
         self.wizard.action_lead_to_business_requirement()
@@ -30,8 +30,6 @@ class TestBusinessRequirementCrm(common.SavepointCase):
         self.assertEqual(self.lead.business_requirement_count, 1)
         # br data
         br = self.lead.business_requirement_ids
-        self.assertEqual(br.description, 'Test lead')
-        self.assertEqual(
-            br.business_requirement, '<p>Investigate and estimate</p>',
-        )
+        self.assertEqual(br.description, "Test lead")
+        self.assertEqual(br.business_requirement, "<p>Investigate and estimate</p>")
         self.assertEqual(br.user_id, self.env.user)
