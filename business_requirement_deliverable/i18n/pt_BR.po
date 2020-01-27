@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:338
+#: code:addons/business_requirement_deliverable/models/business.py:0
 #, python-format
 msgid "%s (copy)"
 msgstr ""
@@ -47,7 +47,10 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
-msgid "<span><i>Others</i></span>"
+msgid ""
+"<span>\n"
+"                                            <i>Others</i>\n"
+"                                        </span>"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -96,12 +99,17 @@ msgid "Activities"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:50
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "All"
 msgstr ""
@@ -117,7 +125,7 @@ msgid "Attachment Count"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:65
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__business_requirement_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_pivot
@@ -156,7 +164,7 @@ msgid "Business Requirement Task Type"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:203
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Can't access to this business requirement deliverable"
 msgstr ""
@@ -228,7 +236,7 @@ msgid "Deliverable Created"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:238
+#: code:addons/business_requirement_deliverable/models/business.py:0
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__deliverable_lines
 #, python-format
 msgid "Deliverable Lines"
@@ -310,7 +318,7 @@ msgstr ""
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_1_product_template
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_2_product_template
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_3_product_template
-msgid "Hour(s)"
+msgid "Hours"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -320,17 +328,24 @@ msgid "ID"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
-msgid "If checked new messages require your attention."
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
+msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -386,7 +401,7 @@ msgid "Name"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:45
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Newest"
 msgstr ""
@@ -407,7 +422,7 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:63
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "None"
 msgstr ""
@@ -419,7 +434,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -444,19 +459,9 @@ msgid "Odoo Quick Start Package"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:314
+#: code:addons/business_requirement_deliverable/models/business.py:0
 #, python-format
 msgid "Others"
-msgstr ""
-
-#. module: business_requirement_deliverable
-#: selection:business.requirement.deliverable,activity_state:0
-msgid "Overdue"
-msgstr ""
-
-#. module: business_requirement_deliverable
-#: selection:business.requirement.deliverable,activity_state:0
-msgid "Planned"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -507,7 +512,7 @@ msgid "Ref."
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:47
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Reference"
 msgstr ""
@@ -532,36 +537,41 @@ msgid "Responsible User"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sale_price_unit
 msgid "Sales Price"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:55
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Search <span class=\"nolabel\"> (in Content)</span>"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:60
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Search in All"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:57
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Search in Messages"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:59
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Search in Stakeholder"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:67
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__section_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #, python-format
@@ -611,14 +621,9 @@ msgid "There are no business requirement deliverable."
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/controllers/portal.py:46
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Title"
-msgstr ""
-
-#. module: business_requirement_deliverable
-#: selection:business.requirement.deliverable,activity_state:0
-msgid "Today"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -638,13 +643,18 @@ msgid "Total revenue"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_4
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_5
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_6
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_4_product_template
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_5_product_template
 #: model:product.template,uom_name:business_requirement_deliverable.product_product_6_product_template
-msgid "Unit(s)"
+msgid "Units"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -692,25 +702,9 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: business_requirement_deliverable
-#: code:addons/business_requirement_deliverable/models/business.py:267
+#: code:addons/business_requirement_deliverable/models/business.py:0
 #, python-format
 msgid ""
 "You are changing customer, on a business requirementwhich already contains "
 "deliverable lines.Pricelist could be different."
-msgstr ""
-
-#. module: business_requirement_deliverable
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_1
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_2
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_3
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_4
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_5
-#: model:product.product,weight_uom_name:business_requirement_deliverable.product_product_6
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_1_product_template
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_2_product_template
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_3_product_template
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_4_product_template
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_5_product_template
-#: model:product.template,weight_uom_name:business_requirement_deliverable.product_product_6_product_template
-msgid "kg"
 msgstr ""
