@@ -10,12 +10,12 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner_a = cls.env["res.partner"].create(
-            {
-                "name": "Your company test",
-                "email": "your.company@your-company.com",
-                "customer": True,
-            }
+        cls.partner_a = (
+            cls.env["res.partner"]
+            .with_context({"res_partner_search_mode": "customer"})
+            .create(
+                {"name": "Your company test", "email": "your.company@your-company.com"}
+            )
         )
         cls.br.write(
             {
@@ -103,7 +103,13 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         )
 
     def test_get_cost_total(self):
-        self.assertEqual(self.br.total_revenue, 4800.0)
+        total = self.br.partner_id.property_product_pricelist.currency_id._convert(
+            4800.0,
+            self.br.company_id.currency_id,
+            self.br.company_id,
+            self.br.confirmation_date or fields.Datetime.today(),
+        )
+        self.assertEqual(self.br.total_revenue, total)
 
     def test_compute_price_total(self):
         for line in self.br.deliverable_lines:
@@ -124,7 +130,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         self.assertTrue(self.return_action["type"], "ir.actions.act_window")
 
     def test_compute_dl_total_revenue(self):
-        self.dl_total_revenue = sum(dl.price_total for dl in self.br.deliverable_lines)
+        self.dl_total_revenue = sum(self.br.deliverable_lines.mapped("price_total"))
         self.assertEqual(self.dl_total_revenue, 4800.0)
 
     def test_compute_currency_id(self):
@@ -181,12 +187,12 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             self.assertEqual(line.sale_price_unit, sale_price_unit)
 
     def test_product_id_change_with_pricelist(self):
-        self.partner = self.env["res.partner"].create(
-            {
-                "name": "Your company test",
-                "email": "your.company@your-company.com",
-                "customer": True,
-            }
+        self.partner = (
+            self.env["res.partner"]
+            .with_context({"res_partner_search_mode": "customer"})
+            .create(
+                {"name": "Your company test", "email": "your.company@your-company.com"}
+            )
         )
         self.br.write({"partner_id": self.partner.id})
         for line in self.br.deliverable_lines:
@@ -200,7 +206,14 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             line.business_requirement_id.onchange_partner_id()
             line.product_id_change()
             self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
-            self.assertEqual(line.sale_price_unit, 500.0)
+            product = product.with_context(
+                lang=line.business_requirement_id.partner_id.lang,
+                partner=line.business_requirement_id.partner_id.id,
+                quantity=line.qty,
+                pricelist=line.business_requirement_id.pricelist_id.id,
+                uom=line.uom_id.id,
+            )
+            self.assertEqual(line.sale_price_unit, product.price)
 
     def test_product_id_change_description_sale(self):
         self.productA.write({"description_sale": "Sales Description Product A"})
@@ -220,12 +233,12 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             self.assertEqual(line.sale_price_unit, 4000.0)
 
     def test_partner_id_change(self):
-        self.partner = self.env["res.partner"].create(
-            {
-                "name": "Your company test",
-                "email": "your.company@your-company.com",
-                "customer": True,
-            }
+        self.partner = (
+            self.env["res.partner"]
+            .with_context({"res_partner_search_mode": "customer"})
+            .create(
+                {"name": "Your company test", "email": "your.company@your-company.com"}
+            )
         )
         self.br.write({"partner_id": self.partner.id})
         with self.assertRaises(UserError):
