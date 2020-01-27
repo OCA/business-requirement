@@ -43,7 +43,6 @@ class CrmLeadCreateRequirement(models.TransientModel):
             "lead_id": self.lead_id.id,
         }
 
-    @api.multi
     def action_lead_to_business_requirement(self):
         """Procedure to allow create Business Requirement
         for Leads with prefeched information such as

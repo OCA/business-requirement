@@ -109,7 +109,7 @@ msgid "Opportunity"
 msgstr "Oportunidad"
 
 #. module: business_requirement_crm
-#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:59
+#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "Requirement %s created"
 msgstr "Requisito %s creado"
@@ -120,7 +120,7 @@ msgid "Requirements"
 msgstr "Requisitos"
 
 #. module: business_requirement_crm
-#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:67
+#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "This business requirement has been created from:"
 msgstr "Este requisito de negocio se ha creado desde:"
