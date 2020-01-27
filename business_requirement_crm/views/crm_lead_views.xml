@@ -4,7 +4,7 @@
     <record id="crm_lead_view_form" model="ir.ui.view">
         <field name="name">crm.lead.form</field>
         <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="groups_id" eval="[(4, ref('business_requirement.group_business_requirement_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
@@ -17,7 +17,7 @@
                 />
             </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
-                <button class="oe_inline oe_stat_button"
+                <button class="oe_stat_button"
                         type="object"
                         name="open_requirements"
                         icon="fa-pencil-square-o"

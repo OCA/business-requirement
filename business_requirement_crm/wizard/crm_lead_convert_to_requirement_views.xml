@@ -28,7 +28,6 @@
     <record id="crm_lead_create_requirement_action" model="ir.actions.act_window">
         <field name="name">Create Requirement</field>
         <field name="res_model">crm.lead.create.requirement</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
