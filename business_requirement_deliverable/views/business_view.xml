@@ -64,7 +64,6 @@
         <field name="name">Requirement Deliverable</field>
         <field name="res_model">business.requirement.deliverable</field>
         <field name="view_mode">tree,kanban,form,graph</field>
-        <field name="view_type">form</field>
         <field name="context">{
             'search_default_business_requirement_id': [active_id],
             'default_business_requirement_id': active_id,
@@ -83,9 +82,9 @@
             ref="business_requirement.view_business_requirement_form"
         />
         <field name="arch" type="xml">
-            <xpath expr='//div[@name="buttons"]' position='inside'>
+            <xpath expr='//div[@name="button_box"]' position='inside'>
                 <button
-                    class="oe_inline oe_stat_button"
+                    class="oe_stat_button"
                     type="object"
                     name="open_deliverable_line"
                     icon="fa-tasks"
@@ -175,7 +174,7 @@
                         groups="base.group_user"
                     >
                         <button
-                            class="oe_inline oe_stat_button"
+                            class="oe_stat_button"
                             name="portal_publish_button"
                             type="object"
                             icon="fa-globe"
@@ -336,7 +335,6 @@
         <field name="name">Requirement Deliverable</field>
         <field name="res_model">business.requirement.deliverable</field>
         <field name="view_mode">tree,kanban,form,graph,pivot</field>
-        <field name="view_type">form</field>
         <field name="context">{}</field>
     </record>
     <!-- Action BRD Section-->
@@ -344,7 +342,6 @@
         <field name="name">Requirement Deliverable Section</field>
         <field name="res_model">business.requirement.deliverable.section</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_type">form</field>
         <field name="context">{}</field>
     </record>
     <!-- MenuItem Requirement Deliverable Line-->
