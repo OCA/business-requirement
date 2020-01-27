@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement_sale
+# 	* business_requirement_sale
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:168
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "At least one deliverable must be selected to create the quotation"
 msgstr ""
@@ -118,30 +118,30 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:61
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "No deliverables found for this business requirement."
 msgstr ""
 
 #. module: business_requirement_sale
-#: selection:business.requirement.create.sale,totaled_method:0
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__standard
 msgid "Quantity and price unit as is"
 msgstr ""
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:152
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "Quotation %s created "
 msgstr ""
 
 #. module: business_requirement_sale
-#: model:ir.model,name:business_requirement_sale.model_sale_order
-msgid "Sale Order"
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
+msgid "Sales"
 msgstr ""
 
 #. module: business_requirement_sale
-#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
-msgid "Sales"
+#: model:ir.model,name:business_requirement_sale.model_sale_order
+msgid "Sales Order"
 msgstr ""
 
 #. module: business_requirement_sale
@@ -165,12 +165,12 @@ msgid "Sections"
 msgstr ""
 
 #. module: business_requirement_sale
-#: selection:business.requirement.create.sale,totaled_method:0
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__totaled
 msgid "Subtotal as price unit and qty = 1"
 msgstr ""
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:159
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "This quotation has been created from:"
 msgstr ""
@@ -189,4 +189,3 @@ msgstr ""
 #: model:ir.model,name:business_requirement_sale.model_business_requirement_create_sale
 msgid "Wizard to create new SO from requirement"
 msgstr ""
-
