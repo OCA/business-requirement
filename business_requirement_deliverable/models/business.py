@@ -4,8 +4,6 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
-from odoo.addons import decimal_precision as dp
-
 
 class BusinessRequirementDeliverable(models.Model):
     _name = "business.requirement.deliverable"
@@ -69,9 +67,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
     portal_published = fields.Boolean("In Portal", default=True)
     section_id = fields.Many2one(
-        comodel_name="business.requirement.deliverable.section",
-        string="Section",
-        oldname="business_requirement_deliverable_section_id",
+        comodel_name="business.requirement.deliverable.section", string="Section"
     )
 
     def _compute_access_url(self):
@@ -79,7 +75,6 @@ class BusinessRequirementDeliverable(models.Model):
         for brd in self:
             brd.access_url = "/my/brd/%s" % brd.id
 
-    @api.multi
     @api.depends("business_requirement_id.partner_id")
     def _compute_currency_id(self):
         for brd in self:
@@ -89,7 +84,6 @@ class BusinessRequirementDeliverable(models.Model):
             else:
                 brd.currency_id = self.env.user.company_id.currency_id
 
-    @api.multi
     @api.depends("sale_price_unit", "qty")
     def _compute_price_total(self):
         for brd in self:
@@ -135,7 +129,6 @@ class BusinessRequirementDeliverable(models.Model):
                 self.product_id.lst_price, self.uom_id
             )
 
-    @api.multi
     def portal_publish_button(self):
         self.ensure_one()
         return self.write({"portal_published": not self.portal_published})
@@ -173,9 +166,7 @@ class BusinessRequirement(models.Model):
         compute="_compute_currency_id",
     )
     dl_total_revenue = fields.Float(
-        string="DL Total Revenue",
-        digit=dp.get_precision("Account"),
-        compute="_compute_dl_total_revenue",
+        string="DL Total Revenue", digits="Account", compute="_compute_dl_total_revenue"
     )
     dl_count = fields.Integer("DL Count", compute="_compute_dl_count")
     pricelist_id = fields.Many2one(
@@ -185,7 +176,6 @@ class BusinessRequirement(models.Model):
         states={"draft": [("readonly", False)]},
     )
 
-    @api.multi
     @api.onchange("partner_id")
     def onchange_partner_id(self):
         """
@@ -200,17 +190,14 @@ class BusinessRequirement(models.Model):
             }
             self.update(values)
 
-    @api.multi
     def _compute_dl_total_revenue(self):
         for r in self:
-            r.dl_total_revenue = sum(dl.price_total for dl in r.deliverable_lines)
+            r.dl_total_revenue = sum(r.deliverable_lines.mapped("price_total"))
 
-    @api.multi
     def _compute_dl_count(self):
         for r in self:
             r.dl_count = len(r.deliverable_lines.ids)
 
-    @api.multi
     def open_deliverable_line(self):
         for self in self:
             domain = [("business_requirement_id", "=", self.id)]
@@ -234,7 +221,6 @@ class BusinessRequirement(models.Model):
                 },
             }
 
-    @api.multi
     @api.depends("pricelist_id")
     def _compute_currency_id(self):
         for br in self:
@@ -243,7 +229,6 @@ class BusinessRequirement(models.Model):
             else:
                 br.currency_id = self.env.user.company_id.currency_id.id
 
-    @api.multi
     @api.onchange("partner_id")
     def partner_id_change(self):
         for record in self:
@@ -256,7 +241,6 @@ class BusinessRequirement(models.Model):
                     )
                 )
 
-    @api.multi
     @api.depends(
         "deliverable_lines", "deliverable_lines.price_total", "company_id.currency_id"
     )
@@ -303,7 +287,6 @@ class BusinessRequirement(models.Model):
             sections_total.append((_("Others"), brd_section_total))
         return sections_total
 
-    @api.multi
     def map_deliverable(self, new_br_id):
         """ copy and map deliverable from old to new requirement """
         deliverables = self.env["business.requirement.deliverable"]
@@ -322,7 +305,6 @@ class BusinessRequirement(models.Model):
             {"deliverable_lines": [(6, 0, deliverables.ids)]}
         )
 
-    @api.multi
     def copy(self, default=None):
         if default is None:
             default = {}
@@ -366,7 +348,6 @@ class BusinessRequirement(models.Model):
                 )
         return res
 
-    @api.multi
     def message_unsubscribe(self, partner_ids=None, channel_ids=None):
         """Unsubscribe from all deliverables
         when unsubscribing from a requirement
