@@ -1,7 +1,7 @@
 # Copyright 2019 Tecnativa - Victor M.M. Torres
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProjectTask(models.Model):
@@ -14,7 +14,6 @@ class ProjectTask(models.Model):
         string="Deliverable",
     )
 
-    @api.multi
     def action_view_deliverable(self):
         action = self.env.ref(
             "business_requirement_deliverable.action_deliverable_lines"
