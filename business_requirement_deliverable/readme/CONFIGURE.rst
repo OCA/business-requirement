@@ -6,7 +6,7 @@ Estimation Pricelist: user can see the Sales price and revenue of the BR.
 Master project
 --------------
 
-You can define a master project linked to the business requirement. Default Customer 
+You can define a master project linked to the business requirement. Default Customer
 from the project will be used to populate the BR. The customer can be changed if necessary.
 
 Valuation of the Deliverable and Resources lines
@@ -20,7 +20,7 @@ which will be used in 2 main places:
 
 NB: Here is the way Odoo will get a price in Deliverable and Resources Lines:
 
-#. If the Estimation Pricelist field is not empty use the Estimation pricelist 
+#. If the Estimation Pricelist field is not empty use the Estimation pricelist
 #. If empty, use the standard customer pricelist field
 #. If no pricelist available (for example no customer defined in the project), use
    the product Sales price.
