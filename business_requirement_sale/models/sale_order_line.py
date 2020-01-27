@@ -5,9 +5,9 @@ from odoo import fields, models
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     br_deliverable_section_id = fields.Many2one(
-        comodel_name='business.requirement.deliverable.section',
+        comodel_name="business.requirement.deliverable.section",
         string="Business Requirement Deliverable Section",
     )

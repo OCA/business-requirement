@@ -7,7 +7,8 @@ from openupgradelib import openupgrade
 @openupgrade.migrate()
 def migrate(env, version):
     openupgrade.logged_query(
-        env.cr, """
+        env.cr,
+        """
         UPDATE sale_order_line sol
         SET br_deliverable_section_id = slc.br_deliverable_section_id
         FROM sale_layout_category slc
