@@ -6,17 +6,16 @@ from odoo import fields, models
 
 
 class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+    _inherit = "sale.order"
 
     business_requirement_id = fields.Many2one(
-        comodel_name='business.requirement',
-        string='Business requirement',
+        comodel_name="business.requirement", string="Business requirement"
     )
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     business_requirement_deliverable_id = fields.Many2one(
-        comodel_name='business.requirement.deliverable',
-        string='Deliverable')
+        comodel_name="business.requirement.deliverable", string="Deliverable"
+    )
