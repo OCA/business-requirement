@@ -14,8 +14,7 @@ class CrmLead(models.Model):
         compute="_compute_business_requirement_count"
     )
 
-    @api.multi
-    @api.depends('business_requirement_ids')
+    @api.depends("business_requirement_ids")
     def _compute_business_requirement_count(self):
         groups = self.env["business.requirement"].read_group(
             domain=[("lead_id", "in", self.ids)],
@@ -26,7 +25,6 @@ class CrmLead(models.Model):
         for rec in self:
             rec.business_requirement_count = data.get(rec.id, 0)
 
-    @api.multi
     def open_requirements(self):
         action = self.env.ref(
             "business_requirement.action_business_requirement_tree"

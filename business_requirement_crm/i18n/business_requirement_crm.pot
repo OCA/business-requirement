@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement_crm
+# 	* business_requirement_crm
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +106,7 @@ msgid "Opportunity"
 msgstr ""
 
 #. module: business_requirement_crm
-#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:59
+#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "Requirement %s created"
 msgstr ""
@@ -117,8 +117,7 @@ msgid "Requirements"
 msgstr ""
 
 #. module: business_requirement_crm
-#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:67
+#: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "This business requirement has been created from:"
 msgstr ""
-
