@@ -17,7 +17,6 @@ class BusinessRequirement(models.Model):
         string="Sales Orders Count", compute="_compute_sale_order_count"
     )
 
-    @api.multi
     @api.depends("sale_order_ids")
     def _compute_sale_order_count(self):
         groups = self.env["sale.order"].read_group(
@@ -32,7 +31,6 @@ class BusinessRequirement(models.Model):
         for rec in self:
             rec.sale_order_count = data.get(rec.id, 0)
 
-    @api.multi
     def open_orders(self):
         action = self.env.ref("sale.action_quotations").read()[0]
         if len(self) == 1:
