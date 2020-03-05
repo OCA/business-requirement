@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-business_requirement',
+        'odoo13-addon-business_requirement_crm',
     ],
     classifiers=[
         'Programming Language :: Python',
