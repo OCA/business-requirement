@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-03-13 16:13+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,112 +15,113 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_ids
 msgid "Business Requirement"
-msgstr ""
+msgstr "Poslovna zahteva"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_count
 msgid "Business Requirement Count"
-msgstr ""
+msgstr "Št. poslovnih zahtev"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Preklic"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Create Business Requirement"
-msgstr ""
+msgstr "Ustvari poslovno zahtevo"
 
 #. module: business_requirement_crm
 #: model:ir.actions.act_window,name:business_requirement_crm.crm_lead_create_requirement_action
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
 msgid "Create Requirement"
-msgstr ""
+msgstr "Ustvari zahtevo"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead_create_requirement
 msgid "Crm Lead Create Requirement"
-msgstr ""
+msgstr "Ustvari zahtevo iz CRM indica"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
 msgid "Customer history"
-msgstr ""
+msgstr "Zgodovina kupca"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazni naziv"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zadnjič spremenjeno"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__lead_id
 msgid "Lead"
-msgstr ""
+msgstr "Indic"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Indic/priložnost"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__lead_id
 msgid "Opportunity"
-msgstr ""
+msgstr "Priložnost"
 
 #. module: business_requirement_crm
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:59
 #, python-format
 msgid "Requirement %s created"
-msgstr ""
+msgstr "Zahteva %s ustvarjena"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Requirements"
-msgstr ""
+msgstr "Zahteve"
 
 #. module: business_requirement_crm
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:67
 #, python-format
 msgid "This business requirement has been created from:"
-msgstr ""
+msgstr "Ta poslovna zahteva je nastala iz:"
