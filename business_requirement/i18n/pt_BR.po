@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-17 14:24+0000\n"
+"PO-Revision-Date: 2020-03-21 20:13+0000\n"
 "Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -104,7 +104,7 @@ msgstr "Atividades"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Decoração de Exceção de Atividade"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_state
@@ -152,10 +152,8 @@ msgstr "Requisito de Negócios"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
-#, fuzzy
-#| msgid "Business Requirement"
 msgid "Business Requirement #"
-msgstr "Requisito de Negócios"
+msgstr "Requisito de Negócios #"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.br_report
@@ -343,12 +341,12 @@ msgstr "ID"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Ícone"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Ícone para indicar uma atividade de exceção."
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction
@@ -469,10 +467,8 @@ msgstr "Número de Ações"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error_counter
-#, fuzzy
-#| msgid "Number of error"
 msgid "Number of errors"
-msgstr "Número de erro"
+msgstr "Número de erros"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction_counter
@@ -567,10 +563,8 @@ msgstr "Revisores"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_sms_error
-#, fuzzy
-#| msgid "Message Delivery error"
 msgid "SMS Delivery error"
-msgstr "Mensagem de Erro de Entrega"
+msgstr "SMS de Erro de Entrega"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__scenario
@@ -606,7 +600,7 @@ msgstr "Origem"
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Stakeholder"
-msgstr "Stakeholder"
+msgstr "Interessado"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
@@ -690,7 +684,7 @@ msgstr "A ser Revisado"
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo da atividade de exceção registrada."
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread
