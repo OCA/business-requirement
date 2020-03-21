@@ -32,14 +32,12 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Approval Date"
 msgid "<strong>Approval Date</strong>"
 msgstr "Datum odobritve"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Change Request?"
 msgid "<strong>Assigned to</strong>"
 msgstr "Zahteva po spremembi?"
 
@@ -51,14 +49,12 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Change Request?"
 msgid "<strong>Change Request</strong>"
 msgstr "Zahteva po spremembi?"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Confirmation Date"
 msgid "<strong>Confirmation Date</strong>"
 msgstr "Datum potrditve"
 
@@ -80,7 +76,6 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Change Request?"
 msgid "<strong>Requested by</strong>"
 msgstr "Zahteva po spremembi?"
 
@@ -132,7 +127,6 @@ msgstr "Datum odobritve"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__approved
 #, fuzzy
-#| msgid "Approved by"
 msgid "Approved"
 msgstr "Odobril"
 
@@ -168,7 +162,6 @@ msgstr "Poslovna zahteva"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, fuzzy
-#| msgid "Business Requirement"
 msgid "Business Requirement #"
 msgstr "Poslovna zahteva"
 
@@ -235,7 +228,6 @@ msgstr "Datum potrditve"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__confirmed
 #, fuzzy
-#| msgid "Confirmed by"
 msgid "Confirmed"
 msgstr "Potrdil"
 
@@ -274,7 +266,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__access_url
 #, fuzzy
-#| msgid "Customer Story"
 msgid "Customer Portal URL"
 msgstr "Kupčeva zgodba"
 
@@ -346,7 +337,6 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 #, fuzzy
-#| msgid "Group By"
 msgid "Group by"
 msgstr "Združi po"
 
@@ -386,7 +376,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__portal_published
 #, fuzzy
-#| msgid "In Progress"
 msgid "In Portal"
 msgstr "Napredovanje"
 
@@ -398,7 +387,6 @@ msgstr "Napredovanje"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__in_progress
 #, fuzzy
-#| msgid "In Progress"
 msgid "In progress"
 msgstr "Napredovanje"
 
@@ -576,7 +564,6 @@ msgstr "Odgovorni"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_user_id
 #, fuzzy
-#| msgid "Responsible"
 msgid "Responsible User"
 msgstr "Odgovorni"
 

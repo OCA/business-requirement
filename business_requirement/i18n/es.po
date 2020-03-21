@@ -326,7 +326,6 @@ msgstr "Gap:"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 #, fuzzy
-#| msgid "Group By"
 msgid "Group by"
 msgstr "Agrupar por"
 
@@ -376,7 +375,6 @@ msgstr "En proceso"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__in_progress
 #, fuzzy
-#| msgid "In Progress"
 msgid "In progress"
 msgstr "En proceso"
 
@@ -488,7 +486,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread_counter
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Number of unread messages"
 msgstr "Mensajes sin leer"
 
@@ -561,7 +558,6 @@ msgstr "Responsable"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_user_id
 #, fuzzy
-#| msgid "Responsible"
 msgid "Responsible User"
 msgstr "Responsable"
 
@@ -700,14 +696,12 @@ msgstr "Mensajes sin leer"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread_counter
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Unread Messages Counter"
 msgstr "Mensajes sin leer"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__website_message_ids
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Website Messages"
 msgstr "Mensajes sin leer"
 
