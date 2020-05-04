@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets_frontend_inherit_brd"
+        inherit_id="web.assets_frontend"
+        name="BRD frontend assets"
+    >
+        <xpath expr="link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/business_requirement_deliverable/static/src/scss/brd_portal.scss"
+            />
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,216 @@
+<odoo>
+    <template
+        id="portal_my_home_menu_brd"
+        name="Portal layout : business requirement deliverable menu entries"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="20"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'business_requirement_deliverable' or brd"
+                t-attf-class="breadcrumb-item #{'active ' if not brd else ''}"
+            >
+                <a
+                    t-if="brd"
+                    t-attf-href="/my/brd?{{ keep_query() }}"
+                >Business Requirement Deliverable</a>
+                <t t-else="">Business Requirement Deliverable</t>
+            </li>
+            <li t-if="brd" class="breadcrumb-item active">
+                <t t-esc="brd.name" />
+            </li>
+        </xpath>
+    </template>
+    <template
+        id="portal_my_home_br"
+        name="Portal My Home : business requirements entries"
+        inherit_id="business_requirement.portal_my_home_br"
+        priority="20"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="dl_count" t-call="portal.portal_docs_entry">
+                <t t-set="title">Business Requirement Deliverables</t>
+                <t t-set="url" t-value="'/my/brd'" />
+                <t t-set="count" t-value="dl_count" />
+            </t>
+        </xpath>
+    </template>
+    <template id="portal_my_brd_list" name="My Business Requirement Deliverable">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Business Requirement Deliverable</t>
+            </t>
+            <t t-if="not grouped_brd">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no business requirement deliverable.
+                </div>
+            </t>
+            <t t-if="grouped_brd">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_brd" t-as="brd">
+                        <thead>
+                            <tr
+                                t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}"
+                            >
+                                <th class="text-left" t-if="groupby == 'none'">Name</th>
+                                <th class="text-left" t-elif="groupby == 'section'">
+                                    <em
+                                        class="font-weight-normal text-muted"
+                                    >Deliverables for section:</em>
+                                    <t t-if="brd[0].sudo().section_id">
+                                        <span t-field="brd[0].sudo().section_id.name" />
+                                    </t>
+                                    <t t-else="">
+                                        <span>
+                                            <i>Others</i>
+                                        </span>
+                                    </t>
+                                </th>
+                                <th class="text-left" t-else="">
+                                    <em
+                                        class="font-weight-normal text-muted"
+                                    >Deliverables for business requirement:</em>
+                                    <span
+                                        t-field="brd[0].sudo().business_requirement_id.name"
+                                    />
+                                </th>
+                                <th class="text-left col-md-1">Ref.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="brd" t-as="rec">
+                                <tr>
+                                    <td class="text-left">
+                                        <a
+                                            t-attf-href="/my/brd/#{rec.id}?{{ keep_query() }}"
+                                        >
+                                            <span t-field="rec.name" />
+                                        </a>
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-esc="rec.sequence" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="portal_my_brd" name="My Business Requirement Deriverable">
+        <t t-call="portal.portal_layout">
+            <t
+                t-set="o_portal_fullwidth_alert"
+                groups="business_requirement.group_business_requirement_manager"
+            >
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t
+                        t-set="backend_url"
+                        t-value="'/web#return_label=Website&amp;model=business.requirement.deliverable&amp;id=%s&amp;view_type=form' % (brd.id)"
+                    />
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <h5 class="mb-1 mb-md-0">
+                                <span t-field="brd.name" />
+                                <small class="text-muted"> (#<span
+                                        t-field="brd.id"
+                                    />)</small>
+                            </h5>
+                        </div>
+                        <div class="col-md text-md-right">
+                            <small class="text-right">Section:</small>
+                            <span
+                                t-field="brd.section_id.name"
+                                class=" badge badge-pill badge-info"
+                                title="Current section of this deliverable"
+                            />
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class='row'>
+                        <div class="col-md-6">
+                            <div class="mb8">
+                                <strong>Business Requirement:</strong>
+                                <a
+                                    t-attf-href="/my/business_requirement/#{brd.business_requirement_id.id}"
+                                    t-field="brd.business_requirement_id.name"
+                                />
+                            </div>
+                            <div t-if="any(brd.dependency_ids)" class="mb8">
+                                <strong>Depends On:</strong>
+                                <t t-foreach="brd.dependency_ids" t-as="brd_dep">
+                                    <a
+                                        t-attf-href="/my/brd/#{brd_dep.id}"
+                                        t-field="brd_dep.name"
+                                    />
+                                    <span
+                                        t-if="brd_dep != brd.dependency_ids[-1]"
+                                    >-</span>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb8">
+                                <strong>Amount:</strong>
+                                <span
+                                    t-field="brd.price_total"
+                                    t-field-options='{"widget": "monetary", "display_currency": brd.sudo().currency_id}'
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <t t-if="brd.user_case">
+                        <div class="col-md-12">
+                            <strong>User Case</strong>
+                            <div t-field="brd.user_case" />
+                        </div>
+                    </t>
+                    <t t-if="brd.proposed_solution">
+                        <div class="col-md-12">
+                            <strong>Proposed Solution</strong>
+                            <div t-field="brd.proposed_solution" />
+                        </div>
+                    </t>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4>
+                    <strong>Message and communication history</strong>
+                </h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="brd" />
+                    <t t-set="token" t-value="brd.access_token" />
+                    <t t-set="pid" t-value="pid" />
+                    <t t-set="hash" t-value="hash" />
+                </t>
+            </div>
+        </t>
+    </template>
+    <template id="portal_br_page" inherit_id="business_requirement.portal_br_page">
+        <xpath expr="//t[@t-set='card_header']/div/div[2]" position="after">
+            <span class="float-right ml8">
+                <a
+                    role="button"
+                    t-attf-href="/my/brd?filterby=#{br.id}"
+                    class="btn btn-sm btn-secondary"
+                >
+                    <span
+                        class="fa fa-file-text"
+                        role="img"
+                        aria-label="Deliverables"
+                        title="Deliverables"
+                    />
+                    <span t-esc="br.dl_count" />
+                    Deliverable(s)
+                </a>
+            </span>
+        </xpath>
+    </template>
+</odoo>
