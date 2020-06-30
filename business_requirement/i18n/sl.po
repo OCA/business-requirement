@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:40+0000\n"
-"PO-Revision-Date: 2020-03-13 16:13+0000\n"
+"PO-Revision-Date: 2020-06-30 15:19+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -68,7 +68,7 @@ msgstr "<strong>Datum</strong>"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 msgid "<strong>Message and communication history</strong>"
-msgstr "<strong>Kronologija komunikacij</strong>"
+msgstr "<strong>Sporočila in kronologija komunikacij</strong>"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -93,7 +93,7 @@ msgstr "<strong>Deležnik</strong>"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_warning
 msgid "Access warning"
-msgstr "Opozorilo pri dostopu"
+msgstr "Opozorilo ob dostopu"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_needaction
