@@ -48,7 +48,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
 #, fuzzy
-#| msgid "Deliverable"
 msgid "<span>Deliverable</span>"
 msgstr "Délivrable"
 
@@ -60,7 +59,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "Business Requirement Cost"
 msgid "<strong>Business Requirement:</strong>"
 msgstr "Coût du besoin"
 
@@ -127,7 +125,6 @@ msgstr "Délivrable"
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "Business Requirement Deliverable"
 msgid "Business Requirement Deliverable -"
 msgstr "Délivrable"
 
@@ -201,7 +198,6 @@ msgstr "Déliverables"
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
 #, fuzzy
-#| msgid "Deliverable lines:"
 msgid "Deliverable items:"
 msgstr "Déliverables :"
 
@@ -233,7 +229,6 @@ msgstr "Nom affiché"
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "Business Requirement Deliverable"
 msgid "Edit Business Requirement Deliverable"
 msgstr "Délivrable"
 
@@ -378,7 +373,6 @@ msgstr "Délivrable"
 #: model:ir.actions.act_window,name:business_requirement_deliverable.action_menu_deliverable_sections
 #: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_sections
 #, fuzzy
-#| msgid "Requirement Deliverable"
 msgid "Requirement Deliverable Section"
 msgstr "Délivrable"
 
@@ -408,7 +402,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:49
 #, fuzzy, python-format
-#| msgid "Stakeholder"
 msgid "Search in Stakeholder"
 msgstr "Partie prenante"
 
@@ -417,7 +410,6 @@ msgstr "Partie prenante"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section_id
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #, fuzzy, python-format
-#| msgid "Description"
 msgid "Section"
 msgstr "Description"
 
@@ -446,7 +438,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
 #, fuzzy
-#| msgid "Business Requirement Deliverable"
 msgid "There are no business requirement deliverable."
 msgstr "Délivrable"
 
@@ -511,7 +502,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_section
 #, fuzzy
-#| msgid "Business Requirement Deliverable"
 msgid "business.requirement.deliverable.section"
 msgstr "Délivrable"
 
