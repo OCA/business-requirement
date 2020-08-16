@@ -33,14 +33,12 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Approval Date"
 msgid "<strong>Approval Date</strong>"
 msgstr "Date d'approbation"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Change Request"
 msgid "<strong>Assigned to</strong>"
 msgstr "Demande de changement"
 
@@ -52,14 +50,12 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Change Request"
 msgid "<strong>Change Request</strong>"
 msgstr "Demande de changement"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Confirmation Date"
 msgid "<strong>Confirmation Date</strong>"
 msgstr "Date de confirmation"
 
@@ -81,7 +77,6 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Change Request"
 msgid "<strong>Requested by</strong>"
 msgstr "Demande de changement"
 
@@ -133,7 +128,6 @@ msgstr "Date d'approbation"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__approved
 #, fuzzy
-#| msgid "Approved by"
 msgid "Approved"
 msgstr "Approuvé par"
 
@@ -169,7 +163,6 @@ msgstr "Besoin Professionnel"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, fuzzy
-#| msgid "Business Requirement"
 msgid "Business Requirement #"
 msgstr "Besoin Professionnel"
 
@@ -236,7 +229,6 @@ msgstr "Date de confirmation"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__confirmed
 #, fuzzy
-#| msgid "Confirmed by"
 msgid "Confirmed"
 msgstr "Confirmé par"
 
@@ -275,7 +267,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__access_url
 #, fuzzy
-#| msgid "Customer Story"
 msgid "Customer Portal URL"
 msgstr "Expression client"
 
@@ -347,7 +338,6 @@ msgstr "Écart :"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 #, fuzzy
-#| msgid "Group By"
 msgid "Group by"
 msgstr "Grouper par"
 
@@ -387,7 +377,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__portal_published
 #, fuzzy
-#| msgid "In Progress"
 msgid "In Portal"
 msgstr "En cours"
 
@@ -399,7 +388,6 @@ msgstr "En cours"
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__in_progress
 #, fuzzy
-#| msgid "In Progress"
 msgid "In progress"
 msgstr "En cours"
 
@@ -454,7 +442,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_ids
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Messages"
 msgstr "Messages non lus"
 
@@ -513,7 +500,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread_counter
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Number of unread messages"
 msgstr "Messages non lus"
 
@@ -584,7 +570,6 @@ msgstr "Responsable"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_user_id
 #, fuzzy
-#| msgid "Responsible"
 msgid "Responsible User"
 msgstr "Responsable"
 
@@ -723,14 +708,12 @@ msgstr "Messages non lus"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread_counter
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Unread Messages Counter"
 msgstr "Messages non lus"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__website_message_ids
 #, fuzzy
-#| msgid "Unread Messages"
 msgid "Website Messages"
 msgstr "Messages non lus"
 
