@@ -141,7 +141,6 @@ msgstr "Presupuesto %s creado "
 #. module: business_requirement_sale
 #: model:ir.model,name:business_requirement_sale.model_sale_order
 #, fuzzy
-#| msgid "Sales Orders"
 msgid "Sale Order"
 msgstr "Pedidos de ventas"
 
