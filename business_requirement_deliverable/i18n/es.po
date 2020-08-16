@@ -73,7 +73,6 @@ msgstr "<strong>Requerimiento de Negocio:</strong>"
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "<strong>Amount:</strong>"
 msgid "<strong>Depends On:</strong>"
 msgstr "<strong>Importe:</strong>"
 
@@ -160,7 +159,6 @@ msgstr "Requisitos de negocio entregable"
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
 #, fuzzy
-#| msgid "Business Requirement Deliverable"
 msgid "Business Requirement Deliverables"
 msgstr "Requisitos de negocio entregable"
 
@@ -177,7 +175,6 @@ msgstr "Tipo de tarea del requisito de negocio"
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, fuzzy, python-format
-#| msgid "There are no business requirement deliverable."
 msgid "Can't access to this business requirement deliverable"
 msgstr "No existe un requerimientos de negocio entregable."
 
@@ -213,7 +210,6 @@ msgstr "Moneda"
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "Requirement Deliverable"
 msgid "Current section of this deliverable"
 msgstr "Requisitos entregables"
 
@@ -247,7 +243,6 @@ msgstr "Entregable"
 #: model:mail.message.subtype,name:business_requirement_deliverable.mt_br_brd_new
 #: model:mail.message.subtype,name:business_requirement_deliverable.mt_brd_new
 #, fuzzy
-#| msgid "Deliverable"
 msgid "Deliverable Created"
 msgstr "Entregable"
 
@@ -271,7 +266,6 @@ msgstr "Listado de entregables:"
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
 #, fuzzy
-#| msgid "Deliverable"
 msgid "Deliverable(s)"
 msgstr "Entregable"
 
@@ -408,7 +402,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_ids
 #, fuzzy
-#| msgid "Search in Messages"
 msgid "Messages"
 msgstr "Buscar en Mensajes"
 
@@ -564,7 +557,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
 #, fuzzy
-#| msgid "Deliverable"
 msgid "SMS Delivery error"
 msgstr "Entregable"
 
@@ -602,7 +594,6 @@ msgstr "Buscar en Entidad Interesada"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__section_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #, fuzzy, python-format
-#| msgid "Section"
 msgid "Section"
 msgstr "Section"
 
@@ -688,7 +679,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
 #, fuzzy
-#| msgid "Search in Messages"
 msgid "Unread Messages"
 msgstr "Buscar en Mensajes"
 
@@ -718,7 +708,6 @@ msgstr "Diseño Web"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
 #, fuzzy
-#| msgid "Website Design"
 msgid "Website Messages"
 msgstr "Diseño Web"
 
@@ -731,7 +720,6 @@ msgstr "Plantillas del sitio web"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
 #, fuzzy
-#| msgid "<strong>Message and communication history</strong>"
 msgid "Website communication history"
 msgstr "</strong>Historial de mensajes y comunicaciones</strong>"
 

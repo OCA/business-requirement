@@ -66,7 +66,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 #, fuzzy
-#| msgid "Business Requirement"
 msgid "<strong>Business Requirement:</strong>"
 msgstr "Poslovna zahteva"
 
@@ -158,7 +157,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
 #, fuzzy
-#| msgid "Business Requirement"
 msgid "Business Requirement Deliverables"
 msgstr "Poslovna zahteva"
 
@@ -576,7 +574,6 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, fuzzy, python-format
-#| msgid "Stakeholder"
 msgid "Search in Stakeholder"
 msgstr "Deležnik"
 
@@ -585,7 +582,6 @@ msgstr "Deležnik"
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__section_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 #, fuzzy, python-format
-#| msgid "Description"
 msgid "Section"
 msgstr "Opis"
 
@@ -699,7 +695,6 @@ msgstr "Oblikovanje spletne strani"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
 #, fuzzy
-#| msgid "Website Design"
 msgid "Website Messages"
 msgstr "Oblikovanje spletne strani"
 
