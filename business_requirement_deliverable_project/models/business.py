@@ -45,6 +45,14 @@ class BusinessRequirement(models.Model):
         string="Number of Business Requirements"
     )
 
+    responsible_id = fields.Many2one(
+        'res.users', string='Responsible', default=lambda self: self.env.uid,
+        help="This user will be responsible of the next activities related to logistic operations for this product.")
+
+    project_id = fields.Many2one(
+        comodel_name="project.project", string="Project"
+    )
+
     @api.depends('project_ids', 'deliverable_lines')
     def _compute_linked_project_count(self):
         for rec in self:
@@ -71,8 +79,8 @@ class BusinessRequirement(models.Model):
         string='All Project Generated'
     )
 
-    @api.depends('business_requirement_ids',
-                 'business_requirement_ids.project_ids')
+    # @api.depends('business_requirement_ids',
+    #              'business_requirement_ids.project_ids')
     def _compute_all_project_generated(self):
         for rec in self:
             rec.all_project_generated = True

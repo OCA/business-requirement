@@ -12,10 +12,10 @@ License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
             <field name="stage_id" position="after">
                 <field name="business_requirement_id"/>
             </field>
-            <filter name="group_message_last_post" position="after">
-                <filter string="Business Requirements"
-                        context="{'group_by': 'business_requirement_id'}"/>
-            </filter>
+<!--            <filter name="group_message_last_post" position="after">-->
+<!--                <filter string="Business Requirements"-->
+<!--                        context="{'group_by': 'business_requirement_id'}"/>-->
+<!--            </filter>-->
         </field>
     </record>
     <record id="action_view_tasks_business_requirement"
