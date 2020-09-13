@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_resource_template
+#
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-03 01:50+0000\n"
+"PO-Revision-Date: 2018-03-03 01:50+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_deliverable
+msgid "Business Requirement Deliverable"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_product_product_resource_lines
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_product_template_resource_lines
+msgid "Business Requirement Resources"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_resource_template.product_template_only_form_view
+msgid "Default Resource Template Lines"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_uid
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Procurement"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_product_template_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: business_requirement_deliverable_resource_template
+#: selection:business.requirement.resource.template,resource_type:0
+msgid "Task"
+msgstr "Tarea"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_resource_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template.field_business_requirement_resource_template_uom_id
+msgid "UoM"
+msgstr "UdM"
+
+#. module: business_requirement_deliverable_resource_template
+#: code:addons/business_requirement_deliverable_resource_template/models/business_requirement_resource_template.py:86
+#, python-format
+msgid "When resource type is task, the UoM category should be time"
+msgstr ""
+
+#. module: business_requirement_deliverable_resource_template
+#: model:ir.model,name:business_requirement_deliverable_resource_template.model_business_requirement_resource_template
+msgid "business.requirement.resource.template"
+msgstr ""

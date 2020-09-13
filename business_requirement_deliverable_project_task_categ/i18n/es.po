@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_project_task_categ
+#
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-05 01:16+0000\n"
+"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:ir.model,name:business_requirement_deliverable_project_task_categ.model_business_requirement_resource
+msgid "Business Requirement Resource"
+msgstr ""
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_1
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_2
+#: model:project.task,legend_done:business_requirement_deliverable_project_task_categ.project_task_3
+msgid "Buzz or set as done"
+msgstr ""
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project_task_categ.view_business_requirement_resource_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:ir.model,name:business_requirement_deliverable_project_task_categ.model_br_generate_projects
+msgid "Generate Projects"
+msgstr ""
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_1
+#: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_2
+#: model:project.task,legend_blocked:business_requirement_deliverable_project_task_categ.project_task_3
+msgid "Need functional or technical help"
+msgstr ""
+
+#. module: business_requirement_deliverable_project_task_categ
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project_task_categ.field_business_requirement_resource_categ_id
+msgid "Task Category"
+msgstr "Categoría de la tarea"

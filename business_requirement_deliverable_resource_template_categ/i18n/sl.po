@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_resource_template_categ
+#
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-18 00:43+0000\n"
+"PO-Revision-Date: 2017-05-18 00:43+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#. module: business_requirement_deliverable_resource_template_categ
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template_categ.field_business_requirement_resource_template_categ_id
+msgid "Task Category"
+msgstr "Kategorija opravila"
+
+#. module: business_requirement_deliverable_resource_template_categ
+#: model:ir.model,name:business_requirement_deliverable_resource_template_categ.model_business_requirement_resource_template
+msgid "business.requirement.resource.template"
+msgstr ""

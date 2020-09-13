@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable_resource_template_categ
+#
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-05 01:16+0000\n"
+"PO-Revision-Date: 2018-02-05 01:16+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: business_requirement_deliverable_resource_template_categ
+#: model:ir.model.fields,field_description:business_requirement_deliverable_resource_template_categ.field_business_requirement_resource_template_categ_id
+msgid "Task Category"
+msgstr "Categoría de la tarea"
+
+#. module: business_requirement_deliverable_resource_template_categ
+#: model:ir.model,name:business_requirement_deliverable_resource_template_categ.model_business_requirement_resource_template
+msgid "business.requirement.resource.template"
+msgstr "business.requirement.resource.template"

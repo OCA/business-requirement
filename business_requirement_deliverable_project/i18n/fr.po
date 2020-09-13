@@ -1,0 +1,261 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* business_requirement_deliverable_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2018-12-23 10:58+0000\n"
+"Last-Translator: Fabien B <fabien@yaltik.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.3\n"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_all_project_generated
+msgid "All Project Generated"
+msgstr "Tous les projets générés"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:43
+#, python-format
+msgid "All business requirements of the project should be stakeholder_approval/canceled/done"
+msgstr ""
+"Tous les besoins du projet doivent être approuvés par les parties prenantes, "
+"annulés ou terminés"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_project_business_requirement_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task_business_requirement_id
+msgid "Business Requirement"
+msgstr "Besoin Professionnel"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_project_business_requirement_deliverable_id
+msgid "Business Requirement Deliverable"
+msgstr "Déliverable du besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task_br_resource_id
+msgid "Business Requirement Resource"
+msgstr "Ressource allouée au besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_search_form
+msgid "Business Requirements"
+msgstr "Besoins Professionnels"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_form2
+msgid "Business requirement"
+msgstr "Besoin professionnel"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_br_ids
+msgid "Business requirements"
+msgstr "Besoins Professionnels"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_for_br
+msgid "Create sub-projects for Business requirements"
+msgstr "Créer des sous-projets pour les besoins professionnels"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_for_childs
+msgid "Create sub-projects for Child Business requirements"
+msgstr "Créer des sous-projets pour les besoins professionnels enfants"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_for_deliverable
+msgid "Create sub-projects for Deliverables"
+msgstr "Créer des sous-projets pour les déliverables"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/wizard/generate_projects.py:51
+#: model:ir.model,name:business_requirement_deliverable_project.model_br_generate_projects
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
+#, python-format
+msgid "Generate Projects"
+msgstr "Générer les projets"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "Generate Tasks"
+msgstr "Générer les tâches"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,help:business_requirement_deliverable_project.field_project_project_business_requirement_id
+msgid "Link the Project and the business requirement"
+msgstr "Lier le projet et le besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,help:business_requirement_deliverable_project.field_project_project_business_requirement_deliverable_id
+msgid "Link the Project and the business requirement deliverable"
+msgstr "Lier le projet et le déliverable du besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,help:business_requirement_deliverable_project.field_project_task_business_requirement_id
+msgid "Link the task and the business requirement"
+msgstr "Lier la tâche et le besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,help:business_requirement_deliverable_project.field_br_generate_projects_analytic_account_id
+msgid "Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc."
+msgstr ""
+"Associe ce projet à un compte analytique si vous avez besoin de la gestion "
+"financière des projets. Il vous permet de relier des projets aux budgets, la "
+"planification, l'analyse des coûts et des revenus, les feuilles de "
+"prestations sur des projets, etc."
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_deliverable_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
+msgid "Linked Project"
+msgstr "Projet lié"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_deliverable_linked_project_count
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_linked_project_count
+msgid "Number of Business Requirements"
+msgstr "Nombre de besoins"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_analytic_account_id
+msgid "Parent Id"
+msgstr "Parent"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:37
+#, python-format
+msgid "Please set working time default unit in project\n"
+"                    config settings"
+msgstr ""
+"Merci de fixer le temps de travail par défaut dans\n"
+"                    les paramètres du projet"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_project_project
+msgid "Project"
+msgstr "Projet"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_br_generate_projects_project_id
+msgid "Project to create the tasks"
+msgstr "Projet où créer les tâches"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/business.py:144
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_deliverable_project_ids
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_project_ids
+#, python-format
+msgid "Projects"
+msgstr "Projets"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_project_origin
+msgid "Source Document"
+msgstr "Document d'origine"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_project_task
+msgid "Task"
+msgstr "Tâche"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.actions.act_window,name:business_requirement_deliverable_project.action_view_tasks_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_task_ids
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_kanban_project
+msgid "Tasks"
+msgstr "Tâches"
+
+#. module: business_requirement_deliverable_project
+#: code:addons/business_requirement_deliverable_project/models/project.py:77
+#, python-format
+msgid "There is no available business requirement resource line\n"
+"                    to generate task"
+msgstr ""
+"Il n'y a pas de ressource disponible sur ce besoin\n"
+"                    pour générer une tâche"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_total_hour
+msgid "Total Hours in Timesheets related to business requirement"
+msgstr "Total des heures sur les feuilles de temps liées au besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_total_planned_hour
+msgid "Total Planned Hour in RL related to business requirement"
+msgstr "Total des heures prévues sur les ressources liées au besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement_task_count
+msgid "Total number of tasks related to a business requirement"
+msgstr "Nombre total de tâches liées au besoin"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_kanban_project
+msgid "]&amp;nbsp;"
+msgstr "]&amp;nbsp;"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "_Apply"
+msgstr "_Appliquer"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "_Cancel"
+msgstr "_Annuler"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.ui.view,arch_db:business_requirement_deliverable_project.view_br_generate_projects_form
+msgid "or"
+msgstr "ou"

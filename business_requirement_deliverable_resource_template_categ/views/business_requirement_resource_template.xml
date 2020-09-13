@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="business_requirement_deliverable_resource_template.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='resource_lines']/tree[@editable='top']/field[@name='name']"
+                   position="after">
+                <field name="categ_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

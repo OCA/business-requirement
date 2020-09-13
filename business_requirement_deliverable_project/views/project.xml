@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+© 2016-2019 Elico Corp (https://www.elico-corp.com).
+License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo>
+    <record model="ir.ui.view" id="edit_project">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page/group/field[@name='partner_id']"
+                   position="after">
+                <newline/>
+                <field name="business_requirement_deliverable_id"
+                       attrs="{'invisible': [('business_requirement_deliverable_id', '=', False)]}"/>
+                <newline/>
+                <field name="business_requirement_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
