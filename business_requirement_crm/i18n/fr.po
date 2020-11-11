@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-06-02 18:19+0000\n"
-"Last-Translator: Khalid Hazam <k.hazam@badep.ma>\n"
+"PO-Revision-Date: 2020-11-12 01:36+0000\n"
+"Last-Translator: Yann Papouin <y.papouin@dec-industrie.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,12 @@ msgstr ""
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_ids
 msgid "Business Requirement"
-msgstr ""
+msgstr "Exigence opérationnelle"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_count
 msgid "Business Requirement Count"
-msgstr ""
+msgstr "Nombre d'exigences opérationnelles"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
@@ -35,92 +35,92 @@ msgstr "Annuler"
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Create Business Requirement"
-msgstr ""
+msgstr "Créer une exigence opérationnelle"
 
 #. module: business_requirement_crm
 #: model:ir.actions.act_window,name:business_requirement_crm.crm_lead_create_requirement_action
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
 msgid "Create Requirement"
-msgstr ""
+msgstr "Créer une exigence"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead_create_requirement
 msgid "Crm Lead Create Requirement"
-msgstr ""
+msgstr "Piste CRM Créer une exigence"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
 msgid "Customer history"
-msgstr ""
+msgstr "Historique du client"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification par"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__lead_id
 msgid "Lead"
-msgstr ""
+msgstr "Piste"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Piste/Opportunité"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__lead_id
 msgid "Opportunity"
-msgstr ""
+msgstr "Opportunité"
 
 #. module: business_requirement_crm
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:59
 #, python-format
 msgid "Requirement %s created"
-msgstr ""
+msgstr "Exigence %s créée"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Requirements"
-msgstr ""
+msgstr "Exigences"
 
 #. module: business_requirement_crm
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:67
 #, python-format
 msgid "This business requirement has been created from:"
-msgstr ""
+msgstr "Cette exigence opérationnelle a été créée à partir de :"
