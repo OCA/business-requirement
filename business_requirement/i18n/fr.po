@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-11-12 01:36+0000\n"
+"PO-Revision-Date: 2020-11-12 10:35+0000\n"
 "Last-Translator: Yann Papouin <y.papouin@dec-industrie.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -143,39 +143,39 @@ msgstr "Compteur de pièce jointe"
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_tree
 msgid "Business Requirement"
-msgstr "Besoin Professionnel"
+msgstr "Exigence opérationnelle"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 msgid "Business Requirement #"
-msgstr "Besoin Professionnel #"
+msgstr "Exigence opérationnelle #"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.br_report
 msgid "Business Requirement Document"
-msgstr "Document lié à un Besoin Professionnel"
+msgstr "Document lié à une exigence opérationnelle"
 
 #. module: business_requirement
 #: model:res.groups,name:business_requirement.group_business_requirement_manager
 msgid "Business Requirement Manager"
-msgstr "Gestionnaire des besoins"
+msgstr "Gestionnaire des \"Exigences opérationnelles\""
 
 #. module: business_requirement
 #: model:ir.actions.report,name:business_requirement.business_requirement_report
 msgid "Business Requirement Report"
-msgstr "Rapport sur les besoins professionnels"
+msgstr "Rapport sur les exigences opérationnelles"
 
 #. module: business_requirement
 #: model:res.groups,name:business_requirement.group_business_requirement_user
 msgid "Business Requirement User"
-msgstr "Utilisateur des besoins"
+msgstr "Utilisateur des \"Exigences opérationnelles\""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_br
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_menu_br
 msgid "Business Requirements"
-msgstr "Besoins Professionnels"
+msgstr "Exigences opérationnelles"
 
 #. module: business_requirement
 #: selection:business.requirement,state:0
@@ -245,7 +245,7 @@ msgstr "Date de création"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 msgid "Current stage of this requirement"
-msgstr "Statut actuel du besoin"
+msgstr "Statut actuel de l'exigence"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__access_url
@@ -482,8 +482,9 @@ msgid ""
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 "La gestion des besoins métiers sur Odoo vous permet de gérer la liste\n"
-"des exigences d'un client. Pour un suivi efficace. vous pouvez\n"
-"suivre les progrès, discuter sur les taches, lier des documents, etc ..."
+"des exigences opérationnelles d'une partie prenante (client, fournisseur, "
+"employé) pour un suivi efficace. Vous pouvez\n"
+"suivre la progression, discuter sur les tâches, lier des documents, etc."
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -653,7 +654,8 @@ msgstr "Scénario test :"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 msgid "There are currently no business requirements for your account."
-msgstr "Il n'y a actuellement pas de besoins professionnels pour votre compte."
+msgstr ""
+"Il n'y a actuellement pas d'exigences opérationnelles pour votre compte."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:19
@@ -708,8 +710,8 @@ msgstr "Oui"
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer le besoin que vers les étapes suivantes : "
-"brouillon / confirmé / annulé / abandonné."
+"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / confirmé "
+"/ annulé / abandonné."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:235
