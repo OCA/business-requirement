@@ -70,7 +70,6 @@ msgstr "<strong>Fecha</strong>"
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "<strong>Confirmation Date</strong>"
 msgid "<strong>Message and communication history</strong>"
 msgstr "<strong>Fecha de confirmación</strong>"
 

@@ -28,7 +28,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Approval Date"
 msgid "<strong>Approval Date</strong>"
 msgstr "Date d'approbation"
 
@@ -45,28 +44,24 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Change Request"
 msgid "<strong>Change Request:</strong>"
 msgstr "Demande de changement"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Change Request"
 msgid "<strong>Change Request</strong>"
 msgstr "Demande de changement"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.portal_br_page
 #, fuzzy
-#| msgid "Confirmation Date"
 msgid "<strong>Confirmation Date:</strong>"
 msgstr "Date de confirmation"
 
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 #, fuzzy
-#| msgid "Confirmation Date"
 msgid "<strong>Confirmation Date</strong>"
 msgstr "Date de confirmation"
 
@@ -148,7 +143,6 @@ msgstr "Besoin Professionnel"
 #. module: business_requirement
 #: model:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, fuzzy
-#| msgid "Business Requirement"
 msgid "Business Requirement #"
 msgstr "Besoin Professionnel"
 
@@ -288,7 +282,6 @@ msgstr "ID"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_portal_published
 #, fuzzy
-#| msgid "In Progress"
 msgid "In Portal"
 msgstr "En cours"
 
