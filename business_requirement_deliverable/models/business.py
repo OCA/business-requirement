@@ -168,7 +168,10 @@ class BusinessRequirement(models.Model):
     dl_total_revenue = fields.Float(
         string="DL Total Revenue", digits="Account", compute="_compute_dl_total_revenue"
     )
-    dl_count = fields.Integer("DL Count", compute="_compute_dl_count")
+    dl_count = fields.Integer(string="DL Count", compute="_compute_dl_count")
+    dl_count_portal_published = fields.Integer(
+        string="DL Count Portal pubished", compute="_compute_dl_count_portal_published"
+    )
     pricelist_id = fields.Many2one(
         comodel_name="product.pricelist",
         string="Pricelist",
@@ -197,6 +200,12 @@ class BusinessRequirement(models.Model):
     def _compute_dl_count(self):
         for r in self:
             r.dl_count = len(r.deliverable_lines.ids)
+
+    def _compute_dl_count_portal_published(self):
+        for r in self:
+            r.dl_count_portal_published = len(
+                r.deliverable_lines.filtered("portal_published").ids
+            )
 
     def open_deliverable_line(self):
         for self in self:
