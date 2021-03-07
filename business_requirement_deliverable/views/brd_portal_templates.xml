@@ -207,7 +207,7 @@
                         aria-label="Deliverables"
                         title="Deliverables"
                     />
-                    <span t-esc="br.dl_count" />
+                    <span t-esc="br.dl_count_portal_published" />
                     Deliverable(s)
                 </a>
             </span>
