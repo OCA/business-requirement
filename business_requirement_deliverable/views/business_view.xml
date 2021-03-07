@@ -96,7 +96,6 @@
                         modifiers="{'readonly': true}"
                     />
                 </button>
-                <br />
             </xpath>
             <field name="change_request" position="after">
                 <field
