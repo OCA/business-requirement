@@ -124,6 +124,11 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
 
     def test_compute_business_requirement_dl_rl(self):
         self.assertEqual(self.br.dl_count, 4)
+        self.br.portal_published = True
+        # unpublish one deliverable
+        self.br.deliverable_lines[0].portal_published = False
+        self.assertEqual(self.br.dl_count, 4)
+        self.assertEqual(self.br.dl_count_portal_published, 3)
 
     def test_open_business_requirement_dl(self):
         self.return_action = self.br.open_deliverable_line()
