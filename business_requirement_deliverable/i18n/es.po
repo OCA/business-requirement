@@ -229,6 +229,11 @@ msgid "DL Count"
 msgstr "Número de entregables"
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_count_portal_published
+msgid "DL Count Portal pubished"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_total_revenue
 msgid "DL Total Revenue"
 msgstr "Beneficio total del DL"
