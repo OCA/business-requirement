@@ -96,7 +96,7 @@
             style="page-break-inside: avoid;"
         >
             <u>
-                <h1>Stakeholder Story:</h1>
+                <h4>Stakeholder Story:</h4>
             </u>
             <div class="container ml8">
                 <span t-field="o.business_requirement" />
@@ -107,7 +107,7 @@
             style="page-break-inside: avoid;"
         >
             <u>
-                <h1>Scenario:</h1>
+                <h4>Scenario:</h4>
             </u>
             <div class="container ml8">
                 <span t-field="o.scenario" />
@@ -118,7 +118,7 @@
             style="page-break-inside: avoid;"
         >
             <u>
-                <h1>Gap:</h1>
+                <h4>Gap:</h4>
             </u>
             <div class="container ml8">
                 <span t-field="o.gap" />
@@ -129,7 +129,7 @@
             style="page-break-inside: avoid;"
         >
             <u>
-                <h1>Test Case:</h1>
+                <h4>Test Case:</h4>
             </u>
             <div class="containe ml8">
                 <span t-field="o.test_case" />
@@ -140,7 +140,7 @@
             style="page-break-inside: avoid;"
         >
             <u>
-                <h1>Terms and Conditions:</h1>
+                <h4>Terms and Conditions:</h4>
             </u>
             <div class="container ml8">
                 <span t-field="o.terms_and_conditions" />
@@ -158,7 +158,7 @@
                 <t t-call="web.external_layout">
                     <t t-set="lang" t-value="o.partner_id.lang" />
                     <div class="page">
-                        <h2 class="text-center">Business Requirement Document</h2>
+                        <h5 class="text-center">Business Requirement Document</h5>
                         <t
                             t-call="business_requirement.layout_br_report"
                             t-lang="lang"
