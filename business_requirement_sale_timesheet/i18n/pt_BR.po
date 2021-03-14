@@ -6,21 +6,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-14 21:45+0000\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: business_requirement_sale_timesheet
 #: model:ir.model.fields,field_description:business_requirement_sale_timesheet.field_project_task__business_requirement_deliverable_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_sale_timesheet.view_task_form2
 msgid "Deliverable"
-msgstr ""
+msgstr "Entregável"
 
 #. module: business_requirement_sale_timesheet
 #: model:ir.model,name:business_requirement_sale_timesheet.model_project_task
 msgid "Task"
-msgstr ""
+msgstr "Tarefa"
