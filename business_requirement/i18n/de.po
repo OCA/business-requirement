@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-04-06 15:46+0000\n"
+"PO-Revision-Date: 2021-04-19 16:46+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -29,7 +29,7 @@ msgstr "<strong class=\"d-block mb-2\">Beschreibung</strong>"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
 msgid "<strong>Approval Date</strong>"
-msgstr ""
+msgstr "<strong>Datum der Genehmigung</strong>"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -229,18 +229,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_date
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Erstellt am"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Creation Date"
-msgstr ""
+msgstr "Datum der Erstellung"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -263,28 +263,28 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
 #, python-format
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__description
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__display_name
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: business_requirement
 #: selection:business.requirement,state:0
 msgid "Done"
-msgstr ""
+msgstr "Erledigt"
 
 #. module: business_requirement
 #: selection:business.requirement,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Entwurf"
 
 #. module: business_requirement
 #: selection:business.requirement,state:0
@@ -294,17 +294,17 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Abonnenten"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Abonnenten (Kanäle)"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Abonnenten (Partner)"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__gap
@@ -320,7 +320,7 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Group by"
-msgstr ""
+msgstr "Gruppieren nach"
 
 #. module: business_requirement
 #: selection:business.requirement,priority:0
@@ -331,7 +331,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__id
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
@@ -356,40 +356,40 @@ msgstr ""
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
 msgid "In Progress"
-msgstr ""
+msgstr "In Bearbeitung"
 
 #. module: business_requirement
 #: selection:business.requirement,state:0
 msgid "In progress"
-msgstr ""
+msgstr "In Bearbeitung"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Ist ein Abonnent"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__kanban_state
 msgid "Kanban State"
-msgstr ""
+msgstr "Kanban-Status"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement____last_update
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert von"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_date
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
@@ -414,14 +414,14 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Nachrichten"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__name
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__name
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Name"
-msgstr ""
+msgstr "Bezeichnung"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_date_deadline
@@ -493,7 +493,7 @@ msgstr ""
 #. module: business_requirement
 #: selection:business.requirement,activity_state:0
 msgid "Overdue"
-msgstr ""
+msgstr "Überfällig"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__user_id
@@ -503,12 +503,12 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__parent_id
 msgid "Parent Category"
-msgstr ""
+msgstr "Übergeordnete Kategorie"
 
 #. module: business_requirement
 #: selection:business.requirement,activity_state:0
 msgid "Planned"
-msgstr ""
+msgstr "Geplant"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_url
@@ -519,12 +519,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__priority
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Priority"
-msgstr ""
+msgstr "Priorität"
 
 #. module: business_requirement
 #: model:ir.ui.menu,name:business_requirement.menu_product_template_action
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #. module: business_requirement
 #: selection:business.requirement,kanban_state:0
@@ -534,18 +534,18 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__requested_user_id
 msgid "Requested by"
-msgstr ""
+msgstr "Angefragt von"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__responsible_user_id
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Responsible"
-msgstr ""
+msgstr "Verantwortlich"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Verantwortlicher Benutzer"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__reviewer_ids
@@ -556,12 +556,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__scenario
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Scenario"
-msgstr ""
+msgstr "Szenario"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
 msgid "Scenario:"
-msgstr ""
+msgstr "Szenario:"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_token
@@ -579,7 +579,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__origin
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Source"
-msgstr ""
+msgstr "Quelle"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__partner_id
@@ -602,7 +602,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__state
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_state
@@ -665,7 +665,7 @@ msgstr ""
 #. module: business_requirement
 #: selection:business.requirement,activity_state:0
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread
