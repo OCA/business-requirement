@@ -1,0 +1,770 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-11 15:05+0000\n"
+"PO-Revision-Date: 2019-11-28 20:14+0000\n"
+"Last-Translator: David Vidal <david.vidal@tecnativa.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<small class=\"text-right\">Status:</small>"
+msgstr "<small class=\"text-right\">Estado:</small>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<strong class=\"d-block mb-2\">Description</strong>"
+msgstr "<strong class=\"d-block mb-2\">Descripción</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Approval Date</strong>"
+msgstr "<strong>Fecha de aprobación</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<strong>Assigned to</strong>"
+msgstr "<strong>Asignado a</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Category</strong>"
+msgstr "<strong>Categoría</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Change Request</strong>"
+msgstr "<strong>Solicitud de cambio</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Confirmation Date</strong>"
+msgstr "<strong>Fecha de confirmación</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Fecha:</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<strong>Message and communication history</strong>"
+msgstr "<strong>Historial de mensajes y comunicaciones</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "<strong>Requested by</strong>"
+msgstr "<strong>Solicitado por</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Responsible</strong>"
+msgstr "<strong>Responsable</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Source</strong>"
+msgstr "<strong>Origen</strong>"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "<strong>Stakeholder</strong>"
+msgstr "<strong>Interesado</strong>"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_warning
+msgid "Access warning"
+msgstr "Alerta de accesos"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_state
+msgid "Activity State"
+msgstr "Estado de Actividades"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__approval_date
+msgid "Approval Date"
+msgstr "Fecha de aprobación"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__approved
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__approved_id
+msgid "Approved by"
+msgstr "Aprobado por"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de adjuntos"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.act_view_project_br_all
+#: model:ir.actions.act_window,name:business_requirement.act_view_sub_br_all
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_tree
+#: model:ir.model,name:business_requirement.model_business_requirement
+#: model:ir.module.category,name:business_requirement.module_category_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
+#: model:ir.ui.menu,name:business_requirement.menu_business_root
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_form
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_tree
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_graph
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_pivot
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_tree
+msgid "Business Requirement"
+msgstr "Requisito de negocio"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
+msgid "Business Requirement #"
+msgstr "Requisito de negocio #"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.br_report
+msgid "Business Requirement Document"
+msgstr "Documento de requisito de negocio"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_manager
+msgid "Business Requirement Manager"
+msgstr "Administrador de requisito de negocio"
+
+#. module: business_requirement
+#: model:ir.actions.report,name:business_requirement.business_requirement_report
+msgid "Business Requirement Report"
+msgstr "Informes de Requisitos de Negocio"
+
+#. module: business_requirement
+#: model:res.groups,name:business_requirement.group_business_requirement_user
+msgid "Business Requirement User"
+msgstr "Usuario de requisito de negocio"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_br
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_menu_br
+msgid "Business Requirements"
+msgstr "Requisitos de negocio"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__cancel
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: business_requirement
+#: model:ir.actions.act_window,name:business_requirement.action_business_requirement_category_tree
+#: model:ir.model,name:business_requirement.model_business_requirement_category
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__category_ids
+#: model:ir.ui.menu,name:business_requirement.menu_business_requirement_category
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__change_request
+msgid "Change Request?"
+msgstr "¿Solicitud de cambio?"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_business_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__confirmation_date
+msgid "Confirmation Date"
+msgstr "Fecha de confirmación"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__confirmed
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__confirmed_user_id
+msgid "Confirmed by"
+msgstr "Confirmado por"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_uid
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_date
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+msgid "Current stage of this requirement"
+msgstr "Etapa actual de este requisito"
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__access_url
+msgid "Customer Portal URL"
+msgstr "URL de Portal de Cliente"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__business_requirement
+msgid "Customer Story"
+msgstr "Historia del cliente"
+
+#. module: business_requirement
+#: code:addons/business_requirement/controllers/portal.py:0
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
+#, python-format
+msgid "Date"
+msgstr "Fecha"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__display_name
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__drop
+msgid "Drop"
+msgstr "Descartado"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__gap
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Gap"
+msgstr "Gap"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+msgid "Gap:"
+msgstr "Gap:"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+#, fuzzy
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__2
+msgid "High"
+msgstr "Alta"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__id
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está activo, es necesario atender nuevos mensajes"
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está activo, algunos mensajes han tenido errores de entrega."
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__portal_published
+msgid "In Portal"
+msgstr "En el portal"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__normal
+msgid "In Progress"
+msgstr "En proceso"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__in_progress
+#, fuzzy
+msgid "In progress"
+msgstr "En proceso"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__kanban_state
+msgid "Kanban State"
+msgstr "Estado de kanban"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement____last_update
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación en"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_uid
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_date
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Logs"
+msgstr "Registros"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__0
+msgid "Low"
+msgstr "Bajo"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__name
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__name
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Name"
+msgstr "Nombre"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "No"
+msgstr "No"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__1
+msgid "Normal"
+msgstr "Normal"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread_counter
+#, fuzzy
+msgid "Number of unread messages"
+msgstr "Mensajes sin leer"
+
+#. module: business_requirement
+#: model_terms:ir.actions.act_window,help:business_requirement.act_view_project_br_all
+msgid ""
+"Odoo's Business Requirement management allows you to manage the list\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
+"                track progress, discuss on tasks, attach documents, etc."
+msgstr ""
+"La gestión de requisitos de negocio de Odoo le permite manejar la lista de "
+"requisitos\n"
+"               de un interesado para el correcto seguimiento. Asi mismo\n"
+"                el seguimiento del progreso, debatir en tareas, adjuntar "
+"documentos, etc."
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__on_hold
+msgid "On Hold"
+msgstr "En espera"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Other"
+msgstr "Otro"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__user_id
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__parent_id
+msgid "Parent Category"
+msgstr "Categoría padre"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__priority
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: business_requirement
+#: model:ir.ui.menu,name:business_requirement.menu_product_template_action
+msgid "Products"
+msgstr "Productos"
+
+#. module: business_requirement
+#: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__done
+msgid "Ready for next stage"
+msgstr "Listo para la siguiente etapa"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__requested_user_id
+msgid "Requested by"
+msgstr "Solicitado por"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__responsible_user_id
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_user_id
+#, fuzzy
+msgid "Responsible User"
+msgstr "Responsable"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__reviewer_ids
+msgid "Reviewers"
+msgstr "Revisores"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__scenario
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Scenario"
+msgstr "Situación"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+msgid "Scenario:"
+msgstr "Situación:"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: business_requirement
+#: code:addons/business_requirement/controllers/portal.py:0
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
+#, python-format
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__origin
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Source"
+msgstr "Origen"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__partner_id
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Stakeholder"
+msgstr "Interesado"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Stakeholder Story"
+msgstr "Historia del interesado"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+msgid "Stakeholder Story:"
+msgstr "Historia del interesado:"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__state
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "State"
+msgstr "Estado"
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__terms_and_conditions
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Terms and Conditions"
+msgstr "Términos y Condiciones"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+msgid "Terms and Conditions:"
+msgstr "Términos y Condiciones:"
+
+#. module: business_requirement
+#: code:addons/business_requirement/tests/test_br.py:0
+#, python-format
+msgid "Test Body"
+msgstr "Test Body"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__test_case
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid "Test Case"
+msgstr "Caso de prueba"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
+msgid "Test Case:"
+msgstr "Caso de prueba:"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
+msgid "There are currently no business requirements for your account."
+msgstr "Actualmente no existen requisitos de negocio hay para su cuenta."
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:0
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr "¡No existe compañía por defecto para el usuario actual!"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_error
+msgid "There was an error processing this page."
+msgstr "There was an error processing this page."
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__to_be_reviewed
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "To be Reviewed"
+msgstr "Revisión pendiente"
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread_counter
+#, fuzzy
+msgid "Unread Messages Counter"
+msgstr "Mensajes sin leer"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__website_message_ids
+#, fuzzy
+msgid "Website Messages"
+msgstr "Mensajes sin leer"
+
+#. module: business_requirement
+#: model:ir.model.fields,help:business_requirement.field_business_requirement__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
+msgid "Yes"
+msgstr "Si"
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:0
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
+msgstr ""
+"Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
+"desestimado."
+
+#. module: business_requirement
+#: code:addons/business_requirement/models/business.py:0
+#, python-format
+msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
+msgstr ""
+"Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
+"desestimado."
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
+msgid "]&amp;nbsp;"
+msgstr "]&amp;nbsp;"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_error
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
+msgid "close"
+msgstr "cerrar"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Si está activo es necesario atender nuevos mensajes"
+
+#~ msgid "<strong>Approval Date:</strong>"
+#~ msgstr "<strong>Fecha de aprobación:</strong>"
+
+#~ msgid "<strong>Category:</strong>"
+#~ msgstr "<strong>Fecha de aprobación:</strong>"
+
+#~ msgid "<strong>Change Request:</strong>"
+#~ msgstr "<strong>Solicitud de cambio:</strong>"
+
+#~ msgid "<strong>Confirmation Date:</strong>"
+#~ msgstr "<strong>Fecha de confirmación:</strong>"
+
+#~ msgid "<strong>Responsible:</strong>"
+#~ msgstr "<strong>Responsable:</strong>"
+
+#~ msgid "<strong>Source:</strong>"
+#~ msgstr "<strong>Origen:</strong>"
+
+#~ msgid "<strong>Stakeholder Address</strong>"
+#~ msgstr "<strong>Dirección del Interesado</strong>"
+
+#~ msgid "Download"
+#~ msgstr "Descargas"
