@@ -75,7 +75,7 @@ class BusinessRequirement(models.Model):
         copy=False,
         readonly=False,
         states={"draft": [("readonly", False)]},
-        track_visibility="onchange",
+        tracking=True,
     )
     change_request = fields.Boolean(
         string="Change Request?", readonly=True, states={"draft": [("readonly", False)]}
@@ -142,7 +142,7 @@ class BusinessRequirement(models.Model):
             ("done", "Ready for next stage"),
         ],
         "Kanban State",
-        track_visibility="onchange",
+        tracking=True,
         default="normal",
     )
     origin = fields.Char(
@@ -156,7 +156,7 @@ class BusinessRequirement(models.Model):
         string="Owner",
         default=lambda self: self.env.user,
         required=True,
-        track_visibility="always",
+        tracking=True,
     )
     date = fields.Date(
         "Date",
