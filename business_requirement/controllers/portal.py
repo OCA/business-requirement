@@ -20,9 +20,9 @@ class CustomerPortal(CustomerPortal):
         return values
 
     def _prepare_br_base_domain(self):
-        partner = request.env.user.partner_id
+        user = request.env.user
         return [
-            ("message_partner_ids", "child_of", [partner.commercial_partner_id.id]),
+            ("message_partner_ids", "child_of", [user.commercial_partner_id.id]),
             ("portal_published", "=", True),
         ]
 
@@ -66,7 +66,6 @@ class CustomerPortal(CustomerPortal):
 
         domain = self._prepare_br_base_domain()
 
-        archive_groups = self._get_archive_groups("business.requirement", domain)
         if date_begin and date_end:
             domain += [("date", ">", date_begin), ("date", "<=", date_end)]
 
@@ -92,7 +91,6 @@ class CustomerPortal(CustomerPortal):
                 "business_requirements": business_requirements.sudo(),
                 "page_name": "business_requirement",
                 "pager": pager,
-                "archive_groups": archive_groups,
                 "default_url": "/my/business_requirements",
                 "searchbar_sortings": searchbar_sortings,
                 "sortby": sortby,
