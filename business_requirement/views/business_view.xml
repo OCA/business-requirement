@@ -159,7 +159,7 @@
                                 <div class="oe_kanban_bottom_right">
                                     <div class="pull-left" groups="base.group_user">
                                         <img
-                                            t-att-src="kanban_image('res.users', 'image_small', record.responsible_user_id.raw_value)"
+                                            t-att-src="kanban_image('res.users', 'image_128', record.responsible_user_id.raw_value)"
                                             t-att-title="record.responsible_user_id.value"
                                             width="24"
                                             height="24"
@@ -237,6 +237,7 @@
                 <sheet>
                     <group>
                         <field name="name" />
+                        <field name="parent_id" />
                     </group>
                 </sheet>
             </form>

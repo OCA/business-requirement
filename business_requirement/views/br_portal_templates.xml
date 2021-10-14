@@ -58,6 +58,7 @@
                         <td>
                             <a
                                 t-attf-href="/my/business_requirement/#{br.id}?#{keep_query()}"
+                                t-attf-class="tr_br_link"
                             >
                                 <span t-field="br.name" /> - <span
                                     t-field="br.description"
