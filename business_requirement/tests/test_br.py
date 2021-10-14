@@ -22,13 +22,10 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         ).message_post(
             body=_("Test Body"),
             message_type="notification",
-            subtype="mt_notification",
+            subtype_id=self.env.ref("mail.mt_note").id,
             **{}
         )
         self.assertEqual(self.message.subject, "Re: {}-test".format(self.br.name))
-
-    def test_get_default_company(self):
-        self.assertEqual(self.br._get_default_company(), 1)
 
     def test_br_name_search(self):
         br_vals = {"name": " test", "description": "test"}
@@ -61,3 +58,11 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
 
     def test_portal_publish_button(self):
         self.assertFalse(self.br.portal_published)
+
+    def test_report(self):
+        res = (
+            self.env["ir.actions.report"]
+            ._get_report_from_name("business_requirement.br_report")
+            ._render_qweb_html(self.br.ids)
+        )
+        self.assertRegex(str(res[0]), self.br.name)
