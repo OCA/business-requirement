@@ -13,4 +13,12 @@
             />
         </xpath>
     </template>
+    <template id="assets_tests" inherit_id="web.assets_tests">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/business_requirement_deliverable/static/src/js/business_requirement_deliverable_portal_tour.js"
+            />
+        </xpath>
+    </template>
 </odoo>

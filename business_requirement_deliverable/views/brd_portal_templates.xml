@@ -84,6 +84,7 @@
                                     <td class="text-left">
                                         <a
                                             t-attf-href="/my/brd/#{rec.id}?{{ keep_query() }}"
+                                            t-attf-class="tr_brd_link"
                                         >
                                             <span t-field="rec.name" />
                                         </a>
