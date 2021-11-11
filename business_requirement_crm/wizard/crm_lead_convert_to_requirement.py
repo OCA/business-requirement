@@ -15,12 +15,12 @@ class CrmLeadCreateRequirement(models.TransientModel):
         readonly=True,
         domain=[("type", "=", "opportunity")],
     )
-    description = fields.Char("Description", required=True)
-    customer_history = fields.Html("Customer history")
+    description = fields.Char(string="Description", required=True)
+    customer_history = fields.Html(string="Customer history")
 
     @api.model
     def default_get(self, fields):
-        result = super(CrmLeadCreateRequirement, self).default_get(fields)
+        result = super().default_get(fields)
         lead = self.env["crm.lead"].browse([self.env.context.get("active_id")])
         if lead:
             result.update(
