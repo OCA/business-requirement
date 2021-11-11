@@ -11,9 +11,9 @@ class BusinessRequirementDeliverable(models.Model):
     _description = "Business Requirement Deliverable"
     _order = "business_requirement_id, section_id, sequence, id"
 
-    sequence = fields.Integer("Sequence")
+    sequence = fields.Integer(string="Sequence")
     state = fields.Selection(related="business_requirement_id.state", store=True)
-    name = fields.Text("Name", required=True)
+    name = fields.Text(string="Name", required=True)
     user_case = fields.Html()
     proposed_solution = fields.Html()
     product_id = fields.Many2one(
@@ -65,24 +65,26 @@ class BusinessRequirementDeliverable(models.Model):
     state = fields.Selection(
         related="business_requirement_id.state", string="State", store=True
     )
-    portal_published = fields.Boolean("In Portal", default=True)
+    portal_published = fields.Boolean(string="In Portal", default=True)
     section_id = fields.Many2one(
         comodel_name="business.requirement.deliverable.section", string="Section"
     )
 
     def _compute_access_url(self):
-        super(BusinessRequirementDeliverable, self)._compute_access_url()
+        super()._compute_access_url()
         for brd in self:
             brd.access_url = "/my/brd/%s" % brd.id
 
-    @api.depends("business_requirement_id.partner_id")
+    @api.depends(
+        "business_requirement_id.partner_id", "business_requirement_id.currency_id"
+    )
     def _compute_currency_id(self):
         for brd in self:
-            currency_id = brd.business_requirement_id.pricelist_id.currency_id.id
-            if currency_id:
-                brd.currency_id = currency_id
+            br = brd.business_requirement_id
+            if br.pricelist_id.currency_id:
+                brd.currency_id = br.pricelist_id.currency_id
             else:
-                brd.currency_id = self.env.user.company_id.currency_id
+                brd.currency_id = br.currency_id
 
     @api.depends("sale_price_unit", "qty")
     def _compute_price_total(self):
@@ -230,13 +232,13 @@ class BusinessRequirement(models.Model):
                 },
             }
 
-    @api.depends("pricelist_id")
+    @api.depends("pricelist_id", "company_id")
     def _compute_currency_id(self):
         for br in self:
             if br.partner_id and br.pricelist_id.currency_id:
-                br.currency_id = br.pricelist_id.currency_id.id
+                br.currency_id = br.pricelist_id.currency_id
             else:
-                br.currency_id = self.env.user.company_id.currency_id.id
+                br.currency_id = br.company_id.currency_id
 
     @api.onchange("partner_id")
     def partner_id_change(self):
@@ -333,7 +335,7 @@ class BusinessRequirement(models.Model):
         """Subscribe to all existing active deliverables when subscribing
         to a requirement
         """
-        res = super(BusinessRequirement, self).message_subscribe(
+        res = super().message_subscribe(
             partner_ids=partner_ids, channel_ids=channel_ids, subtype_ids=subtype_ids
         )
         has_subtype = False
@@ -364,6 +366,6 @@ class BusinessRequirement(models.Model):
         self.mapped("deliverable_lines").message_unsubscribe(
             partner_ids=partner_ids, channel_ids=channel_ids
         )
-        return super(BusinessRequirement, self).message_unsubscribe(
+        return super().message_unsubscribe(
             partner_ids=partner_ids, channel_ids=channel_ids
         )

@@ -17,6 +17,4 @@ class ResPartner(models.Model):
 
     @api.model
     def _commercial_fields(self):
-        return super(ResPartner, self)._commercial_fields() + [
-            "property_product_estimation_pricelist"
-        ]
+        return super()._commercial_fields() + ["property_product_estimation_pricelist"]
