@@ -95,11 +95,6 @@ class CustomerPortal(CustomerPortal):
         if not filterby:
             filterby = "all"
         domain += searchbar_filters[filterby]["domain"]
-
-        # archive groups - Default Group By 'sequence'
-        archive_groups = self._get_archive_groups(
-            "business.requirement.deliverable", domain
-        )
         if date_begin and date_end:
             domain += [
                 ("create_date", ">", date_begin),
@@ -175,7 +170,6 @@ class CustomerPortal(CustomerPortal):
                 "date_end": date_end,
                 "grouped_brd": grouped_brd,
                 "page_name": "business_requirement_deliverable",
-                "archive_groups": archive_groups,
                 "default_url": "/my/brd",
                 "pager": pager,
                 "searchbar_sortings": searchbar_sortings,
@@ -232,10 +226,7 @@ class CustomerPortal(CustomerPortal):
         return request.render("business_requirement_deliverable.portal_my_brd", values)
 
     def _br_get_page_view_values(self, br, access_token, **kwargs):
-        vals = super(CustomerPortal, self)._br_get_page_view_values(
-            br, access_token, **kwargs
-        )
-
+        vals = super()._br_get_page_view_values(br, access_token, **kwargs)
         BRDObj = request.env["business.requirement.deliverable"]
         brd_count = BRDObj.search_count(self._prepare_brd_base_domain(br))
         vals.update({"brd_count": brd_count})
