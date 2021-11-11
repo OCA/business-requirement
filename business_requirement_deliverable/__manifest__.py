@@ -8,9 +8,9 @@
     "category": "Business Requirements Management",
     "summary": "Manage the Business Requirement Deliverables \
                 for your customers",
-    "version": "13.0.1.3.0",
+    "version": "14.0.1.0.0",
     "website": "https://github.com/OCA/business-requirement",
-    "author": "Elico Corp, " "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Elico Corp, Tecnativa, Odoo Community Association (OCA)",
     "depends": ["sale", "account", "business_requirement"],
     "data": [
         "data/business_data.xml",
