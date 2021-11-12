@@ -56,8 +56,8 @@ class BusinessRequirementCreateSale(models.TransientModel):
             and context.get("active_model") == "business.requirement"
             and context.get("active_id")
         ):
-            res["business_requirement_id"] = context["active_id"]
-            br = self.env["business.requirement"].browse(context["active_id"])
+            res["business_requirement_id"] = context.get("active_id")
+            br = self.env["business.requirement"].browse(context.get("active_id"))
             if "deliverable_ids" in fields:
                 if not br.deliverable_lines:
                     raise exceptions.UserError(
