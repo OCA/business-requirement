@@ -20,6 +20,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [business_requirement](business_requirement/) | 14.0.1.0.0 |  | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
+[business_requirement_crm](business_requirement_crm/) | 14.0.1.0.0 |  | Convert Leads to Business Requirement
 
 [//]: # (end addons)
 
