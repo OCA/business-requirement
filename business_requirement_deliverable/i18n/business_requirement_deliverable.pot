@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -107,6 +107,11 @@ msgid "Activity State"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "All"
@@ -169,7 +174,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_3
-#: model:product.template,name:business_requirement_deliverable.product_product_3_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_3
 msgid "Consultant"
 msgstr ""
 
@@ -267,19 +272,21 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_2
-#: model:product.template,name:business_requirement_deliverable.product_product_2_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_2
 msgid "Designer"
 msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_1
-#: model:product.template,name:business_requirement_deliverable.product_product_1_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_1
 msgid "Developer"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__display_name
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__display_name
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -305,6 +312,11 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
 msgid "Group By"
 msgstr ""
@@ -318,15 +330,17 @@ msgstr ""
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_1
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_2
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_3
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_1_product_template
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_2_product_template
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_3_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_1
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_2
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_3
 msgid "Hours"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__id
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__id
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -363,8 +377,10 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement____last_update
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable____last_update
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section____last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -393,6 +409,11 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__my_activity_date_deadline
+msgid "My Activity Deadline"
 msgstr ""
 
 #. module: business_requirement_deliverable
@@ -457,7 +478,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_6
-#: model:product.template,name:business_requirement_deliverable.product_product_6_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_6
 msgid "Odoo Quick Start Package"
 msgstr ""
 
@@ -654,9 +675,9 @@ msgstr ""
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_4
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_5
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_6
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_4_product_template
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_5_product_template
-#: model:product.template,uom_name:business_requirement_deliverable.product_product_6_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_4
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_5
+#: model:product.template,uom_name:business_requirement_deliverable.product_template_6
 msgid "Units"
 msgstr ""
 
@@ -684,7 +705,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_5
-#: model:product.template,name:business_requirement_deliverable.product_product_5_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_5
 msgid "Website Design"
 msgstr ""
 
@@ -695,7 +716,7 @@ msgstr ""
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_4
-#: model:product.template,name:business_requirement_deliverable.product_product_4_product_template
+#: model:product.template,name:business_requirement_deliverable.product_template_4
 msgid "Website Template"
 msgstr ""
 
