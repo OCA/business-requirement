@@ -1,0 +1,194 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* business_requirement_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-09-10 21:24+0000\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.8\n"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:168
+#, python-format
+msgid "At least one deliverable must be selected to create the quotation"
+msgstr "Pelo menos uma entrega deve ser selecionada para criar a cotação"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__business_requirement_id
+msgid "Business Requirement"
+msgstr "Requisito de Negócio"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__br_deliverable_section_id
+msgid "Business Requirement Deliverable Section"
+msgstr "Seção de Entregáveis do Requisito de Negócio"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__deliverable_ids
+msgid "Business Requirement Deliverables"
+msgstr "Entregáveis do Requisito de Negócio"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order__business_requirement_id
+msgid "Business requirement"
+msgstr "Requisito de negócio"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Create"
+msgstr "Criar"
+
+#. module: business_requirement_sale
+#: model:ir.actions.act_window,name:business_requirement_sale.action_business_requirement_create_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Create Quotation"
+msgstr "Criar Cotação"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__business_requirement_deliverable_id
+msgid "Deliverable"
+msgstr "Entregável"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Deliverables"
+msgstr "Entregáveis"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__section_ids
+msgid "Deliverables Sections"
+msgstr "Seção de Entregáveis"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__display_name
+msgid "Display Name"
+msgstr "Nome Exibido"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__applicable_section_ids
+msgid "Existing Sections"
+msgstr "Seções Existentes"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__has_undefined_section
+msgid "Has Undefined Section"
+msgstr "Tem Seção Indefinida"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__write_uid
+msgid "Last Updated by"
+msgstr "Último Atualização por"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:61
+#, python-format
+msgid "No deliverables found for this business requirement."
+msgstr "Nenhum produto encontrado para este requisito de negócio."
+
+#. module: business_requirement_sale
+#: selection:business.requirement.create.sale,totaled_method:0
+msgid "Quantity and price unit as is"
+msgstr "Quantidade e unidade de preço como está"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:152
+#, python-format
+msgid "Quotation %s created "
+msgstr "Cotação %s criada "
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_sale_order
+msgid "Sale Order"
+msgstr "Ordem de Venda"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
+msgid "Sales"
+msgstr "Vendas"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linha da Ordem de Venda"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__sale_order_ids
+msgid "Sales Orders"
+msgstr "Ordens de Venda"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__sale_order_count
+msgid "Sales Orders Count"
+msgstr "Contagem de Ordens de Venda"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Sections"
+msgstr "Seções"
+
+#. module: business_requirement_sale
+#: selection:business.requirement.create.sale,totaled_method:0
+msgid "Subtotal as price unit and qty = 1"
+msgstr "Subtotal como unidade de preço e quantidade = 1"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:159
+#, python-format
+msgid "This quotation has been created from:"
+msgstr "Esta cotação foi criada a partir de:"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__totaled_method
+msgid "Totaled Method"
+msgstr "Método Totalizado"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__undefined_section
+msgid "Undefined Section"
+msgstr "Seção Indefinida"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_business_requirement_create_sale
+msgid "Wizard to create new SO from requirement"
+msgstr "Assistente para criar nova SO a partir do requisito"
