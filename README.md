@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 [business_requirement_crm](business_requirement_crm/) | 14.0.1.0.0 |  | Convert Leads to Business Requirement
 [business_requirement_deliverable](business_requirement_deliverable/) | 14.0.1.0.0 |  | Manage the Business Requirement Deliverables for your customers
 [business_requirement_sale](business_requirement_sale/) | 14.0.1.0.0 |  | Convert Business Requirement into Sales Orders
+[business_requirement_sale_timesheet](business_requirement_sale_timesheet/) | 14.0.1.0.0 |  | Business Requirement Sale Timesheet
 
 [//]: # (end addons)
 
