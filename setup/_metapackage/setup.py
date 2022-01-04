@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-business_requirement_crm',
         'odoo14-addon-business_requirement_deliverable',
         'odoo14-addon-business_requirement_sale',
+        'odoo14-addon-business_requirement_sale_timesheet',
     ],
     classifiers=[
         'Programming Language :: Python',
