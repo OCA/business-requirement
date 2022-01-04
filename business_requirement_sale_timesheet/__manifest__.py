@@ -3,9 +3,9 @@
 {
     "name": "Business Requirement Sale Timesheet",
     "category": "Business Requirements Management",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "website": "https://github.com/OCA/business-requirement",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
     "depends": ["business_requirement_sale", "sale_timesheet"],
