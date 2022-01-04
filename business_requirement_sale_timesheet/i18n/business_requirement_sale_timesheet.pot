@@ -1,0 +1,25 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_sale_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: business_requirement_sale_timesheet
+#: model:ir.model.fields,field_description:business_requirement_sale_timesheet.field_project_task__business_requirement_deliverable_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale_timesheet.view_task_form2
+msgid "Deliverable"
+msgstr ""
+
+#. module: business_requirement_sale_timesheet
+#: model:ir.model,name:business_requirement_sale_timesheet.model_project_task
+msgid "Task"
+msgstr ""
