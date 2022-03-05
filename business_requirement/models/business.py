@@ -200,7 +200,7 @@ class BusinessRequirement(models.Model):
         """
         result = []
         for br in self:
-            formatted_name = u"[{}] {}".format(br.name, br.description)
+            formatted_name = "[{}] {}".format(br.name, br.description)
             result.append((br.id, formatted_name))
         return result
 
@@ -258,7 +258,6 @@ class BusinessRequirement(models.Model):
             subtype_xmlid=subtype_xmlid,
             subtype_id=subtype_id,
             partner_ids=partner_ids,
-            channel_ids=channel_ids,
             attachments=attachments,
             attachment_ids=attachment_ids,
             add_sign=add_sign,
