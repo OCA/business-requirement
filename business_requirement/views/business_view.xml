@@ -122,7 +122,7 @@
         <field name="name">business.requirement.tree</field>
         <field name="model">business.requirement</field>
         <field name="arch" type="xml">
-            <tree string="Business Requirement">
+            <tree>
                 <field name="responsible_user_id" />
                 <field name="partner_id" />
                 <field name="name" />
@@ -249,7 +249,7 @@
         <field name="type">tree</field>
         <field name="priority">20</field>
         <field name="arch" type="xml">
-            <tree string="Business Requirement">
+            <tree>
                 <field name="name" />
                 <field name="parent_id" />
             </tree>
