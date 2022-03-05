@@ -18,7 +18,7 @@ class BusinessRequirementTestBase(common.SavepointCase):
 class BusinessRequirementTest(BusinessRequirementTestBase):
     def test_message_post(self):
         self.message = self.br.with_context(
-            {"default_model": "business.requirement", "default_res_id": self.br.id}
+            **{"default_model": "business.requirement", "default_res_id": self.br.id}
         ).message_post(
             body=_("Test Body"),
             message_type="notification",
