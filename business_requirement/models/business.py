@@ -258,7 +258,6 @@ class BusinessRequirement(models.Model):
             subtype_xmlid=subtype_xmlid,
             subtype_id=subtype_id,
             partner_ids=partner_ids,
-            channel_ids=channel_ids,
             attachments=attachments,
             attachment_ids=attachment_ids,
             add_sign=add_sign,
