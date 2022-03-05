@@ -12,15 +12,13 @@ class BusinessRequirement(models.Model):
     _description = "Business Requirement"
     _order = "name desc"
 
-    sequence = fields.Char(string="Sequence", readonly=True, copy=False, index=True)
+    sequence = fields.Char(readonly=True, copy=False, index=True)
     name = fields.Char(
-        string="Name",
         readonly=True,
         copy=False,
         states={"draft": [("readonly", False)]},
     )
     description = fields.Char(
-        string="Description",
         required=True,
         readonly=True,
         states={"draft": [("readonly", False)]},
@@ -29,22 +27,18 @@ class BusinessRequirement(models.Model):
         string="Customer Story", readonly=True, states={"draft": [("readonly", False)]}
     )
     scenario = fields.Html(
-        string="Scenario",
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     gap = fields.Html(
-        string="Gap",
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     test_case = fields.Html(
-        string="Test Case",
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     terms_and_conditions = fields.Html(
-        string="Terms and Conditions",
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
@@ -65,7 +59,6 @@ class BusinessRequirement(models.Model):
             ("cancel", "Cancel"),
             ("drop", "Drop"),
         ],
-        string="State",
         default="draft",
         copy=False,
         readonly=False,
@@ -84,7 +77,6 @@ class BusinessRequirement(models.Model):
     )
     priority = fields.Selection(
         selection=[("0", "Low"), ("1", "Normal"), ("2", "High")],
-        string="Priority",
         required=True,
         default="1",
     )
@@ -96,9 +88,7 @@ class BusinessRequirement(models.Model):
         default=lambda self: self.env.user,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
-    confirmation_date = fields.Datetime(
-        string="Confirmation Date", copy=False, readonly=True
-    )
+    confirmation_date = fields.Datetime(copy=False, readonly=True)
     confirmed_user_id = fields.Many2one(
         comodel_name="res.users", string="Confirmed by", copy=False, readonly=True
     )
@@ -117,7 +107,7 @@ class BusinessRequirement(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
-    approval_date = fields.Datetime(string="Approval Date", copy=False, readonly=True)
+    approval_date = fields.Datetime(copy=False, readonly=True)
     approved_id = fields.Many2one(
         comodel_name="res.users", string="Approved by", copy=False, readonly=True
     )
@@ -129,14 +119,13 @@ class BusinessRequirement(models.Model):
         states={"draft": [("readonly", False)]},
         default=lambda self: self.env.company,
     )
-    to_be_reviewed = fields.Boolean(string="To be Reviewed")
+    to_be_reviewed = fields.Boolean()
     kanban_state = fields.Selection(
         selection=[
             ("normal", "In Progress"),
             ("on_hold", "On Hold"),
             ("done", "Ready for next stage"),
         ],
-        string="Kanban State",
         tracking=True,
         default="normal",
     )
@@ -154,7 +143,6 @@ class BusinessRequirement(models.Model):
         tracking=True,
     )
     date = fields.Date(
-        string="Date",
         default=lambda self: self._context.get("date", fields.Date.context_today(self)),
         required=True,
     )
@@ -342,6 +330,7 @@ class BusinessRequirement(models.Model):
         super()._compute_access_url()
         for br in self:
             br.access_url = "/my/business_requirement/%s" % br.id
+        return
 
     def portal_publish_button(self):
         self.ensure_one()
@@ -352,7 +341,7 @@ class BusinessRequirementCategory(models.Model):
     _name = "business.requirement.category"
     _description = "Categories"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(required=True)
     parent_id = fields.Many2one(
         comodel_name="business.requirement.category",
         string="Parent Category",

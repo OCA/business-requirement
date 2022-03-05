@@ -1,48 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data noupdate="1">
-        <!--Business Requirement Category -->
-        <record
-            id="business_requirement_category_1"
-            model="business.requirement.category"
-        >
-            <field name="name">Website</field>
-        </record>
-        <record
-            id="business_requirement_category_2"
-            model="business.requirement.category"
-        >
-            <field name="name">ERP</field>
-        </record>
-        <record
-            id="business_requirement_category_3"
-            model="business.requirement.category"
-        >
-            <field name="name">Design</field>
-        </record>
-        <record
-            id="business_requirement_category_4"
-            model="business.requirement.category"
-        >
-            <field name="name">Infra</field>
-        </record>
-        <record id="business_requirement_1" model="business.requirement">
-            <field name="description">Corporate Website</field>
-            <field name="name">BRDEMO01</field>
-            <field name="responsible_user_id" ref="base.user_admin" />
-            <field name="user_id" ref="base.user_demo" />
-            <field name="priority">2</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_demo')])]" />
-            <field name="to_be_reviewed" eval="1" />
-            <field name="state">confirmed</field>
-            <field name="partner_id" ref="base.res_partner_2" />
-            <field
-                name="business_requirement"
-            ><![CDATA[
+<odoo noupdate="1">
+    <!--Business Requirement Category -->
+    <record id="business_requirement_category_1" model="business.requirement.category">
+        <field name="name">Website</field>
+    </record>
+    <record id="business_requirement_category_2" model="business.requirement.category">
+        <field name="name">ERP</field>
+    </record>
+    <record id="business_requirement_category_3" model="business.requirement.category">
+        <field name="name">Design</field>
+    </record>
+    <record id="business_requirement_category_4" model="business.requirement.category">
+        <field name="name">Infra</field>
+    </record>
+    <record id="business_requirement_1" model="business.requirement">
+        <field name="description">Corporate Website</field>
+        <field name="name">BRDEMO01</field>
+        <field name="responsible_user_id" ref="base.user_admin" />
+        <field name="user_id" ref="base.user_demo" />
+        <field name="priority">2</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_1'),ref('business_requirement_category_3')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_demo')])]" />
+        <field name="to_be_reviewed" eval="1" />
+        <field name="state">confirmed</field>
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field
+            name="business_requirement"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -60,10 +47,10 @@
 
 <p>
 </p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
-            ]]></field>
-            <field
-                name="scenario"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="scenario"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -86,10 +73,10 @@ pulvinar et, cursus sed purus.
 </p>
 
 <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
-            ]]></field>
-            <field
-                name="gap"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="gap"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -110,10 +97,10 @@ Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
 auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
-            ]]></field>
-            <field
-                name="test_case"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="test_case"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -125,10 +112,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-            <field
-                name="terms_and_conditions"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="terms_and_conditions"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -140,40 +127,40 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]>
-            </field>
-        </record>
-        <record id="business_requirement_2_1" model="business.requirement">
-            <field name="description">ERP Implementation</field>
-            <field name="name">BRDEMO02</field>
-            <field name="responsible_user_id" ref="base.user_demo" />
-            <field name="user_id" ref="base.user_admin" />
-            <field name="priority">1</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_2')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
-            <field name="to_be_reviewed" eval="0" />
-            <field name="state">approved</field>
-            <field name="partner_id" ref="base.main_partner" />
-        </record>
-        <record id="business_requirement_2_2" model="business.requirement">
-            <field name="description">ERP Setup</field>
-            <field name="name">BRDEMO03</field>
-            <field name="responsible_user_id" ref="base.user_demo" />
-            <field name="priority">1</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_2')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
-            <field name="to_be_reviewed" eval="0" />
-            <field name="state">approved</field>
-            <field name="partner_id" ref="base.main_partner" />
-            <field
-                name="business_requirement"
-            ><![CDATA[
+        ]]>
+        </field>
+    </record>
+    <record id="business_requirement_2_1" model="business.requirement">
+        <field name="description">ERP Implementation</field>
+        <field name="name">BRDEMO02</field>
+        <field name="responsible_user_id" ref="base.user_demo" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="priority">1</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_2')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
+        <field name="to_be_reviewed" eval="0" />
+        <field name="state">approved</field>
+        <field name="partner_id" ref="base.main_partner" />
+    </record>
+    <record id="business_requirement_2_2" model="business.requirement">
+        <field name="description">ERP Setup</field>
+        <field name="name">BRDEMO03</field>
+        <field name="responsible_user_id" ref="base.user_demo" />
+        <field name="priority">1</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_2')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
+        <field name="to_be_reviewed" eval="0" />
+        <field name="state">approved</field>
+        <field name="partner_id" ref="base.main_partner" />
+        <field
+            name="business_requirement"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -191,10 +178,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
-            ]]></field>
-            <field
-                name="scenario"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="scenario"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -217,10 +204,10 @@ pulvinar et, cursus sed purus.
 </p>
 
 <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
-            ]]></field>
-            <field
-                name="gap"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="gap"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -241,10 +228,10 @@ Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
 auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
-            ]]></field>
-            <field
-                name="test_case"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="test_case"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -256,10 +243,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-            <field
-                name="terms_and_conditions"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="terms_and_conditions"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -271,24 +258,24 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-        </record>
-        <record id="business_requirement_3" model="business.requirement">
-            <field name="description">Server Set up</field>
-            <field name="name">BRDEMO04</field>
-            <field name="responsible_user_id" ref="base.user_demo" />
-            <field name="priority">2</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
-            <field name="to_be_reviewed" eval="0" />
-            <field name="state">approved</field>
-            <field name="partner_id" ref="base.main_partner" />
-            <field
-                name="business_requirement"
-            ><![CDATA[
+        ]]></field>
+    </record>
+    <record id="business_requirement_3" model="business.requirement">
+        <field name="description">Server Set up</field>
+        <field name="name">BRDEMO04</field>
+        <field name="responsible_user_id" ref="base.user_demo" />
+        <field name="priority">2</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_2'),ref('business_requirement_category_4')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
+        <field name="to_be_reviewed" eval="0" />
+        <field name="state">approved</field>
+        <field name="partner_id" ref="base.main_partner" />
+        <field
+            name="business_requirement"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -306,10 +293,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
-            ]]></field>
-            <field
-                name="scenario"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="scenario"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -332,10 +319,10 @@ pulvinar et, cursus sed purus.
 </p>
 
 <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
-            ]]></field>
-            <field
-                name="gap"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="gap"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -356,10 +343,10 @@ Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
 auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
-            ]]></field>
-            <field
-                name="test_case"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="test_case"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -371,24 +358,24 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-        </record>
-        <record id="business_requirement_4" model="business.requirement">
-            <field name="description">Business Analysis</field>
-            <field name="name">BRDEMO05</field>
-            <field name="responsible_user_id" ref="base.user_demo" />
-            <field name="priority">1</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_2')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
-            <field name="to_be_reviewed" eval="0" />
-            <field name="state">in_progress</field>
-            <field name="partner_id" ref="base.res_partner_18" />
-            <field
-                name="business_requirement"
-            ><![CDATA[
+        ]]></field>
+    </record>
+    <record id="business_requirement_4" model="business.requirement">
+        <field name="description">Business Analysis</field>
+        <field name="name">BRDEMO05</field>
+        <field name="responsible_user_id" ref="base.user_demo" />
+        <field name="priority">1</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_2')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
+        <field name="to_be_reviewed" eval="0" />
+        <field name="state">in_progress</field>
+        <field name="partner_id" ref="base.res_partner_18" />
+        <field
+            name="business_requirement"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -406,10 +393,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
-            ]]></field>
-            <field
-                name="scenario"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="scenario"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -432,10 +419,10 @@ pulvinar et, cursus sed purus.
 </p>
 
 <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
-            ]]></field>
-            <field
-                name="gap"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="gap"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -456,10 +443,10 @@ Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
 auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
-            ]]></field>
-            <field
-                name="test_case"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="test_case"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -471,24 +458,24 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-        </record>
-        <record id="business_requirement_5" model="business.requirement">
-            <field name="description">Gap Analysis</field>
-            <field name="name">BRDEMO06</field>
-            <field name="responsible_user_id" ref="base.user_demo" />
-            <field name="priority">1</field>
-            <field
-                name="category_ids"
-                eval="[(6, 0, [ref('business_requirement_category_2')])]"
-            />
-            <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
-            <field name="to_be_reviewed" eval="0" />
-            <field name="state">confirmed</field>
-            <field name="partner_id" ref="base.main_partner" />
-            <field
-                name="business_requirement"
-            ><![CDATA[
+        ]]></field>
+    </record>
+    <record id="business_requirement_5" model="business.requirement">
+        <field name="description">Gap Analysis</field>
+        <field name="name">BRDEMO06</field>
+        <field name="responsible_user_id" ref="base.user_demo" />
+        <field name="priority">1</field>
+        <field
+            name="category_ids"
+            eval="[(6, 0, [ref('business_requirement_category_2')])]"
+        />
+        <field name="reviewer_ids" eval="[(6, 0, [ref('base.user_admin')])]" />
+        <field name="to_be_reviewed" eval="0" />
+        <field name="state">confirmed</field>
+        <field name="partner_id" ref="base.main_partner" />
+        <field
+            name="business_requirement"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -506,10 +493,10 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ul><li>Nam sit amet libero a tortor tincidunt accumsan.</li><li>In consectetur ligula id turpis facilisis vestibulum.</li><li>Vestibulum id eros sed dolor fermentum cursus at vitae ex.</li></ul>
-            ]]></field>
-            <field
-                name="scenario"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="scenario"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -532,10 +519,10 @@ pulvinar et, cursus sed purus.
 </p>
 
 <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="http://lorempixel.com/400/200/sports/Dummy-Text/">
-            ]]></field>
-            <field
-                name="gap"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="gap"
+        ><![CDATA[
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor
 ex sed euismod pulvinar. Sed quis mauris a sem dapibus sollicitudin nec
@@ -556,10 +543,10 @@ Quisque ut nisl dolor. Integer faucibus semper accumsan. Ut eros quam,
 auctor in aliquam quis, cursus id magna. Integer neque augue, tempus ac
 pulvinar et, cursus sed purus.
 </p>
-            ]]></field>
-            <field
-                name="test_case"
-            ><![CDATA[
+        ]]></field>
+        <field
+            name="test_case"
+        ><![CDATA[
 <h1>Lorem Ipsum</h1>
 <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
 <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
@@ -571,7 +558,6 @@ pulvinar et, cursus sed purus.
 
 <p>
 </p><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Aliquam egestas massa et accumsan molestie.</li><li>Morbi et lacus nec odio dictum eleifend vel in mi.</li><li>Nunc sodales metus id diam dignissim, et lobortis est molestie.</li><li>Proin interdum nibh at nunc dictum, a placerat lacus hendrerit.</li><li>Nullam vitae ipsum vitae libero sodales rhoncus ut at magna.</li></ol><p><br></p><ol><li>Vivamus nec risus eget dolor luctus elementum.</li><li>Curabitur tempus purus ac neque faucibus, quis hendrerit sapien congue.</li><li>Cras a eros eget neque mollis faucibus.</li></ol>
-            ]]></field>
-        </record>
-    </data>
+        ]]></field>
+    </record>
 </odoo>
