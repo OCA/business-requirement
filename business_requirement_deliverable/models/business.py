@@ -299,7 +299,7 @@ class BusinessRequirement(models.Model):
         return sections_total
 
     def map_deliverable(self, new_br_id):
-        """ copy and map deliverable from old to new requirement """
+        """copy and map deliverable from old to new requirement"""
         deliverables = self.env["business.requirement.deliverable"]
         deliverable_ids = (
             self.env["business.requirement.deliverable"]
