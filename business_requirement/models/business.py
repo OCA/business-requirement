@@ -200,7 +200,7 @@ class BusinessRequirement(models.Model):
         """
         result = []
         for br in self:
-            formatted_name = u"[{}] {}".format(br.name, br.description)
+            formatted_name = "[{}] {}".format(br.name, br.description)
             result.append((br.id, formatted_name))
         return result
 
