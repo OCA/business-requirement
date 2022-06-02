@@ -13,8 +13,11 @@ from odoo.addons.portal.controllers.portal import (
 class CustomerPortal(CustomerPortal):
     def _prepare_portal_layout_values(self):
         values = super()._prepare_portal_layout_values()
-        br_count = request.env["business.requirement"].search_count(
-            self._prepare_br_base_domain()
+        br_model = request.env["business.requirement"]
+        br_count = (
+            br_model.search_count(self._prepare_br_base_domain())
+            if br_model.check_access_rights("read", raise_exception=False)
+            else 0
         )
         values.update({"business_requirement_count": br_count})
         return values
