@@ -1,4 +1,5 @@
 # Copyright 2019 Tecnativa - Alexandre Díaz
+# Copyright 2022 Tecnativa - Víctor Martínez
 from collections import OrderedDict
 from operator import itemgetter
 
@@ -16,12 +17,16 @@ from odoo.addons.portal.controllers.portal import (
 
 
 class CustomerPortal(CustomerPortal):
-    def _prepare_portal_layout_values(self):
-        values = super()._prepare_portal_layout_values()
-        dl_count = request.env["business.requirement.deliverable"].search_count(
-            self._prepare_br_base_domain()
-        )
-        values.update({"dl_count": dl_count})
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        if "dl_count" in counters:
+            brd_model = request.env["business.requirement.deliverable"]
+            dl_count = (
+                brd_model.search_count(self._prepare_br_base_domain())
+                if brd_model.check_access_rights("read", raise_exception=False)
+                else 0
+            )
+            values["dl_count"] = dl_count
         return values
 
     def _prepare_brd_base_domain(self, business_requirements):
@@ -47,6 +52,10 @@ class CustomerPortal(CustomerPortal):
         groupby="section",
         **kw
     ):
+        BRDObj = request.env["business.requirement.deliverable"]
+        # Avoid error if the user does not have access.
+        if not BRDObj.check_access_rights("read", raise_exception=False):
+            return request.redirect("/my")
         values = self._prepare_portal_layout_values()
         searchbar_sortings = {
             "date": {"label": _("Newest"), "order": "create_date desc"},
@@ -118,8 +127,6 @@ class CustomerPortal(CustomerPortal):
                     [search_domain, [("message_ids.body", "ilike", search)]]
                 )
             domain += search_domain
-
-        BRDObj = request.env["business.requirement.deliverable"]
 
         # brd count
         brd_count = BRDObj.search_count(domain)
