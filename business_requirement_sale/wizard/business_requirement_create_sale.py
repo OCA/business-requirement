@@ -79,7 +79,7 @@ class BusinessRequirementCreateSale(models.TransientModel):
         new_deliverable_ids = []
         for section in self.applicable_section_ids:
             deliverables = br.deliverable_lines.filtered(
-                lambda x: x.section_id == section
+                lambda x, section: x.section_id == section
             )
             if section in self.section_ids:
                 new_deliverable_ids += deliverables.ids
@@ -155,9 +155,13 @@ class BusinessRequirementCreateSale(models.TransientModel):
         br = self.business_requirement_id
         br.message_post(body=msg_body)
         # post message on the order
-        order_msg = _("This quotation has been created from:") + " %s" % (
-            "<a href=# data-oe-model=business.requirement data-oe-id=%d>%s</a>"
-        ) % (br.id, br.name)
+        order_msg = _(
+            "This quotation has been created from: <a href=# "
+            "data-oe-model=business.requirement data-oe-id=%(id)d>%(name)s</a>"
+        ) % {
+            "id": br.id,
+            "name": br.name,
+        }
         order.message_post(body=order_msg)
         return order
 
