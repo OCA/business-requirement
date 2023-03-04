@@ -4,7 +4,7 @@ from odoo import exceptions
 from odoo.tests import common
 
 
-class TestBusinessRequirementSaleBase(common.SavepointCase):
+class TestBusinessRequirementSaleBase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
