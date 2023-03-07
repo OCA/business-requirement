@@ -11,9 +11,9 @@ class BusinessRequirementDeliverable(models.Model):
     _description = "Business Requirement Deliverable"
     _order = "business_requirement_id, section_id, sequence, id"
 
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
     state = fields.Selection(related="business_requirement_id.state", store=True)
-    name = fields.Text(string="Name", required=True)
+    name = fields.Text(required=True)
     user_case = fields.Html()
     proposed_solution = fields.Html()
     product_id = fields.Many2one(
@@ -71,9 +71,10 @@ class BusinessRequirementDeliverable(models.Model):
     )
 
     def _compute_access_url(self):
-        super()._compute_access_url()
+        result = super()._compute_access_url()
         for brd in self:
             brd.access_url = "/my/brd/%s" % brd.id
+        return result
 
     @api.depends(
         "business_requirement_id.partner_id", "business_requirement_id.currency_id"
@@ -153,7 +154,6 @@ class BusinessRequirement(models.Model):
     deliverable_lines = fields.One2many(
         comodel_name="business.requirement.deliverable",
         inverse_name="business_requirement_id",
-        string="Deliverable Lines",
         copy=True,
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
@@ -331,12 +331,12 @@ class BusinessRequirement(models.Model):
             self.map_deliverable(br.id)
         return br
 
-    def message_subscribe(self, partner_ids=None, channel_ids=None, subtype_ids=None):
+    def message_subscribe(self, partner_ids=None, subtype_ids=None):
         """Subscribe to all existing active deliverables when subscribing
         to a requirement
         """
         res = super().message_subscribe(
-            partner_ids=partner_ids, channel_ids=channel_ids, subtype_ids=subtype_ids
+            partner_ids=partner_ids, subtype_ids=subtype_ids
         )
         has_subtype = False
         for subtype in self.env["mail.message.subtype"].browse(subtype_ids):
@@ -348,24 +348,12 @@ class BusinessRequirement(models.Model):
             for partner_id in partner_ids or []:
                 self.mapped("deliverable_lines").filtered(
                     lambda deliver: (partner_id not in deliver.message_partner_ids.ids)
-                ).message_subscribe(
-                    partner_ids=[partner_id], channel_ids=None, subtype_ids=None
-                )
-            for channel_id in channel_ids or []:
-                self.mapped("deliverable_lines").filtered(
-                    lambda deliver: (channel_id not in deliver.message_channel_ids.ids)
-                ).message_subscribe(
-                    partner_ids=None, channel_ids=[channel_id], subtype_ids=None
-                )
+                ).message_subscribe(partner_ids=[partner_id], subtype_ids=None)
         return res
 
-    def message_unsubscribe(self, partner_ids=None, channel_ids=None):
+    def message_unsubscribe(self, partner_ids=None):
         """Unsubscribe from all deliverables
         when unsubscribing from a requirement
         """
-        self.mapped("deliverable_lines").message_unsubscribe(
-            partner_ids=partner_ids, channel_ids=channel_ids
-        )
-        return super().message_unsubscribe(
-            partner_ids=partner_ids, channel_ids=channel_ids
-        )
+        self.mapped("deliverable_lines").message_unsubscribe(partner_ids=partner_ids)
+        return super().message_unsubscribe(partner_ids=partner_ids)

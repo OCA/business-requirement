@@ -12,7 +12,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         super().setUpClass()
         cls.partner_a = (
             cls.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(**{"res_partner_search_mode": "customer"})
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )
@@ -194,7 +194,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_product_id_change_with_pricelist(self):
         self.partner = (
             self.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(**{"res_partner_search_mode": "customer"})
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )
@@ -240,7 +240,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_partner_id_change(self):
         self.partner = (
             self.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(**{"res_partner_search_mode": "customer"})
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )

@@ -19,7 +19,7 @@ class BusinessRequirementDeliverablePortal(BusinessRequirementPortalBase):
             }
         )
         self.brd.message_subscribe(
-            partner_ids=self.env.ref("base.demo_user0").partner_id.ids
+            partner_ids=self.env.ref("base.demo_user0").partner_id.ids,
         )
 
     def test_tour(self):
