@@ -133,7 +133,7 @@
         <field name="name">business.requirement.deliverable.tree</field>
         <field name="model">business.requirement.deliverable</field>
         <field name="arch" type="xml">
-            <tree string="Business Requirement Deliverable" default_order="sequence">
+            <tree default_order="sequence">
                 <field name="sequence" widget="handle" />
                 <field name="business_requirement_id" />
                 <field name="name" />

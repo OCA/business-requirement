@@ -12,6 +12,8 @@ from odoo.tools import groupby as groupbyelem
 from odoo.addons.portal.controllers.portal import (
     CustomerPortal,
     get_records_pager,
+)
+from odoo.addons.portal.controllers.portal import (
     pager as portal_pager,
 )
 
@@ -50,7 +52,7 @@ class CustomerPortal(CustomerPortal):
         search=None,
         search_in="content",
         groupby="section",
-        **kw
+        **kw,
     ):
         BRDObj = request.env["business.requirement.deliverable"]
         # Avoid error if the user does not have access.
