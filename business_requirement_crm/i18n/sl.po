@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-20 14:13+0000\n"
-"Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
+"PO-Revision-Date: 2023-04-11 12:24+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.10\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
@@ -62,7 +62,7 @@ msgstr "Ustvari zahtevo iz CRM indica"
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
 msgid "Customer history"
-msgstr "Zahteva stranke"
+msgstr "Zgodovina stranke"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
