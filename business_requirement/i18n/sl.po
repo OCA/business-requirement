@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 01:40+0000\n"
-"PO-Revision-Date: 2023-04-11 09:41+0000\n"
+"PO-Revision-Date: 2023-04-11 12:24+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -68,7 +68,7 @@ msgstr "<strong>Datum</strong>"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 msgid "<strong>Message and communication history</strong>"
-msgstr "<strong>Sporočila in kronologija komunikacij</strong>"
+msgstr "<strong>Kronologija komunikacij</strong>"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -340,17 +340,19 @@ msgstr "ID"
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Označba pomeni, da vašo pozornost zahtevajo nova sporočila."
+msgstr "Če označeno pomeni, da nova sporočila zahtevajo vašo pozornost."
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Označba pomeni, da vašo pozornost zahteva novo sporočilo."
+msgstr "Če označeno pomeni, da nova sporočila zahtevajo vašo pozornost."
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Označba pomeni, da nekatera sporočila vsebujejo napako pri dostavi."
+msgstr ""
+"Če označeno pomeni, da je pri nekaterih sporočilih prišlo do napake pri "
+"dostavi."
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__portal_published
@@ -701,7 +703,7 @@ msgstr "Sporočila spletne strani"
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__website_message_ids
 msgid "Website communication history"
-msgstr "Kronologija spletnih sporočil"
+msgstr "Kronologija komunikacij spletne strani"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
