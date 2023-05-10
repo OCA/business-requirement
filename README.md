@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[business_requirement](business_requirement/) | 14.0.1.1.0 |  | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
+[business_requirement](business_requirement/) | 14.0.1.2.0 |  | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
 [business_requirement_crm](business_requirement_crm/) | 14.0.1.0.0 |  | Convert Leads to Business Requirement
 [business_requirement_deliverable](business_requirement_deliverable/) | 14.0.1.1.0 |  | Manage the Business Requirement Deliverables for your customers
 [business_requirement_sale](business_requirement_sale/) | 14.0.1.0.0 |  | Convert Business Requirement into Sales Orders
