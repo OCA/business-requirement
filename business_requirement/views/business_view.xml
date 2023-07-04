@@ -63,19 +63,27 @@
                     <notebook>
                         <page string="Business Requirement">
                             <group string="Stakeholder Story">
-                                <field name="business_requirement" nolabel="1" />
+                                <field
+                                    name="business_requirement"
+                                    nolabel="1"
+                                    colspan="2"
+                                />
                             </group>
                             <group string="Scenario">
-                                <field name="scenario" nolabel="1" />
+                                <field name="scenario" nolabel="1" colspan="2" />
                             </group>
                             <group string="Gap">
-                                <field name="gap" nolabel="1" />
+                                <field name="gap" nolabel="1" colspan="2" />
                             </group>
                             <group string="Test Case">
-                                <field name="test_case" nolabel="1" />
+                                <field name="test_case" nolabel="1" colspan="2" />
                             </group>
                             <group string="Terms and Conditions">
-                                <field name="terms_and_conditions" nolabel="1" />
+                                <field
+                                    name="terms_and_conditions"
+                                    nolabel="1"
+                                    colspan="2"
+                                />
                             </group>
                         </page>
                         <page string="Logs" name="logs">
