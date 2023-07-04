@@ -60,9 +60,7 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.assertFalse(self.br.portal_published)
 
     def test_report(self):
-        res = (
-            self.env["ir.actions.report"]
-            ._get_report_from_name("business_requirement.br_report")
-            ._render_qweb_html(self.br.ids)
+        res = self.env["ir.actions.report"]._render_qweb_html(
+            "business_requirement.br_report", self.br.ids
         )
         self.assertRegex(str(res[0]), self.br.name)
