@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="layout_br_report_header">
+        <h3 class="text-center">
+            <span t-field="o.name" /> - <span t-field="o.description" />
+        </h3>
+        <table class="table table-sm">
+            <tbody>
+                <tr t-if="o.partner_id">
+                    <td>
+                        <strong>Stakeholder</strong>
+                    </td>
+                    <td>
+                        <span t-field="o.partner_id.name" />
+                    </td>
+                </tr>
+                <tr t-if="o.origin">
+                    <td>
+                        <strong>Source</strong>
+                    </td>
+                    <td>
+                        <span t-field="o.origin" />
+                    </td>
+                </tr>
+                <tr t-if="any(o.category_ids)">
+                    <td>
+                        <strong>Category</strong>
+                    </td>
+                    <td>
+                        <span
+                            t-esc="', '.join([cate.name for cate in o.category_ids])"
+                        />
+                    </td>
+                </tr>
+                <tr t-if="o.responsible_user_id">
+                    <td>
+                        <strong>Responsible</strong>
+                    </td>
+                    <td>
+                        <span t-field="o.responsible_user_id.name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Change Request</strong>
+                    </td>
+                    <td>
+                        <t t-if="o.change_request">Yes</t>
+                        <t t-if="not o.change_request">No</t>
+                    </td>
+                </tr>
+                <tr t-if="o.date">
+                    <td>
+                        <strong>Date</strong>
+                    </td>
+                    <td>
+                        <span t-field="o.date" t-field-options='{"widget": "date"}' />
+                        <t t-if="o.user_id">(<span t-field="o.user_id.name" />)</t>
+                    </td>
+                </tr>
+                <tr t-if="o.confirmation_date">
+                    <td>
+                        <strong>Confirmation Date</strong>
+                    </td>
+                    <td>
+                        <span
+                            t-field="o.confirmation_date"
+                            t-field-options='{"widget": "date"}'
+                        />
+                        <t t-if="o.confirmed_user_id">(<span
+                                t-field="o.confirmed_user_id.name"
+                            />)</t>
+                    </td>
+                </tr>
+                <tr t-if="o.approval_date">
+                    <td>
+                        <strong>Approval Date</strong>
+                    </td>
+                    <td>
+                        <span
+                            t-field="o.approval_date"
+                            t-field-options='{"widget": "date"}'
+                        />
+                        <t t-if="o.approved_id">(<span
+                                t-field="o.approved_id.name"
+                            />)</t>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="layout_br_report_body">
+        <!-- when create a business requirement in web page, '<p><br></p>' will be add automatically in the field -->
+        <div
+            t-if="o.business_requirement and o.business_requirement != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+            style="page-break-inside: avoid;"
+        >
+            <u>
+                <h4>Stakeholder Story:</h4>
+            </u>
+            <div class="container ml8">
+                <span t-field="o.business_requirement" />
+            </div>
+        </div>
+        <div
+            t-if="o.scenario and o.scenario != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+            style="page-break-inside: avoid;"
+        >
+            <u>
+                <h4>Scenario:</h4>
+            </u>
+            <div class="container ml8">
+                <span t-field="o.scenario" />
+            </div>
+        </div>
+        <div
+            t-if="o.gap and o.gap != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+            style="page-break-inside: avoid;"
+        >
+            <u>
+                <h4>Gap:</h4>
+            </u>
+            <div class="container ml8">
+                <span t-field="o.gap" />
+            </div>
+        </div>
+        <div
+            t-if="o.test_case and o.test_case != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+            style="page-break-inside: avoid;"
+        >
+            <u>
+                <h4>Test Case:</h4>
+            </u>
+            <div class="containe ml8">
+                <span t-field="o.test_case" />
+            </div>
+        </div>
+        <div
+            t-if="o.terms_and_conditions and o.terms_and_conditions != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+            style="page-break-inside: avoid;"
+        >
+            <u>
+                <h4>Terms and Conditions:</h4>
+            </u>
+            <div class="container ml8">
+                <span t-field="o.terms_and_conditions" />
+            </div>
+        </div>
+    </template>
+    <template id="layout_br_report">
+        <t t-set="o" t-value="o.with_context(lang=lang)" />
+        <t t-call="business_requirement.layout_br_report_header" />
+        <t t-call="business_requirement.layout_br_report_body" />
+    </template>
+    <template id="br_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="lang" t-value="o.partner_id.lang" />
+                    <div class="page">
+                        <h5 class="text-center">Business Requirement Document</h5>
+                        <t
+                            t-call="business_requirement.layout_br_report"
+                            t-lang="lang"
+                        />
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
