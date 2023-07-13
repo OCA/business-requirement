@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -263,6 +263,7 @@ msgid "Customer Story"
 msgstr ""
 
 #. module: business_requirement
+#. odoo-python
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
@@ -355,7 +356,6 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction
-#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -491,11 +491,6 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: business_requirement
-#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_unread_counter
-msgid "Number of unread messages"
-msgstr ""
-
-#. module: business_requirement
 #: model_terms:ir.actions.act_window,help:business_requirement.act_view_project_br_all
 msgid ""
 "Odoo's Business Requirement management allows you to manage the list\n"
@@ -587,6 +582,7 @@ msgid "Security Token"
 msgstr ""
 
 #. module: business_requirement
+#. odoo-python
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
 #, python-format
@@ -647,6 +643,7 @@ msgid "Terms and Conditions:"
 msgstr ""
 
 #. module: business_requirement
+#. odoo-python
 #: code:addons/business_requirement/tests/test_br.py:0
 #, python-format
 msgid "Test Body"
@@ -689,14 +686,8 @@ msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Unread Messages"
-msgstr ""
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_unread_counter
-msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: business_requirement
@@ -715,6 +706,7 @@ msgid "Yes"
 msgstr ""
 
 #. module: business_requirement
+#. odoo-python
 #: code:addons/business_requirement/models/business.py:0
 #, python-format
 msgid ""
@@ -722,6 +714,7 @@ msgid ""
 msgstr ""
 
 #. module: business_requirement
+#. odoo-python
 #: code:addons/business_requirement/models/business.py:0
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
