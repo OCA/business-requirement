@@ -15,8 +15,8 @@ class CrmLeadCreateRequirement(models.TransientModel):
         readonly=True,
         domain=[("type", "=", "opportunity")],
     )
-    description = fields.Char(string="Description", required=True)
-    customer_history = fields.Html(string="Customer history")
+    description = fields.Char(required=True)
+    customer_history = fields.Html()
 
     @api.model
     def default_get(self, fields):
