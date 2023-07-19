@@ -4,16 +4,13 @@
         <field name="name">crm.lead.form</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('business_requirement.group_business_requirement_user'))]"
-        />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
                 <button
                     class="oe_highlight"
                     type="action"
                     name="%(crm_lead_create_requirement_action)d"
+                    groups="business_requirement.group_business_requirement_user"
                     icon="fa-arrow-right"
                     string="Create Business Requirement"
                     attrs="{'invisible': [('type', '!=', 'opportunity')]}"
@@ -25,6 +22,7 @@
                     type="object"
                     name="open_requirements"
                     icon="fa-pencil-square-o"
+                    groups="business_requirement.group_business_requirement_user"
                     attrs="{'invisible': [('business_requirement_count', '=', 0)]}"
                 >
                     <field
