@@ -61,8 +61,8 @@ msgstr "Ustvari zahtevo iz CRM indica"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
-msgid "Customer history"
-msgstr "Zgodovina stranke"
+msgid "Customer History"
+msgstr ""
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
@@ -70,22 +70,16 @@ msgid "Description"
 msgstr "Opis"
 
 #. module: business_requirement_crm
-#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__display_name
-#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__display_name
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__display_name
 msgid "Display Name"
 msgstr "Prikazani naziv"
 
 #. module: business_requirement_crm
-#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__id
-#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__id
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__id
 msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_crm
-#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement____last_update
-#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead____last_update
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
@@ -116,6 +110,7 @@ msgid "Opportunity"
 msgstr "Priložnost"
 
 #. module: business_requirement_crm
+#. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "Requirement %s created"
@@ -127,7 +122,11 @@ msgid "Requirements"
 msgstr "Zahteve"
 
 #. module: business_requirement_crm
+#. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
 msgid "This business requirement has been created from:"
 msgstr "Ta poslovna zahteva je nastala iz:"
+
+#~ msgid "Customer history"
+#~ msgstr "Zgodovina stranke"
