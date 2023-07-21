@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_lead_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    class="oe_highlight"
+                    type="action"
+                    name="%(crm_lead_create_requirement_action)d"
+                    groups="business_requirement.group_business_requirement_user"
+                    icon="fa-arrow-right"
+                    string="Create Business Requirement"
+                    attrs="{'invisible': [('type', '!=', 'opportunity')]}"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="open_requirements"
+                    icon="fa-pencil-square-o"
+                    groups="business_requirement.group_business_requirement_user"
+                    attrs="{'invisible': [('business_requirement_count', '=', 0)]}"
+                >
+                    <field
+                        name="business_requirement_count"
+                        string="Requirements"
+                        widget="statinfo"
+                    />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
