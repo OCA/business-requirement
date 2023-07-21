@@ -452,6 +452,11 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
