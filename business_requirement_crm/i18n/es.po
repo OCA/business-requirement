@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-25 23:50+0000\n"
-"PO-Revision-Date: 2019-07-25 23:50+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2023-07-31 19:08+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
@@ -61,7 +62,7 @@ msgstr "Crear requisito desde oportunidad"
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
 msgid "Customer History"
-msgstr ""
+msgstr "Historial del cliente"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
