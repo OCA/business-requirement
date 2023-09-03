@@ -496,8 +496,8 @@ msgstr "Število napak"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Število sporočil, kjer je potrebno ukrepati"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error_counter
@@ -756,6 +756,9 @@ msgstr "]&amp;nbsp;"
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr "zapri"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Število sporočil, kjer je potrebno ukrepati"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Sledilci (kanali)"
