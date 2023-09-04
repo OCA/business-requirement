@@ -1,5 +1,4 @@
 # Copyright 2019 Tecnativa - Alexandre Díaz
-# Copyright 2022 Tecnativa - Víctor Martínez
 from odoo import _, http
 from odoo.exceptions import AccessError
 from odoo.http import request
@@ -12,16 +11,15 @@ from odoo.addons.portal.controllers.portal import (
 
 
 class CustomerPortal(CustomerPortal):
-    def _prepare_home_portal_values(self, counters):
-        values = super()._prepare_home_portal_values(counters)
-        if "business_requirement_count" in counters:
-            br_model = request.env["business.requirement"]
-            br_count = (
-                br_model.search_count(self._prepare_br_base_domain())
-                if br_model.check_access_rights("read", raise_exception=False)
-                else 0
-            )
-            values["business_requirement_count"] = br_count
+    def _prepare_portal_layout_values(self):
+        values = super()._prepare_portal_layout_values()
+        br_model = request.env["business.requirement"]
+        br_count = (
+            br_model.search_count(self._prepare_br_base_domain())
+            if br_model.check_access_rights("read", raise_exception=False)
+            else 0
+        )
+        values.update({"business_requirement_count": br_count})
         return values
 
     def _prepare_br_base_domain(self):
@@ -59,9 +57,6 @@ class CustomerPortal(CustomerPortal):
     def portal_my_br(self, page=1, date_begin=None, date_end=None, sortby=None, **kw):
         values = self._prepare_portal_layout_values()
         BRObj = request.env["business.requirement"]
-        # Avoid error if the user does not have access.
-        if not BRObj.check_access_rights("read", raise_exception=False):
-            return request.redirect("/my")
 
         searchbar_sortings = {
             "date": {"label": _("Date"), "order": "date desc"},
