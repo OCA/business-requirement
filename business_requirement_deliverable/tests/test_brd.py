@@ -12,7 +12,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         super().setUpClass()
         cls.partner_a = (
             cls.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(res_partner_search_mode="customer")
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )
@@ -185,7 +185,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
                     pricelist=line.business_requirement_id.pricelist_id.id,
                     uom=line.uom_id.id,
                 )
-                sale_price_unit = product.price
+                sale_price_unit = product.lst_price
             line.product_id_change()
             self.assertEqual(line.name, description)
             self.assertEqual(line.uom_id.id, self.productA.uom_id.id)
@@ -194,7 +194,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_product_id_change_with_pricelist(self):
         self.partner = (
             self.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(res_partner_search_mode="customer")
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )
@@ -218,7 +218,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
                 pricelist=line.business_requirement_id.pricelist_id.id,
                 uom=line.uom_id.id,
             )
-            self.assertEqual(line.sale_price_unit, product.price)
+            self.assertEqual(line.sale_price_unit, product.lst_price)
 
     def test_product_id_change_description_sale(self):
         self.productA.write({"description_sale": "Sales Description Product A"})
@@ -240,7 +240,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_partner_id_change(self):
         self.partner = (
             self.env["res.partner"]
-            .with_context({"res_partner_search_mode": "customer"})
+            .with_context(res_partner_search_mode="customer")
             .create(
                 {"name": "Your company test", "email": "your.company@your-company.com"}
             )

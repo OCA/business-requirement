@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
         <!-- Security Group Category -->
         <record
             model="ir.module.category"
@@ -10,5 +9,4 @@
             <field name="description" />
             <field name="sequence">10</field>
         </record>
-    </data>
 </odoo>
