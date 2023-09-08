@@ -210,11 +210,11 @@ class BusinessRequirement(models.Model):
             )
 
     def open_deliverable_line(self):
-        for self in self:
-            domain = [("business_requirement_id", "=", self.id)]
+        for requirement in self:
+            domain = [("business_requirement_id", "=", requirement.id)]
             br_id = 0
-            if self.state in ("draft", "confirmed"):
-                br_id = self.id
+            if requirement.state in ("draft", "confirmed"):
+                br_id = requirement.id
             return {
                 "name": _("Deliverable Lines"),
                 "type": "ir.actions.act_window",
@@ -287,7 +287,7 @@ class BusinessRequirement(models.Model):
         sections = self.deliverable_lines.mapped("section_id")
         for section in sections:
             brd_lines = self.deliverable_lines.filtered(
-                lambda x: x.section_id == section
+                lambda x, section=section: x.section_id == section
             )
             brd_section_total = sum(brd_lines.mapped("price_total"))
             sections_total.append((section.name, brd_section_total))
@@ -347,13 +347,17 @@ class BusinessRequirement(models.Model):
         if not subtype_ids or has_subtype:
             for partner_id in partner_ids or []:
                 self.mapped("deliverable_lines").filtered(
-                    lambda deliver: (partner_id not in deliver.message_partner_ids.ids)
+                    lambda deliver, partner_id=partner_id: (
+                        partner_id not in deliver.message_partner_ids.ids
+                    )
                 ).message_subscribe(
                     partner_ids=[partner_id], channel_ids=None, subtype_ids=None
                 )
             for channel_id in channel_ids or []:
                 self.mapped("deliverable_lines").filtered(
-                    lambda deliver: (channel_id not in deliver.message_channel_ids.ids)
+                    lambda deliver, channel_id=channel_id: (
+                        channel_id not in deliver.message_channel_ids.ids
+                    )
                 ).message_subscribe(
                     partner_ids=None, channel_ids=[channel_id], subtype_ids=None
                 )
