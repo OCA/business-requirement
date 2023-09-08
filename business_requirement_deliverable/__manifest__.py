@@ -36,7 +36,10 @@
             "business_requirement_deliverable/static/src/scss/brd_portal.scss",
         ],
         "web.assets_tests": [
-            "business_requirement_deliverable/static/src/js/business_requirement_deliverable_portal_tour.js"
+            (
+                "business_requirement_deliverable/static/src/js/"
+                "business_requirement_deliverable_portal_tour.js"
+            )
         ],
     },
     "demo": ["data/business_requirement_deliverable_demo.xml"],
