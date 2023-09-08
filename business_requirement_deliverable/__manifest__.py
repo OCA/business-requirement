@@ -22,7 +22,6 @@
         "views/res_partner.xml",
         "views/br_report.xml",
         "views/brd_portal_templates.xml",
-        "views/assets.xml",
     ],
     "image": [
         "static/description/icon.png",
@@ -32,6 +31,14 @@
         "static/img/bus_req_report2.png",
         "static/img/bus_req_report3.png",
     ],
+    "assets": {
+        "web.assets_frontend": [
+            "business_requirement_deliverable/static/src/scss/brd_portal.scss",
+        ],
+        "web.assets_tests": [
+            "business_requirement_deliverable/static/src/js/business_requirement_deliverable_portal_tour.js"
+        ]
+    },
     "demo": ["data/business_requirement_deliverable_demo.xml"],
     "license": "AGPL-3",
     "installable": True,
