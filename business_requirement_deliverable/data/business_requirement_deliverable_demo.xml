@@ -13,17 +13,17 @@
             <field name="currency_id" ref="base.HKD" />
         </record>
         <record
-            id="business_requirement.business_requirement_4"
-            model="business.requirement"
-        >
+        id="business_requirement.business_requirement_4"
+        model="business.requirement"
+    >
             <field name="pricelist_id" ref="brpricelist0" />
         </record>
         <!-- Products -->
         <record
-            id="product_template_1"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_1"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Developer</field>
             <field name="default_code">SER01</field>
             <field name="uom_id" ref="uom.product_uom_hour" />
@@ -39,10 +39,10 @@
             <field name="default_code">SER01</field>
         </record>
         <record
-            id="product_template_2"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_2"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Designer</field>
             <field name="default_code">SER02</field>
             <field name="uom_id" ref="uom.product_uom_hour" />
@@ -58,10 +58,10 @@
             <field name="default_code">SER02</field>
         </record>
         <record
-            id="product_template_3"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_3"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Consultant</field>
             <field name="default_code">SER03</field>
             <field name="uom_id" ref="uom.product_uom_hour" />
@@ -77,10 +77,10 @@
             <field name="default_code">SER03</field>
         </record>
         <record
-            id="product_template_4"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_4"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Website Template</field>
             <field name="default_code">WEB01</field>
             <field name="uom_id" ref="uom.product_uom_unit" />
@@ -96,10 +96,10 @@
             <field name="default_code">WEB01</field>
         </record>
         <record
-            id="product_template_5"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_5"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Website Design</field>
             <field name="default_code">WEB02</field>
             <field name="uom_id" ref="uom.product_uom_unit" />
@@ -115,10 +115,10 @@
             <field name="default_code">WEB02</field>
         </record>
         <record
-            id="product_template_6"
-            model="product.template"
-            context="{'create_product_product': True}"
-        >
+        id="product_template_6"
+        model="product.template"
+        context="{'create_product_product': True}"
+    >
             <field name="name">Odoo Quick Start Package</field>
             <field name="default_code">OD01</field>
             <field name="type">service</field>
@@ -131,25 +131,25 @@
             <field name="default_code">OD01</field>
         </record>
         <record
-            id="business_requirement_deliverable_section_mandatory"
-            model="business.requirement.deliverable.section"
-        >
+        id="business_requirement_deliverable_section_mandatory"
+        model="business.requirement.deliverable.section"
+    >
             <field name="name">Mandatory</field>
         </record>
         <record
-            id="business_requirement_deliverable_section_optional"
-            model="business.requirement.deliverable.section"
-        >
+        id="business_requirement_deliverable_section_optional"
+        model="business.requirement.deliverable.section"
+    >
             <field name="name">Optional</field>
         </record>
         <record
-            id="business_requirement_deliverable_1"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_1"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_1"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_1"
+        />
             <field name="qty">1.0</field>
             <field name="sale_price_unit">5200.0</field>
             <field name="uom_id" ref="uom.product_uom_unit" />
@@ -159,18 +159,18 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="sequence" eval="1" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_mandatory"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_mandatory"
+        />
         </record>
         <record
-            id="business_requirement_deliverable_2"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_2"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_2_2"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_2_2"
+        />
             <field name="qty">1.0</field>
             <field name="sale_price_unit">4000.0</field>
             <field name="uom_id" ref="uom.product_uom_unit" />
@@ -180,18 +180,18 @@
             <field name="proposed_solution">Responsive desing</field>
             <field name="sequence" eval="1" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_mandatory"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_mandatory"
+        />
         </record>
         <record
-            id="business_requirement_deliverable_3"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_3"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_3"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_3"
+        />
             <field name="product_id" ref="product_product_1" />
             <field name="qty">8.0</field>
             <field name="name">Server Setup</field>
@@ -202,13 +202,13 @@
             <field name="sequence" eval="1" />
         </record>
         <record
-            id="business_requirement_deliverable_4_1"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_4_1"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_4"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_4"
+        />
             <field name="product_id" ref="product_product_3" />
             <field name="qty">16.0</field>
             <field name="name">Functional Analysis</field>
@@ -218,18 +218,18 @@
             <field name="sale_price_unit">50.0</field>
             <field name="sequence" eval="1" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_mandatory"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_mandatory"
+        />
         </record>
         <record
-            id="business_requirement_deliverable_4_2"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_4_2"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_4"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_4"
+        />
             <field name="product_id" ref="product_product_3" />
             <field name="qty">48.0</field>
             <field name="name">Technical Architecture</field>
@@ -239,18 +239,18 @@
             <field name="sale_price_unit">45.0</field>
             <field name="sequence" eval="2" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_optional"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_optional"
+        />
         </record>
         <record
-            id="business_requirement_deliverable_5_1"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_5_1"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_5"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_5"
+        />
             <field name="product_id" ref="product_product_3" />
             <field name="qty">16.0</field>
             <field name="name">Functional Gap Analysis</field>
@@ -260,18 +260,18 @@
             <field name="sale_price_unit">50.0</field>
             <field name="sequence" eval="1" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_mandatory"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_mandatory"
+        />
         </record>
         <record
-            id="business_requirement_deliverable_5_2"
-            model="business.requirement.deliverable"
-        >
+        id="business_requirement_deliverable_5_2"
+        model="business.requirement.deliverable"
+    >
             <field
-                name="business_requirement_id"
-                ref="business_requirement.business_requirement_5"
-            />
+            name="business_requirement_id"
+            ref="business_requirement.business_requirement_5"
+        />
             <field name="product_id" ref="product_product_1" />
             <field name="qty">24.0</field>
             <field name="name">Prototype</field>
@@ -281,8 +281,8 @@
             <field name="sale_price_unit">35.0</field>
             <field name="sequence" eval="2" />
             <field
-                name="section_id"
-                ref="business_requirement_deliverable_section_optional"
-            />
+            name="section_id"
+            ref="business_requirement_deliverable_section_optional"
+        />
         </record>
 </odoo>
