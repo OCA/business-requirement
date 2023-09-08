@@ -111,7 +111,7 @@ class BusinessRequirementDeliverable(models.Model):
                 pricelist=self.business_requirement_id.pricelist_id.id,
                 uom=self.uom_id.id,
             )
-            self.sale_price_unit = product.price
+            self.sale_price_unit = product.lst_price
         elif self.product_id:
             self.sale_price_unit = self.product_id.uom_id._compute_price(
                 self.product_id.lst_price, self.uom_id
@@ -127,7 +127,7 @@ class BusinessRequirementDeliverable(models.Model):
                 pricelist=self.business_requirement_id.pricelist_id.id,
                 uom=self.uom_id.id,
             )
-            self.sale_price_unit = product.price
+            self.sale_price_unit = product.lst_price
         elif self.product_id:
             self.sale_price_unit = self.product_id.uom_id._compute_price(
                 self.product_id.lst_price, self.uom_id
