@@ -11,9 +11,9 @@ class BusinessRequirementDeliverable(models.Model):
     _description = "Business Requirement Deliverable"
     _order = "business_requirement_id, section_id, sequence, id"
 
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
     state = fields.Selection(related="business_requirement_id.state", store=True)
-    name = fields.Text(string="Name", required=True)
+    name = fields.Text(required=True)
     user_case = fields.Html()
     proposed_solution = fields.Html()
     product_id = fields.Many2one(
@@ -71,9 +71,11 @@ class BusinessRequirementDeliverable(models.Model):
     )
 
     def _compute_access_url(self):
-        super()._compute_access_url()
+        res = super()._compute_access_url()
         for brd in self:
             brd.access_url = "/my/brd/%s" % brd.id
+
+        return res
 
     @api.depends(
         "business_requirement_id.partner_id", "business_requirement_id.currency_id"
@@ -153,7 +155,6 @@ class BusinessRequirement(models.Model):
     deliverable_lines = fields.One2many(
         comodel_name="business.requirement.deliverable",
         inverse_name="business_requirement_id",
-        string="Deliverable Lines",
         copy=True,
         readonly=True,
         states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
