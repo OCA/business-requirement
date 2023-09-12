@@ -91,6 +91,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
                 "name": "Product B",
                 "uom_id": cls.uom_hour_id,
                 "uom_po_id": cls.uom_hour_id,
+                "description_sale": "test description",
                 "lst_price": 600,
                 "standard_price": 550,
             }
@@ -122,6 +123,10 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             elif line.name == "deliverable line4":
                 self.assertEqual(line.price_total, 1500.0)
 
+    def test_compute_access_url(self):
+        for line in self.br.deliverable_lines:
+            self.assertEqual(line.access_url, f"/my/brd/{line.id}")
+
     def test_compute_business_requirement_dl_rl(self):
         self.assertEqual(self.br.dl_count, 4)
         self.br.portal_published = True
@@ -134,9 +139,12 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         self.return_action = self.br.open_deliverable_line()
         self.assertTrue(self.return_action["type"], "ir.actions.act_window")
 
+    def test_get_portal_confirmation_action(self):
+        self.return_action = self.br.get_portal_confirmation_action()
+        self.assertEqual(self.return_action, "none")
+
     def test_compute_dl_total_revenue(self):
-        self.dl_total_revenue = sum(self.br.deliverable_lines.mapped("price_total"))
-        self.assertEqual(self.dl_total_revenue, 4800.0)
+        self.assertEqual(self.br.dl_total_revenue, 4800.0)
 
     def test_compute_currency_id(self):
         if not self.br.pricelist_id:
@@ -248,3 +256,25 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
         self.br.write({"partner_id": self.partner.id})
         with self.assertRaises(UserError):
             self.br.partner_id_change()
+
+    def test_copy(self):
+        self.br_copy = self.br.copy()
+        self.assertEqual(
+            self.br_copy.deliverable_lines.mapped("name"),
+            self.br.deliverable_lines.mapped("name"),
+        )
+
+    def test_get_total_by_section(self):
+        self.assertEqual(self.br.get_total_by_section(), [("Others", 4800.0)])
+
+    def test_portal_publish_button(self):
+        self.br.portal_publish_button()
+        self.assertTrue(self.br.portal_published)
+        self.br.portal_publish_button()
+        self.assertTrue(not self.br.portal_published)
+
+    def test_name_get(self):
+        self.name_get = self.br.name_get()
+        self.assertTrue(len(self.name_get[0]) == 2)
+        self.assertTrue(self.br.id in self.name_get[0])
+        self.assertTrue("test" in self.name_get[0][1])
