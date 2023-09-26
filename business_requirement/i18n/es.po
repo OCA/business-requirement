@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-11 15:05+0000\n"
-"PO-Revision-Date: 2023-09-20 21:46+0000\n"
+"PO-Revision-Date: 2023-10-09 09:15+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -717,7 +717,7 @@ msgstr "Mensajes de la página web"
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__website_message_ids
 msgid "Website communication history"
-msgstr "Historial de la comunicación en lapágina web"
+msgstr "Historial de la comunicación en la página web"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_header
