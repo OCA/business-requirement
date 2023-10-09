@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement_crm
+# 	* business_requirement_crm
 #
 msgid ""
 msgstr ""
