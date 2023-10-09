@@ -36,8 +36,8 @@ msgstr ""
 msgid ""
 "<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
 msgstr ""
-"<em class=\"font-weight-normal text-muted\">Livrables pour cette section "
-":</em>"
+"<em class=\"font-weight-normal text-muted\">Livrables pour cette section :</"
+"em>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
