@@ -69,16 +69,22 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: business_requirement_crm
+#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__display_name
+#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__display_name
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__display_name
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
 #. module: business_requirement_crm
+#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__id
+#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__id
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__id
 msgid "ID"
 msgstr "ID"
 
 #. module: business_requirement_crm
+#: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement____last_update
+#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead____last_update
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
 msgid "Last Modified on"
 msgstr "Última Modificación en"
