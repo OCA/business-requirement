@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:168
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "At least one deliverable must be selected to create the quotation"
 msgstr ""
@@ -122,33 +122,31 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:61
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "No deliverables found for this business requirement."
 msgstr ""
 
 #. module: business_requirement_sale
-#: selection:business.requirement.create.sale,totaled_method:0
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__standard
 msgid "Quantity and price unit as is"
 msgstr "Cantidad y precio unitario tal cual están"
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:152
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "Quotation %s created "
 msgstr "Presupuesto %s creado "
 
 #. module: business_requirement_sale
-#: model:ir.model,name:business_requirement_sale.model_sale_order
-#, fuzzy
-#| msgid "Sales Orders"
-msgid "Sale Order"
-msgstr "Pedidos de ventas"
-
-#. module: business_requirement_sale
 #: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
 msgid "Sales"
 msgstr "Ventas"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_sale_order
+msgid "Sales Order"
+msgstr ""
 
 #. module: business_requirement_sale
 #: model:ir.model,name:business_requirement_sale.model_sale_order_line
@@ -171,12 +169,12 @@ msgid "Sections"
 msgstr ""
 
 #. module: business_requirement_sale
-#: selection:business.requirement.create.sale,totaled_method:0
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__totaled
 msgid "Subtotal as price unit and qty = 1"
 msgstr "Subtotal como precio unitario y cantidad = 1"
 
 #. module: business_requirement_sale
-#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:159
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
 #, python-format
 msgid "This quotation has been created from:"
 msgstr "Este presupuesto se ha creado desde:"
@@ -195,6 +193,11 @@ msgstr ""
 #: model:ir.model,name:business_requirement_sale.model_business_requirement_create_sale
 msgid "Wizard to create new SO from requirement"
 msgstr "Asistente para crear nuevo PV desde el requisito"
+
+#, fuzzy
+#~| msgid "Sales Orders"
+#~ msgid "Sale Order"
+#~ msgstr "Pedidos de ventas"
 
 #~ msgid "Quotation"
 #~ msgstr "Presupuesto"
