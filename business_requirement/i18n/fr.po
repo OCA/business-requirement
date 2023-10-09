@@ -710,8 +710,8 @@ msgstr "Oui"
 #, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
-"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / confirmé "
-"/ annulé / abandonné."
+"Vous ne pouvez déplacer que vers les étapes suivantes : brouillon / "
+"confirmé / annulé / abandonné."
 
 #. module: business_requirement
 #: code:addons/business_requirement/models/business.py:235

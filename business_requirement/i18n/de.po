@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* business_requirement
+# 	* business_requirement
 #
 msgid ""
 msgstr ""
@@ -475,8 +475,10 @@ msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.actions.act_window,help:business_requirement.act_view_project_br_all
-msgid "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
+msgid ""
+"Odoo's Business Requirement management allows you to manage the list\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 
@@ -606,7 +608,8 @@ msgstr "Status"
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
