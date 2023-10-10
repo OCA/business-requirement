@@ -152,12 +152,10 @@ msgstr ""
 #: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
 #: model:ir.ui.menu,name:business_requirement.menu_business_root
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_form
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_tree
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_graph
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_pivot
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_tree
 msgid "Business Requirement"
 msgstr "Besoin Professionnel"
 
@@ -316,11 +314,6 @@ msgid "Followers"
 msgstr ""
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
@@ -346,6 +339,11 @@ msgstr "Écart :"
 #, fuzzy
 msgid "Group by"
 msgstr "Grouper par"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__2
@@ -657,6 +655,10 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__terms_and_conditions
+msgid "Terms And Conditions"
+msgstr ""
+
+#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Terms and Conditions"
 msgstr "Termes et conditions"
@@ -695,6 +697,10 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__to_be_reviewed
+msgid "To Be Reviewed"
+msgstr ""
+
+#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "To be Reviewed"
 msgstr "À évaluer"

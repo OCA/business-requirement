@@ -146,12 +146,10 @@ msgstr "Contagem de Anexos"
 #: model:ir.ui.menu,name:business_requirement.menu_business_requirement1
 #: model:ir.ui.menu,name:business_requirement.menu_business_root
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_form
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_category_tree
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_graph
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_pivot
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_tree
 msgid "Business Requirement"
 msgstr "Requisito de Negócios"
 
@@ -307,11 +305,6 @@ msgid "Followers"
 msgstr "Seguidores"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguidores (Canais)"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Seguidores (Parceiros)"
@@ -336,6 +329,11 @@ msgstr "Gap:"
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Group by"
 msgstr "Agrupado por"
+
+#. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__2
@@ -648,6 +646,10 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__terms_and_conditions
+msgid "Terms And Conditions"
+msgstr ""
+
+#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Terms and Conditions"
 msgstr "Termos e Condições"
@@ -686,6 +688,10 @@ msgstr "Ocorreu um erro ao processar esta página."
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__to_be_reviewed
+msgid "To Be Reviewed"
+msgstr ""
+
+#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "To be Reviewed"
 msgstr "A ser Revisado"
@@ -747,6 +753,9 @@ msgstr "]&amp;nbsp;"
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr "fechado"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Seguidores (Canais)"
 
 #~ msgid "There is no default company for the current user!"
 #~ msgstr "Não há empresa padrão para o usuário atual!"
