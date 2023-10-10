@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-11 15:05+0000\n"
-"PO-Revision-Date: 2023-09-21 17:38+0000\n"
+"PO-Revision-Date: 2023-10-10 22:57+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -334,7 +334,7 @@ msgstr "Agrupado por"
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Tiene mensaje"
 
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__2
@@ -648,7 +648,7 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__terms_and_conditions
 msgid "Terms And Conditions"
-msgstr ""
+msgstr "Términos y Condiciones"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
@@ -690,7 +690,7 @@ msgstr "Se ha producido un error al procesar esta página."
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__to_be_reviewed
 msgid "To Be Reviewed"
-msgstr ""
+msgstr "Para ser Revisado"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
