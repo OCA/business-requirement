@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="layout_br_report_body"
+        inherit_id="business_requirement.layout_br_report"
+    >
+        <xpath expr=".">
+            <div t-if="any(o.deliverable_lines)" style="page-break-inside: avoid;">
+                <u>
+                    <h3>Deliverable items:</h3>
+                </u>
+                <t
+                    t-foreach="o.deliverable_lines.sorted(key=lambda b: b.sequence)"
+                    t-as="deliverable"
+                    style="page-break-inside: avoid;"
+                >
+                    <div class="panel-body">
+                        <div class='row'>
+                            <div class="col-md-12">
+                                <h5 t-field="deliverable.name" />
+                                <h5 t-field="deliverable.section_id" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="ml8" t-if="deliverable.user_case">
+                                    <div>
+                                        <h6>User Case</h6>
+                                    </div>
+                                    <div>
+                                        <span t-field="deliverable.user_case" />
+                                    </div>
+                                </div>
+                                <div class="ml8" t-if="deliverable.proposed_solution">
+                                    <div>
+                                        <h6>Proposed Solution</h6>
+                                    </div>
+                                    <div>
+                                        <span t-field="deliverable.proposed_solution" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-right col-md-12">
+                                <h6>Amount: <span
+                                        t-field="deliverable.price_total"
+                                        t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'
+                                    /></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </t>
+                <div>
+                    <t t-set="section_totals" t-value="o.get_total_by_section()" />
+                    <h5 class="text-right">Subtotals</h5>
+                    <t t-foreach="section_totals" t-as="section_total">
+                        <h6 class="text-right"><t t-esc="section_total[0]" />:  <span
+                                t-esc="section_total[1]"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                            /></h6>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

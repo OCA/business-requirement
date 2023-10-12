@@ -1,0 +1,771 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * business_requirement_deliverable
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-23 01:40+0000\n"
+"PO-Revision-Date: 2023-04-11 12:26+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (kopija)"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid ""
+"<em class=\"font-weight-normal text-muted\">Deliverables for business "
+"requirement:</em>"
+msgstr ""
+"<em class=\"font-weight-normal text-muted\">Dobavne postavke za poslovno "
+"zahtevo:</em>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid ""
+"<em class=\"font-weight-normal text-muted\">Deliverables for section:</em>"
+msgstr ""
+"<em class=\"font-weight-normal text-muted\">Dobavne postavke za sekcijo:</em>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<small class=\"text-right\">Section:</small>"
+msgstr "<small class=\"text-right\">Sekcija:</small>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
+"title=\"Deliverables\"/>"
+msgstr ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Dobavne postavke\" "
+"title=\"Dobavne postavke\"/>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid ""
+"<span>\n"
+"                                            <i>Others</i>\n"
+"                                        </span>"
+msgstr ""
+"<span>\n"
+"                                            <i>Drugi</i>\n"
+"                                        </span>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Amount:</strong>"
+msgstr "<strong>Znesek:</strong>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Business Requirement:</strong>"
+msgstr "<strong>Poslovna zahteva:</strong>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Depends On:</strong>"
+msgstr "<strong>Odvisna od:</strong>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Message and communication history</strong>"
+msgstr "<strong>Kronologija komunikacij</strong>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>Proposed Solution</strong>"
+msgstr "<strong>Predlagana rešitev</strong>"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "<strong>User Case</strong>"
+msgstr "<strong>Uporabniški primer</strong>"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_warning
+msgid "Access warning"
+msgstr "Opozorilo ob dostopu"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction
+msgid "Action Needed"
+msgstr "Potrebno ukrepanje"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_ids
+msgid "Activities"
+msgstr "Aktivnosti"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktivnost - dekoracija izjem"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_state
+msgid "Activity State"
+msgstr "Stanje aktivnosti"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "All"
+msgstr "Vse"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+msgid "Amount:"
+msgstr "Znesek:"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_attachment_count
+msgid "Attachment Count"
+msgstr "Št. priponk"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__business_requirement_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_pivot
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#, python-format
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_deliverable
+#: model:ir.module.category,name:business_requirement_deliverable.module_category_business_requirement_cost
+msgid "Business Requirement Cost"
+msgstr "Strošek poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_menu_brd
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_tree
+msgid "Business Requirement Deliverable"
+msgstr "Dobavna postavka za poslovno zahtevo"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
+msgid "Business Requirement Deliverables"
+msgstr "Dobavne postavke za poslovno zahtevo"
+
+#. module: business_requirement_deliverable
+#: model:res.groups,name:business_requirement_deliverable.group_business_requirement_estimation
+msgid "Business Requirement Estimation"
+msgstr "Ocena poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
+msgid "Business Requirement Task Type"
+msgstr "Tip opravila poslovne zahteve"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Can't access to this business requirement deliverable"
+msgstr "Dostop do te dobavne postavke poslovne zahteve ni mogoč"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_3
+#: model:product.template,name:business_requirement_deliverable.product_product_3_product_template
+msgid "Consultant"
+msgstr "Svetovalec"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_res_partner
+msgid "Contact"
+msgstr "Stik"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__create_uid
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__create_date
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__currency_id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__currency_id
+msgid "Currency"
+msgstr "Valuta"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
+msgid "Current section of this deliverable"
+msgstr "Trenutna sekcija te dobavne postavke"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__access_url
+msgid "Customer Portal URL"
+msgstr "URL portala za stranke"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_count
+msgid "DL Count"
+msgstr "Št. dobavnih pos."
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_count_portal_published
+msgid "DL Count Portal pubished"
+msgstr "Št. objav. dob. post. na portalu"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_total_revenue
+msgid "DL Total Revenue"
+msgstr "Dob. prihodek skupaj"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_form
+msgid "Deliverable"
+msgstr "Dobavna postavka"
+
+#. module: business_requirement_deliverable
+#: model:mail.message.subtype,description:business_requirement_deliverable.mt_brd_new
+#: model:mail.message.subtype,name:business_requirement_deliverable.mt_br_brd_new
+#: model:mail.message.subtype,name:business_requirement_deliverable.mt_brd_new
+msgid "Deliverable Created"
+msgstr "Dobavna postavka ustvarjena"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__deliverable_lines
+#, python-format
+msgid "Deliverable Lines"
+msgstr "Dobavne postavke"
+
+#. module: business_requirement_deliverable
+#: model:ir.model,name:business_requirement_deliverable.model_business_requirement_deliverable_section
+msgid "Deliverable Section"
+msgstr "Dobavna sekcija"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+msgid "Deliverable items:"
+msgstr "Dobavne postavke:"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
+msgid "Deliverable(s)"
+msgstr "Dobavne postavke"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__dependency_ids
+msgid "Dependencies"
+msgstr "Odvisnosti"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_2
+#: model:product.template,name:business_requirement_deliverable.product_product_2_product_template
+msgid "Designer"
+msgstr "Oblikovalec"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_1
+#: model:product.template,name:business_requirement_deliverable.product_product_1_product_template
+msgid "Developer"
+msgstr "Razvijalec"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__display_name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_partner__property_product_estimation_pricelist
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_res_users__property_product_estimation_pricelist
+msgid "Estimation Pricelist"
+msgstr "Cenik za oceno"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_follower_ids
+msgid "Followers"
+msgstr "Sledilci"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Sledilci (kanali)"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Sledilci (partnerji)"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: business_requirement_deliverable
+#: model:product.pricelist,name:business_requirement_deliverable.brpricelist0
+msgid "HKD Pricelist"
+msgstr "HKD cenik"
+
+#. module: business_requirement_deliverable
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_1
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_2
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_3
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_1_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_2_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_3_product_template
+msgid "Hours"
+msgstr "ur"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__id
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
+msgid "Icon"
+msgstr "Ikona"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ikona za prikaz izjem pri aktivnostih."
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Če označeno pomeni, da nova sporočila zahtevajo vašo pozornost."
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"Če označeno pomeni, da je pri nekaterih sporočilih prišlo do napake pri "
+"dostavi."
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__portal_published
+msgid "In Portal"
+msgstr "V portalu"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_is_follower
+msgid "Is Follower"
+msgstr "Je sledilec"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable____last_update
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section____last_update
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__write_uid
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__write_uid
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__write_date
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Glavna priponka"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
+msgid "Message Delivery error"
+msgstr "Napaka ob dostavi sporočila"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_ids
+msgid "Messages"
+msgstr "Sporočila"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__name
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__name
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+msgid "Name"
+msgstr "Naziv"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Newest"
+msgstr "Najnovejše"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Rok naslednje aktivnosti"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_summary
+msgid "Next Activity Summary"
+msgstr "Povzetek naslednje aktivnosti"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tip naslednje aktivnosti"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "None"
+msgstr "Brez"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Število ukrepov"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error_counter
+msgid "Number of errors"
+msgstr "Število napak"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Število sporočil, kjer je potrebno ukrepati"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Število sporočil z napako ob dostavi"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Število neprebranih sporočil"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_6
+#: model:product.template,name:business_requirement_deliverable.product_product_6_product_template
+msgid "Odoo Quick Start Package"
+msgstr "Paket Odoo hitri start"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:0
+#, python-format
+msgid "Others"
+msgstr "Drugo"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_url
+msgid "Portal Access URL"
+msgstr "URL dostopa do portala"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__pricelist_id
+msgid "Pricelist"
+msgstr "Cenik"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_res_partner__property_product_estimation_pricelist
+#: model:ir.model.fields,help:business_requirement_deliverable.field_res_users__property_product_estimation_pricelist
+msgid ""
+"Pricelist used for the estimation of the Business Requirements\n"
+"        Deliverables linked to this Customer.\n"
+"        Currency of the Deliverables will be the one from the pricelist."
+msgstr ""
+"Cenik, ki se uporablja pri oceni poslovnih zahtev\n"
+"        Dobavne postavke v zvezi s tem kupcem.\n"
+"        Valuta dobavnih postavk bo tista, ki je določena v ceniku."
+
+#. module: business_requirement_deliverable
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_product_pricelist_action2
+msgid "Pricelists"
+msgstr "Ceniki"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__product_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__proposed_solution
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
+msgid "Proposed Solution"
+msgstr "Predlagana rešitev"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__qty
+msgid "Quantity"
+msgstr "Količina"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid "Ref."
+msgstr "Sklic"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Reference"
+msgstr "Sklic"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_lines
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_deliverable_lines_noedit
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_lines
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_graph
+msgid "Requirement Deliverable"
+msgstr "Zaht. dobavna postavka"
+
+#. module: business_requirement_deliverable
+#: model:ir.actions.act_window,name:business_requirement_deliverable.action_menu_deliverable_sections
+#: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_sections
+msgid "Requirement Deliverable Section"
+msgstr "Sekcija zaht. dobavne postavke"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_user_id
+msgid "Responsible User"
+msgstr "Odgovorni uporabnik"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Napaka pri dostavi SMS"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sale_price_unit
+msgid "Sales Price"
+msgstr "Prodajna cena"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Search <span class=\"nolabel\"> (in Content)</span>"
+msgstr "Search <span class=\"nolabel\"> (v vsebini)</span>"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Search in All"
+msgstr "Iskanje po vseh"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Search in Messages"
+msgstr "Iskanje po sporočilih"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Search in Stakeholder"
+msgstr "Iskanje po deležniku"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__section_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#, python-format
+msgid "Section"
+msgstr "Sekcija"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_token
+msgid "Security Token"
+msgstr "Varnostni žeton"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sequence
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable_section__sequence
+msgid "Sequence"
+msgstr "Zaporedje"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__business_requirement_partner_id
+msgid "Stakeholder"
+msgstr "Deležnik"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__state
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_search
+msgid "State"
+msgstr "Stanje"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status glede na aktivnosti\n"
+"Prekoračeno: rok izvedbe je že prekoračen\n"
+"Danes: Datum aktivnosti je današnji dan\n"
+"Planirano: Bodoče aktivnosti."
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+msgid "Subtotals"
+msgstr "Vmesni seštevek"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
+msgid "There are no business requirement deliverable."
+msgstr "Ni dobavnih postavk poslovne zahteve."
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/controllers/portal.py:0
+#, python-format
+msgid "Title"
+msgstr "Naslov"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__total_revenue
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__price_total
+msgid "Total Deliverable"
+msgstr "Skupaj postavka"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_tree
+msgid "Total price"
+msgstr "Skupaj cena"
+
+#. module: business_requirement_deliverable
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_tree
+msgid "Total revenue"
+msgstr "Skupaj prihodki"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tip izjeme pri aktivnosti na zapisu."
+
+#. module: business_requirement_deliverable
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_4
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_5
+#: model:product.product,uom_name:business_requirement_deliverable.product_product_6
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_4_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_5_product_template
+#: model:product.template,uom_name:business_requirement_deliverable.product_product_6_product_template
+msgid "Units"
+msgstr "Enot"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
+msgid "Unread Messages"
+msgstr "Neprebrana sporočila"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Št. neprebranih sporočil"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__uom_id
+msgid "UoM"
+msgstr "EM"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__user_case
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_form
+msgid "User Case"
+msgstr "Uporabnikov primer"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_5
+#: model:product.template,name:business_requirement_deliverable.product_product_5_product_template
+msgid "Website Design"
+msgstr "Oblikovanje spletne strani"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
+msgid "Website Messages"
+msgstr "Sporočila spletne strani"
+
+#. module: business_requirement_deliverable
+#: model:product.product,name:business_requirement_deliverable.product_product_4
+#: model:product.template,name:business_requirement_deliverable.product_product_4_product_template
+msgid "Website Template"
+msgstr "Predloga spletne strani"
+
+#. module: business_requirement_deliverable
+#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
+
+#. module: business_requirement_deliverable
+#: code:addons/business_requirement_deliverable/models/business.py:0
+#, python-format
+msgid ""
+"You are changing customer, on a business requirementwhich already contains "
+"deliverable lines.Pricelist could be different."
+msgstr ""
+"Kupca spreminjate na poslovni zahtevi, ki že vsebuje dobavne postavke. "
+"Ceniki so lahko različni."
+
+#, fuzzy
+#~| msgid "Business Requirement"
+#~ msgid "Business Requirement Deliverable -"
+#~ msgstr "Poslovna zahteva"
+
+#, fuzzy
+#~| msgid "Business Requirement"
+#~ msgid "Edit Business Requirement Deliverable"
+#~ msgstr "Poslovna zahteva"
+
+#~ msgid "Change Request?"
+#~ msgstr "Zahteva po spremembi?"
+
+#~ msgid "High"
+#~ msgstr "Visoka"
+
+#~ msgid "Low"
+#~ msgstr "Nizka"
+
+#~ msgid "Master Project"
+#~ msgstr "Nosilni projekt"
+
+#~ msgid "Normal"
+#~ msgstr "Običajna"
+
+#~ msgid "Priority"
+#~ msgstr "Prioriteta"
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
