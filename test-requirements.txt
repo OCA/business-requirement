@@ -1,0 +1,1 @@
+odoo-addon-business_requirement_deliverable@ git+https://github.com/oca/business-requirement@refs/pull/365/head#subdirectory=setup/business_requirement_deliverable
