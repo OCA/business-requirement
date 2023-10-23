@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.form.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_last_stage_update']" position="after">
+                <field
+                    name="business_requirement_deliverable_id"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    type="object"
+                    name="action_view_deliverable"
+                    class="oe_stat_button"
+                    icon="fa-tasks"
+                    attrs="{'invisible': [('business_requirement_deliverable_id', '=', False)]}"
+                    string="Deliverable"
+                >
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
