@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-10 19:40+0000\n"
-"PO-Revision-Date: 2019-11-28 20:14+0000\n"
-"Last-Translator: David Vidal <david.vidal@tecnativa.com>\n"
+"PO-Revision-Date: 2024-01-03 11:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/models/business.py:0
@@ -43,7 +43,7 @@ msgstr ""
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 msgid "<small class=\"text-right\">Section:</small>"
-msgstr ""
+msgstr "<small class=\"text-right\">Sección:</small>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
@@ -51,6 +51,8 @@ msgid ""
 "<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
 "title=\"Deliverables\"/>"
 msgstr ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Deliverables\" "
+"title=\"Deliverables\"/>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
@@ -59,6 +61,9 @@ msgid ""
 "                                            <i>Others</i>\n"
 "                                        </span>"
 msgstr ""
+"<span>\n"
+"                                            <i>Otros</i>\n"
+"                                        </span>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
@@ -72,14 +77,13 @@ msgstr "<strong>Requerimiento de Negocio:</strong>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
 msgid "<strong>Depends On:</strong>"
-msgstr "<strong>Importe:</strong>"
+msgstr "<strong>Depende de:</strong>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
 msgid "<strong>Message and communication history</strong>"
-msgstr "</strong>Historial de mensajes y comunicaciones</strong>"
+msgstr "<strong>Historial de mensajes y comunicaciones</strong>"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
@@ -94,32 +98,32 @@ msgstr "<strong>Caso de Usuario</strong>"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Aviso de Acceso"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Necesaria Acción"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Actividad de Excepción de Decoración"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Estado de la Actividad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Icono de Tipo de Actividad"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
@@ -135,7 +139,7 @@ msgstr "Importe:"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Conteo de Archivos Adjuntos"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
@@ -163,9 +167,8 @@ msgstr "Requisitos de negocio entregable"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_home_br
-#, fuzzy
 msgid "Business Requirement Deliverables"
-msgstr "Requisitos de negocio entregable"
+msgstr "Resultados de los Requisitos Empresariales"
 
 #. module: business_requirement_deliverable
 #: model:res.groups,name:business_requirement_deliverable.group_business_requirement_estimation
@@ -179,9 +182,9 @@ msgstr "Tipo de tarea del requisito de negocio"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
-#, fuzzy, python-format
+#, python-format
 msgid "Can't access to this business requirement deliverable"
-msgstr "No existe un requerimientos de negocio entregable."
+msgstr "No se puede acceder a este entregable de requisitos de negocio"
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_3
@@ -214,9 +217,8 @@ msgstr "Moneda"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd
-#, fuzzy
 msgid "Current section of this deliverable"
-msgstr "Requisitos entregables"
+msgstr "Sección actual de este entregable"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
@@ -226,7 +228,7 @@ msgstr "Cliente"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "URL del Portal de Cliente"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_count
@@ -236,7 +238,7 @@ msgstr "Número de entregables"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_count_portal_published
 msgid "DL Count Portal pubished"
-msgstr ""
+msgstr "Portal de conteo DL publicado"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__dl_total_revenue
@@ -252,9 +254,8 @@ msgstr "Entregable"
 #: model:mail.message.subtype,description:business_requirement_deliverable.mt_brd_new
 #: model:mail.message.subtype,name:business_requirement_deliverable.mt_br_brd_new
 #: model:mail.message.subtype,name:business_requirement_deliverable.mt_brd_new
-#, fuzzy
 msgid "Deliverable Created"
-msgstr "Entregable"
+msgstr "Entregable Creado"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/models/business.py:0
@@ -275,9 +276,8 @@ msgstr "Listado de entregables:"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_br_page
-#, fuzzy
 msgid "Deliverable(s)"
-msgstr "Entregable"
+msgstr "Producto(s) final(es)"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__dependency_ids
@@ -313,22 +313,22 @@ msgstr "Estimación por lista de precios"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores/as"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Seguidores/as (Canales)"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguidores (Clientes)"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Icono de fuente impresionante, por ejemplo fa-tasks"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
@@ -348,7 +348,7 @@ msgstr "Listado de precios HKD"
 #: model:product.template,uom_name:business_requirement_deliverable.product_template_2
 #: model:product.template,uom_name:business_requirement_deliverable.product_template_3
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__id
@@ -361,24 +361,24 @@ msgstr "ID (identificación)"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icono"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Icono para indicar la excepción de la actividad."
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si esta marcado, algunos mensajes tienen un error de entrega."
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__portal_published
@@ -388,7 +388,7 @@ msgstr "En el portal"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Es Seguidor/a"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement____last_update
@@ -413,23 +413,22 @@ msgstr "Última actualización en"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Archivo Adjunto Principal"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Error en Entrega de Mensajes"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_ids
-#, fuzzy
 msgid "Messages"
-msgstr "Buscar en Mensajes"
+msgstr "Mensajes"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "Fecha Límite de Actividad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__name
@@ -448,17 +447,17 @@ msgstr "Más nuevo"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Vencimiento de la Siguiente Actividad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Resumen Siguiente Actividad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Tipo de la Siguiente Acción"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
@@ -469,27 +468,27 @@ msgstr "Ninguno"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Número de Acciones"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Número de errores"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Cantidad de mensajes que requieren una acción"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Cantidad de mensajes con error de envío"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Cantidad de mensajes sin leer"
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_6
@@ -501,12 +500,12 @@ msgstr "Paquete de inicio rápido de Odoo"
 #: code:addons/business_requirement_deliverable/models/business.py:0
 #, python-format
 msgid "Others"
-msgstr "Others"
+msgstr "Otros"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "URL de Acceso al Portal"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__pricelist_id
@@ -573,18 +572,17 @@ msgstr "Requisitos entregables"
 #: model:ir.actions.act_window,name:business_requirement_deliverable.action_menu_deliverable_sections
 #: model:ir.ui.menu,name:business_requirement_deliverable.menu_deliverable_sections
 msgid "Requirement Deliverable Section"
-msgstr "Requirement Deliverable Section"
+msgstr "Sección de Entrega de Requisitos"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Usuario Responsable"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
-#, fuzzy
 msgid "SMS Delivery error"
-msgstr "Entregable"
+msgstr "SMS error de entrega"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sale_price_unit
@@ -619,14 +617,14 @@ msgstr "Buscar en Entidad Interesada"
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__section_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.view_business_requirement_deliverable_search
-#, fuzzy, python-format
+#, python-format
 msgid "Section"
-msgstr "Section"
+msgstr "Sección"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__access_token
 msgid "Security Token"
-msgstr ""
+msgstr "Ficha de Seguridad"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sequence
@@ -654,11 +652,15 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Estado basado en actividades\n"
+"Atrasado: La fecha de vencimiento ya ha pasado\n"
+"Hoy: La fecha de la actividad es hoy\n"
+"Planeado: Actividades futuras."
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.layout_br_report_body
 msgid "Subtotals"
-msgstr "Subtotals"
+msgstr "Subtotales"
 
 #. module: business_requirement_deliverable
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable.portal_my_brd_list
@@ -669,7 +671,7 @@ msgstr "No existe un requerimientos de negocio entregable."
 #: code:addons/business_requirement_deliverable/controllers/portal.py:0
 #, python-format
 msgid "Title"
-msgstr "Title"
+msgstr "Título"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement__total_revenue
@@ -690,7 +692,7 @@ msgstr "Total beneficio"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo de actividad excepcional registrada."
 
 #. module: business_requirement_deliverable
 #: model:product.product,uom_name:business_requirement_deliverable.product_product_4
@@ -700,18 +702,17 @@ msgstr ""
 #: model:product.template,uom_name:business_requirement_deliverable.product_template_5
 #: model:product.template,uom_name:business_requirement_deliverable.product_template_6
 msgid "Units"
-msgstr ""
+msgstr "Unidades"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_unread
-#, fuzzy
 msgid "Unread Messages"
-msgstr "Buscar en Mensajes"
+msgstr "Número de Mensajes no Leídos"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contador de Mensajes no leído"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__uom_id
@@ -733,9 +734,8 @@ msgstr "Diseño Web"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
-#, fuzzy
 msgid "Website Messages"
-msgstr "Diseño Web"
+msgstr "Mensajes del sitio web"
 
 #. module: business_requirement_deliverable
 #: model:product.product,name:business_requirement_deliverable.product_product_4
@@ -745,9 +745,8 @@ msgstr "Plantillas del sitio web"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__website_message_ids
-#, fuzzy
 msgid "Website communication history"
-msgstr "</strong>Historial de mensajes y comunicaciones</strong>"
+msgstr "Historial de notificación de sitios web"
 
 #. module: business_requirement_deliverable
 #: code:addons/business_requirement_deliverable/models/business.py:0
