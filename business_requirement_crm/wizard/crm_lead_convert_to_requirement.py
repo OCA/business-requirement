@@ -52,19 +52,23 @@ class CrmLeadCreateRequirement(models.TransientModel):
         requirement = self.env["business.requirement"].create(
             self._prepare_business_requirement_vals()
         )
-        # Chatter reflects new Requierement on both ways
-        msg_body = _("Requirement %s created") % (
-            "<a href=# data-oe-model=business.requirement data-oe-id=%d>%s</a>"
-            % (requirement.id, requirement.name)
-        )
+        # Chatter reflects new Requirement on both ways
+        msg_body = _(
+            "Requirement %s created <a href=#"
+            " data-oe-model=business.requirement data-oe-id=%(id)d>%(name)s</a>"
+        ) % {
+            "id": requirement.id,
+            "name": requirement.name,
+        }
         lead = self.lead_id
         lead.message_post(body=msg_body)
         requirement_msg = _(
             "This business requirement has been created from:"
-        ) + " %s" % ("<a href=# data-oe-model=crm.lead data-oe-id=%d>%s</a>") % (
-            lead.id,
-            lead.name,
-        )
+            " <a href=# data-oe-model=crm.lead data-oe-id=%(id)d>%(name)s</a>"
+        ) % {
+            "id": lead.id,
+            "name": lead.name,
+        }
         requirement.message_post(body=requirement_msg)
         return (
             self.env["business.requirement"]
