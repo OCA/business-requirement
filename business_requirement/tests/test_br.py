@@ -23,9 +23,9 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
             body=_("Test Body"),
             message_type="notification",
             subtype_id=self.env.ref("mail.mt_note").id,
-            **{}
+            **{},
         )
-        self.assertEqual(self.message.subject, "Re: {}-test".format(self.br.name))
+        self.assertEqual(self.message.subject, f"Re: {self.br.name}-test")
 
     def test_br_name_search(self):
         br_vals = {"name": " test", "description": "test"}
@@ -52,9 +52,7 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.assertEqual(self.portal_confirmation_action, "none")
 
     def test_compute_access_url(self):
-        self.assertEqual(
-            self.br.access_url, "/my/business_requirement/{}".format(self.br.id)
-        )
+        self.assertEqual(self.br.access_url, f"/my/business_requirement/{self.br.id}")
 
     def test_portal_publish_button(self):
         self.assertFalse(self.br.portal_published)
