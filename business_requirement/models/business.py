@@ -200,7 +200,7 @@ class BusinessRequirement(models.Model):
         """
         result = []
         for br in self:
-            formatted_name = "[{}] {}".format(br.name, br.description)
+            formatted_name = f"[{br.name}] {br.description}"
             result.append((br.id, formatted_name))
         return result
 
@@ -236,7 +236,7 @@ class BusinessRequirement(models.Model):
         attachment_ids=None,
         add_sign=True,
         record_name=False,
-        **kwargs
+        **kwargs,
     ):
         context = self._context or {}
         if context.get("default_model") == "business.requirement" and context.get(
@@ -245,7 +245,7 @@ class BusinessRequirement(models.Model):
             br_rec = self.env[context.get("default_model")].browse(
                 context["default_res_id"]
             )
-            subject = "Re: {}-{}".format(br_rec.name, br_rec.description)
+            subject = f"Re: {br_rec.name}-{br_rec.description}"
         message = super(
             BusinessRequirement, self.with_context(mail_create_nosubscribe=True)
         ).message_post(
@@ -262,7 +262,7 @@ class BusinessRequirement(models.Model):
             attachment_ids=attachment_ids,
             add_sign=add_sign,
             record_name=record_name,
-            **kwargs
+            **kwargs,
         )
         return message
 
