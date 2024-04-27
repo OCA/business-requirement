@@ -4,7 +4,7 @@
     "name": "Business Requirement CRM",
     "category": "Business Requirements Management",
     "summary": "Convert Leads to Business Requirement",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "website": "https://github.com/OCA/business-requirement",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "depends": ["crm", "business_requirement"],
