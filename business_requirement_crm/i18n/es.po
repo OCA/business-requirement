@@ -113,8 +113,10 @@ msgstr "Oportunidad"
 #. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
-msgid "Requirement %s created"
-msgstr "Requisito %s creado"
+msgid ""
+"Requirement %s created <a href=# data-oe-model=business.requirement data-oe-"
+"id=%(id)d>%(name)s</a>"
+msgstr ""
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
@@ -125,8 +127,18 @@ msgstr "Requisitos"
 #. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
 #, python-format
-msgid "This business requirement has been created from:"
-msgstr "Este requisito de negocio se ha creado desde:"
+msgid ""
+"This business requirement has been created from: <a href=# data-oe-model=crm."
+"lead data-oe-id=%(id)d>%(name)s</a>"
+msgstr ""
+
+#, python-format
+#~ msgid "Requirement %s created"
+#~ msgstr "Requisito %s creado"
+
+#, python-format
+#~ msgid "This business requirement has been created from:"
+#~ msgstr "Este requisito de negocio se ha creado desde:"
 
 #~ msgid "Customer history"
 #~ msgstr "Historia del interesado"
