@@ -28,38 +28,42 @@ Business Requirement
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-A **Business requirement** (BR) is the expression of a business need by a customer
-or internal project user.
+A **Business requirement** (BR) is the expression of a business need by
+a customer or internal project user.
 
-A BR contains multiple different parts to explain the stakeholder need and how to
-meet his/her requirements:
+A BR contains multiple different parts to explain the stakeholder need
+and how to meet his/her requirements:
 
-* **Customer Story**: this is the requirement as expressed by the customer
-* **Scenario**: How/where the current solution can provide a suitable scenario to
-  answer the customer story
-* **Gap**: For the uncovered part of the scenario, elaborate the gap/need for specific
-  developments/setup
-* **Test case**: A set of conditions under which a tester will determine whether the application, software system or
-  one of its features is working as it was originally established for it to do.
-* **Deliverables** to be provided to the customer/user
-* **Resources** necessary to achieve the deliverables
-* **Additional** information (approval, cost control etc.)
+-  **Customer Story**: this is the requirement as expressed by the
+   customer
+-  **Scenario**: How/where the current solution can provide a suitable
+   scenario to answer the customer story
+-  **Gap**: For the uncovered part of the scenario, elaborate the
+   gap/need for specific developments/setup
+-  **Test case**: A set of conditions under which a tester will
+   determine whether the application, software system or one of its
+   features is working as it was originally established for it to do.
+-  **Deliverables** to be provided to the customer/user
+-  **Resources** necessary to achieve the deliverables
+-  **Additional** information (approval, cost control etc.)
 
-This set of modules was originally designed for the service/IT industry but the
-requirement management design has been kept as generic as possible so that it can
-apply to many other cases/industries (customer or internal projects):
+This set of modules was originally designed for the service/IT industry
+but the requirement management design has been kept as generic as
+possible so that it can apply to many other cases/industries (customer
+or internal projects):
 
-* Construction
-* Trading (New product development)
-* Business Consultancy
-* Web or IT development
-* R&D projects
-* etc.
+-  Construction
+-  Trading (New product development)
+-  Business Consultancy
+-  Web or IT development
+-  R&D projects
+-  etc.
 
 More information about business requirements management:
 
-* `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`_
-* `Six Sigma <https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`_
+-  `Wikipedia <https://en.wikipedia.org/wiki/Business_requirements>`__
+-  `Six
+   Sigma <https://www.isixsigma.com/implementation/project-selection-tracking/business-requirements-document-high-level-review/>`__
 
 **Table of contents**
 
@@ -80,39 +84,39 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Elico Corp
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Eric Caudal <eric.caudal@elico-corp.com>
-* Alex Duan <alex.duan@elico-corp.com>
-* Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
-* Victor M. Martin <victor.martin@elico-corp.com>
-* Evan Li <li.aiwen@elico-corp.com>
-* Reinhard Sheng <reinhard.sheng@elico-corp.com>
+-  Eric Caudal <eric.caudal@elico-corp.com>
+-  Alex Duan <alex.duan@elico-corp.com>
+-  Xie XiaoPeng <xie.xiaopeng@elico-corp.com>
+-  Victor M. Martin <victor.martin@elico-corp.com>
+-  Evan Li <li.aiwen@elico-corp.com>
+-  Reinhard Sheng <reinhard.sheng@elico-corp.com>
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-* `Tecnativa <https://www.tecnativa.com>`_:
-
-  * Alexandre Diaz
-  * Pedro M. Baeza
-  * Victor M.M. Torres
-  * Víctor Martínez
+   -  Alexandre Diaz
+   -  Pedro M. Baeza
+   -  Victor M.M. Torres
+   -  Víctor Martínez
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
+-  Images:
 
-* Images:
-
-  * `briefcase <https://fontawesome.com/icons/briefcase?style=solid>`__ from `FontAwesome <https://fontawesome.com/license>`__.
-  * `drafting-compass <https://fontawesome.com/icons/drafting-compass?style=solid>`__ from `FontAwesome <https://fontawesome.com/license>`__.
+   -  `briefcase <https://fontawesome.com/icons/briefcase?style=solid>`__
+      from `FontAwesome <https://fontawesome.com/license>`__.
+   -  `drafting-compass <https://fontawesome.com/icons/drafting-compass?style=solid>`__
+      from `FontAwesome <https://fontawesome.com/license>`__.
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
