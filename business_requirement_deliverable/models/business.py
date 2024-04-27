@@ -322,7 +322,7 @@ class BusinessRequirement(models.Model):
             default = {}
         if not default.get("name"):
             default["name"] = _("%s (copy)") % (self.name)
-        br = super(BusinessRequirement, self).copy(default)
+        br = super().copy(default)
         for follower in self.message_follower_ids:
             br.message_subscribe(
                 partner_ids=follower.partner_id.ids,
