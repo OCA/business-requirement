@@ -7,6 +7,8 @@ from odoo.http import request
 from odoo.addons.portal.controllers.portal import (
     CustomerPortal,
     get_records_pager,
+)
+from odoo.addons.portal.controllers.portal import (
     pager as portal_pager,
 )
 
