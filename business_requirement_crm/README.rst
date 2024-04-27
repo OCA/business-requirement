@@ -28,8 +28,8 @@ Business Requirement CRM
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of CRM and Business Requirement
-to support create new Requirementes from Opportunity.
+This module extends the functionality of CRM and Business Requirement to
+support create new Requirementes from Opportunity.
 
 **Table of contents**
 
@@ -41,8 +41,8 @@ Usage
 
 To use this module, you need to:
 
-#. Go to CRM Pipeline Lead menu
-#. Click on Convert to Requirement button
+1. Go to CRM Pipeline Lead menu
+2. Click on Convert to Requirement button
 
 Bug Tracker
 ===========
@@ -58,21 +58,21 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Victor M.M. Torres
-  * Alexandre Díaz
+   -  Pedro M. Baeza
+   -  Victor M.M. Torres
+   -  Alexandre Díaz
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
