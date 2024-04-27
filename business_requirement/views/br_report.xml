@@ -54,7 +54,7 @@
                         <strong>Date</strong>
                     </td>
                     <td>
-                        <span t-field="o.date" t-field-options='{"widget": "date"}' />
+                        <span t-field="o.date" t-options='{"widget": "date"}' />
                         <t t-if="o.user_id">(<span t-field="o.user_id.name" />)</t>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@
                     <td>
                         <span
                             t-field="o.confirmation_date"
-                            t-field-options='{"widget": "date"}'
+                            t-options='{"widget": "date"}'
                         />
                         <t t-if="o.confirmed_user_id">(<span
                                 t-field="o.confirmed_user_id.name"
@@ -79,7 +79,7 @@
                     <td>
                         <span
                             t-field="o.approval_date"
-                            t-field-options='{"widget": "date"}'
+                            t-options='{"widget": "date"}'
                         />
                         <t t-if="o.approved_id">(<span
                                 t-field="o.approved_id.name"
