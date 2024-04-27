@@ -364,7 +364,6 @@ msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error
-#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -502,7 +501,8 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:business_requirement.act_view_project_br_all
 msgid ""
 "Odoo's Business Requirement management allows you to manage the list\n"
-"                of Business requirement from a Stakeholder for efficient follow up. You can\n"
+"                of Business requirement from a Stakeholder for efficient "
+"follow up. You can\n"
 "                track progress, discuss on tasks, attach documents, etc."
 msgstr ""
 
@@ -566,11 +566,6 @@ msgstr ""
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__reviewer_ids
 msgid "Reviewers"
-msgstr ""
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: business_requirement
@@ -717,8 +712,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/business_requirement/models/business.py:0
 #, python-format
-msgid ""
-"You can only move to the following stage: draft/confirmed /cancel/drop."
+msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 
 #. module: business_requirement

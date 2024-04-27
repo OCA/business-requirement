@@ -364,7 +364,6 @@ msgstr "Se marcada, novas mensagens requerem sua atenção."
 
 #. module: business_requirement
 #: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_error
-#: model:ir.model.fields,help:business_requirement.field_business_requirement__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se marcada, algumas mensagens apresentam erro de entrega."
 
@@ -575,11 +574,6 @@ msgid "Reviewers"
 msgstr "Revisores"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "SMS de Erro de Entrega"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__scenario
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Scenario"
@@ -751,6 +745,9 @@ msgstr "]&amp;nbsp;"
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr "fechado"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "SMS de Erro de Entrega"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Número de mensagens que requerem uma ação"
