@@ -20,4 +20,4 @@ class BusinessRequirementPortal(BusinessRequirementPortalBase):
         super().setUp()
 
     def test_tour(self):
-        self.start_tour("/", "business_requirement_portal_tour", login="portal")
+        self.start_tour("/my", "business_requirement_portal_tour", login="portal")

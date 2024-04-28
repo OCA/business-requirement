@@ -17,7 +17,7 @@
                 <t t-else="">Business Requirements</t>
             </li>
             <li t-if="business_requirement" class="breadcrumb-item active">
-                <t t-esc="business_requirement.name" />
+                <t t-out="business_requirement.name" />
             </li>
         </xpath>
     </template>

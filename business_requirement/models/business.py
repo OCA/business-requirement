@@ -12,42 +12,24 @@ class BusinessRequirement(models.Model):
     _description = "Business Requirement"
     _order = "name desc"
 
-    sequence = fields.Char(readonly=True, copy=False, index=True)
+    sequence = fields.Char(copy=False, index=True)
     name = fields.Char(
-        readonly=True,
         copy=False,
-        states={"draft": [("readonly", False)]},
     )
     description = fields.Char(
         required=True,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     business_requirement = fields.Html(
-        string="Customer Story", readonly=True, states={"draft": [("readonly", False)]}
+        string="Customer Story",
     )
-    scenario = fields.Html(
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
-    )
-    gap = fields.Html(
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
-    )
-    test_case = fields.Html(
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
-    )
-    terms_and_conditions = fields.Html(
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
-    )
+    scenario = fields.Html()
+    gap = fields.Html()
+    test_case = fields.Html()
+    terms_and_conditions = fields.Html()
     category_ids = fields.Many2many(
         comodel_name="business.requirement.category",
         string="Categories",
         relation="business_requirement_category_rel",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     state = fields.Selection(
         selection=[
@@ -61,19 +43,15 @@ class BusinessRequirement(models.Model):
         ],
         default="draft",
         copy=False,
-        readonly=False,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     change_request = fields.Boolean(
-        string="Change Request?", readonly=True, states={"draft": [("readonly", False)]}
+        string="Change Request?",
     )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Stakeholder",
         copy=False,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     priority = fields.Selection(
         selection=[("0", "Low"), ("1", "Normal"), ("2", "High")],
@@ -84,39 +62,39 @@ class BusinessRequirement(models.Model):
         comodel_name="res.users",
         string="Requested by",
         required=True,
-        readonly=True,
         default=lambda self: self.env.user,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
-    confirmation_date = fields.Datetime(copy=False, readonly=True)
+    confirmation_date = fields.Datetime(
+        copy=False,
+    )
     confirmed_user_id = fields.Many2one(
-        comodel_name="res.users", string="Confirmed by", copy=False, readonly=True
+        comodel_name="res.users",
+        string="Confirmed by",
+        copy=False,
     )
     responsible_user_id = fields.Many2one(
         comodel_name="res.users",
         string="Responsible",
         copy=False,
-        readonly=True,
         default=lambda self: self.env.user,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
     reviewer_ids = fields.Many2many(
         comodel_name="res.users",
         string="Reviewers",
         copy=False,
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", False)]},
     )
-    approval_date = fields.Datetime(copy=False, readonly=True)
+    approval_date = fields.Datetime(
+        copy=False,
+    )
     approved_id = fields.Many2one(
-        comodel_name="res.users", string="Approved by", copy=False, readonly=True
+        comodel_name="res.users",
+        string="Approved by",
+        copy=False,
     )
     company_id = fields.Many2one(
         comodel_name="res.company",
         string="Company",
         required=True,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
         default=lambda self: self.env.company,
     )
     to_be_reviewed = fields.Boolean()
@@ -131,10 +109,11 @@ class BusinessRequirement(models.Model):
     )
     origin = fields.Char(
         string="Source",
-        readonly=True,
-        states={"draft": [("readonly", False)], "confirmed": [("readonly", True)]},
     )
-    portal_published = fields.Boolean("In Portal", default=False)
+    portal_published = fields.Boolean(
+        "In Portal",
+        default=False,
+    )
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Owner",
@@ -150,7 +129,7 @@ class BusinessRequirement(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get("name", "/") == "/":
+            if not vals.get("name"):
                 vals["name"] = self.env["ir.sequence"].next_by_code(
                     "business.requirement"
                 )
@@ -194,15 +173,12 @@ class BusinessRequirement(models.Model):
                     )
         return super().write(vals)
 
-    def name_get(self):
-        """
-        Display display [Name] Description
-        """
-        result = []
-        for br in self:
-            formatted_name = f"[{br.name}] {br.description}"
-            result.append((br.id, formatted_name))
-        return result
+    @api.depends("name", "description")
+    def _compute_display_name(self):
+        for business_requirement in self:
+            business_requirement.display_name = (
+                f"[{business_requirement.name}] {business_requirement.description}"
+            )
 
     @api.model
     def name_search(self, name, args=None, operator="ilike", limit=100):
@@ -222,20 +198,6 @@ class BusinessRequirement(models.Model):
     @api.returns("mail.message", lambda value: value.id)
     def message_post(
         self,
-        body="",
-        subject=None,
-        message_type="notification",
-        email_from=None,
-        author_id=None,
-        parent_id=False,
-        subtype_xmlid=None,
-        subtype_id=None,
-        partner_ids=None,
-        channel_ids=None,
-        attachments=None,
-        attachment_ids=None,
-        add_sign=True,
-        record_name=False,
         **kwargs,
     ):
         context = self._context or {}
@@ -245,23 +207,10 @@ class BusinessRequirement(models.Model):
             br_rec = self.env[context.get("default_model")].browse(
                 context["default_res_id"]
             )
-            subject = f"Re: {br_rec.name}-{br_rec.description}"
+            kwargs["subject"] = f"Re: {br_rec.name}-{br_rec.description}"
         message = super(
             BusinessRequirement, self.with_context(mail_create_nosubscribe=True)
         ).message_post(
-            body=body,
-            subject=subject,
-            message_type=message_type,
-            email_from=email_from,
-            author_id=author_id,
-            parent_id=parent_id,
-            subtype_xmlid=subtype_xmlid,
-            subtype_id=subtype_id,
-            partner_ids=partner_ids,
-            attachments=attachments,
-            attachment_ids=attachment_ids,
-            add_sign=add_sign,
-            record_name=record_name,
             **kwargs,
         )
         return message

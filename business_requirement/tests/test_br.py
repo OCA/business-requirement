@@ -4,7 +4,7 @@ from odoo import _
 from odoo.tests import common
 
 
-class BusinessRequirementTestBase(common.SavepointCase):
+class BusinessRequirementTestBase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -27,14 +27,14 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         )
         self.assertEqual(self.message.subject, f"Re: {self.br.name}-test")
 
-    def test_br_name_search(self):
-        br_vals = {"name": " test", "description": "test"}
-        self.br.create(br_vals)
-        self.assertTrue(self.br.name_search(name="test"))
+    def test_br_display_name(self):
+        br_vals = {"name": "test", "description": "test"}
+        self.br.write(br_vals)
+        self.assertEqual(self.br.display_name, "[test] test")
 
     def test_create_name_sequence(self):
         name = self.env["ir.sequence"].next_by_code("business.requirement")
-        br_vals = {"name": "/", "description": "test"}
+        br_vals = {"name": False, "description": "test"}
         len_seq = name[2:]
         seq = "BR" + str(int(len_seq) + 1).zfill(int(len(len_seq)))
         res = self.BR.create(br_vals)

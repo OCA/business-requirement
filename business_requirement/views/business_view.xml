@@ -16,8 +16,9 @@
                     <field
                         name="state"
                         widget="statusbar"
-                        clickable="True"
+                        options="{'clickable': '1'}"
                         statusbar_visible="draft,confirmed,approved,in_progress,done,cancel,drop"
+                        readonly="1"
                     />
                 </header>
                 <sheet>
@@ -32,28 +33,64 @@
                             type="object"
                             icon="fa-globe"
                         >
-                            <label for="portal_published" />
-                            <field name="portal_published" widget="toggle_button" />
+                            <div class="o_stat_info o_field_widget">
+                                <field name="portal_published" invisible="1" />
+                                <span
+                                    class="o_stat_text text-success"
+                                    invisible="not portal_published"
+                                >
+                                    Published
+                                </span>
+                                <span
+                                    class="o_stat_text text-danger"
+                                    invisible="portal_published"
+                                >
+                                    Unpublished
+                                </span>
+                            </div>
                         </button>
                     </div>
                     <div class="oe_left">
                         <field
                             name="kanban_state"
                             class="oe_inline"
-                            widget="kanban_state_selection"
+                            widget="state_selection"
                         />
                     </div>
                     <h1>
-                        <field name="name" class="oe_inline" readonly="1" /> -
-                        <field name="description" default_focus="1" />
+                        <field
+                            name="name"
+                            class="oe_inline"
+                            readonly="state != 'draft'"
+                        /> -
+                        <field
+                            name="description"
+                            default_focus="1"
+                            readonly="state != 'draft'"
+                        />
                     </h1>
                     <group col="4">
-                        <field name="responsible_user_id" required="1" />
-                        <field name="partner_id" />
-                        <field name="origin" />
-                        <field name="category_ids" widget="many2many_tags" />
+                        <field
+                            name="responsible_user_id"
+                            readonly="state not in ['draft', 'confirmed']"
+                            required="1"
+                        />
+                        <field name="partner_id" readonly="state != 'draft'" />
+                        <field
+                            name="origin"
+                            readonly="state not in ['draft', 'confirmed']"
+                        />
+                        <field
+                            name="category_ids"
+                            widget="many2many_tags"
+                            readonly="state != 'draft'"
+                        />
                         <field name="to_be_reviewed" />
-                        <field name="reviewer_ids" widget="many2many_tags" />
+                        <field
+                            name="reviewer_ids"
+                            widget="many2many_tags"
+                            readonly="state not in ['draft', 'confirmed']"
+                        />
                         <field
                             name="priority"
                             groups="base.group_user"
@@ -67,22 +104,39 @@
                                     name="business_requirement"
                                     nolabel="1"
                                     colspan="2"
+                                    readonly="state != 'draft'"
                                 />
                             </group>
                             <group string="Scenario">
-                                <field name="scenario" nolabel="1" colspan="2" />
+                                <field
+                                    name="scenario"
+                                    nolabel="1"
+                                    colspan="2"
+                                    readonly="state not in ['draft', 'confirmed']"
+                                />
                             </group>
                             <group string="Gap">
-                                <field name="gap" nolabel="1" colspan="2" />
+                                <field
+                                    name="gap"
+                                    nolabel="1"
+                                    colspan="2"
+                                    readonly="state not in ['draft', 'confirmed']"
+                                />
                             </group>
                             <group string="Test Case">
-                                <field name="test_case" nolabel="1" colspan="2" />
+                                <field
+                                    name="test_case"
+                                    nolabel="1"
+                                    colspan="2"
+                                    readonly="state not in ['draft', 'confirmed']"
+                                />
                             </group>
                             <group string="Terms and Conditions">
                                 <field
                                     name="terms_and_conditions"
                                     nolabel="1"
                                     colspan="2"
+                                    readonly="state not in ['draft', 'confirmed']"
                                 />
                             </group>
                         </page>
@@ -96,19 +150,26 @@
                                     string="Creation Date"
                                     readonly="1"
                                 />
-                                <field name="confirmed_user_id" />
-                                <field name="confirmation_date" />
-                                <field name="approved_id" />
-                                <field name="approval_date" />
+                                <field name="confirmed_user_id" readonly="1" />
+                                <field name="confirmation_date" readonly="1" />
+                                <field name="approved_id" readonly="1" />
+                                <field name="approval_date" readonly="1" />
                             </group>
                         </page>
                         <page string="Other" name="other">
                             <group col="4">
-                                <field name="requested_user_id" />
-                                <field name="change_request" />
+                                <field
+                                    name="requested_user_id"
+                                    readonly="state not in ['draft', 'confirmed']"
+                                />
+                                <field
+                                    name="change_request"
+                                    readonly="state != 'draft'"
+                                />
                                 <field
                                     name="company_id"
                                     groups="base.group_multi_company"
+                                    readonly="state != 'draft'"
                                 />
                             </group>
                         </page>
@@ -176,6 +237,14 @@
                                         />
                                         <field name="priority" widget="priority" />
                                     </div>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <span class="float-end mr4">
+                                        <field
+                                            name="kanban_state"
+                                            widget="state_selection"
+                                        />
+                                    </span>
                                 </div>
                             </div>
                             <div class="oe_clear" />
