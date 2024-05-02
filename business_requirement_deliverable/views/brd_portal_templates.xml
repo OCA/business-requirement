@@ -162,7 +162,7 @@
                                 <strong>Amount:</strong>
                                 <span
                                     t-field="brd.price_total"
-                                    t-field-options='{"widget": "monetary", "display_currency": brd.sudo().currency_id}'
+                                    t-options='{"widget": "monetary", "display_currency": brd.sudo().currency_id}'
                                 />
                             </div>
                         </div>
