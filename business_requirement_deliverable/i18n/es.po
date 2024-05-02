@@ -376,7 +376,6 @@ msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_error
-#: model:ir.model.fields,help:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si esta marcado, algunos mensajes tienen un error de entrega."
 
@@ -580,11 +579,6 @@ msgid "Responsible User"
 msgstr "Usuario Responsable"
 
 #. module: business_requirement_deliverable
-#: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "SMS error de entrega"
-
-#. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__sale_price_unit
 msgid "Sales Price"
 msgstr "Precio de venta"
@@ -757,6 +751,9 @@ msgid ""
 msgstr ""
 "Cambiar el usuario, en un requisito de negocio que actualmente contiene un "
 "listado de entregables, puede alterar el listado de precios."
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "SMS error de entrega"
 
 #~ msgid "<span><i>Others</i></span>"
 #~ msgstr "<span><i>Otros</i></span>"
