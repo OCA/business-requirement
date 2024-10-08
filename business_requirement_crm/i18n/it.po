@@ -6,105 +6,107 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-10-08 10:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_ids
 msgid "Business Requirement"
-msgstr ""
+msgstr "Requisiti aziendali"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_count
 msgid "Business Requirement Count"
-msgstr ""
+msgstr "Conteggio requisiti aziendali"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Create Business Requirement"
-msgstr ""
+msgstr "Crea requisiti aziendali"
 
 #. module: business_requirement_crm
 #: model:ir.actions.act_window,name:business_requirement_crm.crm_lead_create_requirement_action
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_convert_requirement_view_form
 msgid "Create Requirement"
-msgstr ""
+msgstr "Crea requisiti"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead_create_requirement
 msgid "Crm Lead Create Requirement"
-msgstr ""
+msgstr "Crea requisiti contatto CRM"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__customer_history
 msgid "Customer History"
-msgstr ""
+msgstr "Cronologia cliente"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__description
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_business_requirement__lead_id
 msgid "Lead"
-msgstr ""
+msgstr "Contatto"
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Contatto/Opportunità"
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__lead_id
 msgid "Opportunity"
-msgstr ""
+msgstr "Opportunità"
 
 #. module: business_requirement_crm
 #. odoo-python
@@ -114,11 +116,13 @@ msgid ""
 "Requirement %s created <a href=# data-oe-model=business.requirement data-oe-"
 "id=%(id)d>%(name)s</a>"
 msgstr ""
+"Requisito %s creato <a href=# data-oe-model=business.requirement data-oe-"
+"id=%(id)d>%(name)s</a>"
 
 #. module: business_requirement_crm
 #: model_terms:ir.ui.view,arch_db:business_requirement_crm.crm_lead_view_form
 msgid "Requirements"
-msgstr ""
+msgstr "Requisiti"
 
 #. module: business_requirement_crm
 #. odoo-python
@@ -128,3 +132,5 @@ msgid ""
 "This business requirement has been created from: <a href=# data-oe-"
 "model=crm.lead data-oe-id=%(id)d>%(name)s</a>"
 msgstr ""
+"Questo requisito aziendale è stato creato da: <a href=# data-oe-"
+"model=crm.lead data-oe-id=%(id)d>%(name)s</a>"
