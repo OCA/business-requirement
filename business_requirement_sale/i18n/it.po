@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-21 10:26+0000\n"
+"PO-Revision-Date: 2025-05-29 16:26+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -91,7 +91,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order__display_name
 #: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: business_requirement_sale
 #: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__applicable_section_ids
