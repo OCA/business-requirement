@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-11-28 23:06+0000\n"
+"PO-Revision-Date: 2026-02-11 10:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -413,7 +413,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
 msgid "Logs"
-msgstr "Registri"
+msgstr "Log"
 
 #. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__0
