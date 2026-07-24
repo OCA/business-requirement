@@ -1,0 +1,6 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - Victor M.M. Torres
+  - Alexandre Díaz
+- [Jarsa](https://www.jarsa.com):
+  - Alan Ramos

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.form - business requirement</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='project_id'][@widget='project']"
+                position="after"
+            >
+                <field
+                    name="business_requirement_id"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_search_form_base" model="ir.ui.view">
+        <field name="name">project.task.search - business requirement</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form_base" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field
+                    name="business_requirement_id"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </field>
+            <filter name="open_tasks" position="after">
+                <filter
+                    string="Has Business Requirement"
+                    name="has_business_requirement"
+                    domain="[('business_requirement_id', '!=', False)]"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </filter>
+            <filter name="customer" position="after">
+                <filter
+                    string="Business Requirement"
+                    name="group_by_business_requirement"
+                    context="{'group_by': 'business_requirement_id'}"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>

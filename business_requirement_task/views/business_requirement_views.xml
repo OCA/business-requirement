@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_business_requirement_form" model="ir.ui.view">
+        <field name="name">business.requirement.form - tasks</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_create_task"
+                    type="object"
+                    string="Create Task"
+                    groups="project.group_project_user"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="action_view_tasks"
+                    type="object"
+                    icon="fa-tasks"
+                    groups="project.group_project_user"
+                >
+                    <field name="task_count" string="Tasks" widget="statinfo" />
+                </button>
+            </xpath>
+            <field name="responsible_user_id" position="before">
+                <field
+                    name="project_id"
+                    readonly="state not in ('draft', 'confirmed')"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="view_business_requirement_tree" model="ir.ui.view">
+        <field name="name">business.requirement.tree - tasks</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="task_count" optional="hide" />
+            </field>
+        </field>
+    </record>
+</odoo>
