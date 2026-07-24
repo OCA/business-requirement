@@ -144,9 +144,9 @@ class CustomerPortal(CustomerPortal):
 
         # print report as sudo
         pdf = (
-            request.env.ref(self._get_br_report_name())
+            request.env["ir.actions.report"]
             .sudo()
-            .render_qweb_pdf([br_sudo.id])[0]
+            ._render_qweb_pdf(self._get_br_report_name(), [br_sudo.id])[0]
         )
         pdfhttpheaders = [
             ("Content-Type", "application/pdf"),

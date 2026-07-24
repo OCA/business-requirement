@@ -4,7 +4,7 @@ from odoo import _
 from odoo.tests import common
 
 
-class BusinessRequirementTestBase(common.SavepointCase):
+class BusinessRequirementTestBase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

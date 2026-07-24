@@ -9,3 +9,5 @@
   - Pedro M. Baeza
   - Victor M.M. Torres
   - Víctor Martínez
+- [Jarsa](https://www.jarsa.com):
+  - Alan Ramos

@@ -28,7 +28,7 @@
                     </td>
                     <td>
                         <span
-                            t-esc="', '.join([cate.name for cate in o.category_ids])"
+                            t-out="', '.join([cate.name for cate in o.category_ids])"
                         />
                     </td>
                 </tr>
