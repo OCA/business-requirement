@@ -54,7 +54,7 @@ class CrmLeadCreateRequirement(models.TransientModel):
         )
         # Chatter reflects new Requirement on both ways
         msg_body = _(
-            "Requirement %s created <a href=#"
+            "Requirement created <a href=#"
             " data-oe-model=business.requirement data-oe-id=%(id)d>%(name)s</a>"
         ) % {
             "id": requirement.id,
