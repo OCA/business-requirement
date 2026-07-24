@@ -1,0 +1,266 @@
+# Copyright 2017 Elico Corp (https://www.elico-corp.com).
+# Copyright 2019 Tecnativa - Alexandre Díaz
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
+
+
+class BusinessRequirement(models.Model):
+    _inherit = ["mail.thread", "mail.activity.mixin", "portal.mixin"]
+    _name = "business.requirement"
+    _description = "Business Requirement"
+    _order = "name desc"
+
+    sequence = fields.Char(readonly=True, copy=False, index=True)
+    name = fields.Char(readonly=True, copy=False)
+    description = fields.Char(required=True)
+    business_requirement = fields.Html(string="Customer Story")
+    scenario = fields.Html()
+    gap = fields.Html()
+    test_case = fields.Html()
+    terms_and_conditions = fields.Html()
+    category_ids = fields.Many2many(
+        comodel_name="business.requirement.category",
+        string="Categories",
+        relation="business_requirement_category_rel",
+    )
+    state = fields.Selection(
+        selection=[
+            ("draft", "Draft"),
+            ("confirmed", "Confirmed"),
+            ("approved", "Approved"),
+            ("in_progress", "In progress"),
+            ("done", "Done"),
+            ("cancel", "Cancel"),
+            ("drop", "Drop"),
+        ],
+        default="draft",
+        copy=False,
+        tracking=True,
+    )
+    change_request = fields.Boolean(string="Change Request?")
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Stakeholder",
+        copy=False,
+    )
+    priority = fields.Selection(
+        selection=[("0", "Low"), ("1", "Normal"), ("2", "High")],
+        required=True,
+        default="1",
+    )
+    requested_user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Requested by",
+        required=True,
+        default=lambda self: self.env.user,
+    )
+    confirmation_date = fields.Datetime(copy=False, readonly=True)
+    confirmed_user_id = fields.Many2one(
+        comodel_name="res.users", string="Confirmed by", copy=False, readonly=True
+    )
+    responsible_user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Responsible",
+        copy=False,
+        default=lambda self: self.env.user,
+    )
+    reviewer_ids = fields.Many2many(
+        comodel_name="res.users",
+        string="Reviewers",
+        copy=False,
+    )
+    approval_date = fields.Datetime(copy=False, readonly=True)
+    approved_id = fields.Many2one(
+        comodel_name="res.users", string="Approved by", copy=False, readonly=True
+    )
+    company_id = fields.Many2one(
+        comodel_name="res.company",
+        string="Company",
+        required=True,
+        default=lambda self: self.env.company,
+    )
+    to_be_reviewed = fields.Boolean()
+    kanban_state = fields.Selection(
+        selection=[
+            ("normal", "In Progress"),
+            ("on_hold", "On Hold"),
+            ("done", "Ready for next stage"),
+        ],
+        tracking=True,
+        default="normal",
+    )
+    origin = fields.Char(string="Source")
+    portal_published = fields.Boolean("In Portal", default=False)
+    user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Owner",
+        default=lambda self: self.env.user,
+        required=True,
+        tracking=True,
+    )
+    date = fields.Date(
+        default=lambda self: self._context.get("date", fields.Date.context_today(self)),
+        required=True,
+    )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("name", "/") == "/":
+                vals["name"] = self.env["ir.sequence"].next_by_code(
+                    "business.requirement"
+                )
+        return super().create(vals_list)
+
+    def write(self, vals):
+        if vals.get("state"):
+            user = self.env.user
+            user_manager = user.has_group(
+                "business_requirement.group_business_requirement_manager"
+            )
+            date = fields.Datetime.now()
+            if vals["state"] == "confirmed":
+                vals.update({"confirmed_user_id": user.id, "confirmation_date": date})
+            if vals["state"] == "draft":
+                vals.update(
+                    {
+                        "confirmed_user_id": False,
+                        "approved_id": False,
+                        "confirmation_date": False,
+                        "approval_date": False,
+                    }
+                )
+            if vals["state"] == "approved":
+                if user_manager:
+                    vals.update({"approved_id": user.id, "approval_date": date})
+                else:
+                    raise ValidationError(
+                        _(
+                            "You can only move to the following stage: "
+                            "draft/confirmed /cancel/drop."
+                        )
+                    )
+            if vals["state"] in {"approved", "in_progress", "done"}:
+                if not user_manager:
+                    raise ValidationError(
+                        _(
+                            "You can only move to the following stage: "
+                            "draft/confirmed/cancel/drop."
+                        )
+                    )
+        return super().write(vals)
+
+    @api.depends("name", "description")
+    def _compute_display_name(self):
+        """Display [Name] Description"""
+        for br in self:
+            br.display_name = f"[{br.name}] {br.description}"
+
+    @api.model
+    def _name_search(self, name, domain=None, operator="ilike", limit=None, order=None):
+        """Search BR based on Name or Description"""
+        domain = domain or []
+        if name:
+            domain = [
+                "|",
+                ("name", operator, name),
+                ("description", "=ilike", name + "%"),
+            ] + domain
+        return self._search(domain, limit=limit, order=order)
+
+    @api.returns("mail.message", lambda value: value.id)
+    def message_post(self, *, subject=None, **kwargs):
+        context = self.env.context
+        if context.get("default_model") == "business.requirement" and context.get(
+            "default_res_id"
+        ):
+            br_rec = self.env[context["default_model"]].browse(
+                context["default_res_id"]
+            )
+            subject = f"Re: {br_rec.name}-{br_rec.description}"
+        return super(
+            BusinessRequirement, self.with_context(mail_create_nosubscribe=True)
+        ).message_post(subject=subject, **kwargs)
+
+    @api.model
+    def read_group(
+        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
+    ):
+        """Read group customization in order to display all the stages in the
+        kanban view. if the stages values are there it will group by state.
+        """
+        if groupby and groupby[0] == "state":
+            states = (
+                self.env["business.requirement"]
+                .fields_get(["state"])
+                .get("state")
+                .get("selection")
+            )
+            read_group_all_states = [
+                {
+                    "__context": {"group_by": groupby[1:]},
+                    "__domain": domain + [("state", "=", state_value)],
+                    "state": state_value,
+                    "state_count": 0,
+                }
+                for state_value, state_name in states
+            ]
+            # Get standard results
+            read_group_res = super().read_group(
+                domain, fields, groupby, offset=offset, limit=limit, orderby=orderby
+            )
+            # Update standard results with default results
+            result = []
+            for state_value, _state_name in states:
+                res = list(filter(lambda x: x["state"] == state_value, read_group_res))
+                if not res:
+                    res = list(
+                        filter(
+                            lambda x: x["state"] == state_value, read_group_all_states
+                        )
+                    )
+                res[0]["state"] = state_value
+                result.append(res[0])
+            return result
+        return super().read_group(
+            domain,
+            fields,
+            groupby,
+            offset=offset,
+            limit=limit,
+            orderby=orderby,
+            lazy=lazy,
+        )
+
+    def get_portal_confirmation_action(self):
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param(
+                "business_requirement.br_portal_confirmation_options", default="none"
+            )
+        )
+
+    def _compute_access_url(self):
+        super()._compute_access_url()
+        for br in self:
+            br.access_url = "/my/business_requirement/%s" % br.id
+        return
+
+    def portal_publish_button(self):
+        self.ensure_one()
+        return self.write({"portal_published": not self.portal_published})
+
+
+class BusinessRequirementCategory(models.Model):
+    _name = "business.requirement.category"
+    _description = "Categories"
+
+    name = fields.Char(required=True)
+    parent_id = fields.Many2one(
+        comodel_name="business.requirement.category",
+        string="Parent Category",
+        ondelete="restrict",
+    )
