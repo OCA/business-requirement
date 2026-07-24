@@ -1,0 +1,99 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_task
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-24 21:37+0000\n"
+"PO-Revision-Date: 2026-07-24 21:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: business_requirement_task
+#: model:ir.model.fields,field_description:business_requirement_task.field_business_requirement__allocated_hours_total
+msgid "Allocated Hours"
+msgstr "Horas asignadas"
+
+#. module: business_requirement_task
+#: model:ir.model,name:business_requirement_task.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_task.field_project_task__business_requirement_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_task.view_task_search_form_base
+msgid "Business Requirement"
+msgstr "Requerimiento de negocio"
+
+#. module: business_requirement_task
+#. odoo-python
+#: code:addons/business_requirement_task/models/business_requirement.py:0
+#: model_terms:ir.ui.view,arch_db:business_requirement_task.view_business_requirement_form
+#, python-format
+msgid "Create Task"
+msgstr "Crear tarea"
+
+#. module: business_requirement_task
+#. odoo-python
+#: code:addons/business_requirement_task/models/project_task.py:0
+#, python-format
+msgid "Different projects"
+msgstr "Proyectos distintos"
+
+#. module: business_requirement_task
+#: model_terms:ir.ui.view,arch_db:business_requirement_task.view_task_search_form_base
+msgid "Has Business Requirement"
+msgstr "Tiene requerimiento de negocio"
+
+#. module: business_requirement_task
+#: model:ir.model.fields,field_description:business_requirement_task.field_business_requirement__open_task_count
+msgid "Open Task Count"
+msgstr "Número de tareas abiertas"
+
+#. module: business_requirement_task
+#: model:ir.model.fields,field_description:business_requirement_task.field_business_requirement__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: business_requirement_task
+#: model:ir.model.fields,help:business_requirement_task.field_business_requirement__project_id
+msgid "Project where the tasks of this requirement are executed."
+msgstr "Proyecto donde se ejecutan las tareas de este requerimiento."
+
+#. module: business_requirement_task
+#: model:ir.model.fields,help:business_requirement_task.field_business_requirement__allocated_hours_total
+msgid "Sum of the allocated hours of all the tasks of this requirement."
+msgstr "Suma de las horas asignadas de todas las tareas de este requerimiento."
+
+#. module: business_requirement_task
+#: model:ir.model,name:business_requirement_task.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: business_requirement_task
+#: model:ir.model.fields,field_description:business_requirement_task.field_business_requirement__task_count
+msgid "Task Count"
+msgstr "Número de tareas"
+
+#. module: business_requirement_task
+#. odoo-python
+#: code:addons/business_requirement_task/models/business_requirement.py:0
+#: model:ir.model.fields,field_description:business_requirement_task.field_business_requirement__task_ids
+#: model_terms:ir.ui.view,arch_db:business_requirement_task.view_business_requirement_form
+#, python-format
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: business_requirement_task
+#. odoo-python
+#: code:addons/business_requirement_task/models/project_task.py:0
+#, python-format
+msgid ""
+"The task project (%(task_project)s) is not the project of the business "
+"requirement (%(br_project)s)."
+msgstr ""
+"El proyecto de la tarea (%(task_project)s) no es el proyecto del "
+"requerimiento de negocio (%(br_project)s)."
