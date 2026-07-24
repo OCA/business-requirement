@@ -16,21 +16,21 @@ class CrmLead(models.Model):
 
     @api.depends("business_requirement_ids")
     def _compute_business_requirement_count(self):
-        groups = self.env["business.requirement"].read_group(
+        groups = self.env["business.requirement"]._read_group(
             domain=[("lead_id", "in", self.ids)],
-            fields=["lead_id"],
             groupby=["lead_id"],
+            aggregates=["__count"],
         )
-        data = {x["lead_id"][0]: x["lead_id_count"] for x in groups}
+        data = {lead.id: count for lead, count in groups}
         for rec in self:
             rec.business_requirement_count = data.get(rec.id, 0)
 
     def open_requirements(self):
-        action = self.env.ref(
+        action = self.env["ir.actions.actions"]._for_xml_id(
             "business_requirement.action_business_requirement_tree"
-        ).read()[0]
+        )
         if len(self) == 1:
             action["context"] = {"search_default_lead_id": self.id}
         else:
-            action["domain"] = ([("lead_id", "in", self.ids)],)
+            action["domain"] = [("lead_id", "in", self.ids)]
         return action
