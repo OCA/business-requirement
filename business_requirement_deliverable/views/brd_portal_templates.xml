@@ -17,7 +17,7 @@
                 <t t-else="">Business Requirement Deliverable</t>
             </li>
             <li t-if="brd" class="breadcrumb-item active">
-                <t t-esc="brd.name" />
+                <t t-out="brd.name" />
             </li>
         </xpath>
     </template>
@@ -27,13 +27,18 @@
         inherit_id="business_requirement.portal_my_home_br"
         priority="20"
     >
-        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <div id="portal_service_category" position="inside">
             <t t-call="portal.portal_docs_entry">
+                <t
+                    t-set="icon"
+                    t-value="'/business_requirement/static/description/icon.svg'"
+                />
                 <t t-set="title">Business Requirement Deliverables</t>
+                <t t-set="text">Check the deliverables of your requirements</t>
                 <t t-set="url" t-value="'/my/brd'" />
                 <t t-set="placeholder_count" t-value="'dl_count'" />
             </t>
-        </xpath>
+        </div>
     </template>
     <template id="portal_my_brd_list" name="My Business Requirement Deliverable">
         <t t-call="portal.portal_layout">
@@ -42,7 +47,7 @@
                 <t t-set="title">Business Requirement Deliverable</t>
             </t>
             <t t-if="not grouped_brd">
-                <div class="alert alert-warning mt8" role="alert">
+                <div class="alert alert-warning mt-2" role="alert">
                     There are no business requirement deliverable.
                 </div>
             </t>
@@ -51,12 +56,15 @@
                     <t t-foreach="grouped_brd" t-as="brd">
                         <thead>
                             <tr
-                                t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}"
+                                t-attf-class="{{'table-light' if not groupby == 'none' else ''}}"
                             >
-                                <th class="text-left" t-if="groupby == 'none'">Name</th>
-                                <th class="text-left" t-elif="groupby == 'section'">
+                                <th
+                                    class="text-start"
+                                    t-if="groupby == 'none'"
+                                >Name</th>
+                                <th class="text-start" t-elif="groupby == 'section'">
                                     <em
-                                        class="font-weight-normal text-muted"
+                                        class="fw-normal text-muted"
                                     >Deliverables for section:</em>
                                     <t t-if="brd[0].sudo().section_id">
                                         <span t-field="brd[0].sudo().section_id.name" />
@@ -67,21 +75,21 @@
                                         </span>
                                     </t>
                                 </th>
-                                <th class="text-left" t-else="">
+                                <th class="text-start" t-else="">
                                     <em
-                                        class="font-weight-normal text-muted"
+                                        class="fw-normal text-muted"
                                     >Deliverables for business requirement:</em>
                                     <span
                                         t-field="brd[0].sudo().business_requirement_id.name"
                                     />
                                 </th>
-                                <th class="text-left col-md-1">Ref.</th>
+                                <th class="text-start col-md-1">Ref.</th>
                             </tr>
                         </thead>
                         <tbody>
                             <t t-foreach="brd" t-as="rec">
                                 <tr>
-                                    <td class="text-left">
+                                    <td class="text-start">
                                         <a
                                             t-attf-href="/my/brd/#{rec.id}?{{ keep_query() }}"
                                             t-attf-class="tr_brd_link"
@@ -89,8 +97,8 @@
                                             <span t-field="rec.name" />
                                         </a>
                                     </td>
-                                    <td class="text-left">
-                                        <span t-esc="rec.sequence" />
+                                    <td class="text-start">
+                                        <span t-out="rec.sequence" />
                                     </td>
                                 </tr>
                             </t>
@@ -109,13 +117,13 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=business.requirement.deliverable&amp;id=%s&amp;view_type=form' % (brd.id)"
+                        t-value="'/odoo/business.requirement.deliverable/%s' % brd.id"
                     />
                 </t>
             </t>
-            <t t-call="portal.portal_record_layout">
-                <t t-set="card_header">
-                    <div class="row no-gutters">
+            <div class="card">
+                <div class="card-header bg-100" id="card_header">
+                    <div class="row g-0">
                         <div class="col-md">
                             <h5 class="mb-1 mb-md-0">
                                 <span t-field="brd.name" />
@@ -124,27 +132,27 @@
                                 />)</small>
                             </h5>
                         </div>
-                        <div class="col-md text-md-right">
-                            <small class="text-right">Section:</small>
+                        <div class="col-md text-md-end">
+                            <small>Section:</small>
                             <span
                                 t-field="brd.section_id.name"
-                                class=" badge badge-pill badge-info"
+                                class="badge rounded-pill text-bg-info"
                                 title="Current section of this deliverable"
                             />
                         </div>
                     </div>
-                </t>
-                <t t-set="card_body">
+                </div>
+                <div class="card-body">
                     <div class='row'>
                         <div class="col-md-6">
-                            <div class="mb8">
+                            <div class="mb-2">
                                 <strong>Business Requirement:</strong>
                                 <a
                                     t-attf-href="/my/business_requirement/#{brd.business_requirement_id.id}"
                                     t-field="brd.business_requirement_id.name"
                                 />
                             </div>
-                            <div t-if="any(brd.dependency_ids)" class="mb8">
+                            <div t-if="any(brd.dependency_ids)" class="mb-2">
                                 <strong>Depends On:</strong>
                                 <t t-foreach="brd.dependency_ids" t-as="brd_dep">
                                     <a
@@ -158,7 +166,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb8">
+                            <div class="mb-2">
                                 <strong>Amount:</strong>
                                 <span
                                     t-field="brd.price_total"
@@ -179,9 +187,9 @@
                             <div t-field="brd.proposed_solution" />
                         </div>
                     </t>
-                </t>
-            </t>
-            <div class="mt32">
+                </div>
+            </div>
+            <div class="mt-4">
                 <h4>
                     <strong>Message and communication history</strong>
                 </h4>
@@ -195,8 +203,8 @@
         </t>
     </template>
     <template id="portal_br_page" inherit_id="business_requirement.portal_br_page">
-        <xpath expr="//t[@t-set='card_header']/div/div[2]" position="after">
-            <span class="float-right ml8">
+        <xpath expr="//div[@id='card_header']/div/div[2]" position="after">
+            <span class="float-end ms-2">
                 <a
                     role="button"
                     t-attf-href="/my/brd?filterby=#{br.id}"
@@ -208,7 +216,7 @@
                     aria-label="Deliverables"
                     title="Deliverables"
                 />
-                    <span t-esc="br.dl_count_portal_published" />
+                    <span t-out="br.dl_count_portal_published" />
                     Deliverable(s)
                 </a>
             </span>

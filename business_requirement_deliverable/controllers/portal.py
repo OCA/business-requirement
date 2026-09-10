@@ -3,7 +3,7 @@
 from collections import OrderedDict
 from operator import itemgetter
 
-from odoo import _, http
+from odoo import http
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.osv.expression import OR
@@ -25,7 +25,7 @@ class CustomerPortal(CustomerPortal):
             brd_model = request.env["business.requirement.deliverable"]
             dl_count = (
                 brd_model.search_count(self._prepare_br_base_domain())
-                if brd_model.check_access_rights("read", raise_exception=False)
+                if brd_model.has_access("read")
                 else 0
             )
             values["dl_count"] = dl_count
@@ -56,31 +56,39 @@ class CustomerPortal(CustomerPortal):
     ):
         BRDObj = request.env["business.requirement.deliverable"]
         # Avoid error if the user does not have access.
-        if not BRDObj.check_access_rights("read", raise_exception=False):
+        if not BRDObj.has_access("read"):
             return request.redirect("/my")
         values = self._prepare_portal_layout_values()
         searchbar_sortings = {
-            "date": {"label": _("Newest"), "order": "create_date desc"},
-            "name": {"label": _("Title"), "order": "name"},
-            "ref": {"label": _("Reference"), "order": "sequence"},
+            "date": {"label": request.env._("Newest"), "order": "create_date desc"},
+            "name": {"label": request.env._("Title"), "order": "name"},
+            "ref": {"label": request.env._("Reference"), "order": "sequence"},
         }
-        searchbar_filters = {"all": {"label": _("All"), "domain": []}}
+        searchbar_filters = {"all": {"label": request.env._("All"), "domain": []}}
         searchbar_inputs = {
             "content": {
                 "input": "content",
-                "label": _('Search <span class="nolabel"> (in Content)</span>'),
+                "label": request.env._(
+                    'Search <span class="nolabel"> (in Content)</span>'
+                ),
             },
-            "message": {"input": "message", "label": _("Search in Messages")},
+            "message": {
+                "input": "message",
+                "label": request.env._("Search in Messages"),
+            },
             "stakeholder": {
                 "input": "stakeholder",
-                "label": _("Search in Stakeholder"),
+                "label": request.env._("Search in Stakeholder"),
             },
-            "all": {"input": "all", "label": _("Search in All")},
+            "all": {"input": "all", "label": request.env._("Search in All")},
         }
         searchbar_groupby = {
-            "none": {"input": "none", "label": _("None")},
-            "business_requirement": {"input": "br", "label": _("Business Requirement")},
-            "section": {"input": "section", "label": _("Section")},
+            "none": {"input": "none", "label": request.env._("None")},
+            "business_requirement": {
+                "input": "br",
+                "label": request.env._("Business Requirement"),
+            },
+            "section": {"input": "section", "label": request.env._("Section")},
         }
 
         # extends filterby criteria with br the customer has access to
@@ -150,9 +158,9 @@ class CustomerPortal(CustomerPortal):
         # content according to pager and archive selected
         if groupby == "business_requirement":
             # Force sort on br first to group by br in view
-            order = "business_requirement_id, %s" % order
+            order = f"business_requirement_id, {order}"
         elif groupby == "section":
-            order = "section_id, %s" % order
+            order = f"section_id, {order}"
         brd_recs = BRDObj.search(
             domain,
             order=order,
@@ -228,7 +236,7 @@ class CustomerPortal(CustomerPortal):
 
         if not brd_sudo.portal_published:
             raise AccessError(
-                _("Can't access to this business requirement deliverable")
+                request.env._("Can't access to this business requirement deliverable")
             )
 
         values = self._brd_get_page_view_values(brd_sudo, access_token, **kw)

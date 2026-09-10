@@ -2,15 +2,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import odoo.tests
 
-from odoo.addons.business_requirement.tests.test_portal import (
-    BusinessRequirementPortalBase,
-)
-
 
 @odoo.tests.tagged("post_install", "-at_install")
-class BusinessRequirementDeliverablePortal(BusinessRequirementPortalBase):
+class BusinessRequirementDeliverablePortal(odoo.tests.HttpCase):
     def setUp(self):
         super().setUp()
+        self.br = self.env["business.requirement"].create(
+            {"description": "test", "portal_published": True}
+        )
         self.brd = self.env["business.requirement.deliverable"].create(
             {
                 "name": "test",
@@ -18,7 +17,7 @@ class BusinessRequirementDeliverablePortal(BusinessRequirementPortalBase):
                 "business_requirement_id": self.br.id,
             }
         )
-        self.brd.message_subscribe(
+        self.br.message_subscribe(
             partner_ids=self.env.ref("base.demo_user0").partner_id.ids
         )
 

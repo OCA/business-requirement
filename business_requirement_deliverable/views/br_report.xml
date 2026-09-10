@@ -23,7 +23,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="ml8" t-if="deliverable.user_case">
+                                <div class="ms-2" t-if="deliverable.user_case">
                                     <div>
                                         <h6>User Case</h6>
                                     </div>
@@ -31,7 +31,7 @@
                                         <span t-field="deliverable.user_case" />
                                     </div>
                                 </div>
-                                <div class="ml8" t-if="deliverable.proposed_solution">
+                                <div class="ms-2" t-if="deliverable.proposed_solution">
                                     <div>
                                         <h6>Proposed Solution</h6>
                                     </div>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="text-right col-md-12">
+                            <div class="text-end col-md-12">
                                 <h6>Amount: <span
                                     t-field="deliverable.price_total"
                                     t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'
@@ -54,10 +54,10 @@
                 </t>
                 <div>
                     <t t-set="section_totals" t-value="o.get_total_by_section()" />
-                    <h5 class="text-right">Subtotals</h5>
+                    <h5 class="text-end">Subtotals</h5>
                     <t t-foreach="section_totals" t-as="section_total">
-                        <h6 class="text-right"><t t-esc="section_total[0]" />:  <span
-                            t-esc="section_total[1]"
+                        <h6 class="text-end"><t t-out="section_total[0]" />:  <span
+                            t-out="section_total[1]"
                             t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                         /></h6>
                     </t>
