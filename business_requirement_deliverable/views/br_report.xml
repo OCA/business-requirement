@@ -44,9 +44,9 @@
                         <div class="row">
                             <div class="text-right col-md-12">
                                 <h6>Amount: <span
-                                        t-field="deliverable.price_total"
-                                        t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'
-                                    /></h6>
+                                    t-field="deliverable.price_total"
+                                    t-options='{"widget": "monetary", "display_currency": deliverable.currency_id}'
+                                /></h6>
                             </div>
                         </div>
                     </div>
@@ -57,9 +57,9 @@
                     <h5 class="text-right">Subtotals</h5>
                     <t t-foreach="section_totals" t-as="section_total">
                         <h6 class="text-right"><t t-esc="section_total[0]" />:  <span
-                                t-esc="section_total[1]"
-                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
-                            /></h6>
+                            t-esc="section_total[1]"
+                            t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                        /></h6>
                     </t>
                 </div>
             </div>

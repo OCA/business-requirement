@@ -268,8 +268,7 @@
                 string="Business Requirement"
                 display_quantity="true"
                 disable_linking="True"
-            >
-            </pivot>
+            />
         </field>
     </record>
     <!--&lt;!&ndash; Graph view Requirement Deliverable Line&ndash;&gt;-->
