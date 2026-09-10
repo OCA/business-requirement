@@ -9,3 +9,5 @@
   - Pedro M. Baeza
   - Victor M.M. Torres
   - Víctor Martínez
+- [Binhex](https://binhex.cloud):
+  - Zuzanna Elzbieta Szalaty Szalaty

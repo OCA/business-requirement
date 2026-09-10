@@ -1,18 +1,15 @@
 # Copyright 2017-2019 Elico Corp (https://www.elico-corp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import _
 from odoo.tests import common
 
 
-class BusinessRequirementTestBase(common.SavepointCase):
+class BusinessRequirementTestBase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # This is for reducing the diff coming from TransactionCase
-        self = cls
-        # Configure.
-        self.BR = self.env["business.requirement"]
-        self.br = self.BR.create({"description": "test"})
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.BR = cls.env["business.requirement"]
+        cls.br = cls.BR.create({"description": "test"})
 
 
 class BusinessRequirementTest(BusinessRequirementTestBase):
@@ -20,12 +17,14 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.message = self.br.with_context(
             **{"default_model": "business.requirement", "default_res_id": self.br.id}
         ).message_post(
-            body=_("Test Body"),
+            body="Test Body",
             message_type="notification",
             subtype_id=self.env.ref("mail.mt_note").id,
-            **{},
         )
         self.assertEqual(self.message.subject, f"Re: {self.br.name}-test")
+
+    def test_br_display_name(self):
+        self.assertEqual(self.br.display_name, f"[{self.br.name}] test")
 
     def test_br_name_search(self):
         br_vals = {"name": " test", "description": "test"}
@@ -47,6 +46,13 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.assertTrue(self.read_group["state"])
         self.assertTrue(self.read_group["state_count"])
 
+    def test_br_read_group_expand(self):
+        """All the states are returned even when they hold no record"""
+        groups = self.env["business.requirement"].read_group([], ["state"], ["state"])
+        states = [group["state"] for group in groups]
+        selection = self.BR._fields["state"].get_values(self.env)
+        self.assertEqual(states, selection)
+
     def test_get_portal_confirmation_action(self):
         self.portal_confirmation_action = self.br.get_portal_confirmation_action()
         self.assertEqual(self.portal_confirmation_action, "none")
@@ -55,6 +61,10 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.assertEqual(self.br.access_url, f"/my/business_requirement/{self.br.id}")
 
     def test_portal_publish_button(self):
+        self.assertFalse(self.br.portal_published)
+        self.br.portal_publish_button()
+        self.assertTrue(self.br.portal_published)
+        self.br.portal_publish_button()
         self.assertFalse(self.br.portal_published)
 
     def test_report(self):

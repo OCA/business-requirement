@@ -28,7 +28,7 @@
                     </td>
                     <td>
                         <span
-                            t-esc="', '.join([cate.name for cate in o.category_ids])"
+                            t-out="', '.join([cate.name for cate in o.category_ids])"
                         />
                     </td>
                 </tr>
@@ -98,7 +98,7 @@
             <u>
                 <h4>Stakeholder Story:</h4>
             </u>
-            <div class="container ml8">
+            <div class="container ms-2">
                 <span t-field="o.business_requirement" />
             </div>
         </div>
@@ -109,7 +109,7 @@
             <u>
                 <h4>Scenario:</h4>
             </u>
-            <div class="container ml8">
+            <div class="container ms-2">
                 <span t-field="o.scenario" />
             </div>
         </div>
@@ -120,7 +120,7 @@
             <u>
                 <h4>Gap:</h4>
             </u>
-            <div class="container ml8">
+            <div class="container ms-2">
                 <span t-field="o.gap" />
             </div>
         </div>
@@ -131,7 +131,7 @@
             <u>
                 <h4>Test Case:</h4>
             </u>
-            <div class="containe ml8">
+            <div class="container ms-2">
                 <span t-field="o.test_case" />
             </div>
         </div>
@@ -142,7 +142,7 @@
             <u>
                 <h4>Terms and Conditions:</h4>
             </u>
-            <div class="container ml8">
+            <div class="container ms-2">
                 <span t-field="o.terms_and_conditions" />
             </div>
         </div>
