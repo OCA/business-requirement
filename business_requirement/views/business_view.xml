@@ -295,8 +295,7 @@
         <field name="name">Business requirement</field>
         <field name="model">business.requirement</field>
         <field name="arch" type="xml">
-            <pivot string="Business Requirement">
-            </pivot>
+            <pivot string="Business Requirement" />
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_business_requirement_tree">
