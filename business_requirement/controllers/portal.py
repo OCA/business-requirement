@@ -20,7 +20,7 @@ class CustomerPortal(CustomerPortal):
             br_model = request.env["business.requirement"]
             br_count = (
                 br_model.search_count(self._prepare_br_base_domain())
-                if br_model.check_access_rights("read", raise_exception=False)
+                if br_model.has_access("read")
                 else 0
             )
             values["business_requirement_count"] = br_count
@@ -62,7 +62,7 @@ class CustomerPortal(CustomerPortal):
         values = self._prepare_portal_layout_values()
         BRObj = request.env["business.requirement"]
         # Avoid error if the user does not have access.
-        if not BRObj.check_access_rights("read", raise_exception=False):
+        if not BRObj.has_access("read"):
             return request.redirect("/my")
 
         searchbar_sortings = {
@@ -126,7 +126,7 @@ class CustomerPortal(CustomerPortal):
         return request.render("business_requirement.portal_br_page", values)
 
     def _get_br_report_name(self):
-        return "business_requirement." "business_requirement_report"
+        return "business_requirement.business_requirement_report"
 
     @http.route(
         ["/my/business_requirement/pdf/<int:br_id>"],
@@ -144,9 +144,9 @@ class CustomerPortal(CustomerPortal):
 
         # print report as sudo
         pdf = (
-            request.env.ref(self._get_br_report_name())
+            request.env["ir.actions.report"]
             .sudo()
-            .render_qweb_pdf([br_sudo.id])[0]
+            ._render_qweb_pdf(self._get_br_report_name(), [br_sudo.id])[0]
         )
         pdfhttpheaders = [
             ("Content-Type", "application/pdf"),

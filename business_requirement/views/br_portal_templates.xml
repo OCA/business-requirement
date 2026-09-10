@@ -17,7 +17,7 @@
                 <t t-else="">Business Requirements</t>
             </li>
             <li t-if="business_requirement" class="breadcrumb-item active">
-                <t t-esc="business_requirement.name" />
+                <t t-out="business_requirement.name" />
             </li>
         </xpath>
     </template>
@@ -27,13 +27,21 @@
         inherit_id="portal.portal_my_home"
         priority="20"
     >
-        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True" />
+        </xpath>
+        <div id="portal_service_category" position="inside">
             <t t-call="portal.portal_docs_entry">
+                <t
+                    t-set="icon"
+                    t-value="'/business_requirement/static/description/icon.svg'"
+                />
                 <t t-set="title">Business Requirements</t>
+                <t t-set="text">Follow up the requirements of your projects</t>
                 <t t-set="url" t-value="'/my/business_requirements'" />
                 <t t-set="placeholder_count" t-value="'business_requirement_count'" />
             </t>
-        </xpath>
+        </div>
     </template>
     <template id="portal_my_br" name="My Business Requirements">
         <t t-call="portal.portal_layout">
@@ -42,7 +50,7 @@
                 <t t-set="title">Business Requirements</t>
             </t>
             <t t-if="not business_requirements">
-                <div class="alert alert-warning mt8" role="alert">
+                <div class="alert alert-warning mt-2" role="alert">
                     There are currently no business requirements for your account.
                 </div>
             </t>
@@ -50,7 +58,7 @@
                 <thead>
                     <tr class="active">
                         <th>Business Requirement #</th>
-                        <th class="text-right">Date</th>
+                        <th class="text-end">Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +73,7 @@
                             />
                             </a>
                         </td>
-                        <td class="text-right">
+                        <td class="text-end">
                             <span t-field="br.date" t-options='{"widget": "date"}' />
                         </td>
                     </tr>
@@ -76,9 +84,9 @@
     <template id="portal_br_page" name="Business Requirement">
         <t t-set="br" t-value="business_requirement" />
         <t t-call="portal.portal_layout">
-            <t t-call="portal.portal_record_layout">
-                <t t-set="card_header">
-                    <div class="row no-gutters">
+            <div class="card">
+                <div class="card-header bg-100" id="card_header">
+                    <div class="row g-0">
                         <div class="col-md">
                             <h5 class="mb-1 mb-md-0">
                                 <span t-field="br.name" />
@@ -87,17 +95,17 @@
                                 />)</small>
                             </h5>
                         </div>
-                        <div class="col-md text-md-right">
-                            <small class="text-right">Status:</small>
+                        <div class="col-md text-md-end">
+                            <small>Status:</small>
                             <span
                                 t-field="br.state"
-                                class=" badge badge-pill badge-info"
+                                class="badge rounded-pill text-bg-info"
                                 title="Current stage of this requirement"
                             />
                         </div>
                     </div>
-                </t>
-                <t t-set="card_body">
+                </div>
+                <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-12 col-md-6 mb-1">
                             <strong>Date:</strong>
@@ -113,59 +121,37 @@
                     >
                         <div class="col-12 col-md-6 pb-2" t-if="br.user_id">
                             <strong>Assigned to</strong>
-                            <div class="row">
-                                <div class="col flex-grow-0 pr-3">
-                                    <img
-                                        t-if="br.responsible_user_id.image_128"
-                                        class="rounded-circle mt-1 o_portal_contact_img"
-                                        t-att-src="image_data_uri(br.responsible_user_id.image_128)"
-                                        alt="Contact"
-                                    />
-                                    <img
-                                        t-else=""
-                                        class="rounded-circle mt-1 o_portal_contact_img"
-                                        src="/web/static/src/img/user_menu_avatar.png"
-                                        alt="Contact"
-                                    />
-                                </div>
-                                <div class="col pl-md-0">
-                                    <div
-                                        t-field="br.user_id"
-                                        t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'
-                                    />
-                                </div>
-                            </div>
+                            <t t-call="portal.portal_my_contact">
+                                <t
+                                    t-set="_contactAvatar"
+                                    t-value="image_data_uri(br.user_id.avatar_128)"
+                                />
+                                <t t-set="_contactName" t-value="br.user_id.name" />
+                                <div
+                                    t-field="br.user_id"
+                                    t-options='{"widget": "contact", "fields": ["email", "phone"]}'
+                                />
+                            </t>
                         </div>
-                        <div class="coll-12 col-md-6 pb-2" t-if="br.partner_id">
+                        <div class="col-12 col-md-6 pb-2" t-if="br.partner_id">
                             <strong>Requested by</strong>
-                            <div class="row">
-                                <div class="col flex-grow-0 pr-3">
-                                    <img
-                                        t-if="br.partner_id.image_128"
-                                        class="rounded-circle mt-1 o_portal_contact_img"
-                                        t-att-src="image_data_uri(br.partner_id.image_128)"
-                                        alt="Stakeholder"
-                                    />
-                                    <img
-                                        t-else=""
-                                        class="rounded-circle mt-1 o_portal_contact_img"
-                                        src="/web/static/src/img/user_menu_avatar.png"
-                                        alt="Stakeholder"
-                                    />
-                                </div>
-                                <div class="col pl-md-0">
-                                    <div
-                                        t-field="br.partner_id"
-                                        t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'
-                                    />
-                                </div>
-                            </div>
+                            <t t-call="portal.portal_my_contact">
+                                <t
+                                    t-set="_contactAvatar"
+                                    t-value="image_data_uri(br.partner_id.avatar_128)"
+                                />
+                                <t t-set="_contactName" t-value="br.partner_id.name" />
+                                <div
+                                    t-field="br.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["email", "phone"]}'
+                                />
+                            </t>
                         </div>
                     </div>
                     <div class="row" t-if="br.description">
                         <div
                             t-if="br.business_requirement"
-                            t-attf-class="col-12 col-lg-7 mb-4 mb-md-0 col-lg-12"
+                            t-attf-class="col-12 mb-4 mb-md-0"
                         >
                             <hr class="mb-1" />
                             <strong class="d-block mb-2">Description</strong>
@@ -175,9 +161,9 @@
                             />
                         </div>
                     </div>
-                </t>
-            </t>
-            <div class="mt32">
+                </div>
+            </div>
+            <div class="mt-4">
                 <h4>
                     <strong>Message and communication history</strong>
                 </h4>
@@ -191,17 +177,17 @@
         </t>
     </template>
     <template id="portal_br_error" name="Business requirement error/warning display">
-        <div class="row mr16">
+        <div class="row me-3">
             <div
-                t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}"
+                t-attf-class="'col-md-12 me-3 ms-3 alert alert-dismissible' #{'alert-danger' if error else 'alert-warning'}"
             >
-                <a
-                    href="#"
-                    class="close"
-                    data-dismiss="alert"
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
                     aria-label="close"
                     title="close"
-                >×</a>
+                />
                 <t t-if="error == 'generic'" name="generic">
                     There was an error processing this page.
                 </t>
@@ -209,15 +195,15 @@
         </div>
     </template>
     <template id="portal_br_success" name="Business requirement success display">
-        <div class="row mr16">
-            <div class="col-md-12 mr16 ml16 alert alert-dismissable alert-success">
-                <a
-                    href="#"
-                    class="close"
-                    data-dismiss="alert"
+        <div class="row me-3">
+            <div class="col-md-12 me-3 ms-3 alert alert-dismissible alert-success">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
                     aria-label="close"
                     title="close"
-                >×</a>
+                />
             </div>
         </div>
     </template>
