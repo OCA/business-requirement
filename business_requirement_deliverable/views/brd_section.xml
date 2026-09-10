@@ -3,9 +3,9 @@
     <record id="brd_section_tree" model="ir.ui.view">
         <field name="model">business.requirement.deliverable.section</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

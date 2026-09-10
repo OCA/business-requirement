@@ -152,6 +152,10 @@ Contributors
   - Alexandre Diaz
   - Víctor Martínez
 
+- `Binhex <https://binhex.cloud>`__:
+
+  - Zuzanna Elzbieta Szalaty Szalaty
+
 Maintainers
 -----------
 

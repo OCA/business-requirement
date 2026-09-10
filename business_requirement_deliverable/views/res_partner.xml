@@ -8,7 +8,7 @@
             <xpath expr="//field[@name='property_product_pricelist']" position="after">
                 <field
                     name="property_product_estimation_pricelist"
-                    groups="product.group_sale_pricelist"
+                    groups="product.group_product_pricelist"
                 />
             </xpath>
         </field>

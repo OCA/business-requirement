@@ -8,3 +8,5 @@
   - Víctor Martín
   - Alexandre Diaz
   - Víctor Martínez
+- [Binhex](https://binhex.cloud):
+  - Zuzanna Elzbieta Szalaty Szalaty
