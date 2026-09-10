@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-business-requirement"
+version = "18.0.20260910.0"
+dependencies = [
+    "odoo-addon-business_requirement==18.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 18.0",
+]
