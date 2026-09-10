@@ -68,8 +68,8 @@
                             t-options='{"widget": "date"}'
                         />
                         <t t-if="o.confirmed_user_id">(<span
-                                t-field="o.confirmed_user_id.name"
-                            />)</t>
+                            t-field="o.confirmed_user_id.name"
+                        />)</t>
                     </td>
                 </tr>
                 <tr t-if="o.approval_date">
@@ -82,8 +82,8 @@
                             t-options='{"widget": "date"}'
                         />
                         <t t-if="o.approved_id">(<span
-                                t-field="o.approved_id.name"
-                            />)</t>
+                            t-field="o.approved_id.name"
+                        />)</t>
                     </td>
                 </tr>
             </tbody>
