@@ -1,0 +1,210 @@
+<odoo>
+    <template
+        id="portal_my_home_menu_br"
+        name="Portal layout : business requirement menu entries"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="20"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'business_requirement' or business_requirement"
+                t-attf-class="breadcrumb-item #{'active ' if not business_requirement else ''}"
+            >
+                <a
+                    t-if="business_requirement"
+                    t-attf-href="/my/business_requirements?{{ keep_query() }}"
+                >Business Requirements</a>
+                <t t-else="">Business Requirements</t>
+            </li>
+            <li t-if="business_requirement" class="breadcrumb-item active">
+                <t t-out="business_requirement.name" />
+            </li>
+        </xpath>
+    </template>
+    <template
+        id="portal_my_home_br"
+        name="Portal My Home : business requirements entries"
+        inherit_id="portal.portal_my_home"
+        priority="20"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True" />
+        </xpath>
+        <div id="portal_service_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t
+                    t-set="icon"
+                    t-value="'/business_requirement/static/description/icon.svg'"
+                />
+                <t t-set="title">Business Requirements</t>
+                <t t-set="text">Follow up the requirements of your projects</t>
+                <t t-set="url" t-value="'/my/business_requirements'" />
+                <t t-set="placeholder_count" t-value="'business_requirement_count'" />
+            </t>
+        </div>
+    </template>
+    <template id="portal_my_br" name="My Business Requirements">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Business Requirements</t>
+            </t>
+            <t t-if="not business_requirements">
+                <div class="alert alert-warning mt-2" role="alert">
+                    There are currently no business requirements for your account.
+                </div>
+            </t>
+            <t t-if="business_requirements" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Business Requirement #</th>
+                        <th class="text-end">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="business_requirements" t-as="br">
+                        <td>
+                            <a
+                                t-attf-href="/my/business_requirement/#{br.id}?#{keep_query()}"
+                                t-attf-class="tr_br_link"
+                            >
+                                <span t-field="br.name" /> - <span
+                                t-field="br.description"
+                            />
+                            </a>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="br.date" t-options='{"widget": "date"}' />
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+    <template id="portal_br_page" name="Business Requirement">
+        <t t-set="br" t-value="business_requirement" />
+        <t t-call="portal.portal_layout">
+            <div class="card">
+                <div class="card-header bg-100" id="card_header">
+                    <div class="row g-0">
+                        <div class="col-md">
+                            <h5 class="mb-1 mb-md-0">
+                                <span t-field="br.name" />
+                                <small class="text-muted"> (#<span
+                                    t-field="br.id"
+                                />)</small>
+                            </h5>
+                        </div>
+                        <div class="col-md text-md-end">
+                            <small>Status:</small>
+                            <span
+                                t-field="br.state"
+                                class="badge rounded-pill text-bg-info"
+                                title="Current stage of this requirement"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Date:</strong>
+                            <span
+                                t-field="br.create_date"
+                                t-options='{"widget": "date"}'
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="row mb-4"
+                        t-if="br.responsible_user_id or br.partner_id"
+                    >
+                        <div class="col-12 col-md-6 pb-2" t-if="br.user_id">
+                            <strong>Assigned to</strong>
+                            <t t-call="portal.portal_my_contact">
+                                <t
+                                    t-set="_contactAvatar"
+                                    t-value="image_data_uri(br.user_id.avatar_128)"
+                                />
+                                <t t-set="_contactName" t-value="br.user_id.name" />
+                                <div
+                                    t-field="br.user_id"
+                                    t-options='{"widget": "contact", "fields": ["email", "phone"]}'
+                                />
+                            </t>
+                        </div>
+                        <div class="col-12 col-md-6 pb-2" t-if="br.partner_id">
+                            <strong>Requested by</strong>
+                            <t t-call="portal.portal_my_contact">
+                                <t
+                                    t-set="_contactAvatar"
+                                    t-value="image_data_uri(br.partner_id.avatar_128)"
+                                />
+                                <t t-set="_contactName" t-value="br.partner_id.name" />
+                                <div
+                                    t-field="br.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["email", "phone"]}'
+                                />
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row" t-if="br.description">
+                        <div
+                            t-if="br.business_requirement"
+                            t-attf-class="col-12 mb-4 mb-md-0"
+                        >
+                            <hr class="mb-1" />
+                            <strong class="d-block mb-2">Description</strong>
+                            <div
+                                class="py-1 px-2 bg-100 small"
+                                t-field="br.business_requirement"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4>
+                    <strong>Message and communication history</strong>
+                </h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="br" />
+                    <t t-set="token" t-value="br.access_token" />
+                    <t t-set="pid" t-value="pid" />
+                    <t t-set="hash" t-value="hash" />
+                </t>
+            </div>
+        </t>
+    </template>
+    <template id="portal_br_error" name="Business requirement error/warning display">
+        <div class="row me-3">
+            <div
+                t-attf-class="'col-md-12 me-3 ms-3 alert alert-dismissible' #{'alert-danger' if error else 'alert-warning'}"
+            >
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="close"
+                    title="close"
+                />
+                <t t-if="error == 'generic'" name="generic">
+                    There was an error processing this page.
+                </t>
+            </div>
+        </div>
+    </template>
+    <template id="portal_br_success" name="Business requirement success display">
+        <div class="row me-3">
+            <div class="col-md-12 me-3 ms-3 alert alert-dismissible alert-success">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="close"
+                    title="close"
+                />
+            </div>
+        </div>
+    </template>
+</odoo>
