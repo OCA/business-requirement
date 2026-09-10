@@ -17,6 +17,10 @@ class BusinessRequirementDeliverablePortal(odoo.tests.HttpCase):
                 "business_requirement_id": self.br.id,
             }
         )
+        # Subscribe the requirement, not the deliverable: the portal counter
+        # filters on the requirement's followers, and message_subscribe()
+        # propagates them down to its deliverable_lines (not the other way
+        # around), which is what makes the /my/brd entry visible.
         self.br.message_subscribe(
             partner_ids=self.env.ref("base.demo_user0").partner_id.ids
         )

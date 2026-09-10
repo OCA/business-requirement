@@ -237,6 +237,71 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             line.product_uom_change()
             self.assertEqual(line.sale_price_unit, 4000.0)
 
+    def test_compute_display_name(self):
+        line = self.br.deliverable_lines[0]
+        line.section_id = False
+        self.assertEqual(line.display_name, f"#{line.sequence}: {line.name}")
+        section = self.env["business.requirement.deliverable.section"].create(
+            {"name": "Section A"}
+        )
+        line.section_id = section
+        self.assertEqual(
+            line.display_name, f"[Section A] #{line.sequence}: {line.name}"
+        )
+
+    def test_get_total_by_section(self):
+        section = self.env["business.requirement.deliverable.section"].create(
+            {"name": "Section A"}
+        )
+        lines = self.br.deliverable_lines
+        lines[0].section_id = section
+        totals = dict(self.br.get_total_by_section())
+        self.assertEqual(totals["Section A"], lines[0].price_total)
+        # lines without a section are grouped under "Others"
+        self.assertEqual(totals["Others"], sum(lines[1:].mapped("price_total")))
+
+    def test_copy_keeps_followers_and_deliverables(self):
+        partner = self.env["res.partner"].create({"name": "Follower"})
+        self.br.message_subscribe(partner_ids=partner.ids)
+        new_br = self.br.copy()
+        self.assertEqual(new_br.name, f"{self.br.name} (copy)")
+        self.assertIn(partner, new_br.message_partner_ids)
+        self.assertEqual(len(new_br.deliverable_lines), len(self.br.deliverable_lines))
+        # names are preserved instead of being suffixed with "(copy)"
+        self.assertEqual(
+            sorted(new_br.deliverable_lines.mapped("name")),
+            sorted(self.br.deliverable_lines.mapped("name")),
+        )
+
+    def test_copy_multi_record(self):
+        br2 = self.br.copy()
+        new_brs = (self.br + br2).copy()
+        self.assertEqual(len(new_brs), 2)
+        for source, new_br in zip(self.br + br2, new_brs, strict=True):
+            self.assertEqual(new_br.name, f"{source.name} (copy)")
+            self.assertEqual(
+                len(new_br.deliverable_lines), len(source.deliverable_lines)
+            )
+
+    def test_copy_with_explicit_deliverable_lines(self):
+        new_br = self.br.copy({"deliverable_lines": []})
+        self.assertFalse(new_br.deliverable_lines)
+
+    def test_message_subscribe_propagates_to_deliverables(self):
+        partner = self.env["res.partner"].create({"name": "Follower"})
+        self.br.message_subscribe(partner_ids=partner.ids)
+        for line in self.br.deliverable_lines:
+            self.assertIn(partner, line.message_partner_ids)
+        self.br.message_unsubscribe(partner_ids=partner.ids)
+        for line in self.br.deliverable_lines:
+            self.assertNotIn(partner, line.message_partner_ids)
+
+    def test_portal_publish_button(self):
+        line = self.br.deliverable_lines[0]
+        published = line.portal_published
+        line.portal_publish_button()
+        self.assertEqual(line.portal_published, not published)
+
     def test_partner_id_change(self):
         self.partner = (
             self.env["res.partner"]
