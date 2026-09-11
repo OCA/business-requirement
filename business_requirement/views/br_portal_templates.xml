@@ -34,7 +34,7 @@
             <t t-call="portal.portal_docs_entry">
                 <t
                     t-set="icon"
-                    t-value="'/business_requirement/static/description/icon.svg'"
+                    t-value="'/business_requirement/static/img/requirements.svg'"
                 />
                 <t t-set="title">Business Requirements</t>
                 <t t-set="text">Follow up the requirements of your projects</t>
