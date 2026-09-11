@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_business_requirement_form" model="ir.ui.view">
+        <field name="name">business.requirement.form.rice</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_form"
+        />
+        <field name="arch" type="xml">
+            <page name="other" position="before">
+                <page string="RICE" name="rice">
+                    <group>
+                        <group>
+                            <field name="rice_reach" />
+                            <field name="rice_impact" />
+                        </group>
+                        <group>
+                            <field name="rice_confidence" />
+                            <field name="rice_effort" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="rice_score" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+    <record id="view_business_requirement_tree" model="ir.ui.view">
+        <field name="name">business.requirement.list.rice</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="priority" position="after">
+                <field name="rice_score" optional="show" />
+            </field>
+        </field>
+    </record>
+    <record id="view_business_requirement_kanban_project" model="ir.ui.view">
+        <field name="name">business.requirement.kanban.rice</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_kanban_project"
+        />
+        <field name="arch" type="xml">
+            <field name="category_ids" position="after">
+                <div invisible="not rice_score">
+                    <span>RICE:</span>
+                    <field name="rice_score" class="fw-bold" />
+                </div>
+            </field>
+        </field>
+    </record>
+    <record id="view_business_requirement_search" model="ir.ui.view">
+        <field name="name">business.requirement.search.rice</field>
+        <field name="model">business.requirement</field>
+        <field
+            name="inherit_id"
+            ref="business_requirement.view_business_requirement_search"
+        />
+        <field name="arch" type="xml">
+            <filter name="to_be_reviewed" position="after">
+                <separator />
+                <filter
+                    string="Scored"
+                    name="rice_scored"
+                    domain="[('rice_score', '>', 0)]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
