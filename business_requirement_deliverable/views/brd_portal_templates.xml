@@ -31,7 +31,7 @@
             <t t-call="portal.portal_docs_entry">
                 <t
                     t-set="icon"
-                    t-value="'/business_requirement/static/description/icon.svg'"
+                    t-value="'/business_requirement_deliverable/static/img/deliverables.svg'"
                 />
                 <t t-set="title">Business Requirement Deliverables</t>
                 <t t-set="text">Check the deliverables of your requirements</t>
