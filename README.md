@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [business_requirement](business_requirement/) | 18.0.1.0.0 |  | Manage the Business Requirements (stories, scenarios, gaps and test cases) for your customers
+[business_requirement_deliverable](business_requirement_deliverable/) | 18.0.1.0.0 |  | Manage the Business Requirement Deliverables for your customers
 
 [//]: # (end addons)
 

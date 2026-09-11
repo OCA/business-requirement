@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-business-requirement"
-version = "18.0.20260910.0"
+version = "18.0.20260911.0"
 dependencies = [
     "odoo-addon-business_requirement==18.0.*",
+    "odoo-addon-business_requirement_deliverable==18.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
