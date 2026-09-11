@@ -339,7 +339,7 @@
         name="Business Requirement"
         groups="business_requirement.group_business_requirement_user"
         sequence="30"
-        web_icon="business_requirement,static/description/icon.png"
+        web_icon="business_requirement,static/description/menu_icon.png"
     />
     <menuitem
         id="menu_business_requirement"
