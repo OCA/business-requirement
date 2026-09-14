@@ -18,7 +18,7 @@
                         string="Create Requirement"
                         class="btn-primary"
                     />
-                    <button string="Cancel" class="btn-default" special="cancel" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>
         </field>
