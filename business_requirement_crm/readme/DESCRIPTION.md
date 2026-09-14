@@ -1,2 +1,2 @@
 This module extends the functionality of CRM and Business Requirement to
-support create new Requirementes from Opportunity.
+support creating new Requirements from an Opportunity.

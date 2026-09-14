@@ -2,3 +2,5 @@
   - Pedro M. Baeza
   - Victor M.M. Torres
   - Alexandre Díaz
+- [Binhex](https://binhex.cloud):
+  - Zuzanna Elzbieta Szalaty Szalaty

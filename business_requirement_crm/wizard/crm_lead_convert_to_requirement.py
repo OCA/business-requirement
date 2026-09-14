@@ -2,7 +2,9 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from markupsafe import Markup
+
+from odoo import api, fields, models
 
 
 class CrmLeadCreateRequirement(models.TransientModel):
@@ -19,10 +21,10 @@ class CrmLeadCreateRequirement(models.TransientModel):
     customer_history = fields.Html()
 
     @api.model
-    def default_get(self, fields):
-        result = super().default_get(fields)
-        lead = self.env["crm.lead"].browse([self.env.context.get("active_id")])
-        if lead:
+    def default_get(self, fields_list):
+        result = super().default_get(fields_list)
+        lead = self.env["crm.lead"].browse(self.env.context.get("active_id"))
+        if lead.exists():
             result.update(
                 {
                     "lead_id": lead.id,
@@ -53,25 +55,23 @@ class CrmLeadCreateRequirement(models.TransientModel):
             self._prepare_business_requirement_vals()
         )
         # Chatter reflects new Requirement on both ways
-        msg_body = _(
-            "Requirement %s created <a href=#"
-            " data-oe-model=business.requirement data-oe-id=%(id)d>%(name)s</a>"
-        ) % {
-            "id": requirement.id,
-            "name": requirement.name,
-        }
+        msg_body = self.env._(
+            "Requirement created %(link)s",
+            link=Markup(
+                '<a href="#" data-oe-model="business.requirement"'
+                ' data-oe-id="%(id)d">%(name)s</a>'
+            )
+            % {"id": requirement.id, "name": requirement.name},
+        )
         lead = self.lead_id
         lead.message_post(body=msg_body)
-        requirement_msg = _(
-            "This business requirement has been created from:"
-            " <a href=# data-oe-model=crm.lead data-oe-id=%(id)d>%(name)s</a>"
-        ) % {
-            "id": lead.id,
-            "name": lead.name,
-        }
-        requirement.message_post(body=requirement_msg)
-        return (
-            self.env["business.requirement"]
-            .browse(requirement.id)
-            .get_formview_action()
+        requirement_msg = self.env._(
+            "This business requirement has been created from: %(link)s",
+            link=Markup(
+                '<a href="#" data-oe-model="crm.lead"'
+                ' data-oe-id="%(id)d">%(name)s</a>'
+            )
+            % {"id": lead.id, "name": lead.name},
         )
+        requirement.message_post(body=requirement_msg)
+        return requirement.get_formview_action()
