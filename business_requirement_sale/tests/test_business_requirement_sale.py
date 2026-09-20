@@ -4,7 +4,7 @@ from odoo import exceptions
 from odoo.tests import common
 
 
-class TestBusinessRequirementSaleBase(common.SavepointCase):
+class TestBusinessRequirementSaleBase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -94,7 +94,11 @@ class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
         self.assertTrue(action["context"]["search_default_business_requirement_id"])
         br2 = self.business_requirement.copy()
         action = (self.business_requirement + br2).open_orders()
-        self.assertTrue(action["domain"])
+        # A domain is a list of leaves, not a tuple wrapping one
+        self.assertEqual(
+            action["domain"],
+            [("business_requirement_id", "in", (self.business_requirement + br2).ids)],
+        )
         so_mapping = {
             # index: (deliverable id, name, display_type,
             #         section id, product_uom_qty, price_unit, product id)
@@ -155,6 +159,23 @@ class TestBusinessRequirementSale(TestBusinessRequirementSaleBase):
             self.assertAlmostEqual(line.product_uom_qty, so_mapping[index][4])
             self.assertAlmostEqual(line.price_unit, so_mapping[index][5])
             self.assertEqual(line.product_id.id, so_mapping[index][6])
+
+    def test_chatter_messages_keep_their_link(self):
+        """message_post escapes plain strings, so the links need Markup"""
+        self.wizard.deliverable_ids = self.business_requirement.deliverable_lines
+        order = self.wizard._create_sale_order()
+        for record in (self.business_requirement, order):
+            body = (
+                self.env["mail.message"]
+                .search(
+                    [("model", "=", record._name), ("res_id", "=", record.id)],
+                    order="id desc",
+                    limit=1,
+                )
+                .body
+            )
+            self.assertIn("<a ", body)
+            self.assertNotIn("&lt;a", body)
 
     def test_flow_one_line_non_totaled(self):
         self.wizard.deliverable_ids = [(6, 0, self.deliverable1.ids)]

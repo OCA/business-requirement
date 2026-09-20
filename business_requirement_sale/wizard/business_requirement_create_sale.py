@@ -2,7 +2,9 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, exceptions, fields, models
+from markupsafe import Markup
+
+from odoo import api, exceptions, fields, models
 
 
 class BusinessRequirementCreateSale(models.TransientModel):
@@ -21,7 +23,6 @@ class BusinessRequirementCreateSale(models.TransientModel):
         comodel_name="business.requirement",
         string="Business Requirement",
         required=True,
-        domain="[('business_requirement_id', '=', business_requirement_id)]",
     )
     applicable_section_ids = fields.Many2many(
         comodel_name="business.requirement.deliverable.section",
@@ -48,26 +49,28 @@ class BusinessRequirementCreateSale(models.TransientModel):
     )
 
     @api.model
-    def default_get(self, fields):
-        res = super().default_get(fields)
+    def default_get(self, fields_list):
+        res = super().default_get(fields_list)
         context = self.env.context
         if (
-            "business_requirement_id" in fields
+            "business_requirement_id" in fields_list
             and context.get("active_model") == "business.requirement"
             and context.get("active_id")
         ):
             res["business_requirement_id"] = context.get("active_id")
             br = self.env["business.requirement"].browse(context.get("active_id"))
-            if "deliverable_ids" in fields:
+            if "deliverable_ids" in fields_list:
                 if not br.deliverable_lines:
                     raise exceptions.UserError(
-                        _("No deliverables found for this business requirement.")
+                        self.env._(
+                            "No deliverables found for this business requirement."
+                        )
                     )
-            if "has_undefined_section" in fields:
+            if "has_undefined_section" in fields_list:
                 res["has_undefined_section"] = any(
                     not x.section_id for x in br.deliverable_lines
                 )
-            if "section_ids" in fields:
+            if "applicable_section_ids" in fields_list:
                 sections = br.mapped("deliverable_lines.section_id")
                 res["applicable_section_ids"] = [(6, 0, sections.ids)]
         return res
@@ -79,7 +82,7 @@ class BusinessRequirementCreateSale(models.TransientModel):
         new_deliverable_ids = []
         for section in self.applicable_section_ids:
             deliverables = br.deliverable_lines.filtered(
-                lambda x: x.section_id == section
+                lambda x, section=section: x.section_id == section
             )
             if section in self.section_ids:
                 new_deliverable_ids += deliverables.ids
@@ -148,16 +151,25 @@ class BusinessRequirementCreateSale(models.TransientModel):
             line_vals = self._prepare_sale_order_line_vals(deliverable, sequence)
             vals["order_line"].append((0, 0, line_vals))
         order = self.env["sale.order"].create(vals)
-        msg_body = _("Quotation %s created ") % (
-            "<a href=# data-oe-model=sale.order data-oe-id=%d>%s</a>"
-            % (order.id, order.name)
-        )
         br = self.business_requirement_id
+        msg_body = self.env._(
+            "Quotation %(link)s created",
+            link=Markup(
+                '<a href="#" data-oe-model="sale.order"'
+                ' data-oe-id="%(id)d">%(name)s</a>'
+            )
+            % {"id": order.id, "name": order.name},
+        )
         br.message_post(body=msg_body)
         # post message on the order
-        order_msg = _("This quotation has been created from:") + " %s" % (
-            "<a href=# data-oe-model=business.requirement data-oe-id=%d>%s</a>"
-        ) % (br.id, br.name)
+        order_msg = self.env._(
+            "This quotation has been created from: %(link)s",
+            link=Markup(
+                '<a href="#" data-oe-model="business.requirement"'
+                ' data-oe-id="%(id)d">%(name)s</a>'
+            )
+            % {"id": br.id, "name": br.name},
+        )
         order.message_post(body=order_msg)
         return order
 
@@ -165,13 +177,13 @@ class BusinessRequirementCreateSale(models.TransientModel):
         self.ensure_one()
         if not self.deliverable_ids:
             raise exceptions.UserError(
-                _(
+                self.env._(
                     "At least one deliverable must be selected to create the "
                     "quotation"
                 )
             )
         order = self._create_sale_order()
-        action = self.env.ref("sale.action_quotations").read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id("sale.action_quotations")
         action.update(
             {"view_mode": "form", "views": [], "view_id": False, "res_id": order.id}
         )

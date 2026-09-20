@@ -19,3 +19,7 @@ class SaleOrderLine(models.Model):
     business_requirement_deliverable_id = fields.Many2one(
         comodel_name="business.requirement.deliverable", string="Deliverable"
     )
+    br_deliverable_section_id = fields.Many2one(
+        comodel_name="business.requirement.deliverable.section",
+        string="Business Requirement Deliverable Section",
+    )

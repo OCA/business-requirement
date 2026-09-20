@@ -16,11 +16,11 @@
                         name="section_ids"
                         nolabel="1"
                         domain="[('id', 'in', applicable_section_ids)]"
-                        attrs="{'invisible': [('applicable_section_ids', '=', [])]}"
+                        invisible="not applicable_section_ids"
                         widget="many2many_checkboxes"
                     />
                 </group>
-                <group attrs="{'invisible': [('has_undefined_section', '=', False)]}">
+                <group invisible="not has_undefined_section">
                     <div>
                         <field name="undefined_section" nolabel="1" />
                         <label for="undefined_section" />
@@ -32,19 +32,18 @@
                         nolabel="1"
                         domain="[('business_requirement_id', '=', business_requirement_id)]"
                         widget="many2many_checkboxes"
-                    >
-                    </field>
+                    />
                 </group>
+                <footer>
+                    <button
+                        name="button_create"
+                        string="Create"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
             </form>
-            <footer>
-                <button
-                    name="button_create"
-                    string="Create"
-                    type="object"
-                    class="oe_highlight"
-                />
-                <button string="Cancel" class="oe_link" special="cancel" />
-            </footer>
         </field>
     </record>
     <record id="action_business_requirement_create_sale" model="ir.actions.act_window">
