@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_rice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: business_requirement_rice
+#: model_terms:ir.ui.view,arch_db:business_requirement_rice.view_business_requirement_kanban_project
+msgid "<span>RICE:</span>"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model,name:business_requirement_rice.model_business_requirement
+msgid "Business Requirement"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,field_description:business_requirement_rice.field_business_requirement__rice_confidence
+msgid "Confidence"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,field_description:business_requirement_rice.field_business_requirement__rice_effort
+msgid "Effort"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_impact__high
+msgid "High"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_confidence__high
+msgid "High (100%)"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,help:business_requirement_rice.field_business_requirement__rice_confidence
+msgid "How confident you are about the reach and impact estimates."
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,help:business_requirement_rice.field_business_requirement__rice_reach
+msgid ""
+"How many users or events are affected over a given period, for instance the "
+"number of users per quarter."
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,help:business_requirement_rice.field_business_requirement__rice_impact
+msgid "How much each affected user benefits from the requirement."
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,field_description:business_requirement_rice.field_business_requirement__rice_impact
+msgid "Impact"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_impact__low
+msgid "Low"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_confidence__low
+msgid "Low (50%)"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_impact__massive
+msgid "Massive"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_impact__medium
+msgid "Medium"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_confidence__medium
+msgid "Medium (80%)"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields.selection,name:business_requirement_rice.selection__business_requirement__rice_impact__minimal
+msgid "Minimal"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model_terms:ir.ui.view,arch_db:business_requirement_rice.view_business_requirement_form
+msgid "RICE"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,field_description:business_requirement_rice.field_business_requirement__rice_score
+msgid "RICE Score"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,field_description:business_requirement_rice.field_business_requirement__rice_reach
+msgid "Reach"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,help:business_requirement_rice.field_business_requirement__rice_score
+msgid ""
+"Reach x Impact x Confidence / Effort. The higher the score, the sooner the "
+"requirement should be addressed."
+msgstr ""
+
+#. module: business_requirement_rice
+#: model_terms:ir.ui.view,arch_db:business_requirement_rice.view_business_requirement_search
+msgid "Scored"
+msgstr ""
+
+#. module: business_requirement_rice
+#: model:ir.model.fields,help:business_requirement_rice.field_business_requirement__rice_effort
+msgid "Total work needed, usually estimated in person-months."
+msgstr ""
