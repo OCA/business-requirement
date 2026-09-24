@@ -19,8 +19,17 @@ msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<small class=\"text-right\">Status:</small>"
-msgstr "<small class=\"text-right\">Estado:</small>"
+msgid "<small>Status:</small>"
+msgstr ""
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid ""
+"<span class=\"o_stat_text\" invisible=\"not portal_published\">In Portal</"
+"span>\n"
+"                            <span class=\"o_stat_text\" "
+"invisible=\"portal_published\">Not in Portal</span>"
+msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -230,11 +239,6 @@ msgid "Confirmed by"
 msgstr "Confirmado por"
 
 #. module: business_requirement
-#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "Contact"
-msgstr "Contacto"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_uid
 msgid "Created by"
@@ -271,7 +275,6 @@ msgstr "Historia del cliente"
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
-#, python-format
 msgid "Date"
 msgstr "Fecha"
 
@@ -300,6 +303,11 @@ msgstr "Borrador"
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__drop
 msgid "Drop"
 msgstr "Descartado"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_br
+msgid "Follow up the requirements of your projects"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_follower_ids
@@ -394,12 +402,6 @@ msgid "Kanban State"
 msgstr "Estado de kanban"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement____last_update
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación en"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_uid
 msgid "Last Updated by"
@@ -420,11 +422,6 @@ msgstr "Registros"
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__0
 msgid "Low"
 msgstr "Bajo"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Adjunto principal"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error
@@ -594,7 +591,6 @@ msgstr "Ficha de seguridad"
 #. odoo-python
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
-#, python-format
 msgid "Sequence"
 msgstr "Secuencia"
 
@@ -606,7 +602,6 @@ msgstr "Origen"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__partner_id
-#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Stakeholder"
 msgstr "Interesado"
@@ -654,13 +649,6 @@ msgstr "Términos y Condiciones"
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
 msgid "Terms and Conditions:"
 msgstr "Términos y Condiciones:"
-
-#. module: business_requirement
-#. odoo-python
-#: code:addons/business_requirement/tests/test_br.py:0
-#, python-format
-msgid "Test Body"
-msgstr "Cuerpo de prueba"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__test_case
@@ -721,7 +709,6 @@ msgstr "Si"
 #. module: business_requirement
 #. odoo-python
 #: code:addons/business_requirement/models/business.py:0
-#, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 "Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
@@ -730,22 +717,35 @@ msgstr ""
 #. module: business_requirement
 #. odoo-python
 #: code:addons/business_requirement/models/business.py:0
-#, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr ""
 "Solo puede ir a las siguientes etapas: borrador/confirmado/cancelado/"
 "desestimado."
 
 #. module: business_requirement
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
-msgid "]&amp;nbsp;"
-msgstr "]&amp;nbsp;"
-
-#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_error
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr "cerrar"
+
+#~ msgid "<small class=\"text-right\">Status:</small>"
+#~ msgstr "<small class=\"text-right\">Estado:</small>"
+
+#~ msgid "Contact"
+#~ msgstr "Contacto"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación en"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Adjunto principal"
+
+#, python-format
+#~ msgid "Test Body"
+#~ msgstr "Cuerpo de prueba"
+
+#~ msgid "]&amp;nbsp;"
+#~ msgstr "]&amp;nbsp;"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error en la entrega de SMS"
