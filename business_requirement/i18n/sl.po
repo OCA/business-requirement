@@ -22,8 +22,17 @@ msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "<small class=\"text-right\">Status:</small>"
-msgstr "<small class=\"text-right\">Status:</small>"
+msgid "<small>Status:</small>"
+msgstr ""
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
+msgid ""
+"<span class=\"o_stat_text\" invisible=\"not portal_published\">In Portal</"
+"span>\n"
+"                            <span class=\"o_stat_text\" "
+"invisible=\"portal_published\">Not in Portal</span>"
+msgstr ""
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -233,11 +242,6 @@ msgid "Confirmed by"
 msgstr "Potrdil"
 
 #. module: business_requirement
-#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
-msgid "Contact"
-msgstr "Stik"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__create_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__create_uid
 msgid "Created by"
@@ -274,7 +278,6 @@ msgstr "Kupčeva zgodba"
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__date
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_br
-#, python-format
 msgid "Date"
 msgstr "Datum"
 
@@ -303,6 +306,11 @@ msgstr "Osnutek"
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__state__drop
 msgid "Drop"
 msgstr "Zavrži"
+
+#. module: business_requirement
+#: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_br
+msgid "Follow up the requirements of your projects"
+msgstr ""
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_follower_ids
@@ -399,12 +407,6 @@ msgid "Kanban State"
 msgstr "Kanban stanje"
 
 #. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement____last_update
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category____last_update
-msgid "Last Modified on"
-msgstr "Zadnjič spremenjeno"
-
-#. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__write_uid
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement_category__write_uid
 msgid "Last Updated by"
@@ -425,11 +427,6 @@ msgstr "Dnevniki"
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__priority__0
 msgid "Low"
 msgstr "Nizka"
-
-#. module: business_requirement
-#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Glavna priponka"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_has_error
@@ -598,7 +595,6 @@ msgstr "Varnostni žeton"
 #. odoo-python
 #: code:addons/business_requirement/controllers/portal.py:0
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__sequence
-#, python-format
 msgid "Sequence"
 msgstr "Zaporedje"
 
@@ -610,7 +606,6 @@ msgstr "Vir"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__partner_id
-#: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_search
 msgid "Stakeholder"
 msgstr "Deležnik"
@@ -658,13 +653,6 @@ msgstr "Splošni pogoji"
 #: model_terms:ir.ui.view,arch_db:business_requirement.layout_br_report_body
 msgid "Terms and Conditions:"
 msgstr "Splošni pogoji:"
-
-#. module: business_requirement
-#. odoo-python
-#: code:addons/business_requirement/tests/test_br.py:0
-#, python-format
-msgid "Test Body"
-msgstr "Testno besedilo"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__test_case
@@ -725,7 +713,6 @@ msgstr "Da"
 #. module: business_requirement
 #. odoo-python
 #: code:addons/business_requirement/models/business.py:0
-#, python-format
 msgid "You can only move to the following stage: draft/confirmed /cancel/drop."
 msgstr ""
 "Premaknete se lahko le na naslednje stopnje: osnutek/potrjeno /preklic/"
@@ -734,22 +721,35 @@ msgstr ""
 #. module: business_requirement
 #. odoo-python
 #: code:addons/business_requirement/models/business.py:0
-#, python-format
 msgid "You can only move to the following stage: draft/confirmed/cancel/drop."
 msgstr ""
 "Premaknete se lahko le na naslednje stopnje: osnutek/potrjeno /preklic/"
 "zavrženo."
 
 #. module: business_requirement
-#: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_kanban_project
-msgid "]&amp;nbsp;"
-msgstr "]&amp;nbsp;"
-
-#. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_error
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_success
 msgid "close"
 msgstr "zapri"
+
+#~ msgid "<small class=\"text-right\">Status:</small>"
+#~ msgstr "<small class=\"text-right\">Status:</small>"
+
+#~ msgid "Contact"
+#~ msgstr "Stik"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zadnjič spremenjeno"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Glavna priponka"
+
+#, python-format
+#~ msgid "Test Body"
+#~ msgstr "Testno besedilo"
+
+#~ msgid "]&amp;nbsp;"
+#~ msgstr "]&amp;nbsp;"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Napaka pri dostavi SMS"
