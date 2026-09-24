@@ -1,0 +1,204 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-04-11 12:26+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
+#, python-format
+msgid "At least one deliverable must be selected to create the quotation"
+msgstr "Za izdelavo predračuna mora biti izbrana vsaj ena dobavna postavka"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__business_requirement_id
+msgid "Business Requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__br_deliverable_section_id
+msgid "Business Requirement Deliverable Section"
+msgstr "Sekcija dobavne postavke poslovne zahteve"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__deliverable_ids
+msgid "Business Requirement Deliverables"
+msgstr "Dobavne postavke za poslovno zahtevo"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order__business_requirement_id
+msgid "Business requirement"
+msgstr "Poslovna zahteva"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Create"
+msgstr "Ustvari"
+
+#. module: business_requirement_sale
+#: model:ir.actions.act_window,name:business_requirement_sale.action_business_requirement_create_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Create Quotation"
+msgstr "Ustvari predračun"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__business_requirement_deliverable_id
+msgid "Deliverable"
+msgstr "Dobavna postavka"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Deliverables"
+msgstr "Dobavne postavke"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__section_ids
+msgid "Deliverables Sections"
+msgstr "Dobavne sekcije"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__display_name
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__display_name
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Prikazani naziv"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__applicable_section_ids
+msgid "Existing Sections"
+msgstr "Obstoječe sekcije"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__has_undefined_section
+msgid "Has Undefined Section"
+msgstr "Vsebuje nedefinirano sekcijo"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__id
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__id
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order__id
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement____last_update
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale____last_update
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order____last_update
+#: model:ir.model.fields,field_description:business_requirement_sale.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__write_uid
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
+#, python-format
+msgid "No deliverables found for this business requirement."
+msgstr "Ni dobavnih postavk za to poslovno zahtevo."
+
+#. module: business_requirement_sale
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__standard
+msgid "Quantity and price unit as is"
+msgstr "Količina in cena kakršni sta"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
+#, python-format
+msgid "Quotation %s created "
+msgstr "Predračun %s ustvarjen "
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_business_requirement_form
+msgid "Sales"
+msgstr "Prodaja"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Prodajni nalog"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Prodajna postavka"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__sale_order_ids
+msgid "Sales Orders"
+msgstr "Prodajni nalogi"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement__sale_order_count
+msgid "Sales Orders Count"
+msgstr "Št. prodajnih nalogov"
+
+#. module: business_requirement_sale
+#: model_terms:ir.ui.view,arch_db:business_requirement_sale.view_form_business_requirement_create_sale
+msgid "Sections"
+msgstr "Sekcije"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields.selection,name:business_requirement_sale.selection__business_requirement_create_sale__totaled_method__totaled
+msgid "Subtotal as price unit and qty = 1"
+msgstr "Vmesni seštevek kot cena enote in kol = 1"
+
+#. module: business_requirement_sale
+#: code:addons/business_requirement_sale/wizard/business_requirement_create_sale.py:0
+#, python-format
+msgid "This quotation has been created from:"
+msgstr "Ta predračun je nastal iz:"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__totaled_method
+msgid "Totaled Method"
+msgstr "Metoda seštevkov"
+
+#. module: business_requirement_sale
+#: model:ir.model.fields,field_description:business_requirement_sale.field_business_requirement_create_sale__undefined_section
+msgid "Undefined Section"
+msgstr "Nedefinirana sekcija"
+
+#. module: business_requirement_sale
+#: model:ir.model,name:business_requirement_sale.model_business_requirement_create_sale
+msgid "Wizard to create new SO from requirement"
+msgstr "Čarovnik za ustvarjanje novega prodajnega naloga iz zahteve"
