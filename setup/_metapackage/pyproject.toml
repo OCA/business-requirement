@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-business-requirement"
-version = "18.0.20260920.0"
+version = "18.0.20260924.0"
 dependencies = [
     "odoo-addon-business_requirement==18.0.*",
+    "odoo-addon-business_requirement_crm==18.0.*",
     "odoo-addon-business_requirement_deliverable==18.0.*",
     "odoo-addon-business_requirement_rice==18.0.*",
 ]
