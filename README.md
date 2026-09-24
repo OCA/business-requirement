@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [business_requirement_crm](business_requirement_crm/) | 18.0.1.0.0 |  | Convert Leads to Business Requirement
 [business_requirement_deliverable](business_requirement_deliverable/) | 18.0.1.0.1 |  | Manage the Business Requirement Deliverables for your customers
 [business_requirement_rice](business_requirement_rice/) | 18.0.1.0.0 | <a href='https://github.com/szalatyzuzanna'><img src='https://github.com/szalatyzuzanna.png' width='32' height='32' style='border-radius:50%;' alt='szalatyzuzanna'/></a> | Prioritise business requirements with the RICE scoring model
+[business_requirement_sale](business_requirement_sale/) | 18.0.1.0.0 |  | Convert Business Requirement into Sales Orders
 
 [//]: # (end addons)
 
