@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,13 +15,17 @@ msgstr ""
 
 #. module: business_requirement_crm
 #: model:ir.model,name:business_requirement_crm.model_business_requirement
-#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_ids
 msgid "Business Requirement"
 msgstr ""
 
 #. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_count
 msgid "Business Requirement Count"
+msgstr ""
+
+#. module: business_requirement_crm
+#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead__business_requirement_ids
+msgid "Business Requirements"
 msgstr ""
 
 #. module: business_requirement_crm
@@ -76,11 +80,6 @@ msgid "ID"
 msgstr ""
 
 #. module: business_requirement_crm
-#: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: business_requirement_crm
 #: model:ir.model.fields,field_description:business_requirement_crm.field_crm_lead_create_requirement__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -108,10 +107,7 @@ msgstr ""
 #. module: business_requirement_crm
 #. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
-#, python-format
-msgid ""
-"Requirement %s created <a href=# data-oe-model=business.requirement data-oe-"
-"id=%(id)d>%(name)s</a>"
+msgid "Requirement created %(link)s"
 msgstr ""
 
 #. module: business_requirement_crm
@@ -122,8 +118,5 @@ msgstr ""
 #. module: business_requirement_crm
 #. odoo-python
 #: code:addons/business_requirement_crm/wizard/crm_lead_convert_to_requirement.py:0
-#, python-format
-msgid ""
-"This business requirement has been created from: <a href=# data-oe-"
-"model=crm.lead data-oe-id=%(id)d>%(name)s</a>"
+msgid "This business requirement has been created from: %(link)s"
 msgstr ""
