@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-02-11 10:09+0000\n"
+"PO-Revision-Date: 2026-09-28 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
 msgid "<small>Status:</small>"
-msgstr ""
+msgstr "<small>Stato:</small>"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.view_business_requirement_form
@@ -29,6 +29,10 @@ msgid ""
 "                            <span class=\"o_stat_text\" "
 "invisible=\"portal_published\">Not in Portal</span>"
 msgstr ""
+"<span class=\"o_stat_text\" invisible=\"not portal_published\">Nel portale</"
+"span>\n"
+"                            <span class=\"o_stat_text\" "
+"invisible=\"portal_published\">non nel portale</span>"
 
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_br_page
@@ -306,7 +310,7 @@ msgstr "Rilascia"
 #. module: business_requirement
 #: model_terms:ir.ui.view,arch_db:business_requirement.portal_my_home_br
 msgid "Follow up the requirements of your projects"
-msgstr ""
+msgstr "Monitora i requisiti dei tuoi progetti"
 
 #. module: business_requirement
 #: model:ir.model.fields,field_description:business_requirement.field_business_requirement__message_follower_ids
