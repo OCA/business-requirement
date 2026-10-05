@@ -16,7 +16,7 @@
                     <field
                         name="state"
                         widget="statusbar"
-                        clickable="True"
+                        options="{'clickable': '1'}"
                         statusbar_visible="draft,confirmed,approved,in_progress,done,cancel,drop"
                     />
                 </header>
