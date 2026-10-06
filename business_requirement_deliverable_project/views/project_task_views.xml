@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='tag_ids']" position="after">
+                <field
+                    name="business_requirement_id"
+                    domain="[('company_id', '=?', company_id)]"
+                    options="{'no_create': True}"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+                <field
+                    name="business_requirement_deliverable_id"
+                    invisible="not business_requirement_deliverable_id"
+                    readonly="1"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="project_task_view_tree_main_base" model="ir.ui.view">
+        <field name="name">project.task.list</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.project_task_view_tree_main_base" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field
+                    name="business_requirement_id"
+                    optional="hide"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="view_task_search_form_base" model="ir.ui.view">
+        <field name="name">project.task.search</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form_base" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field
+                    name="business_requirement_id"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </field>
+            <filter name="tags" position="after">
+                <filter
+                    string="Business Requirement"
+                    name="business_requirement"
+                    context="{'group_by': 'business_requirement_id'}"
+                    groups="business_requirement.group_business_requirement_user"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* business_requirement_deliverable_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task__business_requirement_id
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_search_form_base
+msgid "Business Requirement"
+msgstr "Requisito de negocio"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement_deliverable
+msgid "Business Requirement Deliverable"
+msgstr "Entregable del requisito de negocio"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__can_generate_tasks
+msgid "Can Generate Tasks"
+msgstr "Puede crear tareas"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: business_requirement_deliverable_project
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
+msgid "Create Tasks"
+msgstr "Crear tareas"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__project
+msgid "Create a new project with tasks"
+msgstr "Crear un proyecto nuevo con tareas"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__task
+msgid "Create tasks in a project"
+msgstr "Crear tareas en un proyecto"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task__business_requirement_deliverable_id
+msgid "Deliverable"
+msgstr "Entregable"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+msgid "In Progress"
+msgstr "En proceso"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__none
+msgid "Nothing"
+msgstr "Nada"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_generation
+msgid "On Approval"
+msgstr "Al aprobar"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+msgid "Select the project in which to create the tasks of %(requirement)s."
+msgstr "Seleccione el proyecto en el que crear las tareas de %(requirement)s."
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model,name:business_requirement_deliverable_project.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_count
+msgid "Task Count"
+msgstr "Número de tareas"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+#: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_ids
+#: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: business_requirement_deliverable_project
+#: model:ir.model.fields,help:business_requirement_deliverable_project.field_business_requirement__task_generation
+msgid ""
+"Tasks to create from the deliverables when the requirement is approved."
+msgstr "Tareas a crear a partir de los entregables cuando se aprueba el requisito."
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement_deliverable.py:0
+msgid "This task has been created from: %(link)s"
+msgstr "Esta tarea se ha creado desde: %(link)s"
+
+#. module: business_requirement_deliverable_project
+#. odoo-python
+#: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
+msgid "To Do"
+msgstr "Pendiente"
