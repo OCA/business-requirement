@@ -534,6 +534,11 @@ msgid "Products"
 msgstr ""
 
 #. module: business_requirement
+#: model:ir.model.fields,field_description:business_requirement.field_business_requirement__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: business_requirement
 #: model:ir.model.fields.selection,name:business_requirement.selection__business_requirement__kanban_state__done
 msgid "Ready for next stage"
 msgstr ""
