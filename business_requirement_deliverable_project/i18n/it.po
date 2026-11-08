@@ -6,105 +6,107 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-11-08 21:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task__business_requirement_id
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_task_search_form_base
 msgid "Business Requirement"
-msgstr ""
+msgstr "Requisito aziendale"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_business_requirement_deliverable
 msgid "Business Requirement Deliverable"
-msgstr ""
+msgstr "Consegnabile del requisito aziendale"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__can_generate_tasks
 msgid "Can Generate Tasks"
-msgstr ""
+msgstr "Può generare attività"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: business_requirement_deliverable_project
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
 msgid "Create Tasks"
-msgstr ""
+msgstr "Crea attività"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__project
 msgid "Create a new project with tasks"
-msgstr ""
+msgstr "Crea un nuovo progetto con attività"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__task
 msgid "Create tasks in a project"
-msgstr ""
+msgstr "Crea attività in un progetto"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_project_task__business_requirement_deliverable_id
 msgid "Deliverable"
-msgstr ""
+msgstr "Consegnabile"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "Done"
-msgstr ""
+msgstr "Fatto"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "In Progress"
-msgstr ""
+msgstr "In corso"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields.selection,name:business_requirement_deliverable_project.selection__business_requirement__task_generation__none
 msgid "Nothing"
-msgstr ""
+msgstr "Nulla"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_generation
 msgid "On Approval"
-msgstr ""
+msgstr "All'approvazione"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "Only project users can create tasks from requirements."
-msgstr ""
+msgstr "Solo gli utenti di progetto possono creare attività dai requisiti."
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__project_id
 msgid "Project"
-msgstr ""
+msgstr "Progetto"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "Select the project in which to create the tasks of %(requirement)s."
-msgstr ""
+msgstr "Selezionare il progetto in cui creare le attività di %(requirement)s."
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model,name:business_requirement_deliverable_project.model_project_task
 msgid "Task"
-msgstr ""
+msgstr "Attività"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_count
 msgid "Task Count"
-msgstr ""
+msgstr "Numero attività"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
@@ -112,22 +114,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:business_requirement_deliverable_project.field_business_requirement__task_ids
 #: model_terms:ir.ui.view,arch_db:business_requirement_deliverable_project.view_business_requirement_form
 msgid "Tasks"
-msgstr ""
+msgstr "Attività"
 
 #. module: business_requirement_deliverable_project
 #: model:ir.model.fields,help:business_requirement_deliverable_project.field_business_requirement__task_generation
 msgid ""
 "Tasks to create from the deliverables when the requirement is approved."
 msgstr ""
+"Attività da creare a partire dai consegnabili quando il requisito viene "
+"approvato."
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement_deliverable.py:0
 msgid "This task has been created from: %(link)s"
-msgstr ""
+msgstr "Questa attività è stata creata da: %(link)s"
 
 #. module: business_requirement_deliverable_project
 #. odoo-python
 #: code:addons/business_requirement_deliverable_project/models/business_requirement.py:0
 msgid "To Do"
-msgstr ""
+msgstr "Da fare"
