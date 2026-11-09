@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-11-08 21:46+0000\n"
+"PO-Revision-Date: 2026-11-09 15:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -346,7 +346,7 @@ msgstr "Listino prezzi HKD"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__has_message
 msgid "Has Message"
-msgstr "Ha messaggio"
+msgstr "Ha un messaggio"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__id
@@ -428,7 +428,7 @@ msgstr "Più recenti"
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr "Evento in calendario prossima attività"
+msgstr "Evento calendario attività successiva"
 
 #. module: business_requirement_deliverable
 #: model:ir.model.fields,field_description:business_requirement_deliverable.field_business_requirement_deliverable__activity_date_deadline
