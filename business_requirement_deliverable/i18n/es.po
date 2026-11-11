@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-10 19:40+0000\n"
-"PO-Revision-Date: 2024-01-03 11:34+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2026-11-11 12:46+0000\n"
+"Last-Translator: Carlos Dauden <carlos.dauden@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: business_requirement_deliverable
 #. odoo-python
@@ -499,7 +499,7 @@ msgstr ""
 "El listado de precios usado para la estimación de los entregables del "
 "requisito de negocio\n"
 "        estan en funcion del cliente.\n"
-"        La divisa asociada a los entregables sera la misa que el del listado "
+"        La moneda asociada a los entregables sera la misa que el del listado "
 "de precios."
 
 #. module: business_requirement_deliverable
