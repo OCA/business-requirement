@@ -40,15 +40,19 @@ class BusinessRequirementTest(BusinessRequirementTestBase):
         self.assertEqual(seq, res.name)
 
     def test_br_read_group(self):
-        self.read_group = self.env["business.requirement"].read_group(
-            [], ["state"], ["state"]
+        self.read_group = self.env["business.requirement"].formatted_read_group(
+            [], ["state"], ["__count"]
         )[0]
         self.assertTrue(self.read_group["state"])
-        self.assertTrue(self.read_group["state_count"])
+        self.assertTrue(self.read_group["__count"])
 
     def test_br_read_group_expand(self):
         """All the states are returned even when they hold no record"""
-        groups = self.env["business.requirement"].read_group([], ["state"], ["state"])
+        groups = (
+            self.env["business.requirement"]
+            .with_context(read_group_expand=True)
+            .formatted_read_group([], ["state"], ["__count"])
+        )
         states = [group["state"] for group in groups]
         selection = self.BR._fields["state"].get_values(self.env)
         self.assertEqual(states, selection)

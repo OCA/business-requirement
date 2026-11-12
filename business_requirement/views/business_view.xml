@@ -230,7 +230,7 @@
                     name="to_be_reviewed"
                     domain="[('to_be_reviewed', '!=', False)]"
                 />
-                <group expand="0" string="Group by">
+                <group>
                     <filter
                         string="Stakeholder"
                         name="stakeholder"

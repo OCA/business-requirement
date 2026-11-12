@@ -1,6 +1,6 @@
 # Copyright 2019 Tecnativa - Alexandre Díaz
 # Copyright 2022 Tecnativa - Víctor Martínez
-from odoo import _, http
+from odoo import http
 from odoo.exceptions import AccessError
 from odoo.http import request
 
@@ -66,8 +66,8 @@ class CustomerPortal(CustomerPortal):
             return request.redirect("/my")
 
         searchbar_sortings = {
-            "date": {"label": _("Date"), "order": "date desc"},
-            "sequence": {"label": _("Sequence"), "order": "sequence"},
+            "date": {"label": request.env._("Date"), "order": "date desc"},
+            "sequence": {"label": request.env._("Sequence"), "order": "sequence"},
         }
         # default sortby br
         if not sortby:

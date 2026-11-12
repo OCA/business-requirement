@@ -2,7 +2,7 @@
 # Copyright 2019 Tecnativa - Alexandre Díaz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -79,7 +79,6 @@ class BusinessRequirement(models.Model):
     )
     company_id = fields.Many2one(
         comodel_name="res.company",
-        string="Company",
         required=True,
         default=lambda self: self.env.company,
     )
@@ -141,7 +140,7 @@ class BusinessRequirement(models.Model):
                     vals.update({"approved_id": user.id, "approval_date": date})
                 else:
                     raise ValidationError(
-                        _(
+                        self.env._(
                             "You can only move to the following stage: "
                             "draft/confirmed /cancel/drop."
                         )
@@ -149,7 +148,7 @@ class BusinessRequirement(models.Model):
             if vals["state"] in {"approved", "in_progress", "done"}:
                 if not user_manager:
                     raise ValidationError(
-                        _(
+                        self.env._(
                             "You can only move to the following stage: "
                             "draft/confirmed/cancel/drop."
                         )
@@ -162,7 +161,6 @@ class BusinessRequirement(models.Model):
         for br in self:
             br.display_name = f"[{br.name}] {br.description}"
 
-    @api.returns("mail.message", lambda value: value.id)
     def message_post(self, **kwargs):
         context = self.env.context
         if context.get("default_model") == "business.requirement" and context.get(

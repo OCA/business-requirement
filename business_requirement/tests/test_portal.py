@@ -1,21 +1,25 @@
 # Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import odoo.tests
+from odoo.tests.common import new_test_user
 
 
 @odoo.tests.tagged("post_install", "-at_install")
 class BusinessRequirementPortal(odoo.tests.HttpCase):
     def setUp(self):
         super().setUp()
+        self.portal_user = new_test_user(
+            self.env, login="br_portal_user", groups="base.group_portal"
+        )
         self.br = self.env["business.requirement"].create(
             {"description": "test", "portal_published": True}
         )
-        self.br.message_subscribe(
-            partner_ids=self.env.ref("base.demo_user0").partner_id.ids
-        )
+        self.br.message_subscribe(partner_ids=self.portal_user.partner_id.ids)
 
     def test_tour(self):
-        self.start_tour("/", "business_requirement_portal_tour", login="portal")
+        self.start_tour(
+            "/", "business_requirement_portal_tour", login=self.portal_user.login
+        )
 
     def test_portal_assigned_to_shows_the_responsible_user(self):
         """The portal credits the responsible user, not the record owner"""
@@ -37,7 +41,7 @@ class BusinessRequirementPortal(odoo.tests.HttpCase):
         )
         # The deliverable module extends this page with a field the public
         # user cannot read, so browse it as the portal user does
-        self.authenticate("portal", "portal")
+        self.authenticate(self.portal_user.login, self.portal_user.login)
         page = self.url_open(
             f"/my/business_requirement/{br.id}?access_token={br._portal_ensure_token()}"
         )
