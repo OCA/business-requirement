@@ -1,5 +1,5 @@
 This module is part of a set of modules ([Business
-Requirements](https://github.com/OCA/business-requirement/blob/10.0/README.md))
+Requirements](https://github.com/OCA/business-requirement/blob/19.0/README.md))
 
 Two new concepts complement the main business requirements model:
 

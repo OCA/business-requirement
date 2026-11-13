@@ -1,7 +1,11 @@
 ## Users
 
-Estimation Pricelist: user can see the Sales price and revenue of the
-BR.
+Only the users with the *Estimation* access of the *Business
+Requirement Cost* privilege can see the pricelist, the sales prices and
+the revenue of the business requirements and their deliverables. To
+give it to a user, go to *Settings > Users & Companies > Users*, open
+the user and, in the *Access Rights* tab, set *Business Requirement
+Cost* to *Estimation*.
 
 ## Master project
 

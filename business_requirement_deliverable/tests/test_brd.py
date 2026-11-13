@@ -73,6 +73,12 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
                 ],
             }
         )
+        # Demo data is not loaded in 19.0 tests
+        currency_hkd = cls.env.ref("base.HKD")
+        currency_hkd.active = True
+        cls.pricelist_hkd = cls.env["product.pricelist"].create(
+            {"name": "HKD Pricelist", "currency_id": currency_hkd.id}
+        )
         cls.uom_hour_id = cls.env.ref("uom.product_uom_hour").id
         cls.uom_day_id = cls.env.ref("uom.product_uom_day").id
         # Product Created A, B
@@ -81,7 +87,6 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             {
                 "name": "Product A",
                 "uom_id": cls.uom_hour_id,
-                "uom_po_id": cls.uom_hour_id,
                 "lst_price": 500,
                 "standard_price": 450,
             }
@@ -90,7 +95,6 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             {
                 "name": "Product B",
                 "uom_id": cls.uom_hour_id,
-                "uom_po_id": cls.uom_hour_id,
                 "lst_price": 600,
                 "standard_price": 550,
             }
@@ -141,9 +145,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
     def test_compute_currency_id(self):
         if not self.br.pricelist_id:
             self.assertEqual(self.br.currency_id, self.env.user.company_id.currency_id)
-        self.pricelist_id = self.env.ref(
-            "business_requirement_deliverable.brpricelist0"
-        ).id
+        self.pricelist_id = self.pricelist_hkd.id
         self.br.write({"pricelist_id": self.pricelist_id})
         self.assertEqual(self.br.currency_id.name, "HKD")
 
@@ -152,9 +154,7 @@ class BusinessRequirementDeliverableTest(BusinessRequirementTestBase):
             for line in self.br.deliverable_lines:
                 line._compute_currency_id()
                 self.assertEqual(line.currency_id, self.env.user.company_id.currency_id)
-        self.pricelist_id = self.env.ref(
-            "business_requirement_deliverable.brpricelist0"
-        ).id
+        self.pricelist_id = self.pricelist_hkd.id
         self.br.write({"pricelist_id": self.pricelist_id})
         for line in self.br.deliverable_lines:
             line._compute_currency_id()

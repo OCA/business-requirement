@@ -17,7 +17,6 @@ class BusinessRequirementDeliverable(models.Model):
     proposed_solution = fields.Html()
     product_id = fields.Many2one(
         comodel_name="product.product",
-        string="Product",
         domain=[("sale_ok", "=", True)],
         required=False,
     )
@@ -30,7 +29,6 @@ class BusinessRequirementDeliverable(models.Model):
     qty = fields.Float(string="Quantity", store=True, default=1)
     business_requirement_id = fields.Many2one(
         comodel_name="business.requirement",
-        string="Business Requirement",
         ondelete="cascade",
         required=True,
     )
@@ -49,7 +47,6 @@ class BusinessRequirementDeliverable(models.Model):
     )
     currency_id = fields.Many2one(
         comodel_name="res.currency",
-        string="Currency",
         compute="_compute_currency_id",
     )
     business_requirement_partner_id = fields.Many2one(
@@ -64,7 +61,7 @@ class BusinessRequirementDeliverable(models.Model):
     )
     portal_published = fields.Boolean(string="In Portal", default=True)
     section_id = fields.Many2one(
-        comodel_name="business.requirement.deliverable.section", string="Section"
+        comodel_name="business.requirement.deliverable.section"
     )
 
     def _compute_access_url(self):
@@ -148,7 +145,6 @@ class BusinessRequirement(models.Model):
     )
     currency_id = fields.Many2one(
         comodel_name="res.currency",
-        string="Currency",
         compute="_compute_currency_id",
     )
     dl_total_revenue = fields.Float(
@@ -160,7 +156,6 @@ class BusinessRequirement(models.Model):
     )
     pricelist_id = fields.Many2one(
         comodel_name="product.pricelist",
-        string="Pricelist",
     )
 
     @api.onchange("partner_id")

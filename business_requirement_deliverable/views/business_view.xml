@@ -24,7 +24,7 @@
                 <field name="business_requirement_partner_id" string="Customer" />
                 <field name="product_id" string="Product" />
                 <field name="state" string="State" />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         name="filter_requirement"
                         string="Business Requirement"
