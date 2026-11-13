@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Both are hidden because we only want to take advantage of the auto
+         propagation of the followers from BR to BRD -->
+    <record id="mt_brd_new" model="mail.message.subtype">
+        <field name="name">Deliverable Created</field>
+        <field name="res_model">business.requirement.deliverable</field>
+        <field name="default" eval="False" />
+        <field name="hidden" eval="True" />
+        <field name="description">Deliverable Created</field>
+    </record>
+    <record id="mt_br_brd_new" model="mail.message.subtype">
+        <field name="name">Deliverable Created</field>
+        <field name="sequence">10</field>
+        <field name="res_model">business.requirement</field>
+        <field name="default" eval="False" />
+        <field name="hidden" eval="True" />
+        <field name="parent_id" eval="ref('mt_brd_new')" />
+        <field name="relation_field">business_requirement_id</field>
+    </record>
+</odoo>
