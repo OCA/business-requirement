@@ -39,8 +39,7 @@ class BusinessRequirementPortal(odoo.tests.HttpCase):
         # user cannot read, so browse it as the portal user does
         self.authenticate("portal", "portal")
         page = self.url_open(
-            f"/my/business_requirement/{br.id}"
-            f"?access_token={br._portal_ensure_token()}"
+            f"/my/business_requirement/{br.id}?access_token={br._portal_ensure_token()}"
         )
         self.assertEqual(page.status_code, 200)
         assigned, requested = page.text.split("Assigned to")[1].split("Requested by")
