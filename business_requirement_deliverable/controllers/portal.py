@@ -5,8 +5,8 @@ from operator import itemgetter
 
 from odoo import http
 from odoo.exceptions import AccessError
+from odoo.fields import Domain
 from odoo.http import request
-from odoo.osv.expression import OR
 from odoo.tools import groupby as groupbyelem
 
 from odoo.addons.portal.controllers.portal import (
@@ -122,21 +122,17 @@ class CustomerPortal(CustomerPortal):
 
         # search
         if search and search_in:
-            search_domain = []
+            search_domains = []
             if search_in in ("content", "all"):
-                search_domain = OR([search_domain, [("name", "ilike", search)]])
+                search_domains.append(Domain("name", "ilike", search))
             if search_in in ("stakeholder", "all"):
-                search_domain = OR(
-                    [
-                        search_domain,
-                        [("business_requirement_id.partner_id", "ilike", search)],
-                    ]
+                search_domains.append(
+                    Domain("business_requirement_id.partner_id", "ilike", search)
                 )
             if search_in in ("message", "all"):
-                search_domain = OR(
-                    [search_domain, [("message_ids.body", "ilike", search)]]
-                )
-            domain += search_domain
+                search_domains.append(Domain("message_ids.body", "ilike", search))
+            if search_domains:
+                domain = Domain(domain) & Domain.OR(search_domains)
 
         # brd count
         brd_count = BRDObj.search_count(domain)
