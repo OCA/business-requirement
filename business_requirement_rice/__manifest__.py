@@ -4,7 +4,7 @@
     "name": "Business Requirement RICE",
     "category": "Business Requirements Management",
     "summary": "Prioritise business requirements with the RICE scoring model",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "website": "https://github.com/OCA/business-requirement",
     "author": "Binhex, Odoo Community Association (OCA)",
     "maintainers": ["szalatyzuzanna"],
