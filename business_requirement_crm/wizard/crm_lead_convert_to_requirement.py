@@ -68,8 +68,7 @@ class CrmLeadCreateRequirement(models.TransientModel):
         requirement_msg = self.env._(
             "This business requirement has been created from: %(link)s",
             link=Markup(
-                '<a href="#" data-oe-model="crm.lead"'
-                ' data-oe-id="%(id)d">%(name)s</a>'
+                '<a href="#" data-oe-model="crm.lead" data-oe-id="%(id)d">%(name)s</a>'
             )
             % {"id": lead.id, "name": lead.name},
         )
